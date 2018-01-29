@@ -1,0 +1,220 @@
+{% extends 'professionals/base.jinja.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block professionals_profile_menu %}
+    {% if is_agency %}
+        {% set navigation_items = [
+            (url('professionals:agency_profile', agency.id), _('Профиль')),
+            (url('professionals:agency_reviews', agency.id), _('Отзывы')),
+        ] %}
+    {% else %}
+        {% set navigation_items = [
+            (url('professionals:realtor_profile', agency.id, realtor.user.id), _('Профиль')),
+        ] %}
+    {% endif %}
+    <div class='row'>
+        <div class='col-sm-24'>
+            <div id='professionals-profile-menu' class='navbar navbar-default' role="navigation">
+                <ul class='nav navbar-nav'>
+                    {% from "macro/navigation.jinja.html" import navigation %}
+                    {{ navigation(navigation_items, request, strict_check_active=True, active_as_link=False) }}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-17 pull-left">
+            <div class="white-panel profile-details hidden-contacts professional-hidden-contacts">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-1 col-md-7">
+                        {% if is_agency %}
+                            {% set image = agency.logo %}
+                        {% else %}
+                            {% set image = realtor.user.image %}
+                        {% endif %}
+                        <img width='187' src="{{ image|thumbnail("200x200", nocrop=True) }}" class="text-center img-responsive"/>
+                    </div>
+                    <div class="col-sm-14 col-sm-offset-1 col-md-15">
+                        {% if realtor.user.is_asnu_member() %}
+                            <img class="asnu-logo pull-right" src="{{ static('agency/img/icon-asnu.png') }}" alt="{% trans %}Ассоциация специалистов по недвижимости Украины{% endtrans %}" width="70"/>
+                        {% endif %}
+
+                        <h1>
+                            {% if is_agency %}{{ agency.name }}{% else %}{{ realtor.user.get_full_name() }}{% endif %}
+                            <span class="label label-default">
+                                {% if is_agency %}
+                                    {% trans %}Агентство недвижимости{% endtrans %}
+                                {% else %}
+                                    {% trans %}Риелтор{% endtrans %}
+                                {% endif %}
+                            </span>
+                        </h1>
+
+                        {% if is_agency and reviews_stat['count'] %}
+                            <ul class="rating pull-left">
+                                {% for i in range(5) %}
+                                    <li class="{% if reviews_stat['avg_rating'] >= loop.index %}active{% endif %} glyphicon glyphicon-star"></li>
+                                {% endfor %}
+                            </ul>
+                            <a href="{{ url('professionals:agency_reviews', agency.id) }}" class="pull-left reviews">{% trans count = reviews_stat['count'] %}{{ count }} отзыв{% pluralize %}{{ count }} отзывов{% endtrans %}</a>
+                            <div class="clearfix"></div>
+                        {% endif %}
+
+                        {% if agency.address %}
+                            <div class="address"><i class="glyphicon glyphicon-map-marker"></i> {{ agency.address }}</div>
+                        {% endif %}
+
+                        {% with phones = realtor.user.get_phone_display() %}
+                            {% if phones %}
+                                <form class="contacts" action="{{ contacts_link }}">
+                                    {% csrf_token %}
+
+                                    <button class="show-contacts show-contacts-button" type='button' data-target="Профессионалы">
+                                        <i class="caret"></i> <span>{% trans %}Узнать номер{% endtrans %}</span>
+                                    </button>
+
+                                    <div class="phones">
+                                        <i title="{% trans %}Телефон{% endtrans %}" class="glyphicon glyphicon-earphone"></i>
+                                        <span>{{ phones|hide_contacts('Профессионалы') }}</span>
+                                    </div>
+                                </form>
+                            {% endif %}
+                        {% endwith %}
+
+                        <a
+                            {% if request.user.is_authenticated() %}
+                                class='btn btn-bordered send-message' href='{{ url('professionals:send_message', realtor.user_id) }}'
+                            {% else %}
+                                class='btn btn-bordered' data-toggle="modal" data-target="#login-popup"
+                            {% endif %}
+                        >{% trans %}Отправить сообщение{% endtrans %}</a>
+                        {% include 'profile/messages/modal.jinja.html' %}
+                    </div>
+                </div>
+                <br>
+
+                {% if is_agency %}
+                    {% set description = agency.description %}
+                {% else %}
+                    {% set description = none %}{# todo: вставить описание риелтора #}
+                {% endif %}
+
+                {% if description %}
+                    <div class="row">
+                        <div class="col-sm-23 col-sm-offset-1 description relative">
+                            <div class="h4">
+                            {% if is_agency %}
+                                {% trans %}Описание агентства{% endtrans %}
+                            {% else %}
+                                {% trans %}Описание риелтора{% endtrans %}
+                            {% endif %}
+                            </div>
+
+                            {{ description|nl2br }}
+                        </div>
+                    </div>
+                    <br>
+                {% endif %}
+
+                <div class="row">
+                    <div class="col-sm-23 col-sm-offset-1">
+                        {% include 'includes/social_share.jinja.html' %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-7 pull-right">
+            <div class="white-panel profile-info">
+                <h6>Инфо</h6>
+                <hr class="full-width">
+                {% if not is_agency %}
+                    <strong>{% trans %}Страница агентства{% endtrans %}</strong>
+                    <br>
+                    <a href="{{ url('professionals:agency_profile', agency.id) }}" class="value">{{ agency.name }}</a>
+                    <br><br>
+                {% endif %}
+                {% if agency.site %}
+                    <strong>{% trans %}Вебсайт{% endtrans %}</strong><br>
+                    <a href="{{ url('professionals:agency_redirect', agency.id) }}" target='_blank' rel="nofollow" class="value">{{ agency.site|truncatechars(15) }}</a>
+                    <span class="glyphicon glyphicon-new-window link-color value" aria-hidden="true"></span>
+                    <br><br>
+                {% endif %}
+
+                <strong>{% trans %}Активных объявлений{% endtrans %}</strong><br>
+                <span class="value">{{ agency_ads_count }}</span>
+                <br><br>
+
+                {% with agency_realtors_count = agency.realtors.filter(is_admin=False).count() %}
+                    {% if agency_realtors_count %}
+                        <strong>{% trans %}Риелторов{% endtrans %}</strong><br>
+                        <span class="value">{{ agency_realtors_count }}</span><br><br>
+
+                        <a class="btn btn-default realtors-button" href="{{ url('professionals:agency_realtors', agency.id) }}" rel="nofollow">{% trans %}Риелторы агентства{% endtrans %} </a>
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+    <br/>
+
+    {% if paginator.count %}
+        <div class="row">
+            <div class="col-sm-10 pull-left">
+                <div class="h4">
+                {% if is_agency %}
+                    {% trans count = paginator.count %}Найден {{ count }} объект агентства{% pluralize %}Найдено {{ count }} объектов агентства{% endtrans %}
+                {% else %}
+                    {% trans count = paginator.count %}Найден {{ count }} объект риелтора{% pluralize %}Найдено {{ count }} объектов риелтора{% endtrans %}
+                {% endif %}
+                </div>
+            </div>
+            <div class="col-sm-14 text-center ">
+                <ul class="nav nav-pills nav-dealtypes">
+                    {% for deal_type in deal_types %}
+                        <li{% if deal_type.0 == request.GET.get('deal_type', deal_types[0].0) %} class="active"{% endif %}>
+                            <a href="{% if loop.first %}.{% else %}?deal_type={{ deal_type.0 }}{% endif %}"><span>{{ deal_type.1|capitalize }}</span></a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-10">
+                {% with map_height="855" %}{% include "ad/on_map.jinja.html" %}{% endwith %}
+            </div>
+            <div class="col-sm-14 properties-list properties-search-result-list">
+                {% for property in paginator.current_page.object_list %}
+                    {% include "ad/preview.jinja.html" %}
+                {% endfor %}
+                {% include "pagination.jinja.html" %}
+            </div>
+        </div>
+    {% else %}
+        {% if is_agency %}
+            {% trans %}На данный момент нет предложений у этого агентства{% endtrans %}
+        {% else %}
+            {% trans %}На данный момент нет предложений у этого риелтора{% endtrans %}
+        {% endif %}
+    {% endif %}
+
+{% endblock %}
+
+{% block extra_footer %}
+    {{ super() }}
+
+    {# для includes/social_share.jinja.html #}
+    <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+
+    <script>
+       $('.preview-agency .row > div').equalHeights();
+    </script>
+{% endblock %}
+

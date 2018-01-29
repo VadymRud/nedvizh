@@ -1,0 +1,221 @@
+{% extends 'ad/search.jinja.html' %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{{ static("newhome/css/newhome.css") }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ static("libs/slick/slick.css") }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ static("libs/slick/slick-theme.css") }}"/>
+    <link rel="stylesheet" href="{{ static('libs/bootstrap-select/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" href="{{ static('libs/bootstrap-multiselect/bootstrap-multiselect.css') }}">
+{% endblock %}
+
+{% block seo %}
+    <title>{{ seo.title }}</title>
+    <meta name="description" content="{{ seo.description }}">
+    <meta name="keywords" content="{{ seo.keywords }}">
+{% endblock %}
+
+{% block content %}
+    {% import "macro/ad_search.jinja.html" as macros with context %}
+
+    <div class="wrapper l-property-search">
+        <form method="get" action="" class="white-panel" id="search-property" data-static_url="{{ region.static_url }}" autocomplete="off" data-deal_type="newhome">
+            {% if form.non_field_errors() %}
+                <p>{{ form.non_field_errors() }}</p>
+            {% endif %}
+            {% for hidden in form.hidden_fields() %}
+                {{ hidden|safe }}
+            {% endfor %}
+            <div class="">
+                <div class="row">
+                    {{ macros.newhome_fields_set() }}
+                </div>
+            </div>
+        </form>
+    </div>
+
+  <div class="row">
+      <div class="col-xs-24">
+          {%  with header=seo.h1, breadcrumbs = region.get_breadcrumbs('newhomes', property_type, current_language=request.LANGUAGE_CODE) %}
+              {% include "newhome/breadcrumbs.jinja.html" %}
+          {% endwith %}
+          <br><div class="header1"><h1>Найдено {{ items_list.count() }} новостроек в {{ region.nameD.gde }}</h1></div><br>&nbsp;
+      </div>
+  </div>
+
+  {% if paginator.current_page.object_list %}
+    <div class="row">
+        {% include "pagination.jinja.html" %}
+        {% for newhome in paginator.current_page.object_list %}
+          {% include "newhome/preview.jinja.html" %}
+          {% if loop.cycle(False, True, False, False) %}<div class="clearfix hidden-sm hidden-md hidden-lg"></div>{% endif %}
+          {% if loop.cycle(False, False, False, True) or loop.last %}<div class="clearfix"></div>{% endif %}
+        {% else %}
+          <br><h4 align="center">{% trans %}По вашему запросу ничего не найдено.{% endtrans %}</h4><br/>
+          <h6>{% trans %}Попробуйте изменить параметры поиска.{% endtrans %}</h6>
+        {% endfor %}
+        {% include "pagination.jinja.html" %}
+    </div>
+  {% elif related_results or related_newhomes %}
+    <div class="row">
+      <div class="col-xs-24">
+        <br><h4 align="center">{% trans %}По вашему запросу ничего не найдено.{% endtrans %}</h4><br/>
+        <h6>{% trans %}Просмотрите похожие объявления по схожим параметрам или попробуйте изменить параметры поиска.{% endtrans %}</h6>
+
+        {% if related_newhomes.searches %}
+            <h3>{% trans %}Похожие объявления по схожим параметрам:{% endtrans %}</h3>
+            {% for search in related_newhomes.searches %}
+              <div class="properties-related-list">
+                <div class="search-params">
+                  {% if search.filter.get('district') %}
+                    Район: <span>{{ search.filter['district']|join(", ") }}</span> /
+                  {% endif %}
+                  {% if search.filter.get('rooms') %}
+                    Комнат:  <span>{{ search.filter['rooms']|join(", ") }}</span> /
+                  {% endif %}
+                  {% if search.filter.get('price_from') or search.filter.get('price_to')  %}
+                    Цена:
+                     <span>{% if search.filter['price_from'] %}от {{ search.filter['price_from']|int }}{% endif %}
+                    {% if search.filter['price_to'] %}до {{ search.filter['price_to']|int }}{% endif %}
+                    {{ search.filter['currency'] }}</span> /
+                  {% endif %}
+                  Найдено: <a href="{{ search.url }}">{{ search.ads|length|pluralize((_("объект"), _("объекта"), _("объектов")), '') }}</a>
+                </div>
+              </div>
+              <div class="row">
+                {% for newhome in search.ads[:4] %}
+                  {% include "newhome/preview.jinja.html" %}
+                  {% if loop.cycle(False, True, False, False) %}<div class="clearfix hidden-sm hidden-md hidden-lg"></div>{% endif %}
+                  {% if loop.cycle(False, False, False, True) or loop.last %}<div class="clearfix"></div>{% endif %}
+                {% endfor %}
+              </div>
+            {% endfor %}
+        {% endif %}
+        <br/>
+
+        {% if related_results.searches %}
+            <h3>{% trans %}Похожие объявления на вторичном рынке по схожим параметрам:{% endtrans %}</h3>
+            <div class="properties-related-list">
+                {% for search in related_results.searches %}
+                    <div class="search-params">
+                        {% if search.filter.get('district') %}
+                            Район: <span>{{ search.filter['district']|join(", ") }}</span> /
+                        {% endif %}
+                        {% if search.filter.get('rooms') %}
+                            Комнат:  <span>{{ search.filter['rooms']|join(", ") }}</span> /
+                        {% endif %}
+                        {% if search.filter.get('price_from') or search.filter.get('price_to')  %}
+                            Цена:
+                             <span>{% if search.filter['price_from'] %}от {{ search.filter['price_from']|int }}{% endif %}
+                            {% if search.filter['price_to'] %}до {{ search.filter['price_to']|int }}{% endif %}
+                            {{ search.filter['currency'] }}</span> /
+                        {% endif %}
+                        Найдено: <a href="{{ search.url }}">{{ search.ads|length|pluralize((_("объект"), _("объекта"), _("объектов")), '') }}</a>
+                    </div>
+                    <div class="property-list-short row">
+                        {% for property in search.ads[:4] %}
+                            <div class="col-sm-6">{% include "ad/preview-short.jinja.html" %}</div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <br/>
+      </div>
+    </div>
+  {% else %}
+    <div class="row">
+      <div class="col-xs-24">
+        <br><h4 align="center">{% trans %}По вашему запросу ничего не найдено.{% endtrans %}</h4><br/>
+        <h6>{% trans %}Попробуйте изменить параметры поиска.{% endtrans %}</h6>
+      </div>
+    </div>
+  {% endif %}
+
+    {% if show_developer_intro %}
+    <div class="row">
+        <div class="col-xs-24 text-center">
+            <br><br><img src="{{ static('img/newhome-landing-01.png') }}"><br><br><br>
+            <p class="landing-text">
+                {% trans %}В новом интерактивном разделе «Новостройки» будут представлены актуальные предложения{% endtrans %}<br>
+                {% trans %}от компаний застройщиков. Здесь вы сможете увидеть сам проект, всю техническую информацию{% endtrans %}<br>
+                {% trans %}касательно объекта, и связаться с компанией для заключения сделки{% endtrans %}
+            </p><br><br><br>
+            <span class="landing-header">{% trans %}А если я застройщик?{% endtrans %}</span><br><br>
+            <p class="landing-text">
+                {% trans %}Если вы — застройщик, спешите разместить свой объект в данном разделе раньше конкурентов{% endtrans %}<br>
+                {% trans %}и получайте «горячие» звонки от потенциальных клиентов уже сейчас.{% endtrans %}<br>
+                {% trans %}Свяжитесь с руководителем отдела продаж по работе с застройщиками{% endtrans %}
+            </p><br>
+            <div class="landing-text landing-boss">
+                <strong>{% trans %}Ольга Кулиш{% endtrans %}</strong><br><br>+38 063 568 54 41<br><br><a href="mailto:olga.k@mesto.ua">olga.k@mesto.ua</a>
+            </div><br><br>
+            <p class="landing-text">{% trans %}Он с удовольствием уточнит все детали касательно размещения,{% endtrans %}<br>{% trans %}вида и стоимости  предоставляемой услуги.{% endtrans %}</p><br>
+            {#
+            <iframe src="//www.slideshare.net/slideshow/embed_code/key/jG4OWz96QQ2sPS" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+            #}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="page-info">
+        <div class="row">
+            {% if seo_text_block %}
+                <div class="col-lg-24">
+                    <hr>
+                    {%- if seo_text_block.title %}<h2>{{ seo_text_block.title }}</h2>{% endif -%}
+                    {{- seo_text_block.text|safe -}}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block footer_crosslinks %}
+  {% if crosslinks_blocks is defined %}
+    <div class="row visible-lg hidden-print">
+      {% include 'includes/crosslink.jinja.html' %}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block analysis %}
+    {% include 'paid_services/analysis_pagebg.jinja.html' %}
+{% endblock %}
+
+{% block extra_footer %}
+    {{ super() }}
+    <script type="text/javascript" src="{{ static("libs/slick/slick.min.js") }}"></script>
+    <script src="{{ static('libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
+    <script src="{{ static('libs/bootstrap-multiselect/bootstrap-multiselect.js') }}"></script>
+    <script>
+    $().ready(function() {
+        $('.l-property-search .selectpicker').selectpicker({hideDisabled:true, size:false, noneSelectedText:''});
+
+        $('#id_district').multiselect({buttonWidth: '100%', allSelectedText: '{% trans %}Все выбрано{% endtrans %}', nonSelectedText: '{% trans %}Выберите район{% endtrans %}', numberDisplayed: 100});
+        $('.l-property-search select[multiple]').multiselect({buttonWidth: '100%', allSelectedText: '1, 2, 3, 4+', selectAllNumber: false, nonSelectedText: '', numberDisplayed: 100});
+        $('button.multiselect').css({textOverflow:'clip'}).parent().addClass('gradient-overflow');
+
+        // активируем первую вкладку фильтров районов/метро/улиц
+        var $first_tab = $('#subway-district-street .nav li.active-filter').first();
+        if ($first_tab.length == 0) $first_tab = $('#subway-district-street .nav li:not(.disabled)').first();
+        $first_tab.addClass('active');
+        $('#subway-district-street ' + $first_tab.find('a').attr('href')).addClass('active');
+
+        $('.newhome-thumbnail .white-panel').click(function() {
+            window.location = $(this).data('url');
+        });
+
+        $('.newhomes-city').click(function() {
+            var $lForm = $('.l-property-search form');
+            $('.available-cities').slideToggle(300);
+            $lForm.toggleClass('faded');
+
+            if ($lForm.hasClass('faded')) {
+                $lForm.find('.open').removeClass('open');
+            }
+            return false;
+        });
+    });
+    </script>
+{% endblock %}

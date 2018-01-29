@@ -1,0 +1,536 @@
+# Hungarian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-12-26 14:47+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: hu\n"
+"Language-Team: hu <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: forms.py:34
+msgid "Логотип"
+msgstr "Logó"
+
+#: forms.py:35
+msgid "Город"
+msgstr "Város"
+
+#: forms.py:36
+msgid "Типы сделки"
+msgstr "Ügylettípus"
+
+#: forms.py:37 models.py:105
+msgid "Номер свидетельства АСНУ"
+msgstr "Ukrán Ingatlan Szakemberek Egyesülete (UISzE) igazolvány száma"
+
+#: forms.py:54
+msgid ""
+"Такой номер свидетельства уже зарегистрирован на сайте, проверьте "
+"введенные данные"
+msgstr ""
+
+#: forms.py:59
+msgid "Искать по имени, фамилии..."
+msgstr "Keresés keresztnév, vezetéknév szerint..."
+
+#: forms.py:63
+msgid "Неделя"
+msgstr "Hét"
+
+#: forms.py:64
+msgid "Месяц"
+msgstr "Hónap"
+
+#: forms.py:65
+msgid "3 месяца"
+msgstr "3 hónap"
+
+#: forms.py:66
+msgid "За всё время"
+msgstr "Az egész idő alatt"
+
+#: forms.py:69
+msgid "Кол-во объектов"
+msgstr "Ingatlanok száma"
+
+#: forms.py:70 templates/agency/realtor_detail.jinja.html:27
+msgid "Просмотров"
+msgstr "Megtekintések száma"
+
+#: forms.py:71
+msgid "Открытых контактов"
+msgstr "Megnyitott elérhetőségek száma"
+
+#: forms.py:72
+msgid "Входящих сообщений"
+msgstr "Bejövő üzenetek"
+
+#: forms.py:73
+msgid "Логинов в систему"
+msgstr "Loginok száma a rendszerbe"
+
+#: forms.py:77 forms.py:87 forms.py:91
+msgid "Временной отрезок"
+msgstr "Időintervallum"
+
+#: forms.py:78
+msgid "Тип статистики"
+msgstr "Statisztika típusa"
+
+#: forms.py:82
+msgid "Все операции"
+msgstr "Összes művelet"
+
+#: forms.py:83
+msgid "Пополнения"
+msgstr "Feltöltés"
+
+#: forms.py:84
+msgid "Расходы"
+msgstr "Kiadások"
+
+#: forms.py:88
+msgid "Тип операции"
+msgstr "Művelet típusa"
+
+#: forms.py:108
+msgid "E-mail"
+msgstr "E-mail"
+
+#: forms.py:109
+msgid "Фото"
+msgstr "fénykép"
+
+#: forms.py:128
+#, python-format
+msgid "Вы уже добавили риелтора %s"
+msgstr "Már megadta az ingatlanügynököt %s"
+
+#: forms.py:141
+msgid "This field is required."
+msgstr "A mező kitöltése kötelező."
+
+#: models.py:22
+msgid "агентство"
+msgstr "ingatlaniroda"
+
+#: models.py:23
+msgid "пользователь"
+msgstr "felhasználó"
+
+#: models.py:40 models.py:53
+msgid "Уведомление от Mesto.UA"
+msgstr "Mesto.UA-tól érkezett értesítés"
+
+#: models.py:61
+msgid "риелтор"
+msgstr "ingatlanügynök"
+
+#: models.py:62
+msgid "владелец заметки"
+msgstr "megjegyzés létrehozója"
+
+#: models.py:63
+msgid "текст заметки"
+msgstr "megjegyzés szövege"
+
+#: models.py:80
+msgid "Телефон"
+msgstr "Telefonszám"
+
+#: models.py:81
+msgid "Заказ звонка"
+msgstr "Telefonhívás rendelése"
+
+#: models.py:82
+msgid "И одно и другое"
+msgstr "Mindkettő"
+
+#: models.py:93
+msgid "название"
+msgstr "megnevezés"
+
+#: models.py:94
+msgid "логотип"
+msgstr "logó"
+
+#: models.py:95
+msgid "город (старое поле)"
+msgstr "város (régebbi mező)"
+
+#: models.py:96
+msgid "город"
+msgstr "város"
+
+#: models.py:97
+msgid "адрес"
+msgstr "cím"
+
+#: models.py:98
+msgid "типы сделки"
+msgstr "ügylet típusa"
+
+#: models.py:99
+msgid "показывать агентство в разделе сайта \"Профессионалы\""
+msgstr "Az ingatlaniroda feltüntetése a honlap \"Szakemberek\" rubrikájában"
+
+#: models.py:100
+msgid "описание"
+msgstr "leírás"
+
+#: models.py:101
+msgid "время работы"
+msgstr "munka időtartama"
+
+#: models.py:102
+msgid "веб-сайт"
+msgstr "weboldal"
+
+#: models.py:103
+msgid "адрес должен начинаться с http://"
+msgstr "megadott oldal URL-je http:// kell kezdődjön"
+
+#: models.py:104
+msgid "ссылка для импорта"
+msgstr "hivatkozás importáláshoz"
+
+#: models.py:133
+msgid "Первичный контакт"
+msgstr "Elsődleges elérhetőség"
+
+#: models.py:134
+msgid "В работе"
+msgstr "Munkában"
+
+#: models.py:135
+msgid "Принимает решение"
+msgstr "Döntést hoz"
+
+#: models.py:136
+msgid "Сделка завершена"
+msgstr "Üzlet befejezve"
+
+#: models.py:137
+msgid "Сделка не состоялась"
+msgstr "Üzlet nem volt sikeres"
+
+#: models.py:153 models.py:228
+msgid "прочитано"
+msgstr "olvasott"
+
+#: models.py:239
+msgid "сообщение"
+msgstr "üzenet"
+
+#: models.py:240
+#, python-format
+msgid "пришло первое %s от клиента"
+msgstr "megérkezett az első %s az ügyféltől"
+
+#: models.py:242
+#, python-format
+msgid "присвоена метка \"%s\""
+msgstr "megkapta az \"%s\" jelzést"
+
+#: models.py:245
+#, python-format
+msgid "присвоен объект %s"
+msgstr "hozzá van rendelve a %s ingatlan"
+
+#: models.py:247
+msgid "назначена встреча"
+msgstr "találkozó került megrendezésre"
+
+#: models.py:252
+#, python-format
+msgid "принят звонок длительностью %d сек"
+msgstr "%d másodperc hosszúságú hívás lett fogadva"
+
+#: models.py:254
+msgid "пропущенный звонок"
+msgstr "nem fogadott hívás"
+
+#: models.py:256
+#, python-format
+msgid "получен запрос звонка от %s"
+msgstr "hívásra való kérés %s-től"
+
+#: views.py:36
+msgid "Редактирование агентства"
+msgstr "ingatlaniroda szerkesztése"
+
+#: views.py:54 views.py:128
+msgid "Риелторы агентства"
+msgstr "Ingatlaniroda ügynökei"
+
+#: views.py:89
+msgid ""
+"Рилетор добавлен.<br/>Риелтору отправлено личное сообщений с ссылкой для "
+"подтверждения"
+msgstr ""
+"Ügynök hozzáadva.<br/>Az ügynök számára kiküldésre került egy levél a "
+"megerősítéshez szükséges hivatkozással"
+
+#: views.py:221
+msgid "CRM"
+msgstr "CRM"
+
+#: templates/agency/stats.jinja.html:21 views.py:239
+msgid "Статистика по риелторам"
+msgstr "Ügynökök szerinti statisztika"
+
+#: views.py:331
+#, python-format
+msgid "Вы присоединились к агентству \"%s\""
+msgstr "Ön csatlakozott az \"%s\" ingatlanirodához"
+
+#: templates/agency/agency_form.jinja.html:8
+msgid ""
+"Номер свидетельства АСНУ принят. Вам подключена дополнительная скидка 10%"
+" на услугу \"Тарифный план\""
+msgstr ""
+
+#: templates/agency/agency_form.jinja.html:126
+msgid "Профиль агентства"
+msgstr "Ingatlaniroda profilja"
+
+#: templates/agency/agency_form.jinja.html:134
+msgid "Сохранить"
+msgstr "Mentés"
+
+#: templates/agency/crm_person_redirect.jinja.html:4
+msgid "Переадресация"
+msgstr "Átirányítás"
+
+#: templates/agency/email_add_realtor.jinja.html:4
+#: templates/agency/message_add_realtor.jinja.html:1
+#, python-format
+msgid ""
+" Пользователь %(agency_admin_user)s приглашает вас присоединиться к "
+"агентству \"%(agency_name)s\" на сайте Mesto.UA."
+msgstr ""
+"%(agency_admin_user)s felhasználó meghívja Önt, hogy csatlakozzon az "
+"\"%(agency_name)s\" ingatlanirodához a Mesto.UA honlapon."
+
+#: templates/agency/email_add_realtor.jinja.html:6
+msgid ""
+"Для подтверждения, авторизуйтесь на сайте и подтвердите привязку через "
+"ссылку в личных сообщениях"
+msgstr ""
+"A megerősítéshez, lépjen be a honlapra és a személyesen üzeneteiben "
+"található linken keresztül erősítse meg a csatlakozást"
+
+#: templates/agency/email_add_realtor.jinja.html:10
+#, python-format
+msgid "Для авторизации на сайте используйте логин %(email)s и пароль %(password)s"
+msgstr ""
+"A honlapra való belépéshez használja az email címét %(email)s és "
+"jelszavát %(password)s"
+
+#: templates/agency/message_add_realtor.jinja.html:3
+msgid "Для подтверждения приглашения пройдите по ссылке:"
+msgstr "A meghívás megerősítéséhez kattintson a linkre:"
+
+#: templates/agency/realtor_detail.jinja.html:23
+msgid "Отображать"
+msgstr "Mutatni"
+
+#: templates/agency/realtor_detail.jinja.html:28
+msgid "Контакты"
+msgstr "Elérhetőségek"
+
+#: templates/agency/realtor_detail.jinja.html:29
+msgid "Сообщений"
+msgstr "Üzenetek"
+
+#: templates/agency/realtor_detail.jinja.html:30
+msgid "Логинов"
+msgstr "Loginok"
+
+#: templates/agency/realtor_detail.jinja.html:75
+#: templates/agency/realtors.jinja.html:96
+msgid "Подключена услуга \"Оплата за звонок\""
+msgstr "\"Hívás fizetése\" szolgáltatás bekapcsolva"
+
+#: templates/agency/realtor_detail.jinja.html:77
+msgid "Текущий тариф"
+msgstr "Jelenlegi tarifa"
+
+#: templates/agency/realtor_detail.jinja.html:78
+msgid "объяв."
+msgstr "hird."
+
+#: templates/agency/realtor_detail.jinja.html:81
+msgid "Не выбран вариант размещения"
+msgstr "Nincs kiválasztva az elhelyezés módja"
+
+#: templates/agency/realtor_detail.jinja.html:84
+msgid "Выбрать вариант размещения"
+msgstr "Elhelyezés módjának kiválasztása"
+
+#: templates/agency/realtor_detail.jinja.html:94
+msgid "Текущий баланс"
+msgstr "Jelenlegi egyenleg"
+
+#: templates/agency/realtor_detail.jinja.html:98
+#: templates/agency/realtor_detail.jinja.html:115
+msgid "Пополнить"
+msgstr "Feltölteni"
+
+#: templates/agency/realtor_detail.jinja.html:102
+#: templates/agency/realtor_detail.jinja.html:120
+msgid "История оплат"
+msgstr "Kifizetések története"
+
+#: templates/agency/realtor_detail.jinja.html:107
+msgid "Пополнение баланс"
+msgstr "Egyenleg feltöltése"
+
+#: templates/agency/realtor_detail.jinja.html:112
+msgid "Введите сумму пополнения"
+msgstr "Jelölje meg a feltöltés összegét"
+
+#: templates/agency/realtor_detail.jinja.html:148
+msgid "Объекты риелтора"
+msgstr "Ingatlanügynök ingatlanjai"
+
+#: templates/agency/realtor_detail.jinja.html:153
+msgid "активировать объявления"
+msgstr "hirdetések aktiválása"
+
+#: templates/agency/realtor_detail.jinja.html:153
+msgid "Активировать"
+msgstr "Aktiválni"
+
+#: templates/agency/realtor_detail.jinja.html:157
+msgid "сделать объявления VIP-объявлением"
+msgstr "Hirdetésnek VIP-státusz rendelése"
+
+#: templates/agency/realtor_detail.jinja.html:157
+msgid "Сделать VIP"
+msgstr "VIP-vá tétel"
+
+#: templates/agency/realtor_detail.jinja.html:161
+msgid "отключить объявления"
+msgstr "hirdetések kikapcsolása"
+
+#: templates/agency/realtor_detail.jinja.html:161
+msgid "Отключить"
+msgstr "Kikapcsolás"
+
+#: templates/agency/realtor_detail.jinja.html:165
+msgid "удалить объявления"
+msgstr "hirdetés törlése"
+
+#: templates/agency/realtor_detail.jinja.html:165
+#: templates/agency/realtors.jinja.html:178
+msgid "Удалить"
+msgstr "Törlés"
+
+#: templates/agency/realtor_detail.jinja.html:174
+msgid "Нет объектов"
+msgstr "Nincs ingatlan"
+
+#: templates/agency/realtors.jinja.html:10
+msgid "Показать статистику"
+msgstr "Statisztika bemutatása"
+
+#: templates/agency/realtors.jinja.html:26
+msgid "Добавить риелтора"
+msgstr "Ingatlanügynök hozzáadása"
+
+#: templates/agency/realtors.jinja.html:43
+msgid "Ожидается подтвержение от пользователя"
+msgstr "Várakozás a felhasználó megerősítésére"
+
+#: templates/agency/realtors.jinja.html:47
+#: templates/agency/realtors.jinja.html:126
+msgid "удалить риелтора"
+msgstr "ingatlanügynök törlése"
+
+#: templates/agency/realtors.jinja.html:79
+#, python-format
+msgid "%(reviews)s отзывов"
+msgstr "%(reviews)s értékelés"
+
+#: templates/agency/realtors.jinja.html:87
+msgid "Тариф"
+msgstr "Tarifa"
+
+#: templates/agency/realtors.jinja.html:89
+msgid "нажмите на ссылку чтобы выбрать вариант размещения"
+msgstr "nyomja meg a linket, hogy kiválassza az elhelyezés módját"
+
+#: templates/agency/realtors.jinja.html:91
+msgid "тариф"
+msgstr "tarifa"
+
+#: templates/agency/realtors.jinja.html:92
+msgid "объявление"
+msgstr "hirdetés"
+
+#: templates/agency/realtors.jinja.html:92
+msgid "объявления"
+msgstr "hirdetések"
+
+#: templates/agency/realtors.jinja.html:92
+msgid "объявлений"
+msgstr "hirdetés"
+
+#: templates/agency/realtors.jinja.html:98
+msgid "без тарифа"
+msgstr "tarifa nélkül"
+
+#: templates/agency/realtors.jinja.html:124
+msgid "подробнее"
+msgstr "részletesebben"
+
+#: templates/agency/realtors.jinja.html:124
+msgid "Подробнее"
+msgstr "Részletesebben"
+
+#: templates/agency/realtors.jinja.html:146
+msgid "Добавить риелтора в систему"
+msgstr "Ingatlanügynök hozzáadása a rendszerhez"
+
+#: templates/agency/realtors.jinja.html:171
+msgid "Закрыть"
+msgstr "Bezárás"
+
+#: templates/agency/realtors.jinja.html:172
+msgid "Удаление риелтора"
+msgstr "Ingatlanügynök törlése"
+
+#: templates/agency/realtors.jinja.html:175
+msgid "Вы действительно хотите исключить риетора из своего агентства?"
+msgstr "Tényleg ki akarja zárni az ügynököt az ingatlanirodájából?"
+
+#: templates/agency/realtors.jinja.html:177
+msgid "Отмена"
+msgstr "Mégsem"
+
+#: templates/agency/realtors.jinja.html:228
+msgid ""
+"Пользователь с указанным адресом уже зарегистрирован на сайте. На этот "
+"адрес будет оправлено уведомление с инструкциями для продолжения процесса"
+" привязки пользователя к агентству."
+msgstr ""
+"A megjelölt email címmel már regisztrálva van felhasználó. Ezen címre ki "
+"lesz küldve egy értesítő, mely tartalmazni fogja az instrukciót a "
+"felhasználó ingatlanirodához való kapcsolásához."
+
+#: templates/agency/stats.jinja.html:47
+msgid "Добавить к статистике"
+msgstr "Hozzáadni a statisztikához"
+

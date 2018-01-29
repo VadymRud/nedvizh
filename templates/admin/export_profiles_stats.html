@@ -1,0 +1,24 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Экспорт{% endblock %}
+
+{% block content %}
+<h1>Экспорт активных пользователей</h1>
+<br/>
+<p>
+    Вы можете экспортировать списки активных пользователей в файл MS Excel. Списки содержат
+    <ul>
+        <li>email или ID пользователя</li>
+        <li>область, в которой преимущественно размещены объявления пользователя</li>
+        <li>количество активных объявлений пользователя</li>
+    </ul>
+</p>
+<p>
+    <form action='.' method='post'>
+        {% csrf_token %}
+        <input type='hidden' name='start' value=''/>
+        <input type='submit' value='Экспортировать' onclick='this.disabled="disabled";django.jQuery(".wait").show();'/>
+    </form>
+</p>
+<p class="wait" style="display:none;">Выполняется экспорт данных. Пожалуйста, дождитесь окончания экспорта...</p>
+{% endblock %}

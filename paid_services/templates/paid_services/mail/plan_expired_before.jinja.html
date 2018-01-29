@@ -1,0 +1,51 @@
+{% extends "mail/base_redesigned_2017.jinja.html" %}
+
+{% block content %}
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        {% if days_before == 1 %}
+          <strong class="pink">{% trans %}сегодня{% endtrans %}</strong> {% trans %}истекает срок действия вашего тарифного пакета.{% endtrans %}
+        {% elif days_before == 3 %}
+          {% trans %}срок действия вашего тарифного пакета истекает уже через{% endtrans %} <strong class="pink">{% trans %}3 дня{% endtrans %}</strong>
+        {% elif days_before == 7 %}
+          {% trans %}срок действия вашего тарифного пакета истекает через{% endtrans %} <strong class="pink">{% trans %}7 дней{% endtrans %}</strong>
+        {% endif %}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        {% trans %}Спешите продлить услугу публикации ваших объявлений и{% endtrans %}<br>{% trans %}продолжайте получать звонки от потенциальных клиентов.{% endtrans %}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        {% trans %}В случае, если какие-либо из объявлений уже неактуальны,{% endtrans %}<br>{% trans %}вы можете деактивировать/заменить их в{% endtrans %} <a href="{{ host_url('agency_admin:ads') }}" target="_blank">{% trans %}личном кабинете{% endtrans %}</a>.
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding" style="line-height: 45px;">
+        <a href="{{ host_url('services:index') }}" target="_blank" class="button">{% trans %}Продлить пакет{% endtrans %}</a>
+        {% trans %}или{% endtrans %} <a href="{{ host_url('profile_add_property') }}" target="_blank">{% trans %}добавить новое объявление{% endtrans %}</a>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding"><hr></div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding">
+        {% trans %}Полезные ссылки{% endtrans %}: <a href="{{ host_url('faq_index') }}" target="_blank">{% trans %}Помощь{% endtrans %}</a> | <a href="https://mesto.ua/about/contact/" target="_blank">{% trans %}Обратная связь{% endtrans %}</a> | <a href="{{ host_url('profile_settings') }}" target="_blank">{% trans %}Мой профиль{% endtrans %}</a>
+      </div>
+    </td>
+  </tr>
+{% endblock %}

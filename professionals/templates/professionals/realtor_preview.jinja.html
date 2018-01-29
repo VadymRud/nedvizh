@@ -1,0 +1,17 @@
+<div class="image">
+    <a href="{{ url('professionals:realtor_profile', realtor.agency_id, realtor.user_id) }}"><img src="{{ realtor.user.image|thumbnail("288x192", nocrop=True) }}" class="img-responsive"/></a>
+</div>
+<div class="white-panel text-left">
+    <div class="name">{{ realtor.user.get_full_name() }}</div>
+
+    <form class="contacts" action="{{ url('professionals:realtor_contacts', realtor.agency_id, realtor.user_id) }}">
+        {% csrf_token %}
+
+        <button class="show-contacts show-contacts-button" type='button' data-target="Профессионалы">
+            <i class="caret"></i> <span>{% trans %}Узнать номер{% endtrans %}</span>
+        </button>
+
+        <div class="phones"><span>{{ realtor.user.get_phone_display()|hide_contacts('Профессионалы') }}</span></div>
+    </form>
+</div>
+

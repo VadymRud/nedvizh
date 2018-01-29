@@ -1,0 +1,18 @@
+{% extends "mail/base_redesigned_2017.jinja.html" %}
+
+{% block content %}
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        {% trans days_after=days_after %}Ваш аккаунт неактивен уже {{ days_after }} день!{% pluralize %}Ваш аккаунт неактивен уже {{ days_after }} дней!{% endtrans %}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding">
+        {% trans %}Вы можете снова подключить тарифный план в разделе{% endtrans %} <a href='{{ host_url("profile_plans") }}' target="_blank">{% trans %}Услуги{% endtrans %}</a>.
+      </div>
+    </td>
+  </tr>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends 'professionals/base.jinja.html' %}
+
+{% block extra_css %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ static('libs/bootstrap-select/bootstrap-select.min.css') }}">
+{% endblock %}
+
+{% block content %}
+    <form action="" method="get" id="professionals_search_form" class='cities-choose-form'>
+        <div class="white-panel">
+            <div class="row">
+                <div class='col-sm-5'>
+                    <div class='city form-group'>
+                        {{ form.city.label_tag() }}
+                        <div class='widget-container gradient-overflow'>
+                            {{ form.city }}
+                            <div class="btn btn-dropdown" data-toggle="modal" data-target="#cities-choose-dropdown">
+                                <span class="button-text">
+                                    {% with city = form.cleaned_data.get('city') %}
+                                        {% if city %}{{ city.name }}{% else %}{% trans %}Выбрать город{% endtrans %}{% endif %}
+                                    {% endwith %}
+                                </span>
+                                <span class="caret"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-sm-6 col-sm-offset-1'>
+                    <div class='deal-type form-group'>
+                        {{ form.deal_type.label_tag() }}
+                        <div class='widget-container'>{{ form.deal_type|add_class('selectpicker') }}</div>
+                    </div>
+                </div>
+                <div class="col-sm-7 col-sm-offset-1">
+                    <div class='search form-group has-feedback'>
+                        {{ form.search|add_class('form-control')|add_attrs(placeholder=form.search.label) }}
+                        <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-sm-offset-1">
+                    <div class='submit form-group'>
+                        <button type="submit" class="btn btn-danger" value="">{% trans %}Найти{% endtrans %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="result clearfix">
+        {% if paginator.count is not none %}
+            {% if professional_type is none %}
+                <h1>{% trans count = paginator.count %}Найден {{ count }} профессионал{% pluralize %}Найдено {{ count }} профессионалов{% endtrans %}</h1>
+            {% elif professional_type == 'agency' %}
+                <h1>{% trans count = paginator.count %}Найдено {{ count }} агентство недвижимости{% pluralize %}Найдено {{ count }} агентств недвижимости{% endtrans %}</h1>
+            {% elif professional_type == 'realtor' %}
+                <h1>{% trans count = paginator.count %}Найден {{ count }} риелтор{% pluralize %}Найдено {{ count }} риелторов{% endtrans %}</h1>
+            {% endif %}
+        {% endif %}
+
+        {% with items = [
+            ( url('professionals:search'), _('Все профессионалы') ),
+            ( url('professionals:search', professional_type='agency'), _('Агентства') ),
+            ( url('professionals:search', professional_type='realtor'), _('Риелторы') ),
+        ] %}
+            <ul id='professionals-types' class="nav navbar-nav pull-right">
+                {% from "macro/navigation.jinja.html" import navigation %}
+                {{ navigation(items, request, strict_check_active=True) }}
+            </ul>
+        {% endwith %}
+    </div>
+
+    <div class="row">
+        {% for realtor in paginator.current_page.object_list %}
+            <div class="col-xs-12 col-sm-6">
+                <div class="professional-preview hidden-contacts professional-hidden-contacts">
+                    {% if realtor.is_admin %}
+                        {% with user = realtor.user, agency = realtor.agency %}
+                            {% include 'professionals/agency_preview.jinja.html' %}
+                        {% endwith %}
+                    {% else %}
+                        {% include 'professionals/realtor_preview.jinja.html' %}
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        <div class="col-sm-24">
+            {% include "pagination.jinja.html" %}
+        </div>
+    </div>
+
+    {% if seo_text_block %}
+        {% if seo_text_block.title %}
+            <h2>{{ seo_text_block.title }}</h2>
+        {% endif %}
+        <div>{{ seo_text_block.text|safe }}</div><br/>
+    {% endif %}
+{% endblock %}
+
+{% block extra_footer %}
+    {{ super() }}
+    <script src="{{ static('libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
+{% endblock %}

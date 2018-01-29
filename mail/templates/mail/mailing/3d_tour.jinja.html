@@ -1,0 +1,91 @@
+{% extends "mail/base_2017.04.jinja.html" %}
+
+{% block greetings %}{% endblock %}
+
+{%- block content %}
+  <tr>
+    <td valign="top">
+      <img src="{{ static('mail/img/mailing/3d-tour-header.png') }}" width="700" height="325" style="width: 700px; height: 325px;">
+    </td>
+  </tr>
+  {% include "mail/includes/empty-line-2017.04.html" %}
+  <tr>
+    <td>
+      <div class="text-wrap" style="padding: 0 14px;">
+        <div class="default-padding bottom-padding" style="background-color: #eaf9f8;">
+          <br><h1>Вітаємо!</h1>
+          <p>Тільки зараз поспішатйе замовити <strong>3D тур</strong></p>
+          <p>лише за <span style="color: #f00; text-decoration: line-through;"><span style="color: #000; font-weight: bold;">2 320</span></span> <span style="font-size: 24px; color: #69975b">1 820,00 грн</span></p>
+          <p><strong>Та отримуйте наступні переваги:</strong></p>
+        </div>
+      </div>
+    </td>
+  </tr>
+  {% include "mail/includes/empty-line-2017.04.html" %}
+  <tr>
+    <td>
+      <div class="text-wrap text-center">
+        <div class="default-padding bottom-padding">
+          <table border="0" width="620" style="border: 0; width: 620px;" align="center">
+            <tr>
+              <td height="120" width="50%" style="height: 120px; width: 50%;" class="text-center">
+                <img src="{{ static('mail/img/mailing/3d-tour-icon1.png') }}">
+              </td>
+              <td height="120" width="50%" style="height: 120px; width: 50%;" class="text-center">
+                <img src="{{ static('mail/img/mailing/3d-tour-icon2.png') }}">
+              </td>
+            </tr>
+            <tr>
+              <td style="height: 120px; padding-bottom: 75px;" class="text-center" valign="top">
+                Збільшуйте конверсії продажу
+              </td>
+              <td style="height: 120px; padding-bottom: 75px;" class="text-center" valign="top">
+                Будьте мобільним та завжди<br> готовим до показу об’єкту
+              </td>
+            </tr>
+            <tr>
+              <td height="120" style="height: 120px;" class="text-center">
+                <img src="{{ static('mail/img/mailing/3d-tour-icon3.png') }}">
+              </td>
+              <td height="120" style="height: 120px;" class="text-center">
+                <img src="{{ static('mail/img/mailing/3d-tour-icon4.png') }}">
+              </td>
+            </tr>
+            <tr>
+              <td style="height: 120px; padding-bottom: 75px;" class="text-center" valign="top">
+                Економте власний час та час<br> клієнта
+              </td>
+              <td style="height: 120px; padding-bottom: 75px;" class="text-center" valign="top">
+                Використовуйте VR окуляри<br> для демонстрації об’єкту<br> нерухомості
+              </td>
+            </tr>
+            <tr>
+              <td height="120" style="height: 120px;" class="text-center">
+                <img src="{{ static('mail/img/mailing/3d-tour-icon5.png') }}">
+              </td>
+              <td height="120" style="height: 120px;" class="text-center">
+                <img src="{{ static('mail/img/mailing/3d-tour-icon6.png') }}">
+              </td>
+            </tr>
+            <tr>
+              <td style="height: 120px; padding-bottom: 75px;" class="text-center" valign="top">
+                Завантажуйте 3D тур на сайт<br> mesto.ua та інші тематичні платформи
+              </td>
+              <td style="height: 120px; padding-bottom: 75px;" class="text-center" valign="top">
+                Будьте справжнім<br> професіоналом та<br> використовуйте сучасні технології<br>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <div class="text-wrap default-padding text-center bottom-padding">
+        <a href="{{ host_url('services:tour360') }}{% if utm is defined %}?{{ utm.urlencode() }}{% endif %}" target="_blank" class="button">Замовляйте 3D тур вже зараз</a>
+        <br><br>+38 063 05 89 521<br><a href="mailto:bednarchikd@gmail.com" style="color: #333333; text-decoration: none;">bednarchikd@gmail.com</a>
+      </div>
+    </td>
+  </tr>
+{% endblock -%}

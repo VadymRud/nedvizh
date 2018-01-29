@@ -1,0 +1,30 @@
+{% with navigation_items = get_mainmenu(request, region_slug_for_menu|default(None), region|default(None)) %}
+    <ul class="nav navbar-nav">
+        {% from "macro/navigation.jinja.html" import navigation %}
+        {{ navigation(navigation_items, request) }}
+    </ul>
+{% endwith %}
+
+<ul class="nav navbar-nav navbar-right">
+    <li class="add-property">
+        {% if not request.user.is_authenticated() %}
+            <a data-toggle="modal" data-target="#login-popup"><span class="custom-icon-plus">+ </span> {% trans %}Добавить объявление{% endtrans %}</a>
+        {% else %}
+            {% if request.profile_middleware is defined and request.is_developer_cabinet_enabled %}
+                <a href="{{ url('profile_newhome_object_add') }}"><span class="custom-icon-plus">+ </span> {% trans %}Добавить объявление{% endtrans %}</a>
+            {% else %}
+                <a href="{{ url('profile_add_property') }}">
+                    <span class="custom-icon-plus">+ </span> {% trans %}Добавить объявление{% endtrans %}</a>
+            {% endif %}
+        {% endif %}
+    </li>
+  {# callback form #}
+  {% if request.profile_middleware is defined and request.user.is_authenticated() and request.user.manager %}
+    <li class="hidden-lg add-property request-call">
+      <a href="#" data-toggle="modal" data-target="#callRequestHeaderModal">
+        <span class="icon icon-call-request"></span>
+        {% trans %}Заказ обратного звонка{% endtrans %}
+      </a>
+    </li>
+  {% endif %}
+</ul>

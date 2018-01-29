@@ -1,0 +1,15 @@
+<div class="h5">
+  <b>{% trans %}Квартиры от застройщика{% endtrans %}</b><br/>
+  <span class="subtitle">в наличии на {{ newhome.modified|date("d.m.Y") }}</span>
+</div>
+{% for rooms in flats_rooms_options %}
+<div class="flat">
+  <div class="h6">{{ rooms }}-{% trans %}комнатные{% endtrans %}</div>
+  {% if flats_area_by_rooms.get(rooms) %}
+    <span class="area">от {{ flats_area_by_rooms[rooms] }} кв м.</span>
+  {% endif %}
+  от {{ flats_prices_by_rooms[rooms]|intcomma }} грн.
+</div>
+{% endfor %}
+<hr/>
+<a href="{{ url('layouts', region_slug=region_slug, newhome_id=newhome.pk) }}" class="btn btn-md btn-danger">{% trans %}Смотреть планировки{% endtrans %}</a>

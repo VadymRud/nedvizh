@@ -1,0 +1,71 @@
+.image-upload-widget {
+    padding: 0 3px;
+    margin-bottom: 25px;
+}
+.image-upload-widget img {
+    max-width: 135px;
+    max-height: 135px;
+}
+.image-upload-widget .media-body {
+    height: 115px; /* height for table-cell works like min-height */
+}
+.image-upload-widget .fake_button {
+    display:inline-block;
+    padding: 11px 20px;
+    margin-bottom:5px;
+    background: #E4E6E7;
+    cursor: pointer;
+    font-size: 14px;
+    top: 0;
+    left: 155px;
+    line-height: 1.4;
+}
+.image-upload-widget .blocker_button {
+    position: absolute;
+    z-index: 3;
+    width: 150px;
+    height: 43px;
+    background: transparent;
+    left: 161px;
+    top: 0;
+}
+.image-upload-widget .fake_button i {
+    display: inline-block;
+    background: url("../img/profile/ico_cloud.png");
+    width: 21px;
+    height: 18px;
+    margin-right: 10px;
+    vertical-align: top;
+}
+.image-upload-widget input[type=file] {
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 160px;
+    left: 0;
+    height: 43px;
+}
+
+.image-upload-widget label {
+    font-weight: normal;
+    font-size: 14px;
+}
+/*.image-upload-widget .clear {
+    position: absolute;
+    bottom: 0;
+    left: 2px;
+}*/
+
+@media (max-width: 500px) {
+    .image-upload-widget .fake_button i {
+        background: none;
+        margin-right: 0;
+        width: 0;
+        height: 0;
+    }
+    .image-upload-widget .fake_button {
+        padding: 11px;
+    }
+}

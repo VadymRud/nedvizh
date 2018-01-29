@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<realties xmlns="http://dom.ria.ua/xml/xsd/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://dom.ria.ua/xml/xsd/ http://dom.ria.ua/xml/xsd/dom.xsd">
+    <generation_date>{{ now|isoformat() }}</generation_date>
+    {% for item in feed.iterate_items() %}
+    <realty>
+        <email>bank@mesto.ua</email>
+        <local_realty_id>{{ item.id }}</local_realty_id>
+        <realty_type>{{ item.ria['property_type'] }}</realty_type>
+        {% with types = {'sale': 'продажа', 'rent': 'долгосрочная аренда', 'rent_daily': 'аренда посуточная аренда'} %}
+            <advert_type>{{ types.get(item.deal_type, '') }}</advert_type>
+        {% endwith %}
+        <state>{{ item.ria['province'] }}</state>
+        <city>{{ item.ria['city'] }}</city>
+        {% if item.ria.get('district', None) %}<district>{{ item.ria['district'] }}</district>{% endif %}
+        {% if item.addr_street %}<street>{{ item.addr_street }}</street>{% endif %}
+        <description>ID объекта в базе {{ item.pk }}.{{ '\n' + (item.description or '')|truncatechars(1000) + '\n' }}Работает call back телефония - мы вам перезвоним.</description>
+        {% if item.cleaned_photos %}
+            <photos_urls>
+                {% for photo in item.cleaned_photos[:20] %}
+                    <loc crc="{{ photo.get_fake_crc() }}">{{ photo.image.url }}</loc>
+                {% endfor %}
+            </photos_urls>
+        {% endif %}
+        <characteristics>
+            <price>{{ item.price }}</price>
+            <currency>{{ item.get_currency_display().replace('.', '') }}</currency> {# "." для "грн." #}
+            {% if item.property_type == 'flat' %}
+                <rooms_count>{{ item.rooms }}</rooms_count>
+                <wall_type>кирпич</wall_type>
+                <floor>0</floor>
+                <floors>1</floors>
+                <price_type>за объект</price_type>
+            {% endif %}
+            {% if item.property_type == 'house' %}
+                <rooms_count>{{ item.rooms }}</rooms_count>
+                <wall_type>кирпич</wall_type>
+                <floors>1</floors>
+                <price_type>за объект</price_type>
+            {% endif %}
+            {% if item.property_type == 'plot' %}
+                <price_type>за участок</price_type>
+            {% endif %}
+            {% if item.property_type == 'commercial' %}
+                <price_type>за объект</price_type>
+                {% if item.property_commercial_type == 'office' %}
+                    <object_type>бизнес-центр</object_type>
+                    <rooms_count>{{ item.rooms }}</rooms_count>
+                    <floor>0</floor>
+                    <floors>1</floors>
+                {% endif %}
+                {% if item.property_commercial_type == 'storage' %}
+                    <object_type>помещение (часть здания)</object_type>
+                    <rooms_count>{{ item.rooms }}</rooms_count>
+                {% endif %}
+                {% if item.property_commercial_type != 'office' and item.property_commercial_type != 'storage' %}
+                    <object_type>помещение (часть здания)</object_type>
+                    <rooms_count>{{ item.rooms }}</rooms_count>
+                    <floor>0</floor>
+                    <floors>1</floors>
+                    {% if item.property_commercial_type == 'ready_business' %}<business>yes</business>{% endif %}
+                {% endif %}
+            {% endif %}
+            {% if item.area %}
+                {% if item.property_type == 'plot' %}
+                <plot_area>{{ item.area }}</plot_area>
+                {% else %}
+                <total_area>{{ item.area }}</total_area>
+                {% endif %}
+            {% endif %}
+        </characteristics>
+    </realty>{% endfor %}
+</realties>
+

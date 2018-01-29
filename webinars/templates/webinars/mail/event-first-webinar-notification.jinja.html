@@ -1,0 +1,25 @@
+{% extends "mail/base_redesigned_2017.jinja.html" %}
+
+{% block content %}
+  <tr>
+    <td>
+      <div class="text-wrap left-padding right-padding default-bottom-padding">
+        {% trans %}Уже сегодня в{% endtrans %} {{ event.start_at|date("H:i") }} {% trans %}состоится бесплатный вебинар{% endtrans %} <strong>Mesto School</strong><br> {% trans %}на тему:{% endtrans %}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap default-bottom-padding text-center" style="font-size: 16px; font-weight: bold;">
+        <a href="{{ event.get_absolute_url() }}{% if utm is defined %}?{{ utm.urlencode() }}{% endif %}" target="_blank">{{ event.get_title() }}</a>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap left-padding right-padding">
+        {% trans %}За час до начала трансляции, Вы получите письмо-уведомление с прямой ссылкой на комнату проведения вебинара.{% endtrans %}
+      </div>
+    </td>
+  </tr>
+{% endblock %}

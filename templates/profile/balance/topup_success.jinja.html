@@ -1,0 +1,26 @@
+{% extends "base.jinja.html" %}
+
+{% block content %}
+    <div class="text-center topup-result-page">
+        <img src="{{ static('img/icon-success.png') }}"/><br/><br/>
+        <h4 class="topup-success">{% trans %}Спасибо!<br/>Оплата прошла успешно.{% endtrans %}</h4>
+        <br/>
+
+        {% for order in orders %}
+            <br/><div class="row">
+                <div class="white-panel text-left col-md-offset-6 col-md-12">
+
+                    <h5>{% trans %}Заказ{% endtrans %} <b>{{ order.id }} от {{ order.time|date("d.m.Y") }}</b> выполнен:</h5>
+                    <ul>
+                    {% for transaction in order.transactions.all() %}
+                        <li>{{ transaction.get_type_display()|capitalize }} &mdash; {{ transaction.amount|abs }} грн.</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block top_menu %}{% endblock %}
+{% block social_networks %}{% endblock %}

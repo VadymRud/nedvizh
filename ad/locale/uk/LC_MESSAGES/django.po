@@ -1,0 +1,1239 @@
+# Ukrainian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-11-27 14:08+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uk\n"
+"Language-Team: uk <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: choices.py:6
+msgid "аренда"
+msgstr "оренда"
+
+#: choices.py:7
+msgid "посуточная аренда"
+msgstr "подобова оренда"
+
+#: choices.py:8
+msgid "продажа"
+msgstr "продаж"
+
+#: choices.py:12
+msgid "квартира"
+msgstr "квартира"
+
+#: choices.py:13
+msgid "комната"
+msgstr "кімната"
+
+#: choices.py:14
+msgid "дом"
+msgstr "дім"
+
+#: choices.py:15
+msgid "участок"
+msgstr "ділянка"
+
+#: choices.py:16
+msgid "коммерческая недвижимость"
+msgstr "комерційна нерухомість"
+
+#: choices.py:17
+msgid "гаражи"
+msgstr "гаражі"
+
+#: choices.py:28
+msgid "опубликовано"
+msgstr "опубліковано"
+
+#: choices.py:34
+msgid "объект продан на Mesto.ua"
+msgstr "об'єкт продано на Mesto.ua"
+
+#: choices.py:35
+msgid "объект продан на другом сайте"
+msgstr "об'єкт продано на іншому сайті"
+
+#: choices.py:36
+msgid "объект продал коллега"
+msgstr "об'єкт продав колега"
+
+#: choices.py:37
+msgid "владелец передумал"
+msgstr "власник передумав"
+
+#: choices.py:38
+msgid "другая причина"
+msgstr "інша причина"
+
+#: choices.py:43
+msgid "нет телефона"
+msgstr "немає телефону"
+
+#: choices.py:44
+msgid "неверный адрес"
+msgstr "невірна адреса"
+
+#: choices.py:45
+msgid "неверная цена"
+msgstr "невірна ціна"
+
+#: choices.py:46
+msgid "контактные данные или ссылки в описании"
+msgstr "контактні дані або посилання в описі"
+
+#: choices.py:47
+msgid "контактные данные или ссылки в фотографиях"
+msgstr "контактні дані або посилання у фотографіях"
+
+#: choices.py:48
+msgid "фото не имеет отношение к объекту недвижимости"
+msgstr "фото не має відношення до об'єкту нерухомості"
+
+#: choices.py:49
+msgid "некорректная площадь"
+msgstr "некоректна площа"
+
+#: choices.py:50
+msgid "отсутствует описание объекта"
+msgstr "відсутній опис об'єкту"
+
+#: choices.py:51
+msgid "реклама"
+msgstr "реклама"
+
+#: choices.py:52
+msgid "заблокировано"
+msgstr "заблоковано"
+
+#: choices.py:53
+msgid "дубликат объявления"
+msgstr "дублікат оголошення"
+
+#: choices.py:54
+msgid "неверное название ЖК"
+msgstr "невірна назва ЖК"
+
+#: choices.py:55
+msgid "объект вторичного рынка"
+msgstr "об'єкт вторинного ринку"
+
+#: choices.py:57
+msgid "исключено (бан)"
+msgstr "виключено (бан)"
+
+#: choices.py:58
+msgid "фиды без картинок"
+msgstr "фіди без картинок"
+
+#: choices.py:62
+msgid "дореволюционное"
+msgstr "дореволюційне"
+
+#: choices.py:63
+msgid "сталинка"
+msgstr "сталінка"
+
+#: choices.py:64
+msgid "хрущевка"
+msgstr "хрущовка"
+
+#: choices.py:65
+msgid "чешка"
+msgstr "чешка"
+
+#: choices.py:66
+msgid "брежневка"
+msgstr "брежнєвка"
+
+#: choices.py:67
+msgid "екатерининка"
+msgstr "катерининка"
+
+#: choices.py:68
+msgid "немка"
+msgstr "німка"
+
+#: choices.py:69
+msgid "гостинка"
+msgstr "гостинка"
+
+#: choices.py:70
+msgid "малосемейка"
+msgstr "малосімейка"
+
+#: choices.py:71 choices.py:80
+msgid "панельный"
+msgstr "панельний"
+
+#: choices.py:72
+msgid "новострой"
+msgstr "новобудова"
+
+#: choices.py:73
+msgid "элитный новострой"
+msgstr "елітна новобудова"
+
+#: choices.py:74
+msgid "высотка"
+msgstr "висотка"
+
+#: choices.py:75
+msgid "другое:"
+msgstr "інше:"
+
+#: choices.py:79
+msgid "кирпичный"
+msgstr "цегляний"
+
+#: choices.py:81
+msgid "монолитный"
+msgstr "монолітний"
+
+#: choices.py:82
+msgid "блочный"
+msgstr "блочний"
+
+#: choices.py:83
+msgid "деревянный"
+msgstr "дерев'яний"
+
+#: choices.py:84
+msgid "ракушняк"
+msgstr "ракушняк"
+
+#: choices.py:85
+msgid "саман"
+msgstr "саман"
+
+#: choices.py:88
+msgid "пластиковые"
+msgstr "пластикові"
+
+#: choices.py:89
+msgid "деревянные"
+msgstr "дерев'яні"
+
+#: choices.py:92
+msgid "центральное"
+msgstr "центральне"
+
+#: choices.py:93
+msgid "индивидуальное"
+msgstr "індивідуальне"
+
+#: choices.py:96
+msgid "раздельные комнаты"
+msgstr "відокремлені кімнати"
+
+#: choices.py:97
+msgid "проходные комнаты"
+msgstr "прохідні кімнати"
+
+#: choices.py:98
+msgid "студия"
+msgstr "студія"
+
+#: choices.py:99
+msgid "свободная планировка"
+msgstr "вільне планування"
+
+#: filterspec.py:15
+msgid "по владельцу"
+msgstr "по власнику"
+
+#: filterspec.py:20
+msgid "парсер"
+msgstr "парсер"
+
+#: filterspec.py:21
+msgid "все пользователи"
+msgstr "всі користувачі"
+
+#: filterspec.py:22
+msgid "частники"
+msgstr "приватники"
+
+#: filterspec.py:23
+msgid "агентства"
+msgstr "агентства"
+
+#: filterspec.py:24
+msgid "импорт"
+msgstr "імпорт"
+
+#: filterspec.py:25
+msgid "банки"
+msgstr "банки"
+
+#: filterspec.py:26
+msgid "платный экспорт"
+msgstr "платний експорт"
+
+#: filterspec.py:27
+msgid "с тарифом"
+msgstr "з тарифом"
+
+#: filterspec.py:28
+msgid "с ППК"
+msgstr "з ППК"
+
+#: filterspec.py:29
+msgid "с ППК (общие)"
+msgstr "з ППК загальні"
+
+#: filterspec.py:59 models.py:1180
+msgid "контент провайдер"
+msgstr "контент-провайдер"
+
+#: filterspec.py:122
+msgid "по ID"
+msgstr "по ID"
+
+#: forms.py:107
+#, python-format
+msgid ""
+"Номер телефона \"%s\" уже используется в другом аккаунте, укажите другой "
+"номер"
+msgstr ""
+"Номер телефону \"%s\" вже використовується іншим аккаунтом, вкажіть інший"
+" номер"
+
+#: forms.py:135
+msgid "Площадь"
+msgstr "Площа"
+
+#: forms.py:136 forms.py:412
+msgid "Этаж"
+msgstr "Поверх"
+
+#: forms.py:137
+msgid "Энергоэффективность"
+msgstr "Енергоефективність"
+
+#: forms.py:142
+msgid "Описание"
+msgstr "Опис"
+
+#: forms.py:144
+msgid "Каталог для размещения"
+msgstr "Каталог для розміщення"
+
+#: forms.py:145
+msgid "Mesto.ua"
+msgstr "Mesto.ua"
+
+#: forms.py:145
+msgid "Зарубежная недвижимость"
+msgstr "Зарубіжна нерухомість"
+
+#: forms.py:147
+msgid "Тип сделки"
+msgstr "Тип угоди"
+
+#: forms.py:149
+msgid ""
+"Путешественникам Mesto.ua нравится выбирать из множества разных типов "
+"жилья"
+msgstr "Подорожуючим Mesto.ua подобається обирати з безлічі різних типів житла"
+
+#: forms.py:150 forms.py:382 forms.py:383
+msgid "Тип недвижимости"
+msgstr "Тип нерухомості"
+
+#: forms.py:152
+msgid ""
+"Тип размещения &mdash; один из самых важных критериев для "
+"путешественников на Mesto.ua"
+msgstr ""
+"Тип розміщення &mdash; один з найбільш важливих критеріїв для "
+"подорожуючих на Mesto.ua"
+
+#: forms.py:154
+msgid "Цена"
+msgstr "Ціна"
+
+#: forms.py:155 forms.py:403
+msgid "Удобства"
+msgstr "Зручності"
+
+#: forms.py:156
+msgid "Правила размещения"
+msgstr "Правила розміщення"
+
+#: forms.py:158
+msgid "Занятые дни"
+msgstr "Зайняті дні"
+
+#: forms.py:158
+msgid "Сэкономьте ваше время и деньги с помощью календаря"
+msgstr "Заощаджуйте ваш час і гроші за допомогою календаря"
+
+#: forms.py:160
+msgid "Продвижение объявления"
+msgstr "Просування оголошення"
+
+#: forms.py:161
+msgid "Обычное объявление"
+msgstr "Звичайне оголошення"
+
+#: forms.py:161
+msgid "VIP объявление (7 дней)"
+msgstr "VIP оголошення (7 днів)"
+
+#: forms.py:163
+msgid "Добавить объявление в международные каталоги"
+msgstr "Додати в міжнародні каталоги"
+
+#: forms.py:164
+msgid "посмотреть список каталогов"
+msgstr "подивитися список каталогів"
+
+#: forms.py:165
+msgid ""
+"действует только для обьектов недвижимости, которые территориально "
+"находятся в Украине"
+msgstr ""
+"діє лише для тих об'єктів нерухомості, які територіально знаходяться в "
+"Україні"
+
+#: forms.py:166
+msgid ""
+"Узнайте больше о <a href=\"/account/services/\" "
+"target=\"_blank\">возможностях продвижения</a> вашего объявления, "
+"заполненные поля сохраняются"
+msgstr ""
+"Дізнайтеся більше про <a href=\"/account/services/\" target=\"_blank\"> "
+"можливості просування</a> вашого оголошення, заповнені поля зберігаються"
+
+#: forms.py:168
+msgid "Вы должны согласиться с правилами размещения объявлений"
+msgstr "Ви повинні погодитися з правилами розміщення оголошень"
+
+#: forms.py:235
+msgid "Цена должна быть больше нуля"
+msgstr "Ціна повинна бути більше нуля"
+
+#: forms.py:239
+msgid "Неверная цена. Для новостроек цена указывается за квадратный метр"
+msgstr "Невірна ціна. Для новобудов ціна вказується за квадратний метр"
+
+#: forms.py:246
+msgid "Обязательное поле."
+msgstr "Обов'язкове поле."
+
+#: forms.py:253
+msgid "Тип недвижимости \"Новостройки\" требует указания площади помещения"
+msgstr "Тип нерухомості \"Новобудови\" вимагає вказівки площі приміщення"
+
+#: forms.py:256
+msgid "Площадь должна быть целым или дробным числом через точку"
+msgstr "Площа повинна бути цілим або дробовим числом через точку"
+
+#: forms.py:263
+msgid ""
+"Типы коммерческой недвижимости указываются только для коммерческой "
+"недвижимости"
+msgstr "Типи комерційної нерухомості вказуються лише для комерційної нерухомості"
+
+#: forms.py:324
+msgid "Правилами размещения объявлений"
+msgstr "Правилами розміщення оголошень"
+
+#: forms.py:324
+msgid "Условиями использования сайта"
+msgstr "Умови користування сайтом"
+
+#: forms.py:326
+#, python-format
+msgid ""
+"Подтверждаю согласие с %s. Объявления, не соответствующие вышеуказанным "
+"правилам будут удаляться без предупреждения."
+msgstr ""
+"Підтверджую згоду з %s. Оголошення, які не відповідають вищевказаним "
+"правилам будуть видалятися без попередження."
+
+#: forms.py:336
+msgid "Обязательное поле для выбранного типа недвижимости"
+msgstr "Обов'язкове поле для обраного типу нерухомості"
+
+#: forms.py:344
+msgid "вся недвижимость"
+msgstr "вся нерухомість"
+
+#: forms.py:345
+msgid "укажите тип"
+msgstr "вкажіть тип"
+
+#: forms.py:348 views.py:504
+msgid "по дате"
+msgstr "по даті"
+
+#: forms.py:349 views.py:505
+msgid "по возрастанию цены"
+msgstr "за зростанням ціни"
+
+#: forms.py:350 views.py:506
+msgid "по убыванию цены"
+msgstr "за спаданням ціни"
+
+#: forms.py:354
+msgid "за всё время"
+msgstr "за весь час"
+
+#: forms.py:355
+msgid "за 3 дня"
+msgstr "за 3 дні"
+
+#: forms.py:356
+msgid "за неделю"
+msgstr "за тиждень"
+
+#: forms.py:357
+msgid "за две недели"
+msgstr "за два тижні"
+
+#: forms.py:358
+msgid "за месяц"
+msgstr "за місяць"
+
+#: forms.py:362
+msgid "не первый"
+msgstr "не перший"
+
+#: forms.py:363
+msgid "не последний"
+msgstr "не останній"
+
+#: forms.py:364
+msgid "первый"
+msgstr "перший"
+
+#: forms.py:365
+msgid "последний"
+msgstr "останній"
+
+#: forms.py:370
+msgid "искать в регионах"
+msgstr "шукати в регіонах"
+
+#: forms.py:371
+msgid "ID города"
+msgstr "ID міста"
+
+#: forms.py:372
+msgid "Район"
+msgstr "Район"
+
+#: forms.py:374
+msgid "Цена от"
+msgstr "Ціна від"
+
+#: forms.py:376 forms.py:390 forms.py:394
+msgid "от"
+msgstr "від"
+
+#: forms.py:377 forms.py:379 forms.py:392 forms.py:396
+msgid "до"
+msgstr "до"
+
+#: forms.py:380
+msgid "Валюта"
+msgstr "Валюта"
+
+#: forms.py:384
+msgid "Тип коммерческой недвижимости"
+msgstr "Тип комерційної нерухомості"
+
+#: forms.py:387
+msgid "Комнат"
+msgstr "Кімнат"
+
+#: forms.py:388
+msgid "Спальных мест"
+msgstr "Спальних місць"
+
+#: forms.py:389 forms.py:391
+msgid "Площадь общая"
+msgstr "Площа загальна"
+
+#: forms.py:393 forms.py:395
+msgid "Площадь жилая"
+msgstr "Площа житлова"
+
+#: forms.py:399
+msgid "Ближайшая станция метро"
+msgstr "Найближча станція метро"
+
+#: forms.py:406
+msgid "Тип здания"
+msgstr "Тип будівлі"
+
+#: forms.py:408
+msgid "Тип стен"
+msgstr "Тип стін"
+
+#: forms.py:410
+msgid "Планировка"
+msgstr "Планування"
+
+#: forms.py:417
+msgid "Улица"
+msgstr "Вулиця"
+
+#: forms.py:418
+msgid "Начните вводить название улицы"
+msgstr "Почніть вводити назву вулиці"
+
+#: forms.py:421
+msgid "Ключевые слова"
+msgstr "Ключові слова"
+
+#: forms.py:421
+msgid ""
+"Укажите слова, которые должно содержать объявление, например, телевизор, "
+"кондиционер, лифт и т.п."
+msgstr ""
+"Вкажіть слова, які повинно містити оголошення, наприклад, телевізор, "
+"кондиціонер, ліфт і т.п."
+
+#: forms.py:423
+msgid "Только с фото"
+msgstr "Тільки з фото"
+
+#: forms.py:424 models.py:1253
+msgid "Без комиссии"
+msgstr "Без комісії"
+
+#: forms.py:425
+msgid "Без посредников"
+msgstr "Без посередників"
+
+#: forms.py:426
+msgid "без комиссии"
+msgstr "без комісії"
+
+#: forms.py:427
+msgid "новый дом"
+msgstr "новий будинок"
+
+#: forms.py:428
+msgid "wi-fi"
+msgstr "wi-fi"
+
+#: forms.py:429
+msgid "документы"
+msgstr "документи"
+
+#: forms.py:430
+msgid "в центре"
+msgstr "в центрі"
+
+#: forms.py:432
+msgid "Поле сортировки"
+msgstr "Поле сортування"
+
+#: forms.py:433
+msgid "Свежесть"
+msgstr "Свіжість"
+
+#: forms.py:435
+msgid "Свободна с"
+msgstr "Вільна з"
+
+#: forms.py:435 forms.py:436
+msgid "дд.мм.гг"
+msgstr "дд.мм.рр"
+
+#: forms.py:436
+msgid "по"
+msgstr "по"
+
+#: forms.py:437
+msgid "ID объявления"
+msgstr "ID оголошення"
+
+#: forms.py:437
+msgid "ID — это уникальный номер объявления"
+msgstr "ID - це унікальний номер оголошення"
+
+#: forms.py:486
+msgid "Микрорайоны"
+msgstr "Мікрорайони"
+
+#: forms.py:488
+msgid "Районы"
+msgstr "Райони"
+
+#: forms.py:512
+msgid "Недопустимое значение при указанном типе недвижимости"
+msgstr "Неприпустиме значення при зазначеному типі нерухомості"
+
+#: forms.py:518 forms.py:524
+msgid "Цена не может быть отрицательной"
+msgstr "Ціна не може бути негативною"
+
+#: forms.py:533
+msgid "Необходимо указать обе даты."
+msgstr "Необхідно вказати обидві дати."
+
+#: forms.py:535
+msgid "Конечная дата должна быть не меньше начальной."
+msgstr "Кінцева дата повинна бути не менше початкової."
+
+#: forms.py:552
+msgid "E-mail"
+msgstr "E-mail"
+
+#: forms.py:554
+msgid "Имя"
+msgstr "Ім’я"
+
+#: forms.py:555
+msgid "Фамилия"
+msgstr "Прізвище"
+
+#: models.py:55 models.py:185
+msgid "страна"
+msgstr "країна"
+
+#: models.py:56
+msgid "область"
+msgstr "область"
+
+#: models.py:57
+msgid "областной район"
+msgstr "обласний район"
+
+#: models.py:58 models.py:1073
+msgid "город"
+msgstr "місто"
+
+#: models.py:59
+msgid "село/поселок"
+msgstr "село/селище"
+
+#: models.py:60
+msgid "район города"
+msgstr "район міста"
+
+#: models.py:61
+msgid "парк"
+msgstr "парк"
+
+#: models.py:62
+msgid "озеро"
+msgstr "озеро"
+
+#: models.py:63 models.py:187
+msgid "улица"
+msgstr "вулиця"
+
+#: models.py:64
+msgid "группировка m2m"
+msgstr "групування m2m"
+
+#: models.py:65
+msgid "группировка по parent"
+msgstr "групування по parent"
+
+#: models.py:68
+msgid "Жильё"
+msgstr "Житло"
+
+#: models.py:69
+msgid "Земля"
+msgstr "Земля"
+
+#: models.py:70
+msgid "Коммерческие объекты"
+msgstr "Комерційні об'єкти"
+
+#: models.py:73
+msgid "офис"
+msgstr "офіс"
+
+#: models.py:74
+msgid "склад"
+msgstr "склад"
+
+#: models.py:75
+msgid "нежилые помещения"
+msgstr "нежитлові приміщення"
+
+#: models.py:76
+msgid "производственные мощности"
+msgstr "виробничі потужності"
+
+#: models.py:77
+msgid "под бизнес"
+msgstr "під бізнес"
+
+#: models.py:78
+msgid "работающий бизнес"
+msgstr "працюючий бізнес"
+
+#: models.py:140 models.py:446 models.py:1129
+msgid "название"
+msgstr "назва"
+
+#: models.py:141 models.py:455 models.py:2029
+msgid "часть URL-а"
+msgstr "частина URL-у"
+
+#: models.py:179
+msgid "присвоенный регион"
+msgstr "присвоєний регіон"
+
+#: models.py:184
+msgid "полный адрес"
+msgstr "повна адреса"
+
+#: models.py:186
+msgid "населенный пункт"
+msgstr "населений пункт"
+
+#: models.py:188
+msgid "номер дома"
+msgstr "номер будинку"
+
+#: models.py:191
+msgid "источник местоположения"
+msgstr "джерело розташування"
+
+#: models.py:195 models.py:2027
+msgid "долгота/longitude"
+msgstr "долгота/longitude"
+
+#: models.py:196 models.py:2028
+msgid "широта/latitude"
+msgstr "широта/latitude"
+
+#: models.py:444
+msgid "тип региона"
+msgstr "тип регіону"
+
+#: models.py:447
+msgid "склонения названия"
+msgstr "відмінювання назви"
+
+#: models.py:452
+msgid "относится к"
+msgstr "відноситься до"
+
+#: models.py:453
+msgid "полное название"
+msgstr "повна назва"
+
+#: models.py:456
+msgid "постоянная ссылка"
+msgstr "постійне посилання"
+
+#: models.py:458
+msgid "выводить на поддомене"
+msgstr "виводити на піддомені"
+
+#: models.py:459
+msgid "административный центр области"
+msgstr "адміністративний центр області"
+
+#: models.py:460
+msgid "кол-во активных объявлений в регионе"
+msgstr "кількість активних оголошень в регіоні"
+
+#: models.py:461 models.py:1233
+msgid "время создания"
+msgstr "час створення"
+
+#: models.py:463
+msgid "ID аккаунта Google Analytics"
+msgstr "ID аккаунту Google Analytics"
+
+#: models.py:465
+msgid "содержимое группы"
+msgstr "вміст групи"
+
+#: models.py:470
+msgid "долгота LONG"
+msgstr "долгота LONG"
+
+#: models.py:471
+msgid "широта LAT"
+msgstr "широта LAT"
+
+#: models.py:472
+msgid "координаты границ области геообъекта"
+msgstr "координати меж області геооб'єкту"
+
+#: models.py:821
+msgid "Пятикомнатные"
+msgstr "П'ятикімнатні"
+
+#: models.py:824
+msgid "Однокомнатные"
+msgstr "Однокімнатні"
+
+#: models.py:825
+msgid "Двухкомнатные"
+msgstr "Двокімнатні"
+
+#: models.py:826
+msgid "Трехкомнатные"
+msgstr "Трикімнатні"
+
+#: models.py:827
+msgid "Четырехкомнатные"
+msgstr "Чотирикімнатні"
+
+#: models.py:1074 models.py:1194
+msgid "тип операции"
+msgstr "тип операції"
+
+#: models.py:1075
+msgid "кол-во объявлений"
+msgstr "кількість оголошень"
+
+#: models.py:1076 models.py:1234
+msgid "время изменения"
+msgstr "час зміни"
+
+#: models.py:1087
+msgid "название удобства"
+msgstr "назва зручності"
+
+#: models.py:1088
+msgid "доступно в типах сделки"
+msgstr "доступно в типах угоди"
+
+#: models.py:1108
+msgid "название правила заселения"
+msgstr "назва правила заселення"
+
+#: models.py:1120
+msgid "Метро отсутствует"
+msgstr "Метро відсутнє"
+
+#: models.py:1121
+msgid "5 минут"
+msgstr "5 хвилин"
+
+#: models.py:1122
+msgid "10 минут"
+msgstr "10 хвилин"
+
+#: models.py:1123
+msgid "15 минут"
+msgstr "15 хвилин"
+
+#: models.py:1124
+msgid "30 минут"
+msgstr "30 хвилин"
+
+#: models.py:1142
+msgid "удобства"
+msgstr "зручності"
+
+#: models.py:1143
+msgid "правила заселения"
+msgstr "правила заселення"
+
+#: models.py:1174
+msgid "Enter a valid URL."
+msgstr ""
+
+#: models.py:1178 models.py:1541
+msgid "пользователь"
+msgstr "користувач"
+
+#: models.py:1182
+msgid "банк"
+msgstr "банк"
+
+#: models.py:1184
+msgid "опубликовано на сайте"
+msgstr "опубліковано на сайті"
+
+#: models.py:1185
+msgid "статус"
+msgstr "статус"
+
+#: models.py:1186
+msgid "статус модерации"
+msgstr "статус модерації"
+
+#: models.py:1192
+msgid "торг возможен"
+msgstr "торг можливий"
+
+#: models.py:1196
+msgid "тип недвижимости"
+msgstr "тип нерухомості"
+
+#: models.py:1198
+msgid "тип коммерческой недвижимости"
+msgstr "тип комерційної нерухомості"
+
+#: models.py:1201
+msgid "заголовок объявления"
+msgstr "заголовок оголошення"
+
+#: models.py:1203
+msgid "цена"
+msgstr "ціна"
+
+#: models.py:1204
+msgid "валюта цены"
+msgstr "валюта ціни"
+
+#: models.py:1205
+msgid "цена в гривнах"
+msgstr "ціна в гривнях"
+
+#: models.py:1207
+msgid "тип здания"
+msgstr "тип будівлі"
+
+#: models.py:1208
+msgid "тип здания (другое)"
+msgstr "тип будівлі (інше)"
+
+#: models.py:1209
+msgid "планировка"
+msgstr "планування"
+
+#: models.py:1210
+msgid "тип стен"
+msgstr "тип стін"
+
+#: models.py:1211
+msgid "тип окон"
+msgstr "тип вікон"
+
+#: models.py:1212
+msgid "тип отопления"
+msgstr "тип опалення"
+
+#: models.py:1219
+msgid "количество комнат"
+msgstr "кількість кімнат"
+
+#: models.py:1220
+msgid "максимальное кол-во гостей"
+msgstr "максимальна кількість гостей"
+
+#: models.py:1221
+msgid "площадь общая"
+msgstr "площа загальна"
+
+#: models.py:1221
+msgid "общая"
+msgstr "загальна"
+
+#: models.py:1222
+msgid "площадь жилая"
+msgstr "площа житлова"
+
+#: models.py:1222
+msgid "жилая"
+msgstr "житлова"
+
+#: models.py:1223
+msgid "площадь кухни"
+msgstr "площа кухні"
+
+#: models.py:1223
+msgid "кухня"
+msgstr "кухня"
+
+#: models.py:1224
+msgid "описание"
+msgstr "опис"
+
+#: models.py:1225
+msgid ""
+"Запрещено размещать в описании контактные данные и ссылки на другие "
+"ресурсы, в противном случае объявление будет деактивировано"
+msgstr ""
+"Заборонено розміщувати в описі контактні дані та посилання на інші "
+"ресурси, в такому випадку оголошення буде деактивовано"
+
+#: models.py:1227
+msgid "этаж"
+msgstr "поверх"
+
+#: models.py:1228
+msgid "этажность дома"
+msgstr "поверховість будинку"
+
+#: models.py:1230
+msgid "периодичность оплаты"
+msgstr "періодичність оплати"
+
+#: models.py:1231
+msgid "единица площади для оплаты"
+msgstr "одиниця площі для оплати"
+
+#: models.py:1232 models.py:1782
+msgid "ссылка на источник"
+msgstr "посилання на джерело"
+
+#: models.py:1235
+msgid "время обновления"
+msgstr "час оновлення"
+
+#: models.py:1236
+msgid "истекает"
+msgstr "закінчується"
+
+#: models.py:1237
+msgid "поля, требующие проверки модератором"
+msgstr "поля, які вимагають перевірки модератором"
+
+#: models.py:1239
+msgid "время обновления календаря"
+msgstr "час оновлення календаря"
+
+#: models.py:1242
+msgid "индентификатор в XML"
+msgstr "індентифікатор в XML"
+
+#: models.py:1243
+msgid "Ссылка на 3D тур или видео"
+msgstr "Посилання на 3D тур або відео"
+
+#: models.py:1245
+msgid "каталог зарубежной недвижимости"
+msgstr "каталог зарубіжної нерухомості"
+
+#: models.py:1247
+msgid "владелец/контактное лицо (для агентств)"
+msgstr "власник/контактна особа (для агентств)"
+
+#: models.py:1249
+msgid "У объявления есть фото?"
+msgstr "У оголошення є фото?"
+
+#: models.py:1369
+msgid "Объявления агентства"
+msgstr "оголошення агентства"
+
+#: models.py:1375
+msgid "Объявления риелтора"
+msgstr "оголошення ріелтора"
+
+#: models.py:1539
+msgid "причина снятия с продажи"
+msgstr "причина зняття з продажу"
+
+#: models.py:1542
+msgid "время деактивации"
+msgstr "час деактивації"
+
+#: models.py:1543
+msgid "время возврата к публикации"
+msgstr "час повернення до публікації"
+
+#: models.py:1600
+#, python-format
+msgid "%s-комн. "
+msgstr "%s-кімн."
+
+#: models.py:1780 models.py:1992
+msgid "недвижимость"
+msgstr "нерухомість"
+
+#: models.py:1781 models.py:1952 models.py:2004 models.py:2024
+msgid "порядковый номер"
+msgstr "порядковий номер"
+
+#: models.py:1783
+msgid "фотография"
+msgstr "фотографія"
+
+#: models.py:1785
+msgid "подпись к фотографии"
+msgstr "підпис до фотографії"
+
+#: models.py:1786
+msgid "ширина фото"
+msgstr "ширина фото"
+
+#: models.py:1787
+msgid "высота фото"
+msgstr "висота фото"
+
+#: models.py:1925
+#, python-format
+msgid "%(date)s - объявление #%(id)s"
+msgstr "%(date)s - оголошення #%(id)s"
+
+#: models.py:1950
+msgid "телефон"
+msgstr "телефон"
+
+#: models.py:1951
+msgid "объявление"
+msgstr "оголошення"
+
+#: models.py:1956
+msgid "дата отправки на модерацию"
+msgstr "дата відправки на модерацію"
+
+#: models.py:1957
+msgid "дата снятия с модерации"
+msgstr "дата зняття з модерації"
+
+#: models.py:1959
+msgid "модератор"
+msgstr "модератор"
+
+#: models.py:1963
+msgid "новый статус"
+msgstr "новий статус"
+
+#: models.py:2003
+msgid "Название ветки метро"
+msgstr "Назва гілки метро"
+
+#: models.py:2005
+msgid "HEX-цвет ветки"
+msgstr "HEX-колір гілки"
+
+#: models.py:2006
+msgid "Город"
+msgstr "Місто"
+
+#: models.py:2023
+msgid "Ветка метро"
+msgstr "Гілка метро"
+
+#: models.py:2025
+msgid "Название станции метро"
+msgstr "Назва станції метро"
+
+#: phones.py:41
+#, python-format
+msgid "Некорректный номер %s"
+msgstr "Некоректний номер %s"
+
+#: views.py:300
+msgid "Ваша заявка успешно отправлена.<br/><br/>Ожидайте звонок."
+msgstr "Ваша заявка успішно відправлено.<br/><br/>Чекайте дзвінок."
+
+#: views.py:873
+msgid "Ваша заявка отправлена.<br/><br/>С вами свяжутся."
+msgstr "Ваша заявка відправлена.<br/><br/>З вами зв'яжуться."
+

@@ -1,0 +1,18 @@
+{% extends "mail/base_redesigned_2017.jinja.html" %}
+
+{% block content %}
+  <tr>
+    <td>
+      <div class="text-wrap left-padding right-padding default-bottom-padding">
+        {% trans %}Вебинар{% endtrans %} <strong>Mesto School</strong> {% trans %}на тему:{% endtrans %} <strong class="pink">«{{ event.get_title() }}»</strong> {% trans %}стартует через час!{% endtrans %}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap left-padding right-padding">
+        {% trans %}Для начала просмотра{% endtrans %} <a href="{{ event.external_url }}" target="_blank">{% trans %}перейдите по ссылке{% endtrans %}</a>
+      </div>
+    </td>
+  </tr>
+{% endblock %}

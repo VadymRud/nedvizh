@@ -1,0 +1,79 @@
+{% extends "profile/base.jinja.html" %}
+
+{% macro show_filter(field) %}
+    {{- field|add_class("selectpicker")|add_data(width="100%", style="btn-inverse")|add_attrs(onChange="this.form.submit()") -}}
+{% endmacro %}
+
+{% block content %}
+    <div class="white-panel balance-page">
+        <form>
+            <div class="row">
+                <div class="col-sm-8 topup">
+                    {% trans %}На вашем счету{% endtrans %} &nbsp; <span class="pink">{{ request.user.get_balance()|floatformat(-2) }} грн</span>
+                    <button class="btn btn-danger" type="button" data-toggle="modal" data-target=".topup-modal">
+                        {%- trans %}Пополнить{% endtrans -%}
+                    </button>
+                </div>
+                <div class="col-sm-10 text-right">
+                    <a href="{{ url('profile_orders') }}" class="btn btn-danger">{% trans %}Мои счета{% endtrans %}</a>
+                </div>
+                <div class="col-sm-3 filter">
+                    {{ show_filter(form.type) }}
+                </div>
+                <div class="col-sm-3 filter">
+                    {{ show_filter(form.period) }}
+                </div>
+            </div>
+        </form><hr/>
+
+            {% for transaction in paginator.current_page.object_list %}
+                {% if loop.first %}
+                    <div class="row header">
+                        <div class="col-sm-2" >{% trans %}Дата{% endtrans %}</div>
+                        <div class="col-sm-10">{% trans %}Событие{% endtrans %}</div>
+                        <div class="col-sm-2" >{% trans %}Сумма{% endtrans %}</div>
+                        <div class="col-sm-2" >{% trans %}Баланс{% endtrans %}</div>
+                        <div class="col-sm-8" >{% trans %}Комментарий{% endtrans %}</div>
+                    </div><hr/>
+                {% endif %}
+
+                <div class="transaction row">
+                    <div class="col-sm-2" ><span title="{{ transaction.time|date("d.m.Y H:i") }}">{{ transaction.time|date("d.m.Y") }}</span></div>
+                    {% if transaction.type == 100 %}
+                        <div class="col-sm-10">
+                            {% trans %}возврат{% endtrans %} &mdash; {{ transaction.corrected_transaction.get_type_display() }} от {{ transaction.corrected_transaction.time|date("d.m.Y") }}
+                        </div>
+                    {% else %}
+                        <div class="col-sm-10">{{ transaction.get_type_display() }}</div>
+                    {% endif %}
+                    <div class="col-sm-2 {% if transaction.amount > 0 %}green{% else %}pink{% endif %}" >{{ transaction.amount|floatformat(-2) }} грн</div>
+                    <div class="col-sm-2" >{{ transaction.rest_of_money|floatformat(-2) }} грн</div>
+                    <div class="col-sm-8" >
+                        <span data-pk="{{ transaction.pk }}" class="note">{{ transaction.note }}</span>
+                    </div>
+                </div>
+                {% if not loop.last %}<hr/>{% endif %}
+            {% else %}
+                <br/><br/><h4 align="center">{% trans %}Ничего не найдено{% endtrans %}</h4><br/><br/>
+            {% endfor %}
+
+        {% include "pagination.jinja.html" %}
+    </div>
+
+    {% include 'profile/balance/topup_modal_form.jinja.html' %}
+{% endblock %}
+
+{% block extra_footer %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ static('libs/bootstrap-select/bootstrap-select.min.css') }}">
+    <script src="{{ static('libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
+
+    <link rel="stylesheet" href="{{ static('libs/bootstrap3-editable/css/bootstrap-editable-custom.css') }}">
+    <script src="{{ static('libs/bootstrap3-editable/js/bootstrap-editable.min.js') }}"></script>
+    <script>
+        $('.balance-page .note').editable({
+            showbuttons:false, mode: 'inline', onblur: 'submit', emptytext: '{% trans %}Добавить комментарий{% endtrans %}',
+            name: 'note', inputclass: 'input-wide', url: '.' // url: '{{ url('agency_admin:ads') }}'
+        });
+    </script>
+{% endblock %}

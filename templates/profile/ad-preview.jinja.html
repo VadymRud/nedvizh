@@ -1,0 +1,140 @@
+{% with inactive_status = not property.is_published, owner = (property.user_id == request.user.id)  %}
+    <div class="property-short {% if inactive_status %} inactive{% endif %}{% if property.deal_type == 'sale' and not property.has_deactivation_reason() %} need_reason_for_deactivation{% endif %}" >
+      <div class="row">
+        {# Чекбокс #}
+        <div class="col-xs-4 col-sm-2 col-md-1 col-lg-1">
+            <div class="first-line-padding visible-lg"></div>
+            <input type="checkbox" id="ad-{{ property.pk }}" name="ad" value="{{ property.pk }}" class="ad-checkbox checkbox-in-list">
+            <label for="ad-{{ property.pk }}"></label>
+        </div>
+
+        {# Изображение #}
+        <div class="col-xs-20 col-sm-8 col-md-5 col-lg-4 image" itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
+            <a href="{{ property.get_absolute_url() }}"><img src="{{ property.get_first_photo().smart_thumbnail("md") }}" class="img-responsive"/></a>
+            <div class="price" itemprop="lowPrice"><b>{{ property.price|intcomma }}</b> {{ property.get_currency_display() }}</div>
+            <span>{% trans %}Добавлено{% endtrans %} &mdash; {{ property.updated|date("d.m.Y") }}</span>
+        </div>
+        <div class="clearfix visible-xs"></div>
+
+        {# Адрес + Небольшое инфо #}
+        <div class="col-sm-12 col-md-6 col-lg-6 address">
+            <div class="status">
+                {% if inactive_status %}
+                    {% if property.moderation_status %}<span class="label-danger">{{ property.get_moderation_status_display()|capitalize }}</span>
+                    {% else %}<span>{{ property.get_status_display()|capitalize }}</span>{% endif %}
+                {% endif %}
+                {% if property.status == 1 and property.has_deactivation_reason() %}
+                    <span class="label-danger">{% trans %}Продано{% endtrans %}</span>
+                {% endif %}
+                {% with placement = property.catalogplacements.last() %}
+                  {% if placement and placement.get_remain_days() > 0 %}
+                    <span title="{% trans %}Окончание размещения{% endtrans %} - {{ placement.until|date("d.m.Y") }}">
+                        {% trans %}Зарубежная недвижимость{% endtrans %}</span>
+                  {% endif %}
+                {% endwith %}
+            </div>
+            <div><a class="title" href="{{ property.get_absolute_url() }}">{{ property.address|replace(',', ', ') }}</a></div>
+            <div class="details">
+                {% if property.property_type == 'plot' %}
+                    {% trans %}участок{% endtrans %}
+                    {{ property.area|pluralize((_("сотка"), _("сотки"), _("соток")), '')  }}
+                {% else %}
+                    {{ property.get_property_type_display() }}
+                    {%- if property.rooms %}, {{ property.rooms|pluralize((_("комната"), _("комнаты"), _("комнат")), '') }}{% endif %}
+                    {% if property.area %}
+                        <br/>{% trans %}площадь{% endtrans %}: {{ property.area|floatformat }}
+                            {% if property.area_living %}/ {{ property.area_living|floatformat }}{% endif %}
+                            {% if property.area_kitchen %}/ {{ property.area_kitchen|floatformat }}{% endif %}
+                    {% endif %}
+                {% endif %}
+                {% if property.floor and property.floors_total -%}
+                    <br/>{% trans floor=property.floor, total=property.floors_total %}{{ floor }}й этаж из {{ total }}{% endtrans %}
+                {%- endif %}
+            </div>
+            {% if agency_realtors is defined and agency_realtors %}
+                <div class="owner dropdown realtor-select{% if loop.last %} dropup{% endif %}{% if owner %} mine{% endif %}">
+                    <div class="hidden-for-mine">
+                        {% trans %}Ответственный{% endtrans %}: &nbsp;
+                        <a href="#" data-toggle="dropdown" data-pk="{{ property.pk }}" data-value="{{ property.user_id }}" class="choose-realtor realtor-name">
+                            {{ property.user }}
+                        </a> &nbsp; &nbsp;
+                        <a href="#" data-pk="{{ property.pk }}" data-value="{{ request.user.id }}" class="remove-realtor"><i class="glyphicon glyphicon-remove"></i></a>
+                    </div>
+                    <div class="hidden-for-realtor">
+                        <a href="#" data-toggle="dropdown" data-pk="{{ property.pk }}" class="choose-realtor">
+                            {% trans %}Назначить риелтора{% endtrans %}
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+        {# Информационные иконки #}
+        <div class="col-sm-2 col-md-2 col-lg-3 stats">
+            <div class="first-line-padding visible-lg"></div>
+            {% with views = views_by_ad.get(property.pk, None) %}
+                {% if not inactive_status and views %}
+                    <a href="{{ url('profile_views_graph', property.pk) }}" data-target="#views-modal-{{ property.pk }}" data-toggle="modal">
+                        <span class="show-views-graph views">{{ views['detail_views'] }}</span>
+                        <span class="show-views-graph calls">{{ views['contacts_views'] }}</span>
+                    </a>
+                    <div class="modal fade" id="views-modal-{{ property.pk }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog"><div class="modal-content"><div class="modal-body"></div></div></div>
+                    </div>
+                {% endif %}
+            {% endwith %}
+        </div>
+
+        {# VIP, редактировать/активировать, удалить #}
+        <div class="col-sm-24 col-md-9 col-lg-10 actions">
+            <div class="first-line-padding visible-lg"></div>
+
+            {% if not inactive_status %}
+                <div class="promotional rel" style="display:inline-block;">
+                    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-info">
+                        {% trans %}Привлечь покупателя{% endtrans %}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="nav dropdown-menu" aria-labelledby="dLabel">
+                        {% if property.pk in vips %}
+                            <li title="{% trans %}до{% endtrans %} {{ vips[property.pk].until|date("d.m.Y H:i:s") }}">
+                                <a class="buy_vip" >{% trans %}VIP еще {% endtrans %} {{ vips[property.pk].get_remain_days()|pluralize((_('д.'), _('дн.'), _('дн.'))) }}</a></li>
+                        {% elif request.user.region_id  %}
+                            <li><a href="{{ url('profile_checkout') }}?vip&ads={{ property.pk }}{% if not owner %}&realtor={{ property.user.get_realtor().id }}{% endif %}"
+                                   title='{% trans %}сделать объявление VIP-объявлением{% endtrans %}' class="buy_vip"
+                                   target="_blank">{% trans %}Сделать VIP{% endtrans %}</a></li>
+                        {% endif %}
+
+                      {#
+                        {% if property.pk in vips %}
+                            <span class="remain-days-vip ad-vip">
+                            {% with remain_days = vips[property.pk].get_remain_days() %}
+                                <span class="btn">{{ remain_days|pluralize((_('д.'), _('дн.'), _('дн.'))) }}</span><span class="btn">VIP</span>
+                            {% endwith %}
+                            </span>
+                        {% endif %}
+                     #}
+
+                      <li><a class="tour_request" href="{{ url('services:tour360') }}">{% trans %}Заказать 3D тур{% endtrans %}</a></li>
+                    </ul>
+                </div> &nbsp;
+            {% endif %}
+
+            {%- if property.status == 210 or property.status == 211 %}
+                <button type='button' data-group-button="#group-activate"  title='{% trans %}активировать объявление{% endtrans %}' class='btn btn-mini btn-danger tick-checkbox-and-group-action'>{% trans %}Активировать{% endtrans %}</button>  &nbsp;
+            {% endif -%}
+
+            <a href='{{ url('profile_edit_property', property.pk ) }}' title='{% trans %}редактировать объявление{% endtrans %}' class='btn btn-mini btn-default btn-gray'>{% trans %}Редактировать{% endtrans %}</a>  &nbsp;
+
+            {%- if property.status == 1 %}
+                <button type="button" data-group-button="#group-deactivate" title='{% trans %}деактивировать объявление{% endtrans %}' class='btn btn-mini btn-deactivate tick-checkbox-and-group-action'>
+                    <i class="glyphicon glyphicon-eye-close"></i>
+                </button>
+            {% endif %}
+            {%- if property.status == 210 %}
+                <button type="button" data-group-button="#group-delete" title='{% trans %}удалить объявление{% endtrans %}' class='btn btn-mini confirm-delete btn-delete tick-checkbox-and-group-action'></button>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+{% endwith %}

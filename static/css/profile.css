@@ -1,0 +1,347 @@
+.vertical-align {display: flex; align-items: center;}
+
+.pagination {margin-left: 41px;}
+.pagination-with-step {margin-right: 20px;}
+.pagination-with-step li {min-width: 33px; text-align: center;}
+    .pagination-with-step li a {
+        font-size: 18px; color: #333; text-decoration: none; min-width: 33px; padding: 3px 0; height: 27px;
+        line-height: 22px; margin: 0 2px;
+    }
+        .pagination-with-step li:first-of-type {text-align: left;}
+        .pagination-with-step li:first-of-type > a,
+        .pagination-with-step li:hover:first-of-type > a {
+            color: #333 !important; cursor: text; border: 0 !important; padding: 3px 0;
+        }
+        .pagination-with-step li.active a, .pagination-with-step li a:hover, .pagination-with-step li:hover a,
+        .pagination-with-step li.active:hover a {
+            border-bottom: 2px #fc2e62 solid; background: none; color: #333; padding: 3px 0; margin: 0 2px;
+        }
+/*
+.l-submenu .navbar-nav > .active > a,
+.l-submenu .navbar-nav > .active > a:hover,
+.l-submenu .navbar-nav > li > a,
+.l-submenu .navbar-nav > li > a:hover {padding:2px 15px; line-height: 45px;}
+    .l-submenu .navbar-nav > li > a .balance {color:#ff1b55;font-size:.9em}
+*/
+.l-submenu .navbar-nav > li > a .balance {color:#ff1b55;font-size:.9em}
+
+
+.properties-list {background:white; padding: 0; margin-top:16px; }
+    .properties-list > p {padding: 20px; margin: 0;}
+
+.btn-delete, .btn-delete:active {width: 37px; height: 37px; padding: 0; background: url(../img/profile/close-icon.png) 50% 50% no-repeat;}
+
+.ad-filter {margin:0 -7px 0 25px;position: relative;}
+    .ad-filter .balance {font-size: 12px;margin-top:3px;}
+    .ad-filter .hide-when-ads-selected.hidden {display:none !important;}
+
+.group-actions {margin:0 0 0 25px;}
+    .group-actions .btn {font-size:16px;padding-top:8px;position: relative;}
+
+
+/* Объявление в списке */
+.property-short {padding: 30px 30px 20px; border-bottom: 1px #dadada solid;}
+    .property-short:last-of-type {border: 0;}
+
+    /* Неактивное объявление */
+    .property-short.inactive {background: #eaeaea;}
+        .property-short.inactive .image div > div {background: #8c8c8c;}
+
+        .property-short.inactive .address a {color: #6d6d6d;}
+        .property-short.inactive .image img {
+            -webkit-filter: grayscale(100%); filter: grayscale(100%); filter: gray;
+            filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale");
+        }
+
+    /* Активное объявление */
+    .property-short .first-line-padding {height:33px;}
+
+    .property-short .stats {text-align:center}
+        .property-short .stats a {
+            text-decoration: none;
+            outline: none;
+        }
+        .property-short .stats .show-views-graph {
+            background: url(../img/profile/views-icon.png) 50% top no-repeat;
+            display:inline-block;
+            padding-top: 25px; font-size: 15px; text-align: center;
+            margin-bottom:20px;
+            width:40px;
+        }
+            .property-short .stats .disabled {}
+            .property-short .stats .calls {background: url(../img/profile/calls-icon.png) 50% top no-repeat;}
+
+    .property-short .address {font-size: 14px;color: #454545;}
+        .property-short .address .title {font-size: 20px;}
+        .property-short .address .details {margin:4px 0;}
+        .property-short .address .status {/*height:26px;*/}
+            .property-short .address .status span {
+                color: #6d6d6d; font-size: 13px; display: inline-block; border: 1px #898989 solid; padding: 0 9px;
+                margin: -20px 0 10px; height: 23px; line-height: 22px;
+            }
+            .property-short .address .status span.label-danger {
+                background: #ff1b55;
+                color:white;
+                border:0;
+            }
+
+    .property-short .actions {text-align:right;}
+        .property-short .actions .btn-deactivate {background:none;color:#6d6d6d;}
+        .property-short .actions .btn {
+            font-size:16px;
+            padding:7px 16px;
+        }
+
+        .property-short .actions .promotional {}
+            .property-short .actions .promotional button.btn-info {
+                background:url("../img/icons/promotional2.png") #94b0bc 12px 50% no-repeat;
+                padding-left:37px;
+            }
+            .property-short .actions .promotional ul.dropdown-menu {
+                font-size:16px;
+                text-align: center;
+                margin-top:0;
+                min-width:100%;
+            }
+            .property-short .actions .promotional ul.dropdown-menu a {text-decoration:none}
+            .property-short .actions .promotional ul.dropdown-menu .buy_vip:before {
+                content: " ";
+                display:inline-block;
+                margin-right:8px;
+                background:url("../img/icons/vip.png") no-repeat;
+                width:19px;height:13px;
+            }
+            .property-short .actions .promotional ul.dropdown-menu .tour_request:before {
+                content: " ";
+                display:inline-block;
+                margin-right:10px;
+                background:url("../img/icons/tour360.png") no-repeat;
+                width:26px;height:17px;
+                vertical-align: middle;
+            }
+
+    .property-short .image {position:relative;padding-right:30px;min-height:125px;}
+        .property-short .image .price {
+            background-color: #ff1b55;
+            background-color: rgba(255,27,85,0.9);
+            color:white; font-size:15px;
+            position:absolute;top:15px;right:30px;
+            padding:6px 10px;
+        }
+
+    .property-short .image > span {
+        font-size: 11px; color: #cdcdcd; display: block; margin-top: 8px;
+    }
+    .property-short .image > div {}
+        .property-short .image > div a {width: 150px; height: 100px; position: absolute; z-index: 5;}
+        .property-short .image div > div {
+            right: 0; top: 9px; position: absolute; background: #fa2b5f; color: #fff; 
+            font-weight: bold; font-size: 15px; z-index: 10; height: 28px; line-height: 28px; padding: 0 6px;
+        }
+
+    .property-short > .ad-edit {width: 155px; padding: 0;}
+        .property-short > .ad-edit > .btn {width: 155px; padding: 0; line-height: 37px; height: 37px;}
+
+    .property-short > .do-vip {width: 130px; padding: 0; margin-right: 19px;}
+        .property-short > .do-vip > .btn {font-size: 16px;}
+
+    .property-short .ad-vip .btn {
+        background: #fad571 url(../img/profile/clock-icon.png) 13px 50% no-repeat; text-align: left;
+        width: 80px; border: 0; height: 37px; line-height: 37px; padding: 0 0 0 37px; font-size: 15px; color: #cc9933;
+    }
+        .property-short .ad-vip .btn + .btn {
+            background: #faec98; width: 50px; text-align: center; color: #333333; font-size: 16px; padding: 0;
+        }
+
+    .property-short .owner {color:#858585;line-height: 30px}
+        .property-short .owner a {border-bottom:1px dashed ;text-decoration: none}
+        .property-short .owner a.remove-realtor {border-bottom:0;font-size:12px;}
+        .property-short .owner .hidden-for-realtor {display:none}
+        .property-short .owner.mine .hidden-for-mine {display:none}
+        .property-short .owner.mine .hidden-for-realtor {display:block}
+
+/* Платные сервисы */
+#paid-services {text-align: center; color: #333;margin-bottom:70px;}
+
+    #paid-services .balance {font-size: 14px; color:#333;width:110px;margin-right:-110px;}
+        #paid-services .balance .pink{font-size: 18px; }
+
+    #paid-services h1, #paid-services h2 {font-size: 25px; font-weight: lighter;}
+    #paid-services p {font-size: 16px; font-weight: lighter;}
+        #paid-services p.small {font-size: 14px; font-weight: lighter;}
+    #paid-services ul {padding-left: 14px; text-align: left; margin-top: 10px;}
+    #paid-services li {margin-bottom: 10px;}
+    #paid-services .horizontal-line {height: 750px; border-left: 1px #c4c4c6 solid;}
+    #paid-services .btn-lead {padding: 15px 30px; font-size: 18px;}
+
+    #paid-services .pros {font-size:16px;text-align: left;}
+        #paid-services .pros .pro {
+            background: url(../img/profile/list-icon.png) left top no-repeat;
+            padding: 3px 0 0 50px;
+            margin-bottom:25px;
+        }
+
+    #paid-services .after-plans {}
+        #paid-services .after-plans sup, #paid-services .after-plans span {font-size: 14px; opacity: 0.6;}
+
+
+    .plan-list {margin-bottom:30px;}
+        .plan-list .plan {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            font-size:16px;
+            margin-bottom: 20px;
+            padding-bottom: 1px;
+        }
+            .plan-list .plan header {
+                line-height: 55px;  border-bottom: 2px #e2e2e2 solid;
+                font-size: 18px; color: #333333; font-weight: bold;
+                margin-bottom:15px;
+            }
+            .plan-list .plan p {margin:0 0 20px;}
+            .plan-list .plan .big {font-size:18px;}
+            .plan-list .plan .discount {
+                background: #f3f3f3 url(../img/icon-gift.png) 10px 45% no-repeat;
+                padding:12px 0;
+                padding-left:50px;
+                text-align: left;
+            }
+                .plan-list .plan .discount b {color:#ff1b55;}
+            .plan-list .plan .total {font-size:20px;}
+            .plan-list .plan .ribbon {margin: -36px 0 15px;}
+                .plan-list .plan .ribbon .btn {border-radius:30px;}
+
+            .plan-list .plan .plan-international {background-color: #f3f3f3; padding: 15px 0 30px;}
+                .plan-list .plan .plan-international .pink {font-size: 30px;}
+                .plan-list .plan .plan-international + a {margin: 15px 0 30px;}
+
+
+        .plan-list .plan.popular {
+            background: #f3f3f3;
+            margin:-10px -15px 0;
+            padding-bottom:10px;
+            position: relative;
+            z-index:100;
+        }
+            .plan-list .plan.popular header {padding-bottom:10px;}
+            .plan-list .plan.popular span.ribbon {top:53px}
+            .plan-list .plan.popular .discount {background-color:#fff;padding-left:70px;background-position:20px 45%}
+
+
+
+
+    #paid-services .navbar {
+        margin-bottom:35px;
+    }
+        #paid-services .navbar a {
+            font-size: 16px;
+            padding: 7px 18px;
+        }
+
+    #paid-services .vip-price {font-size: 14px;}
+    #paid-services .vip-price .value {font-size: 40px; font-weight: bold;}
+
+/* Форма редактирования профиля */
+.profile-form .navbar {margin-bottom: 40px;}
+
+.profile-form #div_id_deal_types ul {list-style: none;}
+.profile-form #div_id_deal_types ul,
+.profile-form  #div_id_deal_types ul li {
+    margin:0;
+    padding: 0;
+}
+
+/* Корзина */
+.checkout-page {padding:0;}
+    .checkout-page .service {
+        color:#adadad;
+        border-bottom: 1px solid #dadada;
+        padding:30px;
+        line-height: 50px;
+    }
+        .checkout-page .service .ad-checkbox + label {margin-top:15px;}
+        .checkout-page .service .name {
+            color:#333333;
+            font-size: 20px;
+        }
+        .checkout-page .service .name img {margin:-15px 15px -15px 0;}
+        .checkout-page .service .show-info {text-decoration: none;border-bottom:1px dashed;}
+        .checkout-page .service .show-info .glyphicon {font-size:10px;}
+        .checkout-page .service .price {color:#333333;font-size:20px;text-align: right;}
+        .checkout-page .service .ad-checkout-info {color:#484646;line-height: 1.2;margin-top:30px;}
+        .checkout-page .checkout-summ {padding:30px;}
+            .checkout-page .checkout-summ .btn-lg {font-size:24px;}
+            .checkout-page .checkout-summ .total-string {font-size:22px;}
+            .checkout-page .checkout-summ .total-string strong {float:right;}
+
+        .checkout-page .selectpicker {color:black}
+        .checkout-page .service-intl {padding:10px 30px;}
+            .checkout-page .service-intl label {font-weight: normal;cursor: pointer}
+
+    .checkout-page .about {margin:20px 0;font-size:14px;}
+        .checkout-page .about h5 {font-size:16px;font-weight: bold;text-align: center;margin-bottom:20px;}
+
+/* Элементы */
+/* Выпадающий список */
+.ad-dropdown {
+    background-color: #e1e1e1; font-size: 16px; border: 0; padding: 0 15px; line-height: 37px;
+    height: 37px; text-align: left; font-weight: normal;
+}
+    .ad-dropdown .glyphicon-chevron-down {
+        font-size: 55%; margin-top: -3px; position: absolute; right: 10px; top: 50%;
+    }
+
+    .btn-default.ad-dropdown:hover, .btn-default.ad-dropdown:focus,
+    .btn-default.ad-dropdown:active, .btn-default.active.ad-dropdown,
+    .open > .dropdown-toggle.btn-default.ad-dropdown {background-color: #e1e1e1;}
+
+.ad-dropdown-menu {
+    border: 1px #e1e1e1 solid; border-top: 0; background: #fff; line-height: 43px; font-size: 16px; margin-top: 0;
+    min-width: 100%;
+}
+    .dropdown-menu.ad-dropdown-menu > li > a {
+        padding: 0 15px; line-height: 43px; height: 43px; text-decoration: none;
+    }
+        .dropdown-menu.ad-dropdown-menu > li > a:hover, .dropdown-menu.ad-dropdown-menu > li > a:focus {
+            background-color: #f8295c; color: #fff;
+        }
+
+/* Чекбокс */
+.ad-checkbox {display: none;}
+    .ad-checkbox + label {
+        background: #fff; width: 27px; height: 27px; display: block; position: relative; border: 1px #cccccc solid;
+        margin-top: 4px;
+    }
+
+    .ad-checkbox:checked + label {background: #fff url(../img/profile/checked-checkbox.png) 50% 50% no-repeat;}
+    .ad-checkbox:disabled + label {background-color: #eee;cursor: default}
+
+.ad-radiobox {display: none;}
+    .ad-radiobox + label {
+        background: #fff; width: 28px; height: 28px; display: block; position: relative; border: 1px #cccccc solid;
+        border-radius: 15px;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .ad-radiobox:checked + label:before {
+        content:" ";
+        background: #ff1c55;
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        border-radius: 15px;
+        vertical-align: top;
+        margin-top:2px;
+    }
+
+/* Бокс с поиском */
+.ad-list-search {font-size: 16px;}
+    .ad-list-search input {height: 37px; line-height: 37px; padding: 0 15px; border: 1px #e1e1e1 solid; box-shadow: none;}
+        .ad-list-search input:focus {box-shadow: none; border-color: #e1e1e1;}
+
+    .ad-list-search .btn-default {
+        width: 45px; height: 37px; padding: 0;
+        background: #fff url(../img/profile/search-icon.png) 50% 50% no-repeat;
+    }

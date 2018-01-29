@@ -1,0 +1,45 @@
+{% load thumbnail_filter humanize smart_round staticfiles i18n %}
+<section class='clearfix'>
+    <div class='image'>
+        {% if item.photos.all %}
+            <a href='{{ item.get_bank_url }}'><img src='{{ item.photos.all.0|thumbnail_alias:"md" }}' alt='' width='160' height='120' /></a>
+        {% else %}
+            <img src='{% static 'img/no-photo.png' %}' alt=''/>
+        {% endif %}
+        {% if starred %}
+        <div class='alt'>
+            <noindex><a href='{% url 'profile_save_property' item.pk %}' title='убрать объявление из избранного' class='starred starred-active'><span class='unreal'>{% trans 'убрать из избранного' %}</span></a></noindex>
+        </div>
+        {% endif %}
+    </div>
+
+    {% if map_pointer and item.get_coords %}
+        <div class="map-pointer" id="map-pointer-{{ item.id }}">
+            {{ forloop.counter }}
+        </div>
+    {% endif %}
+    {% block price %}
+        <h4 class='price'>
+            <div class='price-block'>
+                {% if item.property_type == 'commercial' and item.property_commercial_type %}
+                    <a href='{{ item.get_bank_url }}' class="price_link">{{ item.get_property_commercial_type_display.capitalize }}</a><br />
+                {% endif %}
+                <a href='{{ item.get_bank_url }}' class="price_link">{{ item.price|intcomma }} {{ item.get_currency_display }} {% if item.price_uah and item.currency != 'UAH' %}(~{{ item.price_uah|smart_round|intcomma }}  грн.){% endif %}{% if item.special_price %}<i></i>{% endif %}</a>
+                {% if item.rooms and item.property_type != 'plot' and item.property_type != 'commercial' %}
+                    <br/><a href='{{ item.get_bank_url }}'>{{ item.rooms }} комн.</a>
+                {% endif %}
+                {% if item.special_price %}<span class='special-price'>{{ item.special_price|intcomma }} грн.</span>{% endif %}
+            </div>
+            {% if item.bank.logo %}<img class='bank-logo' src='{{ item.bank.logo|thumbnail:"200x30,nocrop=1" }}'/>{% endif %}
+        </h4>
+    {% endblock %}
+    <p class='address'><b>{{ item.address }}</b></p>
+    {% if not no_anonce and item.description %}
+        <div class='anonce'>{% if no_linebreaks %}{{ item.description|truncatewords_html:25|escape }}{% else %}{{ item.description|truncatewords_html:25|escape|linebreaks }}{% endif %}</div>
+    {% endif %}
+
+    {% if show_more_button %}
+        <a class="btn btn-success btn-more" href="{{ item.get_bank_url }}">{% trans 'Подробнее' %}</a>
+    {% endif %}
+
+</section>

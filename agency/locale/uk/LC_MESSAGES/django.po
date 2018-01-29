@@ -1,0 +1,539 @@
+# Ukrainian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-12-26 14:47+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uk\n"
+"Language-Team: uk <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: forms.py:34
+msgid "Логотип"
+msgstr "Логотип"
+
+#: forms.py:35
+msgid "Город"
+msgstr "Місто"
+
+#: forms.py:36
+msgid "Типы сделки"
+msgstr "Типи угоди"
+
+#: forms.py:37 models.py:105
+msgid "Номер свидетельства АСНУ"
+msgstr "Номер свідоцтва АФНУ"
+
+#: forms.py:54
+msgid ""
+"Такой номер свидетельства уже зарегистрирован на сайте, проверьте "
+"введенные данные"
+msgstr "Такий номер свідоцтва вже зареєстрований на сайті, перевірте введені дані"
+
+#: forms.py:59
+msgid "Искать по имени, фамилии..."
+msgstr "Шукати за ім'ям, прізвищем..."
+
+#: forms.py:63
+msgid "Неделя"
+msgstr "Тиждень"
+
+#: forms.py:64
+msgid "Месяц"
+msgstr "Місяць"
+
+#: forms.py:65
+msgid "3 месяца"
+msgstr "З місяці"
+
+#: forms.py:66
+msgid "За всё время"
+msgstr "За весь час"
+
+#: forms.py:69
+msgid "Кол-во объектов"
+msgstr "Кіл-ть об'єктів"
+
+#: forms.py:70 templates/agency/realtor_detail.jinja.html:27
+msgid "Просмотров"
+msgstr "Переглядів"
+
+#: forms.py:71
+msgid "Открытых контактов"
+msgstr "Відкритих контактів"
+
+#: forms.py:72
+msgid "Входящих сообщений"
+msgstr "Вхідних повідомлень"
+
+#: forms.py:73
+msgid "Логинов в систему"
+msgstr "Логінов в систему"
+
+#: forms.py:77 forms.py:87 forms.py:91
+msgid "Временной отрезок"
+msgstr "Часовий відрізок"
+
+#: forms.py:78
+msgid "Тип статистики"
+msgstr "Тип статистики"
+
+#: forms.py:82
+msgid "Все операции"
+msgstr "Всі операції"
+
+#: forms.py:83
+msgid "Пополнения"
+msgstr "Поповнення"
+
+#: forms.py:84
+msgid "Расходы"
+msgstr "Витрати"
+
+#: forms.py:88
+msgid "Тип операции"
+msgstr "Тип операції"
+
+#: forms.py:108
+msgid "E-mail"
+msgstr "E-mail"
+
+#: forms.py:109
+msgid "Фото"
+msgstr "Фото"
+
+#: forms.py:128
+#, python-format
+msgid "Вы уже добавили риелтора %s"
+msgstr "Ви вже додали ріелтора  %s"
+
+#: forms.py:141
+msgid "This field is required."
+msgstr "обов'язкове поле"
+
+#: models.py:22
+msgid "агентство"
+msgstr "агентство"
+
+#: models.py:23
+msgid "пользователь"
+msgstr "користувач"
+
+#: models.py:40 models.py:53
+msgid "Уведомление от Mesto.UA"
+msgstr "Сповіщення від Mesto.UA"
+
+#: models.py:61
+msgid "риелтор"
+msgstr "ріелтор"
+
+#: models.py:62
+msgid "владелец заметки"
+msgstr "власник нотатки"
+
+#: models.py:63
+msgid "текст заметки"
+msgstr "текст нотатки"
+
+#: models.py:80
+msgid "Телефон"
+msgstr "Телефон"
+
+#: models.py:81
+msgid "Заказ звонка"
+msgstr "Замовлення дзвінка"
+
+#: models.py:82
+msgid "И одно и другое"
+msgstr "І те й інше"
+
+#: models.py:93
+msgid "название"
+msgstr "назва"
+
+#: models.py:94
+msgid "логотип"
+msgstr "логотип"
+
+#: models.py:95
+msgid "город (старое поле)"
+msgstr "місто (старе поле)"
+
+#: models.py:96
+msgid "город"
+msgstr "місто"
+
+#: models.py:97
+msgid "адрес"
+msgstr "адреса"
+
+#: models.py:98
+msgid "типы сделки"
+msgstr "тип угоди"
+
+#: models.py:99
+msgid "показывать агентство в разделе сайта \"Профессионалы\""
+msgstr "показувати агентство в розділі сайту \"Професіонали\""
+
+#: models.py:100
+msgid "описание"
+msgstr "опис"
+
+#: models.py:101
+msgid "время работы"
+msgstr "час роботи"
+
+#: models.py:102
+msgid "веб-сайт"
+msgstr "веб-сайт"
+
+#: models.py:103
+msgid "адрес должен начинаться с http://"
+msgstr "адреса повинна починатись з http://"
+
+#: models.py:104
+msgid "ссылка для импорта"
+msgstr "посилання для імпорту"
+
+#: models.py:133
+msgid "Первичный контакт"
+msgstr "Первинний контакт"
+
+#: models.py:134
+msgid "В работе"
+msgstr "В роботі"
+
+#: models.py:135
+msgid "Принимает решение"
+msgstr "Приймає рішення"
+
+#: models.py:136
+msgid "Сделка завершена"
+msgstr "Угода завершена"
+
+#: models.py:137
+msgid "Сделка не состоялась"
+msgstr "Угода не відбулася"
+
+#: models.py:153 models.py:228
+msgid "прочитано"
+msgstr "прочитано"
+
+#: models.py:239
+msgid "сообщение"
+msgstr "повідомлення"
+
+#: models.py:240
+#, python-format
+msgid "пришло первое %s от клиента"
+msgstr "прийшло перше %s  від клієнта"
+
+#: models.py:242
+#, python-format
+msgid "присвоена метка \"%s\""
+msgstr "надана позначка \"%s\""
+
+#: models.py:245
+#, python-format
+msgid "присвоен объект %s"
+msgstr "присвоєний об'єкт %s"
+
+#: models.py:247
+msgid "назначена встреча"
+msgstr "назначена зустріч"
+
+#: models.py:252
+#, python-format
+msgid "принят звонок длительностью %d сек"
+msgstr "прийнятий дзвінок тривалістю %d сек"
+
+#: models.py:254
+msgid "пропущенный звонок"
+msgstr "пропущенний дзвінок"
+
+#: models.py:256
+#, python-format
+msgid "получен запрос звонка от %s"
+msgstr "отриманий запит дзвінка від %s"
+
+#: views.py:36
+msgid "Редактирование агентства"
+msgstr "Редагування агентства"
+
+#: views.py:54 views.py:128
+msgid "Риелторы агентства"
+msgstr "Ріелтори агентства"
+
+#: views.py:89
+msgid ""
+"Рилетор добавлен.<br/>Риелтору отправлено личное сообщений с ссылкой для "
+"подтверждения"
+msgstr ""
+"Ріелтор доданий.<br/>Ріелтору відправлено приватне повідомлень з "
+"посиланням для підтвердження"
+
+#: views.py:221
+msgid "CRM"
+msgstr "CRM"
+
+#: templates/agency/stats.jinja.html:21 views.py:239
+msgid "Статистика по риелторам"
+msgstr "Статистика по ріелторам"
+
+#: views.py:331
+#, python-format
+msgid "Вы присоединились к агентству \"%s\""
+msgstr "Ви приєднались да агентства \"%s\""
+
+#: templates/agency/agency_form.jinja.html:8
+msgid ""
+"Номер свидетельства АСНУ принят. Вам подключена дополнительная скидка 10%"
+" на услугу \"Тарифный план\""
+msgstr ""
+"Номер свідоцтва АФНУ прийнятий. Вам підключена додаткова знижка 10% на "
+"послугу \"Тарифний план\""
+
+#: templates/agency/agency_form.jinja.html:126
+msgid "Профиль агентства"
+msgstr "Профіль агентства"
+
+#: templates/agency/agency_form.jinja.html:134
+msgid "Сохранить"
+msgstr "Зберегти"
+
+#: templates/agency/crm_person_redirect.jinja.html:4
+msgid "Переадресация"
+msgstr "Переадресація"
+
+#: templates/agency/email_add_realtor.jinja.html:4
+#: templates/agency/message_add_realtor.jinja.html:1
+#, python-format
+msgid ""
+" Пользователь %(agency_admin_user)s приглашает вас присоединиться к "
+"агентству \"%(agency_name)s\" на сайте Mesto.UA."
+msgstr ""
+"Користувач %(agency_admin_user)s запрошує вас приєднатись до агентства "
+"\"%(agency_name)s\" на сайті Mesto.UA."
+
+#: templates/agency/email_add_realtor.jinja.html:6
+msgid ""
+"Для подтверждения, авторизуйтесь на сайте и подтвердите привязку через "
+"ссылку в личных сообщениях"
+msgstr ""
+"Для підтвердження, авторизуйтесь на сайті і підтвердіть прив'язку через "
+"посилання в особистих повідомленнях"
+
+#: templates/agency/email_add_realtor.jinja.html:10
+#, python-format
+msgid "Для авторизации на сайте используйте логин %(email)s и пароль %(password)s"
+msgstr ""
+"Для авторизації на сайті використовуйте логін %(email)s  та пароль "
+"%(password)s"
+
+#: templates/agency/message_add_realtor.jinja.html:3
+msgid "Для подтверждения приглашения пройдите по ссылке:"
+msgstr "Для підтвердження запрошення перейдіть за посиланням:"
+
+#: templates/agency/realtor_detail.jinja.html:23
+msgid "Отображать"
+msgstr "Відображати"
+
+#: templates/agency/realtor_detail.jinja.html:28
+msgid "Контакты"
+msgstr "Контакти"
+
+#: templates/agency/realtor_detail.jinja.html:29
+msgid "Сообщений"
+msgstr "Повідомлень"
+
+#: templates/agency/realtor_detail.jinja.html:30
+msgid "Логинов"
+msgstr "Логінів"
+
+#: templates/agency/realtor_detail.jinja.html:75
+#: templates/agency/realtors.jinja.html:96
+msgid "Подключена услуга \"Оплата за звонок\""
+msgstr "Підключена послуга \"Оплата за дзвінок\""
+
+#: templates/agency/realtor_detail.jinja.html:77
+msgid "Текущий тариф"
+msgstr "Поточний тариф"
+
+#: templates/agency/realtor_detail.jinja.html:78
+msgid "объяв."
+msgstr "оголошення"
+
+#: templates/agency/realtor_detail.jinja.html:81
+msgid "Не выбран вариант размещения"
+msgstr "Не встановлено варіант розміщення"
+
+#: templates/agency/realtor_detail.jinja.html:84
+msgid "Выбрать вариант размещения"
+msgstr "Вибрати варіант розміщення"
+
+#: templates/agency/realtor_detail.jinja.html:94
+msgid "Текущий баланс"
+msgstr "Поточний баланс"
+
+#: templates/agency/realtor_detail.jinja.html:98
+#: templates/agency/realtor_detail.jinja.html:115
+msgid "Пополнить"
+msgstr "Поповнити"
+
+#: templates/agency/realtor_detail.jinja.html:102
+#: templates/agency/realtor_detail.jinja.html:120
+msgid "История оплат"
+msgstr "Історія оплат"
+
+#: templates/agency/realtor_detail.jinja.html:107
+msgid "Пополнение баланс"
+msgstr "Поповнення балансу"
+
+#: templates/agency/realtor_detail.jinja.html:112
+msgid "Введите сумму пополнения"
+msgstr "Введіть суму поповнення"
+
+#: templates/agency/realtor_detail.jinja.html:148
+msgid "Объекты риелтора"
+msgstr "Об'єкти ріелтора"
+
+#: templates/agency/realtor_detail.jinja.html:153
+msgid "активировать объявления"
+msgstr "активувати оголошення"
+
+#: templates/agency/realtor_detail.jinja.html:153
+msgid "Активировать"
+msgstr "Активувати"
+
+#: templates/agency/realtor_detail.jinja.html:157
+msgid "сделать объявления VIP-объявлением"
+msgstr "зробити оголошення VIP-оголошенням"
+
+#: templates/agency/realtor_detail.jinja.html:157
+msgid "Сделать VIP"
+msgstr "Зробити VIP"
+
+#: templates/agency/realtor_detail.jinja.html:161
+msgid "отключить объявления"
+msgstr "відключити оголошення"
+
+#: templates/agency/realtor_detail.jinja.html:161
+msgid "Отключить"
+msgstr "Відключити"
+
+#: templates/agency/realtor_detail.jinja.html:165
+msgid "удалить объявления"
+msgstr "видалити оголошення"
+
+#: templates/agency/realtor_detail.jinja.html:165
+#: templates/agency/realtors.jinja.html:178
+msgid "Удалить"
+msgstr "Видалити"
+
+#: templates/agency/realtor_detail.jinja.html:174
+msgid "Нет объектов"
+msgstr "Немає об'єктів"
+
+#: templates/agency/realtors.jinja.html:10
+msgid "Показать статистику"
+msgstr "Показати статистику"
+
+#: templates/agency/realtors.jinja.html:26
+msgid "Добавить риелтора"
+msgstr "Додати ріелтора"
+
+#: templates/agency/realtors.jinja.html:43
+msgid "Ожидается подтвержение от пользователя"
+msgstr "Очікується підтвердження від користувача"
+
+#: templates/agency/realtors.jinja.html:47
+#: templates/agency/realtors.jinja.html:126
+msgid "удалить риелтора"
+msgstr "видалити ріелтора"
+
+#: templates/agency/realtors.jinja.html:79
+#, python-format
+msgid "%(reviews)s отзывов"
+msgstr "%(reviews)s відгуків"
+
+#: templates/agency/realtors.jinja.html:87
+msgid "Тариф"
+msgstr "Тариф"
+
+#: templates/agency/realtors.jinja.html:89
+msgid "нажмите на ссылку чтобы выбрать вариант размещения"
+msgstr "натисніть на посилання, щоб вибрати варіант розміщення"
+
+#: templates/agency/realtors.jinja.html:91
+msgid "тариф"
+msgstr "тариф"
+
+#: templates/agency/realtors.jinja.html:92
+msgid "объявление"
+msgstr "оголошення"
+
+#: templates/agency/realtors.jinja.html:92
+msgid "объявления"
+msgstr "оголошення"
+
+#: templates/agency/realtors.jinja.html:92
+msgid "объявлений"
+msgstr "оголошень"
+
+#: templates/agency/realtors.jinja.html:98
+msgid "без тарифа"
+msgstr "без тарифу"
+
+#: templates/agency/realtors.jinja.html:124
+msgid "подробнее"
+msgstr "детальніше"
+
+#: templates/agency/realtors.jinja.html:124
+msgid "Подробнее"
+msgstr "Детальніше"
+
+#: templates/agency/realtors.jinja.html:146
+msgid "Добавить риелтора в систему"
+msgstr "Додати ріелтора в систему"
+
+#: templates/agency/realtors.jinja.html:171
+msgid "Закрыть"
+msgstr "Закрити"
+
+#: templates/agency/realtors.jinja.html:172
+msgid "Удаление риелтора"
+msgstr "Видалення ріелтора"
+
+#: templates/agency/realtors.jinja.html:175
+msgid "Вы действительно хотите исключить риетора из своего агентства?"
+msgstr "Ви дійсно бажаєте виключити ріетора зі свого агентства?"
+
+#: templates/agency/realtors.jinja.html:177
+msgid "Отмена"
+msgstr "Відміна"
+
+#: templates/agency/realtors.jinja.html:228
+msgid ""
+"Пользователь с указанным адресом уже зарегистрирован на сайте. На этот "
+"адрес будет оправлено уведомление с инструкциями для продолжения процесса"
+" привязки пользователя к агентству."
+msgstr ""
+"Користувач із вказаною адресою вже зареєстрований на сайті. На цю адресу "
+"буде надіслано сповіщення з інструкціями для продовження процесу привязки"
+" користувача до агентства."
+
+#: templates/agency/stats.jinja.html:47
+msgid "Добавить к статистике"
+msgstr "Додати до статистики"
+

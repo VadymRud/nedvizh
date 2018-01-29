@@ -1,0 +1,25 @@
+{% extends "mail/base_redesigned_2017.jinja.html" %}
+
+{% block content %}
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        {% trans %}Срок действия абонентской платы "Выделенный номер" истек.{% endtrans %}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        {% trans %}Продлите действие услуги и продолжайте получать звонки от целевых клиентов.{% endtrans %}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap text-center">
+        <a href="{{ host_url('profile_balance') }}{% if utm is defined %}?{{ utm.urlencode() }}{% endif %}" target="_blank" class="button">{% trans %}Продлить{% endtrans %}</a>
+      </div>
+    </td>
+  </tr>
+{% endblock %}

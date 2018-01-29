@@ -1,0 +1,16 @@
+{% if paginator.num_pages > 1 %}
+    <div class="paging" align="center">
+        <ul class="pagination {{ pagination_extra_class }}">
+            {% for page_number in paginator.truncated_page_range %}
+                {% if page_number == paginator.current_page.number %}
+                    <li class="paging-current"><a>{{ page_number }}</a></li>
+                {% elif page_number == '...' %}
+                    <li><span>...</span></li>
+                {% else %}
+                    <li><a href="?{{ paginator.cleaned_query_dict.urlencode|escape }}{% if page_number != 1 %}&amp;p={{ page_number }}{% endif %}">
+                        {{ page_number }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}

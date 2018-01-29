@@ -1,0 +1,34 @@
+{% extends "profile/import/base.jinja.html" %}
+
+{% block import_content %}
+    {% if importtasks %}
+    <table class="table table-bordered">
+        <thead>
+            <tr><th rowspan="2">{% trans %}Время{% endtrans %}</th><th colspan="4">{% trans %}Объявления{% endtrans %}</th><th rowspan="2">{% trans %}Ошибка при обработке файла{% endtrans %}</th></tr>
+            <tr><th>{% trans %}новые{% endtrans %}</th><th>{% trans %}обновленные{% endtrans %}</th><th>{% trans %}удаленные{% endtrans %}</th><th>{% trans %}с ошибками{% endtrans %}</th></tr>
+        </thead>
+        <tbody>
+            {% for importtask in importtasks %}
+            <tr>
+                <td>{{ importtask.completed|date("d.m.Y H:i") }}</td>
+                <td>{{ importtask.stats.get('add', 0) }}</td>
+                <td>{{ importtask.stats.get('update', 0) }}</td>
+                <td>{{ importtask.stats.get('delete', 0) }}</td>
+                <td>{{ importtask.stats.get('errors', 0) }}</td>
+                <td>{{ importtask.error or '' }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <p>
+        {% trans %}Чтобы увидеть ошибки, выполните{% endtrans %} <a href='{{ url('import:test') }}'>{% trans %}проверку файла{% endtrans %}</a>
+    </p>
+
+    <p><a target='_blank' href='{{ url('import:report') }}?access_code={{ request.own_agency.import_report_access_code }}'>{% trans %}Посмотреть последний отчет{% endtrans %}</a></p>
+
+    {% else %}
+        <p>{% trans %}Нет данных{% endtrans %}</p>
+    {% endif %}
+{% endblock %}
+

@@ -1,0 +1,78 @@
+{% extends "profile/base.jinja.html" %}
+
+{% block extra_css %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ static('libs/bootstrap-select/bootstrap-select.min.css') }}">
+
+  <style>
+    .bootstrap-select.btn-group.select-inline {width:auto !important;}
+      .bootstrap-select.btn-group.select-inline .dropdown-menu {width:220px;}
+      .bootstrap-select.btn-group.select-inline .dropdown-toggle {color:#ff1b55; font-size:inherit; line-height:1.2; background:none; border:none; border-bottom:dashed 1px #ff1b55; padding:0;}
+        .bootstrap-select.btn-group.select-inline .dropdown-toggle {box-shadow:none; -webkit-box-shadow:none;}
+        .bootstrap-select.btn-group.select-inline .dropdown-toggle .caret {position:static;}
+        .bootstrap-select.btn-group.select-inline .dropdown-toggle .filter-option {width:auto;}
+  </style>
+{% endblock %}
+
+{% block content_wrapper %}
+  {% if request.user.is_authenticated %}
+    {% include "includes/account_menu.jinja.html" %}
+  {% endif %}
+
+  <div class="row" style="background: #ffffff url({{ static('paid_services/img/vips.png') }}?01) 50% bottom no-repeat; margin: 0;">
+    <div class="col-xs-24" style="min-height: 850px; margin: 0;">
+      <div class="container personal-account">
+        <br>
+        {%  include('paid_services/menu_publication.jinja.html')  %}
+
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-3">
+            <h1>{% trans %}Делаем объявление «вкуснее»{% endtrans %}</h1><br>
+            <p>{% trans %}Vip объявления имеют особый статус и {% endtrans %}<br>{% trans %}публикуются на желтом фоне с пометкой vip,{% endtrans %}<br>{% trans %}что делает их гораздо заметнее среди остальных объявлений,{% endtrans %}<br>{% trans %}тем самым увеличивает шансы на успешную реализацию.{% endtrans %}</p><br>
+            <h4>{% trans %}Стоимость VIP размещений{% endtrans %}</h4>
+            <div style="border: 1px #000 solid; padding: 35px 0;">
+              <div class="row">
+                <div class="col-xs-12 text-center">
+                  <strong>{% trans %}Продажа / аренда{% endtrans %}</strong><br>
+                  <select id="province" class='selectpicker select-inline' data-size='10'>
+                    {% for province in provinces %}
+                      <option data-price="{{ province.price_level }}"{% if province == selected_province %} selected="selected"{% endif %}>{{ province.name|replace('область', 'обл.') }}</option>
+                    {% endfor %}
+                  </select>
+                  <div class='vip-price vip-price-by-province' style="padding-top: 10px;">
+                    <strong><span class='value big'></span> грн.</strong>
+                  </div>
+                </div>
+                <div class="col-xs-12 text-center" style="border-left: 1px #000 solid; min-height: 100px;">
+                  <strong>{% trans %}Посуточная аренда{% endtrans %}</strong><br>
+                  <div class='vip-price' style="padding-top: 6px;">
+                    <span style="color: #745c29">{% trans %}на 7 дней{% endtrans %}</span><br/>
+                    <strong style="padding-top: 5px; display: inline-block;"><span class='value big'>{{ vip_price_rent_daily }}</span> грн.</strong>
+                  </div>
+                </div>
+              </div>
+            </div><br><br>
+            <a href="{{ host_url('profile_my_properties') }}" class="btn btn-lg btn-danger" style="width: 320px; height: 66px; line-height: 66px; text-transform: uppercase; padding: 0; letter-spacing: 2px;">
+              <img src="{{ static('img/profile/icon-crown-white.png') }}" style="padding-right: 10px;">{% trans %}Выбрать объявления{% endtrans %}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><br/>
+{% endblock %}
+
+{% block extra_footer %}
+  {{ super() }}
+  <script src="{{ static('libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
+  <script>
+    $(function() {
+      $('select#province').change(function() {
+        var priceLevel = $('select#province option:selected').data('price');
+        var priceByLevel = {{ vip_prices_json|safe }};
+        $('.vip-price-by-province .value').text(priceByLevel[priceLevel]);
+      }).change();
+    });
+  </script>
+{% endblock %}
+

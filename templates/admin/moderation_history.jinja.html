@@ -1,0 +1,23 @@
+{% if moderations  %}
+    <div class="moderation-history">
+        <h3>История модераций</h3>
+        {% for moderation in moderations %}
+            {% if not moderation.moderator_id %}
+                <a href="{{ url('moderation_detail', moderation.id) }}" class="btn btn-sm btn-primary"
+                   title="точное время {{ moderation.start_time|date("d.m.Y H:i") }}">
+                    {{ moderation.start_time|time_ago }} попал на модерацию
+                </a>
+            {% elif moderation.new_status > 1 %}
+                <a href="{{ url('moderation_detail', moderation.id) }}" class="btn btn-sm btn-warning"
+                   title="точное время {{ moderation.end_time|date("d.m.Y H:i") }}">
+                    {{ moderation.end_time|time_ago }}: {{ moderation.get_new_status_display() }}
+                </a>
+            {% else %}
+                <a href="{{ url('moderation_detail', moderation.id) }}" class="btn btn-sm btn-success"
+                   title="точное время {{ moderation.end_time|date("d.m.Y H:i") }}">
+                    проверено {{ moderation.end_time|time_ago }}
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}

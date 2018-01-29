@@ -1,0 +1,29 @@
+sale;;Купить квартиру %(city)s, %(province)s. Продажа квартир
+sale;room;Купить комнату %(city)s, %(province)s. Продажа комнат
+sale;house;Купить дом %(city)s, %(province)s. Продажа домов недорого
+sale;commercial;Купить коммерческую недвижимость %(city)s, %(province)s
+sale;plot;Купить участок %(city)s, %(province)s. Продажа земли
+sale;garages;Купить гараж %(city)s, %(province)s. Продажа гаражей
+sale;all-real-estate;Купить недвижимость %(city)s, %(province)s
+
+rent;;Аренда квартир %(city)s, %(province)s. Снять долгосрочно
+rent;room;Аренда комнаты %(city)s, %(province)s. Снять долгосрочно
+rent;house;Аренда дома %(city)s, %(province)s. Снять дом долгосрочно
+rent;commercial;Аренда коммерческой недвижимости %(city)s, %(province)s
+rent;plot;Аренда участка %(city)s, %(province)s. Долгосрочно снять
+rent;garages;Аренда гаража %(city)s, %(province)s. Долгосрочно снять гараж
+rent;all-real-estate;Аренда недвижимости %(city)s,[ Киев]. Снять долгосрочно
+
+rent_daily;;Квартиры посуточно %(city)s, %(province)s. Аренда на сутки
+rent_daily;room;Комнаты посуточно %(city)s, %(province)s. Аренда на сутки
+rent_daily;house;Дома посуточно %(city)s, %(province)s. Аренда на сутки
+rent_daily;commercial;Коммерческая недвижимость посуточно %(city)s, %(province)s. Аренда на сутки
+rent_daily;garages;Гараж посуточно %(city)s, %(province)s. Аренда на сутки
+rent_daily;all-real-estate;Недвижимость посуточно %(city)s, %(province)s. Аренда на сутки
+
+newhomes;;Квартира в новостройке %(city)s, %(province)s. Купить квартиру
+newhomes;house;Новые дома %(city)s, %(province)s. Купить новопостроенный дом
+newhomes;commercial;Коммерческая недвижимость от застройщика %(city)s, %(province)s
+newhomes;garages;Купить новый гараж %(city)s, %(province)s. Все гаражи
+newhomes;all-real-estate;Новостройки %(city)s, %(province)s. Вся недвижимость
+

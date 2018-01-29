@@ -1,0 +1,87 @@
+{% extends "newhome/cabinet/base.jinja.html" %}
+
+{% block top_menu %}
+    {% set active='sections' %}
+    {% include "newhome/cabinet/menu-edit.jinja.html" %}
+{% endblock %}
+
+{% block content %}
+    <div class="white-panel smart-horizontal-padding sections">
+        {% set active='sections' %}
+        {% include "newhome/cabinet/sections-submenu.jinja.html" %}
+        <div class="row{% if edit_building is not undefined %} opacity{% endif %}">
+            <div class="col-xs-24 text-center{% if newhome.buildings.count() %} border-bottom{% endif %}">
+                <br>
+                <p>{% trans %}В этой вкладке вы можете указать количество домов и секций в них{% endtrans %}</p>
+                <br>
+            </div>
+        </div>
+      {% with buildings = newhome.buildings.all() %}
+        {% for building in buildings %}
+            {% if edit_building is not undefined and building.id == edit_building.id %}
+                {% import "newhome/macros.jinja.html" as macros with context %}
+                {# Редактирование строения #}
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="hidden">{{ form.positions }}</div>
+                    <div class="row building{% if not loop.last %} border-bottom{% endif %}">
+                        <div class="col-xs-6">{{ macros.field_very_simple('name') }}</div>
+                        <div class="col-xs-13">
+                            <strong>{% trans %}Секций в доме{% endtrans %}:</strong>
+                            <button class="btn btn-danger btn-add-section pull-right">{% trans %}Добавить{% endtrans %}</button>
+                            <ul>
+                                {% for section in building.sections.all() %}
+                                    <li data-section-position="{{ section.position }}">{% trans %}секция{% endtrans %} {{ section.position }} <span class="glyphicon glyphicon-minus-sign"></span></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-xs-5 text-right">
+                            <button type="submit" class="btn btn-danger">{% trans %}Завершить{% endtrans %}</button>
+                            <a href="{{ url('profile_newhome_sections', newhome.id) }}" class="btn btn-white">{% trans %}Отмена{% endtrans %}</a>
+                        </div>
+                    </div>
+                </form>
+            {% else %}
+                {# Общий список по строению #}
+                <div class="row building{% if not loop.last %} border-bottom{% endif %}{% if edit_building is not undefined %} opacity{% endif %}">
+                    <div class="col-xs-6"><strong>{{ building.name }}</strong></div>
+                    <div class="col-xs-13">
+                        <strong>{% trans %}Секций в доме{% endtrans %}:</strong>
+                        <ul>
+                            {% for section in building.sections.all() %}
+                                <li>{% trans %}секция{% endtrans %} {{ section.position }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="col-xs-4 text-right">
+                        <a href="{{ url('profile_newhome_sections_building_edit', newhome.id, building.id) }}" class="btn btn-gray">{% trans %}Редактировать{% endtrans %}</a>
+                    </div>
+                    <div class="col-xs-1 text-right">
+                        <a href="{{ url('profile_newhome_sections_building_remove', newhome.id, building.id) }}"><span class="glyphicon glyphicon-remove"></span></a>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+        <div class="row building{% if edit_building is not undefined %} opacity{% endif %}">
+          <div class="{% if not buildings %}col-xs-24{% else %}col-xs-18{% endif %} text-right">
+            <a href="{{ url('profile_newhome_sections_building_add', newhome.id) }}" class="btn btn-danger btn-control">{% trans %}Добавить дом и секции{% endtrans %}</a>
+          </div>
+          {% if buildings %}
+            <div class="col-xs-6 text-right">
+              <a href="{{ url('profile_newhome_flats', newhome.id, buildings.first().sections.first().id ) }}" class="btn btn-danger btn-control">{% trans %}Сохранить и продолжить{% endtrans %}</a>
+            </div>
+          {% endif %}
+        </div>
+      {% endwith %}
+    </div>
+{% endblock %}
+
+{% block extra_footer %}
+    <script>
+        $().ready(function() {
+            profileNewhomeSection();
+        })
+    </script>
+
+    {{ super() }}
+{% endblock %}

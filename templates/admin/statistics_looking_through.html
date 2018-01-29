@@ -1,0 +1,19 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Анализ раскрытых контактов{% endblock %}
+
+{% block content %}
+  <style>select {height: 50px;}</style>
+
+  <h2>Анализ раскрытых контактов</h2>
+  {% if is_job_created %}
+    <p>Задание на формирование статистики добавлено. Ожидайте отчет на Ваш e-mail</p>
+  {% else %}
+    <form enctype="multipart/form-data" method="post">
+      {% csrf_token %}
+      {{ form.errors }}
+      {{ form.as_p }}
+      <input type="submit" value="Сформировать"/>
+    </form>
+  {% endif %}
+{% endblock %}

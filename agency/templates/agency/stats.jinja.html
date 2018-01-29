@@ -1,0 +1,200 @@
+{% extends "profile/base.jinja.html" %}
+
+{% macro radio_like_pills(field) %}
+    <div id="id_{{ field.name }}" class="radio-like-pills clearfix">
+    {%- for widget in field -%}
+        {{- widget.tag()|safe -}}
+        <label for="{{ widget.attrs.id }}" {% if widget.is_checked() %} class="active"{% endif %}>
+            {{- widget.choice_label -}}
+        </label>
+    {%- endfor -%}
+    </div>
+{% endmacro %}
+
+{% block content %}
+    <form class="statistics" id="stats-form">
+        <input type="hidden" name="realtors" value="{{ request.GET.get('realtors', '') }}"/>
+
+        <div class="white-panel white-panel-collapsed">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h4>{% trans %}Статистика по риелторам{% endtrans %}</h4>
+                </div>
+                <div class="col-sm-16">
+                    {{ radio_like_pills(form.period) }}
+                </div>
+            </div>
+        </div>
+        <div class="white-panel white-panel-collapsed realtors">
+            <div class="row">
+                <div class="col-sm-19">
+                    {% for realtor in selected_realtors %}
+                        <div class="btn btn-lg realtor-button" style="background-color:{{ realtor.color }};"
+                                data-user="{{ realtor.user_id }}" data-realtor="{{ realtor.id }}" data-index="{{ loop.index0 }}">
+                            {% if realtor.user.image %}
+                                <img src="{{ realtor.user.image|thumbnail("50x50") }}" height="40" class="img-circle"/> &nbsp;
+                            {% else %}
+                                <img src="{{ static('agency/img/common/no-photo.png') }}" height="40" class="img-circle" />  &nbsp;
+                            {% endif %}
+                            {{ realtor.user }}
+                        </div>
+                    {% endfor %}
+                </div>
+                {% if agency_realtors.count() > 1 %}
+                  <div class="col-sm-5" class="dropdown">
+                    <div class="dropdown realtor-select">
+                        <button class="btn btn-md btn-danger btn-block" data-toggle="dropdown">
+                            + {% trans %}Добавить к статистике{% endtrans %}</button>
+
+                        {% include 'agency/realtor_chooser.jinja.html' %}
+                    </div>
+                  </div>
+                {% endif %}
+            </div>
+
+        </div>
+        <div class="white-panel realtor-stats">
+            {{ radio_like_pills(form.stat_type) }}
+
+            {% if selected_realtors %}
+                <div id="chart" style="min-width: 310px; height: 400px;"></div>
+            {% endif %}
+
+            <script>
+
+            $(function () {
+                Highcharts.setOptions({global: {useUTC: false}});
+
+                var periodStart = Date.UTC({{period_start.year}}, {{period_start.month-1}}, {{period_start.day}}, 0, 0, 0);
+                var options = {
+{#                    chart: {type: 'spline'},#}
+                    title: {text: null},
+                    xAxis: {
+                        step:1 ,
+                        type: 'datetime',
+                        {% if stats_interval != 'days' %}
+                            gridLineColor: "#ffe8ee",
+                            gridLineWidth: 1,
+                        {% endif %}
+                        minTickInterval: 24 * 3600 * 1000,
+                        dateTimeLabelFormats: {
+                            day: '%d.%m.%y',
+                            week: '%d.%m.%y'
+                        },
+                        plotLines: []
+                    },
+                    yAxis: {
+                        step:1 ,
+                        min: 0,
+                        title: {text: null},
+                        gridLineWidth:0 ,
+                        plotLines: [{
+                            value: 0,
+                            width: 1,
+                            color: '#808080'
+                        }]
+                    },
+                    legend: {enabled: false},
+                    plotOptions: {
+                        series: {
+                            marker: {enabled: false},
+                            pointStart: periodStart,
+                            {% if stats_interval == 'weeks' %}
+                                pointInterval: 7 * 24 * 3600 * 1000
+                            {% elif stats_interval == 'months' %}
+                                pointIntervalUnit: 'month'
+                            {% else %}
+                                pointInterval: 24 * 3600 * 1000
+                            {% endif %}
+                        }
+                    },
+                    tooltip: {},
+                    series: {{ series|to_json }}
+                };
+
+                {% if stats_interval == 'days' %}
+                    var day = moment(periodStart).clone().day(1), now = moment();
+                    while (day < now) {
+                        options.xAxis.plotLines.push({
+                            color: (day.day() == 1) ? '#ff5f88' : '#ffe8ee',
+                            width: 1,
+                            value: day.valueOf()
+                        });
+                        day.add(1, 'day');
+                    }
+                {% endif %}
+
+                $('#chart').highcharts(options);
+
+                {# var $chart = $('#chart').highcharts();
+                $('.realtor-button').click(function () {
+                    var series = $chart.series[parseInt($(this).data('index'))];
+                    $(this).toggleClass('inactive', series.visible);
+                    if (series.visible) {
+                        series.hide();
+                    } else {
+                        series.show();
+                    }
+                }); #}
+            });
+            </script>
+
+        </div>
+    </form>
+{% endblock %}
+
+{% block extra_footer %}
+    {{ super() }}
+
+    {% compress js %}
+    <script src="{{ static('agency/js/vendor/moment-with-locales.min.js') }}"></script>
+    <script src="{{ static('libs/highcharts/highcharts.js') }}"></script>
+    <script src="{{ static('libs/highcharts/highcharts-fix.js') }}"></script>
+
+    <link rel="stylesheet" href="{{ static('libs/bootstrap-select/bootstrap-select.min.css') }}">
+    <script src="{{ static('libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
+
+    <script>
+        var $form = $('#stats-form');
+        var xhr = false;
+
+        $form.submit(function(e, options) {
+            if (options !== undefined && options.noajax) return;
+
+            var url = "?" + $(this).serialize();
+            if (xhr)
+                xhr.abort();
+
+            xhr = $.get(url).always(function(data) {
+                if ($(data).find('#stats-form').length) {
+                    $("#stats-form").html( $(data).find('#stats-form').html() );
+                    if (options !== undefined && options.show_dropdown && $('.realtor-snippet', $form).length) {$('.realtor-select > button').click();}
+                    history.pushState(null, null, url);
+                } else {
+                    $form.trigger('submit', {noajax:true});
+                }
+            });
+            e.preventDefault();
+        });
+
+        $form.on("click", '.realtor-snippet', function (e) {
+            var $input = $('input[name=realtors]', $form);
+            var realtors =  $input.val() ? $input.val().split('-') : [];
+            realtors.push($(this).data('realtor'));
+            $input.val(realtors.join("-"));
+            $form.trigger('submit', {show_dropdown:true});
+            e.stopPropagation();
+        });
+        $form.on("click", '.realtor-button', function () {
+            var $input = $('input[name=realtors]', $form);
+            var realtors = $input.val().split('-');
+            var realtor = $(this).data('realtor');
+            realtors = $.grep(realtors, function( n, i ) {return n && n != realtor;});
+            $input.val(realtors.join("-"));
+            $form.submit();
+        });
+        $form.on("change", '#id_period input, #id_stat_type input', function() {$form.submit()});
+    </script>
+    {% endcompress %}
+
+{% endblock %}

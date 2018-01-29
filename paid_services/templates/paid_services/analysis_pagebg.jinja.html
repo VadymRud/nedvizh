@@ -1,0 +1,23 @@
+{% compress css %}
+<style>
+.pagebg {display:none;}
+@media (min-width: 1600px) {
+    .pagebg {
+        background: url('{{ static('paid_services/img/analysis/pagebg-2.jpg') }}') no-repeat 49.9% top;
+        display:block;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+    #design-2017 .l-header,
+    #design-2017 #footer,
+    #design-2017 > .container,
+    .topline-banner {max-width:1237px;position: relative;margin-left:auto;margin-right:auto;}
+}
+
+</style>
+{% endcompress %}
+<a href="{{ url('services:ocenka_nedvizh') }}"><div class="pagebg"></div></a>

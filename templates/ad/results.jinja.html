@@ -1,0 +1,32 @@
+<div class="col-sm-10 hidden-xs">
+    {% with map_height = 700 %}{% include "ad/on_map.jinja.html" %}{% endwith %}
+</div>
+<div class="col-sm-14 properties-list properties-search-result-list">
+    <div id="sort-space"></div>
+
+    {% for property in paginator.current_page.object_list %}
+        {% include "ad/preview.jinja.html" %}
+        {% if loop.index == 3 %}
+            <div class="image-between-properties">
+                {% with place_id = 13870 %}
+                    {% include 'includes/banner_rontar.jinja.html' %}
+                {% endwith %}
+                {% with rontar_place_id=13870, z='079029b9-41ac-4830-a9ee-f118e2b33369', ph='admixer_079029b941ac4830a9eef118e2b33369' %}
+                    {% include 'includes/admixer_banner.jinja.html' %}
+                {% endwith %}
+            </div>
+        {% elif loop.index == 7 %}
+            <div class="image-between-properties">
+                {% with place_id = 13930 %}
+                    {% include 'includes/banner_rontar.jinja.html' %}
+                {% endwith %}
+                {% with rontar_place_id=13930, z='df0464e7-933a-4eae-b6e3-81d3bc7ca397', ph='admixer_df0464e7933a4eaeb6e381d3bc7ca397' %}
+                    {% include 'includes/admixer_banner.jinja.html' %}
+                {% endwith %}
+            </div>
+        {% endif %}
+    {% else %}
+        <br/><h4 align="center">{% trans %}По вашему запросу ничего не найдено. <br/>Попробуйте изменить параметры поиска.{% endtrans %}</h4>
+    {% endfor %}
+    {% include "pagination.jinja.html" %}
+</div>

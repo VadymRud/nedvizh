@@ -1,0 +1,27 @@
+{% extends "admin/base_site.html" %}
+
+{% block extrastyle %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "admin_ext/css/menu.css" %}">
+{% endblock %}
+
+{% block nav-global %}
+    <ul id='nav-menu'>
+        <li>
+            <a href='#'>Приложения</a>
+            <ul>
+                {% for app in available_apps %}
+                    <li>
+                        <a href='{{ app.app_url }}'><span class="arrow"></span>{{ app.app_label }}</a>
+                        <ul>
+                        {% for model in app.models %}
+                            <li><a href="{{ model.admin_url }}">{{ model.name }}</a></li>
+                        {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
+{% endblock %}
+

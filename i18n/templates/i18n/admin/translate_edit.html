@@ -1,0 +1,77 @@
+{% extends "i18n/admin/translate_index.html" %}
+
+{% block extrastyle %}
+    {% load staticfiles %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}">
+    <style>
+        #content-main textarea {font-family:monospace;}
+        #content-main td>textarea {width:calc(100% - 16px);}
+        #content-main td p {margin:0 0 8px;}
+            #content-main td p:last-of-type {margin-bottom:0;}
+            #content-main td p label {display:inline-block; width:70px;}
+            #content-main td p textarea {width:calc(100% - 90px);}
+    </style>
+{% endblock %}
+
+{% block extrahead %}
+    <script src='{% static "js/libs/jquery-last.min.js" %}'></script>
+{% endblock %}
+
+{% block breadcrumbs_translate %}
+    &rsaquo; <a href="{% url 'admin:translate:index' %}">Перевод</a>
+    &rsaquo; {{ po_file_repr }}
+{% endblock %}
+
+{% block content %}
+<div id="content-main">
+    <h1>Перевод {{ po_file_repr }} (переведено {{ stats.translated }} из {{ stats.total }} - {{ stats.translated_rate|floatformat }}%)</h1>
+    <form method="post" action="">
+        {% csrf_token %}
+
+        <p>
+            <label for='filter'>Фильтр</label>
+            &nbsp;
+            <select id='filter'>
+                <option value='all' {% if filter == 'all' %}selected='selected'{% endif %}>Все</option>
+                <option value='untranslated' {% if filter == 'untranslated' %}selected='selected'{% endif %}>Непереведенные</option>
+            </select>
+            <script>
+                $('#filter').change(function() {
+                    var selected = $(this).find('option:selected').val();
+                    location.href = {
+                        'all': "{{ filter_urls.all }}",
+                        'untranslated': "{{ filter_urls.untranslated }}",
+                    }[selected];
+                });
+            </script>
+        </p>
+
+        <table width='100%'>
+            <thead>
+                <tr>
+                    <th width='5%'>№</th>
+                    <th width='45%'>Текст</th>
+                    <th width='45%'>Перевод</th>
+                </tr>
+            </thead>
+            {% for index, form in forms %}
+            <tr class='{% cycle 'row1' 'row2' %}'>
+                <td>{{ index }}</td>
+                {% if form.initial.message.pluralizable %}
+                    <td><code>{{ form.initial.message.id.0 }}</code></td>
+                    <td>{{ form.as_p }}</td>
+                {% else %}
+                    <td><code>{{ form.initial.message.id }}</code></td>
+                    <td>{{ form.string }}</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+        <br/>
+        <div class="submit-row">
+            <input value="Сохранить" class="default" name="_save" type="submit">
+        </div>
+    </form>
+</div>
+{% endblock %}

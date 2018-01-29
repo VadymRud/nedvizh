@@ -1,0 +1,171 @@
+{% macro field_simple(field_name) %}
+  <div class="form-group">
+    <label class="label-block">{{ form[field_name].label }}</label>
+    {{ form[field_name] }}
+  </div>
+{% endmacro %}
+
+{% macro field_property_type() %}
+  <div class="form-group">
+    <label class="label-block"><span class="hidden-lg">{% trans %}Тип недвижимости{% endtrans %}</span>&nbsp;</label>
+    {{ form.property_type|add_class('form-control selectpicker')|add_data(width="100%")|safe }}
+  </div>
+{% endmacro %}
+
+{% macro field_button_choices(field_name) %}
+  <div class="form-group">
+    {% with field = form[field_name] %}
+        <label class="label-block">{{ field.label }}</label>
+        <div class="btn-group btn-group-choices" data-toggle="buttons">
+            {% for widget in field %}
+                <label class="btn btn-default {% if field.value() and widget.choice_value in field.value() %}active{% endif %}">{{ widget.choice_label }}{{ widget.tag()|safe }}</label>
+            {% endfor %}
+        </div>
+    {% endwith %}
+  </div>
+{% endmacro %}
+
+{% macro field_checkbox_choices(field_name) %}
+    {% with field = form[field_name] %}
+      <label class="label-block"><strong>{{ field.label }}</strong></label>
+      {% for widget in field %}
+        <div class="form-inline form-group form-checkboxes">
+          {{ widget.tag()|safe }}
+          <label class="checkbox" for="id_{{ field_name }}_{{ widget.index }}">{{ widget.choice_label }}</label>
+        </div>
+      {% endfor %}
+    {% endwith %}
+{% endmacro %}
+
+{% macro field_checkbox_choices_sliced(field_name, columns=4) %}
+  {% with field = form[field_name] %}
+    <label class="label-block bold"><strong>{{ field.label }}</strong></label>
+    <div class="row">
+      {% for column in field|slice(columns) -%}
+          <div class="col-sm-{{ (24/columns)|int }}">
+            {% for widget in column %}
+              <div class="form-inline form-group form-checkboxes">
+                {{ widget.tag()|safe }}
+                <label class="checkbox" for="id_{{ field_name }}_{{ widget.index }}">{{ widget.choice_label }}</label>
+              </div>
+            {% endfor %}
+          </div>
+      {% endfor %}
+    </div>
+  {% endwith %}
+{% endmacro %}
+
+{% macro field_checkboxes(fields) %}
+    <div class="form-inline form-group form-checkboxes">
+        {% for field_name in fields %}
+            {% with field = form[field_name] %}
+              {{ field|safe }}
+              <label class="checkbox" for="{{ field.auto_id }}">{{ field.label }}</label>
+            {% endwith %}
+        {% endfor %}
+    </div>
+{% endmacro %}
+
+{% macro field_range(field_name, label, units) %}
+  <div class="form-group">
+    <label class="label-block">{{ label }}</label>
+    <div class="row">
+        <div class="col-xs-18">
+            <div class="btn-group dropdown range-filter" style="width:100%;" data-field="{{ field_name }}">
+                <button class="btn btn-default btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                    <span class="as_text"></span> &nbsp;
+                    <span class="caret"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-11">{{ form[field_name+'_from']|add_class("form-control from active") }}</div>
+                            <div class="col-sm-2 hidden-xs field-separator"><hr/></div>
+                            <div class="col-sm-11">{{ form[field_name+'_to']|add_class("form-control to") }}</div>
+                        </div>
+                    </div>
+                    <ul class="list-unstyled options"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="join-to-leftcol">
+                {% if field_name == 'price' %}
+                    {{ form.currency|add_class('btn-block selectpicker')|add_data(width="100%", style="btn-gray btn-light-blue")|safe }}
+                {% else %}
+                    <span class="btn">{{ units|safe }}</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro field_submit() %}
+    <label class="label-block">&nbsp;</label>
+    <div class="form-group">
+      <button type="submit" name="submit" class="btn btn-primary submit" value="">
+        <span class="glyphicon glyphicon-search"></span>
+        {% trans %}Найти{% endtrans %}
+      </button>
+    </div>
+{% endmacro %}
+
+{% macro common_fields_set(with_adv_search=False) %}
+    <div class="col-sm-6 col-lg-4 affecting-selects">
+        <div class="form-group">
+            <label class="label-block">{% trans %}Тип недвижимости{% endtrans %}</label>
+            {{ form.property_type|add_class('form-control selectpicker gradient-overflow')|add_data(width="100%")|safe }}
+        </div>
+        {{ field_checkboxes(['with_image']) }}
+    </div>
+    <div class="col-sm-18 col-lg-10 subway-district-street">
+        {% include 'ad/search_form_addr.jinja.html' %}
+    </div>
+    <div class="clearfix hidden-lg"></div>
+    <div class="col-sm-8 col-lg-2 rooms">
+        {{ field_simple('rooms') }}
+    </div>
+    <div class="col-sm-8 col-lg-5 price">
+        {{ field_range("price", _("Цена")) }}
+        {{ field_checkboxes(['without_commission']) }}
+{#        {{ field_checkboxes(['no_agent']) }}#}
+    </div>
+    <div class="col-sm-8 col-lg-3">
+        {{ field_submit() }}
+        {% if with_adv_search %}
+            <a class="adv-search-link"><i class="caret"></i> {% trans %}Расширенный поиск{% endtrans %}</a>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro newhome_fields_set() %}
+    <div class="col-sm-16 col-lg-14 subway-district-street">
+        {% include 'ad/search_form_addr.jinja.html' %}
+    </div>
+    <div class="clearfix hidden-lg"></div>
+    <div class="col-sm-8 col-lg-2 rooms col-to-fade">
+        {{ field_simple('rooms') }}
+    </div>
+    <div class="col-sm-8 col-lg-5 price col-to-fade">
+        {{ field_range("price", _("Цена")) }}
+    </div>
+    <div class="col-sm-8 col-lg-3 col-to-fade">
+        {{ field_submit() }}
+    </div>
+    <div class="col-xs-24 available-cities" style="display: none;">
+        <ul>
+            {% if region_for_search.id != 1 %}
+                <li><a href="{{ host_url('ad-search', kwargs={'deal_type': 'newhomes'}) }}">{% trans %}Вся Украина{% endtrans %}</a></li>
+            {% endif %}
+            {% for city in cities_with_newhomes %}
+                <li{% if city.id == region_for_search.id %} class="active{% if request.GET.get('region_search') %} region_search{% endif %}"{% endif %}>
+                    {% with url = city.get_host_url('ad-search', kwargs={'deal_type': 'newhomes'}) %}
+                        <a href="{{ url }}">{{ city }}</a>
+                        {% if city in cities_with_newhomes_in_province %} / <a href="{{ url }}?region_search=1">{% trans %}Область{% endtrans %}</a>{% endif %}
+                    {% endwith %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endmacro %}

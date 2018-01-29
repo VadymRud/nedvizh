@@ -1,0 +1,8 @@
+{% extends 'blank.jinja.html' %}
+
+{% block content %}
+    <p>Страница не открывается? <a href='{{ agency.site }}'>Нажмите здесь</a>
+    <script>
+        window.location = '{{ agency.site }}';
+    </script>
+{% endblock %}

@@ -1,0 +1,24 @@
+country;sale;Купить %(prop_room_chto)s в Украине. Продажа %(prop_room_chego_short)s
+country;rent;Снять %(prop_room_chto)s в Украине. Аренда %(prop_room_chego_short)s
+country;rent_daily;Посуточная аренда %(prop_room_chego)s в Украине без посредников
+country;newhomes;Купить %(prop_room_chto)s в новостройках Украины
+
+locality;sale;Купить %(prop_room_chto)s в %(city_gde)s. Продажа %(prop_room_chego_short)s
+locality;rent;Снять %(prop_room_chto)s в %(city_gde)s. Аренда %(prop_room_chego_short)s
+locality;rent_daily;Посуточная аренда %(prop_room_chego)s в %(city_gde)s без посредников
+locality;newhomes;Купить %(prop_room_chto)s в новостройках [Киева]
+
+province;sale;Купить %(prop_room_chto)s - %(province)s. Продажа %(prop_room_chego_short)s
+province;rent;Снять %(prop_room_chto)s - %(province)s. Аренда %(prop_room_chego_short)s
+province;rent_daily;Посуточная аренда %(prop_room_chego)s - %(province)s без посредников
+province;newhomes;Купить %(prop_room_chto)s в новостройках - %(province)s
+
+district;sale;Купить %(prop_room_chto)s - %(district)s, %(city)s
+district;rent;Снять %(prop_room_chto)s - %(district)s, %(city)s
+district;rent_daily;Посуточная аренда %(prop_room_chego)s - %(district)s, %(city)s
+district;newhomes;Купить %(prop_room_chto)s в новостройках - %(district)s, %(city)s
+
+village;sale;Купить %(prop_room_chto)s - %(city)s, %(province)s. Продажа %(prop_room_chego_short)s
+village;rent;Снять %(prop_room_chto)s - %(city)s, %(province)s. Аренда %(prop_room_chego_short)s
+village;rent_daily;Посуточная аренда %(prop_room_chego)s - %(city)s, %(province)s без посредников
+village;newhomes;Купить %(prop_room_chto)s в новостройках - %(city)s, %(province)s

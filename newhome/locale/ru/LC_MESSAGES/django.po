@@ -1,0 +1,1345 @@
+# Russian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-12-26 14:47+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: filters.py:31
+msgid "по дате"
+msgstr ""
+
+#: filters.py:32
+msgid "по возрастанию цены"
+msgstr ""
+
+#: filters.py:33
+msgid "по убыванию цены"
+msgstr ""
+
+#: forms.py:74
+msgid "Город"
+msgstr ""
+
+#: forms.py:83
+msgid "Все объявления"
+msgstr ""
+
+#: forms.py:84
+msgid "Активные"
+msgstr ""
+
+#: forms.py:85
+msgid "Неактивные"
+msgstr ""
+
+#: forms.py:86
+msgid "Удаленные"
+msgstr ""
+
+#: forms.py:92
+msgid "искать в регионах"
+msgstr ""
+
+#: forms.py:93
+msgid "ID города"
+msgstr ""
+
+#: forms.py:95
+msgid "Район"
+msgstr ""
+
+#: forms.py:99 templates/newhome/detail.jinja.html:119
+msgid "Цена от"
+msgstr ""
+
+#: forms.py:100 templates/newhome/newhome-preview.jinja.html:18
+msgid "от"
+msgstr ""
+
+#: forms.py:103 forms.py:104
+msgid "до"
+msgstr ""
+
+#: forms.py:106
+msgid "Валюта"
+msgstr ""
+
+#: forms.py:107
+msgid "Комнат"
+msgstr ""
+
+#: forms.py:109
+msgid "Ближайшая станция метро"
+msgstr ""
+
+#: forms.py:114
+msgid "Улица"
+msgstr ""
+
+#: forms.py:115
+msgid "Начните вводить название улицы"
+msgstr ""
+
+#: forms.py:118
+msgid "Название"
+msgstr ""
+
+#: forms.py:120
+msgid "Название новостройки"
+msgstr ""
+
+#: forms.py:123 templates/newhome/detail.jinja.html:67
+msgid "Застройщик"
+msgstr ""
+
+#: forms.py:125
+msgid "Наименование застройщика"
+msgstr ""
+
+#: forms.py:165
+msgid "Микрорайоны"
+msgstr ""
+
+#: forms.py:167
+msgid "Районы"
+msgstr ""
+
+#: forms.py:186
+msgid "Недопустимое значение при указанном типе недвижимости"
+msgstr ""
+
+#: forms.py:192 forms.py:198
+msgid "Цена не может быть отрицательной"
+msgstr ""
+
+#: models.py:29
+msgid "эконом"
+msgstr ""
+
+#: models.py:30
+msgid "комфорт"
+msgstr ""
+
+#: models.py:31
+msgid "бизнес"
+msgstr ""
+
+#: models.py:32
+msgid "премиум"
+msgstr ""
+
+#: models.py:36
+msgid "автономное"
+msgstr ""
+
+#: models.py:37
+msgid "централизованное"
+msgstr ""
+
+#: models.py:41
+msgid "кирпич"
+msgstr ""
+
+#: models.py:42
+msgid "легкобетонные блоки"
+msgstr ""
+
+#: models.py:43
+msgid "керамоблок"
+msgstr ""
+
+#: models.py:44
+msgid "естественный камень"
+msgstr ""
+
+#: models.py:45
+msgid "дерево"
+msgstr ""
+
+#: models.py:46
+msgid "железобетон"
+msgstr ""
+
+#: models.py:50
+msgid "минеральная вата"
+msgstr ""
+
+#: models.py:51
+msgid "базальтовая вата"
+msgstr ""
+
+#: models.py:52
+msgid "керамзитобетон"
+msgstr ""
+
+#: models.py:53
+msgid "пенопласт"
+msgstr ""
+
+#: models.py:54
+msgid "пенополистирол"
+msgstr ""
+
+#: models.py:57
+msgid "есть"
+msgstr ""
+
+#: models.py:58 models.py:65
+msgid "отсутствует"
+msgstr ""
+
+#: models.py:62
+msgid "подземный"
+msgstr ""
+
+#: models.py:63
+msgid "наземный"
+msgstr ""
+
+#: models.py:64
+msgid "гостевой"
+msgstr ""
+
+#: models.py:69
+msgid "Жилищный комплекс"
+msgstr ""
+
+#: models.py:70 models.py:603
+msgid "Дом"
+msgstr ""
+
+#: models.py:75 models.py:111
+msgid "пользователь"
+msgstr ""
+
+#: models.py:76 models.py:425 models.py:452 models.py:545 models.py:580
+msgid "название"
+msgstr ""
+
+#: models.py:77
+msgid "город"
+msgstr ""
+
+#: models.py:79
+msgid "веб-сайт"
+msgstr ""
+
+#: models.py:79
+msgid "адрес должен начинаться с http://"
+msgstr ""
+
+#: models.py:81
+msgid "включен кабинет застройщика?"
+msgstr ""
+
+#: models.py:98
+msgid "время обновления"
+msgstr ""
+
+#: models.py:99
+msgid "время создания"
+msgstr ""
+
+#: models.py:100
+msgid "время изменения"
+msgstr ""
+
+#: models.py:101
+msgid "опубликовано на сайте"
+msgstr ""
+
+#: models.py:102
+msgid "статус"
+msgstr ""
+
+#: models.py:104
+msgid "статус модерации"
+msgstr ""
+
+#: models.py:107
+msgid "поля, требующие проверки модератором"
+msgstr ""
+
+#: models.py:115
+msgid "Приоритетный контактный e-mail, если отличается от основного"
+msgstr ""
+
+#: models.py:118
+msgid "Приоритетный контактный телефон, если отличается от основного"
+msgstr ""
+
+#: models.py:121
+msgid "название жк"
+msgstr ""
+
+#: models.py:121
+msgid "Введите название"
+msgstr ""
+
+#: models.py:122
+msgid "Ключевые слова"
+msgstr ""
+
+#: models.py:123
+msgid "Используются для улучшения качества поиска. Указывать через запятую"
+msgstr ""
+
+#: models.py:126
+msgid "тип"
+msgstr ""
+
+#: models.py:127
+msgid "цена за м<sup>2</sup>, от (в гривнах)"
+msgstr ""
+
+#: models.py:129
+msgid "класс"
+msgstr ""
+
+#: models.py:130
+msgid "застройщик"
+msgstr ""
+
+#: models.py:131
+msgid "реализует"
+msgstr ""
+
+#: models.py:132
+msgid "подробнее на сайте"
+msgstr ""
+
+#: models.py:132
+msgid "Введите сайт ЖК"
+msgstr ""
+
+#: models.py:133
+msgid "описание"
+msgstr ""
+
+#: models.py:135
+msgid "высота потолков"
+msgstr ""
+
+#: models.py:135
+msgid "в метрах"
+msgstr ""
+
+#: models.py:136
+msgid "домов"
+msgstr ""
+
+#: models.py:136
+msgid "кол-во домов в ЖК"
+msgstr ""
+
+#: models.py:137
+msgid "квартир в ЖК"
+msgstr ""
+
+#: models.py:137
+msgid "сумма по всем домам"
+msgstr ""
+
+#: models.py:138
+msgid "отопление"
+msgstr ""
+
+#: models.py:139
+msgid "очередей"
+msgstr ""
+
+#: models.py:139
+msgid "всего очередей по ЖК"
+msgstr ""
+
+#: models.py:140
+msgid "паркинг"
+msgstr ""
+
+#: models.py:141
+msgid "стены"
+msgstr ""
+
+#: models.py:142
+msgid "утепление"
+msgstr ""
+
+#: models.py:143
+msgid "этажность"
+msgstr ""
+
+#: models.py:143
+msgid "этажей в доме"
+msgstr ""
+
+#: models.py:149
+msgid "Расширенные права администрирования новостроек"
+msgstr ""
+
+#: models.py:150
+msgid "Модерирование новостроек"
+msgstr ""
+
+#: models.py:151
+msgid "Уведомления о профилях застройщиков / лидов"
+msgstr ""
+
+#: models.py:414 models.py:427 models.py:453 models.py:591 models.py:616
+#: models.py:627 models.py:657 templates/newhome/ad-detail.jinja.html:154
+msgid "новостройка"
+msgstr ""
+
+#: models.py:425
+msgid "например: 3-9 этажи"
+msgstr ""
+
+#: models.py:426
+msgid "Номер этажа"
+msgstr ""
+
+#: models.py:428 models.py:454
+#: templates/newhome/cabinet/flats-submenu.jinja.html:21
+#: templates/newhome/cabinet/flats.jinja.html:114
+#: templates/newhome/cabinet/sections.jinja.html:34
+#: templates/newhome/cabinet/sections.jinja.html:52
+msgid "секция"
+msgstr ""
+
+#: models.py:429 models.py:455
+msgid "дом"
+msgstr ""
+
+#: models.py:431
+msgid "Квартира"
+msgstr ""
+
+#: models.py:452 models.py:545
+msgid "Введите название планировки"
+msgstr ""
+
+#: models.py:456
+msgid "жилых комнат"
+msgstr ""
+
+#: models.py:458
+msgid "общая площадь"
+msgstr ""
+
+#: models.py:458
+msgid "м2"
+msgstr ""
+
+#: models.py:460
+msgid "недвижимость"
+msgstr ""
+
+#: models.py:569
+msgid "планировка квартиры"
+msgstr ""
+
+#: models.py:570 models.py:628
+msgid "этаж"
+msgstr ""
+
+#: models.py:571
+msgid "Координаты"
+msgstr ""
+
+#: models.py:571
+msgid "Для выделения на изображении этажа"
+msgstr ""
+
+#: models.py:572
+msgid "цена"
+msgstr ""
+
+#: models.py:573
+msgid "валюта цены"
+msgstr ""
+
+#: models.py:578 models.py:629
+msgid "планировка"
+msgstr ""
+
+#: models.py:579
+msgid "позиция"
+msgstr ""
+
+#: models.py:579
+msgid "Позиция на изображении"
+msgstr ""
+
+#: models.py:580
+msgid "Введите название комнаты"
+msgstr ""
+
+#: models.py:581
+msgid "площадь"
+msgstr ""
+
+#: models.py:581
+msgid "кв. м"
+msgstr ""
+
+#: models.py:590
+msgid "название дома"
+msgstr ""
+
+#: models.py:590
+msgid "например: дом 1"
+msgstr ""
+
+#: models.py:604
+msgid "Номер секции"
+msgstr ""
+
+#: models.py:617
+msgid "Название очереди"
+msgstr ""
+
+#: models.py:618
+msgid "Окончание строительства"
+msgstr ""
+
+#: models.py:619
+msgid "Дома и секции для очереди"
+msgstr ""
+
+#: models.py:621 templates/newhome/cabinet/queue.jinja.html:35
+msgid "Комментарий"
+msgstr ""
+
+#: models.py:621
+msgid ""
+"Опишите в вольной форме статус строительства, например: дом 1 сдан, в "
+"доме 3 — ведутся кладочные работы. "
+msgstr ""
+
+#: models.py:630
+msgid "наличие"
+msgstr ""
+
+#: models.py:631
+msgid "цена за квадратный метр"
+msgstr ""
+
+#: models.py:658
+msgid "дата"
+msgstr ""
+
+#: models.py:659
+msgid "название очереди/дома"
+msgstr ""
+
+#: models.py:676
+msgid "отчет о ходе строительства"
+msgstr ""
+
+#: models.py:677 models.py:694
+msgid "изображение"
+msgstr ""
+
+#: models.py:693
+msgid "жк"
+msgstr ""
+
+#: models.py:695
+msgid "основная?"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:20
+msgid "Узнать номер"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:34
+#, python-format
+msgid "Введите ID %(newhome_id)s для соединения с отделом продаж"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:49
+msgid "Заказать обратный звонок"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:60
+msgid "Все объявления ЖК"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:98
+msgid "Дата публикации"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:114
+msgid "добавить в избранное"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:116
+msgid "Получи еще больше возможностей на сайте. Жми кнопку \"зарегистрироваться\""
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:120
+msgid "редактировать объявление"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:149
+msgid "комната"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:149
+msgid "комнаты"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:149
+msgid "комнат"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:153
+msgid "Этажи:"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:162
+msgid "Информация о ЖК"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:178
+#: templates/newhome/detail.jinja.html:158
+msgid "Класс"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:179
+#: templates/newhome/detail.jinja.html:160
+msgid "Высота потолков"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:180
+#: templates/newhome/detail.jinja.html:162
+msgid "Домов"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:181
+#: templates/newhome/detail.jinja.html:163
+msgid "Количество квартир"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:182
+#: templates/newhome/detail.jinja.html:164
+msgid "Отопление"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:183
+#: templates/newhome/detail.jinja.html:165
+msgid "Очередей"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:184
+#: templates/newhome/detail.jinja.html:167
+msgid "Паркинг"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:185
+#: templates/newhome/detail.jinja.html:169
+msgid "Стены"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:186
+#: templates/newhome/detail.jinja.html:170
+msgid "Утепление"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:187
+#: templates/newhome/detail.jinja.html:171
+msgid "Этажность"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:188
+msgid "Цена за"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:245
+#: templates/newhome/cabinet/object.jinja.html:79
+#: templates/newhome/detail.jinja.html:103
+msgid "Описание"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:257
+msgid "Это 1 вариант из"
+msgstr ""
+
+#: templates/newhome/breadcrumbs-with-popup.jinja.html:2
+#: templates/newhome/detail.jinja.html:85
+#: templates/newhome/detail.jinja.html:177
+msgid "Давайте мы Вам перезвоним"
+msgstr ""
+
+#: templates/newhome/breadcrumbs-with-popup.jinja.html:17
+msgid "Запрос отправлен"
+msgstr ""
+
+#: templates/newhome/breadcrumbs-with-popup.jinja.html:26
+#: templates/newhome/breadcrumbs-with-popup.jinja.html:44
+msgid "Отправить"
+msgstr ""
+
+#: templates/newhome/breadcrumbs-with-popup.jinja.html:37
+msgid "Отправляется, подождите пожалуйста"
+msgstr ""
+
+#: templates/newhome/breadcrumbs.jinja.html:2
+msgid "Назад"
+msgstr ""
+
+#: templates/newhome/cabinet/flats-submenu.jinja.html:6
+#: templates/newhome/cabinet/object.jinja.html:148
+#: templates/newhome/detail-flats-info.jinja.html:4
+msgid "Свободные квартиры"
+msgstr ""
+
+#: templates/newhome/detail-flats-info.jinja.html:13
+msgid "Все дома"
+msgstr ""
+
+#: templates/newhome/detail-flats-info.jinja.html:33
+msgid "Этаж"
+msgstr ""
+
+#: templates/newhome/detail-flats-info.jinja.html:35
+#: templates/newhome/detail-flats.jinja.html:7
+msgid "комнатные"
+msgstr ""
+
+#: templates/newhome/detail-flats-info.jinja.html:37
+msgid "Цена"
+msgstr ""
+
+#: templates/newhome/detail-flats-info.jinja.html:52
+msgid "свободна"
+msgstr ""
+
+#: templates/newhome/detail-flats-info.jinja.html:52
+msgid "свободны"
+msgstr ""
+
+#: templates/newhome/detail-flats-info.jinja.html:52
+msgid "свободно"
+msgstr ""
+
+#: templates/newhome/detail-flats-info.jinja.html:62
+#: templates/newhome/detail-flats-info.jinja.html:66
+msgid "Нет данных по выбранному дому"
+msgstr ""
+
+#: templates/newhome/detail-flats.jinja.html:2
+msgid "Квартиры от застройщика"
+msgstr ""
+
+#: templates/newhome/detail-flats.jinja.html:15
+msgid "Смотреть планировки"
+msgstr ""
+
+#: templates/newhome/cabinet/menu-edit.jinja.html:11
+#: templates/newhome/cabinet/my-buildings.jinja.html:134
+#: templates/newhome/cabinet/object.jinja.html:178
+#: templates/newhome/cabinet/workflow.jinja.html:11
+#: templates/newhome/detail-progress.jinja.html:8
+msgid "Ход строительства"
+msgstr ""
+
+#: templates/newhome/detail.jinja.html:64
+msgid "Цена, за м2"
+msgstr ""
+
+#: templates/newhome/detail.jinja.html:65
+msgid "Адрес"
+msgstr ""
+
+#: templates/newhome/detail.jinja.html:66
+msgid "Ближайшее метро"
+msgstr ""
+
+#: templates/newhome/detail.jinja.html:68
+msgid "Реализует"
+msgstr ""
+
+#: templates/newhome/detail.jinja.html:74
+#: templates/newhome/detail.jinja.html:145
+msgid "Телефон для связи с застройщиком"
+msgstr ""
+
+#: templates/newhome/detail.jinja.html:78
+#: templates/newhome/detail.jinja.html:149
+#, python-format
+msgid "Введите ID %(newhome_id)s объявления для соединения с отделом продаж"
+msgstr ""
+
+#: templates/newhome/cabinet/object.jinja.html:63
+#: templates/newhome/detail.jinja.html:90
+msgid "Статус строительства"
+msgstr ""
+
+#: templates/newhome/detail.jinja.html:172
+msgid "Цена за м2"
+msgstr ""
+
+#: templates/newhome/detail.jinja.html:189
+msgid "Похожие новостройки"
+msgstr ""
+
+#: templates/newhome/floor.jinja.html:36
+msgid "Свободные квартиры на "
+msgstr ""
+
+#: templates/newhome/layout-flat.jinja.html:12
+#: templates/newhome/layout-flat.jinja.html:18
+msgid "Планировка квартиры"
+msgstr ""
+
+#: templates/newhome/layout-flat.jinja.html:30
+msgid "Количество комнат"
+msgstr ""
+
+#: templates/newhome/new_lead.jinja.html:10
+msgid "Уважаемый застройщик"
+msgstr ""
+
+#: templates/newhome/new_lead.jinja.html:122
+msgid "команда"
+msgstr ""
+
+#: templates/newhome/newhome-preview.jinja.html:6
+#: templates/newhome/preview.jinja.html:4
+msgid "Инфо о комплексе"
+msgstr ""
+
+#: templates/newhome/search.jinja.html:53
+#: templates/newhome/search.jinja.html:61
+#: templates/newhome/search.jinja.html:128
+msgid "По вашему запросу ничего не найдено."
+msgstr ""
+
+#: templates/newhome/search.jinja.html:54
+#: templates/newhome/search.jinja.html:129
+msgid "Попробуйте изменить параметры поиска."
+msgstr ""
+
+#: templates/newhome/search.jinja.html:62
+msgid ""
+"Просмотрите похожие объявления по схожим параметрам или попробуйте "
+"изменить параметры поиска."
+msgstr ""
+
+#: templates/newhome/search.jinja.html:65
+msgid "Похожие объявления по схожим параметрам:"
+msgstr ""
+
+#: templates/newhome/search.jinja.html:81
+#: templates/newhome/search.jinja.html:112
+msgid "объект"
+msgstr ""
+
+#: templates/newhome/search.jinja.html:81
+#: templates/newhome/search.jinja.html:112
+msgid "объекта"
+msgstr ""
+
+#: templates/newhome/search.jinja.html:81
+#: templates/newhome/search.jinja.html:112
+msgid "объектов"
+msgstr ""
+
+#: templates/newhome/search.jinja.html:96
+msgid "Похожие объявления на вторичном рынке по схожим параметрам:"
+msgstr ""
+
+#: templates/newhome/search.jinja.html:139
+msgid ""
+"В новом интерактивном разделе «Новостройки» будут представлены актуальные"
+" предложения"
+msgstr ""
+
+#: templates/newhome/search.jinja.html:140
+msgid ""
+"от компаний застройщиков. Здесь вы сможете увидеть сам проект, всю "
+"техническую информацию"
+msgstr ""
+
+#: templates/newhome/search.jinja.html:141
+msgid "касательно объекта, и связаться с компанией для заключения сделки"
+msgstr ""
+
+#: templates/newhome/search.jinja.html:143
+msgid "А если я застройщик?"
+msgstr ""
+
+#: templates/newhome/search.jinja.html:145
+msgid ""
+"Если вы — застройщик, спешите разместить свой объект в данном разделе "
+"раньше конкурентов"
+msgstr ""
+
+#: templates/newhome/search.jinja.html:146
+msgid "и получайте «горячие» звонки от потенциальных клиентов уже сейчас."
+msgstr ""
+
+#: templates/newhome/search.jinja.html:147
+msgid "Свяжитесь с руководителем отдела продаж по работе с застройщиками"
+msgstr ""
+
+#: templates/newhome/search.jinja.html:150
+msgid "Ольга Кулиш"
+msgstr ""
+
+#: templates/newhome/search.jinja.html:152
+msgid "Он с удовольствием уточнит все детали касательно размещения,"
+msgstr ""
+
+#: templates/newhome/search.jinja.html:152
+msgid "вида и стоимости  предоставляемой услуги."
+msgstr ""
+
+#: templates/newhome/search.jinja.html:195
+msgid "Все выбрано"
+msgstr ""
+
+#: templates/newhome/search.jinja.html:195
+msgid "Выберите район"
+msgstr ""
+
+#: templates/newhome/welcome.jinja.html:9
+msgid "Активация прошла успешно!"
+msgstr ""
+
+#: templates/newhome/welcome.jinja.html:10
+msgid "Вы готовы?"
+msgstr ""
+
+#: templates/newhome/welcome.jinja.html:15
+msgid "Да, добавляем объект"
+msgstr ""
+
+#: templates/newhome/welcome.jinja.html:18
+msgid "Нет, хочу узнать больше"
+msgstr ""
+
+#: templates/newhome/welcome.jinja.html:22
+msgid "Письмо с инструкцией уже у вас на почте"
+msgstr ""
+
+#: templates/newhome/cabinet/developer_form.jinja.html:5
+msgid "Настройки"
+msgstr ""
+
+#: templates/newhome/cabinet/developer_form.jinja.html:11
+msgid "Настройки застройщика"
+msgstr ""
+
+#: templates/newhome/cabinet/developer_form.jinja.html:12
+msgid "Настройки профиля"
+msgstr ""
+
+#: templates/newhome/cabinet/developer_form.jinja.html:23
+msgid "Профиль застройщика"
+msgstr ""
+
+#: templates/newhome/cabinet/developer_form.jinja.html:32
+#: templates/newhome/cabinet/flats.jinja.html:19
+#: templates/newhome/cabinet/floors.jinja.html:51
+#: templates/newhome/cabinet/workflow-form.jinja.html:12
+msgid "Сохранить"
+msgstr ""
+
+#: templates/newhome/cabinet/flats-available.jinja.html:17
+#: templates/newhome/cabinet/flats.jinja.html:156
+#: templates/newhome/cabinet/floors.jinja.html:135
+msgid "Выберите дом и секцию"
+msgstr ""
+
+#: templates/newhome/cabinet/flats-available.jinja.html:41
+msgid "Для начала добавьте планировки и укажите их размещение на плане этажа"
+msgstr ""
+
+#: templates/newhome/cabinet/flats-available.jinja.html:50
+#: templates/newhome/cabinet/flats.jinja.html:166
+#: templates/newhome/cabinet/floors.jinja.html:145
+#: templates/newhome/cabinet/menu-edit.jinja.html:21
+#: templates/newhome/cabinet/object.jinja.html:90
+#: templates/newhome/cabinet/queue.jinja.html:48
+#: templates/newhome/cabinet/sections.jinja.html:71
+msgid "Сохранить и продолжить"
+msgstr ""
+
+#: templates/newhome/cabinet/flats-submenu.jinja.html:4
+#: templates/newhome/cabinet/flats.jinja.html:87
+msgid "Планировки квартир"
+msgstr ""
+
+#: templates/newhome/cabinet/flats-submenu.jinja.html:5
+msgid "Планировки этажей"
+msgstr ""
+
+#: templates/newhome/cabinet/flats-submenu.jinja.html:11
+#: templates/newhome/cabinet/flats.jinja.html:110
+msgid "Выберите дом, секцию"
+msgstr ""
+
+#: templates/newhome/cabinet/flats.jinja.html:21
+msgid "Редактировать объявление"
+msgstr ""
+
+#: templates/newhome/cabinet/flats.jinja.html:21
+msgid "Создать объявление"
+msgstr ""
+
+#: templates/newhome/cabinet/flats.jinja.html:63
+msgid "Добавить комнату"
+msgstr ""
+
+#: templates/newhome/cabinet/flats.jinja.html:107
+msgid "Дублировать наполнение"
+msgstr ""
+
+#: templates/newhome/cabinet/flats.jinja.html:124
+msgid "или наполните заново"
+msgstr ""
+
+#: templates/newhome/cabinet/flats.jinja.html:136
+#: templates/newhome/cabinet/flats.jinja.html:162
+msgid "Добавить планировку квартиры"
+msgstr ""
+
+#: templates/newhome/cabinet/flats.jinja.html:141
+#: templates/newhome/cabinet/floors.jinja.html:120
+#: templates/newhome/cabinet/object.jinja.html:29
+#: templates/newhome/cabinet/workflow-form.jinja.html:23
+msgid ""
+"Для корректной загрузкий изображений ваш браузер должен поддерживать "
+"Javascript."
+msgstr ""
+
+#: templates/newhome/cabinet/floors.jinja.html:16
+msgid "Укажите цену за кв. м"
+msgstr ""
+
+#: templates/newhome/cabinet/floors.jinja.html:64
+msgid "Инструменты разметки"
+msgstr ""
+
+#: templates/newhome/cabinet/floors.jinja.html:97
+msgid "Разметить"
+msgstr ""
+
+#: templates/newhome/cabinet/floors.jinja.html:110
+msgid "Добавить этаж"
+msgstr ""
+
+#: templates/newhome/cabinet/floors.jinja.html:141
+msgid "Добавить планировку этажа"
+msgstr ""
+
+#: templates/newhome/cabinet/menu-edit.jinja.html:5
+msgid "Вы находитесь в режиме редактирования"
+msgstr ""
+
+#: templates/newhome/cabinet/menu-edit.jinja.html:8
+msgid "Объект"
+msgstr ""
+
+#: templates/newhome/cabinet/menu-edit.jinja.html:9
+msgid "Дома и очереди"
+msgstr ""
+
+#: templates/newhome/cabinet/menu-edit.jinja.html:10
+msgid "Квартиры"
+msgstr ""
+
+#: templates/newhome/cabinet/menu-edit.jinja.html:15
+msgid "Вы находитесь в режиме добавления объекта"
+msgstr ""
+
+#: templates/newhome/cabinet/menu-edit.jinja.html:21
+#: templates/newhome/cabinet/object.jinja.html:90
+#: templates/newhome/cabinet/queue-add.jinja.html:62
+#: templates/newhome/cabinet/sections.jinja.html:39
+#: templates/newhome/cabinet/workflow.jinja.html:49
+msgid "Завершить"
+msgstr ""
+
+#: templates/newhome/cabinet/menu.jinja.html:2
+msgid "Профиль"
+msgstr ""
+
+#: templates/newhome/cabinet/menu.jinja.html:3
+msgid "Мои объявления"
+msgstr ""
+
+#: templates/newhome/cabinet/menu.jinja.html:4
+msgid "Мои новостройки"
+msgstr ""
+
+#: templates/newhome/cabinet/menu.jinja.html:5
+msgid "CRM"
+msgstr ""
+
+#: templates/newhome/cabinet/menu.jinja.html:6
+msgid "Финансы"
+msgstr ""
+
+#: templates/newhome/cabinet/menu.jinja.html:7
+msgid "Статистика"
+msgstr ""
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:34
+msgid "Поиск по email ответственного или названию "
+msgstr ""
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:51
+msgid "активировать объявления"
+msgstr ""
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:52
+msgid "Активировать"
+msgstr ""
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:56
+msgid "деактивировать объявления"
+msgstr ""
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:57
+msgid "Деактивировать"
+msgstr ""
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:61
+msgid "обновить email и телефон ответственного лица"
+msgstr ""
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:62
+msgid "Обновить email / телефон"
+msgstr ""
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:66
+msgid "удалить объект новостройки"
+msgstr ""
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:66
+msgid "Вы уверены?"
+msgstr ""
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:67
+#: templates/newhome/cabinet/workflow.jinja.html:24
+msgid "Удалить"
+msgstr ""
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:91
+msgid "Добавлено"
+msgstr ""
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:113
+msgid "Укажите email для отправки заявок"
+msgstr ""
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:119
+msgid "Укажите телефоны для отправки смс про новые заявки"
+msgstr ""
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:137
+msgid "Наличие квартир"
+msgstr ""
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:140
+#: templates/newhome/cabinet/queue.jinja.html:38
+#: templates/newhome/cabinet/sections.jinja.html:57
+#: templates/newhome/cabinet/workflow.jinja.html:21
+#: templates/newhome/cabinet/workflow.jinja.html:46
+msgid "Редактировать"
+msgstr ""
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:153
+msgid "Добавьте объявление"
+msgstr ""
+
+#: templates/newhome/cabinet/object.jinja.html:37
+msgid "сделать главной"
+msgstr ""
+
+#: templates/newhome/cabinet/object.jinja.html:38
+#: templates/newhome/cabinet/workflow-form.jinja.html:31
+msgid "удалить"
+msgstr ""
+
+#: templates/newhome/cabinet/object.jinja.html:39
+#: templates/newhome/cabinet/workflow-form.jinja.html:32
+msgid "повернуть"
+msgstr ""
+
+#: templates/newhome/cabinet/object.jinja.html:115
+msgid "Перейти к заполнению раздела «Дома и очереди»"
+msgstr ""
+
+#: templates/newhome/cabinet/object.jinja.html:129
+#: templates/newhome/cabinet/object.jinja.html:156
+#: templates/newhome/cabinet/object.jinja.html:186
+msgid "Перейти к заполнению"
+msgstr ""
+
+#: templates/newhome/cabinet/object.jinja.html:129
+msgid "раздела «Дома и очереди»"
+msgstr ""
+
+#: templates/newhome/cabinet/object.jinja.html:142
+msgid "Перейти к заполнению раздела «Свободные Квартиры»"
+msgstr ""
+
+#: templates/newhome/cabinet/object.jinja.html:156
+msgid "раздела «Свободные Квартиры»"
+msgstr ""
+
+#: templates/newhome/cabinet/object.jinja.html:171
+msgid "Перейти к заполнению раздела «Ход строительства»"
+msgstr ""
+
+#: templates/newhome/cabinet/object.jinja.html:186
+msgid "раздела «Ход строительства»"
+msgstr ""
+
+#: templates/newhome/cabinet/queue-add.jinja.html:18
+#: templates/newhome/cabinet/queue.jinja.html:17
+msgid ""
+"В этом разделе вы можете редактировать информацию про очереди "
+"строительства и их состояние"
+msgstr ""
+
+#: templates/newhome/cabinet/queue-add.jinja.html:37
+msgid "Какие дома/секции в этой очереди?"
+msgstr ""
+
+#: templates/newhome/cabinet/queue-add.jinja.html:45
+#: templates/newhome/cabinet/sections.jinja.html:31
+msgid "Добавить"
+msgstr ""
+
+#: templates/newhome/cabinet/queue-add.jinja.html:53
+msgid "Какой статус строительства?"
+msgstr ""
+
+#: templates/newhome/cabinet/queue-add.jinja.html:63
+#: templates/newhome/cabinet/sections.jinja.html:40
+msgid "Отмена"
+msgstr ""
+
+#: templates/newhome/cabinet/queue.jinja.html:25
+msgid "Срок сдачи"
+msgstr ""
+
+#: templates/newhome/cabinet/queue.jinja.html:28
+msgid "Дома в очереди"
+msgstr ""
+
+#: templates/newhome/cabinet/queue.jinja.html:44
+msgid "Добавить очередь"
+msgstr ""
+
+#: templates/newhome/cabinet/sections-submenu.jinja.html:4
+msgid "Дома и секции"
+msgstr ""
+
+#: templates/newhome/cabinet/sections-submenu.jinja.html:5
+msgid "Очереди строительства"
+msgstr ""
+
+#: templates/newhome/cabinet/sections.jinja.html:15
+msgid "В этой вкладке вы можете указать количество домов и секций в них"
+msgstr ""
+
+#: templates/newhome/cabinet/sections.jinja.html:30
+#: templates/newhome/cabinet/sections.jinja.html:49
+msgid "Секций в доме"
+msgstr ""
+
+#: templates/newhome/cabinet/sections.jinja.html:67
+msgid "Добавить дом и секции"
+msgstr ""
+
+#: templates/newhome/cabinet/statistic.jinja.html:12
+msgid "На вашем счету"
+msgstr ""
+
+#: templates/newhome/cabinet/statistic.jinja.html:13
+msgid "Пополнить"
+msgstr ""
+
+#: templates/newhome/cabinet/statistic.jinja.html:34
+msgid "Нет данных"
+msgstr ""
+
+#: templates/newhome/cabinet/workflow.jinja.html:12
+msgid "Будет отображено на главной странице объекта"
+msgstr ""
+
+#: templates/newhome/cabinet/workflow.jinja.html:43
+#: templates/newhome/cabinet/workflow.jinja.html:61
+msgid "Добавить дату и фото"
+msgstr ""
+
+#: templates/newhome/cabinet/workflow.jinja.html:56
+msgid "Вы не добавили еще ни одного периода."
+msgstr ""
+
+#: views/cabinet.py:36
+msgid "Редактирование застройщика"
+msgstr ""
+
+#: views/cabinet.py:90
+msgid "Контактные данные по объекту обновлены"
+msgstr ""
+
+#: views/cabinet.py:95
+msgid "Пожалуйста, исправьте замечания перед активации объекта"
+msgstr ""
+
+#: views/cabinet.py:102
+msgid "Объект успешно активирован"
+msgstr ""
+
+#: views/cabinet.py:105
+msgid "Не хватает средств для активации объекта"
+msgstr ""
+
+#: views/cabinet.py:112
+msgid "Объект успешно деактивирован"
+msgstr ""
+
+#: views/cabinet.py:119
+msgid "Объект успешно удален"
+msgstr ""
+
+#: views/cabinet.py:515
+msgid "Ваш комплекс успешно добавлен"
+msgstr ""
+
+#: views/cabinet.py:570
+msgid "Данные о комплексе успешно изменены"
+msgstr ""
+
+#: views/cabinet.py:739
+msgid "Не указано"
+msgstr ""
+
+#: views/newhomes.py:110
+msgid ""
+"На данный момент выбранный Вами объект недоступен. Пожалуйста, выберите "
+"из списка доступных"
+msgstr ""
+

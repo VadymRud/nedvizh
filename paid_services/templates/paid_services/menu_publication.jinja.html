@@ -1,0 +1,15 @@
+{% include 'profile/balance/topup_modal_form.jinja.html' %}
+
+{% set services_items = [
+    (url('services:plans'), _('Оплата за тарифный план')),
+    (url('services:lead'), _('Оплата за звонок')),
+    (url('services:vips'), _('VIP объявление')),
+    (url('services:international'), _('Зарубежные каталоги')),
+] -%}
+
+<div class="navbar">
+    <ul class="nav navbar-nav nav-pills navbar-right">
+        {% from "macro/navigation.jinja.html" import navigation %}
+        {{ navigation(services_items, request) }}
+    </ul>
+</div><br/>

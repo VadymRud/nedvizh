@@ -1,0 +1,340 @@
+# Russian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-12-06 17:29+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: models.py:35 views.py:166
+msgid "вебинар"
+msgstr ""
+
+#: models.py:36 views.py:165
+msgid "семинар"
+msgstr ""
+
+#: views.py:66 views.py:205
+msgid "вебинары"
+msgstr ""
+
+#: views.py:66 views.py:205
+msgid "семинары"
+msgstr ""
+
+#: views.py:67
+#, python-format
+msgid "%s - портал недвижимости Mesto.ua"
+msgstr ""
+
+#: views.py:69
+msgid ""
+"Вебинар для риэлторов от портала Mesto.ua. Подробные видео уроки"
+"                         про эффективные продажи недвижимости: работающие"
+" методы от практиков"
+msgstr ""
+
+#: views.py:71
+msgid ""
+"Обучающие семинары по продаже недвижимости от портала Mesto.ua. "
+"Эффективные                         методы, готовые и работающие кейсы от"
+" ведущих риелторов Украины"
+msgstr ""
+
+#: views.py:165
+msgid "семинара"
+msgstr ""
+
+#: views.py:166
+msgid "вебинара"
+msgstr ""
+
+#: views.py:170
+#, python-format
+msgid ""
+"Поздравляем, Вы зарегистрированы на супер-крутой %s <b>Mesto "
+"School</b><br/><br/>В день проведения %s Вы получите<br/> уведомление на "
+"Ваш email"
+msgstr ""
+
+#: views.py:177
+msgid "Регистрация на бесплатный вебинар Mesto School"
+msgstr ""
+
+#: views.py:179
+msgid "Регистрация на бесплатный семинар Mesto School"
+msgstr ""
+
+#: views.py:218
+msgid "Полезные статьи от портала недвижимости Mesto.ua"
+msgstr ""
+
+#: views.py:219
+msgid ""
+"Полезные статьи о рынке недвижимости Украины. Новые методы продаж,"
+"                      что работает в 2017 году, актуальные кейсы от "
+"портала Mesto.ua"
+msgstr ""
+
+#: management/commands/after_webinar_notification.py:26
+#, python-format
+msgid "Запись вебинара %s"
+msgstr ""
+
+#: management/commands/event_invitation.py:100
+#: management/commands/event_invitation.py:117
+#: management/commands/event_invitation.py:131
+msgid "Бесплатный вебинар Mesto School"
+msgstr ""
+
+#: management/commands/event_invitation.py:102
+msgid "Бесплатный семинар Mesto School"
+msgstr ""
+
+#: management/commands/event_invitation.py:160
+#, python-format
+msgid "Ваше приглашение на семинар \"%s\""
+msgstr ""
+
+#: templates/webinars/comments.jinja.html:19
+msgid "Загружается..."
+msgstr ""
+
+#: templates/webinars/comments.jinja.html:19
+msgid "Еще комментарии"
+msgstr ""
+
+#: templates/webinars/detail.jinja.html:30
+#: templates/webinars/detail.jinja.html:184
+msgid "Спикеры"
+msgstr ""
+
+#: templates/webinars/detail.jinja.html:45
+msgid "Описание"
+msgstr ""
+
+#: templates/webinars/detail.jinja.html:55
+msgid "Семинар"
+msgstr ""
+
+#: templates/webinars/detail.jinja.html:82
+msgid "Прошедшие семинары"
+msgstr ""
+
+#: templates/webinars/detail.jinja.html:116
+msgid "Тема семинара"
+msgstr ""
+
+#: templates/webinars/detail.jinja.html:116
+msgid "Тема вебинара"
+msgstr ""
+
+#: templates/webinars/detail.jinja.html:149
+msgid "Регистрация на"
+msgstr ""
+
+#: templates/webinars/detail.jinja.html:156
+msgid "Зарегистрироваться"
+msgstr ""
+
+#: templates/webinars/detail.jinja.html:160
+msgid ""
+"Вы получите напоминания о семинаре по указанному ваму email и смс на "
+"телефонный номер."
+msgstr ""
+
+#: templates/webinars/detail.jinja.html:177
+msgid "Инфо о семинаре"
+msgstr ""
+
+#: templates/webinars/detail.jinja.html:179
+msgid "Инфо о вебинаре"
+msgstr ""
+
+#: templates/webinars/detail.jinja.html:192
+msgid "Сегодня обсуждаем"
+msgstr ""
+
+#: templates/webinars/index.jinja.html:6
+msgid "Ближайшие"
+msgstr ""
+
+#: templates/webinars/index.jinja.html:12
+msgid "Идет сейчас"
+msgstr ""
+
+#: templates/webinars/index.jinja.html:13
+msgid "Смотреть"
+msgstr ""
+
+#: templates/webinars/index.jinja.html:20
+msgid "Регистрация"
+msgstr ""
+
+#: templates/webinars/index.jinja.html:29
+msgid "На этой странице вы увидите информацию"
+msgstr ""
+
+#: templates/webinars/index.jinja.html:29
+msgid " про ближайшие семинары в вашем городе."
+msgstr ""
+
+#: templates/webinars/index.jinja.html:37
+msgid "Прошедшие"
+msgstr ""
+
+#: templates/webinars/index.jinja.html:41
+msgid "Фото с прошедших семинаров"
+msgstr ""
+
+#: templates/webinars/menu.jinja.html:2
+msgid "Вебинары"
+msgstr ""
+
+#: templates/webinars/menu.jinja.html:3
+msgid "Семинары"
+msgstr ""
+
+#: templates/webinars/menu.jinja.html:4
+msgid "Полезные статьи"
+msgstr ""
+
+#: templates/webinars/mail/event-first-webinar-notification.jinja.html:7
+msgid "Уже сегодня в"
+msgstr ""
+
+#: templates/webinars/mail/event-first-webinar-notification.jinja.html:7
+msgid "состоится бесплатный вебинар"
+msgstr ""
+
+#: templates/webinars/mail/event-first-webinar-notification.jinja.html:7
+#: templates/webinars/mail/event-invitation.jinja.html:8
+#: templates/webinars/mail/event-invitation.jinja.html:10
+#: templates/webinars/mail/event-second-webinar-notification.jinja.html:7
+#: templates/webinars/mail/event-seminar-notification.jinja.html:7
+msgid "на тему:"
+msgstr ""
+
+#: templates/webinars/mail/event-first-webinar-notification.jinja.html:21
+msgid ""
+"За час до начала трансляции, Вы получите письмо-уведомление с прямой "
+"ссылкой на комнату проведения вебинара."
+msgstr ""
+
+#: templates/webinars/mail/event-invitation.jinja.html:8
+msgid "Приглашаем Вас принять участие в бесплатном вебинаре"
+msgstr ""
+
+#: templates/webinars/mail/event-invitation.jinja.html:10
+msgid "Приглашаем Вас принять участие в семинаре"
+msgstr ""
+
+#: templates/webinars/mail/event-invitation.jinja.html:33
+msgid "Начало вебинара"
+msgstr ""
+
+#: templates/webinars/mail/event-invitation.jinja.html:35
+msgid "Начало семинара"
+msgstr ""
+
+#: templates/webinars/mail/event-invitation.jinja.html:37
+msgid "в"
+msgstr ""
+
+#: templates/webinars/mail/event-invitation.jinja.html:45
+msgid ""
+"Регистрируйтесь сейчас и за час до начала трансляции, на Ваш e-mail "
+"придет письмо со ссылкой на комнату проведения вебинара."
+msgstr ""
+
+#: templates/webinars/mail/event-invitation.jinja.html:47
+msgid ""
+"Регистрируйтесь сейчас и на Ваш e-mail придет письмо с информацией о "
+"месте и времени проведения семинара."
+msgstr ""
+
+#: templates/webinars/mail/event-invitation.jinja.html:55
+msgid "Принять участие"
+msgstr ""
+
+#: templates/webinars/mail/event-registration.jinja.html:15
+msgid "Уважаемый пользователь"
+msgstr ""
+
+#: templates/webinars/mail/event-registration.jinja.html:22
+msgid "Поздравляем с успешной регистрацией на вебинар проекта Mesto School."
+msgstr ""
+
+#: templates/webinars/mail/event-registration.jinja.html:24
+msgid "Поздравляем с успешной регистрацией на семинар проекта Mesto School."
+msgstr ""
+
+#: templates/webinars/mail/event-registration.jinja.html:31
+msgid "Благодарим за проявленный интерес и участие в мероприятии."
+msgstr ""
+
+#: templates/webinars/mail/event-registration.jinja.html:42
+msgid ""
+"В день проведения вебинара, за час до начала трансляции, Вы получите "
+"письмо-уведомление с прямой ссылкой на комнату проведения вебинара."
+msgstr ""
+
+#: templates/webinars/mail/event-registration.jinja.html:44
+msgid ""
+"В день проведения семинара, на Ваш e-mail придет письмо-уведомление с "
+"информацией о месте и времени проведения семинара."
+msgstr ""
+
+#: templates/webinars/mail/event-registration.jinja.html:54
+msgid "Перейти к информации о вебинаре"
+msgstr ""
+
+#: templates/webinars/mail/event-registration.jinja.html:56
+msgid "Перейти к информации о семинаре"
+msgstr ""
+
+#: templates/webinars/mail/event-second-webinar-notification.jinja.html:7
+msgid "Вебинар"
+msgstr ""
+
+#: templates/webinars/mail/event-second-webinar-notification.jinja.html:7
+msgid "стартует через час!"
+msgstr ""
+
+#: templates/webinars/mail/event-second-webinar-notification.jinja.html:14
+msgid "Для начала просмотра"
+msgstr ""
+
+#: templates/webinars/mail/event-second-webinar-notification.jinja.html:14
+msgid "перейдите по ссылке"
+msgstr ""
+
+#: templates/webinars/mail/event-seminar-notification.jinja.html:7
+msgid "Уже завтра, в"
+msgstr ""
+
+#: templates/webinars/mail/event-seminar-notification.jinja.html:7
+msgid "ждем Вас по адресу"
+msgstr ""
+
+#: templates/webinars/mail/event-seminar-notification.jinja.html:21
+msgid "Контактная информация"
+msgstr ""
+
+#: templates/webinars/mail/event-seminar-notification.jinja.html:21
+msgid "или"
+msgstr ""
+

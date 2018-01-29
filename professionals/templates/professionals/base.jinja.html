@@ -1,0 +1,20 @@
+{% extends 'base.jinja.html' %}
+
+{% block extra_css %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ static('professionals/css/main.css') }}">
+{% endblock %}
+
+{% block extra_footer %}
+    {{ super() }}
+    {% compress js %}
+        <script src="{{ static('professionals/js/professionals.js') }}"></script>
+    {% endcompress %}
+{% endblock %}
+
+{% block content_wrapper %}
+    <div class="container professionals-wrap">
+        {% block professionals_profile_menu %}{% endblock %}
+        {% block content %}{% endblock %}
+    </div>
+{% endblock %}

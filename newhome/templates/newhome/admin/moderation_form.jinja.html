@@ -1,0 +1,17 @@
+<form {% if form_action is defined %}action="{{ form_action }}"{% endif %} class="form-inline" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="newhome_id" value="{{ newhome.pk }}"/>
+    {% if next is defined %}
+        <input type="hidden" name="next" value="{{ next }}"/>
+    {% endif %}
+
+    <select name="reject_status" class="form-control" style="width:200px;">
+        <option value="">---</option>
+        {% for status, label in statuses if status in [10, 11, 12, 13, 14, 15, 22, 23, 20, 24] %}
+            <option value="{{ status }}"{% if newhome.status == status %} selected="selected"{% endif %}>{{ label }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit" name="action" value="reject" class="reject btn btn-danger"><i class="glyphicon glyphicon-thumbs-down"></i> &nbsp; отклонить</button>
+
+    <button type="submit" name="action" value="accept" class="btn btn-success"><i class="glyphicon glyphicon-thumbs-up"></i> &nbsp; проверено</button>
+</form>

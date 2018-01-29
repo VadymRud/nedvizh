@@ -1,0 +1,33 @@
+{% extends "profile/my_properties.jinja.html" %}
+
+{% block content %}
+    {{ super() }}
+
+    {% if agency_realtors is defined and agency_realtors %}
+        {% include 'agency/realtor_chooser.jinja.html' %}
+    {% endif %}
+{% endblock %}
+
+{% block extra_footer %}
+    {{ super() }}
+
+    {% compress js %}
+    <script src="{{ static('js/libs/jquery.ba-throttle-debounce.min.js') }}"></script>
+    <script>
+        var xhr = null;
+        function ajaxSearch() {
+            if(xhr && xhr.readystate != 4){xhr.abort();}
+            var url = "?" + $('#my-properties-filter-form').serialize();
+            xhr = $.get(url, function(data) {
+                $("#my-properties-form").html( $(data).find('#my-properties-form').html() );
+            });
+            history.pushState(null, null, url);
+        }
+        $('#id_search').keyup($.debounce(250, ajaxSearch));
+
+        initAdOwnerChange();
+    </script>
+    {% endcompress %}
+
+{% endblock %}
+

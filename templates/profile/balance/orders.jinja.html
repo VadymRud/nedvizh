@@ -1,0 +1,93 @@
+{% extends "profile/base.jinja.html" %}
+
+{% macro show_filter(field) %}
+    {{- field|add_class("selectpicker")|add_data(width="100%", style="btn-inverse")|add_attrs(onChange="this.form.submit()") -}}
+{% endmacro %}
+
+{% block content %}
+    <style>
+        .order .request-callback {visibility:hidden;text-decoration:none}
+        .order:hover .request-callback {visibility:visible}
+        .order .request-callback:after {content:" {% trans %}Связаться с менеджером{% endtrans %}"}
+    </style>
+    <div class="white-panel balance-page orders-page" data-balance="{{ request.user.get_balance(force=True) }}">
+        <form>
+            <div class="row">
+                <div class="col-sm-8 topup">
+                    {% trans %}На вашем счету{% endtrans %} &nbsp; <span class="pink">{{ request.user.get_balance()|floatformat(-2) }} грн</span>
+                    <button class="btn btn-danger" type="button" data-toggle="modal" data-target=".topup-modal">
+                        {%- trans %}Пополнить{% endtrans -%}
+                    </button>
+                </div>
+                <div class="col-sm-10 text-right">
+                    <a href="{{ url('agency_admin:balance') }}" class="btn btn-danger">История операций</a>
+                </div>
+                <div class="col-sm-3 filter">
+                    {{ show_filter(form.type) }}
+                </div>
+                <div class="col-sm-3 filter">
+                    {{ show_filter(form.period) }}
+                </div>
+            </div>
+        </form><hr/>
+
+            {% for order in paginator.current_page.object_list %}
+                {% if loop.first %}
+                    <div class="row header">
+                        <div class="col-sm-2" >{% trans %}Дата{% endtrans %}</div>
+                        <div class="col-sm-2" >{% trans %}Номер счета{% endtrans %}</div>
+                        <div class="col-sm-10">{% trans %}Услуги{% endtrans %}</div>
+                        <div class="col-sm-2" >{% trans %}Сумма{% endtrans %}</div>
+                        <div class="col-sm-2" >{% trans %}Статус{% endtrans %}</div>
+                    </div><hr/>
+                {% endif %}
+
+                <div class="order row">
+                    <div class="col-sm-2" ><span title="{{ order.time|date("d.m.Y H:i") }}">{{ order.time|date("d.m.Y") }}</span></div>
+                    <div class="col-sm-2" >{{ order.id }}</div>
+                    <div class="col-sm-10">{{ order }}</div>
+                    <div class="col-sm-2 {% if order.amount > 0 %}green{% else %}pink{% endif %}" >{{ order.amount|floatformat(-2) }} грн</div>
+                    <div class="col-sm-3 gray">
+                        {% if order.is_paid %}
+                            Оплачен
+                        {% elif order.can_be_paid_again()  %}
+                            {% if request.user.get_balance() >= order.amount%}
+                                <a href="?pay_for_order={{ order.id }}">Оплатить</a>
+                            {% else %}
+                                <a data-order="{{ order.id }}" data-amount="{{ order.amount }}" data-toggle="modal" data-target=".topup-modal">
+                                    Оплатить</a>
+                            {% endif %}
+                        {% else %}
+                            Истек срок оплаты
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-4 need-help"></div>
+                </div>
+                {% if not loop.last %}<hr/>{% endif %}
+            {% else %}
+                <br/><br/><h4 align="center">{% trans %}Ничего не найдено{% endtrans %}</h4><br/><br/>
+            {% endfor %}
+
+        {% include "pagination.jinja.html" %}
+    </div>
+
+    {% include 'profile/balance/topup_modal_form.jinja.html' %}
+{% endblock %}
+
+{% block extra_footer %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ static('libs/bootstrap-select/bootstrap-select.min.css') }}">
+    <script src="{{ static('libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
+
+    <script>
+        var balance = parseFloat($('.balance-page').data('balance'));
+        $('.topup-modal').on('show.bs.modal', function (e) {
+            var $link = $(e.relatedTarget),
+                amount = parseFloat($link.data('amount')),
+                order_id = $link.data('order');
+            $('#topup-form .amount').val(amount - balance);
+            $('#topup-form input[name=order]').val(order_id);
+        });
+        $('.request-callback').appendTo($('.need-help'));
+    </script>
+{% endblock %}

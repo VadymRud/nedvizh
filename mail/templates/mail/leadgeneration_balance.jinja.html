@@ -1,0 +1,17 @@
+{% extends "mail/base_redesigned.jinja.html" %}
+
+{% block content %}
+    <tr>
+        <td width="43" height="51" style="width: 43px; height: 51px; background-color: #ffffff;">
+            <div style="width: 43px; height: 51px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="51" colspan="3" style="width: 472px; height: 51px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 51px;">
+              <p>{% trans %}На Вашем балансе меньше 100 грн. Для того чтобы не пропустить звонки от Ваших потенциальных клиентов - пополните пожалуйста баланс в Вашем личном кабинете.{% endtrans %}</p>
+            </div>
+        </td>
+        <td width="25" height="51" style="width: 25px; height: 51px; background-color: #ffffff;">
+            <div style="width: 25px; height: 51px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+{% endblock %}

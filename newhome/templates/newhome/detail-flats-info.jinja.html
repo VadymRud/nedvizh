@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-lg-18">
+        <div class="h2">
+            {% trans %}Свободные квартиры{% endtrans %}
+            <span class="subtitle">в наличиии на {{ newhome.modified|date("d.m.Y") }}</span>
+        </div>
+    </div>
+    {% with buildings = newhome.buildings.all() %}
+        {% if buildings %}
+            <div class="col-lg-6">
+                <form class="no-margin">
+                    <select name="section" class="selectpicker" data-width="100%" data-style="btn-md btn-default">
+                        <option value="">{% trans %}Все дома{% endtrans %}</option>
+                        {% for building in buildings %}
+                            {% for section in building.sections.all() %}
+                            <option value="{{ section.id }}"{%- if request.GET.get('section') == section.id|string %} selected="selected"{% endif -%}>{{ building.name }}, секция {{ section.position }}</option>
+                            {% endfor %}
+                        {% endfor %}
+                    </select>
+                </form>
+            </div>
+        {% endif %}
+    {% endwith %}
+</div>
+
+<form action="{{ url('floors', region_slug=region_slug, newhome_id=newhome.id) }}" class="wrapper">
+    <input type="hidden" name="floor" value=""/>
+    {% if request.GET.get('building') %}
+        <input type="hidden" name="building" value="{{ request.GET.get('building') }}"/>
+    {% endif %}
+    <table class="table">
+        <thead>
+            <th>{% trans %}Этаж{% endtrans %}</th>
+            {% for floor in flats_rooms_options %}
+                <th>{{ floor }}-{% trans %}комнатные{% endtrans %}</th>
+            {% endfor %}
+            <th>{% trans %}Цена{% endtrans %}</th>
+        </thead>
+        <tbody>
+            {% for floor in flats_floor_options %}
+                {% if loop.index == 5 %}
+                    <tr class="toggleHidden">
+                        <td colspan="6" align="center"><i class="glyphicon glyphicon-option-horizontal"></i></td>
+                    </tr>
+                {% endif %}
+                <tr class="floor {% if loop.index >= 5 %} toggleHidden hidden{% endif %}" data-floor="{{ floor.id }}" data-section="{{ floor.section_id }}">
+                    <td>{{ floor }}</td>
+                    {%- for room in flats_rooms_options -%}
+                        <td>
+                        {%- with available = flats_available[floor].get(room) -%}
+                            {%- if available  -%}
+                                {{ available|pluralize((_("свободна"), _("свободны"), _("свободно")), '') }}
+                            {%- else -%}
+                                --
+                            {%- endif -%}
+                        {%- endwith -%}
+                        </td>
+                    {%- endfor -%}
+                    <td>от {{ flats_prices_by_floor[floor]|intcomma }} {{ currency }}/м<sup>2</sup></td>
+                </tr>
+                <tr class="floor hidden" data-section="0">
+                    <td colspan="6" align="center">{% trans %}Нет данных по выбранному дому{% endtrans %}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6" align="center">{% trans %}Нет данных по выбранному дому{% endtrans %}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</form>

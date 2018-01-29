@@ -1,0 +1,37 @@
+{% load i18n %}
+<h3>{{ spec.title }}</h3>
+<div id="{{ spec.field }}_query_string" style="display:none;">{{ choices.0.base_query_string|iriencode }}</div>
+<script type="text/javascript">
+    function {{ spec.field }}DateFilter() {
+        var url = django.jQuery('#{{ spec.field }}_query_string').text();
+        var gte = django.jQuery('#{{ spec.keys.0 }}').val();
+        var lte = django.jQuery('#{{ spec.keys.1 }}').val();
+        if(gte) url += ('&{{ spec.keys.0 }}=' + encodeURI(gte));
+        if(lte) url += ('&{{ spec.keys.1 }}=' + encodeURI(lte));
+        location.href = url;
+    }
+
+    function {{ spec.field }}KeyPress(e) {
+        if (e.keyCode == 13) {{ spec.field }}DateFilter();
+    }
+</script>
+<style>
+    li.range-filter input {
+        width:120px;
+    }
+    li.range-filter div {
+        width:20px;
+        float:left;
+        padding-top:4px;
+    }
+    li.range-filter input.error {
+        background:red;
+    }
+</style>
+<ul>
+    <li{% if choices.0.selected %} class="selected"{% endif %}><a href="{{ choices.0.base_query_string|iriencode }}">Все</a></li>
+    <li{% if choices.1.selected %} class="selected"{% endif %}><a href="javascript:{{ spec.field }}DateFilter();">фильтровать</a></li>
+    <li class="range-filter"><div>от </div><input id="{{ spec.keys.0 }}" type="text" value="{{ spec.values.0 }}" onkeypress="{{ spec.field }}KeyPress(event);" title="{{ spec.available_formats_verbose }}" {% if spec.errors.0 %}class="error"{% endif %}/></li>
+    <li class="range-filter"><div>до </div><input id="{{ spec.keys.1 }}" type="text" value="{{ spec.values.1 }}" onkeypress="{{ spec.field }}KeyPress(event);" title="{{ spec.available_formats_verbose }}" {% if spec.errors.1 %}class="error"{% endif %}/></li>
+</ul>
+

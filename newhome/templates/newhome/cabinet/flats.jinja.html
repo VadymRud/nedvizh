@@ -1,0 +1,187 @@
+{% extends "newhome/cabinet/base.jinja.html" %}
+
+{% block top_menu %}
+    {% set active='flats' %}
+    {% include "newhome/cabinet/menu-edit.jinja.html" %}
+{% endblock %}
+
+{% block content %}
+    <div class="modal fade" id="flats-edit-popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                {% for layout in layouts %}
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {% with form=layout.form %}
+                            {% import "newhome/macros.jinja.html" as macros with context %}
+                            <div class="modal-header border-bottom hidden layout_{{ layout.id }}">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              <button type="submit" class="btn btn-danger">{% trans %}Сохранить{% endtrans %}</button>
+                              {% if layout.area and layout.rooms_total and layout.image %}
+                                <a href="{{ url('profile_newhome_flats_add_ad', newhome_id, section.id, layout.id) }}" class="btn btn-info" target="_blank">{% if layout.basead %}{% trans %}Редактировать объявление{% endtrans %}{% else %}{% trans %}Создать объявление{% endtrans %}{% endif %}</a>
+                              {% endif %}
+                            </div>
+                            <div class="modal-body hidden layout_{{ layout.id }}">
+                                <div class="row">
+                                    <div class="col-xs-15 text-center relative">
+                                      <img src='{{ layout.image|thumbnail("600x600", nocrop=True) }}' class="img-responsive" alt="" title=""/>
+                                      <ul class="available-layout-options hidden">
+                                        {% for layout_name_option in layout_name_options %}
+                                          <li><a href="#" data-name="{{ layout_name_option }}">{{ layout_name_option }}</a></li>
+                                        {% endfor %}
+                                      </ul>
+                                      <div class="fog hidden"></div>
+                                    </div>
+                                    <div class="col-xs-9 no-horizontal-padding rooms-content">
+                                        <div class="row">
+                                            {{ macros.field_simple('name', 'hidden', 'col-xs-19 col-xs-offset-2 flat-name', 'row') }}
+                                            {{ macros.field_simple('rooms_total', 'col-xs-11 col-xs-offset-2 flat-rooms_total', 'col-xs-8', 'row') }}
+
+                                            {{ layout.formset.management_form }}
+                                            {% for form in layout.formset %}
+                                                {{ form.id }}
+                                                <div class="form-group{% if not form.instance.name %} hidden{% endif %} room-row row">
+                                                    <div class="col-xs-3 col-xs-offset-2 rooms-area">
+                                                        {{ form.image_num|add_class('form-control no-padding text-center image-num')|safe }}
+                                                    </div>
+                                                    <div class="col-xs-11 rooms-area">
+                                                        {{ form.name|add_class('form-control room-name')|add_attrs(placeholder=form.name.help_text)|safe }}
+                                                    </div>
+                                                    <div class="col-xs-1 text-center rooms-area rooms-semicon no-horizontal-padding">:</div>
+                                                    <div class="col-xs-5 rooms-area">
+                                                        {{ form.area|add_class('form-control')|add_attrs(placeholder=form.area.help_text)|safe }}
+                                                    </div>
+                                                    <div class="col-xs-1 rooms-delete rooms-semicon no-horizontal-padding rooms-area">
+                                                        <span class="glyphicon glyphicon-remove" onclick="$(this).parent().parent().addClass('hidden').find('input').val(''); return false;"></span>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-18 col-xs-offset-2">
+                                                <br>
+                                                <button type="button" class="btn btn-danger add-room" onclick="return addRoom($('.layout_{{ layout.id }}'))">{% trans %}Добавить комнату{% endtrans %}</button>
+                                                <br>&nbsp;
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endwith %}
+                    </form>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="white-panel smart-horizontal-padding flats">
+        {% set active='flats' %}
+        {% include "newhome/cabinet/flats-submenu.jinja.html" %}
+
+        {% set layouts_list_=layouts_list|dictsort %}
+        {% for key, layouts in layouts_list_ %}
+            <div class="row border-bottom">
+                <div class="col-xs-22 col-xs-offset-1">
+                    {% if key %}
+                        <h4>Планировки {{ key }}-комнатных квартир</h4>
+                    {% else %}
+                        <h4>{% trans %}Планировки квартир{% endtrans %}</h4>
+                    {% endif %}
+                </div>
+                <div class="col-xs-22 col-xs-offset-1">
+                {% for layout in layouts %}
+                    <div class="col-xs-8 {{ loop.cycle('text-left', 'text-center', 'text-right') }} layout no-horizontal-padding">
+                        <a href="#" class="layout-wrap text-center" data-toggle="modal" data-target="#flats-edit-popup" data-layout="layout_{{ layout.id }}">
+                            <img src='{{ layout.image|thumbnail("250x230", nocrop=True) }}' class="img-responsive" alt='' title=""/>
+                            <span>{{ layout.name }}<br>{{ layout.area }} м<sup>2</sup></span>
+                            <span class="flat-remove glyphicon glyphicon-remove confirm-delete" aria-hidden="true" data-url="{{ url('profile_newhome_flats_remove', newhome_id, section.id, layout.id) }}"></span>
+                        </a>
+                    </div>
+                    {{ loop.cycle('', '', '<div class="clearfix"></div>')|safe }}
+                {% endfor %}
+                </div>
+            </div>
+        {% else %}
+          {% if section.id %}
+            <br>
+            <div class="row">
+              <div class="col-xs-12 text-right padding-top-8">{% trans %}Дублировать наполнение{% endtrans %}</div>
+              <div class="col-xs-12 text-left">
+                <select class="selectpicker" id="copy-changer">
+                  <option value="#"{% if not section.id %} selected="selected"{% endif %}>{% trans %}Выберите дом, секцию{% endtrans %}</option>
+                  {% for building in newhome.buildings.all() %}
+                    {% for section_ in building.sections.all() %}
+                      {% if section.id != section_.id %}
+                        <option value="{{ url('profile_newhome_flats_copy', newhome.id, section.id, section_.id) }}">{{ building.name }}, {% trans %}секция{% endtrans %} {{ section_.position }}</option>
+                      {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-xs-10"><hr></div>
+              <div class="col-xs-4 small text-center padding-top-12">{% trans %}или наполните заново{% endtrans %}</div>
+              <div class="col-xs-10"><hr></div>
+            </div>
+          {% endif %}
+        {% endfor %}
+        <div class="row hidden">
+          <div class="col-xs-22 col-xs-offset-1">
+            <div class="fieldset fieldset-photos">
+              <div class="form-horizontal">
+                <div id="div_id_photos" class="field field-images">
+                  <div class='controls'>
+                    <div class='images'>
+                      <h5>{% trans %}Добавить планировку квартиры{% endtrans %}</h5>
+                      <form method="post" action="" id="new-flats">
+                        {% csrf_token %}
+                        <div class='attachments-upload'>
+                          <noscript>
+                            <p><b><small>{% trans %}Для корректной загрузкий изображений ваш браузер должен поддерживать Javascript.{% endtrans %}</small></b></p>
+                          </noscript>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% if not section.id %}
+          <div class="row">
+            <div class="col-xs-22 col-xs-offset-1 text-center">
+              <br>
+              <p>{% trans %}Выберите дом и секцию{% endtrans %}</p>
+            </div>
+          </div>
+        {% else %}
+          <div class="row building">
+            <div class="{% if not layouts_list_ %}col-xs-24{% else %}col-xs-18{% endif %} text-right">
+              <button class="btn btn-danger" title="Добавить планировку квартиры" onclick="$(this).parent().parent().prev().removeClass('hidden');">{% trans %}Добавить планировку квартиры{% endtrans %}</button>
+            </div>
+            {% if layouts_list_ %}
+              <div class="col-xs-6 text-right">
+                <a href="{{ url('profile_newhome_floors', newhome.id, section.id) }}" class="btn btn-danger btn-control">{% trans %}Сохранить и продолжить{% endtrans %}</a>
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block extra_footer %}
+    <script>
+        var my_ajax_upload = "{{ url('my_ajax_upload') }}";
+        var ROTATE_AD_PHOTO_URL = "{{ url('rotate_ad_photo') }}";
+        var uploader_mode = 'flats';
+        var csrf_token = '{{ csrf_token }}';
+        $().ready(function() {
+            profileNewhomeFlatsInit();
+        })
+    </script>
+
+    {{ super() }}
+    <script src="{{ static('ajaxuploader/js/property_images.js') }}" ></script>
+{% endblock %}

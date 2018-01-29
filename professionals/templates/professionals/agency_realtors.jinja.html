@@ -1,0 +1,25 @@
+{% extends 'professionals/base.jinja.html' %}
+
+{% block content %}
+    <ul class="professionals-breadcrumbs">
+        <li><a href="{{ url('professionals:search') }}"{% trans %}>Все профессионалы{% endtrans %}</a></li> &gt;
+        <li><a href="{{ url('professionals:agency_profile', agency.id) }}">{% trans %}Агентство{% endtrans %} "{{ agency.name }}"</a></li> &gt;
+        <li>{% trans %}Риелторы агентства{% endtrans %}</li>
+    </ul>
+
+    <div class="row">
+        {% for realtor in paginator.current_page.object_list %}
+            <div class="col-xs-12 col-sm-6">
+                <div class="professional-preview hidden-contacts professional-hidden-contacts">
+                    {% include 'professionals/realtor_preview.jinja.html' %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        <div class="col-sm-24">
+            {% include "pagination.jinja.html" %}
+        </div>
+    </div>
+{% endblock %}

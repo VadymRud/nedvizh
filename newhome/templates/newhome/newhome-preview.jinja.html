@@ -1,0 +1,20 @@
+<div class="newhome{% if ad.vip_type %} newhome-vip{% endif %}" itemscope itemtype="http://schema.org/Place" data-id="{{ ad.id }}">
+    {% if ad.get_first_photo() %}
+        <div class="image" itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
+            <a href="{{ ad.get_absolute_url() }}">
+                <img src="{{ ad.get_first_photo().smart_thumbnail("md") }}" class="img-responsive"/>
+                <span class="button">{% trans %}Инфо о комплексе{% endtrans %} &rarr;</span>
+            </a>
+        </div>
+    {% endif %}
+    <a class="title" href="{{ ad.get_absolute_url() }}" itemprop="url">{{ ad.title }}</a>
+    {% for station in ad.get_subway_stations()[:1] %}
+        <div class="subway">
+            <span style="background-color:{{ station.subway_line.color }}" title="{{ station.subway_line }}">м</span>
+            {{ station }}
+        </div>
+    {% endfor %}
+    <div class="price" itemprop="lowPrice">
+        {% trans %}от{% endtrans %} {{ ad.price|intcomma }} {{ ad.get_currency_display() }}
+    </div>
+</div>

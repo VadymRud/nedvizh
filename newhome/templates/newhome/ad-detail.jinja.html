@@ -1,0 +1,296 @@
+{% with layout=item.newhome_layouts.first() %}
+  <div class="row">
+    {# Правый столбец #}
+    <div class="col-lg-6 col-lg-push-18">
+      <div class="white-panel" id="property-detail-small" itemscope itemtype="http://schema.org/Place" data-id='{{ item.pk }}' data-dealtype='{{ item.get_deal_type_display()|title }}'>
+        <div class="row">
+          <div class="col-xs-24">
+            <span>ID {{ layout.newhome_id }}</span><br><br>
+          </div>
+        </div>
+
+        <div class="row usercard property-detail hidden-contacts" style="padding: 0;">
+          <div class="col-xs-24">
+            {# Контакты #}
+            <form class="contacts" action="{{ url('ad-contacts', deal_type=deal_type, region_slug=region_slug, id=item.pk) }}">
+              {% csrf_token %}
+
+              {% if usercard.phone or usercard.get('skype') or usercard.get('email') %}
+                <button class="show-contacts show-contacts-button" type='button' data-target="Новостройки">
+                  <i class="caret"></i> <span>{% trans %}Узнать номер{% endtrans %}</span>
+                </button>
+              {% endif %}
+
+              {% if usercard.phone %}
+                <p class='phone'>
+                  <i class='glyphicon glyphicon-earphone' title='Телефон'></i>
+                  <span>{{ usercard.phone|hide_contacts('Новостройки') }}</span>
+                </p>
+              {% endif %}
+            </form>
+
+            {% if not layout.newhome.user.leadgeneration.is_shown_users_phone %}
+              <br>
+              <p class="note small">{% trans newhome_id=layout.newhome_id %}Введите ID {{ newhome_id }} для соединения с отделом продаж{% endtrans %}</p>
+            {% endif %}
+
+            {# Рабочие часы #}
+            {% if usercard.get('working_hours') %}
+              <div>
+                <i class='glyphicon glyphicon-time' title='Время работы'></i> {{ usercard.working_hours }}
+              </div>
+            {% endif %}
+
+            {# Заказ обратного звонка #}
+            <div class="clearfix hidden-print buttons">
+              {% if callrequest_form is defined and callrequest_form %}
+                <div>
+                  <a class="btn btn-danger btn-lg btn-block send-message2" data-toggle="modal" data-target="#callrequest-modal">
+                      {% trans %}Заказать обратный звонок{% endtrans %}
+                  </a>
+                  {% include 'ppc/callrequest_form.jinja.html' %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-24 text-center"><br>
+            <i><a href="{{ layout.newhome.get_absolute_url() }}">{% trans %}Все объявления ЖК{% endtrans %}</a></i>
+          </div>
+        </div>
+      </div>
+
+      {# Баннера #}
+      <br>
+      <div class="detail-banner visible-lg">
+        {# баннер 300x600 #}
+        {#
+          {% with place_id = 12615 %}
+            {% include 'includes/banner_rontar.jinja.html' %}
+          {% endwith %}
+        #}
+          {% with z='3329de82-850c-42db-9f17-e5e190169010', ph='admixer_3329de82850c42db9f17e5e190169010_zone_10334_sect_2951_site_2705_rnd_862988554' %}
+            {% include 'includes/admixer_banner.jinja.html' %}
+          {% endwith %}
+      </div>
+    </div>
+
+    {# Левый столбец #}
+    <div class="col-lg-18 col-lg-pull-6">
+      {# todo: Повторяющийся блок с ad/detail.jinja.html #}
+      {% if shown_only_for_you is defined %}
+        <div class="alert alert-danger">
+          Это объявление скрыто от остальных пользователей, т.к.
+            {% if item.moderation_status %}
+              было отклонено по причине <b>{{ item.get_moderation_status_display() }}</b>
+            {%- elif item.status != 1 -%}
+              имеет статус <b>{{ item.get_status_display() }}</b>
+            {%- endif -%}
+            .<br/>
+          Вы можете поменять статус объявления в личном кабинете или отредактировать его, если объявление было отклонено по определенной причине.
+        </div>
+      {% endif %}
+
+      <div class="property-detail white-panel" id="property-detail" itemscope itemtype="http://schema.org/Place" data-id='{{ item.pk }}' data-dealtype='{{ item.get_deal_type_display()|title }}'>
+        {# todo: Повторяющийся блок с ad/detail.jinja.html #}
+        <p class="created"><i class="icon icon-date"></i> {% trans %}Дата публикации{% endtrans %}:
+          <small>
+          {% if item.user %}
+            {{ item.updated|date("d.m.Y") }}
+          {% else %}
+            {{ item.modified|date("d.m.Y") }}
+          {% endif %}
+          </small>
+        </p>
+
+        {# todo: Повторяющийся блок с ad/detail.jinja.html #}
+        {# Блок с ценой и служебной инфой #}
+        <div class="row property-header">
+            <div class="col-sm-14">
+                <h1>{{ item }}
+                    {% if request.user.is_authenticated() -%}
+                        <a href="{{ url('profile_save_property', item.pk) }}" class="to-favorite hidden-print" title="{% trans %}добавить в избранное{% endtrans %}"><i class="icon icon-favorite{% if item.is_favorite(request.user) %} icon-favorite-active{% endif %}"></i></a>
+                    {%- else -%}
+                        <a data-target="#login-popup"  data-toggle="modal" title='{% trans %}Получи еще больше возможностей на сайте. Жми кнопку "зарегистрироваться"{% endtrans %}' class="to-favorite hidden-print default-tooltip"><i class="icon icon-favorite"></i></a>
+                    {%- endif %}
+
+                    {% if request.user.is_authenticated() and request.user == item.user %}
+                        <a href="{{ url('profile_edit_property', item.pk) }}" title="{% trans %}редактировать объявление{% endtrans %}" class="btn btn-default btn-sm hidden-print"><i class="glyphicon glyphicon-pencil"></i></a>
+                    {% endif %}
+                </h1>
+                <div class="deal-type">{{ item.get_deal_type_display()|capitalize }}, {{ item.get_property_type_display() }}, ID {{ layout.newhome_id }} </div>
+            </div>
+            <div class="col-sm-10">
+                <div class="price-converted">
+                    {% for currency in ( ( 'UAH', 'грн.'), ('USD', '$'), ('EUR', '&euro;') ) %}
+                        {% if currency.0 != item.currency %}
+                            ~ {{ item.get_converted_price(currency.0, None, True)|intcomma }}
+                            {{ currency.1|safe }}<br/>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="price{% if item.is_bargain_possible %} bargain-possible{% endif %}">
+                    <b><span class="big">{{ item.price|intcomma }}</span> {{ item.get_currency_display() }}
+                    </b> {% if item.price_period %}{{ item.price_period }}{% endif %}{% if item.is_bargain_possible %}<span class="bargain-info">возможен торг</span>{% endif %}
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        {# Блок с информацией по ЖК, сводной информацией и фото #}
+        <div class="row property-content">
+          <div class="col-sm-12">
+            {# Сводная информация #}
+            <div class="info-1">
+              <table class="table table-striped">
+                <tr align="center">
+                  <td class="text-nowrap">{{ layout.rooms_total|pluralize((_("комната"), _("комнаты"), _("комнат")), '') }}</td>
+                  {% if layout.get_available_areas() %}
+                    <td class="text-nowrap">{{ layout.get_available_areas() }} м<sup>2</sup></td>
+                  {% endif %}
+                  <td>{% trans %}Этажи:{% endtrans %} {{ layout.available_floors }}</td>
+                  <td>{% trans %}новостройка{% endtrans %}</td>
+                </tr>
+              </table>
+            </div>
+
+            {# Информация о ЖК #}
+            <ul class="nav nav-pills nav-pills-mesto" role="tablist">
+                <li class="active">
+                  <a href="#info" role="tab" data-toggle="pill"><span>{% trans %}Информация о ЖК{% endtrans %}</span></a>
+                </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="info">
+                {% macro show_field(label, value, is_price=False, is_ceiling_height=False) %}
+                  {% if value %}
+                    <tr>
+                      <td width="40%">{{ label }} {% if is_price %}м<sup>2</sup>{% endif %}{% if is_ceiling_height %}м{% endif %}:</td>
+                      <td>{{ value }}</td>
+                    </tr>
+                  {% endif %}
+                {% endmacro %}
+
+                <table class="table table-striped">
+                  {% with newhome=layout.newhome %}
+                    {{ show_field(_("Класс"), newhome.get_building_class_display()) }}
+                    {{ show_field(_("Высота потолков"), newhome.ceiling_height, is_ceiling_height=True) }}
+                    {{ show_field(_("Домов"), newhome.buildings_total) }}
+                    {{ show_field(_("Количество квартир"), newhome.flats_total) }}
+                    {{ show_field(_("Отопление"), newhome.get_heating_display()) }}
+                    {{ show_field(_("Очередей"), newhome.phases) }}
+                    {{ show_field(_("Паркинг"), newhome.get_parking_info_display()) }}
+                    {{ show_field(_("Стены"), newhome.get_walls_display()) }}
+                    {{ show_field(_("Утепление"), newhome.get_building_insulation_display()) }}
+                    {{ show_field(_("Этажность"), newhome.number_of_floors) }}
+                    {{ show_field(_("Цена за"), newhome.get_price_range(), is_price=True) }}
+                  {% endwith %}
+                </table>
+              </div>
+            </div>
+          </div>
+
+          {# Фотографии #}
+          <div class="col-sm-12">
+            {# todo: Повторяющийся блок с ad/detail.jinja.html #}
+            {% macro render_big_image(item, photo, show_new_gallery=False) %}
+              <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="image-item">
+                <a href="{{ photo.smart_thumbnail("full") }}" rel="gallery" title="{{ photo.caption|default('') }}" itemprop="contentUrl" {% if show_new_gallery %}data-size="{{ photo.width }}x{{ photo.height }}"{% else %}class='js_big_image_wrap'{% endif %}>
+                  <img src="{{ photo.smart_thumbnail("lg") }}" title="{{ item.image_title }}" itemprop="thumbnail" class="img-responsive"/>
+                </a>
+              </figure>
+            {% endmacro %}
+
+            {% with property_photos = item.photos.all() %}
+              {% if property_photos %}
+                <div class="images">
+                  {# fixme: Во время перехода между галереями нужна проверка на наличие у всех изображений полей с размерами #}
+                  {% set photo_without_dimensions = [] %}
+                  {% for photo in property_photos %}
+                    {% if not photo.width or not photo.height %}
+                      {% do photo_without_dimensions.append(photo.id) %}
+                    {% endif %}
+                  {% endfor %}
+                  <div class="mst_scroll_big_image js_scroll_big_image{% if not photo_without_dimensions %} pswp-gallery{% endif %}" itemscope itemtype="http://schema.org/ImageGallery">
+                    {% for photo in property_photos %}
+                      {% if not photo_without_dimensions %}
+                        {{ render_big_image(item, photo, True) }}
+                      {% else %}
+                        {{ render_big_image(item, photo) }}
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+
+                  <div class='image-list mst_scroll_ad_images js_scroll_ad_images'>
+                    {% for photo in property_photos %}
+                      <div class="mst_preview_img">
+                        <img src='{{ photo.smart_thumbnail("xs") }}' title='{{ item.image_title }}' height='72' alt=''/>
+                      </div>
+                    {% endfor %}
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              {% endif %}
+            {% endwith %}
+          </div>
+        </div>
+
+        {# Описание #}
+        {% if item.description %}
+          <div class="row">
+            <div class="col-xs-24">
+              <div class="description">
+                <div class="h2">{% trans %}Описание{% endtrans %}</div>
+                <div>{{ item.description|nl2br }}</div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+        {# Свободные квартиры #}
+        {% with newhome=layout.newhome %}
+          <br>
+          <div class="row">
+            <div class="col-xs-24">
+              <div class="h2">{% trans %}Это 1 вариант из{% endtrans %} {{ flats_available_amount }} в {{ newhome.name }}</div><br>
+            </div>
+            <div class="col-xs-24 newhomes-detail">
+              <div class="white-panel" id="available-flats">
+                {% include 'newhome/detail-flats-info.jinja.html' %}
+              </div>
+            </div>
+          </div>
+        {% endwith %}
+
+        {# Карта #}
+        {% with coords = item.get_coords() %}
+          {% if coords %}
+            <div class="row">
+              <div class="col-xs-24">
+                <div id='local-info-n-map' class='ui-tabs-hide' itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+                  <meta itemprop="longitude" content="{{ coords[0] }}"/>
+                  <meta itemprop="latitude" content="{{ coords[1] }}"/>
+                  <link rel="stylesheet" href="{{ static('libs/leaflet/leaflet.css') }}">
+                  <div id='embed_map' class='show-osm-map' style='width:100%;height:320px;'
+                       data-js="{{ static('libs/leaflet/leaflet.js') }}"
+                       data-lon='{{ coords[0] }}' data-lat='{{ coords[1] }}'
+                       data-lang-code="{{ {'uk': 'uk-UA', 'ru': 'ru-RU'}[LANGUAGE_CODE] }}">
+                      <div class='content hidden'><p>{{ item.address|linebreaksbr }}</p>
+                          Цена: {{ item.price|intcomma }} {{ item.get_currency_display() }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        {# Соцсети #}
+        <br/>
+        {% include 'includes/social_share.jinja.html' %}
+      </div>
+    </div>
+
+  </div>
+{% endwith %}

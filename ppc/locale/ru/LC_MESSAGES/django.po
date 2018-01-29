@@ -1,0 +1,632 @@
+# Russian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-12-26 14:47+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: choices.py:6
+msgid "аренда"
+msgstr ""
+
+#: choices.py:7
+msgid "посуточная аренда"
+msgstr ""
+
+#: choices.py:8
+msgid "продажа"
+msgstr ""
+
+#: choices.py:9
+msgid "новостройки"
+msgstr ""
+
+#: choices.py:13
+msgid "Объявления"
+msgstr ""
+
+#: choices.py:14
+msgid "Новостройки"
+msgstr ""
+
+#: choices.py:35
+msgid "рассмативается"
+msgstr ""
+
+#: choices.py:36
+msgid "отклонена"
+msgstr ""
+
+#: choices.py:37
+msgid "принята"
+msgstr ""
+
+#: forms.py:13
+msgid "Получатель заявки"
+msgstr ""
+
+#: forms.py:14
+msgid "Представьтесь, пожалуйста"
+msgstr ""
+
+#: forms.py:66
+msgid "c"
+msgstr ""
+
+#: forms.py:66
+msgid "до"
+msgstr ""
+
+#: forms.py:72
+msgid "Пн"
+msgstr ""
+
+#: forms.py:73
+msgid "Вт"
+msgstr ""
+
+#: forms.py:74
+msgid "Ср"
+msgstr ""
+
+#: forms.py:75
+msgid "Чт"
+msgstr ""
+
+#: forms.py:76
+msgid "Пт"
+msgstr ""
+
+#: forms.py:77
+msgid "Сб"
+msgstr ""
+
+#: forms.py:78
+msgid "Вс"
+msgstr ""
+
+#: models.py:31 models.py:141 models.py:187 models.py:235
+msgid "пользователь"
+msgstr ""
+
+#: models.py:32
+msgid "включено для объявлений"
+msgstr ""
+
+#: models.py:33
+msgid "включено для новостроек"
+msgstr ""
+
+#: models.py:34
+msgid "выводить телефон пользователя"
+msgstr ""
+
+#: models.py:35
+msgid "лимит объявлений по ППК"
+msgstr ""
+
+#: models.py:36
+msgid "выделенные номера"
+msgstr ""
+
+#: models.py:142
+msgid "тип лидогенерации"
+msgstr ""
+
+#: models.py:144
+msgid "подключение"
+msgstr ""
+
+#: models.py:145
+msgid "отключение"
+msgstr ""
+
+#: models.py:147 models.py:148
+msgid "звонков"
+msgstr ""
+
+#: models.py:149
+msgid "номеров"
+msgstr ""
+
+#: models.py:188
+msgid "начало"
+msgstr ""
+
+#: models.py:189
+msgid "конец"
+msgstr ""
+
+#: models.py:228
+msgid "регион"
+msgstr ""
+
+#: models.py:415
+msgid "номер переадресации"
+msgstr ""
+
+#: models.py:416
+msgid "тип сделки"
+msgstr ""
+
+#: models.py:419
+msgid "жалоба"
+msgstr ""
+
+#: models.py:420 models.py:664
+msgid "транзакция оплаты"
+msgstr ""
+
+#: models.py:421
+msgid "запись разговора"
+msgstr ""
+
+#: models.py:654 models.py:903
+msgid "имя"
+msgstr ""
+
+#: models.py:655
+msgid "e-mail"
+msgstr ""
+
+#: models.py:656
+msgid "телефон"
+msgstr ""
+
+#: models.py:904
+msgid "компания"
+msgstr ""
+
+#: models.py:905
+msgid "текст отзыва"
+msgstr ""
+
+#: models.py:906
+msgid "изображение"
+msgstr ""
+
+#: models.py:908
+msgid "время создания"
+msgstr ""
+
+#: views.py:47
+msgid "Данной услугой могут воспользоваться только риелторы и застройщики"
+msgstr ""
+
+#: views.py:61
+#, python-format
+msgid ""
+"Для активации услуги \"Оплата за звонок\" остаток на балансе должен быть "
+"более %(balance_limit)s грн."
+msgstr ""
+
+#: views.py:62
+msgid "Пополнить"
+msgstr ""
+
+#: views.py:71
+msgid "Оплата за звонок активирована"
+msgstr ""
+
+#: views.py:79
+msgid "Услуга оплата за звонок успешно активирована."
+msgstr ""
+
+#: views.py:79
+msgid "Добавьте своё первое объявление"
+msgstr ""
+
+#: views.py:80
+msgid "Добавить"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:290 views.py:91
+msgid "Оплата за звонок"
+msgstr ""
+
+#: management/commands/ppc_notification.py:85
+msgid "Заканчивается срок действия абон.платы услуги \"Выделенный номер\""
+msgstr ""
+
+#: management/commands/ppc_notification.py:124
+msgid "Закончился срок действия абон.платы услуги \"Выделенный номер\""
+msgstr ""
+
+#: management/commands/update_leadtype.py:104
+msgid "Вы не можете получать звонки"
+msgstr ""
+
+#: templates/ppc/callrequest_email.jinja.html:10
+msgid "Уважаемый пользователь"
+msgstr ""
+
+#: templates/ppc/callrequest_email.jinja.html:27
+msgid "Поступила заявка на подбор недвижимости по параметрам"
+msgstr ""
+
+#: templates/ppc/callrequest_email.jinja.html:29
+msgid "Клиент"
+msgstr ""
+
+#: templates/ppc/callrequest_email.jinja.html:31
+msgid "По вашему объявлению"
+msgstr ""
+
+#: templates/ppc/callrequest_email.jinja.html:31
+msgid "появился новый клиент"
+msgstr ""
+
+#: templates/ppc/callrequest_email.jinja.html:45
+msgid "Имя"
+msgstr ""
+
+#: templates/ppc/callrequest_email.jinja.html:59
+msgid "Телефон"
+msgstr ""
+
+#: templates/ppc/callrequest_email.jinja.html:130
+msgid "Прибыльной Вам работы и отличных результатов!"
+msgstr ""
+
+#: templates/ppc/callrequest_email.jinja.html:130
+msgid "команда"
+msgstr ""
+
+#: templates/ppc/callrequest_email_to_requester.jinja.html:10
+msgid "Вы только что оставили заявку на заказ обратного звонка"
+msgstr ""
+
+#: templates/ppc/callrequest_email_to_requester.jinja.html:10
+msgid "на странице объявления"
+msgstr ""
+
+#: templates/ppc/callrequest_email_to_requester.jinja.html:10
+msgid "Владелец объявления свяжется с вами в ближайшее время."
+msgstr ""
+
+#: templates/ppc/callrequest_email_to_requester.jinja.html:34
+msgid ""
+"Если вы оставили заявку в рабочее время, а владелец объявления не "
+"перезвонил вам в течение часа с момента подачи заявки – напишите нам на"
+msgstr ""
+
+#: templates/ppc/callrequest_email_to_requester.jinja.html:34
+msgid "или перезвоните по номеру тел. (044) 228-68-98 (с мобильного бесплатно)"
+msgstr ""
+
+#: templates/ppc/callrequest_email_to_requester.jinja.html:47
+msgid ""
+"Если вы оставили заявку в нерабочее время, с вами свяжутся на следующий "
+"день."
+msgstr ""
+
+#: templates/ppc/callrequest_form.jinja.html:5
+#: templates/ppc/lead.jinja.html:453 templates/ppc/lead.jinja.html:498
+msgid "Закрыть"
+msgstr ""
+
+#: templates/ppc/callrequest_form.jinja.html:6
+msgid "Заказ обратного звонка"
+msgstr ""
+
+#: templates/ppc/callrequest_form.jinja.html:17
+msgid "Отправить"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:285
+msgid "Об услуге"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:286
+msgid "Заказ услуги"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:287
+msgid "Отзывы"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:288
+msgid "Как работает услуга?"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:291
+msgid ""
+"<b><a name=\"about\">Это</a> новая возможность на рынке недвижимости "
+"Украины</b>, которая позволяет специалистам данной сферы четко "
+"отслеживать канал поступления обращений от целевых клиентов, и эффективно"
+" распределять свой бюджет на рекламу."
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:292 templates/ppc/lead.jinja.html:468
+msgid "Общий номер"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:295 templates/ppc/lead.jinja.html:300
+#: templates/ppc/lead.jinja.html:305 templates/ppc/lead.jinja.html:310
+#: templates/ppc/lead.jinja.html:318 templates/ppc/lead.jinja.html:323
+msgid "шаг"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:297 templates/ppc/lead.jinja.html:320
+msgid "Клиент звонит по номеру телефона указанному в объявлении"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:302
+msgid "Автоответчик просит ввести ID объявления"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:307
+msgid "Клиент вводит ID объявления"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:312 templates/ppc/lead.jinja.html:325
+msgid "Система соединяет с риелтором"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:315 templates/ppc/lead.jinja.html:461
+msgid "Выделенный номер"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:328
+msgid ""
+"Выделенный мобильный номер телефона</b> - индивидуальный номер, который "
+"закрепляется за всеми вашими объявлениями, позвонив по которому, клиент "
+"попадает лично к Вам (без надобности вводить ID объявления)."
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:329
+msgid ""
+"Стоимость выделенного номера телефона - <b><span>100 грн</span></b> в "
+"месяц."
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:334
+msgid "Разделы"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:335
+msgid "Звонок"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:336
+msgid "Заявка / пропущенный звонок"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:339
+msgid "Продажа"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:344
+msgid "Аренда"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:349
+msgid "Посуточная аренда"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:355 templates/ppc/lead.jinja.html:436
+msgid "Выбрать вариант"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:359
+msgid "Отзывы клиентов"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:379
+msgid "Как это работает?"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:380
+msgid "Пошаговая инструкция"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:383
+msgid "Выберите модель работы"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:385
+msgid "\"Оплата за звонок/Оплата за заявку\";"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:386
+msgid ""
+"\"Оплата за звонок/Оплата за заявку\" <b>с выделенным мобильным номером "
+"телефона*</b>"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:391
+msgid "Выставьте \"Рабочее время\""
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:393
+msgid "В указанное время, вы будете получать звонки от целевых клиентов;"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:394
+msgid ""
+"В остальное время и дни, вы получите заявку, которая придет в виде sms и "
+"email с контактными данными клиента, и id обьявления, которым он "
+"интересовался. Как только у вас будет возможность, Вы сможете сразу с ним"
+" связаться."
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:399
+msgid "Пополните Баланс минимально на 200 грн."
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:401
+msgid ""
+"Если у вас на балансе уже есть данная сумма, система предложит вам сразу "
+"приступить к следующему шагу."
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:406
+msgid "Добавьте/выберите от 1 до 40 обьявлений"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:408
+msgid ""
+"Срок трансляции обьявлений на сайте - до момента, пока на балансе есть "
+"средства;"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:409
+msgid "Автоматическое обновление обьявлений каждые 7 дней."
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:414
+msgid "Система автоматически присвоит обьявлениям номер телефона"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:416
+msgid ""
+"Позвонив по указаному телефону, система запросит ввести ID номер "
+"объявления;"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:417
+msgid ""
+"Контакты звонившего клиента дублируются вам на e-mail, sms и CRM систему "
+"в вашем личном кабинете."
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:419
+msgid ""
+"Подключив услугу <b>«Выделенный мобильный номер телефона»</b> клиент "
+"сразу попадает к автору объявления (без необходимости вводить ID "
+"объявления)."
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:423
+msgid "С Баланса списываются средства за входящий звонок"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:425
+msgid ""
+"Если вы пропустили входящий звонок, система спишет средства за заявку, а "
+"контактные данные клиента будут продублированны вам на e-mail, sms и CRM "
+"систему в вашем личном кабинете."
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:430
+msgid "Система списывает деньги только за Уникальный звонок"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:432
+msgid ""
+"Если один и тот же клиент звонит вам несколько раз в течение суток, "
+"система списывает деньги только за первый уникальный звонок."
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:434
+msgid ""
+"<b>Важно!</b> <i>Если звонок оказался нецелевым, есть возможность "
+"<b>пожаловаться на звонок</b>. Запись разговора попадет на модерацию, "
+"после чего деньги будут возвращенны на <b>баланс</b>.</i>"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:455
+msgid "Выберите тип номера"
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:475
+msgid ""
+"Оплата за звонки/заявки +100 грн./мес. абонплата за персональный номер "
+"телефона."
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:476
+msgid "Оплата только за звонки/заявки."
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:499
+msgid ""
+"Укажиет рабочие дни и время<br/>чтобы мы знали когда "
+"пользователи<br/>могут вам звонить."
+msgstr ""
+
+#: templates/ppc/lead.jinja.html:503
+msgid "Вы можете позже поменять<br/>это в настройках в любое время"
+msgstr ""
+
+#: templates/ppc/leadgeneration_form.jinja.html:8
+msgid "Выберите время работы"
+msgstr ""
+
+#: templates/ppc/leadgeneration_form.jinja.html:13
+msgid "Подтвердить"
+msgstr ""
+
+#: templates/ppc/mail/money_not_enough.jinja.html:7
+msgid ""
+"На Вашем Балансе закончились средства, и Вы не можете получать звонки и "
+"заявки от целевых клиентов"
+msgstr ""
+
+#: templates/ppc/mail/money_not_enough.jinja.html:21
+msgid "Пополните Ваш баланс и возобновите работу прямо сейчас!"
+msgstr ""
+
+#: templates/ppc/mail/money_not_enough.jinja.html:28
+msgid "Пополнить баланс"
+msgstr ""
+
+#: templates/ppc/mail/ppc-notification-afterward.jinja.html:7
+msgid "Срок действия абонентской платы \"Выделенный номер\" истек."
+msgstr ""
+
+#: templates/ppc/mail/ppc-notification-afterward.jinja.html:14
+msgid ""
+"Продлите действие услуги и продолжайте получать звонки от целевых "
+"клиентов."
+msgstr ""
+
+#: templates/ppc/mail/ppc-notification-afterward.jinja.html:21
+#: templates/ppc/mail/ppc-notification-beforehand.jinja.html:26
+msgid "Продлить"
+msgstr ""
+
+#: templates/ppc/mail/ppc-notification-beforehand.jinja.html:7
+msgid "Срок действия абонентской платы \"Выделенный номер\" истекает"
+msgstr ""
+
+#: templates/ppc/mail/ppc-notification-beforehand.jinja.html:9
+#, python-format
+msgid "через %(count)s день"
+msgid_plural "через %(count)s дней"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: templates/ppc/mail/ppc-notification-beforehand.jinja.html:11
+msgid "сегодня"
+msgstr ""
+
+#: templates/ppc/mail/ppc-notification-beforehand.jinja.html:19
+msgid ""
+"Продлите действие услуги, чтоб не пропустить ни одного звонка от целевых "
+"клиентов."
+msgstr ""
+
+#: templates/ppc/mail/ppc-notification-beforehand.jinja.html:33
+msgid "Если вы хотите отменить действие услуги \"Выделенный номер\""
+msgstr ""
+
+#: templates/ppc/mail/ppc-notification-beforehand.jinja.html:33
+msgid "измените тип номера"
+msgstr ""
+

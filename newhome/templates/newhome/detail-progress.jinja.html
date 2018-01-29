@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-lg-5 text-left">
+    {% if progress_prev %}
+      <br/><a class="nav" href="{{ newhome.get_absolute_url() }}?progress={{ progress_prev.id }}" target="_blank"> <i class="glyphicon glyphicon-menu-left"></i> {{ progress_prev.date|date("d.m.Y") }}</a>
+    {% endif %}
+  </div>
+  <div class="col-lg-14 text-center">
+    <div class="h2 no-margin">{% trans %}Ход строительства{% endtrans %}<br/>&nbsp;<span class="subtitle">{{ progress }}</span></div>
+  </div>
+  <div class="col-lg-5 text-right">
+    {% if progress_next %}
+      <br/><a class="nav" href="{{ newhome.get_absolute_url() }}?progress={{ progress_next.id }}" target="_blank">{{ progress_next.date|date("d.m.Y") }} <i class="glyphicon glyphicon-menu-right"></i></a>
+    {% endif %}
+  </div>
+</div><br/>
+<div class="photos text-center">
+  <div class="row">
+    {% for photo in progress.photos.all() %}
+      {% if loop.index0 and loop.index0 % 3 == 0 %}</div><br/><div class="row">{% endif %}
+      <div class="col-sm-8">
+        <a href='{{ photo.image.url }}' rel='gallery' class='js_big_image_wrap' title="{{ progress }}">
+          <img src="{{ photo.image|thumbnail("230x230") }}" class="image-responsive" alt="{{ progress }}"/>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>

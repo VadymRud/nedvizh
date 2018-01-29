@@ -1,0 +1,15 @@
+{% extends 'base.jinja.html' %}
+
+{% block content_wrapper %}
+    <div class="l-submenu container">
+        <div class="navbar navbar-default navbar-striped" role="navigation">
+            {% include "webinars/menu.jinja.html" %}
+        </div>
+    </div>
+
+    <div class="container webinars">
+        {% block breadcrumb %}{% endblock %}
+
+        {% block content %}{% endblock %}
+    </div><br/>
+{% endblock %}

@@ -1,0 +1,14 @@
+﻿{% extends 'base.jinja.html' %}
+
+{% block title %}{% trans %}Объявление не найдено{% endtrans %}{% endblock %}
+
+{% block content %}
+    <h1>{% trans %}Объявление не найдено{% endtrans %}</h1>
+    <p>
+        {% trans %}К сожалению, у этого объявления истек срок публикации или оно было удалено владельцем.{% endtrans %}
+        <br/>{% trans %}Вы можете{% endtrans %} <a href='.'>{% trans %}перейти в раздел с объявлениями по вашему региону{% endtrans %}</a> {% trans %}и воспользоваться поиском, чтобы найти подходящий объект.{% endtrans %}
+    </p>
+    <br/>
+    <a class='btn btn-success' href='.'>{% trans %}Перейти к поиску объявлений{% endtrans %}</a>
+{% endblock %}
+

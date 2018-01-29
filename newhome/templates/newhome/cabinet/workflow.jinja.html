@@ -1,0 +1,84 @@
+{% extends "newhome/cabinet/base.jinja.html" %}
+
+{% block top_menu %}
+    {% set active='workflow' %}
+    {% include "newhome/cabinet/menu-edit.jinja.html" %}
+{% endblock %}
+
+{% block content %}
+    <div class="white-panel newhomes-workflow">
+        <div class="row border-bottom">
+            <div class="col-xs-6"><h3>{% trans %}Ход строительства{% endtrans %}</h3></div>
+            <div class="col-xs-10 help-text">{% trans %}Будет отображено на главной странице объекта{% endtrans %}</div>
+        </div>
+        {% block workflow_content %}
+            {% for progress in newhome.progress.all() %}
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h3 class="thin">{{ progress.date|date('d E Y') }}</h3>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="{{ url('profile_newhome_workflow_edit', newhome_id, progress.id) }}" title="" class="btn btn-gray btn-after-images">{% trans %}Редактировать{% endtrans %}</a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a href="{{ url('profile_newhome_workflow_remove', newhome_id, progress.id) }}" title="" class="btn btn-white btn-after-images">{% trans %}Удалить{% endtrans %}</a>
+                    </div>
+                </div>
+                <div class="row border-bottom workflow-images">
+                    {% for photo in progress.photos.all() %}
+                        <div class="col-xs-6">
+                            <img src="{{ photo.image|thumbnail("288x192") }}"><br>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% if loop.last %}
+                    <div class="row">
+                      <div class="col-xs-24 hidden" id="workflow-form">
+                        {% set progress_id = None %}
+                        {% include "newhome/cabinet/workflow-form.jinja.html" %}
+                      </div>
+                    </div>
+                    <div class="row building">
+                      <div class="col-xs-17 text-right">
+                        <a href="{{ url('profile_newhome_workflow_add', newhome_id) }}" title="" class="btn btn-danger btn-control" onclick="$('#workflow-form').toggleClass('hidden'); return false;">{% trans %}Добавить дату и фото{% endtrans %}</a>
+                      </div>
+                      <div class="col-xs-4 text-center">
+                        <a href="{{ url('profile_newhome_object_edit', newhome_id) }}" title="" class="btn btn-danger btn-control">{% trans %}Редактировать{% endtrans %}</a>
+                      </div>
+                      <div class="col-xs-3 text-right">
+                        <a href="{{ url('profile_newhome_my_buildings') }}" title="" class="btn btn-danger btn-control">{% trans %}Завершить{% endtrans %}</a>
+                      </div>
+                    </div>
+                {% endif %}
+            {% else %}
+                <br><br><br><br><br>
+                <div class="row">
+                    <div class="col-xs-24 text-center help-text">{% trans %}Вы не добавили еще ни одного периода.{% endtrans %}</div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-xs-24 text-right">
+                        <a href="{{ url('profile_newhome_workflow_add', newhome_id) }}" title="" class="btn btn-danger">{% trans %}Добавить дату и фото{% endtrans %}</a>
+                    </div>
+                </div>
+                <br><br><br><br><br><br><br>
+            {% endfor %}
+        {% endblock %}
+    </div>
+{% endblock %}
+
+{% block extra_footer %}
+    {{ super() }}
+
+    <script>
+        $('.calendar').datepicker({
+            language: "ru", todayHighlight: true, multidate: false, format: "dd-mm-yyyy"
+        });
+        var my_ajax_upload = "{{ url('my_ajax_upload') }}";
+        var ROTATE_AD_PHOTO_URL = "{{ url('rotate_ad_photo') }}";
+        var uploader_mode = 'workflow';
+        var csrf_token = '{{ csrf_token }}';
+    </script>
+
+    <script src="{{ static('ajaxuploader/js/property_images.js') }}" ></script>
+{% endblock %}

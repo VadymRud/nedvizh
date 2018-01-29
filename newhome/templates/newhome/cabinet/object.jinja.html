@@ -1,0 +1,218 @@
+{% extends "newhome/cabinet/base.jinja.html" %}
+
+{% block top_menu %}
+    {% set active='object' %}
+    {% include "newhome/cabinet/menu-edit.jinja.html" %}
+{% endblock %}
+
+{% block content %}
+    {% import "newhome/macros.jinja.html" as macros with context %}
+    <div class="row newhomes-object">
+        <form method="post" action="" class="newhome-object-edit-form">
+            {% csrf_token %}
+            <div class="col-xs-17 pull-left">
+                <div class="white-panel form-horizontal">
+                    <div class="row">
+                        <div class="col-xs-23">
+                            {{ form.name|add_class('form-control name pull-left')|add_attrs(placeholder=form.name.help_text)|safe }}
+                            <sup class="pink pull-left">*</sup>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="fieldset fieldset-photos">
+                            <div class="form-horizontal">
+                                <div id="div_id_photos" class="field field-images">
+                                    <div class='controls col-xs-24'>
+                                        <div class='images'>
+                                            <div class='attachments-upload'>
+                                                <noscript>
+                                                    <p><b><small>{% trans %}Для корректной загрузкий изображений ваш браузер должен поддерживать Javascript.{% endtrans %}</small></b></p>
+                                                </noscript>
+                                            </div>
+
+                                            {% if newhome_id is defined and newhome_id and newhome.newhome_photos.exists() %}
+                                                <ul class='already-uploaded image-list list-inline clearfix'>
+                                                {% for photo in newhome.newhome_photos.all() %}
+                                                    <li class="pull-left relative">
+                                                        <a class="choose_main" title="{% trans %}сделать главной{% endtrans %}">{% trans %}сделать главной{% endtrans %}</a>
+                                                        <a class="delete" title="{% trans %}удалить{% endtrans %}"></a>
+                                                        <a class="rotate" title="{% trans %}повернуть{% endtrans %}" data-photo-id="{{ photo.id }}"></a>
+                                                        <img src="{{ photo.image|thumbnail("240x160", nocrop=False) }}" class="img-responsive" data-id="{{ photo.id }}" alt="" title=""/>
+                                                        <input type="hidden" name="delete_images" value="{{ photo.pk }}" disabled="disabled"/>
+                                                        <input type="hidden" name="is_main" value="{{ photo.pk }}"{% if not photo.is_main %} disabled="disabled"{% endif %}/>
+                                                    </li>
+                                                {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br>
+                    {{ macros.field_simple('price_at', 'col-xs-9', 'col-xs-9') }}
+                    {{ macros.field_simple('addr_country', 'col-xs-9', 'col-xs-9', 'hidden') }}
+                    {{ macros.field_simple('addr_city', 'col-xs-9', 'col-xs-9') }}
+                    {{ macros.field_simple('addr_street', 'col-xs-9', 'col-xs-9') }}
+                    {{ macros.field_simple('addr_house', 'col-xs-9', 'col-xs-9') }}
+                    {{ macros.field_simple('developer', 'col-xs-9', 'col-xs-9') }}
+                    {{ macros.field_simple('seller', 'col-xs-9', 'col-xs-9') }}
+                    {% if newhome_id is defined %}
+                        <div class="row">
+                            <div class="col-xs-9">
+                                <label class="control-label">{% trans %}Статус строительства{% endtrans %}:</label>
+                            </div>
+                            <div class="col-xs-15 padding-top-7">
+                                <a href="{{ url('profile_newhome_sections', newhome_id) }}" title="" class="no-decoration">Перейти к заполнению раздела &laquo;Очереди&raquo; <span class="glyphicon glyphicon-chevron-right"></span></a>
+                                <ul class="queues-object">
+                                    {% for queue in newhome.queues.all() %}
+                                        <li>
+                                            {{ queue.name }} ({% for section in queue.sections.all() %}{{ section }}{% if not loop.last %}, {% endif %}{% endfor %}) &mdash; {{ queue.finish_at }}, {{ queue.comment }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-xs-18">
+                            <h4>{% trans %}Описание{% endtrans %}</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-18">
+                            {{ form.content }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-24 text-right">
+                            <br><br>
+                            <a href="{{ url('profile_newhome_my_buildings') }}" title="" class="btn btn-danger" onclick="$('.newhomes-object form.newhome-object-edit-form').submit(); return false;">{% if newhome_id is defined %}{% trans %}Завершить{% endtrans %}{% else %}{% trans %}Сохранить и продолжить{% endtrans %}{% endif %}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-7 pull-right">
+                <div class="white-panel form-horizontal">
+                    {{ macros.field_choices('building_class') }}
+                    {{ macros.field_simple('ceiling_height') }}
+                    {{ macros.field_simple('buildings_total') }}
+                    {{ macros.field_simple('flats_total') }}
+                    {{ macros.field_choices('heating') }}
+                    {{ macros.field_simple('phases') }}
+                    {{ macros.field_choices('parking_info') }}
+                    {{ macros.field_choices('walls') }}
+                    {{ macros.field_choices('building_insulation') }}
+                    {{ macros.field_simple('number_of_floors') }}
+                </div>
+            </div>
+            {% if newhome_id is defined %}
+                <div class="col-xs-7 pull-right">
+                  {% if flats_rooms_options is defined and flats_rooms_options %}
+                    <div class="white-panel" id="all-flats">
+                      {% include 'newhome/detail-flats.jinja.html' %}
+                      <br/><br/>
+                      <a href="{{ url('profile_newhome_sections', newhome.id) }}" title="" class="general-link">{% trans %}Перейти к заполнению раздела «Дома и очереди»{% endtrans %}</a><a href="{{ url('profile_newhome_sections', newhome.id) }}" title="" class="arrow small"></a>
+                    </div>
+                  {% else %}
+                    <div class="white-panel">
+                        <div class="row">
+                            <div class="col-xs-24">
+                                <h5>Квартиры от застройщика</h5>
+                            </div>
+                            <div class="col-xs-24 text-center">
+                                <br><br><br>
+                                <a href="{{ url('profile_newhome_sections', newhome.id) }}" title="" class="arrow"></a>
+                            </div>
+                            <div class="col-xs-24 text-center">
+                                <br>
+                                <a href="{{ url('profile_newhome_sections', newhome.id) }}" title="" class="general-link">{% trans %}Перейти к заполнению{% endtrans %}<br>{% trans %}раздела «Дома и очереди»{% endtrans %}</a>
+                                <br><br><br>
+                            </div>
+                        </div>
+                    </div>
+                  {% endif %}
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xs-17 pull-left">
+                  {% if flats_info_exists is defined and flats_info_exists %}
+                    <div class="white-panel" id="available-flats">
+                      {% include 'newhome/detail-flats-info.jinja.html' %}
+                      <br/><br/>
+                      <a href="{{ url('profile_newhome_flats_available', newhome.id, 0) }}" title="" class="general-link">{% trans %}Перейти к заполнению раздела «Свободные Квартиры»{% endtrans %}</a><a href="{{ url('profile_newhome_flats_available', newhome.id, 0) }}" title="" class="arrow small"></a>
+                    </div>
+                  {% else %}
+                    <div class="white-panel">
+                      <div class="row">
+                        <div class="col-xs-24">
+                          <h3>{% trans %}Свободные квартиры{% endtrans %}</h3>
+                        </div>
+                        <div class="col-xs-24 text-center">
+                          <br><br><br>
+                          <a href="{{ url('profile_newhome_flats_available', newhome.id, 0) }}" title="" class="arrow"></a>
+                        </div>
+                        <div class="col-xs-24 text-center">
+                          <br>
+                          <a href="{{ url('profile_newhome_flats_available', newhome.id, 0) }}" title="" class="general-link">{% trans %}Перейти к заполнению{% endtrans %}<br>{% trans %}раздела «Свободные Квартиры»{% endtrans %}</a>
+                          <br><br><br>
+                        </div>
+                      </div>
+                    </div>
+                  {% endif %}
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="col-xs-17 pull-left">
+                  {% if progress is defined and progress %}
+                    <div class="white-panel" id="progress">
+                      <div class="wrapper">
+                        {% include 'newhome/detail-progress.jinja.html' %}
+                        <br/><br/>
+                        <a href="{{ url('profile_newhome_workflow', newhome_id) }}" title="" class="general-link">{% trans %}Перейти к заполнению раздела «Ход строительства»{% endtrans %}</a><a href="{{ url('profile_newhome_workflow', newhome_id) }}" title="" class="arrow small"></a>
+                      </div>
+                    </div>
+                  {% else %}
+                    <div class="white-panel">
+                      <div class="row">
+                        <div class="col-xs-24">
+                          <h3>{% trans %}Ход строительства{% endtrans %}</h3>
+                        </div>
+                        <div class="col-xs-24 text-center">
+                          <br><br><br>
+                          <a href="{{ url('profile_newhome_workflow', newhome_id) }}" title="" class="arrow"></a>
+                        </div>
+                        <div class="col-xs-24 text-center">
+                          <br>
+                          <a href="{{ url('profile_newhome_workflow', newhome_id) }}" title="" class="general-link">{% trans %}Перейти к заполнению{% endtrans %}<br>{% trans %}раздела «Ход строительства»{% endtrans %}</a>
+                          <br><br><br>
+                        </div>
+                      </div>
+                    </div>
+                  {% endif %}
+                </div>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}
+
+{% block extra_footer %}
+    <script>
+        var my_ajax_upload = "{{ url('profile_newhome_object_upload') }}";
+        var ROTATE_AD_PHOTO_URL = "{{ url('rotate_ad_photo') }}";
+        var uploader_mode = 'building';
+        var csrf_token = '{{ csrf_token }}';
+
+        $().ready(function() {
+          {% if newhome_id is undefined %}
+            profileNewhomeObjectInit();
+          {% elif request.META.get('HTTP_REFERER') and '/add/' in request.META.HTTP_REFERER %}
+            // Если был переход со страницы добавления на страницу редактирования - очищаем сохраненные данные
+            cleanLocalStorage();
+          {% endif %}
+          availableFlatsProcess();
+        });
+    </script>
+
+    {{ super() }}
+    <script src="{{ static('ajaxuploader/js/property_images.js') }}" ></script>
+{% endblock %}

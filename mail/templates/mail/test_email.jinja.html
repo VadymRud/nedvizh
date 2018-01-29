@@ -1,0 +1,17 @@
+{% extends "mail/base_redesigned.jinja.html" %}
+
+{% block content %}
+  <tr>
+    <td width="43" height="42" style="width: 43px; height: 42px;">
+      <div class="text" style="width: 43px; height: 42px;">&nbsp;</div>
+    </td>
+    <td width="472" height="42" colspan="3" style="width: 472px; height: 42px;">
+      <div class="text" style="width: 472px; height: 42px;">
+        Шарик, ты <a href="http://mesto.ua/?{{ make_utm_query(utm) }}" target="_blank">балбес</a>
+      </div>
+    </td>
+    <td width="25" height="42" style="width: 25px; height: 42px;">
+      <div class="text" style="width: 25px; height: 42px;">&nbsp;</div>
+    </td>
+  </tr>
+{% endblock %}

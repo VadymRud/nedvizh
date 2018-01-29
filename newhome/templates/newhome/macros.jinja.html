@@ -1,0 +1,38 @@
+{% macro field_choices(field_name, label_class='col-xs-11', field_class='col-xs-12', group_class='') %}
+    {% with field = form[field_name] %}
+        <div class="form-group{% if field.errors %} has-error{% endif %} {{ group_class }}">
+            <label for="{{ field.auto_id }}" class="{{ label_class }} control-label">{{ field.label|safe }}{% if field.field.required %}<sup class="pink">*</sup>{% endif %}:</label>
+            <div class="{{ field_class }}">
+                {{ field|add_class('form-control selectpicker')|safe }}
+            </div>
+        </div>
+    {% endwith %}
+{% endmacro %}
+
+{% macro field_date(field_name, label_class='col-xs-11', field_class='col-xs-12', group_class='') %}
+    {% with field = form[field_name] %}
+        <div class="form-group{% if field.errors %} has-error{% endif %} {{ group_class }}">
+            <label for="{{ field.auto_id }}" class="{{ label_class }} control-label">{{ field.label|safe }}{% if field.field.required %}<sup class="pink">*</sup>{% endif %}:</label>
+            <div class="{{ field_class }}">
+                {{ field|add_class('form-control calendar')|safe }}
+            </div>
+        </div>
+    {% endwith %}
+{% endmacro %}
+
+{% macro field_simple(field_name, label_class='col-xs-11', field_class='col-xs-12', group_class='') %}
+    {% with field = form[field_name] %}
+        <div class="form-group{% if field.errors %} has-error{% endif %} {{ group_class }}">
+            <label for="{{ field.auto_id }}" class="{{ label_class }} control-label">{{ field.label|safe }}{% if field.field.required %}<sup class="pink">*</sup>{% endif %}:</label>
+            <div class="{{ field_class }}">
+                {{ field|add_class('form-control')|add_attrs(placeholder=field.help_text)|safe }}
+            </div>
+        </div>
+    {% endwith %}
+{% endmacro %}
+
+{% macro field_very_simple(field_name) %}
+    {% with field = form[field_name] %}
+        {{ field|add_class('form-control')|add_attrs(placeholder=field.help_text)|safe }}
+    {% endwith %}
+{% endmacro %}

@@ -1,0 +1,86 @@
+{% extends "blank.jinja.html" %}
+
+
+{% block content %}
+
+{% if message_list is defined %}
+    <style>
+        body {
+            width: 700px;
+            margin: 0 auto;
+        }
+    </style>
+{% endif %}
+
+<div class='messages-reply'>
+
+    {% if new_message.basead %}
+        <h5 class="bold">
+            <a href="{{ new_message.basead.ad.get_absolute_url() }}" target="_parent">{{ new_message.title }}</a>
+        </h5><br/>
+    {% endif %}
+
+    {% if dialog_messages is defined %}
+        <div id="msg-list">
+            {% for message in dialog_messages %}
+                <div class="message panel">
+                    <div class="row{% if not loop.first %} collapsed{% endif %}"
+                         data-toggle="collapse" data-parent="#msg-list" data-target="#msg{{ message.id }}">
+                        <div class="col-xs-18">
+                            <i class="glyphicon glyphicon-user"></i>
+                            {% if message.message_list %}
+                                {{ message.title }}
+                            {% else %}
+                                {{ message.from_user.get_public_name() }}
+                            {% endif %}
+                            {% if message.subject == 'counteroffer' %}
+                                &nbsp; <span class="label label-default">{% trans %}Контроферта{% endtrans %}</span>
+                            {% endif %}
+                        </div>
+                        {# <div class="col-xs-8"><nobr><i class="glyphicon glyphicon-envelope"></i> {{ message.from_user.email }}</nobr></div>  #}
+                        <div class="col-xs-6 text-right">
+                            {% if not message.readed and message.from_user_id != request.user.id %}
+                                <span class="label label-success">{% trans %}Новое{% endtrans %}</span>
+                            {% endif %}
+                            {{ message.time|date("d.m.Y H:i") }}
+                        </div>
+                    </div>
+                    <div id="msg{{ message.id }}" class="collapse{% if loop.first %} in{% endif %}">
+                        <div class="text">
+                            {% if message.text_type == 'html' %}
+                                {{ message.text|safe }}
+                            {% else %}
+                                {{ message.text|striptags|replace("\n","<br/>\n")|safe }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div><br/>
+    {% endif %}
+
+    {% if not dialog_messages or not dialog_messages.0.message_list_id %}
+        <form method='post' target="_parent">
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields() %}{{ hidden }}{% endfor %}
+
+            {% from "macro/forms.jinja.html" import bootstrap_form  %}
+            {{ bootstrap_form(form) }}
+
+            <div class="text-right">
+                <input type="submit" class="btn btn-danger btn-md" value="{% trans %}Отправить{% endtrans %}"/>
+            </div>
+        </form>
+    {% else %}
+        <p class="alert alert-success">{% trans %}Это сообщение из рассылки, вы не можете на него ответить.{% endtrans %}</p>
+    {% endif %}
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{ static('js/libs/jquery-last.min.js') }}"><\/script>')</script>
+<script src="{{ static('libs/bootstrap3-24col/js/bootstrap.min.js') }}"></script>
+<script>
+    $('#msg-list .text a').attr('target','_parent');
+    $('.messages-reply form').appendTo('#msg-list .message:first-child .collapse')
+    if ($('.message').length) $("body").scrollTop($(".message > .collapse.in").offset().top - 37);
+</script>
+{% endblock %}

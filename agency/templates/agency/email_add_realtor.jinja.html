@@ -1,0 +1,12 @@
+{% extends "mail/base.jinja.html" %}
+
+{% block content %}
+    <p>{% trans agency_admin_user = realtor.agency.realtors.filter(is_admin=True).first().user, agency_name = realtor.agency.name %} Пользователь {{ agency_admin_user }} приглашает вас присоединиться к агентству "{{ agency_name }}" на сайте Mesto.UA.{% endtrans %}</p>
+    <p>
+        {% trans %}Для подтверждения, авторизуйтесь на сайте и подтвердите привязку через ссылку в личных сообщениях{% endtrans %}
+    </p>
+
+    {% if password %}
+        <p>{% trans email = realtor.user.email, password = password %}Для авторизации на сайте используйте логин {{ email }} и пароль {{ password }}{% endtrans %}</p>
+    {% endif %}
+{% endblock %}

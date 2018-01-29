@@ -1,0 +1,54 @@
+{% extends "newhome/cabinet/base.jinja.html" %}
+
+{% block top_menu %}
+    {% set active='sections' %}
+    {% include "newhome/cabinet/menu-edit.jinja.html" %}
+{% endblock %}
+
+{% block content %}
+    <div class="white-panel smart-horizontal-padding sections">
+        {% set active='queue' %}
+        {% include "newhome/cabinet/sections-submenu.jinja.html" %}
+
+        {% set queue_count=newhome.queues.count() %}
+        <div class="row{% if queue_count %} border-bottom{% endif %}">
+            <div class="col-xs-24 text-center">
+                <br>
+                <p>{% trans %}В этом разделе вы можете редактировать информацию про очереди строительства и их состояние{% endtrans %}</p>
+                {% if queue_count %}<br>{% endif %}
+            </div>
+        </div>
+        {% for queue in newhome.queues.all() %}
+            <div class="row border-bottom building">
+                <div class="col-xs-6">
+                    <span class="queue-name">{{ queue.name }}</span><br><br>
+                    {% trans %}Срок сдачи{% endtrans %}: {{ queue.finish_at }}
+                </div>
+                <div class="col-xs-13">
+                    <strong>{% trans %}Дома в очереди{% endtrans %}:</strong>
+                    <ul>
+                        {% for section in queue.sections.all() %}
+                            <li>{{ section }}</li>
+                        {% endfor %}
+                    </ul>
+                    <div class="clearfix"></div><br><div class="clearfix"></div>
+                    <strong>{% trans %}Комментарий{% endtrans %}:</strong> {{ queue.comment }}
+                </div>
+                <div class="col-xs-5 text-right">
+                    <a href="{{ url('profile_newhome_queue_edit', newhome.id, queue.id) }}" class="btn btn-gray">{% trans %}Редактировать{% endtrans %}</a>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="row building">
+          <div class="{% if queue_count %}col-xs-18{% else %}col-xs-24{% endif %} text-right">
+            <a href="{{ url('profile_newhome_queue_add', newhome.id) }}" class="btn btn-danger btn-control">{% trans %}Добавить очередь{% endtrans %}</a>
+          </div>
+          {% if queue_count %}
+            <div class="col-xs-6 text-right">
+              <a href="{{ url('profile_newhome_workflow', newhome_id) }}" class="btn btn-danger btn-control">{% trans %}Сохранить и продолжить{% endtrans %}</a>
+            </div>
+          {% endif %}
+        </div>
+
+    </div>
+{% endblock %}

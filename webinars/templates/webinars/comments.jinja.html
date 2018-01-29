@@ -1,0 +1,27 @@
+{% for comment in comments %}
+    <div class="row comment" id="{{ comment.id }}">
+        <div class="col-xs-24">
+            <div class="media">
+                <div class="media-left media-top extra-right-padding">
+                    <img src="{{ comment.snippet.topLevelComment.snippet.authorProfileImageUrl }}" width="50" height="50">
+                </div>
+                <div class="media-body">
+                    <strong>{{ comment.snippet.topLevelComment.snippet.authorDisplayName }}</strong><br>
+                    {{ comment.snippet.topLevelComment.snippet.textDisplay|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% if next_page_token %}
+    <div class="row">
+        <div class="col-md-6">
+            <a href="#{{ next_page_token }}" class="btn btn-default btn-danger more-comments" data-loading="{% trans %}Загружается...{% endtrans %}">{% trans %}Еще комментарии{% endtrans %}</a><br>
+        </div>
+    </div>
+{% endif %}
+{% if last_comment_id %}
+    <script>
+        var lastCommentId = {% if last_comment_id %}'{{ last_comment_id }}'{% else %}null{% endif %};
+    </script>
+{% endif %}

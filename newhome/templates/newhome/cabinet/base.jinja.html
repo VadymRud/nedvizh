@@ -1,0 +1,26 @@
+{% extends "profile/base.jinja.html" %}
+
+{% block extra_css %}
+    {{ super() }}
+
+    <link rel="stylesheet" href="{{ static('ajaxuploader/css/property_images.css') }}" media="screen" type="text/css" />
+    <link rel="stylesheet" href="{{ static('libs/bootstrap3-editable/css/bootstrap-editable-custom.css') }}">
+    <link rel="stylesheet" href="{{ static('libs/bootstrap-select/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" href="{{ static('css/profile.css') }}">
+    <link rel="stylesheet" href="{{ static('newhome/css/newhome_cabinet.css') }}">
+{% endblock %}
+
+
+{% block extra_footer %}
+    {% compress js %}
+      <script src="{{ static('libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
+      <script src="{{ static('libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+      <script src="{{ static('libs/bootstrap-datepicker/locales/bootstrap-datepicker.ru.min.js') }}"></script>
+      <script src="{{ static('newhome/js/libs/jquery.imagemapster.min.js') }}"></script>
+      <script src="{{ static('newhome/js/libs/jquery.canvasareadraw.js') }}"></script>
+      <script src="{{ static('ajaxuploader/js/fileuploader.js') }}" ></script>
+      <script src="{{ static('newhome/js/newhome.js') }}"></script>
+    {% endcompress %}
+
+    <script src="{{ url('javascript_catalog') }}"></script>
+{% endblock %}

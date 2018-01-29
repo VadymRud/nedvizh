@@ -1,0 +1,39 @@
+{% set realtor = request.user.get_realtor() %}
+{% set is_developer = request.user.is_developer() %}
+
+{# ( url('services:analysis'), _('Полезные услуги'), {'classes':['label-new']}), #}
+{% set navigation_items = [
+    ( url('services:index'), _('Способы размещения') ),
+    ( url('profile_my_properties'), _('Мои объекты') ),
+    ( url('profile_balance'), _('Баланс') + ' <span class="balance">(%s грн)</span>'|safe % request.user.get_balance()|floatformat(-2)),
+    ( url('profile_settings'), _('Настройки профиля')),
+    ( url('auth_logout'), _('Выход'), {'classes': ['logout']} ),
+    ]
+%}
+
+{% with unread_messages = request.user.get_unread_messages() %}
+  {% if unread_messages %}
+    {% do navigation_items.insert(2, ( url('messages:inbox'), _('Сообщения') + ' <span class="badge messages-badge">%s</span>'|safe % unread_messages)) %}
+  {% else %}
+    {% do navigation_items.insert(2, ( url('messages:inbox'), _('Сообщения') + ' <span class="badge messages-badge hidden">0</span>'|safe)) %}
+  {% endif %}
+{% endwith %}
+
+{% if request.own_agency %}
+    {% do navigation_items.insert(-1, ( url('profile_settings_agency'), _('Агентство') )) %}
+{% endif %}
+
+{% if realtor or is_developer %}
+    {% do navigation_items.insert(4, ( url('agency_admin:crm') + ('#leadhistories'), _('CRM')) ) %}
+{% endif -%}
+
+{% if is_developer %}
+    {% do navigation_items.pop(0) %}
+    {% do navigation_items.insert(1, (url('profile_newhome_my_buildings'), _('Мои новостройки') )) %}
+    {% do navigation_items.insert(-3, ( url('profile_newhome_statistic'), _('Статистика')) ) %}
+{% endif %}
+
+<ul class="dropdown-menu usermenu" role="menu" aria-labelledby="userMenu">
+    {% from "macro/navigation.jinja.html" import navigation %}
+    {{ navigation(navigation_items, request) }}
+</ul>

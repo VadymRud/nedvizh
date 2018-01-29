@@ -1,0 +1,30 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Сайты-источники списка объявлений{% endblock %}
+
+{% block content %}
+<style>
+    .paging {text-align: left;}
+    .paging ul li {display: inline-block;}
+</style>
+<div id="changelist" class='change-list'>
+    <div class='module'>
+        <table>
+            <thead>
+                <tr align="center">
+                    <th><div class="text"><span>Адрес сайта</span></div></th>
+                    <th><div class="text"><span>Количество объявлений</span></div></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for site in sites %}
+                    <tr class="{% cycle 'row1' 'row2' %}">
+                        <td><a href='{{ site.0 }}' target='_blank'>{{ site.0 }}</a></td>
+                        <td align='center'><a href='{% url 'admin:ad_ad_changelist' %}?source_url__startswith={{ site.0 }}'>{{ site.1 }}</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

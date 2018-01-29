@@ -1,0 +1,65 @@
+{% extends 'base.jinja.html' %}
+
+{% block title %}
+    {% if title is defined %}
+        {{ title }}
+    {% else %}
+        {% trans %}Новости рынка{% endtrans %}
+    {% endif %}
+{% endblock %}
+
+{% block extra_header %}
+    {# PRE_UA_VERSION_CRUTCH_GUIDE: возможно нужно будет когда-нибудь открыть украинский Путеводитель для индексации #}
+    {% if request.LANGUAGE_CODE == 'uk' %}<meta name="robots" content="noindex,nofollow">{% endif %}
+{% endblock %}
+
+{% block content_wrapper %}
+    <div class="l-submenu container">
+        {% if category is defined and category == 'school' %}
+            <div class="navbar navbar-default navbar-striped" role="navigation">
+                {% include "webinars/menu.jinja.html" %}
+            </div>
+        {% else %}
+            {% if request.subdomain %}
+                <div class="navbar navbar-default" role="navigation">
+                    <ul class="nav navbar-nav">
+                        {% with items = [
+                                ( url('guide:category_list', category='news'), _('Новости')),
+                                ( url('guide:category_list', category='events'), _('События')),
+                                ( url('guide:category_list', category='places'), _('Места')),
+                                ( url('guide:category_list', category='must_know'), _('Стоит знать')),
+                                ( url('school:articles'), _('Mesto School') ),
+                            ]
+                        %}
+                            {% from "macro/navigation.jinja.html" import navigation %}
+                            {{ navigation(items, request) }}
+                        {% endwith %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <div class="container guide">
+
+        {% block content %}
+            <div id="fb-root"></div>
+            <script>
+                (function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/ru_RU/all.js#status=0&xfbml=1";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script>
+            <div class="guide">
+               <div class="guide-menu"></div>
+                {% block guide_content_wrap %}
+                    <div class="guide-content-wrap">{% block guide_content %}{% endblock %}</div>
+                {% endblock %}
+            </div>
+        {% endblock %}
+
+    </div>
+{% endblock %}

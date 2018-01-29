@@ -1,0 +1,21 @@
+{% with url = url('layout-flat', region_slug=region_slug, newhome_id=newhome_id, layout_id=layout.id) %}
+    <div class="col-lg-8 col-sm-12">
+        <div class="layout">
+            <div class="image">
+                <a href="{{ url }}"><img src="{{ layout.image|thumbnail("250x230", nocrop=True) }}" title="{{ layout.name }}" alt="{{ layout.name }}"></a>
+            </div>
+            <div class="name">
+                <span>{{ layout.name }}{% if layout.area %}, {{ layout.area|floatformat }} м<sup>2</sup></span>{% endif %}<br>
+                {% with flat = layout.newhome.flats.filter(layout__rooms_total=layout.rooms_total).first() %}
+                    {% if flat %}
+                        {% with layout_flats=layout.layout_flats.all().order_by('price').first() %}
+                            {% if layout_flats %}
+                                <span class="price">от {{ layout_flats.price|intcomma }} {{ layout_flats.get_currency_display() }}/м<sup>2</sup></span>
+                            {% endif %}
+                        {% endwith %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+{% endwith %}

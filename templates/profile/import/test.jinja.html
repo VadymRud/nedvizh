@@ -1,0 +1,70 @@
+{% extends "profile/import/base.jinja.html" %}
+
+{% block import_content %}
+{% if importtask %}
+    <p>{% trans %}Ссылка на файл{% endtrans %} "{{ importtask.url }}"</p>
+    {% if importtask.status == 'completed' %}
+        <h5>{% trans %}Проверка завершена{% endtrans %}</h5>
+        {% if not importtask.error %}
+            <div>{% trans %}Количество объявлений в файле{% endtrans %} - {{ counter['total'] }}, из них с ошибками - {{ counter['with_errors'] }}</div>
+            <br/>
+        {% endif %}
+        {% if ads_groupped_by_errors or importtask.error %}
+            <div class="alert alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">{% trans %}Закрыть{% endtrans %}</span></button>
+                <h5>{% trans %}Обнаружены ошибки{% endtrans %}</h5>
+                {% if importtask.error %}<p>{{ importtask.error }}</p>{% endif %}
+                {% for errors_json, xml_ids in ads_groupped_by_errors.iteritems() %}
+                    <b>{{ errors_json|safe }}</b>
+                    <div style="margin-bottom:5px;font-size:12px;">
+                        <i>{{ xml_ids|length }} объявлений, IDs</i>:<br/>
+                        {{ xml_ids|join(", ") }}.
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <p><a href='{{ url('import:test') }}?new' class='btn btn-danger'>{% trans %}Новая проверка{% endtrans %}</a></p>
+    {% else %}
+        <h5 class='status'>{% trans %}Выполняется проверка...{% endtrans %}</h5>
+        <script>
+            function updateTaskStatus() {
+                $.ajax({
+                    url: '{{ url('import:test_update_status') }}',
+                    type: 'GET',
+                    success: function(data, textStatus, jqXHR) {
+                        if(data.status == 'completed') {
+                            window.location.href = '.';
+                        }
+                        window.setTimeout(updateTaskStatus, 5000);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        $('h5.status').html('{% trans %}Внутренняя ошибка сервера. Обратитесь в службу поддержки{% endtrans %}');
+                    },
+                    cache: false,
+                });
+            }
+            updateTaskStatus();
+        </script>
+    {% endif %}
+{% else %}
+    <p>{% trans %}Здесь можно проверить корректность вашего файла. При проверке объявления из файла не сохраняются.{% endtrans %}</p>
+
+    {% if form.errors %}
+        {% from "macro/forms.jinja.html" import bootstrap_form_errors %}
+        {{ bootstrap_form_errors(form) }}
+    {% endif %}
+
+    <form class="import-test-form" method="post">
+        {% csrf_token %}
+        <div class="form-group {% if form.url.errors %}has-error{% endif %}">
+            <div class="controls"><label for="id_url" class="control-label">{{ form.url.label }}</label></div>
+            <div class="controls">
+                <div class='row'>
+                    <div class='col-sm-10'>{{ form.url|add_class('form-control') }}</div>
+                    <div class='pull-left'><input class="btn btn-danger form-control" type="submit" value="{% trans %}Проверить{% endtrans %}"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endif %}
+{% endblock %}

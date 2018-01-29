@@ -1,0 +1,135 @@
+{% extends "profile/base.jinja.html" %}
+
+{% block extra_css %}
+    {{ super() }}
+
+    <style>
+        .possibilities strong {line-height: 200%;}
+        .how-it-workds .text {font-size:18px;line-height: 1.6;}
+            .how-it-workds .text p {margin-bottom:30px;}
+            .how-it-workds .text .img-wrap {margin-right:-120px;}
+        .discount-40 {border-bottom:2px dashed #d0d0d0;position:relative;margin:80px 0;}
+            .discount-40::before {
+                content:" "; position:absolute; left:50%; top:-85px; margin-left:-85px; width:170px; height:170px;
+                background: url({{ static('paid_services/img/discount.png') }}) no-repeat;
+            }
+
+        .super-ul {border-left: 1px #aaaaaa solid; margin: 0; padding: 0 0 0 16px; position: relative;}
+            .super-ul li {color: #aaaaaa; font-size: 24px; margin: 0; padding: 0 0 30px;}
+                .super-ul > li:nth-child(2), .super-ul li:nth-child(4) {padding-bottom: 10px;}
+                .super-ul > li:first-child::before {
+                    content: ' '; display: block; border-left: 1px #f5f5f7 solid; position: absolute; left: -1px; width: 1px;
+                    height: 16px; top: 0;}
+                .super-ul li:last-child::before {
+                    content: ' '; display: block; border-left: 1px #f5f5f7 solid; position: absolute; left: -1px; width: 1px;
+                    height: 44px; bottom: 0;}
+                .super-ul li span {color: #333333; font-size: 18px; line-height: 110%; float: left; clear: left; padding-top: 10px;}
+                    .super-ul li span + span {padding-top: 5px;}
+    </style>
+{% endblock %}
+
+{% block content_wrapper %}
+    {% include "includes/account_menu.jinja.html" %}
+
+    <div class="container text-center">
+        {% include('paid_services/menu_publication.jinja.html') %}
+
+        <h1 id="plans-header">{% trans %}Выберите тарифный план{% endtrans %}</h1>
+        <p class="h6 dark-gray italic">{% trans %}Выберите подходящий тарифный план для того, чтоб активировать показ ваших объявлений.{% endtrans %}</p>
+        <p class="h6 dark-gray italic bold">{% trans %}Без покупки тарифного плана – ваши объявления неактивны.{% endtrans %}</p><br/>
+
+        {% if request.user.get_region_plan_discount() %}
+            <p class="h6 dark-gray italic">{% trans %}Скидки для АСНУ не суммируются{% endtrans %}</p>
+        {% endif %}
+
+        {% if 'realtor' in request.GET %}
+            <div class="alert alert-danger">
+                {% trans %}Внимание! Покупка будет произведена для риелтора{% endtrans %}
+                <a href="{{ url('agency_admin:realtor_detail', request.GET['realtor']) }}">{{ user_recipient.get_public_name() }}</a>.
+            </div>
+        {% endif %}
+
+        <h4>{% trans %}Размещение на{% endtrans %} <span class="pink">1 {% trans %}месяц{% endtrans %}</span></h4><br/><br/>
+        <div class="row plan-list">
+            {%- for plan in plans[30] %}
+                <div class="col-md-4 col-sm-8 col-xs-12">
+                    {%  include('paid_services/plan.jinja.html')  %}
+                </div>
+            {% endfor -%}
+        </div>
+
+        {% if plans[180] is defined %}
+            <div class="discount-40"></div>
+
+            <div class="container text-center">
+                <h4>{% trans %}Размещение на{% endtrans %} <span class="pink">6 {% trans %}месяцев{% endtrans %}</span></h4><br/><br/>
+                <p class="h6 dark-gray italic bold">{% trans %}Скидка в 40% предоставляется при условии преобретения тарифного плана на 6 месяцев одним платежом.{% endtrans %}</p><br/>
+
+                <div class="row plan-list">
+                    {%- for plan in plans[180] %}
+                        <div class="col-md-4 col-sm-8 col-xs-12">
+                            {%  include('paid_services/plan.jinja.html')  %}
+                        </div>
+                    {% endfor -%}
+                </div>
+            </div>
+        {% endif %}
+    </div><br/><br/><br/>
+    <div class="gray-panel">
+        <div class="container text-center">
+            <br><br><br><br>
+            <h4>{% trans %}Используйте только эффективные инструменты для улучшения своего бизнеса{% endtrans %}</h4>
+            <p class="h6 dark-gray">{% trans %}Публикуйте объявления на mesto.ua – увеличивайте продажи и расширяйте свою клиентскую базу{% endtrans %}</p>
+            <br><br>
+            <div class="row possibilities">
+                <div class="col-xs-8 text-center">
+                    <img src="{{ static('img/icon-success3.png') }}"><br><br>
+                    <strong>{% trans %}6 вариантов пакетов{% endtrans %}</strong>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <img src="{{ static('img/icon-success3.png') }}"><br><br>
+                    <strong>{% trans %}Возможность купить{% endtrans %}<br>{% trans %}размещение 1 объявления{% endtrans %}</strong>
+                </div>
+                <div class="col-xs-8 text-center">
+                    <img src="{{ static('img/icon-success3.png') }}"><br><br>
+                    <strong>{% trans %}Возможность купить{% endtrans %}<br>{% trans %}объявление «1+1»{% endtrans %}</strong>
+                </div>
+            </div>
+            <br><br><br><br>
+        </div>
+    </div>
+    <br><br><br><br>
+
+    <div class="container personal-account">
+        <div class="how-it-workds">
+            <h2 class="title text-center">{% trans %}Как это работает{% endtrans %}?</h2><br/>
+
+            <div class="row text">
+                <div class="col-sm-11">
+                    <ul class="super-ul">
+                        <li><span>{% trans %}Для активации объявлений купите соответствующий{% endtrans %}</span><span>{% trans %}Тарифный план на 30 дней.{% endtrans %}</span></li>
+                        <li><span>{% trans %}Каждые 7 дней объявления автоматически обновляются.{% endtrans %}</span></li>
+                        <li><span>{% trans %}По истечению 30 дней, объявления автоматически{% endtrans %}</span><span>{% trans %}деактивируются.{% endtrans %}</span></li>
+                        <li><span>{% trans %}Для возобновления трансляции необходимо продлить услугу.{% endtrans %}</span></li>
+                        <li><span>{% trans %}В любой момент трансляции объявлений, вы можете докупить{% endtrans %}</span><span>{% trans %}необходимое количество размещений, где будет учтена{% endtrans %}</span><span>{% trans %}денежная разница за неиспользованные дни.{% endtrans %}</span></li>
+                    </ul><br>
+                    <strong>{% trans %}Если Вы крупное агенство недвижимости{% endtrans %}</strong>
+                    <ul class="super-ul">
+                        <li style="padding-bottom: 10px;"><span>{% trans %}Приобретайте сразу несколько пакетов, для своих сотрудников.{% endtrans %}</span></li>
+                        <li><span>{% trans %}Подключайте их к главному аккаунту.{% endtrans %}</span></li>
+                        <li><span>{% trans %}Ведите точный контроль средств и эффективности каждого{% endtrans %}</span><span>{% trans %}аккаунта.{% endtrans %}</span></li>
+                    </ul>
+                    <br>
+                    <p class="dark-gray italic">Подробности узнайте у вашего менеджера</p><br><br><br>
+                </div>
+                <div class="col-sm-13">
+                    <div class="img-wrap">
+                        <img src="{{ static('paid_services/img/laptop.jpg') }}" class="img-responsive"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include('includes/your_manager.jinja.html') %}
+{% endblock %}

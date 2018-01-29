@@ -1,0 +1,26 @@
+{% if request.user.is_authenticated() %}
+    {% with notification = request.user.get_notification() %}
+        {% if notification and notification.get_cookie_to_close() not in request.COOKIES %}
+            <div class='container'>
+                <div class='l-notification white-panel text-center'>
+                    <button type="button" class="close"><i class="glyphicon glyphicon-menu-right"></i><i class="glyphicon glyphicon-menu-left"></i></button>
+                    {{ notification.render_text()|safe }}
+
+                    {%- if notification.show_timer -%}
+                        {% with start=notification.start, end=notification.end %}
+                            {%- include 'includes/countdown_timer.jinja.html' -%}
+                        {% endwith %}
+                    {%- endif -%}
+                </div>
+            </div>
+            <script>
+                $(".l-notification").find('.close').click(function() {
+                    $('.l-notification').hide();
+                    var domain = '.' + window.location.hostname.split('.').slice(-2).join('.');
+                    $.cookie('{{ notification.get_cookie_to_close() }}', 1, { expires: 1, path: '/', domain: domain});
+                });
+            </script>
+        {% endif %}
+    {% endwith %}
+{% endif %}
+

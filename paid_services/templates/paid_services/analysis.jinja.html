@@ -1,0 +1,420 @@
+{% extends "profile/base.jinja.html" %}
+
+{% block extra_css %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ static('paid_services/css/analysis.css') }}">
+
+{% endblock %}
+
+{% block content %}
+    <div id="header">
+        <div class="ask-questions">
+            {% trans %}Задавайте вопросы{% endtrans %}: <span>+38 (063) 568 54 41</span>
+        </div>
+        <span class="help" data-toggle="popover" data-placement="bottom"  data-content='{% trans %}Заказывая услуги через портал Mesto.ua, вы получаете гарантированную скидку. Мы сотрудничаем только с проверенными партнерами.{% endtrans %}'>?</span>
+        <div class="make-profit-with-us hidden-xs">{% trans %}С НАМИ ВЫГОДНО{% endtrans %}!</div>
+        <img src="{{ static('paid_services/img/analysis/header-photo.png') }}" class="photo visible-lg visible-md"/>
+
+        <div class="row">
+            <div class="col-md-11">
+                <h1 class="title hidden-xs">{% trans %}Покупая квартиру в новострое - <b>убедись в надежности застройщика</b>{% endtrans %}</h1><br/>
+                <div class="subtitle">{% trans %}Выбирай: заказ оценки сейчас либо годы протестов и судов с застройщиком{% endtrans %}</div>
+                <div class="row list">
+                    <div class="col-sm-12">
+                        <i class="glyphicon glyphicon-ok"></i> {% trans %}проверка документов{% endtrans %}<br/>
+                        <i class="glyphicon glyphicon-ok"></i> {% trans %}имидж застройщика{% endtrans %}
+                    </div>
+                    <div class="col-sm-12">
+                        <i class="glyphicon glyphicon-ok"></i> {% trans %}юридическая оценка рисков{% endtrans %}<br/>
+                        <i class="glyphicon glyphicon-ok"></i> {% trans %}техническая характеристика{% endtrans %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="warning-block">
+        <div class="wrapper">
+            {% trans %}Готовы купить новую квартиру, но боитесь быть обманутыми? Значит, вы правильно подходите к вопросу:
+                <b>в Украине уже приостановлено или законсервировано более 2433 новостроек</b>,
+                а квартиры в них еще продаются!{% endtrans %}
+        </div>
+    </div>
+
+    <div id="risks-n-problems" class="white-bg">
+        <h2>{% trans %}Основные риски при покупке новостроя{% endtrans %}:</h2>
+        <div class="row risks">
+            <div class="col-xs-12 col-md-8 risk risk-1">{% trans %}Потерять свои честно заработанные деньги{% endtrans %}</div>
+            <div class="col-xs-12 col-md-8 risk risk-2">{% trans %}Потерять и средства, и квартиру{% endtrans %}</div>
+            <div class="col-xs-12 col-md-8 risk risk-3">{% trans %}Потратить годы на суды с застройщиком{% endtrans %}</div>
+        </div>
+
+        <h2>{% trans %}О чем молчит ваш застройщик, но вам стоит об этом знать{% endtrans %}:</h2>
+        <div class="row problems">
+            <div class="col-md-12">
+                <ul>
+                    <li>{% trans %}строительство без разрешений{% endtrans %}</li>
+                    <li>{% trans %}отсутствие технических условий{% endtrans %}</li>
+                    <li>{% trans %}не имеет права на землю{% endtrans %}</li>
+                    <li>{% trans %}строит на незаконно отчужденном участке{% endtrans %}</li>
+                    <li>{% trans %}не платит налоги{% endtrans %}</li>
+
+                </ul>
+            </div>
+            <div class="col-md-12">
+                <ul>
+                    <li>{% trans %}является участником судебных процессов{% endtrans %}</li>
+                    <li>{% trans %}незаконно продает недвижимость{% endtrans %}</li>
+                    <li>{% trans %}искусственно "замораживает" стройку{% endtrans %}</li>
+                    <li>{% trans %}оформляет фальшивые документы{% endtrans %}</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="get-rid-of-risks">
+        <h2>{% trans %}<b>Защити себя от мошенников</b>{% endtrans %}</h2>
+        <p><a href="" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#analysis-request-popup">{% trans %}Узнать больше{% endtrans %}</a></p>
+    </div>
+
+    <div id="how-does-it-work" class="white-bg">
+        <h2>{% trans %}5 простых шагов к безопасной покупке жилья{% endtrans %}</h2>
+
+        <div class="row steps">
+            <div class="col-xs-12 col-md-8 step step-1">
+                <p><b>{% trans %}Устная  консультация{% endtrans %}</b></p>
+                {% trans %}Оставь свои контакты на сайте и наши менеджеры свяжутся с вами в течении 1 часа{% endtrans %}
+            </div>
+            <div class="col-xs-12 col-md-8 step step-2">
+                <p><b>{% trans %}Заявка{% endtrans %}</b></p>
+                {% trans %}Оформление заявки и выбор пакета услуг для юридического анализа интересующей вас недвижимости{% endtrans %}
+            </div>
+            <div class="clearfix visible-xs-block"></div>
+            <div class="col-xs-12 col-md-8 step step-3">
+                <p><b>{% trans %}Согласование{% endtrans %}</b></p>
+                {% trans %}Подбираем оптимальный перечень услуг, исходя из ваших пожеланий и требований{% endtrans %}
+            </div>
+            <div class="clearfix visible-lg-block"></div>
+            <div class="col-xs-12 col-md-8 step step-4">
+                <p><b>{% trans %}Оплата{% endtrans %}</b></p>
+                {% trans %}Внесение оплаты удобным для вас способом{% endtrans %}
+            </div>
+            <div class="clearfix visible-xs-block"></div>
+            <div class="col-xs-12 col-md-8 step step-5">
+                <p><b>{% trans %}Результат{% endtrans %}</b></p>
+                {% trans %}Подробный профессиональный юридический анализ новостройки, наличие всей необходимой докмуентации и пр., консультация юриста по вопросам инвестирования{% endtrans %}
+            </div>
+        </div>
+    </div>
+
+    <div id="basic-analysis" class="white-bg">
+        <div class="header">
+            <div class="row">
+                <div class="col-lg-16">
+                    <h2>{% trans %}Базовый анализ новостроя{% endtrans %}:</h2>
+                    <div>{% trans %}Самостоятельно достаточно сложно правильно определить возможные неприятности и оценить последствия оформления сделок с недвижимостью.{% endtrans %}<br/>
+                        {% trans %}<b>Mesto.ua</b> поможет вам в этом.{% endtrans %}</div>
+                </div>
+            </div>
+        </div>
+        <ul>
+            <li>{% trans %}Выезд специалиста и получение необходимого пакета документов{% endtrans %}</li>
+            <li>{% trans %}Общие сведения о объекте недвижимого имущества{% endtrans %}</li>
+            <li>{% trans %}Наличие документов на земельный участок{% endtrans %}</li>
+            <li>{% trans %}Наличие разрешительных документов на начало строительства и его проведение{% endtrans %}</li>
+            <li>{% trans %}Определение полномочий продавца и описание схемы инвестирования{% endtrans %}</li>
+            <li>{% trans %}Проверка продавца и описание схемы инвестирования{% endtrans %}</li>
+            <li>{% trans %}Анализ имиджа застройщика{% endtrans %}</li>
+            <li>{% trans %}Техническая характеристика строительных работ{% endtrans %}</li>
+        </ul>
+        <div class="price">
+             <p><b>{% trans %}Цена{% endtrans %}: <span><big>{{ prices.0|intcomma }}</big> грн</span></b></p>
+             <p><a href="" class="btn btn-danger btn-lg uppercase" data-toggle="modal" data-target="#analysis-request-popup">{% trans %}Узнать больше{% endtrans %}</a></p>
+        </div>
+    </div>
+
+    <div id="our-advantages" class="white-bg">
+        <h2>{% trans %}Что мы предлагаем?{% endtrans %}:</h2>
+        <div class="row">
+            <div class="col-sm-12 col-md-offset-2 col-md-10 col-lg-offset-3 col-lg-8 advantage">{% trans %}профессиональные юристы из ТОП 100 юридических компаний Украины{% endtrans %}</div>
+            <div class="col-sm-12 col-md-10 col-lg-offset-2 col-lg-8 advantage">{% trans %}полная информация о вашей будущей квартире, доме, инфраструктуре и людях, которым вы доверяете свои деньги{% endtrans %}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-offset-2 col-md-10 col-lg-offset-3 col-lg-8 advantage">{% trans %}гибкие условия оплаты, варианты для любого бюджета (от 2000 грн!){% endtrans %}</div>
+            <div class="col-sm-12 col-md-10 col-lg-offset-2 col-lg-8 advantage">{% trans %}максимально сжатые сроки подготовки без потери качества{% endtrans %}</div>
+        </div>
+    </div>
+
+    <div class="white-bg">
+        <div id="legal-support">
+            <span class="help"  data-toggle="popover"  data-placement="bottom" data-content="{% trans %}Заказывая услуги через портал Mesto.ua, вы получаете гарантированную скидку. Мы сотрудничаем только с проверенными партнерами.{% endtrans %}">?</span>
+            <div class="make-profit-with-us hidden-xs">{% trans %}С НАМИ ВЫГОДНО!{% endtrans %}</div>
+
+            {% if request.subdomain_region.kind == 'country' or request.subdomain_region.slug == 'kiev' %}
+              <div class="row">
+                <div class="col-xs-20 col-sm-18 col-sm-24">
+                    <h2>{% trans %}Мы работаем только с лучшими юристами{% endtrans %}</h2><br/><br/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8 col-lg-6 text-center">
+                    <div class="hidden-xs" style="heigt:100px;"></div>
+                    <img src="{{ static('paid_services/img/analysis/dominion.png') }}" class="logo"/><br/><br/>
+                </div>
+                <div class="col-md-16 col-lg-15">
+                    <div class="text text-18">
+                        {% trans %}Юридическое сопровождение обеспечивает официальный партнер MESTO.UA - юридическая компания <b class="green">DOMINION</b>{% endtrans %}.
+                        {% trans %}Это известное адвокатское объединение, которое уже больше 10 лет ведет успешную юридическую практику и специализируется в сфере <b>недвижимости и строительства</b>.{% endtrans %}
+                        {% trans %}В 2016 компания вошла в "ТОП 100 Юридических компаний Украины" по версии "Юридическая практика".{% endtrans %}
+                    </div>
+                </div>
+              </div>
+              <h6><b>{% trans %}Достижения DOMINION в цифрах{% endtrans %}:</b></h6>
+              <div class="row achievements text-center">
+                <div class="col-xs-12 col-sm-6">
+                    <div><img src="{{ static('paid_services/img/analysis/achievement-1.png') }}" class="logo"/></div>
+                    <h5>37</h5>
+                    <p>{% trans %}объектов недвижимости были возвращены клиентам{% endtrans %}</p>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div><img src="{{ static('paid_services/img/analysis/achievement-2.png') }}" class="logo"/></div>
+                    <h5>17 340 000 грн</h5>
+                    <p>{% trans %}сэкономили наши клиенты на налоговых отчислениях{% endtrans %}</p>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div><img src="{{ static('paid_services/img/analysis/achievement-3.png') }}" class="logo"/></div>
+                    <h5>104 238 000 грн</h5>
+                    <p>{% trans %}инвестиций уберегли клиенты{% endtrans %}</p>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div><img src="{{ static('paid_services/img/analysis/achievement-4.png') }}" class="logo"/></div>
+                    <h5>319 831 000 грн</h5>
+                    <p>{% trans %}компенсации получили наши клиенты{% endtrans %}</p>
+                </div>
+              </div>
+            {% else %}
+              <div class="row">
+                <div class="col-xs-20 col-sm-18 col-sm-24">
+                    <h2>{% trans %}Юридическое сопровождение{% endtrans %}:</h2>
+                    <div class="subtitle">{% trans %}с помощью официального партнера юридической компании <b class="blue">СЕМЕЙСТВО</b>{% endtrans %}</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8 col-lg-6 text-center">
+                    <div class="hidden-xs" style="height:100px;"></div>
+                    <img src="{{ static('paid_services/img/analysis/semeystvo.png') }}" class="logo"/><br/><br/>
+                </div>
+                <div class="col-md-16 col-lg-15">
+                    <div class="text text-16">
+                        <p>{% trans %}Адвокатское объединение "Семейство" ведет успешную судебную практику по вопросам недвижимости начиная с 2003 г.{% endtrans %}</p>
+                        <p>{% trans %}Адвокатское объединение "Семейство" сопровождает судебные дела в 22 областях Украины и имеет представительства в США, Автралии, Турции и Европейском Союзе.{% endtrans %}</p>
+                        <p>{% trans %}Профиль деятельности компании - предоставление юридических услуг в сфере семейного права, налогового права, судебного производства, недвижимости и строительства.{% endtrans %}</p>
+                        <p class="blue">{% trans %}Даем год гарантии на то, что если не учтем что-то при покупке, то вернем вам деньги за наши услуги, либо будем отстаивать Ваши интересы в судах бесплатно.{% endtrans %}</p>
+                    </div>
+                </div>
+              </div>
+            {% endif %}
+
+        </div>
+
+        <div style="overflow:auto">
+          <table class="table" id="services">
+            <thead>
+                <tr>
+                    <td style="width:44%" rowspan="2" class="blue-bg">
+                        {% trans %}Перечень услуг от{% endtrans %}<br/>
+                        {% if request.subdomain_region.kind == 'country' or request.subdomain_region.slug == 'kiev' -%}
+                            <b>DOMINION</b>
+                        {%- else -%}
+                            <b>СЕМЕЙСТВО</b>
+                        {%- endif -%}
+                        :
+                    </td>
+                    <th style="width:10%" rowspan="2" class="blue-bg testA-hide"></th>
+                    <th style="width:22%" class="green-bg testB-hide">{% trans %}Экспертиза{% endtrans %}</th>
+                    <th style="width:22%" class="brown-bg testB-hide">{% trans %}Сопровождение{% endtrans %}</th>
+                    <th style="width:22%" class="green-bg testB-hide">{% trans %}Полный{% endtrans %}</th>
+                </tr>
+                <tr class="testB-hide">
+                    <td class="green-bg">
+                        <div class="description">{% trans %}Юридическая экспертиза документов{% endtrans %}</div>
+                        <div class="price"><big>{{ prices.1|intcomma }}</big> грн</div>
+                    </td>
+                    <td class="brown-bg">
+                        <div class="description">{% trans %}Юридическое сопровождение заключения договора{% endtrans %}</div>
+                        <div class="price"><big>{{ prices.2|intcomma }}</big> грн</div>
+                    </td>
+                    <td class="green-bg">
+                        <div class="description">{% trans %}Полное юридическое сопровождение (до получения права собственности){% endtrans %}</div>
+                        <div class="price"><big>{{ prices.3|intcomma }}</big> грн</div>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{% trans %}Консультация{% endtrans %}</td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                </tr>
+                <tr>
+                    <td>{% trans %}Проверка полномочий продавца{% endtrans %}</td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                </tr>
+                <tr>
+                    <td>{% trans %}Проверка законности строительства{% endtrans %}</td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                </tr>
+                <tr>
+                    <td>{% trans %}Проверка правоустанавливающих документов на недвижимость{% endtrans %}</td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                </tr>
+                <tr>
+                    <td>{% trans %}Проверка законности договорной схемы продаж{% endtrans %}</td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                </tr>
+                <tr>
+                    <td>{% trans %}Проверка объекта недвижимость в государственных реестрах (касательно имущественных прав наобъект недвижимости, наличия запретов, арестов, ипотек){% endtrans %}
+                    </td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                </tr>
+                <tr>
+                    <td>{% trans %}Проверка продавца недвижимости в государственных реестрах{% endtrans %}</td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                </tr>
+                <tr>
+                    <td>{% trans %}Проверка прав на земельный участок{% endtrans %}</td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                </tr>
+                <tr>
+                    <td>{% trans %}Определение и анализ рисков в договоре{% endtrans %}</td>
+                    <td><i class="glyphicon glyphicon-minus"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                </tr>
+                <tr>
+                    <td>{% trans %}Согласование существенных условий договора с продавцом{% endtrans %}</td>
+                    <td><i class="glyphicon glyphicon-minus"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                </tr>
+                <tr>
+                    <td>{% trans %}Выезд юриста на подписание договора{% endtrans %}</td>
+                    <td><i class="glyphicon glyphicon-minus"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                </tr>
+                <tr>
+                    <td>{% trans %}Юридическое сопровождение правоотношений с продавцом (застройщиком) до момента получения права собственности на объект недвижимости{% endtrans %}
+                    </td>
+                    <td><i class="glyphicon glyphicon-minus"></i></td>
+                    <td><i class="glyphicon glyphicon-minus"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                </tr>
+                <tr>
+                    <td>{% trans %}Досудебное урегулирование споров с продавцом (застройщиком) обслуживающими организациями после оформления права собственности на объект недвижимости (касательно придомовых территорий, обслуживания…){% endtrans %}
+                    </td>
+                    <td><i class="glyphicon glyphicon-minus"></i></td>
+                    <td><i class="glyphicon glyphicon-minus"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                </tr>
+                <tr>
+                    <td>{% trans %}Юридическая оценка законности уже заключённых соглашений касательно объектов недвижимости{% endtrans %}</td>
+                    <td><i class="glyphicon glyphicon-minus"></i></td>
+                    <td><i class="glyphicon glyphicon-minus"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                </tr>
+                <tr>
+                    <td>{% trans %}Контроль за исполнением условий договора сторонами{% endtrans %}</td>
+                    <td><i class="glyphicon glyphicon-minus"></i></td>
+                    <td><i class="glyphicon glyphicon-minus"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                </tr>
+                <tr>
+                    <td>{% trans %}Правовой анализ возможности выхода из проблемного строительства{% endtrans %}</td>
+                    <td><i class="glyphicon glyphicon-minus"></i></td>
+                    <td><i class="glyphicon glyphicon-minus"></i></td>
+                    <td><i class="glyphicon glyphicon-ok"></i></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr class="testA-hide">
+                    <td colspan="2" class="call-to-action">
+                        <p><b>{% trans %}Цена{% endtrans %}: <span>{% trans %}от {% endtrans %} <big>{{ prices.0|intcomma }}</big> грн</span></b></p>
+                        <p><a href="" class="btn btn-danger btn-lg uppercase" data-toggle="modal" data-target="#analysis-request-popup">{% trans %}Узнать больше{% endtrans %}</a></p>
+                    </td>
+                </tr>
+                <tr class="testB-hide">
+                    <td></td>
+                    <td colspan="3" class="call-to-action">
+                        <a href="" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#analysis-request-popup">{% trans %}Заказать звонок{% endtrans %}</a>
+                    </td>
+                </tr>
+            </tfoot>
+          </table>
+        </div>
+    </div>
+
+    <div id="keep-in-touch">
+        <div class="row">
+            <div class="hidden-xs col-sm-6 col-md-4 col-lg-4 col-md-offset-4 text-center">
+                <img src="{{ static('paid_services/img/analysis/contact-photo.jpg') }}" class="photo"/>
+            </div>
+            <div class="-col-sm-18 col-sm-12">
+                <p class="gray"><b>{% trans %}Свяжитесь с нами:{% endtrans %}</b></p>
+                <div class="h1">{% trans %}Ольга Кулиш{% endtrans %}</div>
+                <p>{% trans %}Директор отдела по работе с застройщиками{% endtrans %}</p>
+                <p class="contacts"><img src="{{ static('paid_services/img/analysis/email.png') }}"/> <a href="emailto:olga.k@mesto.ua">olga.k@mesto.ua</a></p>
+                <p class="contacts"><img src="{{ static('paid_services/img/analysis/phone.png') }}"/><a href="tel:+380635685441">+38 (063) 568 54 41</a></p>
+            </div>
+        </div>
+    </div>
+
+    {% from "macro/forms.jinja.html" import bootstrap_form  %}
+    <div class="modal fade" tabindex="-1" role="dialog" id="analysis-request-popup">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content text-18">
+          <div class="modal-body text-center call-to-action">
+            <div class="text-36">{% trans %}Свяжитесь с нами!{% endtrans %}</div>
+            <div class="">{% trans %}Вышлите нам свои данные и мы с вами свяжемся{% endtrans %}</div><br/>
+
+            {% if analysisrequest_form.is_valid() %}
+              <div class="alert alert-success">{% trans %}Заявка принята, с Вами свяжутся.{% endtrans %}</div>
+            {% else %}
+              <form method="POST" class="analysis-form">{% csrf_token %}
+                {{ bootstrap_form(analysisrequest_form, label_as_placeholder=True, inline_errors=True) }}
+
+                <div><button type="submit" class="btn btn-danger">{% trans %}Связаться с нами{% endtrans %}</button></div><br/>
+              </form>
+            {% endif %}
+            <div class="gray">или:</div>
+            <div><b>+38 (063) 568 54 41</b><br/>olga.k@mesto.ua</div>
+
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+{% endblock %}
+
+{% block extra_footer %}
+    <script>
+        $('[data-toggle="popover"]').popover()
+    </script>
+{% endblock %}

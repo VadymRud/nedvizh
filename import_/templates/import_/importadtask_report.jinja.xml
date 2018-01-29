@@ -1,0 +1,13 @@
+<property>
+    <xml_id>{{ importadtask.raw_xml_id }}</xml_id>
+    {% if importadtask.errors %}
+        <errors>{{ importadtask.errors|safe() }}</errors>
+    {% else %}
+        <url>{{ importadtask.basead.ad.get_absolute_url() }}</url>
+        {% with views = importadtask.get_ad_views() %}
+            <detail_views>{{ views['detail_views'] }}</detail_views>
+            <contacts_views>{{ views['contacts_views'] }}</contacts_views>
+        {% endwith %}
+    {% endif %}
+</property>
+

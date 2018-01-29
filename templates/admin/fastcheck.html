@@ -1,0 +1,28 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block title %}Проверка корректности базы регионы/юзеров{% endblock %}
+
+{% block content %}
+<style>
+.red {color:red;}
+.green {color:green;}
+.blue {color:blue;}
+</style>
+
+<div id="content-main" class=''>
+
+
+    <h3>Дубли городов-поддоменов &mdash; {% if subdomain_errors %}<b class="red">ERROR</b>{% else %}<b class="green">OK</b>{% endif %}</h3>
+    {% if subdomain_errors %}
+        <br/><ul>
+        {% for error in subdomain_errors %}
+            <li>{{ error.0.name }}: <a href="/admin/ad/region/{{ error.1.id }}/">{{ error.1.text }}</a></li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    <h3>Пользователи без профиля - <b class="blue">TODO</b></h3>
+
+</div>
+{% endblock %}

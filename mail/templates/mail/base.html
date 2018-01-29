@@ -1,0 +1,30 @@
+{% load staticfiles inline_style i18n %}
+{% inlinestyle %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        {% include 'mail/style.css' %}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="http://mesto.ua" title="Mesto.UA" class="logo" target="_blank"><img src="{% static 'img/header-logo.png' %}" alt="Mesto.UA"></a><br><br>
+        <p>{% trans 'Уважаемый пользователь' %},</p>
+        {% block content %}{% endblock %}
+        <div class="hr"></div>
+        <table>
+            <tr>
+                <td width="33%" class="center"><small>email: info@mesto.ua</small></td>
+                <td width="33%" class="center"><small>skype: mestoua</small></td>
+                <td width="33%" class="center"><small>тел.: 093 850 29 76</small></td>
+            </tr>
+        </table>
+        <div class="hr"></div>
+        <p class='center'><small>{% trans 'Это сообщение было отправлено автоматически.' %}<br/>{% trans 'Пожалуйста, не отвечайте на него.' %}</small></p>
+    </div>
+</body>
+</html>
+{% endinlinestyle %}

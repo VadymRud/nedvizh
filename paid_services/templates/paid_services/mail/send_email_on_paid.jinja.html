@@ -1,0 +1,45 @@
+{% extends "mail/base_redesigned_2017.jinja.html" %}
+
+{% block content %}
+  <tr>
+    <td>
+      <div class="text-wrap default-bottom-padding text-center" style="font-size: 16px;">
+        <strong>{% trans %}Квитанция доставки заказа{% endtrans %}</strong>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap left-padding right-padding default-bottom-padding">
+        {% trans %}Название Интернет-магазина{% endtrans %}: <a href="http://mesto.ua" target="_blank" class="pink">Mesto.UA</a><br>
+        {% trans %}Web-адрес Интернет-магазина{% endtrans %}: <a href="http://mesto.ua" target="_blank" class="pink">mesto.ua</a><br>
+        {% trans %}Заказ №{% endtrans %} {{ order.id }} {% trans %}на сумму{% endtrans %} {{ order.amount }} грн.<br>
+        {% trans %}От{% endtrans %}: {{ execute_time|date("d E Y, H:i") }}<br>
+        {%- if order.user.get_full_name() %}
+          {% trans %}Получен гр.{% endtrans %}: {{ order.user.get_full_name() }}<br>
+        {% endif -%}
+        {% trans %}Телефон{% endtrans %}: {{ order.user.get_phone_display(False) }}<br>
+        {% trans %}Адрес электронной почты{% endtrans %}: {{ order.user.email }}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap left-padding right-padding">
+        {% trans %}Список услуг в заказе{% endtrans %}:<br>
+        <ul>
+          {% for transaction in transactions %}
+            <li class="pink">
+              <span>{{ transaction.get_type_display() }} ({{ transaction.amount|abs }} грн.)</span>
+              {%- if transaction.user_plan %}
+                <br><span>{% trans %}срок действия: до{% endtrans %} {{ transaction.user_plan.end|date('d.m.Y') }}</span>
+              {% elif transaction.vipplacements.exists() %}
+                <br><span>{% trans %}срок действия: до{% endtrans %} {{ transaction.vipplacements.first().until|date('d.m.Y') }}</span>
+              {% endif -%}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </td>
+  </tr>
+{% endblock %}

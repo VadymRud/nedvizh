@@ -1,0 +1,80 @@
+{% extends "mail/base_redesigned.jinja.html" %}
+
+{% block content %}
+    <tr>
+        <td width="43" height="36" style="width: 43px; height: 36px; background-color: #ffffff;">
+            <div style="width: 43px; height: 36px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="36" colspan="3" style="width: 472px; height: 36px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 36px;">
+                {% trans %}Ваши объявления не прошли модерацию{% endtrans %}:
+            </div>
+        </td>
+        <td width="25" height="36" style="width: 25px; height: 36px; background-color: #ffffff;">
+            <div style="width: 25px; height: 36px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    {% for notification in notifications[:5] %}
+        {% with ad = notification.object %}
+            {% with ad_link_to_cabinet=True %}
+                {% include 'mail/ad_list.jinja.html' %}
+            {% endwith %}
+        {% endwith %}
+    {% endfor %}
+    {% with reminder = notifications|length() - 5 %}
+        {% if reminder > 0 %}
+            <tr>
+                <td width="43" height="36" style="width: 43px; height: 36px; background-color: #ffffff;">
+                    <div style="width: 43px; height: 36px; background-color: #ffffff;">&nbsp;</div>
+                </td>
+                <td width="472" height="36" colspan="3" style="width: 472px; height: 36px; background-color: #ffffff;">
+                    <div class="text" style="width: 472px; height: 36px;">
+                        {% trans %}и еще несколько объявлений{% endtrans %} ({{ reminder }})
+                    </div>
+                </td>
+                <td width="25" height="36" style="width: 25px; height: 36px; background-color: #ffffff;">
+                    <div style="width: 25px; height: 36px; background-color: #ffffff;">&nbsp;</div>
+                </td>
+            </tr>
+        {% endif %}
+    {% endwith %}
+    <tr>
+        <td width="43" height="80" style="width: 43px; height: 80px; background-color: #ffffff;">
+            <div style="width: 43px; height: 80px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="80" colspan="3" style="width: 472px; height: 80px; background-color: #ffffff;">
+            <div style="width: 472px; height: 80px; background-color: #ffffff; text-align: center;">
+                <a href="{{ host_url('profile_my_properties') }}" target="_blank" class="button">{% trans %}Мои объявления{% endtrans %}</a>
+            </div>
+        </td>
+        <td width="25" height="80" style="width: 25px; height: 80px; background-color: #ffffff;">
+            <div style="width: 25px; height: 80px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="41" style="width: 43px; height: 41px; background-color: #ffffff;">
+            <div style="width: 43px; height: 41px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="41" colspan="3" style="width: 472px; height: 41px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 41px;">
+                {% trans %}Ознакомьтесь, пожалуйста, с{% endtrans %} <a href="http://mesto.ua/about/ad-rules/" title="правила размещения" target="_blank">{% trans %}правилами размещения{% endtrans %}</a>.
+            </div>
+        </td>
+        <td width="25" height="41" style="width: 25px; height: 41px; background-color: #ffffff;">
+            <div style="width: 25px; height: 41px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="80" style="width: 43px; height: 80px; background-color: #ffffff;">
+            <div style="width: 43px; height: 80px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="80" colspan="3" style="width: 472px; height: 80px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 80px;">
+                {% trans %}Отредактируйте объявления, исправив ошибки или удалив нарушения правил подачи, и они автоматически будут размещены на сайте.{% endtrans %}
+            </div>
+        </td>
+        <td width="25" height="80" style="width: 25px; height: 80px; background-color: #ffffff;">
+            <div style="width: 25px; height: 80px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+{% endblock %}

@@ -1,0 +1,2399 @@
+# Russian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-12-27 21:38+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: templates/403.jinja.html:4
+msgid "Доступ запрещен"
+msgstr ""
+
+#: templates/403.jinja.html:5
+msgid "У вас недостаточно прав для доступа к этому разделу."
+msgstr ""
+
+#: templates/404.jinja.html:4
+msgid "Страница не найдена"
+msgstr ""
+
+#: templates/404.jinja.html:5
+msgid "На сайте Mesto.UA нет страницы с таким адресом."
+msgstr ""
+
+#: templates/410.jinja.html:3 templates/410.jinja.html:6
+msgid "Объявление не найдено"
+msgstr ""
+
+#: templates/410.jinja.html:8
+msgid ""
+"К сожалению, у этого объявления истек срок публикации или оно было "
+"удалено владельцем."
+msgstr ""
+
+#: templates/410.jinja.html:9
+msgid "Вы можете"
+msgstr ""
+
+#: templates/410.jinja.html:9
+msgid "перейти в раздел с объявлениями по вашему региону"
+msgstr ""
+
+#: templates/410.jinja.html:9
+msgid "и воспользоваться поиском, чтобы найти подходящий объект."
+msgstr ""
+
+#: templates/410.jinja.html:12
+msgid "Перейти к поиску объявлений"
+msgstr ""
+
+#: templates/500.jinja.html:4
+msgid "Внутренняя ошибка сервера"
+msgstr ""
+
+#: templates/500.jinja.html:5
+msgid ""
+"Если ошибка проявляется длительное время, Вы можете смело написать о ней "
+"нам на почту"
+msgstr ""
+
+#: templates/base.jinja.html:72
+msgid "Портал недвижимости"
+msgstr ""
+
+#: templates/base.jinja.html:132 templates/profile/login.jinja.html:4
+#: templates/profile/login.jinja.html:9
+#: templates/registration/activate.jinja.html:8
+#: templates/registration/password_reset_complete.jinja.html:6
+#: templates/registration/registration_form.jinja.html:24
+msgid "Войти"
+msgstr ""
+
+#: templates/base.jinja.html:183
+msgid "Наверх"
+msgstr ""
+
+#: templates/base.jinja.html:206
+msgid "100% безопасная оплата"
+msgstr ""
+
+#: templates/base.jinja.html:213
+msgid "партнер Ассоциации"
+msgstr ""
+
+#: templates/base.jinja.html:213
+msgid "специалистов по недвижимости Украины"
+msgstr ""
+
+#: templates/base.jinja.html:220
+msgid "Гарантия безопасности, используя"
+msgstr ""
+
+#: templates/base.jinja.html:220
+msgid "мировые рекомендации по обеспечению"
+msgstr ""
+
+#: templates/base.jinja.html:220
+msgid "защиты данных и конфиденциальности"
+msgstr ""
+
+#: templates/base.jinja.html:231
+msgid "Мы в соц. сетях:"
+msgstr ""
+
+#: templates/base.jinja.html:243
+msgid ""
+"Все права защищены. Копирование и использование информации без "
+"письменного согласия владельца преследуется по закону."
+msgstr ""
+
+#: templates/ad/international_message.jinja.html:5
+#: templates/blank.jinja.html:21 templates/includes/photoswipe.jinja.html:12
+#: templates/macro/forms.jinja.html:80
+#: templates/profile/deactivation_reason_modal.jinja.hmtl.html:6
+#: templates/profile/import/test.jinja.html:14
+#: templates/profile/messages/modal.jinja.html:5
+#: templates/profile/my_properties.jinja.html:169
+msgid "Закрыть"
+msgstr ""
+
+#: templates/homepage.jinja.html:71
+msgid "Последние добавления на сайт"
+msgstr ""
+
+#: templates/homepage.jinja.html:93
+msgid "Возникли вопросы по работе с сайтом? "
+msgstr ""
+
+#: templates/homepage.jinja.html:94
+msgid ""
+"Звоните на бесплатный номер телефона и уточните все детали у своего "
+"личного помощника."
+msgstr ""
+
+#: templates/guide/base.jinja.html:7 templates/homepage.jinja.html:111
+msgid "Новости рынка"
+msgstr ""
+
+#: templates/homepage.jinja.html:111
+msgid "Читать все новости"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:6
+#: templates/includes/footer_menu.jinja.html:15
+#: templates/international.jinja.html:54
+msgid "Аренда"
+msgstr ""
+
+#: templates/international.jinja.html:58
+msgid "Все объявления аренды"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:5
+#: templates/includes/footer_menu.jinja.html:14
+#: templates/international.jinja.html:61
+msgid "Продажа"
+msgstr ""
+
+#: templates/international.jinja.html:65
+msgid "Все объявления продажи"
+msgstr ""
+
+#: templates/international.jinja.html:74
+msgid "Все страны"
+msgstr ""
+
+#: templates/offer_mobile_app.jinja.html:19
+msgid "Установить приложение"
+msgstr ""
+
+#: templates/offer_mobile_app.jinja.html:21
+msgid "Перейти на сайт"
+msgstr ""
+
+#: templates/redirect.jinja.html:4
+msgid "Переадресация"
+msgstr ""
+
+#: templates/redirect.jinja.html:27
+msgid "Если ва браузер не поддерживает автоматическую переадресацию"
+msgstr ""
+
+#: templates/redirect.jinja.html:27
+msgid "нажмите здесь"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:16
+msgid "Арендовать"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:16
+msgid "Купить"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:16
+msgid "Снять посуточно"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:16
+msgid "Купить в новостройке"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:17
+msgid "квартиру"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:17
+msgid "комнату"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:17
+msgid "дом"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:17 templates/profile/ad-preview.jinja.html:39
+msgid "участок"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:17
+msgid "коммерческую недвижимость"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:17
+msgid "гараж"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:26
+msgid "комнатой"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:26
+msgid "комнатами"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:59
+msgid "Дата публикации"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:74 templates/ad/preview.jinja.html:41
+msgid "добавить в избранное"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:77 templates/ad/detail.jinja.html:331
+#: templates/ad/detail.jinja.html:339
+#: templates/ad/search_form_addr.jinja.html:144
+#: templates/ad/search_related.jinja.html:28
+msgid "Получи еще больше возможностей на сайте. Жми кнопку \"зарегистрироваться\""
+msgstr ""
+
+#: templates/ad/detail.jinja.html:82
+#: templates/profile/ad-preview.jinja.html:127
+msgid "редактировать объявление"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:123
+msgid "360 панорама"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:130
+msgid "карта"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:144 templates/ad/preview-short.jinja.html:11
+#: templates/ad/preview.jinja.html:17
+#: templates/profile/ad-preview.jinja.html:27
+#: templates/profile/my_properties.jinja.html:110
+msgid "Продано"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:208 templates/ad/preview.jinja.html:60
+#: templates/profile/ad-preview.jinja.html:43
+msgid "комната"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:208 templates/ad/preview.jinja.html:60
+#: templates/profile/ad-preview.jinja.html:43
+msgid "комнаты"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:208 templates/ad/preview.jinja.html:60
+#: templates/profile/ad-preview.jinja.html:43
+msgid "комнат"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:213
+#: templates/profile/ad-preview.jinja.html:40
+msgid "сотка"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:213
+#: templates/profile/ad-preview.jinja.html:40
+msgid "сотки"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:213 templates/ad/preview.jinja.html:71
+#: templates/profile/ad-preview.jinja.html:40
+msgid "соток"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:224
+msgid "этаж"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:224
+msgid "этажа"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:224
+msgid "этажей"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:240
+msgid ""
+"<b>Этот объект продан.</b><br/> Пожалуйста, свяжитесь с риелтором, чтобы "
+"найти похожий вариант объекта."
+msgstr ""
+
+#: templates/ad/detail.jinja.html:264
+msgid "Узнать номер"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:296
+msgid ""
+"Звонки в пределах Украины бесплатны. Мы вам перезвоним. ID объявления "
+"нужно будет ввести при звонке для соединения с риелтором"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:298
+msgid ""
+"ID объявления нужно будет ввести при звонке для соединения с риелтором. "
+"Все звонки тарифицируются согласно тарифам Вашого оператора."
+msgstr ""
+
+#: templates/ad/detail.jinja.html:300
+msgid "Все звонки тарифицируются согласно тарифам Вашого оператора."
+msgstr ""
+
+#: templates/ad/detail.jinja.html:303
+msgid ""
+"Для того, что бы продавец быстрее понял какой объект Вас интересует - "
+"скажите ему что нашли его на Mesto.ua"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:319
+msgid "Связаться с владельцем"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:333
+#: templates/profile/messages/modal.jinja.html:6
+msgid "Отправить сообщение"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:341
+#: templates/profile/messages/form.jinja.html:37
+msgid "Контроферта"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:352 templates/ad/detail.jinja.html:356
+#: templates/ad/preview.jinja.html:47 templates/profile/sidebar.jinja.html:17
+msgid "Ассоциация специалистов по недвижимости Украины"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:385
+msgid ""
+"Заказав обратный звонок, риелтор будет знать по каким критериям Вы ищите "
+"объект и перезвонит вам"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:388
+msgid "Заказать обратный звонок"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:396
+msgid "Информация"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:399
+msgid "Календарь"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:414
+msgid "Адрес"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:415
+msgid "Комнат"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:416
+msgid "Спальных мест"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:418 templates/ad/preview.jinja.html:71
+#: templates/ad/preview.jinja.html:74 templates/ad/preview.jinja.html:77
+msgid "Площадь"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:419 templates/ad/search_form.jinja.html:37
+#: templates/ad/search_form.jinja.html:59
+msgid "Площадь жилая"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:420
+msgid "Площадь кухни"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:422
+msgid "Площадь в сотках"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:424
+msgid "Этаж"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:425
+msgid "Всего этажей"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:426
+msgid "Планировка"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:427
+msgid "Тип здания"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:429
+msgid "Тип стен"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:430
+msgid "Тип окон"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:431
+msgid "Тип отопления"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:433
+msgid "Цена:"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:438
+msgid "Комиссия:"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:439
+msgid "отсутствует"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:471
+msgid "занято"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:474
+msgid "календарь обновлен"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:486
+msgid "Удобства"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:504
+#: templates/profile/my_property_form.jinja.html:123
+msgid "Описание"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:505
+msgid "ID объекта в базе"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:507
+msgid "Работает call back телефония - мы вам перезвоним."
+msgstr ""
+
+#: templates/ad/detail.jinja.html:510
+msgid "Риски мошенничества при долгосрочной аренде"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:525
+msgid "Регион:"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:531
+#: templates/profile/balance/orders.jinja.html:41
+msgid "Статус"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:532
+msgid "Редактировалось"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:533
+msgid "Поднималось последний раз"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:534
+msgid "Срок хранения объявления"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:536
+msgid "Экспорт на сайт DOM.RIA.COM"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:541
+msgid "Источник"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:545
+msgid "Редактировать объявление"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:547
+msgid "Смотреть объявления пользователя"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:549
+msgid "Объявление из фида"
+msgstr ""
+
+#: templates/ad/districts.jinja.html:34
+msgid "Населенные пункты"
+msgstr ""
+
+#: templates/ad/districts.jinja.html:36
+msgid "Районы города "
+msgstr ""
+
+#: templates/ad/districts.jinja.html:49
+msgid "Микрорайоны города"
+msgstr ""
+
+#: templates/ad/international_message.jinja.html:6
+msgid "Заполните форму ниже, чтобы агент связался с вами"
+msgstr ""
+
+#: templates/ad/international_message.jinja.html:10
+msgid "Запрос отправлен"
+msgstr ""
+
+#: templates/ad/international_message.jinja.html:19
+#: templates/profile/change_email.jinja.html:18
+#: templates/profile/messages/add_message.jinja.html:20
+#: templates/profile/messages/form.jinja.html:71
+msgid "Отправить"
+msgstr ""
+
+#: templates/ad/preview-short.jinja.html:1
+msgid "на продажу"
+msgstr ""
+
+#: templates/ad/preview-short.jinja.html:1
+msgid "в аренду"
+msgstr ""
+
+#: templates/ad/preview-short.jinja.html:1
+msgid "посуточно"
+msgstr ""
+
+#: templates/ad/preview-short.jinja.html:1
+msgid "в новостройке"
+msgstr ""
+
+#: templates/ad/preview-short.jinja.html:16
+msgid "коммерческая"
+msgstr ""
+
+#: templates/ad/preview-short.jinja.html:16
+msgid "коммерч."
+msgstr ""
+
+#: templates/ad/preview.jinja.html:21
+msgid "без комиссии"
+msgstr ""
+
+#: templates/ad/preview.jinja.html:22
+msgid "возможен торг"
+msgstr ""
+
+#: templates/ad/preview.jinja.html:74
+msgid "общая"
+msgstr ""
+
+#: templates/ad/preview.jinja.html:74
+msgid "жилая"
+msgstr ""
+
+#: templates/ad/preview.jinja.html:84
+msgid "далее"
+msgstr ""
+
+#: templates/ad/results.jinja.html:29
+msgid ""
+"По вашему запросу ничего не найдено. <br/>Попробуйте изменить параметры "
+"поиска."
+msgstr ""
+
+#: templates/ad/search.jinja.html:4 templates/ad/search_related.jinja.html:4
+#, python-format
+msgid "страница %(page)s"
+msgstr ""
+
+#: templates/ad/search.jinja.html:33
+msgid "Не нашли подходящий объект? Воспользуйтесь дополнительным сервисом поиска"
+msgstr ""
+
+#: templates/ad/search.jinja.html:34
+msgid ""
+"Постоянно работая над улучшение качества сервиса, предлагаем Вам "
+"дополнительные параметры, которые помогут ускорить поиск недвижимости"
+msgstr ""
+
+#: templates/ad/search.jinja.html:41
+msgid "Выберите риелтора и работайте только с проверенными специалистами"
+msgstr ""
+
+#: templates/ad/search.jinja.html:42
+msgid ""
+"На тратьте время на поиск необходимого жилья, выберите профессионала "
+"своего дела, который поможет Вам подобрать и найти тот вариант, который "
+"соответствует Вашим параметрам."
+msgstr ""
+
+#: templates/ad/search.jinja.html:45 templates/ad/search_related.jinja.html:68
+#: templates/ad/search_related_agencies.jinja.html:13
+msgid "Оставить заявку"
+msgstr ""
+
+#: templates/ad/search_form.jinja.html:27
+msgid "Цена за сутки"
+msgstr ""
+
+#: templates/ad/search_form.jinja.html:31
+#: templates/macro/ad_search.jinja.html:137
+msgid "Расширенный поиск"
+msgstr ""
+
+#: templates/ad/search_form.jinja.html:36
+#: templates/ad/search_form.jinja.html:58
+msgid "Площадь общая"
+msgstr ""
+
+#: templates/ad/search_form.jinja.html:84
+msgid "Показано"
+msgstr ""
+
+#: templates/ad/search_form.jinja.html:84
+#: templates/ad/search_form.jinja.html:95
+#: templates/includes/account_menu.jinja.html:18
+#: templates/includes/publishing_status.jinja.html:24
+#: templates/includes/publishing_status.jinja.html:33
+msgid "объявление"
+msgstr ""
+
+#: templates/ad/search_form.jinja.html:84
+#: templates/ad/search_form.jinja.html:95
+#: templates/includes/account_menu.jinja.html:18
+#: templates/includes/publishing_status.jinja.html:24
+#: templates/includes/publishing_status.jinja.html:33
+msgid "объявления"
+msgstr ""
+
+#: templates/ad/search_form.jinja.html:84
+#: templates/ad/search_form.jinja.html:95
+#: templates/includes/account_menu.jinja.html:18
+#: templates/includes/publishing_status.jinja.html:24
+#: templates/includes/publishing_status.jinja.html:33
+msgid "объявлений"
+msgstr ""
+
+#: templates/ad/search_form.jinja.html:85
+msgid "из"
+msgstr ""
+
+#: templates/ad/search_form.jinja.html:88
+msgid "Сортировать"
+msgstr ""
+
+#: templates/ad/search_form.jinja.html:89
+msgid "Отображать"
+msgstr ""
+
+#: templates/ad/search_form.jinja.html:95
+msgid "Найдено"
+msgstr ""
+
+#: templates/ad/search_form.jinja.html:122
+#: templates/ad/search_form_mainpage.jinja.html:71
+#: templates/ad/search_form_mainpage.jinja.html:72
+msgid "Все выбрано"
+msgstr ""
+
+#: templates/ad/search_form.jinja.html:122
+#: templates/ad/search_form_mainpage.jinja.html:71
+msgid "Выберите район"
+msgstr ""
+
+#: templates/ad/search_form_addr.jinja.html:7
+msgid "Страна, город"
+msgstr ""
+
+#: templates/ad/search_form_addr.jinja.html:22
+msgid "Вся"
+msgstr ""
+
+#: templates/ad/search_form_addr.jinja.html:23
+#: templates/macro/ad_search.jinja.html:165
+msgid "Область"
+msgstr ""
+
+#: templates/ad/search_form_addr.jinja.html:32
+#: templates/ad/search_form_addr.jinja.html:35
+msgid "Районы"
+msgstr ""
+
+#: templates/ad/search_form_addr.jinja.html:40
+msgid "Метро"
+msgstr ""
+
+#: templates/ad/search_form_addr.jinja.html:46
+#: templates/ad/search_form_addr.jinja.html:49
+msgid "Улица"
+msgstr ""
+
+#: templates/ad/search_form_addr.jinja.html:54
+msgid "ID"
+msgstr ""
+
+#: templates/ad/search_form_addr.jinja.html:60
+msgid "Название"
+msgstr ""
+
+#: templates/ad/search_form_addr.jinja.html:63
+msgid "Застройщик"
+msgstr ""
+
+#: templates/ad/search_form_addr.jinja.html:74
+msgid "список районов"
+msgstr ""
+
+#: templates/ad/search_form_addr.jinja.html:88
+msgid "список улиц"
+msgstr ""
+
+#: templates/ad/search_form_addr.jinja.html:96
+msgid "список населенных пунктов"
+msgstr ""
+
+#: templates/ad/search_form_addr.jinja.html:106
+msgid "Без привязки к метро"
+msgstr ""
+
+#: templates/ad/search_form_addr.jinja.html:120
+msgid "список станций метро"
+msgstr ""
+
+#: templates/ad/search_form_addr.jinja.html:140
+msgid "Сохраните поиск, чтобы получить самые свежие предложения на вашу почту"
+msgstr ""
+
+#: templates/ad/search_form_addr.jinja.html:141
+msgid "Не упустите новые объекты!"
+msgstr ""
+
+#: templates/ad/search_form_addr.jinja.html:141
+#: templates/ad/search_form_addr.jinja.html:144
+msgid "Сохранить поиск"
+msgstr ""
+
+#: templates/ad/search_form_mainpage.jinja.html:11
+msgid "Найдите лучший объект недвижимости"
+msgstr ""
+
+#: templates/ad/search_form_mainpage.jinja.html:23
+msgid "Тип сделки"
+msgstr ""
+
+#: templates/ad/search_form_mainpage.jinja.html:27
+#: templates/macro/ad_search.jinja.html:10
+#: templates/macro/ad_search.jinja.html:117
+msgid "Тип недвижимости"
+msgstr ""
+
+#: templates/ad/search_form_mainpage.jinja.html:47
+#: templates/macro/ad_search.jinja.html:130
+#: templates/macro/ad_search.jinja.html:151
+msgid "Цена"
+msgstr ""
+
+#: templates/ad/search_related.jinja.html:13
+msgid "По вашему запросу ничего не найдено."
+msgstr ""
+
+#: templates/ad/search_related.jinja.html:15
+msgid ""
+"Просмотрите похожие объявления по схожим параметрам или попробуйте "
+"изменить параметры поиска."
+msgstr ""
+
+#: templates/ad/search_related.jinja.html:17
+msgid "Попробуйте изменить параметры поиска."
+msgstr ""
+
+#: templates/ad/search_related.jinja.html:22
+msgid ""
+"Как только появится объект по таким параметрам, Вы получите уведомление "
+"на электронную свою почту"
+msgstr ""
+
+#: templates/ad/search_related.jinja.html:25
+#: templates/ad/search_related.jinja.html:29
+msgid "Подписаться"
+msgstr ""
+
+#: templates/ad/search_related.jinja.html:34
+msgid "Похожие объявления по схожим параметрам:"
+msgstr ""
+
+#: templates/ad/search_related.jinja.html:50
+msgid "объект"
+msgstr ""
+
+#: templates/ad/search_related.jinja.html:50
+msgid "объекта"
+msgstr ""
+
+#: templates/ad/search_related.jinja.html:50
+msgid "объектов"
+msgstr ""
+
+#: templates/ad/search_related.jinja.html:66
+msgid ""
+"Можете оставить заявку по выбранным параметрам, мы отправим эту заявку "
+"агентствам, ожидайте звонка"
+msgstr ""
+
+#: templates/ad/search_related_agencies.jinja.html:1
+msgid "Агентства, имеющие опыт работы с такого вида объектами"
+msgstr ""
+
+#: templates/ad/search_related_agencies.jinja.html:15
+msgid "Подробнее об АН"
+msgstr ""
+
+#: templates/ad/streets.jinja.html:35
+msgid "Популярные улицы"
+msgstr ""
+
+#: templates/ad/subway.jinja.html:27
+msgid "Станции метро"
+msgstr ""
+
+#: templates/admin/filter_property_id.html:2
+#: templates/admin/filter_select.html:2
+#, python-format
+msgid " By %(filter_title)s "
+msgstr ""
+
+#: templates/admin/moderation_stats.jinja.html:60
+msgid "Нет статистики"
+msgstr ""
+
+#: templates/admin/tabular_image.html:17
+msgid "Delete?"
+msgstr ""
+
+#: templates/admin/tabular_image.html:18
+msgid "Image"
+msgstr ""
+
+#: templates/admin/tabular_image.html:31
+msgid "View on site"
+msgstr ""
+
+#: templates/admin/tabular_image.html:81
+#, python-format
+msgid "Add another %(verbose_name)s"
+msgstr ""
+
+#: templates/admin/tabular_image.html:82
+msgid "Remove"
+msgstr ""
+
+#: templates/faq/article.jinja.html:4 templates/faq/category.jinja.html:3
+#: templates/faq/category.jinja.html:10
+msgid "Статьи"
+msgstr ""
+
+#: templates/faq/article.jinja.html:21
+msgid "Видеообучение"
+msgstr ""
+
+#: templates/faq/base.jinja.html:11
+#: templates/includes/footer_menu.jinja.html:65
+msgid "Частые вопросы"
+msgstr ""
+
+#: templates/faq/index.jinja.html:22
+msgid "Часто задаваемые вопросы"
+msgstr ""
+
+#: templates/faq/index.jinja.html:35
+msgid "См. все вопросы"
+msgstr ""
+
+#: templates/faq/index.jinja.html:36
+msgid "Скрыть все вопросы"
+msgstr ""
+
+#: templates/guide/article_detail.jinja.html:17
+msgid " Читайте также:"
+msgstr ""
+
+#: templates/guide/article_detail.jinja.html:41
+msgid "Мы в социальных сетях"
+msgstr ""
+
+#: templates/guide/article_detail.jinja.html:42
+msgid ""
+"Если вам привычнее узнавать о новостях через социальные сети, "
+"присоединяйтесь"
+msgstr ""
+
+#: templates/guide/article_detail.jinja.html:46
+msgid "Твиты пользователя"
+msgstr ""
+
+#: templates/guide/base.jinja.html:27
+#: templates/includes/footer_menu.jinja.html:22
+msgid "Новости"
+msgstr ""
+
+#: templates/guide/base.jinja.html:28
+#: templates/includes/footer_menu.jinja.html:23
+msgid "События"
+msgstr ""
+
+#: templates/guide/base.jinja.html:29
+#: templates/includes/footer_menu.jinja.html:24
+msgid "Места"
+msgstr ""
+
+#: templates/guide/base.jinja.html:30
+#: templates/includes/footer_menu.jinja.html:25
+msgid "Стоит знать"
+msgstr ""
+
+#: templates/guide/base.jinja.html:31
+#: templates/includes/footer_menu.jinja.html:57
+msgid "Mesto School"
+msgstr ""
+
+#: templates/guide/region_choice.jinja.html:5
+msgid "Выберите город"
+msgstr ""
+
+#: templates/includes/account_menu.jinja.html:7
+msgid "Подключена услуга"
+msgstr ""
+
+#: templates/includes/account_menu.jinja.html:7
+#: templates/includes/account_menu_vertical.jinja.html:9
+#: templates/includes/publishing_status.jinja.html:6
+#: templates/profile/menu.jinja.html:7
+msgid "Оплата за звонок"
+msgstr ""
+
+#: templates/includes/account_menu.jinja.html:10
+msgid "Выделенный номер до "
+msgstr ""
+
+#: templates/includes/account_menu.jinja.html:11
+msgid ""
+"если на балансе будет необходимая сумма, то произойдет автоматическое "
+"продление выделенного номера"
+msgstr ""
+
+#: templates/includes/account_menu.jinja.html:14
+#: templates/includes/header_usermenu.jinja.html:8
+#: templates/profile/balance/index.jinja.html:35
+msgid "Баланс"
+msgstr ""
+
+#: templates/includes/account_menu.jinja.html:18
+msgid "Подключен тариф"
+msgstr ""
+
+#: templates/includes/account_menu.jinja.html:19
+#: templates/includes/publishing_status.jinja.html:34
+msgid "Действует до"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:6
+#: templates/includes/account_menu_vertical.jinja.html:7
+#: templates/includes/header_usermenu.jinja.html:6
+#: templates/profile/menu.jinja.html:5
+msgid "Способы размещения"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:8
+#: templates/profile/checkout.jinja.html:161
+#: templates/profile/menu.jinja.html:6
+msgid "Тарифный план"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:10
+#: templates/profile/checkout.jinja.html:105
+#: templates/profile/menu.jinja.html:8
+msgid "VIP объявление"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:11
+#: templates/profile/menu.jinja.html:9
+msgid "Зарубежные каталоги"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:16
+#: templates/includes/footer_menu.jinja.html:8
+msgid "Новостройки"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:17
+msgid "Вторичное жилье"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:20
+#: templates/includes/header_usermenu.jinja.html:7
+msgid "Мои объекты"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:22
+#: templates/profile/menu.jinja.html:14
+msgid "Объекты агентства"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:24
+#: templates/profile/menu.jinja.html:16
+msgid "Мои объявления"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:29
+#: templates/includes/account_menu_vertical.jinja.html:76
+#: templates/includes/header_usermenu.jinja.html:16
+#: templates/includes/header_usermenu.jinja.html:18
+#: templates/profile/menu.jinja.html:21
+#: templates/profile/messages/list.jinja.html:17
+msgid "Сообщения"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:30
+#: templates/profile/menu.jinja.html:22
+msgid "Задачи"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:31
+#: templates/profile/menu.jinja.html:23
+msgid "Клиенты"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:33
+#: templates/includes/header_usermenu.jinja.html:27
+#: templates/profile/menu.jinja.html:26 templates/profile/menu.jinja.html:28
+msgid "CRM"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:48
+#: templates/includes/account_menu_vertical.jinja.html:75
+#: templates/profile/import/base.jinja.html:10
+#: templates/profile/menu.jinja.html:33 templates/profile/menu.jinja.html:56
+msgid "Настройки"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:49
+#: templates/includes/footer_menu.jinja.html:33
+#: templates/profile/menu.jinja.html:34
+msgid "Риелторы"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:50
+#: templates/includes/header_usermenu.jinja.html:33
+#: templates/profile/menu.jinja.html:35
+msgid "Статистика"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:51
+#: templates/profile/import/base.jinja.html:5
+#: templates/profile/menu.jinja.html:36
+msgid "Импорт объявлений"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:53
+#: templates/includes/header_usermenu.jinja.html:23
+#: templates/profile/menu.jinja.html:38
+msgid "Агентство"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:56
+#: templates/profile/menu.jinja.html:55
+msgid "Профиль"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:63
+#: templates/includes/footer_menu.jinja.html:39
+#: templates/profile/menu.jinja.html:46
+msgid "Полезные услуги"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:64
+#: templates/profile/menu.jinja.html:47
+msgid "Панорама 360"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:66
+#: templates/includes/footer_menu.jinja.html:42
+#: templates/profile/menu.jinja.html:48
+msgid "Оценка недвижимости"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:67
+#: templates/profile/menu.jinja.html:49
+msgid "Услуги нотариуса"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:68
+msgid "3D интерьер"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:70
+#: templates/includes/publishing_status.jinja.html:7
+#: templates/includes/publishing_status.jinja.html:14
+#: templates/includes/publishing_status.jinja.html:27
+#: templates/includes/publishing_status.jinja.html:36
+#: templates/includes/publishing_status.jinja.html:45
+msgid "Ваш баланс"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:71
+#: templates/profile/menu.jinja.html:52
+msgid "Операции"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:72
+#: templates/profile/menu.jinja.html:53
+msgid "Заказы"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:77
+#: templates/profile/menu.jinja.html:57
+#: templates/profile/saved_properties.jinja.html:9
+msgid "Сохраненные объявления"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:78
+#: templates/profile/menu.jinja.html:58
+#: templates/profile/saved_searches.jinja.html:11
+msgid "Сохраненные поиски"
+msgstr ""
+
+#: templates/includes/breadcrumbs.jinja.html:2
+#: templates/includes/cities_list_4_column.jinja.html:4
+msgid "Назад"
+msgstr ""
+
+#: templates/includes/cities_list_4_column.jinja.html:10
+msgid "Вся страна"
+msgstr ""
+
+#: templates/includes/cities_list_4_column.jinja.html:12
+msgid "Вся область"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:4
+msgid "В Украине"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:7
+msgid "Посуточно"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:13
+msgid "За рубежом"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:21
+msgid "Новости Рынка"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:30
+msgid "Профессионалы"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:31
+msgid "Все профессионалы"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:32
+msgid "Агентства"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:40
+msgid "3D панорама"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:47
+msgid "Контакты"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:48
+msgid "О mesto.ua"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:49
+msgid "Реклама"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:50
+msgid "Политика"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:50
+msgid "конфиденциальности"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:51
+msgid "Условия использования"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:58
+msgid "Вебинары"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:59
+msgid "Семинары"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:60
+msgid "Полезные статьи"
+msgstr ""
+
+#: templates/includes/header_call_request.jinja.html:3
+#: templates/includes/header_menu.jinja.html:26
+msgid "Заказ обратного звонка"
+msgstr ""
+
+#: templates/includes/header_cities.jinja.html:9
+msgid "Выбрать город"
+msgstr ""
+
+#: templates/includes/header_menu.jinja.html:11
+#: templates/includes/header_menu.jinja.html:14
+#: templates/includes/header_menu.jinja.html:17
+msgid "Добавить объявление"
+msgstr ""
+
+#: templates/includes/header_usermenu.jinja.html:9
+msgid "Настройки профиля"
+msgstr ""
+
+#: templates/includes/header_usermenu.jinja.html:10
+msgid "Выход"
+msgstr ""
+
+#: templates/includes/header_usermenu.jinja.html:32
+msgid "Мои новостройки"
+msgstr ""
+
+#: templates/includes/login_popup.jinja.html:16
+#: templates/profile/edit_profile.jinja.html:772
+msgid "Пароль"
+msgstr ""
+
+#: templates/includes/login_popup.jinja.html:18
+#: templates/profile/login.jinja.html:24
+msgid "Забыли пароль?"
+msgstr ""
+
+#: templates/includes/login_popup.jinja.html:21
+#: templates/profile/login.jinja.html:20
+msgid "Log in"
+msgstr ""
+
+#: templates/includes/login_popup.jinja.html:24
+msgid "или войдите с помощью"
+msgstr ""
+
+#: templates/includes/login_popup.jinja.html:38
+msgid "Создать"
+msgstr ""
+
+#: templates/includes/login_popup.jinja.html:41
+msgid "или создайте аккаунт через"
+msgstr ""
+
+#: templates/includes/login_popup.jinja.html:48
+msgid "Логин"
+msgstr ""
+
+#: templates/includes/login_popup.jinja.html:49
+#: templates/registration/registration_form.jinja.html:4
+#: templates/registration/registration_form.jinja.html:9
+msgid "Регистрация"
+msgstr ""
+
+#: templates/includes/photoswipe.jinja.html:14
+msgid "Полный экран"
+msgstr ""
+
+#: templates/includes/photoswipe.jinja.html:15
+msgid "Увеличение"
+msgstr ""
+
+#: templates/includes/photoswipe.jinja.html:27
+msgid "Предыдущее фото"
+msgstr ""
+
+#: templates/includes/photoswipe.jinja.html:28
+msgid "Следующее фото"
+msgstr ""
+
+#: templates/includes/publishing_status.jinja.html:6
+#: templates/includes/publishing_status.jinja.html:33
+msgid "Выбран"
+msgstr ""
+
+#: templates/includes/publishing_status.jinja.html:13
+msgid "Недостаточно денег на балансе."
+msgstr ""
+
+#: templates/includes/publishing_status.jinja.html:13
+#: templates/includes/publishing_status.jinja.html:25
+msgid "Пополните баланс или выберите другой способ размещения"
+msgstr ""
+
+#: templates/includes/publishing_status.jinja.html:24
+msgid "Ваш тариф"
+msgstr ""
+
+#: templates/includes/publishing_status.jinja.html:33
+msgid "Стандартный месяц"
+msgstr ""
+
+#: templates/includes/publishing_status.jinja.html:35
+msgid "Продлить тариф"
+msgstr ""
+
+#: templates/includes/publishing_status.jinja.html:44
+msgid "Выберите способ размещения"
+msgstr ""
+
+#: templates/includes/social_auth.jinja.html:7
+msgid "Войти с помощью Facebook"
+msgstr ""
+
+#: templates/includes/social_auth.jinja.html:8
+msgid "Войти с помощью Google"
+msgstr ""
+
+#: templates/includes/social_auth.jinja.html:12
+msgid ""
+"Заходя в аккаунт, вы соглашаетесь с нашими Правилами и условиями и <a "
+"href=\"#\">Положением о конфиденциальности</a>"
+msgstr ""
+
+#: templates/includes/social_share.jinja.html:3
+msgid "Поделиться"
+msgstr ""
+
+#: templates/includes/your_manager.jinja.html:20
+msgid "Если у вас возникли вопросы, вас проконсультирует ваш личный менеджер."
+msgstr ""
+
+#: templates/includes/modals/call_request.jinja.html:29
+#: templates/includes/your_manager.jinja.html:24
+msgid "Заказать звонок"
+msgstr ""
+
+#: templates/includes/modals/call_request.jinja.html:19
+msgid "Если у вас возникли вопросы"
+msgstr ""
+
+#: templates/includes/modals/call_request.jinja.html:20
+msgid "Вас проконсультирует ваш личный менеджер."
+msgstr ""
+
+#: templates/includes/modals/call_request.jinja.html:23
+msgid "Вам перезвонят на этот номер"
+msgstr ""
+
+#: templates/includes/modals/cities.jinja.html:12
+msgid "Поиск города"
+msgstr ""
+
+#: templates/includes/modals/cities.jinja.html:16
+msgid "По городам"
+msgstr ""
+
+#: templates/includes/modals/cities.jinja.html:17
+msgid "По областям"
+msgstr ""
+
+#: templates/includes/modals/cities.jinja.html:36
+msgid " область"
+msgstr ""
+
+#: templates/includes/modals/welcome_banner.jinja.html:3
+msgid "Добро пожаловать на"
+msgstr ""
+
+#: templates/includes/modals/welcome_banner.jinja.html:14
+msgid "Воспользуйтесь"
+msgstr ""
+
+#: templates/includes/modals/welcome_banner.jinja.html:14
+msgid "поиском"
+msgstr ""
+
+#: templates/includes/modals/welcome_banner.jinja.html:15
+msgid "Ищите недвижимость для аренды, покупки и посуточной ареды со всей Украины"
+msgstr ""
+
+#: templates/includes/modals/welcome_banner.jinja.html:22
+msgid "Выберите"
+msgstr ""
+
+#: templates/includes/modals/welcome_banner.jinja.html:22
+msgid "недвижимость"
+msgstr ""
+
+#: templates/includes/modals/welcome_banner.jinja.html:23
+msgid "Используйте фильтры и выбирайте подходящие объекты для вас"
+msgstr ""
+
+#: templates/includes/modals/welcome_banner.jinja.html:30
+msgid "Свяжитесь"
+msgstr ""
+
+#: templates/includes/modals/welcome_banner.jinja.html:30
+msgid "с владельцем"
+msgstr ""
+
+#: templates/includes/modals/welcome_banner.jinja.html:31
+msgid "Позвоните или напишите владельцу объекта, который вас заинтересовал"
+msgstr ""
+
+#: templates/macro/ad_search.jinja.html:109
+msgid "Найти"
+msgstr ""
+
+#: templates/macro/ad_search.jinja.html:159
+msgid "Вся Украина"
+msgstr ""
+
+#: templates/macro/forms.jinja.html:81
+msgid "Пожалуйста, исправьте ошибки:"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:15
+msgid "Добавлено"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:31
+msgid "Окончание размещения"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:32
+msgid "Зарубежная недвижимость"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:45
+msgid "площадь"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:51
+#, python-format
+msgid "%(floor)sй этаж из %(total)s"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:57
+msgid "Ответственный"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:65
+msgid "Назначить риелтора"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:95
+msgid "Привлечь покупателя"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:100
+msgid "до"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:101
+msgid "VIP еще "
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:101
+msgid "д."
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:101
+msgid "дн."
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:104
+msgid "сделать объявление VIP-объявлением"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:105
+msgid "Сделать VIP"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:118
+msgid "Заказать 3D тур"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:124
+msgid "активировать объявление"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:124
+#: templates/profile/my_properties.jinja.html:103
+msgid "Активировать"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:127
+msgid "Редактировать"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:130
+msgid "деактивировать объявление"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:135
+msgid "удалить объявление"
+msgstr ""
+
+#: templates/profile/ads_limit_notice.jinja.html:3
+#, python-format
+msgid ""
+"Вы добавили все %(ads_count)s из %(ads_limit)s возможных объявлений.<br/>"
+"\n"
+"        Удалите или деактивируйте какие-либо объявления<br/> из "
+"существующих"
+msgstr ""
+
+#: templates/profile/ads_limit_notice.jinja.html:7
+msgid "или перейдите на улучшенный тариф"
+msgstr ""
+
+#: templates/profile/ads_limit_notice.jinja.html:9
+msgid "или добавьте риелтора в свой аккаунт"
+msgstr ""
+
+#: templates/profile/ads_limit_notice.jinja.html:13
+msgid "Перейти на улучшенный тариф"
+msgstr ""
+
+#: templates/profile/ads_limit_notice.jinja.html:15
+msgid "Больше не показывать"
+msgstr ""
+
+#: templates/profile/ban.jinja.html:5
+msgid "Ваш аккаунт заблокирован"
+msgstr ""
+
+#: templates/profile/ban.jinja.html:8
+msgid ""
+"Ваши объявления не отображаются на сайте и вы не можете добавлять новые "
+"объявления."
+msgstr ""
+
+#: templates/profile/ban.jinja.html:11
+msgid "Блокировка истекает"
+msgstr ""
+
+#: templates/profile/ban.jinja.html:12
+msgid "Причина блокировки:"
+msgstr ""
+
+#: templates/profile/change_email.jinja.html:3
+#: templates/profile/change_email.jinja.html:6
+msgid "Изменение E-mail"
+msgstr ""
+
+#: templates/profile/change_email.jinja.html:9
+msgid "На указанный адрес"
+msgstr ""
+
+#: templates/profile/change_email.jinja.html:9
+msgid "отправлена ссылка для подтверждения изменения E-mail."
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:64
+msgid "Варианты размещения международной недвижимости"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:66
+msgid ""
+"1. Если вы добавляете объявление только на сайте mesto.ua, его увидят "
+"только пользователи портала mesto.ua<br/><br/>\n"
+"                    2. Добавляя объявление на mesto.ua и на международные"
+" сайты ваше объяление увидят сотни людей со всего мира"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:109
+#: templates/profile/checkout.jinja.html:165
+msgid "Подробнее об услуге"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:113
+#: templates/profile/checkout.jinja.html:138
+msgid "7 дней"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:117
+msgid ""
+"VIP-объявление выделяет ваш объект желтым цветом с пометкой “VIP” и "
+"сохраняет его\n"
+"                            наверху списка сроком на одну неделю"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:135
+msgid "Срок действия Вашего тарифа истекает"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:137
+msgid "Размещение"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:137
+#: templates/profile/checkout.jinja.html:138
+msgid "VIP объявления"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:137
+msgid "завершится одновременно<br>с действием Тарифного плана."
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:138
+msgid "Для успешной публикации"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:138
+msgid "необходимо продлить Тарифный план."
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:142
+msgid "Снимите галочку"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:142
+msgid "напротив услуги, если Вы не хотите<br>ее приобретать."
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:172
+msgid ""
+"Вы приобретаете размещение объявлений на 31 дней. Обновление объявлений "
+"каждые 7 дней. Возможность взаимозаменять объявления -  согласно "
+"выбранному пакету."
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:182
+#, python-format
+msgid ""
+"Узнайте больше о <a href=\"%(link)s\">возможностях продвижения</a> вашего"
+" объявления"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:189
+msgid "Всего к оплате"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:191
+msgid "Оплатить услуги"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:197
+msgid "услуги будут оплачены с баланса польльзователя"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:206
+msgid "Оплата услуг"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:207
+msgid "Выберите способ оплаты"
+msgstr ""
+
+#: templates/profile/deactivation_reason_modal.jinja.hmtl.html:7
+msgid "Пожалуйста, расскажите, почему вы хотите снять объявление с публикации:"
+msgstr ""
+
+#: templates/profile/deactivation_reason_modal.jinja.hmtl.html:21
+msgid "Снять с публикации"
+msgstr ""
+
+#: templates/profile/deactivation_reason_modal.jinja.hmtl.html:24
+msgid "Продолжить размещение *"
+msgstr ""
+
+#: templates/profile/deactivation_reason_modal.jinja.hmtl.html:29
+msgid ""
+"Вы можете продолжить размещение проданных объектов, но с соответствующей "
+"пометкой \"Продано\". <br/>Такие объявления будут размещаться на общих "
+"условиях, как обычные объявления."
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:732
+msgid "Время приема"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:733
+#: templates/profile/edit_profile.jinja.html:829
+msgid "Ваш менеджер"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:735
+msgid "Личные данные"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:753
+msgid "Добавить номер"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:762
+msgid "изменить email"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:764
+msgid "не задан"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:765
+msgid "указать email"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:776
+msgid "изменить пароль"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:778
+msgid "сбросить пароль"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:789
+msgid "Ваши <br> cоциальные сети"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:793
+msgid "Вы подключены к"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:797
+#: templates/profile/edit_profile.jinja.html:799
+msgid "Отвязать аккаунт"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:805
+msgid "Привязать аккаунт:"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:808
+msgid "Войти с помощью"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:818
+#: templates/profile/import/settings.jinja.html:25
+msgid "Сохранить"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:838
+msgid ""
+"Это внутренний номер вашего менеджера, на случай, если вы захотите "
+"позвонить сами"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:838
+msgid "Наш&nbsp;номер"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:839
+msgid "внутренний номер"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:841
+msgid "Перезвонить мне"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:851
+msgid ""
+"Внимание! Все ваши объявления будут неактивны, пока вы не пополните "
+"баланс еще на"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:851
+msgid "гривен."
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:859
+msgid "Время приема звонков с сайта"
+msgstr ""
+
+#: templates/profile/login.jinja.html:24
+msgid "Восстановить пароль"
+msgstr ""
+
+#: templates/profile/login.jinja.html:25
+msgid "Нет аккаунта?"
+msgstr ""
+
+#: templates/profile/login.jinja.html:25
+#: templates/registration/registration_form.jinja.html:20
+msgid "Зарегистрироваться"
+msgstr ""
+
+#: templates/profile/menu.jinja.html:51
+msgid "Финансы"
+msgstr ""
+
+#: templates/profile/my_properties.jinja.html:67
+msgid "Поиск по улице или ID объявления"
+msgstr ""
+
+#: templates/profile/my_properties.jinja.html:80
+msgid "Добавить объект"
+msgstr ""
+
+#: templates/profile/my_properties.jinja.html:103
+msgid "активировать объявления"
+msgstr ""
+
+#: templates/profile/my_properties.jinja.html:109
+msgid ""
+"объявление будет учитываться как активное объявление, но с пометкой "
+"Продано"
+msgstr ""
+
+#: templates/profile/my_properties.jinja.html:114
+msgid "деактивировать объявления"
+msgstr ""
+
+#: templates/profile/my_properties.jinja.html:115
+msgid "Деактивировать"
+msgstr ""
+
+#: templates/profile/my_properties.jinja.html:119
+msgid "удалить объявления"
+msgstr ""
+
+#: templates/profile/messages/list.jinja.html:26
+#: templates/profile/my_properties.jinja.html:120
+#: templates/profile/my_properties.jinja.html:176
+msgid "Удалить"
+msgstr ""
+
+#: templates/profile/my_properties.jinja.html:126
+#, python-format
+msgid "Доступно %(remaining)s из %(total)s объявлений"
+msgstr ""
+
+#: templates/profile/my_properties.jinja.html:144
+msgid "Объявлений на странице"
+msgstr ""
+
+#: templates/profile/my_properties.jinja.html:154
+msgid "У вас нет объявлений соответствующих условию."
+msgstr ""
+
+#: templates/profile/my_properties.jinja.html:156
+msgid "Начните добавлять свои объекты недвижимости"
+msgstr ""
+
+#: templates/profile/my_properties.jinja.html:170
+msgid "Удаление объекта"
+msgstr ""
+
+#: templates/profile/my_properties.jinja.html:173
+msgid ""
+"Удаление объекта — безвозвратная операция. Если вы хотите скрыть "
+"объявление, просто деактивируйте его."
+msgstr ""
+
+#: templates/profile/my_properties.jinja.html:175
+msgid "Отмена"
+msgstr ""
+
+#: templates/profile/my_property_form.jinja.html:25
+msgid "Разместите своё объявление"
+msgstr ""
+
+#: templates/profile/my_property_form.jinja.html:27
+msgid ""
+"Выберите в каком каталоге вы хотите разместить объявление. Размещение в "
+"каталоге mesto.ua<br/>\n"
+"                позволит показать объявление пользователям портала из "
+"Украины. Если вы хотите сдать объект пользователям из-за рубежа<br/>\n"
+"                или хотите сдать объект, который находится зарубежом — "
+"воспользуйтесь разделом \"зарубежная недвижимость\""
+msgstr ""
+
+#: templates/profile/my_property_form.jinja.html:49
+msgid "Размещение в мировом каталоге"
+msgstr ""
+
+#: templates/profile/my_property_form.jinja.html:50
+msgid ""
+"Mesto.ua — это эксклюзивный партнер ведущих международных порталов "
+"недвижимости.<br/>\n"
+"Вам сюда если:<br/>\n"
+"• Вы продаете недвижимость в Украине зарубежным инвесторам;<br/>\n"
+"• Вы продаете зарубежную недвижимость гражданам Украины;<br/>\n"
+"<br/>\n"
+"И вот как мы работаем:<br/>\n"
+"1. Добавляйте объявление в каталог международной недвижимости на портале "
+"mesto.ua.<br/>\n"
+"или<br/>\n"
+"2. Добавляйте объявление в каталог международной недвижимости на портале "
+"mesto.uа + подключайте услугу трансляции этих объявлений на международные"
+" сайты.<br/>\n"
+"<br/>\n"
+"Где бы не находился Ваш клиент, с порталом Mesto.ua он обязательно увидит"
+" ваше объявление."
+msgstr ""
+
+#: templates/profile/my_property_form.jinja.html:61
+msgid "Продолжить"
+msgstr ""
+
+#: templates/profile/my_property_form.jinja.html:80
+msgid "Телефоны"
+msgstr ""
+
+#: templates/profile/my_property_form.jinja.html:94
+msgid "Фотографии"
+msgstr ""
+
+#: templates/profile/my_property_form.jinja.html:97
+msgid "Вы можете сортировать изображения перетаскивая их"
+msgstr ""
+
+#: templates/profile/my_property_form.jinja.html:107
+msgid ""
+"Для корректной загрузкий изображений ваш браузер должен поддерживать "
+"Javascript."
+msgstr ""
+
+#: templates/profile/my_property_form.jinja.html:115
+msgid "удалить"
+msgstr ""
+
+#: templates/profile/my_property_form.jinja.html:116
+msgid "повернуть"
+msgstr ""
+
+#: templates/profile/my_property_form.jinja.html:119
+msgid "сделать главной фотографией объявления"
+msgstr ""
+
+#: templates/profile/my_property_form.jinja.html:139
+msgid "Сохранить изменения"
+msgstr ""
+
+#: templates/profile/my_property_form.jinja.html:139
+msgid "Опубликовать"
+msgstr ""
+
+#: templates/profile/my_property_form.jinja.html:141
+msgid "Продолжить размещение"
+msgstr ""
+
+#: templates/profile/my_property_form.jinja.html:193
+#: templates/profile/my_property_form.jinja.html:212
+msgid "Например"
+msgstr ""
+
+#: templates/profile/saved_properties.jinja.html:7
+#: templates/profile/saved_searches.jinja.html:9
+msgid "Очистить список"
+msgstr ""
+
+#: templates/profile/saved_properties.jinja.html:25
+msgid "убрать из избранного"
+msgstr ""
+
+#: templates/profile/saved_properties.jinja.html:33
+msgid "У вас нет сохраненных объявлений."
+msgstr ""
+
+#: templates/profile/saved_searches.jinja.html:5
+msgid "Укажите E-mail"
+msgstr ""
+
+#: templates/profile/saved_searches.jinja.html:5
+msgid "и вы сможете получать уведомления о новых обьявлениях"
+msgstr ""
+
+#: templates/profile/saved_searches.jinja.html:36
+msgid "Уведомлять о новых обьявлениях по почте"
+msgstr ""
+
+#: templates/profile/saved_searches.jinja.html:42
+#: templates/profile/saved_searches.jinja.html:45
+msgid "подписка"
+msgstr ""
+
+#: templates/profile/saved_searches.jinja.html:62
+msgid "У вас нет сохраненных поисков."
+msgstr ""
+
+#: templates/profile/views_graph_highcharts.jinja.html:4
+msgid "Очистить статистику"
+msgstr ""
+
+#: templates/profile/views_graph_highcharts.jinja.html:14
+msgid "Статистика просмотров"
+msgstr ""
+
+#: templates/profile/views_graph_highcharts.jinja.html:29
+msgid "Просмотры"
+msgstr ""
+
+#: templates/profile/views_graph_highcharts.jinja.html:47
+msgid "Показы объявления"
+msgstr ""
+
+#: templates/profile/views_graph_highcharts.jinja.html:52
+msgid "Показы контактной информации"
+msgstr ""
+
+#: templates/profile/views_graph_highcharts.jinja.html:59
+msgid "Нет статистики по просмотрам."
+msgstr ""
+
+#: templates/profile/balance/index.jinja.html:12
+#: templates/profile/balance/orders.jinja.html:17
+msgid "На вашем счету"
+msgstr ""
+
+#: templates/profile/balance/index.jinja.html:14
+#: templates/profile/balance/orders.jinja.html:19
+msgid "Пополнить"
+msgstr ""
+
+#: templates/profile/balance/index.jinja.html:18
+msgid "Мои счета"
+msgstr ""
+
+#: templates/profile/balance/index.jinja.html:32
+#: templates/profile/balance/orders.jinja.html:37
+msgid "Дата"
+msgstr ""
+
+#: templates/profile/balance/index.jinja.html:33
+msgid "Событие"
+msgstr ""
+
+#: templates/profile/balance/index.jinja.html:34
+#: templates/profile/balance/orders.jinja.html:40
+msgid "Сумма"
+msgstr ""
+
+#: templates/profile/balance/index.jinja.html:36
+msgid "Комментарий"
+msgstr ""
+
+#: templates/profile/balance/index.jinja.html:44
+msgid "возврат"
+msgstr ""
+
+#: templates/profile/balance/index.jinja.html:57
+#: templates/profile/balance/orders.jinja.html:68
+msgid "Ничего не найдено"
+msgstr ""
+
+#: templates/profile/balance/index.jinja.html:75
+msgid "Добавить комментарий"
+msgstr ""
+
+#: templates/profile/balance/orders.jinja.html:11
+msgid "Связаться с менеджером"
+msgstr ""
+
+#: templates/profile/balance/orders.jinja.html:38
+msgid "Номер счета"
+msgstr ""
+
+#: templates/profile/balance/orders.jinja.html:39
+msgid "Услуги"
+msgstr ""
+
+#: templates/profile/balance/payment_error.jinja.html:4
+msgid "Оплата прервана"
+msgstr ""
+
+#: templates/profile/balance/payment_error.jinja.html:6
+msgid "Произошла ошибка во время проведения оплаты"
+msgstr ""
+
+#: templates/profile/balance/payment_error.jinja.html:8
+msgid "Вернуться назад"
+msgstr ""
+
+#: templates/profile/balance/topup_fail.jinja.html:8
+#: templates/profile/balance/topup_fail.jinja.html:18
+msgid "Ошибка во время проведения платежа."
+msgstr ""
+
+#: templates/profile/balance/topup_fail.jinja.html:8
+msgid "Свяжитесь с вашим банком или<br/>выберите другой способ оплаты:"
+msgstr ""
+
+#: templates/profile/balance/topup_modal_form.jinja.html:7
+msgid "Пополнение счета"
+msgstr ""
+
+#: templates/profile/balance/topup_modal_form.jinja.html:12
+msgid "Сумма пополнения"
+msgstr ""
+
+#: templates/profile/balance/topup_modal_form.jinja.html:15
+msgid "Способ пополнения"
+msgstr ""
+
+#: templates/profile/balance/topup_success.jinja.html:6
+msgid "Спасибо!<br/>Оплата прошла успешно."
+msgstr ""
+
+#: templates/profile/balance/topup_success.jinja.html:13
+msgid "Заказ"
+msgstr ""
+
+#: templates/profile/import/base.jinja.html:9
+msgid "Руководство"
+msgstr ""
+
+#: templates/profile/import/base.jinja.html:11
+msgid "История"
+msgstr ""
+
+#: templates/profile/import/base.jinja.html:12
+msgid "Проверка файла"
+msgstr ""
+
+#: templates/profile/import/log.jinja.html:7
+msgid "Время"
+msgstr ""
+
+#: templates/profile/import/log.jinja.html:7
+msgid "Объявления"
+msgstr ""
+
+#: templates/profile/import/log.jinja.html:7
+msgid "Ошибка при обработке файла"
+msgstr ""
+
+#: templates/profile/import/log.jinja.html:8
+msgid "новые"
+msgstr ""
+
+#: templates/profile/import/log.jinja.html:8
+msgid "обновленные"
+msgstr ""
+
+#: templates/profile/import/log.jinja.html:8
+msgid "удаленные"
+msgstr ""
+
+#: templates/profile/import/log.jinja.html:8
+msgid "с ошибками"
+msgstr ""
+
+#: templates/profile/import/log.jinja.html:25
+msgid "Чтобы увидеть ошибки, выполните"
+msgstr ""
+
+#: templates/profile/import/log.jinja.html:25
+msgid "проверку файла"
+msgstr ""
+
+#: templates/profile/import/log.jinja.html:28
+msgid "Посмотреть последний отчет"
+msgstr ""
+
+#: templates/profile/import/log.jinja.html:31
+msgid "Нет данных"
+msgstr ""
+
+#: templates/profile/import/settings.jinja.html:7
+msgid ""
+"Чтобы отключить импорт, сохраните поле ссылки пустым (через некоторое "
+"время все ваши ранее импортированные объявления станут неактивными)"
+msgstr ""
+
+#: templates/profile/import/settings.jinja.html:9
+msgid "Перед тем как настраивать импорт, пожалуйста, внимательно прочитайте"
+msgstr ""
+
+#: templates/profile/import/settings.jinja.html:9
+msgid "руководство"
+msgstr ""
+
+#: templates/profile/import/settings.jinja.html:34
+msgid ""
+"Ваша ссылка сохранена. Загрузка объявлений из файла по ссылке будет "
+"выполняться ежедневно (один раз в сутки, после полуночи) в автоматическом"
+" режиме"
+msgstr ""
+
+#: templates/profile/import/settings.jinja.html:36
+msgid ""
+"Импорт отключен. Через некоторое время все ваши импортированные "
+"объявления станут неактивными"
+msgstr ""
+
+#: templates/profile/import/test.jinja.html:5
+msgid "Ссылка на файл"
+msgstr ""
+
+#: templates/profile/import/test.jinja.html:7
+msgid "Проверка завершена"
+msgstr ""
+
+#: templates/profile/import/test.jinja.html:9
+msgid "Количество объявлений в файле"
+msgstr ""
+
+#: templates/profile/import/test.jinja.html:15
+msgid "Обнаружены ошибки"
+msgstr ""
+
+#: templates/profile/import/test.jinja.html:26
+msgid "Новая проверка"
+msgstr ""
+
+#: templates/profile/import/test.jinja.html:28
+msgid "Выполняется проверка..."
+msgstr ""
+
+#: templates/profile/import/test.jinja.html:41
+msgid "Внутренняя ошибка сервера. Обратитесь в службу поддержки"
+msgstr ""
+
+#: templates/profile/import/test.jinja.html:50
+msgid ""
+"Здесь можно проверить корректность вашего файла. При проверке объявления "
+"из файла не сохраняются."
+msgstr ""
+
+#: templates/profile/import/test.jinja.html:64
+msgid "Проверить"
+msgstr ""
+
+#: templates/profile/messages/form.jinja.html:43
+#: templates/profile/messages/list.jinja.html:29
+msgid "Новое"
+msgstr ""
+
+#: templates/profile/messages/form.jinja.html:75
+msgid "Это сообщение из рассылки, вы не можете на него ответить."
+msgstr ""
+
+#: templates/profile/messages/list.jinja.html:7
+msgid "Удалить отмеченные"
+msgstr ""
+
+#: templates/profile/messages/list.jinja.html:11
+msgid "Показать все сообщения"
+msgstr ""
+
+#: templates/profile/messages/list.jinja.html:11
+msgid "Показать только новые"
+msgstr ""
+
+#: templates/profile/messages/list.jinja.html:11
+msgid "Показать удаленные / Архив"
+msgstr ""
+
+#: templates/profile/messages/list.jinja.html:35
+msgid "время последнего сообщения в диалоге"
+msgstr ""
+
+#: templates/profile/messages/list.jinja.html:44
+msgid "У вас нет сообщений."
+msgstr ""
+
+#: templates/profile/messages/unsubscribe.jinja.html:14
+msgid "Сохранить настройки"
+msgstr ""
+
+#: templates/profile/messages/unsubscribe.jinja.html:18
+msgid "Недействительная ссылка"
+msgstr ""
+
+#: templates/registration/activate.jinja.html:7
+msgid "Ваш аккаунт успешно активирован"
+msgstr ""
+
+#: templates/registration/activate.jinja.html:10
+msgid "Не удалось активировать аккаунт."
+msgstr ""
+
+#: templates/registration/activation_email.jinja.html:10
+msgid "Уважаемый пользователь"
+msgstr ""
+
+#: templates/registration/activation_email.jinja.html:26
+msgid "Благодарим за начало сотрудничества с"
+msgstr ""
+
+#: templates/registration/activation_email.jinja.html:39
+msgid "Чтобы активировать Вашу учетную запись перейдите по"
+msgstr ""
+
+#: templates/registration/activation_email.jinja.html:39
+msgid "ссылке"
+msgstr ""
+
+#: templates/registration/activation_email.jinja.html:40
+msgid "Ссылка активна в течение 7 дней."
+msgstr ""
+
+#: templates/registration/password_change_done.jinja.html:5
+#: templates/registration/password_reset_complete.jinja.html:5
+msgid "Пароль успешно изменен."
+msgstr ""
+
+#: templates/registration/password_change_form.jinja.html:8
+#: templates/registration/password_reset_confirm.jinja.html:10
+msgid "Изменить"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.jinja.html:13
+msgid "Ошибка при восстановлении пароля. Неверная ссылка."
+msgstr ""
+
+#: templates/registration/password_reset_done.jinja.html:5
+msgid "На ваш почтовый ящик отправлена инструкция по восстановлению пароля."
+msgstr ""
+
+#: templates/registration/password_reset_email.html:2
+#, python-format
+msgid "Восстановление пароля на сайте %(site_name)s"
+msgstr ""
+
+#: templates/registration/password_reset_form.jinja.html:5
+msgid "Восстановление пароля"
+msgstr ""
+
+#: templates/registration/password_reset_form.jinja.html:7
+msgid ""
+"Забыли пароль? Введите ниже адрес электронной почты, указанный при "
+"регистрации."
+msgstr ""
+
+#: templates/registration/password_reset_form.jinja.html:8
+msgid "Через несколько минут вы получите письмо с временной ссылкой доступа."
+msgstr ""
+
+#: templates/registration/password_reset_form.jinja.html:9
+msgid ""
+"Перейдите по ней на страницу замены пароля и введите новый - хорошо "
+"запоминающийся."
+msgstr ""
+
+#: templates/registration/password_reset_form.jinja.html:10
+msgid "Спасибо!"
+msgstr ""
+
+#: templates/registration/password_reset_form.jinja.html:14
+msgid "Сбросить пароль"
+msgstr ""
+
+#: templates/registration/registration_complete.jinja.html:4
+msgid "Вы зарегистрированы"
+msgstr ""
+
+#: templates/registration/registration_complete.jinja.html:6
+msgid "На указанный email отправлена ссылка для активации аккаунта."
+msgstr ""
+
+#: templates/registration/registration_form.jinja.html:24
+msgid "Уже есть аккаунт?"
+msgstr ""
+

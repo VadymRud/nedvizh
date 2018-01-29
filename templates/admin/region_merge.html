@@ -1,0 +1,68 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Объединение регионов с одинаковыми координатами{% endblock %}
+
+{% block content %}
+<style>
+    #regions {width:800px;}
+    a:hover {text-decoration: underline}
+    .region-filter {margin-left:850px;float:left;position: absolute}
+    .region-filter label {width:200px;display: inline-block}
+    .region-filter p {margin: 5px 0 ;}
+</style>
+
+<div id="content-main" class='change-list'>
+    <h1>Объединение регионов</h1>
+
+    <form class="region-filter">
+        <h3>Фильтр регионов</h3><br/>
+        {{ form.as_p  }}
+        <p><label></label><input type="submit" value="Применить"/></p>
+    </form><br/>
+
+    <form method='post'>{% csrf_token %}
+        <select name='regions' multiple='multiple' size='30' id="regions">
+        {% regroup regions by group as group_list%}
+        {% for group in group_list %}
+            <optgroup label='{{ group.grouper  }}'>
+            {% for region in group.list %}
+            <option {% if region.selected %}selected='selected'{%endif%} value='{{ region.id }}' >
+            {{ region.text }} #{{region.id}} {% if name %}({{ region.get_coords.0 }}, {{ region.get_coords.1 }}) {% endif %}- {{ region.properties_count }}
+            </option>
+            {% endfor %}
+            </optgroup>            
+        {% endfor %}
+        </select><br/>
+        
+        <br/>
+        <input type='submit' name='sync_fields' class='button' value='Обновить поля *'/>
+        <input type='submit' name='move' class='button' value='Перенести объявления'/>
+        <input type='submit' name='delete' class='button' value='Удалить дубли'/>
+
+        <p><small>* поля из первого выбранного региона будут перенесены в послений выбранный регион.
+            Обычно это делается при выводе регионов в обратном порядке, <br/>чтобы более свежий регион обновил поля более старого,
+            а затем свежий регион удалить</small></p>
+    </form><br/>
+    
+    {% if merging_list %}
+    <h3>Список объединений</h3>
+    <table>
+        {% for region in merging_list %}
+        <tr>
+            <td>{{ region.0 }}</td>
+            <td>&raquo;</td>
+            <td>{{ region.1 }}</td>
+        </tr>
+            {% for row in region.2 %}
+            <tr>
+                <td align='right'>{{ row.0 }}</td>
+                <td></td>
+                <td>{{ row.1 }}</td>
+            </tr>
+            {% endfor %}
+        {% endfor %}
+    </table>
+    {% endif %}
+
+</div>
+{% endblock %}

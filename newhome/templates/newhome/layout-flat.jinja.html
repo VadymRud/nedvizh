@@ -1,0 +1,50 @@
+{% extends 'base.jinja.html' %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{{ static("newhome/css/newhome.css") }}"/>
+{% endblock %}
+
+{% block content %}
+    <div class="breadcrumb breadcrumb-newhomes">
+        {% include 'newhome/breadcrumbs-with-popup.jinja.html' %}
+        <a href="{{ layout.newhome.get_absolute_url() }}">{{ layout.newhome.name }}</a>  ←
+        <a href="{{ url('layouts', region_slug=region_slug, newhome_id=newhome_id) }}">Планировки</a> ←
+        <h1>{% trans %}Планировка квартиры{% endtrans %}, {{ layout.name }}</h1>
+    </div><br/>
+
+    <div class="row newhomes-layout-flat">
+        <div class="col-lg-17">
+            <div class="white-panel">
+                <div class="h4 no-margin">{% trans %}Планировка квартиры{% endtrans %}, {{ layout.name }}</div><br/><br/>
+                <div class="text-center">
+                    <img src="{{ layout.image|thumbnail("800x500", nocrop=True) }}" alt="{{ layout.name }}" title="{{ layout.name }}" class="img-responsive center-block">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-7 sidebar">
+            <div class="white-panel">
+
+                <table class="table newhomes-table-info">
+                    <tr><col width="5%"/><col width="60%"/></tr>
+                    {% if layout.rooms_total %}
+                        <tr><td colspan="2">{% trans %}Количество комнат{% endtrans %}:</td><td>{{ layout.rooms_total }}</td></tr>
+                    {% endif %}
+                    {% for room in layout.rooms.all() %}
+                        <tr>
+                          <td>{{ room.image_num|default('') }}</td>
+                          <td>{{ room.name }}:</td>
+                          <td>{{ room.area }} м<sup>2</sup></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block extra_footer %}
+{% endblock %}
+
+{% block extra_header %}
+{% endblock %}

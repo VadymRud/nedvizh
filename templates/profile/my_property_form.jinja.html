@@ -1,0 +1,233 @@
+{% extends "profile/base.jinja.html" %}
+
+{% from "macro/forms.jinja.html" import bootstrap_form_fieldsets, bootstrap_field_controls, bootstrap_field_label %}
+
+{% macro checkboxes_columns(field) %}
+    <div id="div_id_{{ field.name }}" class="form-group {% if field.errors %}has-error{% endif %}">
+        {{- bootstrap_field_label(field, 'col-sm-4') -}}
+        <div class="controls col-sm-20">
+            <div class='row'>
+                {%- for column in field | slice(4) -%}
+                    <div class="col-sm-5 checkbox">
+                        {%- for widget in column -%}
+                            <div>{{ widget|safe }}</div>
+                        {%- endfor -%}
+                   </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro international_field(field) %}
+    <div id="div_id_{{ field.name }}" class="form-group {% if field.errors %}has-error{% endif %}">
+        <div class="controls col-sm-18 col-sm-offset-3 text-center">
+            <h4>{% trans %}Разместите своё объявление{% endtrans %}</h4>
+            <div class="helptext">
+                {% trans %}Выберите в каком каталоге вы хотите разместить объявление. Размещение в каталоге mesto.ua<br/>
+                позволит показать объявление пользователям портала из Украины. Если вы хотите сдать объект пользователям из-за рубежа<br/>
+                или хотите сдать объект, который находится зарубежом — воспользуйтесь разделом "зарубежная недвижимость"{% endtrans %}
+            </div>
+            <div class="btn-group btn-group-big" data-toggle="buttons">
+                {%- for widget in field -%}
+                    <label class="btn btn-default radio-{{ field.name + '-' + widget.choice_value }} {% if widget.is_checked() %}active{% endif %}">
+                        {{- widget.choice_label -}}
+                        {{- widget.tag()|safe -}}
+                        {% if widget.choice_value == 'yes' %}
+                            <span class="question" data-toggle="modal" data-target="#about-international-catalog-modal">?</span>
+                        {% endif %}
+                    </label>
+                {%- endfor -%}
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="about-international-catalog-modal" tabindex="-1" role="dialog" aria-labelledby="myMessageModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <h3>{% trans %}Размещение в мировом каталоге{% endtrans %}</h3>
+                <p>{% trans %}Mesto.ua — это эксклюзивный партнер ведущих международных порталов недвижимости.<br/>
+Вам сюда если:<br/>
+• Вы продаете недвижимость в Украине зарубежным инвесторам;<br/>
+• Вы продаете зарубежную недвижимость гражданам Украины;<br/>
+<br/>
+И вот как мы работаем:<br/>
+1. Добавляйте объявление в каталог международной недвижимости на портале mesto.ua.<br/>
+или<br/>
+2. Добавляйте объявление в каталог международной недвижимости на портале mesto.uа + подключайте услугу трансляции этих объявлений на международные сайты.<br/>
+<br/>
+Где бы не находился Ваш клиент, с порталом Mesto.ua он обязательно увидит ваше объявление.{% endtrans %}</p>
+                <div class="continue"><button type="button" class="btn btn-danger btn-md" data-dismiss="modal">{% trans %}Продолжить{% endtrans %}</div>
+            </div>
+        </div>
+      </div>
+    </div>
+{% endmacro %}
+
+{% block content %}
+    <form method="post" class='property-form' enctype="multipart/form-data"{% if not property.pk %} id="propertyAddForm"{% endif %}>
+        {% csrf_token %}
+
+        {{ bootstrap_form_fieldsets(form, {'label':'col-sm-4', 'controls':'col-sm-20'}, formsets=[phones_formset], special_renders={
+            'international': international_field,
+            'facilities': checkboxes_columns,
+            'rules': checkboxes_columns})
+        }}
+
+        <div class="form-inline">
+            <div id="div_id_phones" class='form-group'>
+                <label class='control-label' for='id_form-0-phone'>{% trans %}Телефоны{% endtrans %}</label>
+                {{ phones_formset.management_form|safe }}
+                {%- for form in phones_formset -%}
+                    {%- for field in form.hidden_fields() -%}
+                        {{ field|safe }}
+                    {%- endfor -%}
+                    {{- bootstrap_field_controls(form.phone) -}}
+                {%- endfor %}
+            </div>
+        </div>
+
+        <div class="fieldset fieldset-photos">
+          <div class="form-horizontal" >
+            <div id="div_id_photos" class="form-group field field-images">
+              <label class="control-label col-sm-4" for='id_images'>{% trans %}Фотографии{% endtrans %}<br/><i class='icon-photos'></i></label>
+              <div class='controls col-sm-20'>
+                <i class="glyphicon glyphicon-exclamation-sign"
+                    data-toggle="tooltip" data-placement="left" title="{% trans %}Вы можете сортировать изображения перетаскивая их{% endtrans %}"></i>
+                <div class='images'>
+                    <div class='attachments-upload' >
+                        <noscript>
+                            <input id='id_images' type='file' name='add_images' />
+                            <input id='id_images' type='file' name='add_images' /><br/>
+                            <input id='id_images' type='file' name='add_images' />
+                            <input id='id_images' type='file' name='add_images' /><br/>
+                            <input id='id_images' type='file' name='add_images' />
+                            <input id='id_images' type='file' name='add_images' />
+                            <p><b><small>{% trans %}Для корректной загрузкий изображений ваш браузер должен поддерживать Javascript.{% endtrans %}</small></b></p>
+                        </noscript>
+                    </div>
+
+                    {% if property.pk and property.photos.exists() %}
+                    <ul class='already-uploaded image-list  list-inline clearfix'>
+                    {% for photo in property.photos.all() %}
+                        <li class="pull-left">
+                            <a class='delete' title="{% trans %}удалить{% endtrans %}"></a>
+                            <a class="rotate" title="{% trans %}повернуть{% endtrans %}" data-photo-id="{{ photo.id }}"></a>
+                            <img width="240" height="160"
+                                 src='{{ photo.smart_thumbnail("md") }}' class="img-responsive" data-id='{{ photo.id }}'
+                                 alt='' title="{% trans %}сделать главной фотографией объявления{% endtrans %}"/>
+                            <input type='hidden' name='delete_images' value='{{ photo.pk }}' disabled='disabled'/>
+                            <input type='hidden' name='image_order_{{ photo.pk }}' value='{{ photo.order }}' class="order"/>
+                            <textarea name="image_caption_{{ photo.pk }}" class="form-control"
+                                      placeholder="{% trans %}Описание{% endtrans %}">{{ photo.caption|default("") }}</textarea>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-horizontal">
+          <div id="div_id_submit" class="form-group">
+            <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-20">
+                <input class="btn btn-danger" id="id_submit" name="submit" type="submit"
+                   value="{% if property.pk %}{% trans %}Сохранить изменения{% endtrans %}{% else %}{% trans %}Опубликовать{% endtrans %}{% endif %}">
+                <input class="btn btn-danger hidden" id="id_submit_intl" name="submit" type="submit"
+                   value="{% trans %}Продолжить размещение{% endtrans %}">
+              </div>
+            </div>
+          </div>
+        </div>
+    </form>
+
+{% endblock %}
+
+{% block extra_css %}
+    {{ super() }}
+
+    <link rel="stylesheet" href="{{ static('libs/lionbars/lionbars.css') }}">
+    <link rel="stylesheet" href="{{ static('ajaxuploader/css/property_images.css') }}" media="screen" type="text/css" />
+    <link rel="stylesheet" href="{{ static('css/calendars.css') }}">
+    <link rel="stylesheet" href="{{ static('libs/bootstrap-select/bootstrap-select.min.css') }}">
+    {{ form.media.css|safe }}
+{% endblock %}
+
+{% block extra_footer %}
+    {{ super() }}
+
+    <script>
+        var my_ajax_upload = "{{ url('my_ajax_upload') }}";
+        var ROTATE_AD_PHOTO_URL = "{{ url('rotate_ad_photo') }}";
+        var uploader_mode = 'default';
+
+        var csrf_token = '{{ csrf_token }}';
+        {% if form.facilities_by_deal_type is defined %}
+            var facilities_by_deal_type = {{ form.facilities_by_deal_type|to_json }};
+        {% endif %}
+
+        var formFieldLabels = {
+        {% for form in merge_forms_with_formsets(form, [phones_formset]) %}
+            {%- for field in form -%}
+                '{{ field.html_name }}': '{{ field.label|safe|striptags|replace('\n', '') }}'
+                {% if not loop.last %},{% endif %}
+            {%- endfor -%}
+            {% if not loop.last %},{% endif %}
+        {% endfor %}
+        };
+    </script>
+
+    <script src="{{ url('javascript_catalog') }}"></script>
+
+    {% compress js %}
+        <script>
+            $('[data-toggle="tooltip"]').tooltip();
+
+            function setAddress(element) {
+                $('#id_addr_city').val($(element).text());
+            }
+            $('.address-examples').html('{% trans %}Например{% endtrans %}, <a href="javascript:void(0);" onclick="setAddress(this);">Киевская область, Киев</a>');
+            /*
+            $.getScript('//api-maps.yandex.ru/2.1/?lang=ru_RU',  function (data, textStatus, jqxhr) {
+                ymaps.ready(init);
+
+                function init() {
+                    var geolocation = ymaps.geolocation;
+                    geolocation.get({
+                        provider: 'yandex'
+                    }).then(function (result) {
+                        var objectProperties = result.geoObjects.get(0).properties;
+                        var province = objectProperties.getAll().metaDataProperty.GeocoderMetaData.AddressDetails.Country.AdministrativeArea.AdministrativeAreaName;
+                        var city = objectProperties.get('name');
+
+                        var address = city;
+                        if(province && city && city != 'Киев') {
+                            address = province + ', ' + city;
+                        }
+
+                        $('.address-examples').html('{% trans %}Например{% endtrans %}, <a href="javascript:void(0);" onclick="setAddress(this);">' + address + '</a>');
+                    });
+                }
+            });
+            */
+        </script>
+
+        {{ form.media.js|safe }}
+        <script src="{{ static('libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
+        <script src="{{ static('ajaxuploader/js/fileuploader.js') }}" ></script>
+        <script src="{{ static('ajaxuploader/js/property_images.js') }}" ></script>
+        <script src="{{ static('libs/lionbars/jquery.lionbars.0.3.min.js') }}"></script>
+        <script src="{{ static('libs/jquery-ui/jquery-ui.min.js') }}"></script>
+        <script>
+            $('#id_addr_country').selectpicker({size: 5, width:'150px', liveSearch:true});
+            initAdForm();
+            initAdFormEvents();
+            updateAdFormFieldsVisibility();
+        </script>
+    {% endcompress %}
+
+{% endblock %}

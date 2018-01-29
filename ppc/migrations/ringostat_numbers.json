@@ -1,0 +1,22 @@
+[
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262813", "provider": "ringostat", "is_shared": true}},
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262814", "provider": "ringostat", "is_shared": true}},
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262815", "provider": "ringostat", "is_shared": true}},
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262816", "provider": "ringostat", "is_shared": true}},
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262817", "provider": "ringostat", "is_shared": true}},
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262818", "provider": "ringostat", "is_shared": true}},
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262819", "provider": "ringostat", "is_shared": true, "deal_type":"newhomes"}},
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262821", "provider": "ringostat"}},
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262822", "provider": "ringostat"}},
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262823", "provider": "ringostat"}},
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262824", "provider": "ringostat"}},
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262825", "provider": "ringostat"}},
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262826", "provider": "ringostat"}},
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262830", "provider": "ringostat"}},
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262831", "provider": "ringostat"}},
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262832", "provider": "ringostat"}},
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262833", "provider": "ringostat"}},
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262834", "provider": "ringostat"}},
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262835", "provider": "ringostat"}},
+    {"model": "ppc.proxynumber", "fields": {"number": "380673262836", "provider": "ringostat"}}
+]

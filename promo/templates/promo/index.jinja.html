@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <title>{% trans %}Улучшенная модель работы сайта{% endtrans %} - Mesto.UA</title>
+    <link href='https://fonts.googleapis.com/css?family=PT+Serif&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
+    {% compress css %}
+        <link rel="stylesheet" href="{{ static('libs/bootstrap3-24col/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ static('css/main.css') }}">
+        <link rel="stylesheet" href="{{ static('promo/css/promo.css') }}">
+    {% endcompress %}
+</head>
+<body>
+
+    <div id="promo-header">
+        <div class="container">
+            <div class="hidden-xs hidden-sm" style="height:120px;"></div>
+            <div class="row">
+                <div class="col-sm-offset-1 col-md-offset-2 col-sm-18 col-lg-11">
+                    <h1>Улучшенная модель работы сайта</h1>
+                    <h5>С 1 апреля 2016 г. на портале mesto.ua<br/> не будет спама, и это не первоапрельская шутка</h5><br/>
+                    <p>Проанализировав базу данных объявлений сайта и опросив клиентов, которые занимаются поиском недвижимости мы выяснили, что на всех порталах в Украине, большое количество устаревших, не правдивых или выдуманных объявлений. Это приводит к тому, что мы, как портал недвижимости, не можем гарантировать качественную услугу риелторам и простым пользователям сайта.<br/> В связи с этим мы решили внести изменения на сайте.</p>
+{#                    <br/><br/><a href="#" class="btn btn-xs btn-danger btn-play">Смотреть видео</a>#}
+                </div>
+            </div>
+            <div class="hidden-xs hidden-sm" style="height:120px;"></div>
+        </div>
+    </div>
+
+    <div id="whats-new" class="card text-center">
+        <div class="container">
+            <img class="image" src="{{ static('promo/img/whats-new.png') }}" alt=""/>
+            <h1>Что конкретно изменится</h1>
+            <div>C 1 апреля 2016 портах недвижимости Mesto.ua<br/> вводит новые правила размещения объявлений</div>
+
+            <div class="row">
+                <div class="col-md-offset-4 col-lg-offset-6 col-sm-11 col-md-7 col-lg-6">
+                    <img src="{{ static('promo/img/icon-dollar.png') }}" alt=""/>
+                    <h6>Платная система</h6>
+                    <p>мы переходим на платную систему размещения объявлений, что позволит нам существенно сократить количество неактуальных объектов</p>
+                </div>
+                <div class="col-sm-offset-2 col-sm-11 col-md-7 col-lg-5">
+                    <img src="{{ static('promo/img/icon-limits.png') }}" alt=""/>
+                    <h6>Ограничения по<br/> количеству объявлений</h6>
+                    <p>каждый риелтор агентства теперь может разместить не более 40 объявлений</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="how-it-works" class="card text-center">
+        <div class="container">
+            <img class="image" src="{{ static('promo/img/how-it-works.png') }}" alt=""/>
+            <h1>Как работает данная модель</h1>
+            <div>Теперь вы платите только за те объекты, которые продаете. Что это значит?</div>
+
+            <div class="row">
+                <div class="col-md-offset-2 col-sm-7 col-md-6">
+                    <img src="{{ static('promo/img/icon-director.png') }}" alt=""/>
+                    <h6>Директор контроллирует аккаунт</h6>
+                    <p class="text-left">Агентства добавляют в аккаунт профили своих риелторов. Директор агентства видит общее кол-во объявлений, которые находятся в работе и контролирует эффективность каждого риелтора, видит статистику и конверсии по всем объявлениям.</p>
+                </div>
+
+                <div class="col-sm-offset-1 col-sm-7 col-md-6">
+                    <img src="{{ static('promo/img/icon-realtor.png') }}" alt=""/>
+                    <h6>Самостоятельный риелтор</h6>
+                    <p class="text-left">В то же время, каждый профиль риелтора остается самостоятельным - с отдельным входом, телефонами и возможностями (просмотр статистики, переписка с клиентами и личная CRM система)</p>
+                </div>
+
+                <div class="col-sm-offset-1 col-sm-7 col-md-6">
+                    <img src="{{ static('promo/img/icon-fourty.png') }}" alt=""/>
+                    <h6>Оптимальное кол-во объявлений</h6>
+                    <p class="text-left">Каждый риелтор может добавить до 40 объявлений в своем аккаунте. Эта цифра была установлена на основе анализа базы данных и опроса клиентов. 40 объектов - это то количество, с которым один специалист может эффективно справляться. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="how-much" class="card text-center">
+        <div class="container">
+            <h1>Че по чем</h1>
+            <div>Все очень просто. У каждого из вас есть возможность<br/>выбрать максимально подходящий пакет объявлений.<br/>Теперь их только 6:</div>
+            <div class="row">
+                <div class="col-lg-offset-3 col-lg-18">
+                    <table>
+                        <colgroup><col width="32%"/><col width="32%"/></colgroup>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Полная цена</th>
+                                <th>
+                                    <div class="pink">
+                                        <img src="{{ static('promo/img/icon-gift.png') }}" alt=""/> Специальное предложение &nbsp;
+                                        <a href="http://mesto.ua/about/advertising/" data-toggle="tooltip" target="_blank"
+                                        title="При подписке с апреля месяца вы получаете специальные цены на ближайшие полгода.">
+                                            <img src="{{ static('promo/img/icon-info.png') }}" alt=""/>
+                                        </a>
+                                        <div class="tooltip top" role="tooltip">
+                                          <div class="tooltip-arrow"></div>
+                                          <div class="tooltip-inner">
+                                            Some tooltip text!
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <span>при покупке в апреле</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for price in prices %}
+                            <tr>
+                                <td>{{ price[0] }}</td>
+                                <td>{{ price[1]|floatformat(2) }} &#8372;</td>
+                                <td class="pink">{{ price[2]|floatformat(2) }} &#8372;</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="profit-1" class="card">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-offset-2 col-md-9 text-center">
+                    <img class="image img-responsive" src="{{ static('promo/img/profit-1.jpg') }}" alt=""/>
+                </div>
+                <div class="col-sm-offset-1 col-md-14 col-lg-10">
+                    <h1>Новые результаты порадуют каждого</h1>
+                    <div>Качественная база объявлений обеспечит работу с реальными объектами и увеличит конверсию продаж.<br/>
+                        CRM система улучшит ежедневную эффективность работы. Исчезновение «болванок» увеличит количество и качество звонков. Одинаковые условия как для небольших, так и для крупных агентств.<br/>
+                        Проект Mesto School продолжает свою работу для вас  на бесплатной основе.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="profit-2" class="card">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-offset-2 col-sm-17 col-lg-10">
+                    <h1>Хорошие показатели станут еще лучше</h1>
+                    <div>Со своей стороны мы продолжаем вкладывать деньги в маркетинг. Уже сейчас каждые 4 минуты на нашем сайте происходит сделка. Конверсия сайта mesto.ua составляет 18% на объявления в разделе продажи, 5% на посуточной аренде и 9% на долгосрочной. Согласно нашим прогнозам, после внедрения новой схемы работы, показатели увеличатся более чем в 2 раза.</div>
+                </div>
+                <div class="col-sm-offset-1 col-sm-6 col-lg-8 text-center">
+                    <img class="image img-responsive" src="{{ static('promo/img/profit-2.png') }}" alt=""/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="{{ static('libs/bootstrap3-24col/js/bootstrap.min.js') }}"></script>
+
+<script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+<script>
+    $('[data-toggle="tooltip"]').tooltip();
+ymaps.ready(init);
+
+function init() {
+    var geolocation = ymaps.geolocation;
+
+    // Сравним положение, вычисленное по ip пользователя и
+    // положение, вычисленное средствами браузера.
+    geolocation.get({
+        provider: 'yandex'
+    }).then(function (result) {
+        var city = result.geoObjects.get(0).properties.get('name');
+        $.ajax({data:{city:city}}).done(function( data ) {
+            $('#how-much tbody').html($(data).filter('#how-much').find('tbody').html());
+        });
+    });
+
+}
+</script>
+
+</body>
+</html>

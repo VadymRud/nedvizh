@@ -1,0 +1,47 @@
+{% extends 'faq/base.jinja.html' %}
+
+{% block extra_footer %}
+    {{ super() }}
+
+    <script>
+        $('.faq .faq-index div > a').click(function(e) {
+            if (!$(this).hasClass('opened')) {
+                $(this).addClass('hidden').next().removeClass('hidden');
+                $(this).parent().find('li.is-hidden').stop(true, true).slideToggle(300);
+            } else {
+                $(this).addClass('hidden').prev().removeClass('hidden');
+                $(this).parent().find('li.is-hidden').stop(true, true).slideToggle(300);
+            }
+
+            return false;
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <h1>{% trans %}Часто задаваемые вопросы{% endtrans %}</h1>
+    <div class="white-panel">
+        <div class="row faq-index">
+            {% for faq_category in faq_categories %}
+                <div class="col-sm-offset-1 col-sm-11 col-lg-9 ">
+                    <h6>{{ faq_category.title }}</h6>
+                    {% if faq_category.id in faq_articles %}
+                        <ul class="faq-index">
+                        {% for faq_article in faq_articles[faq_category.id] %}
+                            <li{% if loop.index > 3 %} class="is-hidden"{% endif %}><a href="{{ faq_article.get_absolute_url() }}" title="{{ faq_article.title }}">{{ faq_article.title }}</a></li>
+                        {% endfor %}
+                        </ul>
+                        {% if faq_articles[faq_category.id]|length > 3 %}
+                            <a href="{{ faq_category.get_absolute_url() }}">{% trans %}См. все вопросы{% endtrans %}</a>
+                            <a href="#" class="hidden opened">{% trans %}Скрыть все вопросы{% endtrans %}</a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+                {% if loop.cycle(False, True) %}
+                    <div class="clearfix visible-sm visible-md visible-lg"></div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <br/>
+    </div>
+{% endblock %}

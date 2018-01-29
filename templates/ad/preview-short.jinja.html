@@ -1,0 +1,35 @@
+{% set dealtypes = {'sale': _('на продажу'), 'rent': _('в аренду'), 'rent_daily': _('посуточно'), 'newhomes': _('в новостройке')} %}
+<div class="property{% if property_class is defined %} {{ property_class }}{% endif %}">
+    <div class="image">
+        {% if property.iframe_url %}
+            <span class="tour-360"></span>
+        {% endif %}
+        <a href="{{ property.get_absolute_url() }}" class="bg-image"
+            style="background-image:url({{ property.get_first_photo().smart_thumbnail("md") }});height:155px;"></a>
+    </div>
+    {% if property.has_deactivation_reason() %}
+        <div class="price">{% trans %}Продано{% endtrans %}</div>
+    {% else %}
+        <div class="price"><b>{{ property.price|intcomma }}</b> {{ property.get_currency_display() }}</div>
+    {% endif %}
+    <div class="address">
+        <div class="deal">{{ property.get_property_type_display()|replace(_("коммерческая"), _("коммерч.")) }} {{ dealtypes.get(property.deal_type, '') }}</div>
+        <div class="street"><a href="{{ property.get_absolute_url() }}">
+            {{ property.addr_street|default(property.title) }}{% if property.addr_house %}, {{ property.addr_house }}{% endif %}
+        </a></div>
+      <div class="city">{{ property.addr_city }}</div>
+    </div>
+    <div class="details">
+        <div class="row">
+            <div class="col-xs-16 subway">
+                {% if property.metro is defined %}<i class="icon icon-subway"></i> {{ property.metro }}{% endif %}
+                &nbsp;
+            </div>
+            <div class="col-xs-8 digits" align="right">
+                {% if property.guests_limit %}<i class="icon icon-persons"></i> {{ property.guests_limit }}{% endif %}
+                {% if property.rooms %}<i class="icon icon-rooms"></i> {{ property.rooms }}{% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="soft-shadow"></div>
+</div>

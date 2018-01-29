@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <title>{% trans %}Переадресация{% endtrans %}</title>
+    {#<meta http-equiv="REFRESH" content="0;url={{ link }}">#}
+    <script>
+        var clicked = false;
+        var redirectCallback = function() {
+            if (!clicked) {
+                clicked = true;
+                {% block redirect_action %}
+                window.open("{{ link }}", "_blank");
+                {% endblock redirect_action %}
+            }
+            return false;
+        };
+    </script>
+    <script type="text/javascript">
+        window.setTimeout(redirectCallback, 5000);
+    </script>
+    {% include 'includes/gtm.jinja.html' %}
+</head>
+<body>
+    {% include 'includes/gtm_noscript.jinja.html' %}
+    {% block content %}
+        <p>В течение нескольких секунд вас перенаправит на следующую страницу.</p>
+
+        {% if new_user is defined %}
+             <p>
+                Вам выслано письмо для введения пароля.
+             </p>
+        {% endif %}
+        <p>{% trans %}Если ваш браузер не поддерживает автоматическую переадресацию{% endtrans %}, <a href="javascript:redirectCallback()">{% trans %}нажмите здесь{% endtrans %}</a>. </p>
+    {% endblock content %}
+</body>
+</html>

@@ -1,0 +1,361 @@
+# Ukrainian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-12-06 17:29+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uk\n"
+"Language-Team: uk <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: models.py:35 views.py:166
+msgid "вебинар"
+msgstr "вебінар"
+
+#: models.py:36 views.py:165
+msgid "семинар"
+msgstr "семінар"
+
+#: views.py:66 views.py:205
+msgid "вебинары"
+msgstr "вебінари"
+
+#: views.py:66 views.py:205
+msgid "семинары"
+msgstr "семінари"
+
+#: views.py:67
+#, python-format
+msgid "%s - портал недвижимости Mesto.ua"
+msgstr "%s - портал нерухомості Mesto.ua"
+
+#: views.py:69
+msgid ""
+"Вебинар для риэлторов от портала Mesto.ua. Подробные видео уроки"
+"                         про эффективные продажи недвижимости: работающие"
+" методы от практиков"
+msgstr ""
+"Вебінар для ріелторів від порталу Mesto.ua. Докладні відео уроки про "
+"ефективні продажі нерухомості: працюючі методи від практиків"
+
+#: views.py:71
+msgid ""
+"Обучающие семинары по продаже недвижимости от портала Mesto.ua. "
+"Эффективные                         методы, готовые и работающие кейсы от"
+" ведущих риелторов Украины"
+msgstr ""
+"Навчальні семінари з продажу нерухомості від порталу Mesto.ua. Ефективні "
+"методи, готові і працюють кейси від провідних ріелторів України"
+
+#: views.py:165
+msgid "семинара"
+msgstr "семінара"
+
+#: views.py:166
+msgid "вебинара"
+msgstr "вебінара"
+
+#: views.py:170
+#, python-format
+msgid ""
+"Поздравляем, Вы зарегистрированы на супер-крутой %s <b>Mesto "
+"School</b><br/><br/>В день проведения %s Вы получите<br/> уведомление на "
+"Ваш email"
+msgstr ""
+"Вітаємо, Ви зареєстровані на супер-крутий %s <b>Mesto "
+"School</b><br/><br/>В день проведення %s Ви отримаєте<br/> повідомлення "
+"на Ваш email"
+
+#: views.py:177
+msgid "Регистрация на бесплатный вебинар Mesto School"
+msgstr "Реєстрація на безкоштовний вебінар Mesto School"
+
+#: views.py:179
+msgid "Регистрация на бесплатный семинар Mesto School"
+msgstr "Реєстрація на безкоштовний семінар Mesto School"
+
+#: views.py:218
+msgid "Полезные статьи от портала недвижимости Mesto.ua"
+msgstr "Корисні статті від порталу нерухомості Mesto.ua"
+
+#: views.py:219
+msgid ""
+"Полезные статьи о рынке недвижимости Украины. Новые методы продаж,"
+"                      что работает в 2017 году, актуальные кейсы от "
+"портала Mesto.ua"
+msgstr ""
+"Корисні статті про ринок нерухомості України. Нові методи продажів, що "
+"працює в 2017 році, актуальні кейси від порталу Mesto.ua"
+
+#: management/commands/after_webinar_notification.py:26
+#, python-format
+msgid "Запись вебинара %s"
+msgstr "Запис вебінару %s"
+
+#: management/commands/event_invitation.py:100
+#: management/commands/event_invitation.py:117
+#: management/commands/event_invitation.py:131
+msgid "Бесплатный вебинар Mesto School"
+msgstr "Безкоштовний вебінар Mesto School"
+
+#: management/commands/event_invitation.py:102
+msgid "Бесплатный семинар Mesto School"
+msgstr "Безкоштовний семінар Mesto School"
+
+#: management/commands/event_invitation.py:160
+#, python-format
+msgid "Ваше приглашение на семинар \"%s\""
+msgstr "Ваше запрошення на семінар \"%s\""
+
+#: templates/webinars/comments.jinja.html:19
+msgid "Загружается..."
+msgstr "Завантажується..."
+
+#: templates/webinars/comments.jinja.html:19
+msgid "Еще комментарии"
+msgstr "Ще коментарі"
+
+#: templates/webinars/detail.jinja.html:30
+#: templates/webinars/detail.jinja.html:184
+msgid "Спикеры"
+msgstr "Спікери"
+
+#: templates/webinars/detail.jinja.html:45
+msgid "Описание"
+msgstr "Опис"
+
+#: templates/webinars/detail.jinja.html:55
+msgid "Семинар"
+msgstr "Семінар"
+
+#: templates/webinars/detail.jinja.html:82
+msgid "Прошедшие семинары"
+msgstr "Минулі семінари"
+
+#: templates/webinars/detail.jinja.html:116
+msgid "Тема семинара"
+msgstr "Тема семiнару"
+
+#: templates/webinars/detail.jinja.html:116
+msgid "Тема вебинара"
+msgstr "Тема вебінару"
+
+#: templates/webinars/detail.jinja.html:149
+msgid "Регистрация на"
+msgstr "Реєстрація на"
+
+#: templates/webinars/detail.jinja.html:156
+msgid "Зарегистрироваться"
+msgstr "Зареєструватись"
+
+#: templates/webinars/detail.jinja.html:160
+msgid ""
+"Вы получите напоминания о семинаре по указанному ваму email и смс на "
+"телефонный номер."
+msgstr ""
+"Ви отримаєте нагадування про семінар за вказаною вами email і смс на "
+"телефонний номер."
+
+#: templates/webinars/detail.jinja.html:177
+msgid "Инфо о семинаре"
+msgstr "Інфо про семінар"
+
+#: templates/webinars/detail.jinja.html:179
+msgid "Инфо о вебинаре"
+msgstr "Інфо про вебінар"
+
+#: templates/webinars/detail.jinja.html:192
+msgid "Сегодня обсуждаем"
+msgstr "Сьогодні обговорюємо"
+
+#: templates/webinars/index.jinja.html:6
+msgid "Ближайшие"
+msgstr "Найближчі"
+
+#: templates/webinars/index.jinja.html:12
+msgid "Идет сейчас"
+msgstr "Йде зараз"
+
+#: templates/webinars/index.jinja.html:13
+msgid "Смотреть"
+msgstr "Дивитись"
+
+#: templates/webinars/index.jinja.html:20
+msgid "Регистрация"
+msgstr "Реєстрація"
+
+#: templates/webinars/index.jinja.html:29
+msgid "На этой странице вы увидите информацию"
+msgstr "На цій сторінці ви побачите інформацію"
+
+#: templates/webinars/index.jinja.html:29
+msgid " про ближайшие семинары в вашем городе."
+msgstr "про найближчі семінари у вашому місті."
+
+#: templates/webinars/index.jinja.html:37
+msgid "Прошедшие"
+msgstr "Минулі"
+
+#: templates/webinars/index.jinja.html:41
+msgid "Фото с прошедших семинаров"
+msgstr "Фото з минулих семiнарiв"
+
+#: templates/webinars/menu.jinja.html:2
+msgid "Вебинары"
+msgstr "Вебінари"
+
+#: templates/webinars/menu.jinja.html:3
+msgid "Семинары"
+msgstr "Семінари"
+
+#: templates/webinars/menu.jinja.html:4
+msgid "Полезные статьи"
+msgstr "Корисні статті"
+
+#: templates/webinars/mail/event-first-webinar-notification.jinja.html:7
+msgid "Уже сегодня в"
+msgstr "Уже сьогодні в"
+
+#: templates/webinars/mail/event-first-webinar-notification.jinja.html:7
+msgid "состоится бесплатный вебинар"
+msgstr "відбудеться безкоштовний вебінар"
+
+#: templates/webinars/mail/event-first-webinar-notification.jinja.html:7
+#: templates/webinars/mail/event-invitation.jinja.html:8
+#: templates/webinars/mail/event-invitation.jinja.html:10
+#: templates/webinars/mail/event-second-webinar-notification.jinja.html:7
+#: templates/webinars/mail/event-seminar-notification.jinja.html:7
+msgid "на тему:"
+msgstr "на тему:"
+
+#: templates/webinars/mail/event-first-webinar-notification.jinja.html:21
+msgid ""
+"За час до начала трансляции, Вы получите письмо-уведомление с прямой "
+"ссылкой на комнату проведения вебинара."
+msgstr ""
+"За годину до початку трансляції, Ви отримаєте лист-повідомлення з прямим "
+"посиланням на кімнату проведення вебінару."
+
+#: templates/webinars/mail/event-invitation.jinja.html:8
+msgid "Приглашаем Вас принять участие в бесплатном вебинаре"
+msgstr "Запрошуємо Вас прийняти участь у безкоштовному вебінарі"
+
+#: templates/webinars/mail/event-invitation.jinja.html:10
+msgid "Приглашаем Вас принять участие в семинаре"
+msgstr "Запрошуємо Вас взяти участь в семінарі"
+
+#: templates/webinars/mail/event-invitation.jinja.html:33
+msgid "Начало вебинара"
+msgstr "Початок вебінару"
+
+#: templates/webinars/mail/event-invitation.jinja.html:35
+msgid "Начало семинара"
+msgstr "Початок семінару"
+
+#: templates/webinars/mail/event-invitation.jinja.html:37
+msgid "в"
+msgstr "о"
+
+#: templates/webinars/mail/event-invitation.jinja.html:45
+msgid ""
+"Регистрируйтесь сейчас и за час до начала трансляции, на Ваш e-mail "
+"придет письмо со ссылкой на комнату проведения вебинара."
+msgstr ""
+"Реєструйтеся зараз і за годину до початку трансляції, на Ваш e-mail "
+"прийде лист з посиланням на кімнату проведення вебінару."
+
+#: templates/webinars/mail/event-invitation.jinja.html:47
+msgid ""
+"Регистрируйтесь сейчас и на Ваш e-mail придет письмо с информацией о "
+"месте и времени проведения семинара."
+msgstr ""
+"Реєструйтеся зараз і на Ваш e-mail прийде лист з інформацією про місце і "
+"час проведення семінару."
+
+#: templates/webinars/mail/event-invitation.jinja.html:55
+msgid "Принять участие"
+msgstr "Прийняти участь"
+
+#: templates/webinars/mail/event-registration.jinja.html:15
+msgid "Уважаемый пользователь"
+msgstr "Шановний користувачу"
+
+#: templates/webinars/mail/event-registration.jinja.html:22
+msgid "Поздравляем с успешной регистрацией на вебинар проекта Mesto School."
+msgstr "Вітаємо з успішною реєстрацією на вебінар проекту Mesto School."
+
+#: templates/webinars/mail/event-registration.jinja.html:24
+msgid "Поздравляем с успешной регистрацией на семинар проекта Mesto School."
+msgstr "Вітаємо з успішною реєстрацією на семінар проекту Mesto School."
+
+#: templates/webinars/mail/event-registration.jinja.html:31
+msgid "Благодарим за проявленный интерес и участие в мероприятии."
+msgstr "Дякуємо за проявлену цікавість та участь в заході."
+
+#: templates/webinars/mail/event-registration.jinja.html:42
+msgid ""
+"В день проведения вебинара, за час до начала трансляции, Вы получите "
+"письмо-уведомление с прямой ссылкой на комнату проведения вебинара."
+msgstr ""
+"У день проведення вебінару, за годину до початку трансляції, Ви отримаєте"
+" лист-повідомлення з прямим посиланням на кімнату проведення вебінару."
+
+#: templates/webinars/mail/event-registration.jinja.html:44
+msgid ""
+"В день проведения семинара, на Ваш e-mail придет письмо-уведомление с "
+"информацией о месте и времени проведения семинара."
+msgstr ""
+"У день проведення семінару, на Ваш e-mail прийде лист-повідомлення з "
+"інформацією про місце та час проведення семінару."
+
+#: templates/webinars/mail/event-registration.jinja.html:54
+msgid "Перейти к информации о вебинаре"
+msgstr "Подивитись інформацію про вебінар"
+
+#: templates/webinars/mail/event-registration.jinja.html:56
+msgid "Перейти к информации о семинаре"
+msgstr "Подивитись інформацію про семінар"
+
+#: templates/webinars/mail/event-second-webinar-notification.jinja.html:7
+msgid "Вебинар"
+msgstr "Вебінар"
+
+#: templates/webinars/mail/event-second-webinar-notification.jinja.html:7
+msgid "стартует через час!"
+msgstr "стартує через годину!"
+
+#: templates/webinars/mail/event-second-webinar-notification.jinja.html:14
+msgid "Для начала просмотра"
+msgstr "Для початку перегляду"
+
+#: templates/webinars/mail/event-second-webinar-notification.jinja.html:14
+msgid "перейдите по ссылке"
+msgstr "перейдіть за посиланням"
+
+#: templates/webinars/mail/event-seminar-notification.jinja.html:7
+msgid "Уже завтра, в"
+msgstr "Вже завтра, о"
+
+#: templates/webinars/mail/event-seminar-notification.jinja.html:7
+msgid "ждем Вас по адресу"
+msgstr "чекаємо Вас за адресою"
+
+#: templates/webinars/mail/event-seminar-notification.jinja.html:21
+msgid "Контактная информация"
+msgstr "Контактна інформація"
+
+#: templates/webinars/mail/event-seminar-notification.jinja.html:21
+msgid "или"
+msgstr "або"
+

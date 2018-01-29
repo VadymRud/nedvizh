@@ -1,0 +1,186 @@
+{% extends "newhome/cabinet/base.jinja.html" %}
+
+{% block top_menu %}
+    {% set active='flats' %}
+    {% include "newhome/cabinet/menu-edit.jinja.html" %}
+{% endblock %}
+
+{% block content %}
+    <div class="modal fade" id="floor-edit-popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg modal-floor" role="document">
+            <div class="modal-content">
+                <div id="available-layouts" class="hidden">
+                  <div class="form-horizontal border-bottom">
+                    <div class="form-group">
+                      <div class="col-xs-16 col-xs-offset-1">
+                        <input type="text" name="price" class="form-control" id="price" placeholder="{% trans %}Укажите цену за кв. м{% endtrans %}">
+                      </div>
+                      <div class="col-xs-6">
+                        <select name="price-currency" class="form-control selectpicker" id="price-currency">
+                          {% for currency in currencies %}
+                            <option value="{{ currency[0] }}">{{ currency[1] }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row"><br>
+                    {% for layout in newhome.layouts.filter(section__id=section_id) %}
+                      <div class="{{ loop.cycle('col-xs-11', 'col-xs-10') }} col-xs-offset-1 layout no-horizontal-padding">
+                        <a href="#" class="layout-wrap text-center" data-layout-id="{{ layout.id }}">
+                          <img src='{{ layout.image|thumbnail("150x130", nocrop=True) }}' class="img-responsive" alt='' title=""/>
+                          <span>{{ layout.name }}<br>{{ layout.area }} м<sup>2</sup></span>
+                        </a>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+
+                {% for floor in newhome_floors %}
+                  {% if floor and floor.image %}
+                    <form action="" method="post">
+                      {% csrf_token %}
+                      <input type="hidden" name="floor_id" value="{{ floor.id }}">
+                      <div class="hidden">
+                        <textarea name="layouts_coordinates">
+                          {"layouts_coordinates": [{% for coords in floor.floor_flats.all() %}{"layout_id": {{ coords.layout_id }}, "coordinates": "{{ coords.coordinates }}", "price": {{ coords.price|default('0') }}, "currency": "{{ coords.currency|default('UAH') }}"}{% if not loop.last %},{% endif %}{% endfor %}]}
+                        </textarea>
+                      </div>
+                      <div class="modal-header border-bottom hidden floor_{{ floor.number }}">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="submit" class="btn btn-danger">{% trans %}Сохранить{% endtrans %}</button>
+                      </div>
+                      <div class="modal-body hidden floor_{{ floor.number }} no-padding">
+                        <div class="row">
+                          <div class="col-xs-24 border-bottom text-center mapster no-padding">
+                            <img src='{{ floor.image|thumbnail("1000x500", nocrop=True) }}' class="img-responsive" alt="" title="" usemap="#floor_map_{{ floor.number }}"/>
+                            <map id="floor_map_{{ floor.number }}" name="floor_map_{{ floor.number }}">
+                              {% for coords in floor.floor_flats.all() %}
+                                <area href="#" data-selected="true" data-layout-id="{{ coords.layout_id }}" shape="poly" coords="{{ coords.coordinates }}" data-price="{{ coords.price|default('0') }}" data-price-currency="{{ coords.currency|default('UAH') }}">
+                              {% endfor %}
+                            </map>
+                          </div>
+                            <div class="col-xs-22 col-xs-offset-1">
+                              <h6>{% trans %}Инструменты разметки{% endtrans %}</h6>
+                              <ul class="area-control">
+                                <li><a href="#" class="add-pen"></a></li>
+                                <li><a href="#" class="eraser-pen"></a></li>
+                              </ul>
+                              <input type="hidden" id="add-map-coords">
+                            </div>
+                        </div>
+                      </div>
+                    </form>
+                  {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="white-panel smart-horizontal-padding flats">
+        {% set active='floors' %}
+        {% include "newhome/cabinet/flats-submenu.jinja.html" %}
+
+        {% for floor in newhome_floors %}
+        <div class="row{% if not loop.last %} border-bottom{% endif %}">
+            <div class="col-xs-22 col-xs-offset-1">
+                <div class="row">
+                    <div class="col-xs-3"><h5>{{ floor.number }} этаж</h5></div>
+                    <div class="col-xs-21">
+                        <a href="{{ url('profile_newhome_floors_copy', newhome_id, section_id, floor.id) }}" title="" class="btn btn-danger margin-top-5">Дублировать этаж</a>
+                    </div>
+                </div>
+
+                <a href="#" title="" class="floor-plan" data-toggle="modal" data-target="#floor-edit-popup" data-floor="floor_{{ floor.number }}">
+                    <img src='{{ floor.image|thumbnail("1200x1200", nocrop=True) }}' class="img-responsive" alt='' title="" usemap="#floor_map_{{ floor.number }}"/>
+                    <div class="fog"></div>
+                    <span>{% trans %}Разметить{% endtrans %}&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></span>
+                    <span class="floor-remove glyphicon glyphicon-remove confirm-delete" aria-hidden="true" data-url="{{ url('profile_newhome_floors_remove', newhome_id, section_id, floor.id) }}"></span>
+                </a><br>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="row hidden">
+          <div class="col-xs-22 col-xs-offset-1">
+            <form method="post" action="" id="new-flats">
+              {% csrf_token %}
+              <br>
+              <div class="row">
+                <div class="col-xs-3 text-nowrap"><h5>{% trans %}Добавить этаж{% endtrans %}</h5>&nbsp;</div>
+                <div class="col-xs-2"><input type="number" aria-controls="false" value="{{ floor_position }}" class="form-control" name="floor_position"></div>
+              </div>
+              <div class="fieldset fieldset-photos">
+                <div class="form-horizontal">
+                  <div id="div_id_photos" class="field field-images">
+                    <div class='controls'>
+                      <div class='images'>
+                        <div class='attachments-upload'>
+                          <noscript>
+                            <p><b><small>{% trans %}Для корректной загрузкий изображений ваш браузер должен поддерживать Javascript.{% endtrans %}</small></b></p>
+                          </noscript>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        {% if not section.id %}
+          <div class="row">
+            <div class="col-xs-22 col-xs-offset-1 text-center">
+              <br>
+              <p>{% trans %}Выберите дом и секцию{% endtrans %}</p>
+            </div>
+          </div>
+        {% else %}
+          <div class="row building">
+            <div class="{% if not newhome_floors %}col-xs-24{% else %}col-xs-18{% endif %} text-right">
+              <button class="btn btn-danger" title="Добавить планировку этажа" onclick="$(this).parent().parent().prev().removeClass('hidden');">{% trans %}Добавить планировку этажа{% endtrans %}</button>
+            </div>
+            {% if newhome_floors %}
+              <div class="col-xs-6 text-right">
+                <a href="{{ url('profile_newhome_flats_available', newhome.id, section.id) }}" class="btn btn-danger btn-control">{% trans %}Сохранить и продолжить{% endtrans %}</a>
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block extra_footer %}
+    <script>
+        var my_ajax_upload = "{{ url('my_ajax_upload') }}";
+        var ROTATE_AD_PHOTO_URL = "{{ url('rotate_ad_photo') }}";
+        var uploader_mode = 'floors';
+        var csrf_token = '{{ csrf_token }}';
+        var addPen = false;
+        var eraserPen = false;
+        var mapsters = [];
+        var mapsterOptions = {
+            render_highlight: {
+                fillColor: 'ff1b55',
+                fillOpacity: 0.7,
+                stroke: false
+            },
+            render_select: {
+                fillColor: '000000',
+                fillOpacity: 0.6,
+                stroke: false
+            },
+            fadeInterval: 50,
+            isSelectable: true,
+            isDeselectable: false,
+            clickNavigate: false
+        };
+
+        $().ready(function() {
+            profileNewhomeFloorsInit();
+        });
+    </script>
+
+    {{ super() }}
+    <script src="{{ static('ajaxuploader/js/property_images.js') }}" ></script>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "mail/base_2017.04.jinja.html" %}
+
+{% block greetings %}{% endblock %}
+
+{%- block content %}
+  <tr>
+    <td valign="top">
+      <img src="{{ static('mail/img/mailing/price-falling-header.png') }}" width="700" height="326" style="width: 700px; height: 326px;">
+    </td>
+  </tr>
+  {% include "mail/includes/empty-line-2017.04.html" %}
+  <tr>
+    <td>
+      <div class="text-wrap default-padding bottom-padding">
+        <strong>Уважаемый клиент,</strong><br><br>
+        Спешим сообщить, что с 16 июня 2017г цены на все Тарифные планы по Вашему региону снижены!
+      </div>
+    </td>
+  </tr>
+  {% include "mail/includes/empty-line-2017.04.html" %}
+  <tr>
+    <td style="background-color: #def7ff; padding-top: 11px; padding-bottom: 11px;">
+      <div class="text-wrap default-padding bottom-padding text-center" style="border-top: 2px #a0adb5 dashed;">
+        <br><h2 style="font-weight: normal;">Не упустите возможность получить:</h2>
+      </div>
+      <div class="text-wrap default-padding" style="border-bottom: 2px #a0adb5 dashed;">
+        <ul>
+          <li class="pink">
+            <span><strong>Скидка 67%</strong></span><br><span>Только самые выгодные и низкие цены для публикации Ваших объявлений недвижимости, которые закреплены до 1 января 2018.</span>
+          </li>
+          <li class="pink">
+            <span><strong>Клиенты будут звонить вам чаще</strong></span><br><span>Размещайте еще больше объявлений не превышая свой бюджет, и получайте больше звонков от Ваших целевых клиентов с mesto.ua.</span>
+          </li>
+          <li class="pink">
+            <span><strong>Индивидуальные предложения</strong></span><br><span>Вы крупное Агентство Недвижимости и у вас в работе большое кол-во объектов – у нас есть Спец. преддожение.</span>
+          </li>
+        </ul>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" style="background-color: #ededed;">
+      <br><br>
+      <div class="bottom-padding">
+        <img src="{{ static('mail/img/mailing/%s' % price_image) }}" width="700" height="362" style="width: 700px; height: 362px;">
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" style="background-color: #ededed;">
+      <div class="default-padding text-center">
+        <a href="{{ host_url('services:plans') }}{% if utm is defined %}?{{ utm.urlencode() }}{% endif %}#plans-header" target="_blank" class="button">Выбрать тарифный план</a>
+      </div>
+    </td>
+  </tr>
+{% endblock -%}

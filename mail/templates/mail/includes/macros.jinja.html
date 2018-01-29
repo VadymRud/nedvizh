@@ -1,0 +1,13 @@
+{% macro text_cell(width, height, background_color='#ffffff', text='&nbsp;', cell_attr='', extra_div_class='', extra_div_style='') %}
+  <td width="{{ width }}" height="{{ height }}" {{ cell_attr|safe }} style="width: {{ width }}px; height: {{ height }}px; background-color: {{ background_color|safe }};">
+    <div class="text {{ extra_div_class }}" style="width: {{ width }}px; height: {{ height }}px; {{ extra_div_style|safe }}; background-color: {{ background_color|safe }};">{{ text|safe }}</div>
+  </td>
+{% endmacro %}
+
+{% macro image_cell(width, height, image_width, image_height, image_src, background_color='#ffffff', cell_attr='', extra_div_class='', extra_div_style='') %}
+  <td width="{{ width }}" height="{{ height }}" {{ cell_attr|safe }} style="width: {{ width }}px; height: {{ height }}px; background-color: {{ background_color }};">
+    <div class="{{ extra_div_class }}" style="width: {{ width }}px; height: {{ height }}px; background-color: {{ background_color }}; {{ extra_div_style|safe }}">
+      <img src="{{ static(image_src) }}" width="{{ image_width }}" height="{{ image_height }}" style="width: {{ image_width }}px; height: {{ image_height }}px; display: inline-block;">
+    </div>
+  </td>
+{% endmacro %}

@@ -1,0 +1,20 @@
+{% extends 'base.jinja.html' %}
+
+{% block content_wrapper %}
+    <div class="container faq">
+        <noindex>
+        <ol class="breadcrumb breadcrumb-detail">
+            <li><a href="{{ host_url('index') }}"><i class="glyphicon glyphicon-chevron-left"></i> Mesto.ua</a></li>
+            <li class="active">
+                <a rel="nofollow" href="{{ url('faq_index') }}">
+                    <i class="glyphicon glyphicon-chevron-left"></i>
+                    {% trans %}Частые вопросы{% endtrans %}
+                </a>
+            </li>
+            {% block breadcrumb %}{% endblock %}
+        </ol>
+        </noindex>
+
+        {% block content %}{% endblock %}
+    </div><br/>
+{% endblock %}

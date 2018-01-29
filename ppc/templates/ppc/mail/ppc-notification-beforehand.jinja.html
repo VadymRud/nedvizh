@@ -1,0 +1,37 @@
+{% extends "mail/base_redesigned_2017.jinja.html" %}
+
+{% block content %}
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        {% trans %}Срок действия абонентской платы "Выделенный номер" истекает{% endtrans -%}
+        {%- if days > 0 %}
+          {% trans count=days %}через {{ count }} день{% pluralize %}через {{ count }} дней{% endtrans %}.
+        {%- else %}
+          {% trans %}сегодня{% endtrans %}.
+        {% endif -%}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        {% trans %}Продлите действие услуги, чтоб не пропустить ни одного звонка от целевых клиентов.{% endtrans %}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap default-bottom-padding text-center">
+        <a href="{{ host_url('profile_balance') }}{% if utm is defined %}?{{ utm.urlencode() }}{% endif %}" target="_blank" class="button">{% trans %}Продлить{% endtrans %}</a>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding">
+        {% trans %}Если вы хотите отменить действие услуги "Выделенный номер"{% endtrans %} <a href="{{ host_url('services:lead') }}?show_lead_popup=1&{% if utm is defined %}?{{ utm.urlencode() }}{% endif %}" target="_blank" class="pink">{% trans %}измените тип номера{% endtrans %}</a>
+      </div>
+    </td>
+  </tr>
+{% endblock %}

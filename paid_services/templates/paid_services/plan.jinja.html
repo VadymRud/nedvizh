@@ -1,0 +1,33 @@
+<div class="plan {% if plan.is_popular %}popular{% endif %} {% if not plan._detail.action %}fog{% endif %}">
+{#    {% if plan == active_plan.plan %}<span class="current-plan-label">{% trans %}текущий{% endtrans %}</span>{% endif %}#}
+    <header>{{ plan.get_verbose_ads_limits() }}</header>
+    <div class="description">
+        {% if plan.is_popular %}<div class="ribbon"><span class="btn btn-danger">{% trans %}Популярный{% endtrans %}</span></div>{% endif %}
+
+        <p>{% trans %}Полная стоимость{% endtrans %}<br><span class="big">{{ plan._detail.full_price }} грн</span></p>
+
+        {% if 'discount' in plan._detail %}
+            <p class="discount">
+                {% trans %}Скидка{% endtrans %} <b>{{ (plan._detail.discount*100)|int() }}%</b><br/>
+                {% trans %}Экономия{% endtrans %} <b>{{ plan._detail.full_price - plan._detail.final_price }} грн</b>.
+            </p>
+
+            <p class="total">
+                {% if plan._detail.action != 'upgrade' %}
+                    {% trans %}Цена со скидкой{% endtrans %}<br>
+                    <span>{{ plan._detail.final_price }} грн</span>
+                {% else %}
+                    {% trans %}Доплатить{% endtrans %}<br>
+                    <span>{{ plan._detail.upgrade_price }} грн</span>
+                {% endif %}
+            </p>
+        {% endif %}
+    </div>
+
+    {% if plan._detail.action %}
+        {% with btn_label = {'prolong': _('Продлить'), 'upgrade': _('Улучшить'), 'purchase': _('Выбрать')}.get(plan._detail.action) %}
+            <p><a class="btn btn-lg {% if plan._detail.action == 'prolong' %}btn-success{% else %}btn-danger{% endif %}"
+                  href="{{ plan._detail.checkout_url }}&{{ request.GET.urlencode(safe='/') }}">{{ btn_label }}</a></p>
+        {% endwith %}
+    {% endif %}
+</div>

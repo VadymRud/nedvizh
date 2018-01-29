@@ -1,0 +1,304 @@
+{% extends "profile/base.jinja.html" %}
+
+{% block content %}
+    {%  include('paid_services/menu_publication.jinja.html')  %}
+
+    {% compress css %}
+    <style>
+
+        /*#services .row {display: flex}*/
+        #services ul.with-tick {}
+        #services ul.with-tick li {
+            margin-bottom:10px;
+            font-size:18px;
+        }
+        #services .white-panel {padding:20px 50px;}
+        .justify-content-center {
+            -ms-flex-pack: center!important;
+            justify-content: center!important;
+        }
+        #services .change_tariff, #services .pay_call {
+            background: url("{{ static('paid_services/img/tariff_plan.jpg') }}") #333 no-repeat center;
+            width: 440px;
+            height: 474px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        #services .pay_call {
+            background-image: url("{{ static('paid_services/img/pay_call.jpg') }}");
+
+        }
+        #services .change_tariff:hover .hover, #services .pay_call:hover .hover {
+            background-color:rgba(72, 154, 178, 0.8);
+        }
+        #services .change_tariff h2, #services .pay_call h2 {
+            font-size: 36px;
+            padding: 30px 0 0;
+            margin: 0;
+        }
+        #services .change_tariff h3, #services .pay_call h3 {
+            font-size: 16px;
+            margin: 0;
+            padding: 10px 0;
+            line-height: 1.5
+        }
+        #services .pay_call ul, #services .change_tariff ul {
+            list-style: none;
+            position: absolute;
+            bottom: 90px;
+        }
+        #services .pay_call ul li, #services .change_tariff ul li {
+            font-size: 16px;
+            text-align: left;
+            background: url("{{ static('img/ico_selected.png') }}") 0 0.5em no-repeat;
+            padding-left: 22px;
+            line-height: 1.5;
+        }
+        #services .change_tariff .ico_x, #services .change_tariff .ico_ask, #services .pay_call .ico_x, #services .pay_call .ico_ask {
+            width: 32px;
+            height: 32px;
+            display: none;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            z-index: 10;
+            cursor: help;
+        }
+        #services .change_tariff .ico_ask, #services .pay_call .ico_ask {
+            background: url("{{ static('img/ico_ask.png') }}") no-repeat center;
+        }
+        #services .change_tariff .ico_x, #services .pay_call .ico_x {
+            background: url("{{ static('img/ico_x.png') }}") no-repeat center;
+        }
+        #services .change_tariff h4, #services .pay_call h4 {
+            text-align: left;
+            padding: 0 40px;
+            position: absolute;
+            bottom: 100px;
+        }
+        #services .btn-choose {color:white;text-decoration:none;}
+        #services .change_tariff .hover, #services .pay_call .hover {
+            justify-content: center;
+            background-color:rgba(129, 129, 129, 0.8);
+            height: 78px;
+            align-items: center;
+            display: flex;
+            font-size: 20px;
+            font-weight: 400;
+            font-family: "pf_din";
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        #services .footer_block {
+            background: #F8F8F8;
+            color: #333;
+            line-height: 1.5;
+            font-size: 16px;
+            text-align: center;
+            padding: 30px;
+        }
+        #services .col-md-18 > div {margin-bottom: 15px;}
+        #services .col-md-18 > div:nth-child(4n+1) {
+            padding-left: 0;
+        }
+        #services .col-md-18 > div:nth-child(4n+3) {
+            padding-right: 0;
+        }
+        #services .col-md-18 div img {
+            padding-bottom: 15px;
+        }
+        #services .col-md-18 div p {
+            line-height: 1.3;
+        }
+        #services .center {
+            text-align: center;
+        }
+        #services .wrapper_block {
+            width: 440px;
+            text-align: center;
+            display: inline-block;
+        }
+        #myTooltip_1 {
+            display: none;
+        }
+        @media (min-width: 992px) {
+            #services .change_tariff, #services .pay_call {
+                width: 100%;
+            }
+            #services .wrapper_block {
+                width: 100%;
+            }
+        }
+
+            #services .pay_call, #services .change_tariff {
+                height: 215px;
+                width: 100%;
+                background-size: cover;
+            }
+            #services .wrapper_block {
+                width: 100%;
+            }
+            #services .pay_call ul, #services .change_tariff ul {
+                display: none;
+            }
+            #services .col-md-18 > div {
+                padding-left: 7px !important;
+                padding-right: 7px !important;
+            }
+            #services h6 {
+                margin-bottom: 30px;
+            }
+            #services .change_tariff .ico_x, #services .change_tariff .ico_ask, #services .pay_call .ico_x, #services .pay_call .ico_ask {
+                display: inline-block;
+            }
+            #myTooltip_1, #myTooltip_2 {
+                background: rgba(0, 0, 0, 0.9);
+                padding: 15px;
+                position: absolute;
+                right: -25px;
+                top: -110px;
+                font-size: 16px;
+                max-width: 385px;
+                border-radius: 15px;
+                height: auto;
+                bottom: inherit !important;
+            }
+            #myTooltip_1:after, #myTooltip_2:after{
+                border: 9px solid transparent;
+                border-top: 12px solid rgba(0, 0, 0, 0.9);;
+                content: '';
+                position: absolute;
+                right: 37px;
+                bottom: -21px;
+            }
+            #myTooltip_2 {
+                top: -182px;
+            }
+        }
+    </style>
+    {% endcompress %}
+
+    <div id="services">
+        <div class="row justify-content-center ">
+            <div class="col-md-18 col-md-offset-3">
+                <h1>{% trans %}Выберите способ размещения объявления{% endtrans %}</h1>
+                <h6>{% trans %}Перед тем, как начать добавлять обьявления, выберите одну из двух предложенных моделей работы с сайтом.{% endtrans %}</h6>
+                <h6>{% trans %}При необходимости, вы сможете в любой момент перейти с одной модели на другую.{% endtrans %}</h6>
+            </div>
+        </div>
+        <br/><br/>
+
+        <div class="row justify-content-center">
+            <div class="col-md-9 col-md-offset-3 text-center">
+                <div class="wrapper_block">
+                    <div class="change_tariff">
+                        <i class="ico_ask" id="tooltip_1"></i>
+                        <ul id="myTooltip_1" style="display: none">
+                            <li>{% trans %}Срок публикации объявлений 30 - 365 дней;{% endtrans %}</li>
+                            <li>{% trans %}Стоимость размещения зависит от количества объявлений;{% endtrans %}</li>
+                        </ul>
+
+                        <h2>{% trans %}Тарифные планы{% endtrans %}</h2>
+                        <h3>{% trans %}Выберите один из тарифов  размещения объявлений{% endtrans %}</h3>
+                        <ul>
+                            <li>{% trans %}Срок публикации объявлений 30 - 365 дней;{% endtrans %}</li>
+                            <li>{% trans %}Стоимость размещения зависит от количества объявлений;{% endtrans %}</li>
+                        </ul>
+                        <a href="{{ url('services:plans') }}?{{ request.GET.urlencode(safe='/') }}" class="btn-choose hover">{% trans %}Выбрать{% endtrans %}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 center">
+                <div class="wrapper_block">
+                    <div class="pay_call">
+                        <i class="ico_ask" id="tooltip_2"></i>
+                        <ul id="myTooltip_2">
+                            <li>{% trans %}Срок публикации объявлений неограничен;{% endtrans %}</li>
+                            <li>{% trans %}Стоимость размещения минимальное пополнение;{% endtrans %}</li>
+                            <li>{% trans %}Оплата услуг после принятого звонка/заявки;{% endtrans %}</li>
+                            <li>{% trans %}Данные клиента всегда при вас.{% endtrans %}</li>
+                        </ul>
+                        <h2>{% trans %}Оплата за звонок{% endtrans %}</h2>
+                        <h3>{% trans %}Оплачиваете только звонок клиента,<br/> обратившегося с сайта mesto.ua{% endtrans %}</h3>
+                        <ul>
+                            <li>{% trans %}Срок публикации объявлений неограничен;{% endtrans %}</li>
+                            <li>{% trans %}Стоимость размещения минимальное пополнение;{% endtrans %}</li>
+                            <li>{% trans %}Оплата услуг после принятого звонка/заявки;{% endtrans %}</li>
+                            <li>{% trans %}Данные клиента всегда при вас.{% endtrans %}</li>
+                        </ul>
+                        <a href="{{ url('services:lead') }}?{{ request.GET.urlencode(safe='/') }}" class="btn-choose hover">{% trans %}Выбрать{% endtrans %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/><br/>
+
+        <div class="row justify-content-center">
+            <div class="col-md-18 col-md-offset-3">
+                <div class="col-md-8 col-sm-12 col-xs-12">
+                    <div class="footer_block">
+                        <img src="{{ static('img/ico_select.png') }}" alt="icon-success"/>
+                        <p>{% trans %}Размещение от 1 до 40 объявлений{% endtrans %}</p>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-12 col-xs-12">
+                    <div class="footer_block">
+                        <img src="{{ static('img/ico_select.png') }}" alt="icon-success"/>
+                        <p>{% trans %}Разные виды обращений от клиентов (звонки,заявки){% endtrans %}</p>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-12 col-xs-12">
+                    <div class="footer_block">
+                        <img src="{{ static('img/ico_select.png') }}" alt="icon-success"/>
+                        <p>{% trans %}Автоматическое обновление объявлений каждые 7 дней{% endtrans %}</p>
+                    </div>
+                </div><br/>
+                <div class="col-md-8 col-sm-12 col-xs-12">
+                    <div class="footer_block">
+                        <img src="{{ static('img/ico_select.png') }}" alt="icon-success"/>
+                        <p>{% trans %}Возможность взаимозаменять объявления{% endtrans %}</p>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-12 col-xs-12">
+                    <div class="footer_block">
+                        <img src="{{ static('img/ico_select.png') }}" alt="icon-success"/>
+                        <p>{% trans %}Выбор "рабочего времени" агентства, которое будет указано в ваших объявлениях{% endtrans %}</p>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-12 col-xs-12">
+                    <div class="footer_block">
+                        <img src="{{ static('img/ico_select.png') }}" alt="icon-success"/>
+                        <p>{% trans %}Приобретения услуги VIP размещения{% endtrans %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/><br/>
+
+    </div>
+<script>
+    $(document).ready(function(){
+        $(".ico_ask").click(function(){
+            if($(this).hasClass('ico_x')){
+                $(this).removeClass('ico_x');
+            } else {
+                $('.change_tariff, .pay_call').children('i').removeClass('ico_x');
+                $(this).addClass('ico_x');
+            }
+            if (this.classList.contains('ico_x')) {
+                $('#myTooltip_1, #myTooltip_2').css('display', 'none');
+                $(this).next('ul').css('display', 'block');
+            } else {
+                $(this).next('ul').css('display', 'none');
+            }
+        });
+        $('#services .footer_block').equalHeights();
+    });
+</script>
+
+{% endblock %}
+

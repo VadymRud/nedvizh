@@ -1,0 +1,47 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Статистика по областям{% endblock %}
+
+{% block content %}
+<style>
+#id_since, #id_end {width:80px;text-align: center}
+.bold {font-weight:bold}
+</style>
+
+<div id="content-main" class='change-list'>
+    <form>
+        <h2>Статистика {{ form.group }} по областям</h2>
+        Тип сделки {{ form.deal_type }}<br/>
+        Отображать данные за период
+        <label>с {{ form.since }}</label>
+        <label>по {{ form.end }}</label>
+        <input type="submit" value="Посмотреть"/>
+        {{ form.errors }}
+    </form>
+    <br/>
+
+    <p>Всего за выбранный период - <b>{{ total }}</b>.</p>
+
+    <table border="0">
+        <tr>
+            <th>Область</th>
+            <th>Количество</th>
+            <th>Процент</th>
+        </tr>
+        {% for province in provincies %}
+            <tr>
+                <td>{{ province.name }}</td>
+                <td align="center">{{ province.value }}</td>
+                {% if province.percent %}
+                    <td align="center" {% if province.percent > 10 %}class="bold"{% endif %}>
+                        {{ province.percent|floatformat }} %
+                    </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+
+    <br/>
+
+</div>
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends "mail/base_redesigned.jinja.html" %}
+
+{% block content %}
+    <tr>
+        <td width="43" height="80" style="width: 43px; height: 80px; background-color: #ffffff;">
+            <div style="width: 43px; height: 80px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="80" colspan="3" style="width: 472px; height: 80px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 80px;">
+                {% trans %}Вы только что оставили заявку на заказ обратного звонка{% endtrans %}<br> {% trans %}на странице объявления{% endtrans %}<br><a href="{{ referer }}" target="_blank">{{ object_title }}</a>.<br>{% trans %}Владелец объявления свяжется с вами в ближайшее время.{% endtrans %}
+            </div>
+        </td>
+        <td width="25" height="80" style="width: 25px; height: 80px; background-color: #ffffff;">
+            <div style="width: 25px; height: 80px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="35" style="width: 43px; height: 35px; background-color: #ffffff;">
+            <div style="width: 43px; height: 35px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="35" colspan="3" style="width: 472px; height: 35px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 35px;"><hr></div>
+        </td>
+        <td width="25" height="35" style="width: 25px; height: 35px; background-color: #ffffff;">
+            <div style="width: 25px; height: 35px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="100" style="width: 43px; height: 100px; background-color: #ffffff;">
+            <div style="width: 43px; height: 100px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="100" colspan="3" style="width: 472px; height: 100px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 100px;">
+                <p>{% trans %}Если вы оставили заявку в рабочее время, а владелец объявления не перезвонил вам в течение часа с момента подачи заявки – напишите нам на{% endtrans %} <a href="mailto:info@mesto.ua">info@mesto.ua</a> {% trans %}или перезвоните по номеру тел. (044) 228-68-98 (с мобильного бесплатно){% endtrans %}</p>
+            </div>
+        </td>
+        <td width="25" height="100" style="width: 25px; height: 100px; background-color: #ffffff;">
+            <div style="width: 25px; height: 100px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="80" style="width: 43px; height: 80px; background-color: #ffffff;">
+            <div style="width: 43px; height: 80px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="80" colspan="3" style="width: 472px; height: 80px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 80px;">
+                <p>{% trans %}Если вы оставили заявку в нерабочее время, с вами свяжутся на следующий день.{% endtrans %}</p>
+            </div>
+        </td>
+        <td width="25" height="80" style="width: 25px; height: 80px; background-color: #ffffff;">
+            <div style="width: 25px; height: 80px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="53" style="width: 43px; height: 53px; background-color: #ffffff;">
+            <div style="width: 43px; height: 53px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="53" colspan="3" align="center" style="width: 472px; height: 53px; background-color: #ffffff; text-align: center;">
+            <div style="width: 472px; height: 53px; text-align: center;">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff;">
+                    <tr>
+                        <td width="157" height="53" align="center" class="table-info-images">
+                            <div class="table-info-images">
+                                <img src="{{ static('mailing/mailing-about-professionals-image-02.jpg') }}" width="36" height="36" style="width: 36px; height: 36px;"><br>
+                            </div>
+                        </td>
+                        <td width="157" height="53" align="center" class="table-info-images">
+                            <div class="table-info-images">
+                                <img src="{{ static('mailing/mailing-about-professionals-image-03.jpg') }}" width="36" height="36" style="width: 36px; height: 36px;"><br>
+                            </div>
+                        </td>
+                        <td width="157" height="53" align="center" class="table-info-images">
+                            <div class="table-info-images">
+                                <img src="{{ static('mailing/mailing-about-professionals-image-04.jpg') }}" width="35" height="35" style="width: 35px; height: 35px;"><br>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+        <td width="25" height="53" style="width: 25px; height: 53px; background-color: #ffffff;">
+            <div style="width: 25px; height: 53px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="64" style="width: 43px; height: 64px; background-color: #ffffff;">
+            <div style="width: 43px; height: 64px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="64" colspan="3" align="center" style="width: 472px; height: 64px; background-color: #ffffff; text-align: center;">
+            <div style="width: 472px; height: 64px; text-align: center;">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff;">
+                    <tr>
+                        <td width="157" height="64" align="center" class="table-info">
+                            <div class="table-info">
+                                <a href="mailto:info@mesto.ua" target="_blank">info@mesto.ua</a>
+                            </div>
+                        </td>
+                        <td width="157" height="64" align="center" class="table-info">
+                            <div class="table-info">
+                                <a href="skype:mesto.ua?chat" style="color: #333333; text-decoration: none; cursor: default;">mesto.ua</a>
+                            </div>
+                        </td>
+                        <td width="157" height="64" align="center" class="table-info">
+                            <div class="table-info" style="line-height: 120%;">044 228 68 98<br>093 850 29 76</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+        <td width="25" height="64" style="width: 25px; height: 64px; background-color: #ffffff;">
+            <div style="width: 25px; height: 64px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+{% endblock %}

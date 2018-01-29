@@ -1,0 +1,29 @@
+sale;;Купить квартиру %(district)s, %(city)s. Продажа квартир
+sale;room;Купить комнату %(district)s, %(city)s. Продажа комнат
+sale;house;Купить дом %(district)s, %(city)s. Продажа домов недорого
+sale;commercial;Купить коммерческую недвижимость %(district)s, %(city)sм
+sale;plot;Купить участок %(district)s, %(city)s. Продажа земли
+sale;garages;Купить гараж %(district)s, %(city)s. Продажа гаражей
+sale;all-real-estate;Купить недвижимость %(district)s, %(city)s
+
+rent_daily;;Квартиры посуточно %(district)s, %(city)s. Аренда на сутки
+rent_daily;room;Комнаты посуточно %(district)s, [Киев.] Аренда на сутки
+rent_daily;house;Дома посуточно %(district)s, %(city)s. Аренда на сутки
+rent_daily;commercial;Коммерческая недвижимость посуточно %(district)s, %(city)s. Аренда на сутки
+rent_daily;garages;Гараж посуточно %(district)s, %(city)s. Аренда на сутки
+rent_daily;all-real-estate;Недвижимость посуточно %(district)s, %(city)s. Аренда на сутки
+
+rent;;Аренда квартир %(district)s, %(city)s. Снять долгосрочно
+rent;room;Аренда комнаты %(district)s, %(city)s. Снять долгосрочно
+rent;house;Аренда дома %(district)s, %(city)s. Снять дом долгосрочно
+rent;commercial;Аренда коммерческой недвижимости %(district)s, %(city)s
+rent;plot;Аренда участка %(district)s, %(city)s. Долгосрочно снять
+rent;garages;Аренда гаража %(district)s, %(city)s. Долгосрочно снять гараж
+rent;all-real-estate;Аренда недвижимости %(district)s, %(city)s. Снять долгосрочно
+
+newhomes;;Квартира в новостройке %(district)s, %(city)s. Купить квартиру
+newhomes;house;Новый дом %(district)s, %(city)s. Купить новопостроенный дом
+newhomes;commercial;Коммерческая недвижимость от застройщика %(district)s, %(city)s
+newhomes;garages;Купить новый гараж %(district)s, %(city)s. Все гаражи
+newhomes;all-real-estate;Новостройки %(district)s, %(city)s. Вся недвижимость
+

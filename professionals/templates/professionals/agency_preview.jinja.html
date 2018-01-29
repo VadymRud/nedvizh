@@ -1,0 +1,30 @@
+<div class="image">
+    {% if user.is_asnu_member() %}
+        <img class="asnu-logo" style="position:absolute;top:10px;right:10px;" src="{{ static('agency/img/icon-asnu.png') }}" alt="{% trans %}Ассоциация специалистов по недвижимости Украины{% endtrans %}" width="50"/>
+    {% endif %}
+    <a href="{{ url('professionals:agency_profile', agency.id) }}"><img src="{{ agency.logo|thumbnail("288x192", nocrop=True) }}" class="img-responsive"/></a>
+</div>
+<div class="white-panel text-left">
+    <div class="name">{{ agency.name }}</div>
+
+    <div class="address">{{ agency.city or '' }} {{ agency.address or '' }}</div>
+    <form class="contacts" action="{{ url('professionals:agency_contacts', agency.id) }}">
+        {% csrf_token %}
+
+        <button class="show-contacts show-contacts-button" type='button' data-target="Профессионалы">
+            <i class="caret"></i> <span>{% trans %}Узнать номер{% endtrans %}</span>
+        </button>
+
+        <div class="phones"><span>{{ user.get_phone_display()|hide_contacts('Профессионалы') }}</span></div>
+    </form>
+
+    {% if agency.reviews_count is defined and agency.reviews_count %}
+        <div class="clearboth"></div>
+        <ul class="rating pull-left">
+            {% for i in range(5) %}
+                <li class="{% if agency.avg_rating >= loop.index %}active{% endif %} glyphicon glyphicon-star"></li>
+            {% endfor %}
+            </ul>
+        <a href="{{ url('professionals:agency_reviews', agency.id) }}" class="pull-right reviews">{% trans count = agency.reviews_count %}{{ count }} отзыв{% pluralize %}{{ count }} отзывов{% endtrans %}</a>
+    {% endif %}
+</div>

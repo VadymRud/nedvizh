@@ -1,0 +1,216 @@
+# Hungarian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-11-27 14:08+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: hu\n"
+"Language-Team: hu <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: meta_tags.py:107 meta_tags.py:109
+#, python-format
+msgid "%(deal1)s %(property1)s %(full_addr)s - Mesto.ua"
+msgstr ""
+
+#: meta_tags.py:110
+#, python-format
+msgid ""
+"%(deal2)s %(rooms)s комн. %(property2)s, %(full_addr)s, %(area)s кв.м. "
+"Стоимость - %(price)s %(currency)s. %(deal1)s %(property1)s "
+"%(addr_city)s. Большая база объявлений продажи %(property3)s на портале "
+"Mesto.ua"
+msgstr ""
+"%(deal2)s %(rooms)s szob. %(property2)s, %(full_addr)s, %(area)s nm. Ár -"
+" %(price)s %(currency)s. %(deal1)s %(property1)s %(addr_city)s. Nagy "
+"hirdetésbázis a %(property3)s Mesto.ua honlapon"
+
+#: meta_tags.py:114
+#, python-format
+msgid ""
+"%(deal2)s %(property2)s, %(full_addr)s, %(area)s соток. Стоимость - "
+"%(price)s %(currency)s. %(deal1)s %(property1)s %(addr_city)s. Большая "
+"база объявлений продажи %(property3)s на портале Mesto.ua"
+msgstr ""
+"%(deal2)s %(property2)s, %(full_addr)s, %(area)s ár(100nm). Ár - "
+"%(price)s %(currency)s. %(deal1)s %(property1)s %(addr_city)s. Nagy "
+"hirdetésbázis a %(property3)s Mesto.ua honlapon"
+
+#: meta_tags.py:118
+#, python-format
+msgid ""
+"%(deal2)s %(property2)s, %(full_addr)s, %(area)s кв.м. Стоимость - "
+"%(price)s %(currency)s. %(deal1)s %(property1)s %(addr_city)s. Большая "
+"база объявлений продажи %(property3)s на портале Mesto.ua"
+msgstr ""
+"%(deal2)s %(property2)s, %(full_addr)s, %(area)s nm. Ár - %(price)s "
+"%(currency)s. %(deal1)s %(property1)s %(addr_city)s. Nagy hirdetésbázis a"
+" %(property3)s Mesto.ua honlapon"
+
+#: meta_tags.py:128
+#, python-format
+msgid "Все агентства недвижимости %(chego)s – Mesto.ua"
+msgstr "Összes ingatlaniroda %(chego)s – Mesto.ua"
+
+#: meta_tags.py:129
+#, python-format
+msgid ""
+"Ищите агентство недвижимости в %(chego)s? Портал недвижимости Mesto.ua "
+"предоставляет список агентств недвижимости и лучших риэлторских агентств "
+"%(chego)s"
+msgstr ""
+"Ingatlanirodát keres ebben a városban: %(chego)s? Az ingatlan honlap "
+"Mesto.ua biztosít az Ön számára egy listát a legjobb ingatlanirodákról "
+"%(chego)s"
+
+#: meta_tags.py:131
+#, python-format
+msgid "Риелторы %(chego)s - Mesto.ua"
+msgstr "Ingatlanügynök %(chego)s - Mesto.ua"
+
+#: meta_tags.py:132
+#, python-format
+msgid ""
+"Ищите риелтора в %(gde)s? Список лучших частных риэлторов и риэлтерских "
+"компаний %(chego)s собрано на портале надвижимости Mesto.ua"
+msgstr ""
+"Ingatlanügynököt keres a következő városban: %(gde)s? A Mesto.ua honlapon"
+" listázva vannak a legjobb ingatlanirodák és magánügynökök %(chego)s"
+
+#: meta_tags.py:134
+#, python-format
+msgid "Профессионалы недвижимости %(chego)s – Mesto.ua"
+msgstr "Ingatlan szakemberek %(chego)s – Mesto.ua"
+
+#: meta_tags.py:135
+#, python-format
+msgid ""
+"Лучшие профессионалы, агентства недвижимости и риэлтерские компании "
+"%(chego)s на портале недвижимости Mesto.ua"
+msgstr ""
+"A legjobb szakemberek, ingatlanirodák és ingatlanügynök cégek %(chego)s "
+"mind a mesto.ua-n"
+
+#: meta_tags.py:140
+#, python-format
+msgid "Агентство недвижимости %(agency_name)s - Mesto.ua"
+msgstr "Ingatlaniroda %(agency_name)s - Mesto.ua"
+
+#: meta_tags.py:141
+#, python-format
+msgid ""
+"Агентство недвижимости %(agency_name)s в %(gde)s. Все объявления "
+"агентства недвижимости %(agency_name)s на портале Mesto.ua"
+msgstr ""
+"A %(agency_name)s ingatlaniroda itt található: %(gde)s. A %(agency_name)s"
+" ingatlaniroda összes hirdetése a Mesto.ua-n"
+
+#: meta_tags.py:146
+#, python-format
+msgid "Риелтор %(chego)s %(realtor_name)s – Mesto.ua"
+msgstr "%(realtor_name)s a(z) %(chego)s ingatlanügynök – Mesto.ua"
+
+#: meta_tags.py:147
+#, python-format
+msgid ""
+"Риелтор %(chego)s %(realtor_name)s специалист в сфере аренды и продаже "
+"всех типов недвижимости"
+msgstr ""
+"%(realtor_name)s %(chego)s ingatlanügynök minden típusú ingatlanok "
+"adásvételének és bérlésének is szakembere"
+
+#: meta_tags.py:152
+#, python-format
+msgid "Новости недвижимости %(city_chego)s"
+msgstr "Ingatlan hírek a következő városban %(city_chego)s"
+
+#: meta_tags.py:153
+#, python-format
+msgid "Последние события в %(city_gde)s"
+msgstr "Utolsó események a következő városban %(city_gde)s"
+
+#: meta_tags.py:154
+#, python-format
+msgid "Интересные места %(city_chego)s"
+msgstr "Érdekes helyek a következő városban %(city_chego)s"
+
+#: meta_tags.py:155
+#, python-format
+msgid "Стоит знать - %(city_original)s Mesto.ua"
+msgstr ""
+
+#: meta_tags.py:156
+msgid "Новости Mesto School"
+msgstr "Mesto School hírei"
+
+#: meta_tags.py:159
+#, python-format
+msgid ""
+"Последние новости рынка недвижимости %(city_chego)s на портале Mesto.ua. "
+"Всегда свежие и актуальные новости недвижимости города %(city_original)s "
+"и %(province_chego)s читайте на нашем сайте"
+msgstr ""
+"%(city_chego)s utolsó ingatlanpiaci hírei a Mesto.ua honlapon. Mindig "
+"aktuális ingatlan híreket olvasson a %(city_original)s és "
+"%(province_chego)s megyével kapcsolatban a honlapunkon"
+
+#: meta_tags.py:160
+#, python-format
+msgid ""
+"Перечень и расписание самых интересных событий %(city_chego)s на "
+"Mesto.ua. Обзор последних событий %(city_chego)s и %(province_chego)s "
+"смотрите на нашем портале недвижимости"
+msgstr ""
+"%(city_chego)s legérdekesebb eseményeinek felsorolása és leírása a "
+"Mesto.ua-n.  %(city_chego)s és %(province_chego)s megye utolsó "
+"eseményeinek bemutatását olvassa az ingatlan honlapunkon"
+
+#: meta_tags.py:161
+#, python-format
+msgid ""
+"Самые интересные места города %(city_original)s можно найти на нашем "
+"портале недвижимости Mesto.ua. Обзор достопримечательностей и интересных "
+"мест %(city_chego)s доступен на нашем сайте"
+msgstr ""
+"%(city_original)s legérdekesebb helyeit megtalálhatja a mesto.ua "
+"honlapon. %(city_chego)s látványosságainak és érdekes helyeinek "
+"bemutatása elérhető a honlapunkon"
+
+#: meta_tags.py:162
+#, python-format
+msgid ""
+"Новости дизайна и интерьера на портале недвижимости %(city_original)s "
+"Mesto.ua. Последние тенденции в ремонте квартир и домов, готовые решения "
+"для разных типов жилья"
+msgstr ""
+
+#: meta_tags.py:173
+msgid "Новости рынка"
+msgstr "Piac hírei"
+
+#: models.py:338
+msgid "ссылка на страницу"
+msgstr "link az oldalra"
+
+#: models.py:339
+msgid "заголовок блока"
+msgstr "blokk címe"
+
+#: models.py:340
+msgid "регион"
+msgstr "régió"
+
+#: models.py:341
+msgid "текст блока"
+msgstr "blokk szövege"
+

@@ -1,0 +1,45 @@
+{% if progress_id %}
+    <form action="{{ url('profile_newhome_workflow_edit', newhome_id, progress_id) }}" method="post">
+{% else %}
+    <form action="{{ url('profile_newhome_workflow_add', newhome_id) }}" method="post">
+{% endif %}
+    {% csrf_token %}
+    <div class="row calendar-row">
+        <div class="col-xs-6">
+            {{ form.date }}
+        </div>
+        <div class="col-xs-4">
+            <button type="submit" class="btn btn-danger btn-after-images">{% trans %}Сохранить{% endtrans %}</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="fieldset fieldset-photos">
+            <div class="form-horizontal">
+                <div id="div_id_photos" class="field field-images">
+                    <div class="controls col-sm-20">
+                        <div class="images">
+                            <div class="attachments-upload">
+                                <noscript>
+                                    <p><b><small>{% trans %}Для корректной загрузкий изображений ваш браузер должен поддерживать Javascript.{% endtrans %}</small></b></p>
+                                </noscript>
+                            </div>
+
+                            {% if progress_id and progress.photos.exists() %}
+                                <ul class="already-uploaded image-list list-inline clearfix">
+                                {% for photo in progress.photos.all() %}
+                                    <li class="pull-left">
+                                        <a class="delete" title="{% trans %}удалить{% endtrans %}"></a>
+                                        <a class="rotate" title="{% trans %}повернуть{% endtrans %}" data-photo-id="{{ photo.id }}"></a>
+                                        <img width="240" height="160" src="{{ photo.image|thumbnail('288x192') }}" class="img-responsive" data-id="{{ photo.id }}" alt="" title=""/>
+                                        <input type="hidden" name="delete_images" value="{{ photo.pk }}" disabled="disabled"/>
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

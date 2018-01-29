@@ -1,0 +1,23 @@
+{% extends "profile/index.jinja.html" %}
+
+{% block title %}{% trans %}Изменение E-mail{% endtrans %}{% endblock %}
+
+{% block content %}
+    <h1>{% trans %}Изменение E-mail{% endtrans %}</h1>
+    <div class="white-panel">
+        {% if change is defined %}
+            <p>{% trans %}На указанный адрес{% endtrans %} <b>{{ change.new_email }}</b> {% trans %}отправлена ссылка для подтверждения изменения E-mail.{% endtrans %}</p>
+        {% else %}
+            <div class='form-horizontal'>
+                <form method="post" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    {% from "macro/forms.jinja.html" import bootstrap_form %}
+                    {{ bootstrap_form(form, {'label':'col-sm-3', 'controls':'col-sm-10'}) }}
+
+                    <input class='btn btn-danger' name='submit' type='submit' value='{% trans %}Отправить{% endtrans %}'/>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

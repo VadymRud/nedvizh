@@ -1,0 +1,85 @@
+{% extends 'webinars/base.jinja.html' %}
+
+{% block content %}
+    {% if future_webinars %}
+        <div class="row">
+            <div class="col-xs-24"><h6>{% trans %}Ближайшие{% endtrans %} {{ type_display }}</h6></div>
+        </div>
+        <div class="row feature-webinars">
+            {% for future_webinar in future_webinars %}
+                <div class="col-xs-10 col-md-5{% if loop.cycle(False, True, True, True) %} col-md-offset-1{% endif %}{% if loop.cycle(False, True) %} col-xs-offset-1{% endif %}">
+                    {% if future_webinar.is_active %}
+                        {{ future_webinar }}<br><span>{% trans %}Идет сейчас{% endtrans %}</span>
+                        <a href="{{ future_webinar.get_absolute_url() }}" class="btn btn-danger">{% trans %}Смотреть{% endtrans %} {{ future_webinar.get_type_display() }}</a>
+                    {% else %}
+                        <a href="{{ future_webinar.get_absolute_url() }}" title="{{ future_webinar.get_type_display() }} {{ future_webinar.get_title() }}">{{ future_webinar }}</a><br>
+                        <span>{{ future_webinar.start_at|date("d E Y, H:i") }}</span>
+                        {% if future_webinar.type == 'seminar' %}
+                            <span>{{ future_webinar.city }}</span>
+                        {% endif %}
+                        <a href="{{ future_webinar.get_absolute_url() }}" class="btn btn-bordered">{% trans %}Регистрация{% endtrans %} <i class="glyphicon glyphicon-chevron-right"></i></a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        <hr>
+    {% elif type == 'seminar' %}
+        <div class="row without-seminar">
+            <div class="col-xs-24 text-center">
+                <p>{% trans %}На этой странице вы увидите информацию{% endtrans %}<br>{% trans %} про ближайшие семинары в вашем городе.{% endtrans %}</p>
+                <br>
+            </div>
+        </div>
+    {% endif %}
+    {% if archived_webinars_paginator.count %}
+        {% if type == 'webinar' %}
+            <div class="row">
+                <div class="col-xs-24"><h6>{% trans %}Прошедшие{% endtrans %} {{ type_display }}</h6></div>
+            </div>
+        {% else %}
+            <div class="row">
+                <div class="col-xs-24"><h6>{% trans %}Фото с прошедших семинаров{% endtrans %}</h6></div>
+            </div>
+        {% endif %}
+        <div class="row archived-webinars">
+            {% for archived_webinar in archived_webinars_paginator.current_page.object_list %}
+                <div class="col-xs-10 col-md-5{% if loop.cycle(False, True, True, True) %} col-md-offset-1{% endif %}{% if loop.cycle(False, True) %} col-xs-offset-1{% endif %}">
+                    <div class="thumbnail">
+                        <a href="{{ archived_webinar.get_absolute_url() }}" title="{{ archived_webinar.get_type_display() }} {{ archived_webinar.get_title() }}">
+                            {% if type == 'seminar' %}
+                                {% with image = archived_webinar.photos.first() %}
+                                    {% if image %}
+                                        <img src="{{ image.image|thumbnail('480x360', nocrop=True) }}" alt="">
+                                    {% endif %}
+                                {% endwith %}
+                            {% else %}
+                                <img src="{{ archived_webinar.youtube_image }}" alt="">
+                                <div>
+                                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{ archived_webinar.youtube_duration }}
+                                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> {{ archived_webinar.youtube_views_count }}
+                                </div>
+                            {% endif %}
+                        </a>
+                        <div class="caption">
+                            <a href="{{ archived_webinar.get_absolute_url() }}">{{ archived_webinar }}</a><br>
+                            <span>{% if type == 'seminar' %}{{ archived_webinar.city }}, {% endif %}{{ archived_webinar.start_at|date("d E Y") }}</span><br><br>
+                        </div>
+                    </div>
+                </div>
+                {% if loop.cycle(False, True) %}<div class="clearfix visible-xs visible-sm"></div>{% endif %}
+                {% if loop.cycle(False, False, False, True) %}<div class="clearfix visible-md visible-lg"></div>{% endif %}
+            {% endfor %}
+        </div>
+        <div class="row">
+            {% with paginator=archived_webinars_paginator %}
+                {% include "pagination.jinja.html" %}
+            {% endwith %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block extra_footer %}
+    <script>
+        $('.webinars .row.feature-webinars > div').equalHeights();
+    </script>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% if province is defined %}
+    <div class="row nav">
+        <div class="col-sm-6">
+            <a href="#provinces-list" role="tab" data-toggle="tab">&larr; {% trans %}Назад{% endtrans %}</a>
+        </div>
+        <div class="col-sm-12 text-center"><b>{{ province.name }}</b></div>
+        <div class="col-sm-6 text-right">
+            <a data-id="{{ province.id }}" data-static_url="{{ province.static_url }}" class="city all-province" title="{{ province.name }}">
+                {% if province.kind == 'country' %}
+                    {% trans %}Вся страна{% endtrans %}
+                {% else %}
+                    {% trans %}Вся область{% endtrans %}
+                {% endif %}
+            </a>
+        </div>
+    </div><br/>
+{% endif %}
+
+
+{% for grouper, cities in region_cities|groupby('main_city')|reverse %}
+    <div class="row{% if loop.index == 1 %} subdomains{% endif %}">
+    {%- for column in cities|slice(2) -%}
+        <div class="col-xs-12">
+            <nav>
+            {%- for region in column -%}
+                {% if region.slug in ['alushta','sudak','kerch','evpatoriya','sevastopol','simferopol','feodosiya','yalta','karpaty'] %}
+                    <a data-id="{{ region.id }}" data-static_url="{{ region.static_url }}"
+                        href="javascript: document.location.href = '{{ region.get_deal_url('sale') }}';" class="city{% if region.subdomain %} subdomain{% endif %}">{{ region.name }}</a>
+                {% else %}
+                    <a data-id="{{ region.id }}" data-static_url="{{ region.static_url }}"
+                        href="{{ region.get_deal_url('sale') }}" class="city{% if region.subdomain %} subdomain{% endif %}">{{ region.name }}</a>
+                {% endif %}
+            {%- endfor -%}
+            </nav>
+        </div>
+    {%- endfor -%}
+    </div>
+{% endfor %}

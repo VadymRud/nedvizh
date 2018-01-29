@@ -1,0 +1,150 @@
+<div class="row">
+    {% if request.subdomain == 'international' %}
+      <div class="col-sm-24">
+        <label class="label-block">&nbsp;</label>
+        <input type="search" class="form-control city-chooser js_city_search international" autocomplete="off"
+               data-action="{{ url('cities_autocomplete') }}"
+               placeholder="{% trans %}Страна, город{% endtrans %}"
+               value='{% if region_for_search.slug != 'international' %}{{ region_for_search }}{% endif %}'/>
+      </div>
+    {% else %}
+      {% with district_filter = form.fields['district'].choices|length > 0 %}
+        <div class="{% if deal_type is defined and deal_type == 'newhomes' %}col-sm-6{% else %}col-xs-5{% endif %} city_column clearfix form-group">
+          <label class="label-block"><span>&nbsp;</span></label>
+            <div class="cities-wrapper cities dropdown{% if deal_type is defined and deal_type == 'newhomes' %} hidden{% endif %}">
+                <span class="city-chooser btn btn-gray btn-light-blue" data-toggle="modal" data-target="#cities-choose-dropdown"
+                      data-id="{{ region_for_search.id }}" title="{{ region_for_search }}">
+                    <span class="region-name">{{ region_for_search }}</span>
+                    <span class="caret"></span>
+                </span>
+            </div>
+            {% if deal_type is defined and deal_type == 'newhomes' %}
+              <a href="#" title="" class="newhomes-city">{% if region_for_search.id == 1 %}{% trans %}Вся{% endtrans %} {% endif %}{{ region_for_search }} <span class="caret"></span></a>
+              {% if request.GET.get('region_search') %}<br>{% trans %}Область{% endtrans %}{% endif %}
+            {% endif %}
+        </div>
+        <div class="{% if deal_type is defined and deal_type == 'newhomes' %}col-sm-17 col-sm-offset-1 col-to-fade{% else %}col-xs-19{% endif %} subway-district-street" id="subway-district-street">
+          <div class="form-group rel">
+            <label class="label-block">
+                <ul class="nav nav-pills nav-pills-mesto" role="tablist">
+                    {%- if district_filter -%}
+                        <li{% if request.GET.get('district') %} class="active-filter"{% endif %}>
+                            <a href="#search-district" role="tab" data-toggle="pill">{% trans %}Районы{% endtrans %}</a>
+                        </li>
+                    {% else %}
+                        <li class="disabled"><a>{% trans %}Районы{% endtrans %}</a></li>
+                    {% endif %}
+
+                    {%- if form.subway_lines -%}
+                        <li{% if request.GET.get('subway_stations') %} class="active-filter"{% endif %}>
+                            <a href="#search-subway" role="tab" data-toggle="pill">{% trans %}Метро{% endtrans %}</a>
+                        </li>
+                    {%- endif -%}
+
+                    {%- if form.streets -%}
+                        <li{% if request.GET.get('addr_street') %} class="active-filter"{% endif %}>
+                            <a href="#search-street" role="tab" data-toggle="pill">{% trans %}Улица{% endtrans %}</a>
+                        </li>
+                    {%- else -%}
+                        <li class="disabled"><a>{% trans %}Улица{% endtrans %}</a></li>
+                    {%- endif -%}
+
+                    {% if deal_type is not defined or deal_type != 'newhomes' %}
+                        <li{% if request.GET.get('id') %} class="active-filter"{% endif %}>
+                            <a href="#search-id" role="tab" data-toggle="pill">{% trans %}ID{% endtrans %}</a>
+                        </li>
+                    {% endif %}
+
+                    {% if deal_type is defined and deal_type == 'newhomes' %}
+                      <li{% if request.GET.get('name') %} class="active-filter"{% endif %}>
+                        <a href="#search-name" role="tab" data-toggle="pill">{% trans %}Название{% endtrans %}</a>
+                      </li>
+                      <li{% if request.GET.get('developer') %} class="active-filter"{% endif %}>
+                        <a href="#search-developer" role="tab" data-toggle="pill">{% trans %}Застройщик{% endtrans %}</a>
+                      </li>
+                    {% endif %}
+                </ul>
+            </label>
+
+            <div class="tab-content">
+                {% if district_filter %}
+                    <div class="tab-pane" id="search-district">
+                        {{ form.district|add_class('form-control')|safe }}
+                        {% if form.district_url is defined %}
+                           <div class="streets_link"><a href="{{ form.district_url }}">{% trans %}список районов{% endtrans %}</a></div>
+                        {% endif %}
+                    </div>
+                {% endif %}
+                {%- if form.streets -%}
+                    <div class="tab-pane" id="search-street">
+                        {{ form.addr_street_id|add_class('hidden') }}
+                        {{ form.addr_street|add_class('form-control')|safe }}
+                        <script>
+                            $().ready(function() {
+                                initStreetFilter({{ form.streets|to_json() }});
+                            });
+                        </script>
+                        {% if form.streets_url is defined %}
+                            <div class="streets_link"><a href="{{ form.streets_url }}">{% trans %}список улиц{% endtrans %}</a></div>
+                        {% endif %}
+                    </div>
+                {% endif %}
+                {% if deal_type is not defined or deal_type != 'newhomes' %}
+                    <div class="tab-pane" id="search-id">
+                        {{ form.id|add_class('form-control')|safe }}
+                        {% if region.kind == 'province' %}
+                            <div class="streets_link"><a href="{{ form.settlements_url }}">{% trans %}список населенных пунктов{% endtrans %}</a></div>
+                        {% endif %}
+                    </div>
+                {% endif %}
+                {%- if form.subway_lines -%}
+                  <div class="tab-pane" id="search-subway">
+                    <div class="hidden">
+                        {{ form.subway_stations|add_class('form-control')|safe }}
+                    </div>
+                    <div class="dropdown">
+                        <input class="form-control" type="text" id="subway" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" value="" placeholder="{% trans %}Без привязки к метро{% endtrans %}"/>
+                        <div class="row subway-popup dropdown-menu" aria-labelledby="subway">
+                            {% for sl in form.subway_lines %}
+                                <div class="col-xs-8">
+                                <ul style="color:{{ sl.color }};">
+                                    {% for station in sl.stations.all() %}
+                                        <li data-subway-id="{{ station.id }}"><div>{{ station }}</div></li>
+                                    {% endfor %}
+                                </ul>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% if form.subway_url is defined %}
+                       <div class="streets_link"><a href="{{ form.subway_url }}">{% trans %}список станций метро{% endtrans %}</a></div>
+                    {% endif %}
+                  </div>
+                {% endif %}
+                {% if deal_type is defined and deal_type == 'newhomes' %}
+                  <div class="tab-pane{% if region_for_search.id == 1 %} active{% endif %}" id="search-name">
+                    {{ form.name|add_class('form-control')|safe }}
+                  </div>
+                  <div class="tab-pane" id="search-developer">
+                    {{ form.developer|add_class('form-control')|safe }}
+                  </div>
+                {% endif %}
+            </div><!-- .tab-content end -->
+          </div>
+        </div>
+
+        {% if deal_type is defined and deal_type != 'newhomes' %}
+          <div class="search-form-favorite" style="position: absolute;right:0;top:75px;z-index:10">
+            {% if request.user.is_authenticated() and is_saved_search is defined %}
+                <a href="{{ url('profile_subscribe_search') }}?{{ saved_search_query }}" class="save-search pull-right"
+                   data-toggle="popover" data-trigger="hover"  data-content="{% trans %}Сохраните поиск, чтобы получить самые свежие предложения на вашу почту{% endtrans %}" data-placement="right"
+                   title="{% trans %}Не упустите новые объекты!{% endtrans %}"><i class="icon icon-favorite{% if is_saved_search %}-active{% endif %} "></i><span>{% trans %}Сохранить поиск{% endtrans %}</span></a>
+            {% else %}
+                <a class="save-search default-tooltip pull-right" data-target="#login-popup"  data-toggle="modal"
+                   title='{% trans %}Получи еще больше возможностей на сайте. Жми кнопку "зарегистрироваться"{% endtrans %}'><i class="icon icon-favorite"></i><span>{% trans %}Сохранить поиск{% endtrans %}</span></a>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endwith %}
+    {% endif %}
+</div>

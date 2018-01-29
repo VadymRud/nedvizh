@@ -1,0 +1,21 @@
+{% load thumbnail_filter staticfiles %}
+
+{% with banks.count as banks_count %}
+<div class='banks-partners items-count-{{ banks_count }}'>
+    <div class='title'>Нашими партнерами уже стали:</div>
+    <ul class='jcarousel-skin-homepage-news'>
+        {% for bank in banks %}
+            <li>
+                <a href="/banks/{{ bank.id }}/">
+                    <img src="{{ bank.logo|thumbnail:"160,nocrop=1" }}" alt='{{ bank.name|escape }}' border='0'>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <script type="text/javascript" src="{% static 'bank/js/libs/jquery.jcarousel.min.js' %}"></script>
+    <script type="text/javascript">
+        $(".banks-partners ul").jcarousel({% if banks_count > 4 %}{animation: 'slow', auto: 5, wrap: 'circular'}{% endif %}); 
+    </script>
+</div>
+{% endwith %}
+

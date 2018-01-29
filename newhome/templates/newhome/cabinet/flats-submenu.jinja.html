@@ -1,0 +1,32 @@
+<div class="row border-bottom">
+    <div class="col-xs-18 text-center flats-submenu">
+        <ul>
+            <li{% if active == 'flats' %} class="active"{% endif %}><a href="{{ url('profile_newhome_flats', newhome.id, section.id) }}" title="">{% trans %}Планировки квартир{% endtrans %}</a></li>
+            <li{% if active == 'floors' %} class="active"{% endif %}><a href="{{ url('profile_newhome_floors', newhome.id, section.id) }}" title="">{% trans %}Планировки этажей{% endtrans %}</a></li>
+            <li{% if active == 'flats-available' %} class="active"{% endif %}><a href="{{ url('profile_newhome_flats_available', newhome.id, section.id) }}" title="">{% trans %}Свободные квартиры{% endtrans %}</a></li>
+        </ul>
+    </div>
+    <div class="col-xs-6 padding-top-7">
+        <select class="selectpicker" id="section-changer">
+            <option value="#"{% if not section.id %} selected="selected"{% endif %}>{% trans %}Выберите дом, секцию{% endtrans %}</option>
+            {% for building in newhome.buildings.all() %}
+                {% for section_ in building.sections.all() %}
+                    {% if active == 'flats' %}
+                        {% set section_url=url('profile_newhome_flats', newhome.id, section_.id) %}
+                    {% elif active == 'floors' %}
+                        {% set section_url=url('profile_newhome_floors', newhome.id, section_.id) %}
+                    {% else %}
+                        {% set section_url=url('profile_newhome_flats_available', newhome.id, section_.id) %}
+                    {% endif %}
+                    <option value="{{ section_url }}"{% if section.id == section_.id %} selected="selected"{% endif %}>{{ building.name }}, {% trans %}секция{% endtrans %} {{ section_.position }}</option>
+                {% endfor %}
+            {% endfor %}
+        </select>
+    </div>
+</div>
+
+<script>
+    $().ready(function() {
+        changeLocation('#section-changer');
+    })
+</script>

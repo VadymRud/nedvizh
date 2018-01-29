@@ -1,0 +1,267 @@
+/* styles for ocenka_nedvizh */
+.wrapper_content {
+    padding: 20px 0 0;
+    font-family: "OpenSans";
+    overflow: auto;
+}
+#ocenka_nedvizh h1 {
+    font-family: "OpenSans-Light";
+    font-size: 48px;
+    font-weight: 300;
+}
+#ocenka_nedvizh .main_wrapper h3 {
+    font-size: 24px;
+    padding: 10px 0 20px;
+    line-height: 1.5;
+}
+#ocenka_nedvizh .main_wrapper h3 b {
+    font-family: 'OpenSansBold';
+}
+#ocenka_nedvizh .main_wrapper ul {
+    list-style: none;
+    margin-left: -45px;
+    margin-bottom: 0;
+}
+#ocenka_nedvizh .main_wrapper ul li {
+    font-size: 16px;
+    font-family: "OpenSans";
+    text-align: left;
+    background: url("../img/ico_select_green.png")  0 0.9em no-repeat;
+    padding-left: 22px;
+    line-height: 2.2;
+}
+#ocenka_nedvizh .main_wrapper ul b {
+    font-family: "OpenSansBold";
+}
+#ocenka_nedvizh .btn-md {margin-bottom:10px;padding: 10px 20px;}
+
+#ocenka_nedvizh .main_wrapper .why {
+    color: #303030;
+    font-family: "OpenSans";
+    display: inline-block;
+    font-size: 16px;
+    padding: 7px 10px 7px 0;
+    margin: 10px 10px 20px 0;
+}
+#ocenka_nedvizh .main_wrapper .buttons {
+    padding: 20px 0 40px;
+}
+#ocenka_nedvizh .form_wrapper .buttons {
+    padding: 20px 0 0;
+}
+#ocenka_nedvizh .main_wrapper .buttons .flag, #ocenka_nedvizh .form_wrapper .buttons .flag {
+    background: url("../img/img_flag.png")  0 no-repeat;
+    font-family: 'OpenSansBold';
+    display: inline-block;
+    font-size: 28px;
+    width: 97px;
+    height: 51px;
+    line-height: 0.4;
+    vertical-align: top;
+    padding: 12px 0 0 15px;
+    position: relative;
+    top: -3px;
+    margin-right: 40px;
+}
+#ocenka_nedvizh .form_wrapper .buttons .flag {
+    margin-right: 0;
+    text-align: left;
+}
+#ocenka_nedvizh .main_wrapper .buttons .flag span, #ocenka_nedvizh .form_wrapper .buttons .flag span {
+    font-size: 9px;
+}
+
+#ocenka_nedvizh .zakaz_ocenki {
+    background: #E7EFF2;
+    margin-top: 40px;
+}
+#ocenka_nedvizh .form_wrapper {
+    background: #F4F9FA;
+    margin: 100px 0 0;
+}
+#ocenka_nedvizh .form_wrapper p {
+    line-height: 1.5;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+#ocenka_nedvizh .form_wrapper p span {
+    font-size: 12px;
+}
+#ocenka_nedvizh .form_wrapper .form_block {
+    background: #E7EFF2;
+    text-align: center;
+    margin-bottom: 40px;
+}
+#ocenka_nedvizh .zakaz_ocenki h2 {
+    font-size: 24px;
+    padding-bottom: 25px;
+}
+#ocenka_nedvizh .form_block:before {
+    content: '';
+    background: url("../img/ocenka_nedvizh/img_plashka.png")  0 no-repeat;
+    width: 101px;
+    height: 102px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#ocenka_nedvizh .form_wrapper h3 {
+    font-size: 39px;
+    font-family: 'OpenSans';
+    margin-top: 50px;
+}
+#ocenka_nedvizh .form_wrapper a {
+    text-decoration: none;
+    color: inherit;
+    cursor: default;
+}
+#ocenka_nedvizh .form_wrapper h4 {
+     font-size: 20px;
+     font-family: 'OpenSans';
+     line-height: 1.7;
+     padding: 0 20px 20px;
+ }
+#ocenka_nedvizh .form_wrapper h4 a {
+    text-decoration: underline;
+    color: #ff1b55;
+    cursor: pointer;
+}
+#ocenka_nedvizh .zakaz_ocenki > div {
+    padding: 20px 0 35px;
+    overflow: auto;
+}
+#ocenka_nedvizh .zakaz_ocenki div div {
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+
+}
+#ocenka_nedvizh .zakaz_ocenki div div img {
+    padding-bottom: 10px;
+    vertical-align: top;
+}
+#ocenka_nedvizh .zakaz_ocenki div p {
+    font-family: "OpenSansBold";
+    padding: 0 8px;
+    margin-bottom: 5px;
+}
+#ocenka_nedvizh .zakaz_ocenki div p.step {
+    text-align: left;
+}
+#ocenka_nedvizh .partners h4 {
+    padding: 50px 0 30px;
+    line-height: 1.5;
+}
+#ocenka_nedvizh .partners .nazaret {
+    font-size: 24px;
+    line-height: 1.3;
+    margin: 70px 0;
+    text-align: left;
+}
+#ocenka_nedvizh .partners .nazaret img {
+    text-align: right;
+    float: left;
+    padding-right: 30px;
+}
+#ocenka_nedvizh .partners .pad0 {
+    padding: 0;
+    text-align: left;
+}
+#ocenka_nedvizh .analysis-form {
+    padding: 0 85px;
+}
+#ocenka_nedvizh .analysis-form .widget .bootstrap-select {
+    border: 1px solid #C0C0C0;
+    border-radius: 3px 0 0 3px;
+    border-right: none;
+    background: #F4F7F9;
+    padding: 0 10px 0 0;
+}
+#ocenka_nedvizh .analysis-form .widget .bootstrap-select.btn-group .caret {
+    right: 0 !important;
+}
+#ocenka_nedvizh .analysis-form .localnumber {
+    border-left: none;
+}
+#ocenka_nedvizh .analysis-form .you_price {
+    font-size: 16px;
+    background: #bedbe6;
+    border-radius: 3px;
+    text-align: left;
+    padding: 0 10px 7px;
+}
+#ocenka_nedvizh .analysis-form .you_price span {
+    font-size: 30px;
+    padding-left: 20px;
+}
+.analysis-form input.form-control::-webkit-input-placeholder {color:#9a9a9a !important; font-size: 16px}
+.analysis-form input.form-control::-moz-placeholder          {color:#9a9a9a !important; font-size: 16px}/* Firefox 19+ */
+.analysis-form input.form-control:-moz-placeholder           {color:#9a9a9a !important; font-size: 16px}/* Firefox 18- */
+.analysis-form input.form-control:-ms-input-placeholder      {color:#9a9a9a !important; font-size: 16px}
+@media (max-width: 1200px) {
+
+    #ocenka_nedvizh .zakaz_ocenki > div {
+        padding: 20px;
+    }
+    #ocenka_nedvizh .main_wrapper, #ocenka_nedvizh .partners {
+        padding: 0 40px;
+    }
+    #ocenka_nedvizh .partners {
+        text-align: center;
+    }
+    #ocenka_nedvizh .zakaz_ocenki div div {
+        margin-bottom: 20px;
+    }
+    #ocenka_nedvizh .partners .nazaret {
+        padding: 20px 0;
+        text-align: center;
+        margin: 30px 0;
+    }
+    #ocenka_nedvizh .partners img {
+        margin-bottom: 20px;
+    }
+    #ocenka_nedvizh .partners .nazaret img {
+        float: none;
+    }
+    #ocenka_nedvizh .analysis-form {
+        padding: 0 50px;
+    }
+}
+@media (max-width: 992px) {
+    #ocenka_nedvizh .analysis-form {
+        padding: 0 50px;
+    }
+    #ocenka_nedvizh .form_wrapper .form_block {
+        margin-bottom: 10px;
+    }
+    #ocenka_nedvizh .partners .pad0 {
+        overflow: auto;
+        text-align: center;
+
+    }
+    #ocenka_nedvizh .partners h4 {
+        font-size: 20px;
+    }
+    #ocenka_nedvizh .buttons input {
+        margin-bottom: 10px;
+    }
+    #ocenka_nedvizh .main_wrapper .why {
+        margin: 10px 0;
+    }
+    #ocenka_nedvizh .main_wrapper h1 {
+        font-size: 30px;
+    }
+    #ocenka_nedvizh .main_wrapper .buttons {
+        padding: 20px 0;
+    }
+    #ocenka_nedvizh .form_wrapper .form_block {
+        overflow: auto;
+    }
+    #ocenka_nedvizh .form_wrapper {
+        background: none;
+    }
+    #ocenka_nedvizh .form_wrapper h3 {
+        margin-top: 30px;
+        padding: 0 20px;
+    }
+}

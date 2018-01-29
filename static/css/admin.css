@@ -1,0 +1,11 @@
+form.property-id-filter {margin: 0 10px;}
+form.property-id-filter input[type="text"] {
+    font-size: 11px;
+    width: 102px;
+}
+form.property-id-filter input[type="submit"] {
+    font-size: 11px;
+    padding: 1px 3px;
+    border-left: none;
+}
+

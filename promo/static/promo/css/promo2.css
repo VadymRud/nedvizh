@@ -1,0 +1,172 @@
+body {position: relative}
+body, .btn, h6, table {font-family:'pf_din';}
+.card {padding:0;}
+.card h1 {font-size:45px;}
+.card h6 {font-size:16px;font-weight: bold;text-transform: none}
+.card .description {color:#858585;font-size:22px;margin-bottom:15px;line-height: 1.1}
+.tooltip {white-space: nowrap;}
+.tooltip-inner {padding:10px 12px !important;background-color: rgba(0,0,0,0.5)}
+.tooltip.left .tooltip-arrow  {border-left-color: rgba(0,0,0,0.5) !important;}
+.tooltip.top .tooltip-arrow  {border-top-color: rgba(0,0,0,0.5) !important;}
+
+.card:nth-child(2n) {
+    background: transparent;
+}
+
+#part1, #part2 {position:relative}
+.navigation {
+    position:absolute;width:200px;height: 100%;
+    top:0;right:0;
+    clip: rect(auto, auto, auto, auto);
+}
+    .navigation ul {
+        position: fixed;
+        top:50%;
+        right:20px;
+        margin-top:-66px;
+        z-index:10;
+    }
+    .navigation .nav a {display: block;padding:3px;}
+    .navigation .nav a,.navigation .nav li {position: static}
+    .navigation .nav a:focus, .navigation .nav a:hover  {background: transparent}
+    .navigation a:before {content:" ";border:3px solid #f56a8d;border-radius: 10px;display:block;}
+    #part1 .navigation .active a:before {border-color:white;}
+    #part2 .navigation  a:before {border-color:#febbcc;}
+    #part2 .navigation .active a:before {border-color:#fd1e56;}
+
+#part2 .scroll-top {
+    color:#f52e5f;
+    display: block;
+    position: absolute;
+    width:85px;height:100%;
+    top:0;left:0;
+    clip: rect(auto, auto, auto, auto);
+    z-index: 10;
+    transition: all 0.2s ease;
+}
+    #part2 .scroll-top .glyphicon-triangle-top {font-size:12px;}
+    #part2 .scroll-top span {
+        position:fixed;
+        bottom:30px;left:0;
+        width:85px;
+        text-align: center;
+    }
+    #part2 .scroll-top:hover {background:rgba(245,46,95, 0.1);}
+
+#top {
+    background: #f52e5f;
+    color:white;
+}
+    #top .logo {margin-bottom:25px}
+    #top .btn {color:white;border-radius: 20px;margin-left:-12px;}
+    #top .btn:hover {background: #c80e3c;}
+    #top h5 {
+        font-size:22px;
+        margin: 35px 0 20px;
+    }
+    #top p {opacity:0.7}
+    #top .row {margin:25px 0}
+
+#visitors h1 {margin:83px 0 0;}
+    #visitors .description {margin:0 0 22px;}
+    #visitors .img-responsive {margin:0 auto;}
+    #visitors .img-responsive.legend {margin:0 auto 25px;}
+
+#offers {line-height: 1.1;}
+    #offers h1 {margin:83px 0 120px;}
+    #offers .offer {display: none;}
+        #offers .offer .title {color:#333333;font-weight: bold;font-size:18px;margin:75px 0 3px;}
+        #offers .offer-3 .title {margin-top:30px;}
+        #offers .offer .subtitle {color:#858585;display: block;}
+        #offers .offer ul {padding: 0;margin: 30px 0 0;list-style-position: inside;}
+            #offers .offer li {margin-bottom:15px;}
+    #offers .monitor {background: url(../img/monitor.png) no-repeat;padding:22px 22px 0;width:517px;height:415px;}
+        #offers .screen {width:473px;height:266px;overflow: hidden;}
+        #offers .screen img {width:473px;height:266px;}
+    #offers .row {margin-bottom:80px;}
+
+    #offer-1 {position: absolute;top:-400%;}
+    #offer-2 {position: absolute;top:-260%;}
+    #offer-3 {position: absolute;top:-150%;}
+
+#goals {}
+    #goals h1 {margin:160px 0 0;}
+    #goals .description {margin-bottom:60px;}
+    #goals .row {font-size:16px;line-height: 1;margin-bottom:100px;}
+        #goals .row img {margin-bottom:15px;}
+
+#forecast {padding-bottom:90px}
+    #forecast h1 {margin:90px 0 0;}
+    #forecast .point {display:block;position: absolute;left:50%;margin-left:-70px;top:185px;width:30px;height:30px;}
+    #forecast .tooltip {white-space: normal;}
+    #forecast p {font-size: 18px;}
+
+#changes {background: #f9f9fa;padding:55px 0 100px}
+    #changes .image {margin:0 0 18px;}
+    #changes h1 {margin:0 0 90px;}
+    #changes .description {margin:0 0 70px;line-height: 1}
+    #changes .row {margin:0 0 20px;line-height: 1.1}
+    #changes .row p {margin-bottom:20px;}
+
+#need-to-do {padding:80px 0 80px}
+    #need-to-do .image {margin:0 0 10px}
+    #need-to-do h1 {margin:0 0 40px}
+    #need-to-do table {color:#333333;font-size:15px;width:100%;max-width:680px;margin:0 auto;line-height:1.3;}
+        #need-to-do table thead {font-size:18px}
+        #need-to-do table thead td {border-bottom:2px solid #eaeaea;color:#fc2357;font-weight: bold;}
+        #need-to-do table tbody {text-align:left;}
+        #need-to-do table th, #need-to-do table td {padding:12px 30px;}
+        #need-to-do table>tbody>tr:nth-child(even)>td {background: #f9f9fa;}
+
+#how-much {background: #f9f9fa}
+    #how-much .row {margin:0}
+    #how-much .prices {margin:0 0 20px}
+    #how-much h1 {margin:55px 0 10px;}
+    #how-much table thead span {color:#fc2357;font-weight:bold;font-family: 'pf_din';}
+    #how-much table td:first-child {padding-right:40px;}
+    #how-much .note {color:#656565;font-size:12px;}
+
+#faq  {padding:50px 0 50px}
+    #faq h1 {margin:0 0 25px;}
+    #faq h6 {margin:22px 0 15px;color:#fd1e56;cursor:pointer}
+    #faq h6:hover {text-decoration: underline}
+    #faq h6:after {content:" +";}
+    #faq ul {display:none;}
+        #faq ul li {margin-bottom:17px;line-height: 1.2;}
+        #faq ul a {text-decoration: none}
+        #faq ul a:hover {text-decoration: underline}
+
+    #faq .open h6 {color:#333333;}
+    #faq .open h6:after {content:" -";}
+    #faq .open ul {display:block;}
+
+
+.bootstrap-select.btn-group .btn {
+    background: transparent;
+    box-shadow: none !important;
+    padding:10px 40px !important;
+    text-transform: uppercase;
+}
+    .bootstrap-select.btn-group .btn .filter-option {border-bottom:1px solid #c7c7c8;}
+    .bootstrap-select.btn-group .btn .caret {right:40px !important;}
+    .bootstrap-select.btn-group.open .btn {
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 12px 0px !important;
+        border-radius: 3px 3px 0 0;
+    }
+    .bootstrap-select.btn-group div.dropdown-menu {
+        background: #f9f9fa;
+        border:0;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 12px 0px !important;
+        border-radius: 0 0 3px 3px;
+    }
+    .bootstrap-select.btn-group .dropdown-menu.inner {
+        background: transparent;
+        padding:0 40px;
+        text-transform: uppercase;
+    }
+    .bootstrap-select.btn-group .dropdown-menu li a {
+        background: transparent !important;
+        color:inherit !important;
+        padding:5px 0;
+    }
+    .bootstrap-select .dropdown-menu li.selected {opacity: 0.5}

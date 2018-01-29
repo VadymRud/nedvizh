@@ -1,0 +1,77 @@
+{% extends "profile/base.jinja.html" %}
+
+{% block content %}
+    {% if not request.user.email %}
+        <p class="warning">E-mail не указан. <a href="{{ url('change_email') }}">{% trans %}Укажите E-mail{% endtrans %}</a> {% trans %}и вы сможете получать уведомления о новых обьявлениях{% endtrans %}</p>
+    {% endif %}
+    <div class="white-panel-header">
+        <div class="pull-right pull-padding">
+            <a href='{{  url('profile_clear_saved_searches') }}' class='btn btn-bordered confirm-delete'>{% trans %}Очистить список{% endtrans %}</a>
+        </div>
+        <h4 class="page-title">{% trans %}Сохраненные поиски{% endtrans %}</h4>
+    </div>
+    <div class="white-panel">
+        {% if searches_list %}
+            <div class='searches-list clearfix'>
+                {% for group in searches_list|groupby('day')|reverse %}
+                    <h6>{{ group.grouper }}</h6>
+                    {% for search in group.list|reverse %}
+                        {% with rooms = search.get_room_filter() %}
+                            <div class="search clearfix">
+                                <div class='col deal-type '>{{ search.get_deal_type_display()|capitalize }}</div>
+                                <div class='col'>
+                                    <i class="glyphicon glyphicon-map-marker"></i>
+                                    <a class='link' href='{{ search.get_full_url() }}'>{{ search }}</a>
+                                </div>
+                                <div class='col'>{{ search.get_property_type_display()|capitalize }}</div>
+                                {% if rooms %}
+                                    <div class='col rooms'>{{ rooms }}</div>
+                                {% endif %}
+                                {% if search.get_price_filter()  %}
+                                    <div class='col price'>
+                                        {{ search.get_price_filter() }}
+                                    </div>
+                                {% endif %}
+                                {% if request.user.email %}
+                                    <div class="col subscribe" title="{% trans %}Уведомлять о новых обьявлениях по почте{% endtrans %}">
+                                        <form method="get" action="">
+                                            <input name="saved_search_id" type="hidden" value="{{search.id}}">
+                                            <label>
+                                                {% if not search.subscribe %}
+                                                    <input class="subscribe" type="checkbox" name="subscribe" value="1">
+                                                    {% trans %}подписка{% endtrans %}
+                                                {% else %}
+                                                    <input type="hidden" value="" name="subscribe">
+                                                    <input class="subscribe" type="checkbox" checked="checked"> {% trans %}подписка{% endtrans %}
+                                                {% endif %}
+                                            </label>
+                                        </form>
+                                    </div>
+                                {% endif %}
+                                <div class='pull-left'>
+                                    <a href='{{ url('profile_delete_saved_searches', search.id) }}' class='close confirm-delete'>
+                                    <i class="glyphicon glyphicon-remove"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        {% endwith %}
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>{% trans %}У вас нет сохраненных поисков.{% endtrans %}</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block extra_footer %}
+    <script>
+        $('.searches-list .search .col').not('.subscribe').bind('click', function() {
+            window.location = $(this).parent().find('a.link').attr('href');
+        }).css('cursor', 'pointer');
+
+        $('.subscribe').bind('change', function(){
+            $(this).parent().find('form').submit()
+        })
+    </script>
+{% endblock %}

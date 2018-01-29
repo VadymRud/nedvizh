@@ -1,0 +1,48 @@
+{% extends 'faq/base.jinja.html' %}
+
+{% block breadcrumb %}
+    <li><a href="{{ faq_article.category.get_absolute_url() }}">{% trans %}Статьи{% endtrans %} &#8220;{{ faq_article.category }}&#8221;</a></li>
+    <li>{{ faq_article }}</li>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-16">
+            <div class="white-panel">
+                <div class="row">
+                    <div class="col-sm-offset-1 col-sm-20">
+
+                        <br/>
+                        <h4>{{ faq_article }}</h4>
+                        {{ faq_article.content|safe }}
+
+                        {% if faq_article.video and faq_article.video|length > 20 %}
+                            <hr>
+                            <h4>{% trans %}Видеообучение{% endtrans %}</h4>
+                            {{ faq_article.video|safe }}
+                        {% endif %}
+
+                        <hr/>
+
+                        {% if next_article or prev_article %}
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    {% if prev_article %}
+                                        &#x2190;&nbsp;<a href="{{ prev_article.get_absolute_url() }}" title="{{ prev_article }}">{{ prev_article }}</a>
+                                    {% endif %}
+                                </div>
+                                <div class="col-sm-10 col-sm-offset-4 text-right">
+                                    {% if next_article %}
+                                        <a href="{{ next_article.get_absolute_url() }}" title="{{ next_article }}">{{ next_article }}</a>&nbsp;&#x2192;
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <br/>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

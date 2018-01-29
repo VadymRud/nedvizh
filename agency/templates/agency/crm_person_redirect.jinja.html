@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+    <title>{% trans %}Переадресация{% endtrans %}</title>
+    <script>
+        var message_url = '{{ url('messages:inbox') }}';
+        var dialog_id = window.location.hash.split('/')[1];
+        if (dialog_id) {
+            message_url += '#{{ url('messages:reply', 666) }}'.replace('666', dialog_id);
+        }
+        window.location = message_url;
+    </script>
+
+</head>
+<body></body>
+</html>

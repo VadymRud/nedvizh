@@ -1,0 +1,59 @@
+{% extends "mail/base_redesigned_2017.jinja.html" %}
+
+{% block content %}
+  <tr>
+    <td>
+      <div class="text-wrap left-padding right-padding default-bottom-padding">
+        {% if event.type == 'webinar' %}
+          {% trans %}Приглашаем Вас принять участие в бесплатном вебинаре{% endtrans %}<br> <strong>Mesto School</strong> {% trans %}на тему:{% endtrans %}
+        {% else %}
+          {% trans %}Приглашаем Вас принять участие в семинаре{% endtrans %}<br> <strong>Mesto School</strong> {% trans %}на тему:{% endtrans %}
+        {% endif %}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap default-bottom-padding text-center" style="font-size: 16px;">
+        <strong class="pink">{{ event.get_title() }}</strong>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap default-bottom-padding text-center">
+        <img src="{{ static('webinars/mail/event-invitation.png') }}" width="106" height="111" style="width: 106px; height: 111px;">
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap left-padding right-padding default-bottom-padding">
+        {% if event.type == 'webinar' %}
+          {% trans %}Начало вебинара{% endtrans %}
+        {% else %}
+          {% trans %}Начало семинара{% endtrans %}
+        {% endif %}
+        <strong>{{ event.start_at|date("d E Y") }} {% trans %}в{% endtrans %} {{ event.start_at|date("H:i") }}</strong>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap left-padding right-padding default-bottom-padding">
+        {% if event.type == 'webinar' %}
+          {% trans %}Регистрируйтесь сейчас и за час до начала трансляции, на Ваш e-mail придет письмо со ссылкой на комнату проведения вебинара.{% endtrans %}
+        {% else %}
+          {% trans %}Регистрируйтесь сейчас и на Ваш e-mail придет письмо с информацией о месте и времени проведения семинара.{% endtrans %}
+        {% endif %}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap text-center">
+        <a href="{{ event.get_absolute_url() }}{% if utm is defined %}?{{ utm.urlencode() }}{% endif %}" target="_blank" class="button" style="font-size: 16px;">{% trans %}Принять участие{% endtrans %}</a>
+      </div>
+    </td>
+  </tr>
+{% endblock %}

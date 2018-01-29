@@ -1,0 +1,10 @@
+{% extends 'redirect.jinja.html' %}
+
+{% block redirect_action %}
+    document.getElementsByTagName('form')[0].submit();
+{% endblock %}
+
+{% block content %}
+    {{ super() }}
+    <div style="display:none;">{{ form|safe }}</div>
+{% endblock %}

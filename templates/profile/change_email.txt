@@ -1,0 +1,4 @@
+{% load i18n %}
+
+Для подтверждения изменения E-mail вашей учетной записи на {{ change.new_email }} пройдите по ссылке https://{{ site.domain }}{% url 'confirm_email_change' change.confirmation_key %}
+

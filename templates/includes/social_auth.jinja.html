@@ -1,0 +1,14 @@
+{% if request.path.startswith('/auth/') %}
+    {% set next = url('index') %}
+{% else %}
+    {% set next = request.build_absolute_uri() %}
+{% endif %}
+<div class='social-auth'>
+    <a href="{{ url('social:begin', 'facebook') }}?next={{ next }}" title='{% trans %}Войти с помощью Facebook{% endtrans %}' class='ico icon-fb'>Facebook</a>
+    <a href="{{ url('social:begin', 'google-oauth2') }}?next={{ next }}" title='{% trans %}Войти с помощью Google{% endtrans %}' class='ico icon-g'>Google</a>
+</div>
+<div class="row">
+    <div class="hidden-xs col-sm-4"></div>
+    <div class="col-sm-16 text-center"><p class="text-muted text-center">{% trans %}Заходя в аккаунт, вы соглашаетесь с нашими Правилами и условиями и <a href="#">Положением о конфиденциальности</a>{% endtrans %}</a></p></div>
+    <div class="hidden-xs col-sm-4"></div>
+</div>

@@ -1,0 +1,4 @@
+PropertyID,"ListGloballyID","Events","Year","Month","Day","hits"
+{% for stat in stats %}
+{{ stat.basead }}, "{{ stat.basead__ad__xml_id }}","DetailPage","{{ stat.date.year }}","{{ stat.date.month }}","{{ stat.date.day }}","{{ stat.detail_views }}"
+{%- endfor %}

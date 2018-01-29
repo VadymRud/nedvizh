@@ -1,0 +1,103 @@
+{% extends 'base.jinja.html' %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{{ static("libs/slick/slick.css") }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ static("libs/slick/slick-theme.css") }}"/>
+{% endblock %}
+
+{% block extra_footer %}
+    <script type="text/javascript" src="{{ static("libs/slick/slick.min.js") }}"></script>
+    <script>
+        initHomepage();
+        $(function () {
+            $('#search-property #id_country, #search-property #id_city').change(function() {
+                $('#search-property #id_region_choose').val($(this).val());
+            }).removeAttr('name');
+            $('#search-property #id_country').change(function() {
+                var label = $(this).find(':selected').text();
+                $('#search-property #id_city').val('').find('optgroup').addClass('hidden')
+                    .filter('[label="' + label + '"]').removeClass('hidden');
+            }).change();
+            $('#search-property #id_deal_type').change();
+        });
+    </script>
+    {#
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?115"></script>
+    <script type="text/javascript">
+        VK.Widgets.Group("vk_groups", {mode: 0, width: "375", height: "270", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 22073049);
+    </script>
+     #}
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+{% endblock %}
+
+{% block content_wrapper %}
+    <div class="l-property-search l-mainpage-search l-international-search">
+        <div class="container">
+            {% include "ad/search_form_mainpage.jinja.html" %}
+        </div>
+    </div>
+
+    {% cache 60*5 'international-properties' request.subdomain LANGUAGE_CODE %}
+        <div class="properties-list properties-search-result-list container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2><a href="/rent/">{% trans %}Аренда{% endtrans %}</a></h2>
+                    {% for property in properties.rent %}
+                        {% include "ad/preview.jinja.html" %}
+                    {% endfor %}
+                    <p><a href="{{ request.subdomain_region.get_deal_url('rent') }}">{% trans %}Все объявления аренды{% endtrans %}</a></p>
+                </div>
+                <div class="col-lg-12">
+                    <h2><a href="/sale/">{% trans %}Продажа{% endtrans %}</a></h2>
+                    {% for property in properties.sale %}
+                        {% include "ad/preview.jinja.html" %}
+                    {% endfor %}
+                    <p><a href="{{ request.subdomain_region.get_deal_url('sale') }}">{% trans %}Все объявления продажи{% endtrans %}</a></p>
+                </div>
+            </div>
+        </div>
+        <br/>
+    {% endcache %}
+
+    <div class="panel-gray">
+        <div class="container">
+            <h2>{% trans %}Все страны{% endtrans %}</h2>
+
+            <div class="row">
+                {%- for row in countries|slice(3) %}
+                  <div class="col-sm-6 col-md-5">
+                      <ul class="list-unstyled">
+                          {%- for country in row %}
+                            <li><a href="{{ country.get_deal_url('sale') }}">{{ country.name }}</a></li>
+                          {%- endfor %}
+                      </ul>
+                  </div>
+                {%- endfor %}
+            </div><br/>
+
+        </div>
+    </div>
+
+    {% if seo_text_block %}
+        <div class="container">
+            <div class="mainpage-content">
+                <div class="row">
+                    {{ seo_text_block.text|safe }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <br/>
+
+{% endblock %}

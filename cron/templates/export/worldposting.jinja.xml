@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listings>
+  {% for item in feed.iterate_items() %}{% with agency =  item.user.get_own_agency() %}
+    <listing>
+      {%- include 'export/autofields.jinja.xml' -%}
+
+      <status>create</status>
+
+    <lead_email><![CDATA[{{ item.user.email|default("info@mesto.ua") }}]]></lead_email>
+
+      <property_type>{{ item.property_type|replace('flat', 'apartment') }}</property_type>
+      <transaction_type>{{ {'rent':'rental', 'rent_daily':'rental'}.get(item.deal_type, 'sale') }}</transaction_type>
+      <transaction_status>active</transaction_status>
+      <price>{% if item.deal_type == 'rent_daily' %}{{ item.price * 30 }}{% else %}{{ item.price }}{% endif %}</price>
+      <period>{{ {'rent':'monthly', 'rent_daily':'monthly'}.get(item.deal_type, '') }}</period>
+      <living_area_unit>m2</living_area_unit>
+      <created_date>{{ item.created|date('Y-m-d') }}</created_date>
+      <updated_date>{{ item.modified|date('Y-m-d') }}</updated_date>
+
+      {% with
+          province = item.location.get('province'),
+          locality = item.location.get('locality') or item.location.get('village') or ''
+      -%}
+        <country>{{ item.addr_country }}</country>
+        <state><![CDATA[{{ province }}]]></state>
+        <city><![CDATA[{{ locality }}]]></city>
+        {% if item.location.get('district') %}
+          <subcity><![CDATA[{{ item.location.get('district') }}]]></subcity>
+        {% endif %}
+        <streetaddress><![CDATA[{{ item.addr_street }} {{ item.addr_house }}]]></streetaddress>
+      {% endwith %}
+
+      {%- with coords = item.get_coords() -%}
+        <geocode_latitude>{{ coords[1] }}</geocode_latitude>
+        <geocode_longitude>{{ coords[0] }}</geocode_longitude>
+      {%- endwith -%}
+
+      <descriptions>
+        <description>
+          <title>{{ item.title }}</title>
+          <long_description><![CDATA[{{ item.description|remove_control_chars() }}]]></long_description>
+          <language>uk</language>
+        </description>
+      </descriptions>
+
+      {%- if item.cleaned_photos -%}
+      <medias>
+        {%- for photo in item.cleaned_photos -%}
+          <media><media_url><![CDATA[{{ photo.smart_thumbnail('full') }}]]></media_url></media>
+        {% endfor %}
+      </medias>
+      {%- endif -%}
+
+      <contacts>
+        <contact>
+          <contact_id>{{ item.user_id }}</contact_id>
+          <contact_type>{{ 'agent' if agency else 'owner' }}</contact_type>
+          {% if agency and '@' not in agency.name %}
+              <contact_name><![CDATA[{{ agency.name }}]]></contact_name>
+          {% elif item.user.first_name or item.user.last_name  %}
+              <contact_name><![CDATA[{{ item.user.first_name }} {{ item.user.last_name }}]]></contact_name>
+          {% endif %}
+          <contact_email><![CDATA[{{ item.user.email|default("info@mesto.ua") }}]]></contact_email>
+          <contact_phone><![CDATA[{% for phone in item.phones.all() %}{{ phone.number }}{% if not loop.last %} {% endif %}{% endfor %}]]></contact_phone>
+          <contact_country>UA</contact_country>
+          {%- if item.user.city -%}
+            <contact_city>{{ item.user.city }}</contact_city>
+          {%- endif %}
+        </contact>
+      </contacts>
+    </listing>
+  {% endwith %}{% endfor %}
+</listings>

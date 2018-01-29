@@ -1,0 +1,13 @@
+{% extends "mail/base_2017.04.jinja.html" %}
+
+{% block greetings %}{% endblock %}
+
+{%- block content %}
+  <tr>
+    <td valign="top">
+      <a href="{{ host_url('landing:poltava') }}{% if utm is defined %}?{{ utm.urlencode() }}{% endif %}" target="_blank">
+        <img src="{{ static('mail/img/landings/poltava/mail-01.png') }}" width="700" height="402" style="width: 700px; height: 402px;">
+      </a>
+    </td>
+  </tr>
+{% endblock -%}

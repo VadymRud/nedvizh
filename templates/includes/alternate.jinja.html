@@ -1,0 +1,3 @@
+{% with alternate = get_alternate(request) %}
+    {% if alternate %}<link rel="alternate" href="{{ alternate['url'] }}" hreflang="{{ alternate['language'] }}"/>{% endif %}
+{% endwith %}

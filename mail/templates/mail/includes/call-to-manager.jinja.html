@@ -1,0 +1,24 @@
+<tr>
+  <td width="43" height="42" style="width: 43px; height: 42px;">
+    <div class="text" style="width: 43px; height: 42px;">&nbsp;</div>
+  </td>
+  <td width="472" height="42" colspan="3" style="width: 472px; height: 42px;">
+    <div class="text" style="width: 472px; height: 42px; text-align: center; color: #878787;">
+      {% trans %}По вопросам сервиса и за дополнительной информацией{% endtrans %}<br> {% trans %}обращайтесь к своему личному менеджеру.{% endtrans %}
+    </div>
+  </td>
+  <td width="25" height="42" style="width: 25px; height: 42px;">
+    <div class="text" style="width: 25px; height: 42px;">&nbsp;</div>
+  </td>
+</tr>
+<tr>
+  <td width="43" height="46"  style="width: 43px; height: 46px;">
+    <div class="text" style="width: 43px; height: 46px;">&nbsp;</div>
+  </td>
+  <td width="472" height="46" colspan="3" style="width: 472px; height: 46px;">
+    <div class="text" style="width: 472px; height: 46px; text-align: center;"><a href="{{ host_url('profile_settings') }}{% if utm is defined %}?{{ utm.urlencode() }}{% endif %}" target="_blank" class="pink">{% trans %}Связаться с менеджером здесь{% endtrans %}</a></div>
+  </td>
+  <td width="25" height="42" style="width: 25px; height: 42px;">
+    <div class="text" style="width: 25px; height: 42px;">&nbsp;</div>
+  </td>
+</tr>

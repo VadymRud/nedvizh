@@ -1,0 +1,308 @@
+
+{% extends "profile/base.jinja.html" %}
+
+{% block extra_css %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ static('libs/bootstrap-select/bootstrap-select.min.css') }}">
+  <style>
+  #notary {
+      padding: 20px 0 0;
+      font-family: 'OpenSans';
+      height: 100%;
+  }
+  #notary h1 {
+      font-family: "OpenSans-Light";
+      font-size: 48px;
+      font-weight: 300;
+  }
+  #notary .main_wrapper h3 {
+      font-size: 24px;
+      padding: 10px 0 20px;
+      line-height: 1.5;
+  }
+  #notary .main_wrapper h3 b {
+      font-family: 'OpenSansBold';
+  }
+  #notary .btn-md {
+      margin-bottom:10px;
+      padding: 10px 20px;
+  }
+  #notary .main_wrapper .uslugi {
+      color: #303030;
+      font-family: 'OpenSans';
+      display: inline-block;
+      font-size: 16px;
+      padding: 7px 10px 7px 0;
+      margin: 10px 10px 20px 0;
+      line-height: 1.8;
+  }
+  #notary .main_wrapper .uslugi a {
+      font-weight: 700;
+      color: inherit;
+  }
+  #notary .main_wrapper .buttons {
+      padding: 20px 0 40px;
+  }
+  #notary .form_wrapper .buttons {
+      padding: 20px 0 0;
+  }
+  #notary .form_wrapper {
+      background: #F4F9FA;
+      margin: 50px 0 0;
+  }
+  #notary .form_wrapper p {
+      line-height: 1.5;
+      font-size: 16px;
+      margin-bottom: 20px;
+  }
+  #notary .form_wrapper p span {
+      font-size: 12px;
+  }
+  #notary .form_wrapper .form_block {
+      background: #E7EFF2;
+      text-align: center;
+      margin-bottom: 40px;
+  }
+  #notary .perechen_uslug {
+      background: #fff;
+  }
+  #notary .perechen_uslug h2 {
+      font-size: 24px;
+      padding-bottom: 25px;
+  }
+  #notary .form_block:before {
+      content: '';
+      background: url("/../../static/paid_services/img/notary/img_plashka.png")  0 no-repeat;
+      width: 101px;
+      height: 102px;
+      position: absolute;
+      top: 0;
+      left: 0;
+  }
+  #notary .form_wrapper h3 {
+      font-size: 39px;
+      font-family: 'OpenSans';
+      margin-top: 50px;
+  }
+  #notary .form_wrapper a {
+      text-decoration: none;
+      color: inherit;
+      cursor: default;
+  }
+  #notary .form_wrapper h4 {
+      font-size: 20px;
+      font-family: 'OpenSans';
+      line-height: 1.7;
+      padding: 0 20px 20px;
+  }
+  #notary .form_wrapper h4 a {
+      text-decoration: underline;
+      color: #ff1b55;
+      cursor: pointer;
+  }
+  #notary .perechen_uslug > div {
+      padding: 0;
+
+  }
+  #notary .perechen_uslug div div {
+      font-size: 16px;
+      line-height: 1.5;
+      text-align: center;
+
+  }
+  #notary .perechen_uslug div div img {
+
+      vertical-align: top;
+  }
+  #notary .perechen_uslug .text {
+      width: 289px;
+      display: inline-block;
+      background: #F4F9FA;
+      padding: 10px 5px;
+      font-size: 14px;
+      margin-bottom: 40px;
+  }
+  #notary .perechen_uslug .text b {
+      font-size: 16px;
+  }
+  #notary .partners h4 {
+      padding: 50px 0 30px;
+      line-height: 1.5;
+  }
+  #notary .request-form {
+      padding: 0 85px;
+  }
+  #notary .request-form input, #notary .request-form select, #div_id_property_type button {
+      padding: 0 15px 0 10px;
+      background-color: #fff;
+      border: 1px solid #C0C0C0;
+      border-radius: 3px;
+      box-shadow: none;
+      height: 42px;
+      color: #9a9a9a;
+      font-size: 16px;
+  }
+  #div_id_property_type button {
+      padding: 0 28px 0 10px;
+  }
+  #notary #div_id_phone + button {}
+  #notary .request-form .widget .bootstrap-select {
+      border: 1px solid #C0C0C0;
+      border-radius: 3px 0 0 3px;
+      border-right: none;
+      background: #F4F7F9;
+      padding: 0 10px 0 0;
+  }
+  #notary .request-form .widget .bootstrap-select.btn-group .caret {
+      right: 0 !important;
+  }
+  #notary .request-form .localnumber {
+      border-left: none;
+      border-radius: 0 3px 3px 0;
+  }
+  #notary .request-form .you_price {
+      font-size: 16px;
+      background: #bedbe6;
+      border-radius: 3px;
+      text-align: left;
+      padding: 0 10px 7px;
+  }
+  #notary .request-form .you_price span {
+      font-size: 30px;
+      padding-left: 20px;
+  }
+  .request-form input::-webkit-input-placeholder {color:#9a9a9a !important; font-size: 16px}
+  .request-form input::-moz-placeholder          {color:#9a9a9a !important; font-size: 16px}/* Firefox 19+ */
+  .request-form input:-moz-placeholder           {color:#9a9a9a !important; font-size: 16px}/* Firefox 18- */
+  .request-form input:-ms-input-placeholder      {color:#9a9a9a !important; font-size: 16px}
+
+  @media (max-width: 1200px) {
+
+      #notary .perechen_uslug > div {
+          padding: 20px;
+      }
+      #notary .perechen_uslug div div {
+          margin-bottom: 20px;
+      }
+      #notary .request-form {
+          padding: 0 50px;
+      }
+  }
+  @media (max-width: 992px) {
+      #notary .request-form {
+          padding: 0 50px;
+      }
+      #notary .form_wrapper .form_block {
+          margin-bottom: 10px;
+          padding-bottom: 10px;
+      }
+      #notary .partners h4 {
+          font-size: 20px;
+      }
+      #notary .buttons input {
+          margin-bottom: 10px;
+      }
+      #notary .main_wrapper h1 {
+          font-size: 30px;
+      }
+      #notary .main_wrapper .buttons {
+          padding: 20px 0;
+      }
+      #notary .form_wrapper {
+          background: none;
+          clear: both;
+      }
+      #notary .form_wrapper h3 {
+          position: relative;
+          top: 30px;
+          padding: 0 20px;
+      }
+      #notary .form_wrapper h4 {
+          padding-top: 30px;
+      }
+      #notary .perechen_uslug .text {
+          margin-bottom: 0;
+          min-height: 200px;
+      }
+  }
+  </style>
+{% endblock %}
+
+{% block content %}
+<div id="notary">
+    <div class="main_wrapper col-md-23 col-md-offset-1">
+        <h1>{% trans %}Услуги нотариуса{% endtrans %}</h1>
+        <div>
+            <div class="uslugi">{% trans %}Оформление различных документов на недвижимость невозможно без услуг квалифицированного нотариуса.<br/><br/>
+                У вас возникли вопросы связанные с договорами купли-продажи, дарственными, наследством, доверенностями,
+                завещанием и тд., закажите услугу квалифицированного нотариуса <a href="#form">прямо сейчас!</a>{% endtrans %}
+            </div>
+        </div>
+    </div>
+    <div class="perechen_uslug col-md-24">
+        <div class="col-md-23 col-md-offset-1">
+            <h2>{% trans %}Перечень услуг нотариусов{% endtrans %}:</h2>
+            <div class="col-md-8 col-sm-12 col-xs-24">
+                <img src="{{ static('paid_services/img/notary/img_notary_1.png') }}" alt="img_notary_1"/>
+                <div class="text">{% trans %}<b>Удостоверение и оформление договоров:</b><br/>
+                    договор купли-продажи, мены, аренды и тд{% endtrans %}</div>
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-24">
+                <img src="{{ static('paid_services/img/notary/img_notary_2.png') }}" alt="img_notary_2"/>
+                <div class="text">{% trans %}<b>Завещание:</b><br/>
+                    формирование текста завещания, составление и заверение{% endtrans %}</div>
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-24">
+                <img src="{{ static('paid_services/img/notary/img_notary_3.png') }}" alt="img_notary_3"/>
+                <div class="text">{% trans %}<b>Свидетельствование подписи на документах:</b><br/>
+                    регистрация места жительства; согласие второго супруга при осуществлении операции продажи-купли имущества, приобретенного в браке и тд. {% endtrans %}</div>
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-24">
+                <img src="{{ static('paid_services/img/notary/img_notary_4.png') }}" alt="img_notary_4"/>
+                <div class="text">{% trans %}<b>Наследство:</b><br/>
+                    ведение наследственных дел, вступление в наследственные права и тд{% endtrans %}</div>
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-24">
+                <img src="{{ static('paid_services/img/notary/img_notary_5.png') }}" alt="img_notary_5"/>
+                <div class="text">{% trans %}<b>Удостоверение и оформление доверенностей:</b><br/>
+                    доверенность на представление интересов, на распоряжение материальными ценностями, недвижимостью и тд{% endtrans %}</div>
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-24">
+                <img src="{{ static('paid_services/img/notary/img_notary_6.png') }}" alt="img_notary_6"/>
+                <div class="text">{% trans %}<b>Другие нотариальные действия:</b><br/>
+                    регистрация права собственности, отчуждение недвижимого имущества, земельного участка и тд{% endtrans %}</div>
+            </div>
+        </div>
+    </div>
+    {% from "macro/forms.jinja.html" import bootstrap_form  %}
+    <div class="form_wrapper col-md-24" id="form">
+        <div class="col-md-10 form_block col-md-offset-7">
+            <h3 name="form">{% trans %}Оставьте заявку{% endtrans %}</h3>
+            <h4>{% trans %}для консультации с нотариусом или узнайте об услуге подробнее{% endtrans %}</h4>
+            {% if request_form.is_valid() %}
+            <div class="alert alert-success">{% trans %}Заявка принята, с Вами свяжутся.{% endtrans %}</div>
+            {% else %}
+            <form method="POST" class="request-form">{% csrf_token %}
+                {% from "macro/forms.jinja.html" import bootstrap_form  %}
+                {{ bootstrap_form(request_form, label_as_placeholder=True, inline_errors=True) }}
+                <div class="buttons">
+                    <button type="submit" class="btn btn-lg btn-danger">{% trans %}Оставить заявку{% endtrans %}</button>
+                </div><br/>
+            </form>
+            {% endif %}
+            <p><span>{% trans %}За дополнительной информацией{% endtrans %}:</span><br>+38 (063) 568 54 41<br>olga.k@mesto.ua</p>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block extra_footer %}
+    {{ super() }}
+    <script src="{{ static('libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
+    <script>
+        $('#notary .perechen_uslug .text').equalHeights();
+        $('.request-form select').selectpicker();
+    </script>
+{% endblock %}

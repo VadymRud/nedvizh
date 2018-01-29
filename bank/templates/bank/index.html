@@ -1,0 +1,90 @@
+{% extends "bank/base.html" %}
+{% load staticfiles i18n %}
+
+{% block top_menu %}{% endblock %}
+
+{% block page_slogan %}<div class="all_bank_property_label">{% trans 'Вся банковская недвижимость Украины в одном месте!' %}</div>{% endblock %}
+
+{% block content %}
+
+    <div class="kredits_for_all_label">
+         {% trans 'Доступные кредиты для всех! Просто найдите то, что вас интересует, а мы сделаем все остальное.' %}
+    </div>
+
+    <div class="brown_panel_bank">
+        <form action="/residental/" id="banks_main_search_form" type="get">
+            <input type="text" class="search_fld_main_bank" maxlength="100" name="keywords" placeholder="Город..." value="">
+
+            <div class="btn-group btn-group-bank">
+                <span class="btn btn-small btn-small-bank active" stype="residential">{% trans 'Жилье' %}</span>
+                <span class="btn btn-small btn-small-bank" stype="land">{% trans 'Земля' %}</span>
+                <span class="btn btn-small btn-small-bank" stype="commercial">{% trans 'Коммерческие объекты' %}</span>
+            </div>
+
+            <input type="submit" value="Найти" class="btn btn-large btn-large-bank btn-success">
+        </form>
+    </div>
+
+    <script>
+        var availablePlaces = [
+            {% for region in autocomplete_list %}'{{ region|escapejs }}'{% if not forloop.last%},{% endif %}{% endfor %}
+        ];
+
+        $(function(){
+            $( "input[name=keywords]" ).autocomplete({
+                minLengthType: 2,
+                source: function(req, responseFn) {
+                    var re = $.ui.autocomplete.escapeRegex(req.term);
+                    var matcher = new RegExp( "^" + re, "i" );
+                    var a = $.grep( availablePlaces, function(item,index){
+                        return matcher.test(item);
+                    });
+                    responseFn( a );
+                }
+            });
+        });
+    </script>
+
+
+    <div class="bank_main_col">
+        <div class="bank_main_col_r">
+
+            <div class="bank_people">
+
+            </div>
+            <div class="bank_benefits_holder">
+                 <table class="bank_benefits_tbl">
+                    <tr>
+                        <td><img src='{% static 'bank/img/bank-checked.png' %}' width='36' height='36' alt='' border='0' /></td>
+                        <td>{% trans 'Более 3 000 объектов по всей Украине.' %}</td>
+                    </tr>
+                    <tr>
+                        <td><img src='{% static 'bank/img/bank-checked.png' %}' width='36' height='36' alt='' border='0' /></td>
+                        <td>{% trans 'Бесплатная помощь профессионалов 7 дней в неделю.' %}</td>
+                    </tr>
+                    <tr>
+                        <td><img src='{% static 'bank/img/bank-checked.png' %}' width='36' height='36' alt='' border='0' /></td>
+                        <td>{% trans 'Доступные кредиты для всех' %}</td>
+                    </tr>
+                 </table>
+            </div>
+
+        </div>
+        <div class="bank_main_col_l">
+            <span class="bank_hot_offers">{% trans 'Горячие предложения' %}</span>
+            <div class="bank_dotted_cont property-list">
+                {% if hot_offers|length > 0 %}
+                    {% for item in hot_offers %}
+                        {% include "bank/preview.html" with gold=0 no_linebreaks=1 %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <script> $('.bank_dotted_cont').find('section:first').addClass('first'); </script>
+    </div>
+
+    {% if banks|length > 0 %}
+        {% include "bank/partners_banks.html" %}
+    {% endif %}
+    
+{% endblock %}

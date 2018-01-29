@@ -1,0 +1,42 @@
+.notifications {
+  position: absolute;
+  z-index: 9999;
+}
+
+/* Positioning */ 
+.notifications.top-right {
+  right: 0;
+  top: 0;
+}
+
+.notifications.top-left {
+  left: 0;
+  top: 0;
+}
+
+.notifications.bottom-left {
+  left: 0;
+  bottom: 0;
+}
+
+.notifications.bottom-right {
+  right: 0;
+  bottom: 0;
+}
+
+/* Notification Element */
+.notifications .alert {
+  box-shadow: 0 5px 13px rgba(0,0,0,.3);
+  border:0;
+  font-size:18px;
+  margin:0 0 10px;
+  padding:20px 40px;
+  position: relative;
+}
+
+.notifications .alert .close {
+  text-decoration: none;
+  margin:-9px -25px 0 10px;
+  padding:10px 15px;
+  opacity: 0.5;
+}

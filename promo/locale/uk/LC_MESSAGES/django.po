@@ -1,0 +1,332 @@
+# Ukrainian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-12-12 11:11+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uk\n"
+"Language-Team: uk <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: views.py:24
+msgid "1 объявление"
+msgstr "1 оголошення"
+
+#: views.py:25
+msgid "до 5 объявлений"
+msgstr "До 5 оголошень"
+
+#: views.py:26
+msgid "до 10 объявлений"
+msgstr "До 10 оголошень"
+
+#: views.py:27
+msgid "до 20 объявлений"
+msgstr "До 20 оголошень"
+
+#: views.py:28
+msgid "до 30 объявлений"
+msgstr "До 30 оголошень"
+
+#: views.py:29
+msgid "до 40 объявлений"
+msgstr "До 40 оголошень"
+
+#: views.py:125 views.py:159 views.py:160
+msgid "Имя"
+msgstr "Ім'я"
+
+#: views.py:126 views.py:129 views.py:161
+msgid "Агентство"
+msgstr "Агентство"
+
+#: views.py:127 views.py:162
+msgid "Телефон"
+msgstr "Телефон"
+
+#: views.py:128 views.py:163
+msgid "E-mail"
+msgstr "E-mail"
+
+#: views.py:130
+msgid "Должность"
+msgstr "Посада"
+
+#: views.py:164
+msgid "номер АСНУ"
+msgstr "номер АСНУ"
+
+#: views.py:204
+msgid "Оплата участия в семинаре Mesto.ua"
+msgstr "Оплата участі в семінарі Mesto.ua"
+
+#: templates/promo/index.jinja.html:4 templates/promo/index2.jinja.html:4
+msgid "Улучшенная модель работы сайта"
+msgstr "Покращена модель роботи сайту"
+
+#: templates/promo/notification.jinja.html:4
+msgid "С апреля месяца портал mesto.ua переходит на новые формы оплаты"
+msgstr "З квітня місяця портал mesto.ua переходить на нові форми оплати"
+
+#: templates/promo/notification.jinja.html:5
+msgid "Прочитайте подробнее здесь"
+msgstr "Прочитайте докладніше тут"
+
+#: templates/promo/training-kharkiv.jinja.html:5
+#: templates/promo/training-kharkiv.jinja.html:53
+msgid "Семинар-интенсив"
+msgstr "Семінар-інтенсив"
+
+#: templates/promo/training-kharkiv.jinja.html:5
+msgid "Факторы умножения продаж"
+msgstr "Фактори примноження продажів"
+
+#: templates/promo/training-kharkiv.jinja.html:41
+#: templates/promo/training-kharkiv.jinja.html:262
+msgid "г.Харьков, ул Благовещенская (бывшая Карла Маркса), 1"
+msgstr "м.Харків, вул Благовіщенська (колишня Карла Маркса), 1"
+
+#: templates/promo/training-kharkiv.jinja.html:41
+#: templates/promo/training-kharkiv.jinja.html:262
+msgid "Конференц-зал “Fabrika space”"
+msgstr "Конференц-зал “Fabrika space”"
+
+#: templates/promo/training-kharkiv.jinja.html:44
+#: templates/promo/training-kharkiv.jinja.html:264
+msgid "8 декабря"
+msgstr "8 грудня"
+
+#: templates/promo/training-kharkiv.jinja.html:45
+#: templates/promo/training-kharkiv.jinja.html:265
+msgid "с 10:00 до 15:00"
+msgstr "з 10:00 до 15:00"
+
+#: templates/promo/training-kharkiv.jinja.html:54
+msgid "Факторы умножения<br/> продаж риэлтора"
+msgstr "Фактори примноження<br/> продажів ріелтора"
+
+#: templates/promo/training-kharkiv.jinja.html:56
+#: templates/promo/training-kharkiv.jinja.html:247
+msgid "Принять участие"
+msgstr "Взяти участь"
+
+#: templates/promo/training-kharkiv.jinja.html:102
+msgid "После этого семинара Вы"
+msgstr "Після цього семінару Ви"
+
+#: templates/promo/training-kharkiv.jinja.html:107
+msgid "Узнаете классический алгоритм масштабирования прибыли"
+msgstr "Дізнаєтеся класичний алгоритм масштабування прибутку"
+
+#: templates/promo/training-kharkiv.jinja.html:112
+msgid "Увеличите свою личную прибыль"
+msgstr "Збільшите свій особистий прибуток"
+
+#: templates/promo/training-kharkiv.jinja.html:117
+msgid "Найдете собственный лучший инструмент продаж"
+msgstr "Знайдете власний кращий інструмент продажів"
+
+#: templates/promo/training-kharkiv.jinja.html:122
+msgid "Уберете все лишнее из своей воронки продаж"
+msgstr "Приберете все зайве зі своєї воронки продажів"
+
+#: templates/promo/training-kharkiv.jinja.html:129
+msgid "Для кого мы проводим семинар"
+msgstr "Для кого ми проводимо семінар"
+
+#: templates/promo/training-kharkiv.jinja.html:133
+msgid "Новичок в риелторском бизнесе"
+msgstr "Новачок в ріелторському бізнесі"
+
+#: templates/promo/training-kharkiv.jinja.html:134
+msgid "Узнаете, с чего лучше начать, а что пока не трогать"
+msgstr "Дізнаєтеся, з чого краще почати, а що поки не чіпати"
+
+#: templates/promo/training-kharkiv.jinja.html:138
+msgid "Опытный риелтор"
+msgstr "Досвідчений ріелтор"
+
+#: templates/promo/training-kharkiv.jinja.html:139
+msgid "Обменяетесь опытом с коллегами. “апгрейднете” свой подход к бизнесу"
+msgstr "Обміняєтеся досвідом з колегами. \"Апгрейднете\" свій підхід до бізнесу"
+
+#: templates/promo/training-kharkiv.jinja.html:143
+msgid "Руководитель АН"
+msgstr "Керівник АН"
+
+#: templates/promo/training-kharkiv.jinja.html:144
+msgid "Внедрите новые техники маркетинга и продаж на базе собственного АН"
+msgstr "Впровадите нові техніки маркетингу і продажів на базі власного АН"
+
+#: templates/promo/training-kharkiv.jinja.html:148
+msgid "Тусовщик"
+msgstr "Тусовщик"
+
+#: templates/promo/training-kharkiv.jinja.html:149
+msgid ""
+"Пообщаетесь с коллегами. Отличный способ завязать новые знакомства и "
+"партнерские отношения"
+msgstr ""
+"Поспілкуєтеся з колегами. Відмінний спосіб зав'язати нові знайомства та "
+"партнерські відносини"
+
+#: templates/promo/training-kharkiv.jinja.html:158
+msgid "Спикеры"
+msgstr "Спікери"
+
+#: templates/promo/training-kharkiv.jinja.html:160
+#: templates/promo/training-kharkiv.jinja.html:161
+msgid "Ярослав Давидчук"
+msgstr "Ярослав Давидчук"
+
+#: templates/promo/training-kharkiv.jinja.html:162
+msgid "Бизнес-тренер"
+msgstr "Бізнес тренер"
+
+#: templates/promo/training-kharkiv.jinja.html:163
+msgid "Руководитель проекта SmartSeller"
+msgstr "Керівник проекту SmartSeller"
+
+#: templates/promo/training-kharkiv.jinja.html:164
+msgid "Руководитель образовательного проекта для риелторов Mesto School"
+msgstr "Керівник освітнього проекту для ріелторів Mesto School"
+
+#: templates/promo/training-kharkiv.jinja.html:165
+msgid "Специалист по организации продаж"
+msgstr "Спеціаліст з організації продажів"
+
+#: templates/promo/training-kharkiv.jinja.html:166
+msgid "Спикер всеукраинских конференций специалистов по недвижимости"
+msgstr "Спікер всеукраїнських конференцій фахівців з нерухомості"
+
+#: templates/promo/training-kharkiv.jinja.html:170
+#: templates/promo/training-kharkiv.jinja.html:171
+msgid "Андрей Правдин"
+msgstr "Андрій Правдін"
+
+#: templates/promo/training-kharkiv.jinja.html:172
+msgid "Директор агентства недвижимости VALION Харьков"
+msgstr "Директор агентства нерухомості VALION Харків"
+
+#: templates/promo/training-kharkiv.jinja.html:173
+msgid "Председатель комитета по обучению ХРО АСНУ"
+msgstr "Голова комітету з навчання ХРВ АФНУ"
+
+#: templates/promo/training-kharkiv.jinja.html:174
+msgid "Спикер и модератор секций всеукраинских конференций риэлторов"
+msgstr "Спікер і модератор секцій всеукраїнських конференцій ріелторів"
+
+#: templates/promo/training-kharkiv.jinja.html:183
+msgid "Отзывы"
+msgstr "Відгуки"
+
+#: templates/promo/training-kharkiv.jinja.html:188
+msgid "Алла Осипенко"
+msgstr "Алла Осипенко"
+
+#: templates/promo/training-kharkiv.jinja.html:189
+msgid "Руководитель FreeDOM Estate"
+msgstr "Керівник FreeDOM Estate"
+
+#: templates/promo/training-kharkiv.jinja.html:190
+msgid ""
+"Спасибо организаторам тренинга-интенсива за насыщенный день, новые и "
+"забытые знания"
+msgstr ""
+"Дякую організаторам тренінгу-інтенсиву за насичений день, нові і забуті "
+"знання"
+
+#: templates/promo/training-kharkiv.jinja.html:190
+#: templates/promo/training-kharkiv.jinja.html:196
+msgid "читать далее"
+msgstr "Читати далі"
+
+#: templates/promo/training-kharkiv.jinja.html:194
+msgid "Наталия Балюк"
+msgstr "Наталія Балюк"
+
+#: templates/promo/training-kharkiv.jinja.html:195
+msgid "Частный риэлтор"
+msgstr "Приватний ріелтор"
+
+#: templates/promo/training-kharkiv.jinja.html:196
+msgid ""
+"В тренингах и мастер классах, которые я посещаю, оцениваю не только "
+"полезные знания, и навыки,<br> которые получаю от коучей, но и "
+"комфортность самого  помещения (зала)"
+msgstr ""
+"У тренінгах та майстер класах, які я відвідую, оцінюю не тільки корисні "
+"знання, і навички, <br> які отримую від коучів, а й комфортність самого "
+"приміщення (залу)"
+
+#: templates/promo/training-kharkiv.jinja.html:200
+msgid "Носов Андрей"
+msgstr "Носов Андрій"
+
+#: templates/promo/training-kharkiv.jinja.html:201
+msgid "АН \"Импульс\", г. Днепр"
+msgstr "АН \"Імпульс\", м. Дніпро"
+
+#: templates/promo/training-kharkiv.jinja.html:202
+msgid ""
+"Супер! Были предложены новые идеи рекламы объектов и ведения переговоров "
+"с клиентами. Хочется ещё!!!"
+msgstr ""
+"Супер! Були запропоновані нові ідеї реклами об'єктів і ведення "
+"переговорів з клієнтами. Хочеться ще !!!"
+
+#: templates/promo/training-kharkiv.jinja.html:206
+msgid "Линская Анастасия"
+msgstr "Лінська Анастасія"
+
+#: templates/promo/training-kharkiv.jinja.html:207
+msgid "АН \"Атланта\", г. Одесса"
+msgstr "АН \"Атланта\", м. Одеса"
+
+#: templates/promo/training-kharkiv.jinja.html:208
+msgid ""
+"Вся информация Была представлена очень креативно, интересно и энергично. "
+"Спасибо огромное, много<br/> полезных вещей было услышано и заметано."
+msgstr ""
+"Вся інформація була представлена дуже креативно, цікаво і енергійно. "
+"Спасибі величезне, багато <br/> корисних речей було почуто і вирішено."
+
+#: templates/promo/training-kharkiv.jinja.html:243
+msgid "Примите участие"
+msgstr "Прийняти участь"
+
+#: templates/promo/training-kharkiv.jinja.html:244
+msgid "Чем скорее вы закажете участие в тренинге, тем дешевле оно будет стоить"
+msgstr "Чим швидше ви замовите участь в тренінгу, тим дешевше це коштуватиме"
+
+#: templates/promo/training-kharkiv.jinja.html:246
+msgid "для членов АСНУ скидка 22%"
+msgstr "для членів АФНУ знижка 22%"
+
+#: templates/promo/training-kharkiv.jinja.html:260
+msgid "Место проведения"
+msgstr "Місце проведення"
+
+#: templates/promo/training-kharkiv.jinja.html:271
+msgid "Продажа билетов завершена"
+msgstr "Продаж квитків завершено"
+
+#: templates/promo/training-kharkiv.jinja.html:275
+msgid "Заявка подана"
+msgstr "Заявка подана"
+
+#: templates/promo/training-kharkiv.jinja.html:276
+msgid "Приглашение отправлено на указанную вами почту"
+msgstr "Запрошення відправлено на вказану вами пошту"
+

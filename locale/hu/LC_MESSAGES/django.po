@@ -1,0 +1,2478 @@
+# Hungarian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-12-27 21:38+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: hu\n"
+"Language-Team: hu <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: templates/403.jinja.html:4
+msgid "Доступ запрещен"
+msgstr "Hozzáférés megtagadva"
+
+#: templates/403.jinja.html:5
+msgid "У вас недостаточно прав для доступа к этому разделу."
+msgstr "Nincs jogosultsága ezen részleg hozzáféréséhez."
+
+#: templates/404.jinja.html:4
+msgid "Страница не найдена"
+msgstr "Az oldal nem található"
+
+#: templates/404.jinja.html:5
+msgid "На сайте Mesto.UA нет страницы с таким адресом."
+msgstr "A Mesto.UA honlapon nincs ilyen című oldal."
+
+#: templates/410.jinja.html:3 templates/410.jinja.html:6
+msgid "Объявление не найдено"
+msgstr "A hirdetés nem található"
+
+#: templates/410.jinja.html:8
+msgid ""
+"К сожалению, у этого объявления истек срок публикации или оно было "
+"удалено владельцем."
+msgstr ""
+"Sajnos ennek a hirdetésnek a határideje lejárt vagy törölve lett a "
+"tulajdonos által."
+
+#: templates/410.jinja.html:9
+msgid "Вы можете"
+msgstr "Ön"
+
+#: templates/410.jinja.html:9
+msgid "перейти в раздел с объявлениями по вашему региону"
+msgstr "átugorhat az Ön régiójában található hirdetéseket tartalmazó oldalra"
+
+#: templates/410.jinja.html:9
+msgid "и воспользоваться поиском, чтобы найти подходящий объект."
+msgstr "és felhasználhatja a keresőt, hogy megtalálja a szükséges tárgyat."
+
+#: templates/410.jinja.html:12
+msgid "Перейти к поиску объявлений"
+msgstr "Ugrás a hirdetések kereséséhez"
+
+#: templates/500.jinja.html:4
+msgid "Внутренняя ошибка сервера"
+msgstr "Szerver belső hibája"
+
+#: templates/500.jinja.html:5
+msgid ""
+"Если ошибка проявляется длительное время, Вы можете смело написать о ней "
+"нам на почту"
+msgstr ""
+"Ha a hiba huzamosabb ideje jelentkezik, bátran írhat róla nekünk egy "
+"üzenetet"
+
+#: templates/base.jinja.html:72
+msgid "Портал недвижимости"
+msgstr ""
+
+#: templates/base.jinja.html:132 templates/profile/login.jinja.html:4
+#: templates/profile/login.jinja.html:9
+#: templates/registration/activate.jinja.html:8
+#: templates/registration/password_reset_complete.jinja.html:6
+#: templates/registration/registration_form.jinja.html:24
+msgid "Войти"
+msgstr "Belépés"
+
+#: templates/base.jinja.html:183
+msgid "Наверх"
+msgstr "Fel"
+
+#: templates/base.jinja.html:206
+msgid "100% безопасная оплата"
+msgstr ""
+
+#: templates/base.jinja.html:213
+msgid "партнер Ассоциации"
+msgstr ""
+
+#: templates/base.jinja.html:213
+msgid "специалистов по недвижимости Украины"
+msgstr ""
+
+#: templates/base.jinja.html:220
+msgid "Гарантия безопасности, используя"
+msgstr ""
+
+#: templates/base.jinja.html:220
+msgid "мировые рекомендации по обеспечению"
+msgstr ""
+
+#: templates/base.jinja.html:220
+msgid "защиты данных и конфиденциальности"
+msgstr ""
+
+#: templates/base.jinja.html:231
+msgid "Мы в соц. сетях:"
+msgstr ""
+
+#: templates/base.jinja.html:243
+msgid ""
+"Все права защищены. Копирование и использование информации без "
+"письменного согласия владельца преследуется по закону."
+msgstr ""
+"Minden jog fenntartva. Információ másolása és felhasználása a tulajdonos "
+"írásbeli hozzájárulása nélkül törvényileg büntetett."
+
+#: templates/ad/international_message.jinja.html:5
+#: templates/blank.jinja.html:21 templates/includes/photoswipe.jinja.html:12
+#: templates/macro/forms.jinja.html:80
+#: templates/profile/deactivation_reason_modal.jinja.hmtl.html:6
+#: templates/profile/import/test.jinja.html:14
+#: templates/profile/messages/modal.jinja.html:5
+#: templates/profile/my_properties.jinja.html:169
+msgid "Закрыть"
+msgstr "Bezárni"
+
+#: templates/homepage.jinja.html:71
+msgid "Последние добавления на сайт"
+msgstr ""
+
+#: templates/homepage.jinja.html:93
+msgid "Возникли вопросы по работе с сайтом? "
+msgstr ""
+
+#: templates/homepage.jinja.html:94
+msgid ""
+"Звоните на бесплатный номер телефона и уточните все детали у своего "
+"личного помощника."
+msgstr ""
+
+#: templates/guide/base.jinja.html:7 templates/homepage.jinja.html:111
+msgid "Новости рынка"
+msgstr "Piaci hírek"
+
+#: templates/homepage.jinja.html:111
+msgid "Читать все новости"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:6
+#: templates/includes/footer_menu.jinja.html:15
+#: templates/international.jinja.html:54
+msgid "Аренда"
+msgstr "Bérlés"
+
+#: templates/international.jinja.html:58
+msgid "Все объявления аренды"
+msgstr "Mindet bérleti hirdetés"
+
+#: templates/includes/footer_menu.jinja.html:5
+#: templates/includes/footer_menu.jinja.html:14
+#: templates/international.jinja.html:61
+msgid "Продажа"
+msgstr "Eladás"
+
+#: templates/international.jinja.html:65
+msgid "Все объявления продажи"
+msgstr "Minden eladási hirdetés"
+
+#: templates/international.jinja.html:74
+msgid "Все страны"
+msgstr "Minden ország"
+
+#: templates/offer_mobile_app.jinja.html:19
+msgid "Установить приложение"
+msgstr "Applikáció telepítése"
+
+#: templates/offer_mobile_app.jinja.html:21
+msgid "Перейти на сайт"
+msgstr "Átugrani az oldalra"
+
+#: templates/redirect.jinja.html:4
+msgid "Переадресация"
+msgstr "Átirányítás"
+
+#: templates/redirect.jinja.html:27
+msgid "Если ва браузер не поддерживает автоматическую переадресацию"
+msgstr "Ha a böngészője nem támogatja az automatikus átirányítást"
+
+#: templates/redirect.jinja.html:27
+msgid "нажмите здесь"
+msgstr "kattintson ide"
+
+#: templates/ad/detail.jinja.html:16
+msgid "Арендовать"
+msgstr "Bérelni"
+
+#: templates/ad/detail.jinja.html:16
+msgid "Купить"
+msgstr "Vásárolni"
+
+#: templates/ad/detail.jinja.html:16
+msgid "Снять посуточно"
+msgstr "Napi bérlés"
+
+#: templates/ad/detail.jinja.html:16
+msgid "Купить в новостройке"
+msgstr "Újépítésű házban vásárolni"
+
+#: templates/ad/detail.jinja.html:17
+msgid "квартиру"
+msgstr "lakást"
+
+#: templates/ad/detail.jinja.html:17
+msgid "комнату"
+msgstr "szobát"
+
+#: templates/ad/detail.jinja.html:17
+msgid "дом"
+msgstr "házat"
+
+#: templates/ad/detail.jinja.html:17 templates/profile/ad-preview.jinja.html:39
+msgid "участок"
+msgstr "telket"
+
+#: templates/ad/detail.jinja.html:17
+msgid "коммерческую недвижимость"
+msgstr "üzleti ingatlant"
+
+#: templates/ad/detail.jinja.html:17
+msgid "гараж"
+msgstr "garázst"
+
+#: templates/ad/detail.jinja.html:26
+msgid "комнатой"
+msgstr "szobával"
+
+#: templates/ad/detail.jinja.html:26
+msgid "комнатами"
+msgstr "szobákkal"
+
+#: templates/ad/detail.jinja.html:59
+msgid "Дата публикации"
+msgstr "Közzététel dátuma"
+
+#: templates/ad/detail.jinja.html:74 templates/ad/preview.jinja.html:41
+msgid "добавить в избранное"
+msgstr "hozzáadni a kedvencekhez"
+
+#: templates/ad/detail.jinja.html:77 templates/ad/detail.jinja.html:331
+#: templates/ad/detail.jinja.html:339
+#: templates/ad/search_form_addr.jinja.html:144
+#: templates/ad/search_related.jinja.html:28
+msgid "Получи еще больше возможностей на сайте. Жми кнопку \"зарегистрироваться\""
+msgstr "Kapj még több lehetőséget a honlapon. Nyomd meg a \"regisztráció\"-t"
+
+#: templates/ad/detail.jinja.html:82
+#: templates/profile/ad-preview.jinja.html:127
+msgid "редактировать объявление"
+msgstr "hirdetés szerkesztése"
+
+#: templates/ad/detail.jinja.html:123
+msgid "360 панорама"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:130
+msgid "карта"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:144 templates/ad/preview-short.jinja.html:11
+#: templates/ad/preview.jinja.html:17
+#: templates/profile/ad-preview.jinja.html:27
+#: templates/profile/my_properties.jinja.html:110
+msgid "Продано"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:208 templates/ad/preview.jinja.html:60
+#: templates/profile/ad-preview.jinja.html:43
+msgid "комната"
+msgstr "szoba"
+
+#: templates/ad/detail.jinja.html:208 templates/ad/preview.jinja.html:60
+#: templates/profile/ad-preview.jinja.html:43
+msgid "комнаты"
+msgstr "szobák"
+
+#: templates/ad/detail.jinja.html:208 templates/ad/preview.jinja.html:60
+#: templates/profile/ad-preview.jinja.html:43
+msgid "комнат"
+msgstr "szoba"
+
+#: templates/ad/detail.jinja.html:213
+#: templates/profile/ad-preview.jinja.html:40
+msgid "сотка"
+msgstr "Ár (100nm)"
+
+#: templates/ad/detail.jinja.html:213
+#: templates/profile/ad-preview.jinja.html:40
+msgid "сотки"
+msgstr "Árak (100nm)"
+
+#: templates/ad/detail.jinja.html:213 templates/ad/preview.jinja.html:71
+#: templates/profile/ad-preview.jinja.html:40
+msgid "соток"
+msgstr "Ár (100nm)"
+
+#: templates/ad/detail.jinja.html:224
+msgid "этаж"
+msgstr "emelet"
+
+#: templates/ad/detail.jinja.html:224
+msgid "этажа"
+msgstr "emelet"
+
+#: templates/ad/detail.jinja.html:224
+msgid "этажей"
+msgstr "emelet"
+
+#: templates/ad/detail.jinja.html:240
+msgid ""
+"<b>Этот объект продан.</b><br/> Пожалуйста, свяжитесь с риелтором, чтобы "
+"найти похожий вариант объекта."
+msgstr ""
+
+#: templates/ad/detail.jinja.html:264
+msgid "Узнать номер"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:296
+msgid ""
+"Звонки в пределах Украины бесплатны. Мы вам перезвоним. ID объявления "
+"нужно будет ввести при звонке для соединения с риелтором"
+msgstr ""
+"Az Ukrajnán belül hívások ingyenesek. Visszahívjuk Önt. A hirdetés ID-ját"
+" be kell majd ütni a hívás közben, az ingatlanügynökkel való "
+"kapcsolódáshoz."
+
+#: templates/ad/detail.jinja.html:298
+msgid ""
+"ID объявления нужно будет ввести при звонке для соединения с риелтором. "
+"Все звонки тарифицируются согласно тарифам Вашого оператора."
+msgstr ""
+"A hirdetés ID-ját majd be kell ütni a hívás közben, az ingatlanügynökkel "
+"való kapcsolódáshoz. A hívás díját az Ön szolgáltatójának díjszabása "
+"alapján szabjuk meg."
+
+#: templates/ad/detail.jinja.html:300
+msgid "Все звонки тарифицируются согласно тарифам Вашого оператора."
+msgstr "A hívás díját az Ön szolgáltatójának díjszabása alapján szabjuk meg."
+
+#: templates/ad/detail.jinja.html:303
+msgid ""
+"Для того, что бы продавец быстрее понял какой объект Вас интересует - "
+"скажите ему что нашли его на Mesto.ua"
+msgstr ""
+"Ahhoz, hogy az eladó gyorsabban megértsek, hogy melyik ingatlan érdekli "
+"Önt - mondja meg neki, hogy a Mesto.ua-n találta."
+
+#: templates/ad/detail.jinja.html:319
+msgid "Связаться с владельцем"
+msgstr "Kapcsolatba lépni a tulajdonossal"
+
+#: templates/ad/detail.jinja.html:333
+#: templates/profile/messages/modal.jinja.html:6
+msgid "Отправить сообщение"
+msgstr "Üzenet küldése"
+
+#: templates/ad/detail.jinja.html:341
+#: templates/profile/messages/form.jinja.html:37
+msgid "Контроферта"
+msgstr "Ellenajánlat"
+
+#: templates/ad/detail.jinja.html:352 templates/ad/detail.jinja.html:356
+#: templates/ad/preview.jinja.html:47 templates/profile/sidebar.jinja.html:17
+msgid "Ассоциация специалистов по недвижимости Украины"
+msgstr "Ukrán ingatlan szakértőinek egyesülete"
+
+#: templates/ad/detail.jinja.html:385
+msgid ""
+"Заказав обратный звонок, риелтор будет знать по каким критериям Вы ищите "
+"объект и перезвонит вам"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:388
+msgid "Заказать обратный звонок"
+msgstr "Megrendelni a visszahívást"
+
+#: templates/ad/detail.jinja.html:396
+msgid "Информация"
+msgstr "Információ"
+
+#: templates/ad/detail.jinja.html:399
+msgid "Календарь"
+msgstr "Naptár"
+
+#: templates/ad/detail.jinja.html:414
+msgid "Адрес"
+msgstr "Cím"
+
+#: templates/ad/detail.jinja.html:415
+msgid "Комнат"
+msgstr "Szoba"
+
+#: templates/ad/detail.jinja.html:416
+msgid "Спальных мест"
+msgstr "Halószobák száma"
+
+#: templates/ad/detail.jinja.html:418 templates/ad/preview.jinja.html:71
+#: templates/ad/preview.jinja.html:74 templates/ad/preview.jinja.html:77
+msgid "Площадь"
+msgstr "Terület"
+
+#: templates/ad/detail.jinja.html:419 templates/ad/search_form.jinja.html:37
+#: templates/ad/search_form.jinja.html:59
+msgid "Площадь жилая"
+msgstr "Lakóterület"
+
+#: templates/ad/detail.jinja.html:420
+msgid "Площадь кухни"
+msgstr "Konyha területe"
+
+#: templates/ad/detail.jinja.html:422
+msgid "Площадь в сотках"
+msgstr "Terület árban (100nm)"
+
+#: templates/ad/detail.jinja.html:424
+msgid "Этаж"
+msgstr "Emelet"
+
+#: templates/ad/detail.jinja.html:425
+msgid "Всего этажей"
+msgstr "Emeletek száma"
+
+#: templates/ad/detail.jinja.html:426
+msgid "Планировка"
+msgstr "Tervezés"
+
+#: templates/ad/detail.jinja.html:427
+msgid "Тип здания"
+msgstr "Épület típusa"
+
+#: templates/ad/detail.jinja.html:429
+msgid "Тип стен"
+msgstr "Fal típusa"
+
+#: templates/ad/detail.jinja.html:430
+msgid "Тип окон"
+msgstr "Ablak típusa"
+
+#: templates/ad/detail.jinja.html:431
+msgid "Тип отопления"
+msgstr "Fűtés típusa"
+
+#: templates/ad/detail.jinja.html:433
+msgid "Цена:"
+msgstr "Ár:"
+
+#: templates/ad/detail.jinja.html:438
+msgid "Комиссия:"
+msgstr "Jutalék:"
+
+#: templates/ad/detail.jinja.html:439
+msgid "отсутствует"
+msgstr "nincsen"
+
+#: templates/ad/detail.jinja.html:471
+msgid "занято"
+msgstr "foglalt"
+
+#: templates/ad/detail.jinja.html:474
+msgid "календарь обновлен"
+msgstr "A naptár frissítésre került"
+
+#: templates/ad/detail.jinja.html:486
+msgid "Удобства"
+msgstr "Felszerelés"
+
+#: templates/ad/detail.jinja.html:504
+#: templates/profile/my_property_form.jinja.html:123
+msgid "Описание"
+msgstr "Leírás"
+
+#: templates/ad/detail.jinja.html:505
+msgid "ID объекта в базе"
+msgstr "Az ingatlan ID-ja az adattárban"
+
+#: templates/ad/detail.jinja.html:507
+msgid "Работает call back телефония - мы вам перезвоним."
+msgstr "Visszahívási rendszer működik - visszahívjuk Önt."
+
+#: templates/ad/detail.jinja.html:510
+msgid "Риски мошенничества при долгосрочной аренде"
+msgstr "Csalás veszélye a hosszútávú bérlés esetében"
+
+#: templates/ad/detail.jinja.html:525
+msgid "Регион:"
+msgstr "Régió:"
+
+#: templates/ad/detail.jinja.html:531
+#: templates/profile/balance/orders.jinja.html:41
+msgid "Статус"
+msgstr "Státusz"
+
+#: templates/ad/detail.jinja.html:532
+msgid "Редактировалось"
+msgstr "Szerkesztve volt"
+
+#: templates/ad/detail.jinja.html:533
+msgid "Поднималось последний раз"
+msgstr "Utoljára felvetve"
+
+#: templates/ad/detail.jinja.html:534
+msgid "Срок хранения объявления"
+msgstr "A hirdetés érvényességi ideje"
+
+#: templates/ad/detail.jinja.html:536
+msgid "Экспорт на сайт DOM.RIA.COM"
+msgstr ""
+
+#: templates/ad/detail.jinja.html:541
+msgid "Источник"
+msgstr "Forrás"
+
+#: templates/ad/detail.jinja.html:545
+msgid "Редактировать объявление"
+msgstr "Hirdetés szerkesztése"
+
+#: templates/ad/detail.jinja.html:547
+msgid "Смотреть объявления пользователя"
+msgstr "Megnézni a felhasználó hirdetéseit"
+
+#: templates/ad/detail.jinja.html:549
+msgid "Объявление из фида"
+msgstr "Hirdetés a feed-ből"
+
+#: templates/ad/districts.jinja.html:34
+msgid "Населенные пункты"
+msgstr "Települések"
+
+#: templates/ad/districts.jinja.html:36
+msgid "Районы города "
+msgstr "Város kerületek"
+
+#: templates/ad/districts.jinja.html:49
+msgid "Микрорайоны города"
+msgstr "Város mikrokerületei"
+
+#: templates/ad/international_message.jinja.html:6
+msgid "Заполните форму ниже, чтобы агент связался с вами"
+msgstr ""
+"Töltse ki az alul található formát, hogy az ügynök felvegye magával a "
+"kapcsolatot"
+
+#: templates/ad/international_message.jinja.html:10
+msgid "Запрос отправлен"
+msgstr "A kérés beküldve"
+
+#: templates/ad/international_message.jinja.html:19
+#: templates/profile/change_email.jinja.html:18
+#: templates/profile/messages/add_message.jinja.html:20
+#: templates/profile/messages/form.jinja.html:71
+msgid "Отправить"
+msgstr "Elküldeni"
+
+#: templates/ad/preview-short.jinja.html:1
+msgid "на продажу"
+msgstr "eladásra"
+
+#: templates/ad/preview-short.jinja.html:1
+msgid "в аренду"
+msgstr "bérletre"
+
+#: templates/ad/preview-short.jinja.html:1
+msgid "посуточно"
+msgstr "naponta"
+
+#: templates/ad/preview-short.jinja.html:1
+msgid "в новостройке"
+msgstr "újépítésű házban"
+
+#: templates/ad/preview-short.jinja.html:16
+msgid "коммерческая"
+msgstr "üzleti"
+
+#: templates/ad/preview-short.jinja.html:16
+msgid "коммерч."
+msgstr "üzl."
+
+#: templates/ad/preview.jinja.html:21
+msgid "без комиссии"
+msgstr "jutalék nélkül"
+
+#: templates/ad/preview.jinja.html:22
+msgid "возможен торг"
+msgstr "lehetséges alku"
+
+#: templates/ad/preview.jinja.html:74
+msgid "общая"
+msgstr "összes"
+
+#: templates/ad/preview.jinja.html:74
+msgid "жилая"
+msgstr "lakó"
+
+#: templates/ad/preview.jinja.html:84
+msgid "далее"
+msgstr "tovább"
+
+#: templates/ad/results.jinja.html:29
+msgid ""
+"По вашему запросу ничего не найдено. <br/>Попробуйте изменить параметры "
+"поиска."
+msgstr ""
+"Az Ön kérése alapján nincs találat. <br/>Próbálja megváltoztatni a "
+"keresési paramétereket."
+
+#: templates/ad/search.jinja.html:4 templates/ad/search_related.jinja.html:4
+#, python-format
+msgid "страница %(page)s"
+msgstr "oldal %(page)s"
+
+#: templates/ad/search.jinja.html:33
+msgid "Не нашли подходящий объект? Воспользуйтесь дополнительным сервисом поиска"
+msgstr ""
+
+#: templates/ad/search.jinja.html:34
+msgid ""
+"Постоянно работая над улучшение качества сервиса, предлагаем Вам "
+"дополнительные параметры, которые помогут ускорить поиск недвижимости"
+msgstr ""
+
+#: templates/ad/search.jinja.html:41
+msgid "Выберите риелтора и работайте только с проверенными специалистами"
+msgstr ""
+
+#: templates/ad/search.jinja.html:42
+msgid ""
+"На тратьте время на поиск необходимого жилья, выберите профессионала "
+"своего дела, который поможет Вам подобрать и найти тот вариант, который "
+"соответствует Вашим параметрам."
+msgstr ""
+
+#: templates/ad/search.jinja.html:45 templates/ad/search_related.jinja.html:68
+#: templates/ad/search_related_agencies.jinja.html:13
+msgid "Оставить заявку"
+msgstr "Igénylés küldése"
+
+#: templates/ad/search_form.jinja.html:27
+msgid "Цена за сутки"
+msgstr "Napi ár"
+
+#: templates/ad/search_form.jinja.html:31
+#: templates/macro/ad_search.jinja.html:137
+msgid "Расширенный поиск"
+msgstr ""
+
+#: templates/ad/search_form.jinja.html:36
+#: templates/ad/search_form.jinja.html:58
+msgid "Площадь общая"
+msgstr "Összterület"
+
+#: templates/ad/search_form.jinja.html:84
+msgid "Показано"
+msgstr ""
+
+#: templates/ad/search_form.jinja.html:84
+#: templates/ad/search_form.jinja.html:95
+#: templates/includes/account_menu.jinja.html:18
+#: templates/includes/publishing_status.jinja.html:24
+#: templates/includes/publishing_status.jinja.html:33
+msgid "объявление"
+msgstr "hirdetés"
+
+#: templates/ad/search_form.jinja.html:84
+#: templates/ad/search_form.jinja.html:95
+#: templates/includes/account_menu.jinja.html:18
+#: templates/includes/publishing_status.jinja.html:24
+#: templates/includes/publishing_status.jinja.html:33
+msgid "объявления"
+msgstr "hirdetések"
+
+#: templates/ad/search_form.jinja.html:84
+#: templates/ad/search_form.jinja.html:95
+#: templates/includes/account_menu.jinja.html:18
+#: templates/includes/publishing_status.jinja.html:24
+#: templates/includes/publishing_status.jinja.html:33
+msgid "объявлений"
+msgstr "hirdetéseknek"
+
+#: templates/ad/search_form.jinja.html:85
+msgid "из"
+msgstr ""
+
+#: templates/ad/search_form.jinja.html:88
+msgid "Сортировать"
+msgstr "Szűrni"
+
+#: templates/ad/search_form.jinja.html:89
+msgid "Отображать"
+msgstr "Mutatni"
+
+#: templates/ad/search_form.jinja.html:95
+msgid "Найдено"
+msgstr "Talált"
+
+#: templates/ad/search_form.jinja.html:122
+#: templates/ad/search_form_mainpage.jinja.html:71
+#: templates/ad/search_form_mainpage.jinja.html:72
+msgid "Все выбрано"
+msgstr "Minden kiválasztva"
+
+#: templates/ad/search_form.jinja.html:122
+#: templates/ad/search_form_mainpage.jinja.html:71
+msgid "Выберите район"
+msgstr "Válassza ki a kerületet"
+
+#: templates/ad/search_form_addr.jinja.html:7
+msgid "Страна, город"
+msgstr "Ország, város"
+
+#: templates/ad/search_form_addr.jinja.html:22
+msgid "Вся"
+msgstr "Egész"
+
+#: templates/ad/search_form_addr.jinja.html:23
+#: templates/macro/ad_search.jinja.html:165
+msgid "Область"
+msgstr "Megye"
+
+#: templates/ad/search_form_addr.jinja.html:32
+#: templates/ad/search_form_addr.jinja.html:35
+msgid "Районы"
+msgstr "Kerületek"
+
+#: templates/ad/search_form_addr.jinja.html:40
+msgid "Метро"
+msgstr "Metró"
+
+#: templates/ad/search_form_addr.jinja.html:46
+#: templates/ad/search_form_addr.jinja.html:49
+msgid "Улица"
+msgstr "Utca"
+
+#: templates/ad/search_form_addr.jinja.html:54
+msgid "ID"
+msgstr "ID"
+
+#: templates/ad/search_form_addr.jinja.html:60
+msgid "Название"
+msgstr "Elnevezés"
+
+#: templates/ad/search_form_addr.jinja.html:63
+msgid "Застройщик"
+msgstr "Építész"
+
+#: templates/ad/search_form_addr.jinja.html:74
+msgid "список районов"
+msgstr "kerületek listája"
+
+#: templates/ad/search_form_addr.jinja.html:88
+msgid "список улиц"
+msgstr "utcák listája"
+
+#: templates/ad/search_form_addr.jinja.html:96
+msgid "список населенных пунктов"
+msgstr "települések listája"
+
+#: templates/ad/search_form_addr.jinja.html:106
+msgid "Без привязки к метро"
+msgstr "Metróhoz való kapcsolódás nélkül"
+
+#: templates/ad/search_form_addr.jinja.html:120
+msgid "список станций метро"
+msgstr "metrómegállók listája"
+
+#: templates/ad/search_form_addr.jinja.html:140
+msgid "Сохраните поиск, чтобы получить самые свежие предложения на вашу почту"
+msgstr "Mentse el a keresést, hogy üzenetben értesüljön a legfrissebb ajánlatokról"
+
+#: templates/ad/search_form_addr.jinja.html:141
+msgid "Не упустите новые объекты!"
+msgstr "Ne hagyja ki az új ajánlatokat!"
+
+#: templates/ad/search_form_addr.jinja.html:141
+#: templates/ad/search_form_addr.jinja.html:144
+msgid "Сохранить поиск"
+msgstr "Keresés elmentése"
+
+#: templates/ad/search_form_mainpage.jinja.html:11
+msgid "Найдите лучший объект недвижимости"
+msgstr ""
+
+#: templates/ad/search_form_mainpage.jinja.html:23
+msgid "Тип сделки"
+msgstr ""
+
+#: templates/ad/search_form_mainpage.jinja.html:27
+#: templates/macro/ad_search.jinja.html:10
+#: templates/macro/ad_search.jinja.html:117
+msgid "Тип недвижимости"
+msgstr "Ingatlan típus"
+
+#: templates/ad/search_form_mainpage.jinja.html:47
+#: templates/macro/ad_search.jinja.html:130
+#: templates/macro/ad_search.jinja.html:151
+msgid "Цена"
+msgstr "Ár"
+
+#: templates/ad/search_related.jinja.html:13
+msgid "По вашему запросу ничего не найдено."
+msgstr "Az Ön keresése alapján nincs találat."
+
+#: templates/ad/search_related.jinja.html:15
+msgid ""
+"Просмотрите похожие объявления по схожим параметрам или попробуйте "
+"изменить параметры поиска."
+msgstr ""
+"Nézze meg a hasonló paraméterekkel rendelkező hirdetéseket vagy próbálja "
+"meg megváltoztatni a keresés paramétereit."
+
+#: templates/ad/search_related.jinja.html:17
+msgid "Попробуйте изменить параметры поиска."
+msgstr "Próbálja megváltoztatni a keresési paramétereket."
+
+#: templates/ad/search_related.jinja.html:22
+msgid ""
+"Как только появится объект по таким параметрам, Вы получите уведомление "
+"на электронную свою почту"
+msgstr ""
+"Ha megjelenik egy, az ezen paramétereknek megfelelő ingatlan, értesíteni "
+"fogjuk erről Önt emailben."
+
+#: templates/ad/search_related.jinja.html:25
+#: templates/ad/search_related.jinja.html:29
+msgid "Подписаться"
+msgstr "Feliratkozni"
+
+#: templates/ad/search_related.jinja.html:34
+msgid "Похожие объявления по схожим параметрам:"
+msgstr "Hasonló paraméterekkel rendelkező hirdetések:"
+
+#: templates/ad/search_related.jinja.html:50
+msgid "объект"
+msgstr "ingatlan"
+
+#: templates/ad/search_related.jinja.html:50
+msgid "объекта"
+msgstr "ingatlant"
+
+#: templates/ad/search_related.jinja.html:50
+msgid "объектов"
+msgstr "ingatlanok"
+
+#: templates/ad/search_related.jinja.html:66
+msgid ""
+"Можете оставить заявку по выбранным параметрам, мы отправим эту заявку "
+"агентствам, ожидайте звонка"
+msgstr ""
+"Küldhet egy igénylést a kiválasztott paraméterek alapján, ezt elküldjük "
+"az ingatlanirodáknak, várja a hívásunkat"
+
+#: templates/ad/search_related_agencies.jinja.html:1
+msgid "Агентства, имеющие опыт работы с такого вида объектами"
+msgstr ""
+
+#: templates/ad/search_related_agencies.jinja.html:15
+msgid "Подробнее об АН"
+msgstr "Részletesebben az ingatlanirodáról"
+
+#: templates/ad/streets.jinja.html:35
+msgid "Популярные улицы"
+msgstr "Népszerű utcák"
+
+#: templates/ad/subway.jinja.html:27
+msgid "Станции метро"
+msgstr "Metróállomások"
+
+#: templates/admin/filter_property_id.html:2
+#: templates/admin/filter_select.html:2
+#, python-format
+msgid " By %(filter_title)s "
+msgstr "By %(filter_title)s"
+
+#: templates/admin/moderation_stats.jinja.html:60
+msgid "Нет статистики"
+msgstr "Nincs statisztika"
+
+#: templates/admin/tabular_image.html:17
+msgid "Delete?"
+msgstr "Törölni?"
+
+#: templates/admin/tabular_image.html:18
+msgid "Image"
+msgstr "Kép"
+
+#: templates/admin/tabular_image.html:31
+msgid "View on site"
+msgstr "Nézni az oldalon"
+
+#: templates/admin/tabular_image.html:81
+#, python-format
+msgid "Add another %(verbose_name)s"
+msgstr "Hozzáadni egy másik %(verbose_name)s"
+
+#: templates/admin/tabular_image.html:82
+msgid "Remove"
+msgstr "Eltávolítani"
+
+#: templates/faq/article.jinja.html:4 templates/faq/category.jinja.html:3
+#: templates/faq/category.jinja.html:10
+msgid "Статьи"
+msgstr "Cikkek"
+
+#: templates/faq/article.jinja.html:21
+msgid "Видеообучение"
+msgstr "Videóoktatás"
+
+#: templates/faq/base.jinja.html:11
+#: templates/includes/footer_menu.jinja.html:65
+msgid "Частые вопросы"
+msgstr "Gyakori kérdések"
+
+#: templates/faq/index.jinja.html:22
+msgid "Часто задаваемые вопросы"
+msgstr "Gyakran feltett kérdések"
+
+#: templates/faq/index.jinja.html:35
+msgid "См. все вопросы"
+msgstr "Lsd. az összes kérdést"
+
+#: templates/faq/index.jinja.html:36
+msgid "Скрыть все вопросы"
+msgstr "Elrejteni az összes kérdést"
+
+#: templates/guide/article_detail.jinja.html:17
+msgid " Читайте также:"
+msgstr ""
+
+#: templates/guide/article_detail.jinja.html:41
+msgid "Мы в социальных сетях"
+msgstr "Mi a közösségi oldalakon"
+
+#: templates/guide/article_detail.jinja.html:42
+msgid ""
+"Если вам привычнее узнавать о новостях через социальные сети, "
+"присоединяйтесь"
+msgstr ""
+"Ha Önnek kényelmesebb a hírekről közösségi oldalakon informálódni, "
+"csatlakozzon"
+
+#: templates/guide/article_detail.jinja.html:46
+msgid "Твиты пользователя"
+msgstr "Felhasználók twitjei"
+
+#: templates/guide/base.jinja.html:27
+#: templates/includes/footer_menu.jinja.html:22
+msgid "Новости"
+msgstr "Hírek"
+
+#: templates/guide/base.jinja.html:28
+#: templates/includes/footer_menu.jinja.html:23
+msgid "События"
+msgstr "Események"
+
+#: templates/guide/base.jinja.html:29
+#: templates/includes/footer_menu.jinja.html:24
+msgid "Места"
+msgstr "Helyek"
+
+#: templates/guide/base.jinja.html:30
+#: templates/includes/footer_menu.jinja.html:25
+msgid "Стоит знать"
+msgstr "Érdemes tudni"
+
+#: templates/guide/base.jinja.html:31
+#: templates/includes/footer_menu.jinja.html:57
+msgid "Mesto School"
+msgstr "Mesto School"
+
+#: templates/guide/region_choice.jinja.html:5
+msgid "Выберите город"
+msgstr "Válasszon várost"
+
+#: templates/includes/account_menu.jinja.html:7
+msgid "Подключена услуга"
+msgstr "Bekapcsolásra került a szolgáltatás"
+
+#: templates/includes/account_menu.jinja.html:7
+#: templates/includes/account_menu_vertical.jinja.html:9
+#: templates/includes/publishing_status.jinja.html:6
+#: templates/profile/menu.jinja.html:7
+msgid "Оплата за звонок"
+msgstr "Fizetés a hívásért"
+
+#: templates/includes/account_menu.jinja.html:10
+msgid "Выделенный номер до "
+msgstr ""
+
+#: templates/includes/account_menu.jinja.html:11
+msgid ""
+"если на балансе будет необходимая сумма, то произойдет автоматическое "
+"продление выделенного номера"
+msgstr ""
+
+#: templates/includes/account_menu.jinja.html:14
+#: templates/includes/header_usermenu.jinja.html:8
+#: templates/profile/balance/index.jinja.html:35
+msgid "Баланс"
+msgstr "Egyenleg"
+
+#: templates/includes/account_menu.jinja.html:18
+msgid "Подключен тариф"
+msgstr "Tarifa bekapcsolva"
+
+#: templates/includes/account_menu.jinja.html:19
+#: templates/includes/publishing_status.jinja.html:34
+msgid "Действует до"
+msgstr "Aktív időszak:"
+
+#: templates/includes/account_menu_vertical.jinja.html:6
+#: templates/includes/account_menu_vertical.jinja.html:7
+#: templates/includes/header_usermenu.jinja.html:6
+#: templates/profile/menu.jinja.html:5
+msgid "Способы размещения"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:8
+#: templates/profile/checkout.jinja.html:161
+#: templates/profile/menu.jinja.html:6
+msgid "Тарифный план"
+msgstr "Tarifa csomag"
+
+#: templates/includes/account_menu_vertical.jinja.html:10
+#: templates/profile/checkout.jinja.html:105
+#: templates/profile/menu.jinja.html:8
+msgid "VIP объявление"
+msgstr "VIP hirdetés"
+
+#: templates/includes/account_menu_vertical.jinja.html:11
+#: templates/profile/menu.jinja.html:9
+msgid "Зарубежные каталоги"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:16
+#: templates/includes/footer_menu.jinja.html:8
+msgid "Новостройки"
+msgstr "Újépítésűek"
+
+#: templates/includes/account_menu_vertical.jinja.html:17
+msgid "Вторичное жилье"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:20
+#: templates/includes/header_usermenu.jinja.html:7
+msgid "Мои объекты"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:22
+#: templates/profile/menu.jinja.html:14
+msgid "Объекты агентства"
+msgstr "Ügynökség objektumai"
+
+#: templates/includes/account_menu_vertical.jinja.html:24
+#: templates/profile/menu.jinja.html:16
+msgid "Мои объявления"
+msgstr "Hirdetéseim"
+
+#: templates/includes/account_menu_vertical.jinja.html:29
+#: templates/includes/account_menu_vertical.jinja.html:76
+#: templates/includes/header_usermenu.jinja.html:16
+#: templates/includes/header_usermenu.jinja.html:18
+#: templates/profile/menu.jinja.html:21
+#: templates/profile/messages/list.jinja.html:17
+msgid "Сообщения"
+msgstr "Üzenetek"
+
+#: templates/includes/account_menu_vertical.jinja.html:30
+#: templates/profile/menu.jinja.html:22
+msgid "Задачи"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:31
+#: templates/profile/menu.jinja.html:23
+msgid "Клиенты"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:33
+#: templates/includes/header_usermenu.jinja.html:27
+#: templates/profile/menu.jinja.html:26 templates/profile/menu.jinja.html:28
+msgid "CRM"
+msgstr "ügyfélkapcsolat-kezelés"
+
+#: templates/includes/account_menu_vertical.jinja.html:48
+#: templates/includes/account_menu_vertical.jinja.html:75
+#: templates/profile/import/base.jinja.html:10
+#: templates/profile/menu.jinja.html:33 templates/profile/menu.jinja.html:56
+msgid "Настройки"
+msgstr "Beállítások"
+
+#: templates/includes/account_menu_vertical.jinja.html:49
+#: templates/includes/footer_menu.jinja.html:33
+#: templates/profile/menu.jinja.html:34
+msgid "Риелторы"
+msgstr "Ingatlanügynök"
+
+#: templates/includes/account_menu_vertical.jinja.html:50
+#: templates/includes/header_usermenu.jinja.html:33
+#: templates/profile/menu.jinja.html:35
+msgid "Статистика"
+msgstr "Statisztika"
+
+#: templates/includes/account_menu_vertical.jinja.html:51
+#: templates/profile/import/base.jinja.html:5
+#: templates/profile/menu.jinja.html:36
+msgid "Импорт объявлений"
+msgstr "Hirdetések importálása"
+
+#: templates/includes/account_menu_vertical.jinja.html:53
+#: templates/includes/header_usermenu.jinja.html:23
+#: templates/profile/menu.jinja.html:38
+msgid "Агентство"
+msgstr "Iroda"
+
+#: templates/includes/account_menu_vertical.jinja.html:56
+#: templates/profile/menu.jinja.html:55
+msgid "Профиль"
+msgstr "Profil"
+
+#: templates/includes/account_menu_vertical.jinja.html:63
+#: templates/includes/footer_menu.jinja.html:39
+#: templates/profile/menu.jinja.html:46
+msgid "Полезные услуги"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:64
+#: templates/profile/menu.jinja.html:47
+msgid "Панорама 360"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:66
+#: templates/includes/footer_menu.jinja.html:42
+#: templates/profile/menu.jinja.html:48
+msgid "Оценка недвижимости"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:67
+#: templates/profile/menu.jinja.html:49
+msgid "Услуги нотариуса"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:68
+msgid "3D интерьер"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:70
+#: templates/includes/publishing_status.jinja.html:7
+#: templates/includes/publishing_status.jinja.html:14
+#: templates/includes/publishing_status.jinja.html:27
+#: templates/includes/publishing_status.jinja.html:36
+#: templates/includes/publishing_status.jinja.html:45
+msgid "Ваш баланс"
+msgstr ""
+
+#: templates/includes/account_menu_vertical.jinja.html:71
+#: templates/profile/menu.jinja.html:52
+msgid "Операции"
+msgstr "Műveletek"
+
+#: templates/includes/account_menu_vertical.jinja.html:72
+#: templates/profile/menu.jinja.html:53
+msgid "Заказы"
+msgstr "Megrendelések"
+
+#: templates/includes/account_menu_vertical.jinja.html:77
+#: templates/profile/menu.jinja.html:57
+#: templates/profile/saved_properties.jinja.html:9
+msgid "Сохраненные объявления"
+msgstr "Elmentett hirdetések"
+
+#: templates/includes/account_menu_vertical.jinja.html:78
+#: templates/profile/menu.jinja.html:58
+#: templates/profile/saved_searches.jinja.html:11
+msgid "Сохраненные поиски"
+msgstr "Elmentett keresések"
+
+#: templates/includes/breadcrumbs.jinja.html:2
+#: templates/includes/cities_list_4_column.jinja.html:4
+msgid "Назад"
+msgstr "Vissza"
+
+#: templates/includes/cities_list_4_column.jinja.html:10
+msgid "Вся страна"
+msgstr "Egész ország"
+
+#: templates/includes/cities_list_4_column.jinja.html:12
+msgid "Вся область"
+msgstr "Egész megye"
+
+#: templates/includes/footer_menu.jinja.html:4
+msgid "В Украине"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:7
+msgid "Посуточно"
+msgstr "Naponta"
+
+#: templates/includes/footer_menu.jinja.html:13
+msgid "За рубежом"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:21
+msgid "Новости Рынка"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:30
+msgid "Профессионалы"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:31
+msgid "Все профессионалы"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:32
+msgid "Агентства"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:40
+msgid "3D панорама"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:47
+msgid "Контакты"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:48
+msgid "О mesto.ua"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:49
+msgid "Реклама"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:50
+msgid "Политика"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:50
+msgid "конфиденциальности"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:51
+msgid "Условия использования"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:58
+msgid "Вебинары"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:59
+msgid "Семинары"
+msgstr ""
+
+#: templates/includes/footer_menu.jinja.html:60
+msgid "Полезные статьи"
+msgstr ""
+
+#: templates/includes/header_call_request.jinja.html:3
+#: templates/includes/header_menu.jinja.html:26
+msgid "Заказ обратного звонка"
+msgstr ""
+
+#: templates/includes/header_cities.jinja.html:9
+msgid "Выбрать город"
+msgstr "Válasszon várost"
+
+#: templates/includes/header_menu.jinja.html:11
+#: templates/includes/header_menu.jinja.html:14
+#: templates/includes/header_menu.jinja.html:17
+msgid "Добавить объявление"
+msgstr "Hirdetés hozzáadása"
+
+#: templates/includes/header_usermenu.jinja.html:9
+msgid "Настройки профиля"
+msgstr "Profil beállítása"
+
+#: templates/includes/header_usermenu.jinja.html:10
+msgid "Выход"
+msgstr "Kilépés"
+
+#: templates/includes/header_usermenu.jinja.html:32
+msgid "Мои новостройки"
+msgstr ""
+
+#: templates/includes/login_popup.jinja.html:16
+#: templates/profile/edit_profile.jinja.html:772
+msgid "Пароль"
+msgstr "Jelszó"
+
+#: templates/includes/login_popup.jinja.html:18
+#: templates/profile/login.jinja.html:24
+msgid "Забыли пароль?"
+msgstr "Elfelejtette a jelszavát?"
+
+#: templates/includes/login_popup.jinja.html:21
+#: templates/profile/login.jinja.html:20
+msgid "Log in"
+msgstr "Bejelentkezés"
+
+#: templates/includes/login_popup.jinja.html:24
+msgid "или войдите с помощью"
+msgstr ""
+
+#: templates/includes/login_popup.jinja.html:38
+msgid "Создать"
+msgstr ""
+
+#: templates/includes/login_popup.jinja.html:41
+msgid "или создайте аккаунт через"
+msgstr ""
+
+#: templates/includes/login_popup.jinja.html:48
+msgid "Логин"
+msgstr "Felhasználónév"
+
+#: templates/includes/login_popup.jinja.html:49
+#: templates/registration/registration_form.jinja.html:4
+#: templates/registration/registration_form.jinja.html:9
+msgid "Регистрация"
+msgstr "Regisztráció"
+
+#: templates/includes/photoswipe.jinja.html:14
+msgid "Полный экран"
+msgstr "Teljes képernyő"
+
+#: templates/includes/photoswipe.jinja.html:15
+msgid "Увеличение"
+msgstr "Felnagyítás"
+
+#: templates/includes/photoswipe.jinja.html:27
+msgid "Предыдущее фото"
+msgstr "Előző fénykép"
+
+#: templates/includes/photoswipe.jinja.html:28
+msgid "Следующее фото"
+msgstr "Következő fénykép"
+
+#: templates/includes/publishing_status.jinja.html:6
+#: templates/includes/publishing_status.jinja.html:33
+msgid "Выбран"
+msgstr ""
+
+#: templates/includes/publishing_status.jinja.html:13
+msgid "Недостаточно денег на балансе."
+msgstr ""
+
+#: templates/includes/publishing_status.jinja.html:13
+#: templates/includes/publishing_status.jinja.html:25
+msgid "Пополните баланс или выберите другой способ размещения"
+msgstr ""
+
+#: templates/includes/publishing_status.jinja.html:24
+msgid "Ваш тариф"
+msgstr ""
+
+#: templates/includes/publishing_status.jinja.html:33
+msgid "Стандартный месяц"
+msgstr ""
+
+#: templates/includes/publishing_status.jinja.html:35
+msgid "Продлить тариф"
+msgstr ""
+
+#: templates/includes/publishing_status.jinja.html:44
+msgid "Выберите способ размещения"
+msgstr ""
+
+#: templates/includes/social_auth.jinja.html:7
+msgid "Войти с помощью Facebook"
+msgstr "Lépjen be a Facebook-kal"
+
+#: templates/includes/social_auth.jinja.html:8
+msgid "Войти с помощью Google"
+msgstr "Lépjen be a Google-lal"
+
+#: templates/includes/social_auth.jinja.html:12
+msgid ""
+"Заходя в аккаунт, вы соглашаетесь с нашими Правилами и условиями и <a "
+"href=\"#\">Положением о конфиденциальности</a>"
+msgstr ""
+
+#: templates/includes/social_share.jinja.html:3
+msgid "Поделиться"
+msgstr "Megosztani"
+
+#: templates/includes/your_manager.jinja.html:20
+msgid "Если у вас возникли вопросы, вас проконсультирует ваш личный менеджер."
+msgstr ""
+
+#: templates/includes/modals/call_request.jinja.html:29
+#: templates/includes/your_manager.jinja.html:24
+msgid "Заказать звонок"
+msgstr ""
+
+#: templates/includes/modals/call_request.jinja.html:19
+msgid "Если у вас возникли вопросы"
+msgstr ""
+
+#: templates/includes/modals/call_request.jinja.html:20
+msgid "Вас проконсультирует ваш личный менеджер."
+msgstr ""
+
+#: templates/includes/modals/call_request.jinja.html:23
+msgid "Вам перезвонят на этот номер"
+msgstr ""
+
+#: templates/includes/modals/cities.jinja.html:12
+msgid "Поиск города"
+msgstr "Város keresése"
+
+#: templates/includes/modals/cities.jinja.html:16
+msgid "По городам"
+msgstr "Városonként"
+
+#: templates/includes/modals/cities.jinja.html:17
+msgid "По областям"
+msgstr "Megyénként"
+
+#: templates/includes/modals/cities.jinja.html:36
+msgid " область"
+msgstr "megye"
+
+#: templates/includes/modals/welcome_banner.jinja.html:3
+msgid "Добро пожаловать на"
+msgstr ""
+
+#: templates/includes/modals/welcome_banner.jinja.html:14
+msgid "Воспользуйтесь"
+msgstr "Használja"
+
+#: templates/includes/modals/welcome_banner.jinja.html:14
+msgid "поиском"
+msgstr "a keresést"
+
+#: templates/includes/modals/welcome_banner.jinja.html:15
+msgid "Ищите недвижимость для аренды, покупки и посуточной ареды со всей Украины"
+msgstr ""
+
+#: templates/includes/modals/welcome_banner.jinja.html:22
+msgid "Выберите"
+msgstr "Válasszon"
+
+#: templates/includes/modals/welcome_banner.jinja.html:22
+msgid "недвижимость"
+msgstr "ingatlant"
+
+#: templates/includes/modals/welcome_banner.jinja.html:23
+msgid "Используйте фильтры и выбирайте подходящие объекты для вас"
+msgstr ""
+
+#: templates/includes/modals/welcome_banner.jinja.html:30
+msgid "Свяжитесь"
+msgstr "Vegye fel a kapcsolatot"
+
+#: templates/includes/modals/welcome_banner.jinja.html:30
+msgid "с владельцем"
+msgstr "a tulajdonossal"
+
+#: templates/includes/modals/welcome_banner.jinja.html:31
+msgid "Позвоните или напишите владельцу объекта, который вас заинтересовал"
+msgstr ""
+
+#: templates/macro/ad_search.jinja.html:109
+msgid "Найти"
+msgstr "Keresni"
+
+#: templates/macro/ad_search.jinja.html:159
+msgid "Вся Украина"
+msgstr "Egész Ukrajna"
+
+#: templates/macro/forms.jinja.html:81
+msgid "Пожалуйста, исправьте ошибки:"
+msgstr "Kérem, javítsa ki a hibákat:"
+
+#: templates/profile/ad-preview.jinja.html:15
+msgid "Добавлено"
+msgstr "Hozzáadva"
+
+#: templates/profile/ad-preview.jinja.html:31
+msgid "Окончание размещения"
+msgstr "Elhelyezés befejezése"
+
+#: templates/profile/ad-preview.jinja.html:32
+msgid "Зарубежная недвижимость"
+msgstr "Külföldi ingatlan"
+
+#: templates/profile/ad-preview.jinja.html:45
+msgid "площадь"
+msgstr "terület"
+
+#: templates/profile/ad-preview.jinja.html:51
+#, python-format
+msgid "%(floor)sй этаж из %(total)s"
+msgstr "%(floor)sik emelet a %(total)s-ből"
+
+#: templates/profile/ad-preview.jinja.html:57
+msgid "Ответственный"
+msgstr "Felelős"
+
+#: templates/profile/ad-preview.jinja.html:65
+msgid "Назначить риелтора"
+msgstr "Ingatlanügynök kijelölése"
+
+#: templates/profile/ad-preview.jinja.html:95
+msgid "Привлечь покупателя"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:100
+msgid "до"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:101
+msgid "VIP еще "
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:101
+msgid "д."
+msgstr "nap"
+
+#: templates/profile/ad-preview.jinja.html:101
+msgid "дн."
+msgstr "napok"
+
+#: templates/profile/ad-preview.jinja.html:104
+msgid "сделать объявление VIP-объявлением"
+msgstr "A hirdetés VIP hirdetéssé átalakítása"
+
+#: templates/profile/ad-preview.jinja.html:105
+msgid "Сделать VIP"
+msgstr "VIP-vé tétel"
+
+#: templates/profile/ad-preview.jinja.html:118
+msgid "Заказать 3D тур"
+msgstr ""
+
+#: templates/profile/ad-preview.jinja.html:124
+msgid "активировать объявление"
+msgstr "hirdetés aktiválása"
+
+#: templates/profile/ad-preview.jinja.html:124
+#: templates/profile/my_properties.jinja.html:103
+msgid "Активировать"
+msgstr "Aktiválni"
+
+#: templates/profile/ad-preview.jinja.html:127
+msgid "Редактировать"
+msgstr "Szerkeszteni"
+
+#: templates/profile/ad-preview.jinja.html:130
+msgid "деактивировать объявление"
+msgstr "Deaktiválni a hirdetést"
+
+#: templates/profile/ad-preview.jinja.html:135
+msgid "удалить объявление"
+msgstr "hirdetés törlése"
+
+#: templates/profile/ads_limit_notice.jinja.html:3
+#, python-format
+msgid ""
+"Вы добавили все %(ads_count)s из %(ads_limit)s возможных объявлений.<br/>"
+"\n"
+"        Удалите или деактивируйте какие-либо объявления<br/> из "
+"существующих"
+msgstr ""
+"Hozzáadta az összes %(ads_count)s a %(ads_limit)s lehetséges hirdetések "
+"közül.<br/> Törölje vagy deaktiválja valamelyik hirdetést<br/> a meglévők"
+" közül"
+
+#: templates/profile/ads_limit_notice.jinja.html:7
+msgid "или перейдите на улучшенный тариф"
+msgstr "vagy térjen át egy jobb tarifára"
+
+#: templates/profile/ads_limit_notice.jinja.html:9
+msgid "или добавьте риелтора в свой аккаунт"
+msgstr "vagy adjon hozzá egy ingatlanügynököt a felhasználói fiókjához"
+
+#: templates/profile/ads_limit_notice.jinja.html:13
+msgid "Перейти на улучшенный тариф"
+msgstr "Áttérni egy jobb tarifára"
+
+#: templates/profile/ads_limit_notice.jinja.html:15
+msgid "Больше не показывать"
+msgstr "Nem mutassa többet"
+
+#: templates/profile/ban.jinja.html:5
+msgid "Ваш аккаунт заблокирован"
+msgstr "A felhasználói fiókja le van tiltva"
+
+#: templates/profile/ban.jinja.html:8
+msgid ""
+"Ваши объявления не отображаются на сайте и вы не можете добавлять новые "
+"объявления."
+msgstr ""
+"Az Ön hirdetései nem lesznek közzétéve a honlapon és nem tud új "
+"hirdetéseket közzétenni."
+
+#: templates/profile/ban.jinja.html:11
+msgid "Блокировка истекает"
+msgstr "A letiltása ekkor jár le"
+
+#: templates/profile/ban.jinja.html:12
+msgid "Причина блокировки:"
+msgstr "Letiltás oka:"
+
+#: templates/profile/change_email.jinja.html:3
+#: templates/profile/change_email.jinja.html:6
+msgid "Изменение E-mail"
+msgstr "E-mail cím változtatása"
+
+#: templates/profile/change_email.jinja.html:9
+msgid "На указанный адрес"
+msgstr "A megadott címre"
+
+#: templates/profile/change_email.jinja.html:9
+msgid "отправлена ссылка для подтверждения изменения E-mail."
+msgstr "elküldtük a linket az e-mail cím megváltoztatásának megerősítéséhez."
+
+#: templates/profile/checkout.jinja.html:64
+msgid "Варианты размещения международной недвижимости"
+msgstr "Nemzetközi ingatlan közzétételének lehetőségei"
+
+#: templates/profile/checkout.jinja.html:66
+msgid ""
+"1. Если вы добавляете объявление только на сайте mesto.ua, его увидят "
+"только пользователи портала mesto.ua<br/><br/>\n"
+"                    2. Добавляя объявление на mesto.ua и на международные"
+" сайты ваше объяление увидят сотни людей со всего мира"
+msgstr ""
+"1. Ha csak a mesto.ua honlapon teszi közzé a hirdetését, akkor azt csak a"
+" mesto.ua felhasználói fogják látni<br/><br/> 2. A mesto.ua és egyéb "
+"nemzetközi honlapokon is közzéteszi a hirdetését, akkor azt több száz "
+"ember fogja látni a világ minden tájáról."
+
+#: templates/profile/checkout.jinja.html:109
+#: templates/profile/checkout.jinja.html:165
+msgid "Подробнее об услуге"
+msgstr "Részletesebben a szolgáltatásról"
+
+#: templates/profile/checkout.jinja.html:113
+#: templates/profile/checkout.jinja.html:138
+msgid "7 дней"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:117
+msgid ""
+"VIP-объявление выделяет ваш объект желтым цветом с пометкой “VIP” и "
+"сохраняет его\n"
+"                            наверху списка сроком на одну неделю"
+msgstr ""
+"VIP-hirdetés esetén az Ön ingatlana sárga színnel és egy \"VIP\" "
+"jelzéssel lesz kiemelve, illetve a sor tetején lesz rögzítve egy hétig"
+
+#: templates/profile/checkout.jinja.html:135
+msgid "Срок действия Вашего тарифа истекает"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:137
+msgid "Размещение"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:137
+#: templates/profile/checkout.jinja.html:138
+msgid "VIP объявления"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:137
+msgid "завершится одновременно<br>с действием Тарифного плана."
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:138
+msgid "Для успешной публикации"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:138
+msgid "необходимо продлить Тарифный план."
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:142
+msgid "Снимите галочку"
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:142
+msgid "напротив услуги, если Вы не хотите<br>ее приобретать."
+msgstr ""
+
+#: templates/profile/checkout.jinja.html:172
+msgid ""
+"Вы приобретаете размещение объявлений на 31 дней. Обновление объявлений "
+"каждые 7 дней. Возможность взаимозаменять объявления -  согласно "
+"выбранному пакету."
+msgstr ""
+"Ön a hirdetés 31 napos közzétételére való jogosultságot vásárolja. A "
+"hirdetés frissítése heti szinten történik. Lehetőség van a hirdetések "
+"kölcsönös kicserélésére - a kiválasztott csomag alapján."
+
+#: templates/profile/checkout.jinja.html:182
+#, python-format
+msgid ""
+"Узнайте больше о <a href=\"%(link)s\">возможностях продвижения</a> вашего"
+" объявления"
+msgstr ""
+"Tudjon meg többet az Ön hirdetésének <a href=\"%(link)s\"></a> "
+"promóciójáról"
+
+#: templates/profile/checkout.jinja.html:189
+msgid "Всего к оплате"
+msgstr "Összesen a fizetéshez"
+
+#: templates/profile/checkout.jinja.html:191
+msgid "Оплатить услуги"
+msgstr "Szolgáltatások kifizetése"
+
+#: templates/profile/checkout.jinja.html:197
+msgid "услуги будут оплачены с баланса польльзователя"
+msgstr "a szolgáltatások a felhasználó egyenlegéről lesznek kifizetve"
+
+#: templates/profile/checkout.jinja.html:206
+msgid "Оплата услуг"
+msgstr "Szolgáltatások kifizetése"
+
+#: templates/profile/checkout.jinja.html:207
+msgid "Выберите способ оплаты"
+msgstr "Válasszon a fizetési módot"
+
+#: templates/profile/deactivation_reason_modal.jinja.hmtl.html:7
+msgid "Пожалуйста, расскажите, почему вы хотите снять объявление с публикации:"
+msgstr ""
+
+#: templates/profile/deactivation_reason_modal.jinja.hmtl.html:21
+msgid "Снять с публикации"
+msgstr ""
+
+#: templates/profile/deactivation_reason_modal.jinja.hmtl.html:24
+msgid "Продолжить размещение *"
+msgstr ""
+
+#: templates/profile/deactivation_reason_modal.jinja.hmtl.html:29
+msgid ""
+"Вы можете продолжить размещение проданных объектов, но с соответствующей "
+"пометкой \"Продано\". <br/>Такие объявления будут размещаться на общих "
+"условиях, как обычные объявления."
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:732
+msgid "Время приема"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:733
+#: templates/profile/edit_profile.jinja.html:829
+msgid "Ваш менеджер"
+msgstr "Ön menedzsere"
+
+#: templates/profile/edit_profile.jinja.html:735
+msgid "Личные данные"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:753
+msgid "Добавить номер"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:762
+msgid "изменить email"
+msgstr "email megváltoztatása"
+
+#: templates/profile/edit_profile.jinja.html:764
+msgid "не задан"
+msgstr "nincs megadva"
+
+#: templates/profile/edit_profile.jinja.html:765
+msgid "указать email"
+msgstr "email megjelölése"
+
+#: templates/profile/edit_profile.jinja.html:776
+msgid "изменить пароль"
+msgstr "jelszó megváltoztatása"
+
+#: templates/profile/edit_profile.jinja.html:778
+msgid "сбросить пароль"
+msgstr "jelszó visszaállítása"
+
+#: templates/profile/edit_profile.jinja.html:789
+msgid "Ваши <br> cоциальные сети"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:793
+msgid "Вы подключены к"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:797
+#: templates/profile/edit_profile.jinja.html:799
+msgid "Отвязать аккаунт"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:805
+msgid "Привязать аккаунт:"
+msgstr ""
+
+#: templates/profile/edit_profile.jinja.html:808
+msgid "Войти с помощью"
+msgstr "A következőn keresztül történő belépés"
+
+#: templates/profile/edit_profile.jinja.html:818
+#: templates/profile/import/settings.jinja.html:25
+msgid "Сохранить"
+msgstr "Mentés"
+
+#: templates/profile/edit_profile.jinja.html:838
+msgid ""
+"Это внутренний номер вашего менеджера, на случай, если вы захотите "
+"позвонить сами"
+msgstr ""
+"Ez a menedzserének a belső telefonszáma, arra az esetre, ha személyesen "
+"akarná felhívni"
+
+#: templates/profile/edit_profile.jinja.html:838
+msgid "Наш&nbsp;номер"
+msgstr "A mi&nbsp;számunk"
+
+#: templates/profile/edit_profile.jinja.html:839
+msgid "внутренний номер"
+msgstr "belső telefonszám"
+
+#: templates/profile/edit_profile.jinja.html:841
+msgid "Перезвонить мне"
+msgstr "Hívjon vissza"
+
+#: templates/profile/edit_profile.jinja.html:851
+msgid ""
+"Внимание! Все ваши объявления будут неактивны, пока вы не пополните "
+"баланс еще на"
+msgstr "Figyelem! Az összes hirdetése inaktív lesz, amíg nem tesz az egyenlegére"
+
+#: templates/profile/edit_profile.jinja.html:851
+msgid "гривен."
+msgstr "hrivnyát."
+
+#: templates/profile/edit_profile.jinja.html:859
+msgid "Время приема звонков с сайта"
+msgstr ""
+
+#: templates/profile/login.jinja.html:24
+msgid "Восстановить пароль"
+msgstr "Jelszó visszaállítása"
+
+#: templates/profile/login.jinja.html:25
+msgid "Нет аккаунта?"
+msgstr "Nincs fiókja?"
+
+#: templates/profile/login.jinja.html:25
+#: templates/registration/registration_form.jinja.html:20
+msgid "Зарегистрироваться"
+msgstr "Regisztrálni"
+
+#: templates/profile/menu.jinja.html:51
+msgid "Финансы"
+msgstr "Pénzügyek"
+
+#: templates/profile/my_properties.jinja.html:67
+msgid "Поиск по улице или ID объявления"
+msgstr "Hirdetés utca vagy ID alapján történő keresése"
+
+#: templates/profile/my_properties.jinja.html:80
+msgid "Добавить объект"
+msgstr "Ingatlan hozzáadása"
+
+#: templates/profile/my_properties.jinja.html:103
+msgid "активировать объявления"
+msgstr "hirdetés aktiválás"
+
+#: templates/profile/my_properties.jinja.html:109
+msgid ""
+"объявление будет учитываться как активное объявление, но с пометкой "
+"Продано"
+msgstr ""
+
+#: templates/profile/my_properties.jinja.html:114
+msgid "деактивировать объявления"
+msgstr "hirdetés deaktiválása"
+
+#: templates/profile/my_properties.jinja.html:115
+msgid "Деактивировать"
+msgstr "Deaktiválni"
+
+#: templates/profile/my_properties.jinja.html:119
+msgid "удалить объявления"
+msgstr "hirdetés törlése"
+
+#: templates/profile/messages/list.jinja.html:26
+#: templates/profile/my_properties.jinja.html:120
+#: templates/profile/my_properties.jinja.html:176
+msgid "Удалить"
+msgstr "Törlés"
+
+#: templates/profile/my_properties.jinja.html:126
+#, python-format
+msgid "Доступно %(remaining)s из %(total)s объявлений"
+msgstr "Elérhető %(remaining)s a %(total)s hirdetésből"
+
+#: templates/profile/my_properties.jinja.html:144
+msgid "Объявлений на странице"
+msgstr "Hirdetés a honlapon"
+
+#: templates/profile/my_properties.jinja.html:154
+msgid "У вас нет объявлений соответствующих условию."
+msgstr "Nincs a megadott feltételeknek megfelelő hirdetés."
+
+#: templates/profile/my_properties.jinja.html:156
+msgid "Начните добавлять свои объекты недвижимости"
+msgstr ""
+
+#: templates/profile/my_properties.jinja.html:170
+msgid "Удаление объекта"
+msgstr "Ingatlan törlése"
+
+#: templates/profile/my_properties.jinja.html:173
+msgid ""
+"Удаление объекта — безвозвратная операция. Если вы хотите скрыть "
+"объявление, просто деактивируйте его."
+msgstr ""
+"Az ingatlan törlése - visszafordíthatatlan eljárás. Ha csak el akarja "
+"takarni a hirdetést, egyszerűen deaktiválja azt."
+
+#: templates/profile/my_properties.jinja.html:175
+msgid "Отмена"
+msgstr "Mégsem"
+
+#: templates/profile/my_property_form.jinja.html:25
+msgid "Разместите своё объявление"
+msgstr "Tegye közzé a hirdetését"
+
+#: templates/profile/my_property_form.jinja.html:27
+msgid ""
+"Выберите в каком каталоге вы хотите разместить объявление. Размещение в "
+"каталоге mesto.ua<br/>\n"
+"                позволит показать объявление пользователям портала из "
+"Украины. Если вы хотите сдать объект пользователям из-за рубежа<br/>\n"
+"                или хотите сдать объект, который находится зарубежом — "
+"воспользуйтесь разделом \"зарубежная недвижимость\""
+msgstr ""
+"Válassza ki, hogy melyik katalógusban szeretné közzétenni a hirdetését. "
+"Ha a mesto.ua<br/> katalógusban helyezi el, akkor az ingatlant az ukrán "
+"felhasználók fogják látni. Ha az ingatlant külföldi felhasználók számára "
+"is elérhetővé szeretné tenni<br/> vagy az ingatlan külföldön található - "
+"használja fel a \"külföldi ingatlan\" részleget."
+
+#: templates/profile/my_property_form.jinja.html:49
+msgid "Размещение в мировом каталоге"
+msgstr "A világ katalógusban való közzététel"
+
+#: templates/profile/my_property_form.jinja.html:50
+msgid ""
+"Mesto.ua — это эксклюзивный партнер ведущих международных порталов "
+"недвижимости.<br/>\n"
+"Вам сюда если:<br/>\n"
+"• Вы продаете недвижимость в Украине зарубежным инвесторам;<br/>\n"
+"• Вы продаете зарубежную недвижимость гражданам Украины;<br/>\n"
+"<br/>\n"
+"И вот как мы работаем:<br/>\n"
+"1. Добавляйте объявление в каталог международной недвижимости на портале "
+"mesto.ua.<br/>\n"
+"или<br/>\n"
+"2. Добавляйте объявление в каталог международной недвижимости на портале "
+"mesto.uа + подключайте услугу трансляции этих объявлений на международные"
+" сайты.<br/>\n"
+"<br/>\n"
+"Где бы не находился Ваш клиент, с порталом Mesto.ua он обязательно увидит"
+" ваше объявление."
+msgstr ""
+"Mesto.ua — egy exkluzív partnere a vezető nemzetközi ingatlan "
+"oldalaknak.<br/> Látogassa meg honlapunkat, ha:<br/> • Ukrajnában "
+"található ingatlant árusít külföldi befektetőknek;<br/> • Külföldön "
+"található ingatlant árusít ukrán állampolgárok számára;<br/> <br/> Így "
+"működünk mi:<br/> 1. Tegye közzé a hirdetését a nemzetközi ingatlan "
+"katalógusban a mesto.ua honlapon.<br/> vagy<br/> 2. Tegye közzé a "
+"hirdetését a nemzetközi ingatlan katalógusban a mesto.ua honlapon + "
+"kapcsolja be az ezen hirdetések nemzetközi honlapokon való közzétételének"
+" szolgáltatását.<br/> <br/> Akárhol is található az Ön ügyfele, a "
+"Mesto.ua honlappal biztosan megtalálja az Ön hirdetését."
+
+#: templates/profile/my_property_form.jinja.html:61
+msgid "Продолжить"
+msgstr "Folytatás"
+
+#: templates/profile/my_property_form.jinja.html:80
+msgid "Телефоны"
+msgstr "Telefonok"
+
+#: templates/profile/my_property_form.jinja.html:94
+msgid "Фотографии"
+msgstr "Fényképek"
+
+#: templates/profile/my_property_form.jinja.html:97
+msgid "Вы можете сортировать изображения перетаскивая их"
+msgstr "A képeket félrehúzással tudja szortírozni"
+
+#: templates/profile/my_property_form.jinja.html:107
+msgid ""
+"Для корректной загрузкий изображений ваш браузер должен поддерживать "
+"Javascript."
+msgstr ""
+"A képek helyes feltöltéséhez a böngészőjének támogatnia kell a "
+"Javascript-et."
+
+#: templates/profile/my_property_form.jinja.html:115
+msgid "удалить"
+msgstr "törölni"
+
+#: templates/profile/my_property_form.jinja.html:116
+msgid "повернуть"
+msgstr "megfordítani"
+
+#: templates/profile/my_property_form.jinja.html:119
+msgid "сделать главной фотографией объявления"
+msgstr "a hirdetés fő fényképévé tétel"
+
+#: templates/profile/my_property_form.jinja.html:139
+msgid "Сохранить изменения"
+msgstr "Változástatások mentése"
+
+#: templates/profile/my_property_form.jinja.html:139
+msgid "Опубликовать"
+msgstr "Közzététel"
+
+#: templates/profile/my_property_form.jinja.html:141
+msgid "Продолжить размещение"
+msgstr "Közzététel folytatása"
+
+#: templates/profile/my_property_form.jinja.html:193
+#: templates/profile/my_property_form.jinja.html:212
+msgid "Например"
+msgstr "Például"
+
+#: templates/profile/saved_properties.jinja.html:7
+#: templates/profile/saved_searches.jinja.html:9
+msgid "Очистить список"
+msgstr "Lista kiürítése"
+
+#: templates/profile/saved_properties.jinja.html:25
+msgid "убрать из избранного"
+msgstr "kiválasztottak közül törlés"
+
+#: templates/profile/saved_properties.jinja.html:33
+msgid "У вас нет сохраненных объявлений."
+msgstr "Nincs elmentett hirdetése."
+
+#: templates/profile/saved_searches.jinja.html:5
+msgid "Укажите E-mail"
+msgstr "Adja meg az e-mail címét"
+
+#: templates/profile/saved_searches.jinja.html:5
+msgid "и вы сможете получать уведомления о новых обьявлениях"
+msgstr "és lehetősége lesz értesítéseket kapni az új hirdetésekről"
+
+#: templates/profile/saved_searches.jinja.html:36
+msgid "Уведомлять о новых обьявлениях по почте"
+msgstr "Hirdetésekről emailben való értesítés"
+
+#: templates/profile/saved_searches.jinja.html:42
+#: templates/profile/saved_searches.jinja.html:45
+msgid "подписка"
+msgstr "feliratkozás"
+
+#: templates/profile/saved_searches.jinja.html:62
+msgid "У вас нет сохраненных поисков."
+msgstr "Nincsenek elmentett keresései."
+
+#: templates/profile/views_graph_highcharts.jinja.html:4
+msgid "Очистить статистику"
+msgstr "Statisztika törlése"
+
+#: templates/profile/views_graph_highcharts.jinja.html:14
+msgid "Статистика просмотров"
+msgstr "Látogatottsági statisztika"
+
+#: templates/profile/views_graph_highcharts.jinja.html:29
+msgid "Просмотры"
+msgstr "Látogatottság"
+
+#: templates/profile/views_graph_highcharts.jinja.html:47
+msgid "Показы объявления"
+msgstr "Hirdetés látogatottsága"
+
+#: templates/profile/views_graph_highcharts.jinja.html:52
+msgid "Показы контактной информации"
+msgstr "Elérhetőség látogatottsága"
+
+#: templates/profile/views_graph_highcharts.jinja.html:59
+msgid "Нет статистики по просмотрам."
+msgstr "Nincs látogatottsági statisztika"
+
+#: templates/profile/balance/index.jinja.html:12
+#: templates/profile/balance/orders.jinja.html:17
+msgid "На вашем счету"
+msgstr "Az Ön egyenlege"
+
+#: templates/profile/balance/index.jinja.html:14
+#: templates/profile/balance/orders.jinja.html:19
+msgid "Пополнить"
+msgstr "Egyenlegfeltöltés"
+
+#: templates/profile/balance/index.jinja.html:18
+msgid "Мои счета"
+msgstr ""
+
+#: templates/profile/balance/index.jinja.html:32
+#: templates/profile/balance/orders.jinja.html:37
+msgid "Дата"
+msgstr "Dátum"
+
+#: templates/profile/balance/index.jinja.html:33
+msgid "Событие"
+msgstr "Esemény"
+
+#: templates/profile/balance/index.jinja.html:34
+#: templates/profile/balance/orders.jinja.html:40
+msgid "Сумма"
+msgstr "Összeg"
+
+#: templates/profile/balance/index.jinja.html:36
+msgid "Комментарий"
+msgstr "Megjegyzés"
+
+#: templates/profile/balance/index.jinja.html:44
+msgid "возврат"
+msgstr ""
+
+#: templates/profile/balance/index.jinja.html:57
+#: templates/profile/balance/orders.jinja.html:68
+msgid "Ничего не найдено"
+msgstr "Nincs találat"
+
+#: templates/profile/balance/index.jinja.html:75
+msgid "Добавить комментарий"
+msgstr "Megjegyzés hozzáfűzése"
+
+#: templates/profile/balance/orders.jinja.html:11
+msgid "Связаться с менеджером"
+msgstr "Felvenni a kapcsolatot a menedzserrel"
+
+#: templates/profile/balance/orders.jinja.html:38
+msgid "Номер счета"
+msgstr ""
+
+#: templates/profile/balance/orders.jinja.html:39
+msgid "Услуги"
+msgstr "Szolgáltatások"
+
+#: templates/profile/balance/payment_error.jinja.html:4
+msgid "Оплата прервана"
+msgstr "A fizetés megszakítva"
+
+#: templates/profile/balance/payment_error.jinja.html:6
+msgid "Произошла ошибка во время проведения оплаты"
+msgstr "Hiba történt a kifizetés közben"
+
+#: templates/profile/balance/payment_error.jinja.html:8
+msgid "Вернуться назад"
+msgstr "Visszatérni"
+
+#: templates/profile/balance/topup_fail.jinja.html:8
+#: templates/profile/balance/topup_fail.jinja.html:18
+msgid "Ошибка во время проведения платежа."
+msgstr "Hiba a kifizetés lebonyolítása során"
+
+#: templates/profile/balance/topup_fail.jinja.html:8
+msgid "Свяжитесь с вашим банком или<br/>выберите другой способ оплаты:"
+msgstr "Vegye fel a kapcsolatot a bankjával vagy<br>válasszon más fizetési módot:"
+
+#: templates/profile/balance/topup_modal_form.jinja.html:7
+msgid "Пополнение счета"
+msgstr "Egyenlegfeltöltés"
+
+#: templates/profile/balance/topup_modal_form.jinja.html:12
+msgid "Сумма пополнения"
+msgstr "Egyenlegfeltöltés összege"
+
+#: templates/profile/balance/topup_modal_form.jinja.html:15
+msgid "Способ пополнения"
+msgstr "Egyenlegfeltöltés módja"
+
+#: templates/profile/balance/topup_success.jinja.html:6
+msgid "Спасибо!<br/>Оплата прошла успешно."
+msgstr "Köszönjük!<br>A kifizetés sikeres volt."
+
+#: templates/profile/balance/topup_success.jinja.html:13
+msgid "Заказ"
+msgstr "Megrendelés"
+
+#: templates/profile/import/base.jinja.html:9
+msgid "Руководство"
+msgstr "Vezetőség"
+
+#: templates/profile/import/base.jinja.html:11
+msgid "История"
+msgstr "Történet"
+
+#: templates/profile/import/base.jinja.html:12
+msgid "Проверка файла"
+msgstr "Fájl ellenőrzése"
+
+#: templates/profile/import/log.jinja.html:7
+msgid "Время"
+msgstr "Idő"
+
+#: templates/profile/import/log.jinja.html:7
+msgid "Объявления"
+msgstr "Hirdetések"
+
+#: templates/profile/import/log.jinja.html:7
+msgid "Ошибка при обработке файла"
+msgstr "Hiba történt a fálj feldolgozása közben"
+
+#: templates/profile/import/log.jinja.html:8
+msgid "новые"
+msgstr "új"
+
+#: templates/profile/import/log.jinja.html:8
+msgid "обновленные"
+msgstr "frissített"
+
+#: templates/profile/import/log.jinja.html:8
+msgid "удаленные"
+msgstr "törölt"
+
+#: templates/profile/import/log.jinja.html:8
+msgid "с ошибками"
+msgstr "hibás"
+
+#: templates/profile/import/log.jinja.html:25
+msgid "Чтобы увидеть ошибки, выполните"
+msgstr "Hogy lássa a hibákat,"
+
+#: templates/profile/import/log.jinja.html:25
+msgid "проверку файла"
+msgstr "ellenőrizze a fájlt."
+
+#: templates/profile/import/log.jinja.html:28
+msgid "Посмотреть последний отчет"
+msgstr "Utolsó beszámoló megnézése"
+
+#: templates/profile/import/log.jinja.html:31
+msgid "Нет данных"
+msgstr "Nincs adat"
+
+#: templates/profile/import/settings.jinja.html:7
+msgid ""
+"Чтобы отключить импорт, сохраните поле ссылки пустым (через некоторое "
+"время все ваши ранее импортированные объявления станут неактивными)"
+msgstr ""
+"Az importálás kikapcsolásához, mentse el a mezőt üresen (bizonyos idő "
+"elteltével minden korábban importált hirdetése deaktiválódik)"
+
+#: templates/profile/import/settings.jinja.html:9
+msgid "Перед тем как настраивать импорт, пожалуйста, внимательно прочитайте"
+msgstr "Mielőtt beállítja az importálást, kérjük, hogy olvassa el figyelmesen"
+
+#: templates/profile/import/settings.jinja.html:9
+msgid "руководство"
+msgstr "az útmutatót"
+
+#: templates/profile/import/settings.jinja.html:34
+msgid ""
+"Ваша ссылка сохранена. Загрузка объявлений из файла по ссылке будет "
+"выполняться ежедневно (один раз в сутки, после полуночи) в автоматическом"
+" режиме"
+msgstr ""
+"A hivatkozása elmentve. A hirdetések feltöltése a hivatkozott fájlból "
+"napi szinten, automatikusan fog történni (24 óránként egyszer, éjfél "
+"után)"
+
+#: templates/profile/import/settings.jinja.html:36
+msgid ""
+"Импорт отключен. Через некоторое время все ваши импортированные "
+"объявления станут неактивными"
+msgstr ""
+"Importálás kikapcsolva. Bizonyos idő elteltével minden korábban importált"
+" hirdetése deaktiválódik"
+
+#: templates/profile/import/test.jinja.html:5
+msgid "Ссылка на файл"
+msgstr "Hivatkozás a fájlra"
+
+#: templates/profile/import/test.jinja.html:7
+msgid "Проверка завершена"
+msgstr "Ellenőrzés befejezve"
+
+#: templates/profile/import/test.jinja.html:9
+msgid "Количество объявлений в файле"
+msgstr "Hirdetések száma a fájlban"
+
+#: templates/profile/import/test.jinja.html:15
+msgid "Обнаружены ошибки"
+msgstr "Hiba észlelés"
+
+#: templates/profile/import/test.jinja.html:26
+msgid "Новая проверка"
+msgstr "Új ellenőrzés"
+
+#: templates/profile/import/test.jinja.html:28
+msgid "Выполняется проверка..."
+msgstr "Ellenőrzés folyamatban..."
+
+#: templates/profile/import/test.jinja.html:41
+msgid "Внутренняя ошибка сервера. Обратитесь в службу поддержки"
+msgstr "Szerver belső hibája. Forduljon az ügyfélszolgálathoz"
+
+#: templates/profile/import/test.jinja.html:50
+msgid ""
+"Здесь можно проверить корректность вашего файла. При проверке объявления "
+"из файла не сохраняются."
+msgstr ""
+"Itt tudja ellenőrizni a fájljának helyességét. Az ellenőrzés közben a "
+"fájlban található hirdetések nem lesznek elmentve."
+
+#: templates/profile/import/test.jinja.html:64
+msgid "Проверить"
+msgstr "Ellenőrizni"
+
+#: templates/profile/messages/form.jinja.html:43
+#: templates/profile/messages/list.jinja.html:29
+msgid "Новое"
+msgstr "Új"
+
+#: templates/profile/messages/form.jinja.html:75
+msgid "Это сообщение из рассылки, вы не можете на него ответить."
+msgstr "Ez egy körlevél, erre nem tud válaszolni."
+
+#: templates/profile/messages/list.jinja.html:7
+msgid "Удалить отмеченные"
+msgstr "Törölni a kijelölteket"
+
+#: templates/profile/messages/list.jinja.html:11
+msgid "Показать все сообщения"
+msgstr "Megmutatni az összes üzenetet"
+
+#: templates/profile/messages/list.jinja.html:11
+msgid "Показать только новые"
+msgstr "Csak az újakat mutassa meg"
+
+#: templates/profile/messages/list.jinja.html:11
+msgid "Показать удаленные / Архив"
+msgstr "A törölt / Archívumot mutassa meg"
+
+#: templates/profile/messages/list.jinja.html:35
+msgid "время последнего сообщения в диалоге"
+msgstr "az utolsó üzenet időpontja a beszélgetésben"
+
+#: templates/profile/messages/list.jinja.html:44
+msgid "У вас нет сообщений."
+msgstr "Nincsenek új üzenetei."
+
+#: templates/profile/messages/unsubscribe.jinja.html:14
+msgid "Сохранить настройки"
+msgstr "Beállítások elmentése"
+
+#: templates/profile/messages/unsubscribe.jinja.html:18
+msgid "Недействительная ссылка"
+msgstr "Hibás hivatkozás"
+
+#: templates/registration/activate.jinja.html:7
+msgid "Ваш аккаунт успешно активирован"
+msgstr "Fiókja sikeresen aktiválva"
+
+#: templates/registration/activate.jinja.html:10
+msgid "Не удалось активировать аккаунт."
+msgstr "Nem sikerült aktiválni a fiókját."
+
+#: templates/registration/activation_email.jinja.html:10
+msgid "Уважаемый пользователь"
+msgstr "Tisztelt felhasználó"
+
+#: templates/registration/activation_email.jinja.html:26
+msgid "Благодарим за начало сотрудничества с"
+msgstr "Köszönjük, hogy megkezdte az együttműködést a következővel"
+
+#: templates/registration/activation_email.jinja.html:39
+msgid "Чтобы активировать Вашу учетную запись перейдите по"
+msgstr "A felhasználói fiókjának az aktiválásához kattintson a"
+
+#: templates/registration/activation_email.jinja.html:39
+msgid "ссылке"
+msgstr "hivatkozásra"
+
+#: templates/registration/activation_email.jinja.html:40
+msgid "Ссылка активна в течение 7 дней."
+msgstr "A hivatkozás 7 napig aktív."
+
+#: templates/registration/password_change_done.jinja.html:5
+#: templates/registration/password_reset_complete.jinja.html:5
+msgid "Пароль успешно изменен."
+msgstr "A jelszó sikeresen megváltoztatva."
+
+#: templates/registration/password_change_form.jinja.html:8
+#: templates/registration/password_reset_confirm.jinja.html:10
+msgid "Изменить"
+msgstr "Szerkeszteni"
+
+#: templates/registration/password_reset_confirm.jinja.html:13
+msgid "Ошибка при восстановлении пароля. Неверная ссылка."
+msgstr "A jelszó visszaállítása során hiba történt. Helytelen hivatkozás."
+
+#: templates/registration/password_reset_done.jinja.html:5
+msgid "На ваш почтовый ящик отправлена инструкция по восстановлению пароля."
+msgstr ""
+"A jelszó visszaállításával kapcsolatos utasításokat tartalmazó levél "
+"került kiküldésre az email címére."
+
+#: templates/registration/password_reset_email.html:2
+#, python-format
+msgid "Восстановление пароля на сайте %(site_name)s"
+msgstr "Jelszó visszaállítása a %(site_name)s honlapon"
+
+#: templates/registration/password_reset_form.jinja.html:5
+msgid "Восстановление пароля"
+msgstr "Jelszó visszaállítása"
+
+#: templates/registration/password_reset_form.jinja.html:7
+msgid ""
+"Забыли пароль? Введите ниже адрес электронной почты, указанный при "
+"регистрации."
+msgstr ""
+"Elfelejtette a jelszavát? Kérjük adja meg az email címét, amellyel "
+"regisztrált."
+
+#: templates/registration/password_reset_form.jinja.html:8
+msgid "Через несколько минут вы получите письмо с временной ссылкой доступа."
+msgstr ""
+"Pár percen belül megkapja a levelet az ideiglenes hozzáférést biztosító "
+"linkkel."
+
+#: templates/registration/password_reset_form.jinja.html:9
+msgid ""
+"Перейдите по ней на страницу замены пароля и введите новый - хорошо "
+"запоминающийся."
+msgstr ""
+"Ezzel lépjen be a jelszó változtatási oldalra és adja meg új jelszavát - "
+"amelyet biztosan megjegyez."
+
+#: templates/registration/password_reset_form.jinja.html:10
+msgid "Спасибо!"
+msgstr "Köszönjük!"
+
+#: templates/registration/password_reset_form.jinja.html:14
+msgid "Сбросить пароль"
+msgstr "Jelszó törlése"
+
+#: templates/registration/registration_complete.jinja.html:4
+msgid "Вы зарегистрированы"
+msgstr "Ön már regisztrálva van"
+
+#: templates/registration/registration_complete.jinja.html:6
+msgid "На указанный email отправлена ссылка для активации аккаунта."
+msgstr "A megadott email címre elküldtük a hivatkozást a fiók aktiválásához."
+
+#: templates/registration/registration_form.jinja.html:24
+msgid "Уже есть аккаунт?"
+msgstr "Van már fiókja?"
+

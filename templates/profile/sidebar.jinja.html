@@ -1,0 +1,21 @@
+<div class="white-panel short-info">
+    <div class="profile-name text-center">{{ request.own_agency.name if request.own_agency else request.user }}</div>
+    <div class="image rel" align="center">
+        {% with image = request.own_agency.logo if request.own_agency else request.user.image %}
+            {% if image %}
+                <img src="{{ image|thumbnail("200x200", nocrop=True) }}" class="img-responsive"/>
+            {% elif request.user.gender == 'male' %}
+                <img src="{{ static('img/profile-image-male.png') }}" class="img-responsive"/>
+            {% elif request.user.gender == 'female' %}
+                <img src="{{ static('img/profile-image-female.png') }}" class="img-responsive"/>
+            {% else %}
+                <img src="{{ static('img/profile-image.png') }}" class="img-responsive"/>
+            {% endif %}
+        {% endwith %}
+
+        {% if user.is_asnu_member() %}
+            <img class="asnu-logo" style="position:absolute;top:10px;right:10px;" src="{{ static('agency/img/icon-asnu.png') }}" alt="{% trans %}Ассоциация специалистов по недвижимости Украины{% endtrans %}" width="50"/>
+        {% endif %}
+    </div>
+    {# TODO: здесь еще должны быть кнопки для быстрого аплоада фоток #}
+</div>

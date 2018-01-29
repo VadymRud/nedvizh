@@ -1,0 +1,1374 @@
+# Hungarian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-12-26 14:47+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: hu\n"
+"Language-Team: hu <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: filters.py:31
+msgid "по дате"
+msgstr "Dátum szerint"
+
+#: filters.py:32
+msgid "по возрастанию цены"
+msgstr "Növekvő ár szerint"
+
+#: filters.py:33
+msgid "по убыванию цены"
+msgstr "Csökkenő ár szerint"
+
+#: forms.py:74
+msgid "Город"
+msgstr "Város"
+
+#: forms.py:83
+msgid "Все объявления"
+msgstr "Összes hirdetés"
+
+#: forms.py:84
+msgid "Активные"
+msgstr "Aktív"
+
+#: forms.py:85
+msgid "Неактивные"
+msgstr "Inaktív"
+
+#: forms.py:86
+msgid "Удаленные"
+msgstr "Törölt"
+
+#: forms.py:92
+msgid "искать в регионах"
+msgstr "megyékben keresés"
+
+#: forms.py:93
+msgid "ID города"
+msgstr "Város ID-je"
+
+#: forms.py:95
+msgid "Район"
+msgstr "Kerület"
+
+#: forms.py:99 templates/newhome/detail.jinja.html:119
+msgid "Цена от"
+msgstr "Ár -tól"
+
+#: forms.py:100 templates/newhome/newhome-preview.jinja.html:18
+msgid "от"
+msgstr "-tól"
+
+#: forms.py:103 forms.py:104
+msgid "до"
+msgstr "-ig"
+
+#: forms.py:106
+msgid "Валюта"
+msgstr "Pénznem"
+
+#: forms.py:107
+msgid "Комнат"
+msgstr "Szobaszám"
+
+#: forms.py:109
+msgid "Ближайшая станция метро"
+msgstr "Legközelebbi metrómegálló"
+
+#: forms.py:114
+msgid "Улица"
+msgstr "Utca"
+
+#: forms.py:115
+msgid "Начните вводить название улицы"
+msgstr "Kezdje el beütni az utca nevét"
+
+#: forms.py:118
+msgid "Название"
+msgstr "Neve"
+
+#: forms.py:120
+msgid "Название новостройки"
+msgstr "Épület neve"
+
+#: forms.py:123 templates/newhome/detail.jinja.html:67
+msgid "Застройщик"
+msgstr "Építész"
+
+#: forms.py:125
+msgid "Наименование застройщика"
+msgstr "Építész neve"
+
+#: forms.py:165
+msgid "Микрорайоны"
+msgstr "Mikrokerületek"
+
+#: forms.py:167
+msgid "Районы"
+msgstr "Kerületek"
+
+#: forms.py:186
+msgid "Недопустимое значение при указанном типе недвижимости"
+msgstr "Értelmezhetetlen érték az ilyen típusú ingatlan esetén"
+
+#: forms.py:192 forms.py:198
+msgid "Цена не может быть отрицательной"
+msgstr "Az ár nem lehet negatív"
+
+#: models.py:29
+msgid "эконом"
+msgstr "gazdaságos"
+
+#: models.py:30
+msgid "комфорт"
+msgstr "komfort"
+
+#: models.py:31
+msgid "бизнес"
+msgstr "üzleti"
+
+#: models.py:32
+msgid "премиум"
+msgstr "prémium"
+
+#: models.py:36
+msgid "автономное"
+msgstr "autonóm"
+
+#: models.py:37
+msgid "централизованное"
+msgstr "centralizált"
+
+#: models.py:41
+msgid "кирпич"
+msgstr "tégla"
+
+#: models.py:42
+msgid "легкобетонные блоки"
+msgstr "könnyű beton blokkok"
+
+#: models.py:43
+msgid "керамоблок"
+msgstr "kerámia blokkok"
+
+#: models.py:44
+msgid "естественный камень"
+msgstr "természetes kő"
+
+#: models.py:45
+msgid "дерево"
+msgstr "fa"
+
+#: models.py:46
+msgid "железобетон"
+msgstr "vasbeton"
+
+#: models.py:50
+msgid "минеральная вата"
+msgstr "ásványgyapot"
+
+#: models.py:51
+msgid "базальтовая вата"
+msgstr "bazaltgyapot"
+
+#: models.py:52
+msgid "керамзитобетон"
+msgstr "könnyű beton (agyagkavics)"
+
+#: models.py:53
+msgid "пенопласт"
+msgstr "sztiropor"
+
+#: models.py:54
+msgid "пенополистирол"
+msgstr "EPS"
+
+#: models.py:57
+msgid "есть"
+msgstr "van"
+
+#: models.py:58 models.py:65
+msgid "отсутствует"
+msgstr "nincs"
+
+#: models.py:62
+msgid "подземный"
+msgstr "föld alatti"
+
+#: models.py:63
+msgid "наземный"
+msgstr "föld feletti"
+
+#: models.py:64
+msgid "гостевой"
+msgstr "vendég"
+
+#: models.py:69
+msgid "Жилищный комплекс"
+msgstr "Lakópark"
+
+#: models.py:70 models.py:603
+msgid "Дом"
+msgstr "Ház"
+
+#: models.py:75 models.py:111
+msgid "пользователь"
+msgstr "felhasználó"
+
+#: models.py:76 models.py:425 models.py:452 models.py:545 models.py:580
+msgid "название"
+msgstr "elnevezés"
+
+#: models.py:77
+msgid "город"
+msgstr "város"
+
+#: models.py:79
+msgid "веб-сайт"
+msgstr "honlap"
+
+#: models.py:79
+msgid "адрес должен начинаться с http://"
+msgstr "a címe a következővel kell, hogy kezdődjön http://"
+
+#: models.py:81
+msgid "включен кабинет застройщика?"
+msgstr "be van kapcsolva az építész irodája?"
+
+#: models.py:98
+msgid "время обновления"
+msgstr "frissítés időpontja"
+
+#: models.py:99
+msgid "время создания"
+msgstr "létrehozás időpontja"
+
+#: models.py:100
+msgid "время изменения"
+msgstr "szerkesztés időpontja"
+
+#: models.py:101
+msgid "опубликовано на сайте"
+msgstr "honlapon publikálva"
+
+#: models.py:102
+msgid "статус"
+msgstr "státusz"
+
+#: models.py:104
+msgid "статус модерации"
+msgstr "moderálás státusza"
+
+#: models.py:107
+msgid "поля, требующие проверки модератором"
+msgstr "mezők, amelyek moderátor általi ellenőrzést igényelnek"
+
+#: models.py:115
+msgid "Приоритетный контактный e-mail, если отличается от основного"
+msgstr "Elsőbbségi email, ha ez eltér a főtől"
+
+#: models.py:118
+msgid "Приоритетный контактный телефон, если отличается от основного"
+msgstr "Elsőbbségi telefonszám, ha ez eltér a főtől"
+
+#: models.py:121
+msgid "название жк"
+msgstr "lakópark neve"
+
+#: models.py:121
+msgid "Введите название"
+msgstr "Üsse be a nevét"
+
+#: models.py:122
+msgid "Ключевые слова"
+msgstr "Kulcsszavak"
+
+#: models.py:123
+msgid "Используются для улучшения качества поиска. Указывать через запятую"
+msgstr "A keresés minőségének javítását szolgálják. Vesszővel elválasztva adja meg"
+
+#: models.py:126
+msgid "тип"
+msgstr "típus"
+
+#: models.py:127
+msgid "цена за м<sup>2</sup>, от (в гривнах)"
+msgstr "ár/nm, -tól (hrinyában)"
+
+#: models.py:129
+msgid "класс"
+msgstr "osztály"
+
+#: models.py:130
+msgid "застройщик"
+msgstr "építész"
+
+#: models.py:131
+msgid "реализует"
+msgstr "realizál"
+
+#: models.py:132
+msgid "подробнее на сайте"
+msgstr "részletesebben a honlapon"
+
+#: models.py:132
+msgid "Введите сайт ЖК"
+msgstr "Adja meg a lakópark honlapját"
+
+#: models.py:133
+msgid "описание"
+msgstr "leírás"
+
+#: models.py:135
+msgid "высота потолков"
+msgstr "tetőmagasság"
+
+#: models.py:135
+msgid "в метрах"
+msgstr "méterben"
+
+#: models.py:136
+msgid "домов"
+msgstr "házaknak"
+
+#: models.py:136
+msgid "кол-во домов в ЖК"
+msgstr "Házak száma a lakóparkban"
+
+#: models.py:137
+msgid "квартир в ЖК"
+msgstr "Lakások száma a lakóparkban"
+
+#: models.py:137
+msgid "сумма по всем домам"
+msgstr "Összes ház szerinti összeg"
+
+#: models.py:138
+msgid "отопление"
+msgstr "fűtés"
+
+#: models.py:139
+msgid "очередей"
+msgstr "sor"
+
+#: models.py:139
+msgid "всего очередей по ЖК"
+msgstr "összesen hány sor van a lakóparkban"
+
+#: models.py:140
+msgid "паркинг"
+msgstr "parkolás"
+
+#: models.py:141
+msgid "стены"
+msgstr "falak"
+
+#: models.py:142
+msgid "утепление"
+msgstr "hőszigetelés"
+
+#: models.py:143
+msgid "этажность"
+msgstr "emelet"
+
+#: models.py:143
+msgid "этажей в доме"
+msgstr "emeletek száma a házban"
+
+#: models.py:149
+msgid "Расширенные права администрирования новостроек"
+msgstr "Az újépítésű épületek adminisztrálásának bővített jogosultságai"
+
+#: models.py:150
+msgid "Модерирование новостроек"
+msgstr "Új építésűek felügyelete"
+
+#: models.py:151
+msgid "Уведомления о профилях застройщиков / лидов"
+msgstr "Az építészek/leadek profiljáról értesítés"
+
+#: models.py:414 models.py:427 models.py:453 models.py:591 models.py:616
+#: models.py:627 models.py:657 templates/newhome/ad-detail.jinja.html:154
+msgid "новостройка"
+msgstr "újépítésű"
+
+#: models.py:425
+msgid "например: 3-9 этажи"
+msgstr "például: 3-9 emeletek"
+
+#: models.py:426
+msgid "Номер этажа"
+msgstr "Emelet száma"
+
+#: models.py:428 models.py:454
+#: templates/newhome/cabinet/flats-submenu.jinja.html:21
+#: templates/newhome/cabinet/flats.jinja.html:114
+#: templates/newhome/cabinet/sections.jinja.html:34
+#: templates/newhome/cabinet/sections.jinja.html:52
+msgid "секция"
+msgstr "szekció"
+
+#: models.py:429 models.py:455
+msgid "дом"
+msgstr "ház"
+
+#: models.py:431
+msgid "Квартира"
+msgstr "Lakás"
+
+#: models.py:452 models.py:545
+msgid "Введите название планировки"
+msgstr "Adja meg a tervezési típus nevét"
+
+#: models.py:456
+msgid "жилых комнат"
+msgstr "lakószobák száma"
+
+#: models.py:458
+msgid "общая площадь"
+msgstr "teljes terület"
+
+#: models.py:458
+msgid "м2"
+msgstr "nm"
+
+#: models.py:460
+msgid "недвижимость"
+msgstr ""
+
+#: models.py:569
+msgid "планировка квартиры"
+msgstr "lakás tervezése"
+
+#: models.py:570 models.py:628
+msgid "этаж"
+msgstr "emelet"
+
+#: models.py:571
+msgid "Координаты"
+msgstr "Koordináták"
+
+#: models.py:571
+msgid "Для выделения на изображении этажа"
+msgstr "Az emelet képen való kijelöléséhez"
+
+#: models.py:572
+msgid "цена"
+msgstr "ár"
+
+#: models.py:573
+msgid "валюта цены"
+msgstr "az ár pénzneme"
+
+#: models.py:578 models.py:629
+msgid "планировка"
+msgstr "tervezés"
+
+#: models.py:579
+msgid "позиция"
+msgstr "pozíció"
+
+#: models.py:579
+msgid "Позиция на изображении"
+msgstr "A képen való pozíció"
+
+#: models.py:580
+msgid "Введите название комнаты"
+msgstr "Adja meg a szoba nevét"
+
+#: models.py:581
+msgid "площадь"
+msgstr "területét"
+
+#: models.py:581
+msgid "кв. м"
+msgstr "nm"
+
+#: models.py:590
+msgid "название дома"
+msgstr "ház neve"
+
+#: models.py:590
+msgid "например: дом 1"
+msgstr "például: 1 ház"
+
+#: models.py:604
+msgid "Номер секции"
+msgstr "Szekció száma"
+
+#: models.py:617
+msgid "Название очереди"
+msgstr "Sorszáma"
+
+#: models.py:618
+msgid "Окончание строительства"
+msgstr "Építkezés befejezése"
+
+#: models.py:619
+msgid "Дома и секции для очереди"
+msgstr "Sorban lévő házak és szekciók"
+
+#: models.py:621 templates/newhome/cabinet/queue.jinja.html:35
+msgid "Комментарий"
+msgstr "Hozzászólás"
+
+#: models.py:621
+msgid ""
+"Опишите в вольной форме статус строительства, например: дом 1 сдан, в "
+"доме 3 — ведутся кладочные работы. "
+msgstr ""
+"Szabad formában írja le az építkezés státuszát, például: 1 ház kiadva, a "
+"3 ház - raktárként van használva"
+
+#: models.py:630
+msgid "наличие"
+msgstr "megléte"
+
+#: models.py:631
+msgid "цена за квадратный метр"
+msgstr "négyzetméter szerinti ár"
+
+#: models.py:658
+msgid "дата"
+msgstr "dátum"
+
+#: models.py:659
+msgid "название очереди/дома"
+msgstr "a sor/ház neve"
+
+#: models.py:676
+msgid "отчет о ходе строительства"
+msgstr "beszámoló arról, hogy hol tart az építkezés"
+
+#: models.py:677 models.py:694
+msgid "изображение"
+msgstr "kép"
+
+#: models.py:693
+msgid "жк"
+msgstr "lakópark"
+
+#: models.py:695
+msgid "основная?"
+msgstr "a fő?"
+
+#: templates/newhome/ad-detail.jinja.html:20
+msgid "Узнать номер"
+msgstr ""
+
+#: templates/newhome/ad-detail.jinja.html:34
+#, python-format
+msgid "Введите ID %(newhome_id)s для соединения с отделом продаж"
+msgstr ""
+"Adja meg az ID %(newhome_id)s, hogy kapcsolatba lépjen az eladási "
+"részleggel"
+
+#: templates/newhome/ad-detail.jinja.html:49
+msgid "Заказать обратный звонок"
+msgstr "Visszahívás megrendelése"
+
+#: templates/newhome/ad-detail.jinja.html:60
+msgid "Все объявления ЖК"
+msgstr "Lakópark összes hirdetése"
+
+#: templates/newhome/ad-detail.jinja.html:98
+msgid "Дата публикации"
+msgstr "Publikálás dátuma"
+
+#: templates/newhome/ad-detail.jinja.html:114
+msgid "добавить в избранное"
+msgstr "kiválasztottak közé mentés"
+
+#: templates/newhome/ad-detail.jinja.html:116
+msgid "Получи еще больше возможностей на сайте. Жми кнопку \"зарегистрироваться\""
+msgstr "Kapj még több lehetőséget a honlapon. Nyomd meg a \"regisztráció\" gombot"
+
+#: templates/newhome/ad-detail.jinja.html:120
+msgid "редактировать объявление"
+msgstr "hirdetés szerkesztése"
+
+#: templates/newhome/ad-detail.jinja.html:149
+msgid "комната"
+msgstr "szoba"
+
+#: templates/newhome/ad-detail.jinja.html:149
+msgid "комнаты"
+msgstr "szobák"
+
+#: templates/newhome/ad-detail.jinja.html:149
+msgid "комнат"
+msgstr "szobák száma"
+
+#: templates/newhome/ad-detail.jinja.html:153
+msgid "Этажи:"
+msgstr "Emeletek:"
+
+#: templates/newhome/ad-detail.jinja.html:162
+msgid "Информация о ЖК"
+msgstr "Információ a lakóparkról"
+
+#: templates/newhome/ad-detail.jinja.html:178
+#: templates/newhome/detail.jinja.html:158
+msgid "Класс"
+msgstr "Osztály"
+
+#: templates/newhome/ad-detail.jinja.html:179
+#: templates/newhome/detail.jinja.html:160
+msgid "Высота потолков"
+msgstr "Tetőmagasság"
+
+#: templates/newhome/ad-detail.jinja.html:180
+#: templates/newhome/detail.jinja.html:162
+msgid "Домов"
+msgstr "Házak száma"
+
+#: templates/newhome/ad-detail.jinja.html:181
+#: templates/newhome/detail.jinja.html:163
+msgid "Количество квартир"
+msgstr "Lakások száma"
+
+#: templates/newhome/ad-detail.jinja.html:182
+#: templates/newhome/detail.jinja.html:164
+msgid "Отопление"
+msgstr "Fűtés"
+
+#: templates/newhome/ad-detail.jinja.html:183
+#: templates/newhome/detail.jinja.html:165
+msgid "Очередей"
+msgstr "Sorok"
+
+#: templates/newhome/ad-detail.jinja.html:184
+#: templates/newhome/detail.jinja.html:167
+msgid "Паркинг"
+msgstr "Parkolás"
+
+#: templates/newhome/ad-detail.jinja.html:185
+#: templates/newhome/detail.jinja.html:169
+msgid "Стены"
+msgstr "Falak"
+
+#: templates/newhome/ad-detail.jinja.html:186
+#: templates/newhome/detail.jinja.html:170
+msgid "Утепление"
+msgstr "Hőszigetelés"
+
+#: templates/newhome/ad-detail.jinja.html:187
+#: templates/newhome/detail.jinja.html:171
+msgid "Этажность"
+msgstr "Emeletek"
+
+#: templates/newhome/ad-detail.jinja.html:188
+msgid "Цена за"
+msgstr "Ár a következőért"
+
+#: templates/newhome/ad-detail.jinja.html:245
+#: templates/newhome/cabinet/object.jinja.html:79
+#: templates/newhome/detail.jinja.html:103
+msgid "Описание"
+msgstr "Leírás"
+
+#: templates/newhome/ad-detail.jinja.html:257
+msgid "Это 1 вариант из"
+msgstr "Ez 1 lehetőség a"
+
+#: templates/newhome/breadcrumbs-with-popup.jinja.html:2
+#: templates/newhome/detail.jinja.html:85
+#: templates/newhome/detail.jinja.html:177
+msgid "Давайте мы Вам перезвоним"
+msgstr "Kérem, had hívhassuk vissza"
+
+#: templates/newhome/breadcrumbs-with-popup.jinja.html:17
+msgid "Запрос отправлен"
+msgstr "Kérvény elküldve"
+
+#: templates/newhome/breadcrumbs-with-popup.jinja.html:26
+#: templates/newhome/breadcrumbs-with-popup.jinja.html:44
+msgid "Отправить"
+msgstr "Elküldeni"
+
+#: templates/newhome/breadcrumbs-with-popup.jinja.html:37
+msgid "Отправляется, подождите пожалуйста"
+msgstr "Küldés folyamatban, kérem várjon"
+
+#: templates/newhome/breadcrumbs.jinja.html:2
+msgid "Назад"
+msgstr "Vissza"
+
+#: templates/newhome/cabinet/flats-submenu.jinja.html:6
+#: templates/newhome/cabinet/object.jinja.html:148
+#: templates/newhome/detail-flats-info.jinja.html:4
+msgid "Свободные квартиры"
+msgstr "Szabad lakások"
+
+#: templates/newhome/detail-flats-info.jinja.html:13
+msgid "Все дома"
+msgstr "Összes ház"
+
+#: templates/newhome/detail-flats-info.jinja.html:33
+msgid "Этаж"
+msgstr "Emelet"
+
+#: templates/newhome/detail-flats-info.jinja.html:35
+#: templates/newhome/detail-flats.jinja.html:7
+msgid "комнатные"
+msgstr "szobás"
+
+#: templates/newhome/detail-flats-info.jinja.html:37
+msgid "Цена"
+msgstr "Ár"
+
+#: templates/newhome/detail-flats-info.jinja.html:52
+msgid "свободна"
+msgstr "szabad"
+
+#: templates/newhome/detail-flats-info.jinja.html:52
+msgid "свободны"
+msgstr "szabadok"
+
+#: templates/newhome/detail-flats-info.jinja.html:52
+msgid "свободно"
+msgstr "szabad"
+
+#: templates/newhome/detail-flats-info.jinja.html:62
+#: templates/newhome/detail-flats-info.jinja.html:66
+msgid "Нет данных по выбранному дому"
+msgstr "A kiválasztott házról nincsen adat"
+
+#: templates/newhome/detail-flats.jinja.html:2
+msgid "Квартиры от застройщика"
+msgstr "Lakások ettől az építésztől"
+
+#: templates/newhome/detail-flats.jinja.html:15
+msgid "Смотреть планировки"
+msgstr "Tervek megnézése"
+
+#: templates/newhome/cabinet/menu-edit.jinja.html:11
+#: templates/newhome/cabinet/my-buildings.jinja.html:134
+#: templates/newhome/cabinet/object.jinja.html:178
+#: templates/newhome/cabinet/workflow.jinja.html:11
+#: templates/newhome/detail-progress.jinja.html:8
+msgid "Ход строительства"
+msgstr "Hol tart az építkezés"
+
+#: templates/newhome/detail.jinja.html:64
+msgid "Цена, за м2"
+msgstr "Ár, per nm"
+
+#: templates/newhome/detail.jinja.html:65
+msgid "Адрес"
+msgstr "Cím"
+
+#: templates/newhome/detail.jinja.html:66
+msgid "Ближайшее метро"
+msgstr "Legközelebbi metró"
+
+#: templates/newhome/detail.jinja.html:68
+msgid "Реализует"
+msgstr "Realizál"
+
+#: templates/newhome/detail.jinja.html:74
+#: templates/newhome/detail.jinja.html:145
+msgid "Телефон для связи с застройщиком"
+msgstr "Az építész telefonszáma"
+
+#: templates/newhome/detail.jinja.html:78
+#: templates/newhome/detail.jinja.html:149
+#, python-format
+msgid "Введите ID %(newhome_id)s объявления для соединения с отделом продаж"
+msgstr ""
+"Adja meg az ID %(newhome_id)s, hogy kapcsolatba lépjen az eladási "
+"részleggel"
+
+#: templates/newhome/cabinet/object.jinja.html:63
+#: templates/newhome/detail.jinja.html:90
+msgid "Статус строительства"
+msgstr "Építkezés státusza"
+
+#: templates/newhome/detail.jinja.html:172
+msgid "Цена за м2"
+msgstr "Ár per nm"
+
+#: templates/newhome/detail.jinja.html:189
+msgid "Похожие новостройки"
+msgstr "Hasonló újépítésűek"
+
+#: templates/newhome/floor.jinja.html:36
+msgid "Свободные квартиры на "
+msgstr "Szabad lakások a"
+
+#: templates/newhome/layout-flat.jinja.html:12
+#: templates/newhome/layout-flat.jinja.html:18
+msgid "Планировка квартиры"
+msgstr "A lakás tervezése"
+
+#: templates/newhome/layout-flat.jinja.html:30
+msgid "Количество комнат"
+msgstr "Szobák száma"
+
+#: templates/newhome/new_lead.jinja.html:10
+msgid "Уважаемый застройщик"
+msgstr "Tisztelt építész"
+
+#: templates/newhome/new_lead.jinja.html:122
+msgid "команда"
+msgstr "csapat"
+
+#: templates/newhome/newhome-preview.jinja.html:6
+#: templates/newhome/preview.jinja.html:4
+msgid "Инфо о комплексе"
+msgstr "Információ a komplexumról"
+
+#: templates/newhome/search.jinja.html:53
+#: templates/newhome/search.jinja.html:61
+#: templates/newhome/search.jinja.html:128
+msgid "По вашему запросу ничего не найдено."
+msgstr "Az Ön keresése alapján nincs találat."
+
+#: templates/newhome/search.jinja.html:54
+#: templates/newhome/search.jinja.html:129
+msgid "Попробуйте изменить параметры поиска."
+msgstr "Próbálja megváltoztatni a keresési paramétereket."
+
+#: templates/newhome/search.jinja.html:62
+msgid ""
+"Просмотрите похожие объявления по схожим параметрам или попробуйте "
+"изменить параметры поиска."
+msgstr ""
+"Próbáljon hasonló paraméterekkel rendelkező hirdetéseket megnézni vagy "
+"próbálja megváltoztatni a keresési paramétereket."
+
+#: templates/newhome/search.jinja.html:65
+msgid "Похожие объявления по схожим параметрам:"
+msgstr "Hasonló paraméterekkel rendelkező hirdetések:"
+
+#: templates/newhome/search.jinja.html:81
+#: templates/newhome/search.jinja.html:112
+msgid "объект"
+msgstr "ingatlan"
+
+#: templates/newhome/search.jinja.html:81
+#: templates/newhome/search.jinja.html:112
+msgid "объекта"
+msgstr "ingatlan"
+
+#: templates/newhome/search.jinja.html:81
+#: templates/newhome/search.jinja.html:112
+msgid "объектов"
+msgstr "ingatlanok"
+
+#: templates/newhome/search.jinja.html:96
+msgid "Похожие объявления на вторичном рынке по схожим параметрам:"
+msgstr "Hasonló paraméterű hirdetések a másodlagos piacon:"
+
+#: templates/newhome/search.jinja.html:139
+msgid ""
+"В новом интерактивном разделе «Новостройки» будут представлены актуальные"
+" предложения"
+msgstr ""
+"Az új interaktív \"Újépítésűek\" részben bemutatásra kerülnek az aktuális"
+" ajánlatok"
+
+#: templates/newhome/search.jinja.html:140
+msgid ""
+"от компаний застройщиков. Здесь вы сможете увидеть сам проект, всю "
+"техническую информацию"
+msgstr ""
+"az építész cégektől. Itt láthatja magát a projektet, minden technikai "
+"információt"
+
+#: templates/newhome/search.jinja.html:141
+msgid "касательно объекта, и связаться с компанией для заключения сделки"
+msgstr ""
+"az ingatlannal kapcsolatban és felvenni a kapcsolatot az üzlet "
+"megkötéséhez"
+
+#: templates/newhome/search.jinja.html:143
+msgid "А если я застройщик?"
+msgstr "És ha építész vagyok?"
+
+#: templates/newhome/search.jinja.html:145
+msgid ""
+"Если вы — застройщик, спешите разместить свой объект в данном разделе "
+"раньше конкурентов"
+msgstr ""
+"Ha Ön - építész, siessen elhelyezni az ingatlanát ebben a részlegben a "
+"versenytársait megelőzve"
+
+#: templates/newhome/search.jinja.html:146
+msgid "и получайте «горячие» звонки от потенциальных клиентов уже сейчас."
+msgstr "és kapjon \"forró\" hívásokat a potenciális ügyfelektől már most azonnal."
+
+#: templates/newhome/search.jinja.html:147
+msgid "Свяжитесь с руководителем отдела продаж по работе с застройщиками"
+msgstr ""
+"Lépjen kapcsolatba az újépítésűek eladásával foglalkozó részleg "
+"vezetőjével"
+
+#: templates/newhome/search.jinja.html:150
+msgid "Ольга Кулиш"
+msgstr ""
+
+#: templates/newhome/search.jinja.html:152
+msgid "Он с удовольствием уточнит все детали касательно размещения,"
+msgstr ""
+"Boldogan tisztáz minden részletet a biztosított szolgáltatás "
+"elhelyezésével,"
+
+#: templates/newhome/search.jinja.html:152
+msgid "вида и стоимости  предоставляемой услуги."
+msgstr "típusával és árával kapcsolatban."
+
+#: templates/newhome/search.jinja.html:195
+msgid "Все выбрано"
+msgstr "Minden kiválasztva"
+
+#: templates/newhome/search.jinja.html:195
+msgid "Выберите район"
+msgstr "Válasszon kerületet"
+
+#: templates/newhome/welcome.jinja.html:9
+msgid "Активация прошла успешно!"
+msgstr "Aktiváció sikeresen megtörtént!"
+
+#: templates/newhome/welcome.jinja.html:10
+msgid "Вы готовы?"
+msgstr "Készen áll?"
+
+#: templates/newhome/welcome.jinja.html:15
+msgid "Да, добавляем объект"
+msgstr "Igen, hozzáadom az ingatlant"
+
+#: templates/newhome/welcome.jinja.html:18
+msgid "Нет, хочу узнать больше"
+msgstr "Nem, többet szeretnék megtudni"
+
+#: templates/newhome/welcome.jinja.html:22
+msgid "Письмо с инструкцией уже у вас на почте"
+msgstr "Az útmutatót tartalmazó levelet már megtalálja az email címén"
+
+#: templates/newhome/cabinet/developer_form.jinja.html:5
+msgid "Настройки"
+msgstr "Beállítások"
+
+#: templates/newhome/cabinet/developer_form.jinja.html:11
+msgid "Настройки застройщика"
+msgstr "Építész beállításai"
+
+#: templates/newhome/cabinet/developer_form.jinja.html:12
+msgid "Настройки профиля"
+msgstr "Profil beállításai"
+
+#: templates/newhome/cabinet/developer_form.jinja.html:23
+msgid "Профиль застройщика"
+msgstr "Építész profilja"
+
+#: templates/newhome/cabinet/developer_form.jinja.html:32
+#: templates/newhome/cabinet/flats.jinja.html:19
+#: templates/newhome/cabinet/floors.jinja.html:51
+#: templates/newhome/cabinet/workflow-form.jinja.html:12
+msgid "Сохранить"
+msgstr "Mentés"
+
+#: templates/newhome/cabinet/flats-available.jinja.html:17
+#: templates/newhome/cabinet/flats.jinja.html:156
+#: templates/newhome/cabinet/floors.jinja.html:135
+msgid "Выберите дом и секцию"
+msgstr "Válassza ki a házat és szekciót"
+
+#: templates/newhome/cabinet/flats-available.jinja.html:41
+msgid "Для начала добавьте планировки и укажите их размещение на плане этажа"
+msgstr ""
+"Kezdésként adja meg a tervezést és jelezze meg ennek elhelyezését "
+"emeletek szerint"
+
+#: templates/newhome/cabinet/flats-available.jinja.html:50
+#: templates/newhome/cabinet/flats.jinja.html:166
+#: templates/newhome/cabinet/floors.jinja.html:145
+#: templates/newhome/cabinet/menu-edit.jinja.html:21
+#: templates/newhome/cabinet/object.jinja.html:90
+#: templates/newhome/cabinet/queue.jinja.html:48
+#: templates/newhome/cabinet/sections.jinja.html:71
+msgid "Сохранить и продолжить"
+msgstr "Mentés és folytatás"
+
+#: templates/newhome/cabinet/flats-submenu.jinja.html:4
+#: templates/newhome/cabinet/flats.jinja.html:87
+msgid "Планировки квартир"
+msgstr "Lakások tervei"
+
+#: templates/newhome/cabinet/flats-submenu.jinja.html:5
+msgid "Планировки этажей"
+msgstr "Emeletek tervei"
+
+#: templates/newhome/cabinet/flats-submenu.jinja.html:11
+#: templates/newhome/cabinet/flats.jinja.html:110
+msgid "Выберите дом, секцию"
+msgstr "Válasszon házat, szekciót"
+
+#: templates/newhome/cabinet/flats.jinja.html:21
+msgid "Редактировать объявление"
+msgstr "Hirdetés szerkesztése"
+
+#: templates/newhome/cabinet/flats.jinja.html:21
+msgid "Создать объявление"
+msgstr "Hirdetés létrehozása"
+
+#: templates/newhome/cabinet/flats.jinja.html:63
+msgid "Добавить комнату"
+msgstr "Szoba hozzáadása"
+
+#: templates/newhome/cabinet/flats.jinja.html:107
+msgid "Дублировать наполнение"
+msgstr "Kitöltése másolása"
+
+#: templates/newhome/cabinet/flats.jinja.html:124
+msgid "или наполните заново"
+msgstr "vagy újbóli kitöltés"
+
+#: templates/newhome/cabinet/flats.jinja.html:136
+#: templates/newhome/cabinet/flats.jinja.html:162
+msgid "Добавить планировку квартиры"
+msgstr "Lakások terveinek hozzáadása"
+
+#: templates/newhome/cabinet/flats.jinja.html:141
+#: templates/newhome/cabinet/floors.jinja.html:120
+#: templates/newhome/cabinet/object.jinja.html:29
+#: templates/newhome/cabinet/workflow-form.jinja.html:23
+msgid ""
+"Для корректной загрузкий изображений ваш браузер должен поддерживать "
+"Javascript."
+msgstr ""
+"A képek megfelelő feltöltéséhez a böngészőjének támogatnia kell a "
+"Javascript-et."
+
+#: templates/newhome/cabinet/floors.jinja.html:16
+msgid "Укажите цену за кв. м"
+msgstr "Adja meg az árat/nm"
+
+#: templates/newhome/cabinet/floors.jinja.html:64
+msgid "Инструменты разметки"
+msgstr "Bejelölés eszközei"
+
+#: templates/newhome/cabinet/floors.jinja.html:97
+msgid "Разметить"
+msgstr "Bejelölni"
+
+#: templates/newhome/cabinet/floors.jinja.html:110
+msgid "Добавить этаж"
+msgstr "Emelet hozzáadása"
+
+#: templates/newhome/cabinet/floors.jinja.html:141
+msgid "Добавить планировку этажа"
+msgstr "Emelet terveinek hozzáadása"
+
+#: templates/newhome/cabinet/menu-edit.jinja.html:5
+msgid "Вы находитесь в режиме редактирования"
+msgstr "Szerkesztési módban van"
+
+#: templates/newhome/cabinet/menu-edit.jinja.html:8
+msgid "Объект"
+msgstr "Ingatlan"
+
+#: templates/newhome/cabinet/menu-edit.jinja.html:9
+msgid "Дома и очереди"
+msgstr "Ház és sorok"
+
+#: templates/newhome/cabinet/menu-edit.jinja.html:10
+msgid "Квартиры"
+msgstr "Lakások"
+
+#: templates/newhome/cabinet/menu-edit.jinja.html:15
+msgid "Вы находитесь в режиме добавления объекта"
+msgstr "Ön az ingatlan hozzáadási módban van"
+
+#: templates/newhome/cabinet/menu-edit.jinja.html:21
+#: templates/newhome/cabinet/object.jinja.html:90
+#: templates/newhome/cabinet/queue-add.jinja.html:62
+#: templates/newhome/cabinet/sections.jinja.html:39
+#: templates/newhome/cabinet/workflow.jinja.html:49
+msgid "Завершить"
+msgstr "Befejezni"
+
+#: templates/newhome/cabinet/menu.jinja.html:2
+msgid "Профиль"
+msgstr "Profil"
+
+#: templates/newhome/cabinet/menu.jinja.html:3
+msgid "Мои объявления"
+msgstr "Hirdetéseim"
+
+#: templates/newhome/cabinet/menu.jinja.html:4
+msgid "Мои новостройки"
+msgstr "Új építésű épületeim"
+
+#: templates/newhome/cabinet/menu.jinja.html:5
+msgid "CRM"
+msgstr "ügyfélkapcsolat-kezelés"
+
+#: templates/newhome/cabinet/menu.jinja.html:6
+msgid "Финансы"
+msgstr ""
+
+#: templates/newhome/cabinet/menu.jinja.html:7
+msgid "Статистика"
+msgstr "Statisztika"
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:34
+msgid "Поиск по email ответственного или названию "
+msgstr "Keresés a felelős emailje vagy neve szerint"
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:51
+msgid "активировать объявления"
+msgstr "hirdetések aktiválása"
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:52
+msgid "Активировать"
+msgstr "Aktiválás"
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:56
+msgid "деактивировать объявления"
+msgstr "hirdetések deaktiválása"
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:57
+msgid "Деактивировать"
+msgstr "Deaktiválás"
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:61
+msgid "обновить email и телефон ответственного лица"
+msgstr "A felelős személy email vagy telefonjának frissítése"
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:62
+msgid "Обновить email / телефон"
+msgstr "Email/telefon frissítése"
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:66
+msgid "удалить объект новостройки"
+msgstr "Új építésű ingatlan törlése"
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:66
+msgid "Вы уверены?"
+msgstr "Biztos?"
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:67
+#: templates/newhome/cabinet/workflow.jinja.html:24
+msgid "Удалить"
+msgstr "Törlés"
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:91
+msgid "Добавлено"
+msgstr "Hozzáadva"
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:113
+msgid "Укажите email для отправки заявок"
+msgstr "Adja meg az email címet a kérvények küldéséhez"
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:119
+msgid "Укажите телефоны для отправки смс про новые заявки"
+msgstr ""
+"Adja meg a telefonszámot, amelyre az új kérvényekről értesítő SMS-t "
+"küldjük"
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:137
+msgid "Наличие квартир"
+msgstr "Lakások megléte"
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:140
+#: templates/newhome/cabinet/queue.jinja.html:38
+#: templates/newhome/cabinet/sections.jinja.html:57
+#: templates/newhome/cabinet/workflow.jinja.html:21
+#: templates/newhome/cabinet/workflow.jinja.html:46
+msgid "Редактировать"
+msgstr "Szerkeszteni"
+
+#: templates/newhome/cabinet/my-buildings.jinja.html:153
+msgid "Добавьте объявление"
+msgstr "Hirdetés hozzáadása"
+
+#: templates/newhome/cabinet/object.jinja.html:37
+msgid "сделать главной"
+msgstr "főkénti megjelölés"
+
+#: templates/newhome/cabinet/object.jinja.html:38
+#: templates/newhome/cabinet/workflow-form.jinja.html:31
+msgid "удалить"
+msgstr "törlés"
+
+#: templates/newhome/cabinet/object.jinja.html:39
+#: templates/newhome/cabinet/workflow-form.jinja.html:32
+msgid "повернуть"
+msgstr "megfordítás"
+
+#: templates/newhome/cabinet/object.jinja.html:115
+msgid "Перейти к заполнению раздела «Дома и очереди»"
+msgstr "Áttérni a \"Házak és sorok\" részleg kitöltéséhez"
+
+#: templates/newhome/cabinet/object.jinja.html:129
+#: templates/newhome/cabinet/object.jinja.html:156
+#: templates/newhome/cabinet/object.jinja.html:186
+msgid "Перейти к заполнению"
+msgstr "Áttérés a következő kitöltéséhez:"
+
+#: templates/newhome/cabinet/object.jinja.html:129
+msgid "раздела «Дома и очереди»"
+msgstr "\"Házak és sorok\" részleg"
+
+#: templates/newhome/cabinet/object.jinja.html:142
+msgid "Перейти к заполнению раздела «Свободные Квартиры»"
+msgstr "Áttérni a \"Szabad lakások\" részleg kitöltéséhez"
+
+#: templates/newhome/cabinet/object.jinja.html:156
+msgid "раздела «Свободные Квартиры»"
+msgstr "\"Szabad lakások\" részleg"
+
+#: templates/newhome/cabinet/object.jinja.html:171
+msgid "Перейти к заполнению раздела «Ход строительства»"
+msgstr "Áttérni a \"Hol tart az építkezés\" részleg kitöltéséhez"
+
+#: templates/newhome/cabinet/object.jinja.html:186
+msgid "раздела «Ход строительства»"
+msgstr "\"Hol tart az építkezés\" részleg"
+
+#: templates/newhome/cabinet/queue-add.jinja.html:18
+#: templates/newhome/cabinet/queue.jinja.html:17
+msgid ""
+"В этом разделе вы можете редактировать информацию про очереди "
+"строительства и их состояние"
+msgstr ""
+"Ebben a részlegben szerkesztheti az információt az építkezési sorrendről "
+"és ezek státuszáról"
+
+#: templates/newhome/cabinet/queue-add.jinja.html:37
+msgid "Какие дома/секции в этой очереди?"
+msgstr "Mely házak/szekciók vannak ebben a sorban?"
+
+#: templates/newhome/cabinet/queue-add.jinja.html:45
+#: templates/newhome/cabinet/sections.jinja.html:31
+msgid "Добавить"
+msgstr "Hozzáadás"
+
+#: templates/newhome/cabinet/queue-add.jinja.html:53
+msgid "Какой статус строительства?"
+msgstr "Milyen státuszú az építkezés?"
+
+#: templates/newhome/cabinet/queue-add.jinja.html:63
+#: templates/newhome/cabinet/sections.jinja.html:40
+msgid "Отмена"
+msgstr "Mégsem"
+
+#: templates/newhome/cabinet/queue.jinja.html:25
+msgid "Срок сдачи"
+msgstr "Leadási határidő"
+
+#: templates/newhome/cabinet/queue.jinja.html:28
+msgid "Дома в очереди"
+msgstr "Sorban álló házak"
+
+#: templates/newhome/cabinet/queue.jinja.html:44
+msgid "Добавить очередь"
+msgstr "Sorhoz hozzáadás"
+
+#: templates/newhome/cabinet/sections-submenu.jinja.html:4
+msgid "Дома и секции"
+msgstr "Házak és szekciók"
+
+#: templates/newhome/cabinet/sections-submenu.jinja.html:5
+msgid "Очереди строительства"
+msgstr "Építkezési sorok"
+
+#: templates/newhome/cabinet/sections.jinja.html:15
+msgid "В этой вкладке вы можете указать количество домов и секций в них"
+msgstr "Itt megadhatja a házak és ezek szekciónak számát"
+
+#: templates/newhome/cabinet/sections.jinja.html:30
+#: templates/newhome/cabinet/sections.jinja.html:49
+msgid "Секций в доме"
+msgstr "Ház szekcióinak száma"
+
+#: templates/newhome/cabinet/sections.jinja.html:67
+msgid "Добавить дом и секции"
+msgstr "Ház és szekciónak hozzáadása"
+
+#: templates/newhome/cabinet/statistic.jinja.html:12
+msgid "На вашем счету"
+msgstr "Egyenlege"
+
+#: templates/newhome/cabinet/statistic.jinja.html:13
+msgid "Пополнить"
+msgstr "Feltölteni"
+
+#: templates/newhome/cabinet/statistic.jinja.html:34
+msgid "Нет данных"
+msgstr "Nincs adat"
+
+#: templates/newhome/cabinet/workflow.jinja.html:12
+msgid "Будет отображено на главной странице объекта"
+msgstr "Az ingatlan főoldalán lesz bemutatva"
+
+#: templates/newhome/cabinet/workflow.jinja.html:43
+#: templates/newhome/cabinet/workflow.jinja.html:61
+msgid "Добавить дату и фото"
+msgstr "Fénykép és dátum hozzáadása"
+
+#: templates/newhome/cabinet/workflow.jinja.html:56
+msgid "Вы не добавили еще ни одного периода."
+msgstr "Még nem adott meg egy periódust sem."
+
+#: views/cabinet.py:36
+msgid "Редактирование застройщика"
+msgstr "Építész szerkesztése"
+
+#: views/cabinet.py:90
+msgid "Контактные данные по объекту обновлены"
+msgstr "Az ingatlanhoz megadott elérhetőségek frissítve lettek"
+
+#: views/cabinet.py:95
+msgid "Пожалуйста, исправьте замечания перед активации объекта"
+msgstr "Kérjük, javítsa ki a megjegyzéseket az ingatlan aktiválása előtt"
+
+#: views/cabinet.py:102
+msgid "Объект успешно активирован"
+msgstr "Ingatlan sikeresen aktiválva"
+
+#: views/cabinet.py:105
+msgid "Не хватает средств для активации объекта"
+msgstr "Nincs elég pénz az ingatlan aktiválásához"
+
+#: views/cabinet.py:112
+msgid "Объект успешно деактивирован"
+msgstr "Ingatlan sikeresen deaktiválva"
+
+#: views/cabinet.py:119
+msgid "Объект успешно удален"
+msgstr "Ingatlan sikeresen törölve"
+
+#: views/cabinet.py:515
+msgid "Ваш комплекс успешно добавлен"
+msgstr "A komplexuma sikeresen hozzáadásra került"
+
+#: views/cabinet.py:570
+msgid "Данные о комплексе успешно изменены"
+msgstr "A komplexum adatai sikeresen megváltoztatásra kerültek"
+
+#: views/cabinet.py:739
+msgid "Не указано"
+msgstr "Nincs megadva"
+
+#: views/newhomes.py:110
+msgid ""
+"На данный момент выбранный Вами объект недоступен. Пожалуйста, выберите "
+"из списка доступных"
+msgstr ""
+"Jelenleg az Ön által kiválasztott ingatlan nem elérhető. Kérem, válaszon "
+"az elérhetőek listáján szereplők közül"
+

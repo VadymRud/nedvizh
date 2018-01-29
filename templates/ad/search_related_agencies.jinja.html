@@ -1,0 +1,30 @@
+<h4>{% trans %}Агентства, имеющие опыт работы с такого вида объектами{% endtrans %}:</h4>
+<link rel="stylesheet" href="{{ static('professionals/css/main.css') }}">
+<div class="row">
+{% for agency in related_results.agencies %}
+    <div class="col-xs-12 col-sm-6">
+        <div class="professional-preview hidden-contacts professional-hidden-contacts">
+            {% with user = agency.get_admin_user() %}
+                {% include 'professionals/agency_preview.jinja.html' %}
+            {% endwith %}
+
+            <div class="extra-buttons">
+                <a class="btn btn-danger request-button" data-toggle="modal" data-target="#callrequest-modal" data-dest="{{ agency.id }}">
+                    {% trans %}Оставить заявку{% endtrans %}</a>
+                <a class="btn btn-danger" href="{{ url('professionals:agency_profile', agency.id) }}">
+                    {% trans %}Подробнее об АН{% endtrans %}</a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+<script>
+$('.professional-preview .extra-buttons').each(function(i, obj) {
+    var $obj = $(obj);
+    $obj.appendTo($obj.prev());
+});
+$('#callrequest-modal').on('show.bs.modal', function (e) {
+    var $btn = $(e.relatedTarget);
+    $('#callrequest-modal #id_destination').val($btn.data('dest'));
+})
+</script>

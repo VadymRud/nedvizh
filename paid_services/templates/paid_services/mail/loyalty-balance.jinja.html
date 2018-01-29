@@ -1,0 +1,18 @@
+{% extends "mail/base_2017.04.jinja.html" %}
+
+{%- block content %}
+  <tr>
+    <td>
+      <div class="text-wrap default-padding">
+          {{ content|linebreaksbr|safe }}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap default-padding text-center">
+          <a href="{{ host_url('profile_balance') }}{% if utm is defined %}?{{ utm.urlencode() }}{% endif %}" target="_blank" class="button">{% trans %}Пополнить баланс{% endtrans %}</a>
+      </div>
+    </td>
+  </tr>
+{% endblock -%}

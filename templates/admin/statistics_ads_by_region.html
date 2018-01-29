@@ -1,0 +1,30 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Статистика активных объявлений по регионам{% endblock %}
+
+{% block content %}
+<style>
+    .stats p {margin:0 0 5px;font-size:12px; }
+</style>
+
+<div id="content-main" class='change-list'>
+
+    <h1>Статистика активных объявлений по регионам</h1>
+
+    <table class="stats"><tr>
+        <td width="50%">
+            <h3>Города</h3><br/>
+            {% for row in stats.cities %}
+                <p>{{ row.0 }} &mdash; {{ row.1 }}</p>
+            {% endfor %}
+        </td>
+        <td width="50%">
+            <h3>Области</h3><br/>
+            {% for row in stats.provincies %}
+                <p>{{ row.0 }} &mdash; {{ row.1 }}</p>
+            {% endfor %}
+        </td>
+    </tr></table>
+
+</div>
+{% endblock %}

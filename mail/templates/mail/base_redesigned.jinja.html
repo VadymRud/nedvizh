@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+      {% include 'mail/style_redesigned.css' %}
+      {% block extra_style %}{% endblock %}
+    </style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #ededed;">
+    <tr>
+        <td align="center" style="background-color: #ededed;">
+            <table width="540" align="center" cellpadding="0" cellspacing="0" border="0" class="table-content" style="width: 540px; background-color: #ffffff;">
+                <tr>
+                    <td width="540" height="39" colspan="5" class="empty-line">
+                        <div class="empty-line">&nbsp;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="197" height="96" colspan="2" style="width: 197px; height: 96px; background-color: #f8295c;">
+                        <div style="width: 197px; height: 96px; background-color: #f8295c;">&nbsp;</div>
+                    </td>
+                    <td width="147" height="96" style="width: 147px; height: 96px; background-color: #f8295c;">
+                        <div style="width: 147px; height: 96px; background-color: #f8295c;">
+                            <img src="{{ static('mailing/logo.jpg') }}" width="147" height="96" style="width: 147px; height: 96px; display: block;">
+                        </div>
+                    </td>
+                    <td width="196" height="96" colspan="2" style="width: 196px; height: 96px; background-color: #f8295c;">
+                        <div style="width: 196px; height: 96px; background-color: #f8295c;">&nbsp;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="540" height="39" colspan="5" style="width: 540px; height: 39px; background-color: #ffffff;">
+                        <div style="width: 540px; height: 39px; background-color: #ffffff;">&nbsp;</div>
+                    </td>
+                </tr>
+                {% block greetings %}
+                    <tr>
+                        <td width="43" height="36" style="width: 43px; height: 36px; background-color: #ffffff;">
+                            <div style="width: 43px; height: 36px; background-color: #ffffff;">&nbsp;</div>
+                        </td>
+                        <td width="472" height="36" colspan="3" style="width: 472px; height: 36px; background-color: #ffffff;">
+                            <div class="text" style="width: 472px; height: 36px;">
+                                {% trans %}Уважаемый пользователь{% endtrans %},
+                            </div>
+                        </td>
+                        <td width="25" height="36" style="width: 25px; height: 36px; background-color: #ffffff;">
+                            <div style="width: 25px; height: 36px; background-color: #ffffff;">&nbsp;</div>
+                        </td>
+                    </tr>
+                {% endblock %}
+                {% block content %}{% endblock %}
+                {% block footer %}
+                    <tr>
+                        <td width="43" height="60" style="width: 43px; height: 60px; background-color: #ffffff;">
+                            <div style="width: 43px; height: 60px; background-color: #ffffff;">&nbsp;</div>
+                        </td>
+                        <td width="472" height="60" colspan="3" style="width: 472px; height: 60px; background-color: #ffffff;">
+                            <div class="text" style="width: 472px; height: 60px;">
+                                {% trans %}Хорошего вам дня{% endtrans %},<br>{% trans %}команда{% endtrans %} <a href="http://mesto.ua/{% if utm is defined %}?{{ utm.urlencode() }}{% endif %}" target="_blank">mesto.ua</a>
+                            </div>
+                        </td>
+                        <td width="25" height="60" style="width: 25px; height: 60px; background-color: #ffffff;">
+                            <div style="width: 25px; height: 60px; background-color: #ffffff;">&nbsp;</div>
+                        </td>
+                    </tr>
+                {% endblock %}
+                <tr>
+                    <td width="43" height="65" style="width: 43px; height: 65px; background-color: #ffffff;">
+                        <div style="width: 43px; height: 65px; background-color: #ffffff;">&nbsp;</div>
+                    </td>
+                    <td width="472" height="65" colspan="3" style="width: 472px; height: 65px; background-color: #ffffff;">
+                        <div class="text" style="width: 472px; height: 65px; text-align: center; font-size: 12px; color: #333333;">
+                            {% trans %}Это сообщение было отправлено автоматически.{% endtrans %}<br>{% trans %}Пожалуйста, не отвечайте на него.{% endtrans %}
+                        </div>
+                    </td>
+                    <td width="25" height="65" style="width: 25px; height: 65px; background-color: #ffffff;">
+                        <div style="width: 25px; height: 65px; background-color: #ffffff;">&nbsp;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="540" height="39" colspan="5" class="empty-line">
+                        <div class="empty-line">&nbsp;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="197" height="29" colspan="2" style="width: 197px; height: 29px; background-color: #ededed;">
+                        <div style="width: 197px; height: 29px; background-color: #ededed;">&nbsp;</div>
+                    </td>
+                    <td width="147" height="29" style="width: 147px; height: 29px; background-color: #ededed;">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; background-color: #ededed;">
+                            <tr>
+                                <td width="33%" height="29" align="center" class="social">
+                                    <div class="social">
+                                        <a href="https://www.facebook.com/pages/mestoua/317059891645154" target="_blank">
+                                            <img src="{{ static('mailing/mailing-fb.jpg') }}" width="25" height="25" style="width: 25px; height: 25px;">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td width="33%" height="29" align="center" class="social">
+                                    <div class="social">
+                                        <a href="https://twitter.com/Mesto_ua" target="_blank">
+                                            <img src="{{ static('mailing/mailing-tw.jpg') }}" width="25" height="25" style="width: 25px; height: 25px;">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td width="33%" height="29" align="center" class="social">
+                                    <div class="social">
+                                        <a href="https://vk.com/mestoua" target="_blank">
+                                            <img src="{{ static('mailing/mailing-vk.jpg') }}" width="25" height="25" style="width: 25px; height: 25px;">
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="196" height="29" colspan="2" style="width: 196px; height: 29px; background-color: #ededed;">
+                        <div style="width: 196px; height: 29px; background-color: #ededed;">&nbsp;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="540" height="39" colspan="5" class="empty-line">
+                        <div class="empty-line">&nbsp;</div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+{% if utm is defined and user is defined %}
+  <img src="https://www.google-analytics.com/collect?v=1&tid=UA-24628616-30&cid={{ user.uuid }}&t=event&ec=email&ea=open&el={{ utm['campaign'] }}&cs=newsletter&cm=email&cn={{ utm['campaign'] }}&cd1={{ user.id }}">
+{% endif %}
+</body>
+</html>

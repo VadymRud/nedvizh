@@ -1,0 +1,131 @@
+{% extends 'base.jinja.html' %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ static("libs/lightslider/css/lightslider.min.css") }}">
+{% endblock %}
+
+{% block extra_footer %}
+    {{ super() }}
+
+    {% compress js %}
+    <script type="text/javascript" src="{{ static("libs/lightslider/js/lightslider.min.js") }}"></script>
+    <script>
+        $(function () {
+            $("#lightSlider").lightSlider({
+                slideMove: 1,
+                autoWidth: true,
+                pause: 4000,
+                auto: true,
+                loop: true,
+                enableTouch: true,
+                enableDrag: true,
+                freeMove: true,
+                swipeThreshold: 40
+            }).removeClass('hidden');
+        });
+    </script>
+    {% endcompress %}
+    {#
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?115"></script>
+    <script type="text/javascript">
+        VK.Widgets.Group("vk_groups", {mode: 0, width: "375", height: "270", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 22073049);
+    </script>
+    #}
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+{% endblock %}
+
+{% block header_content %}
+    <div class="visible-lg-block" style="height:30px;"></div>
+    <div class="l-property-search l-mainpage-search">
+        {% with form = search_form %}
+            {% include "ad/search_form_mainpage.jinja.html" %}
+        {% endwith %}
+    </div>
+    <div class="visible-lg-block" style="height:35px;"></div>
+{% endblock %}
+
+{% block content %}
+  {% cache 60*5 'homepage-slider' request.subdomain LANGUAGE_CODE %}
+    {% if slider %}
+      <div id="slider" style="max-width:1192px;margin:0 auto;">
+        <ul id="lightSlider" class="hidden">
+          {% for banner in slider  %}
+              <li><a href="{{ banner.get_absolute_url() }}" title="" target="_blank"><img src="{{ banner.image.url }}"/></a></li>
+          {% endfor %}
+        </ul><br/><br/>
+      </div>
+    {% endif %}
+  {% endcache %}
+
+  <div class="row">
+    <div class="h3">{% trans %}Последние добавления на сайт{% endtrans %}</div>
+  </div>
+  <div class="row">
+
+    {% cache 60*5 'homepage-properties' request.subdomain LANGUAGE_CODE %}
+    <div class="col-sm-8 col-md-12 homepage-properties">
+      <div class="row">
+        {% with property_class='panel relative' %}
+          {% for property in properties %}
+            <div class="col-md-12">
+              {% include "ad/preview-short.jinja.html"%}
+            </div>
+          {% endfor %}
+        {% endwith %}
+      </div>
+    </div>
+    {% endcache %}
+
+    {# manager + video #}
+    <div class="col-sm-16 col-md-12">
+      <div class="white-panel manager">
+        <div class="row">
+          <div class="col-sm-15 h4">{% trans %}Возникли вопросы по работе с сайтом? {% endtrans %}</div>
+          <div class="col-sm-10 text"><br>{% trans %}Звоните на бесплатный номер телефона и уточните все детали у своего личного помощника.{% endtrans %}</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-20 pink"><br>044 228 68 98 <span>(бесплатно)</span></div>
+        </div>
+      </div>
+
+      {% if content_homepage_after_properties %}
+          {{ content_homepage_after_properties.content|safe }}
+      {% else %}
+          <iframe width="100%" height="313" src="https://www.youtube.com/embed/SjHU2YnRIU0" frameborder="0" allowfullscreen></iframe>
+      {% endif %}
+    </div>
+  </div><br><br>
+
+
+  {% cache 60*15 'homepage-articles' request.subdomain LANGUAGE_CODE %}
+  <div class="h3">{% trans %}Новости рынка{% endtrans %} <a href="{{ url('guide:index') }}" class="badge homepage-badge">{% trans %}Читать все новости{% endtrans %}</a></div>
+  <div class="row">
+      {% for article in realestate_news %}
+          <div class="col-sm-8 news">
+              <div class="item panel relative">
+                  <div class="image text-center">
+                    <a href="{{ article.get_absolute_url(request.subdomain_region) }}">
+                      <img src="{{ article.image|thumbnail("390x295") }}" class="img-responsive"/>
+                    </a>
+                  </div>
+                  <div class="date">{{ article.published|date("d.m.Y") }}</div>
+                  <div class="name"><a href="{{ article.get_absolute_url(request.subdomain_region) }}">{{ article }}</a></div>
+                  <div class="text">{{ article.description }}</div>
+              </div>
+          </div>
+      {% endfor %}
+  </div>
+  <br><br>
+  {% endcache %}
+
+{% endblock %}

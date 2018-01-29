@@ -1,0 +1,4 @@
+sale;*;Актуальные объявления о продаже %(prop_room_chego)s в %(city_gde)s, %(province_gde)s. Купить %(prop_room_chto_short)s в %(city_gde)s, %(province_gde)s на вторичном рынке
+rent;*;Актуальные объявления по аренде %(prop_room_chego)s в %(city_gde)s, %(province_gde)s. Недорого снять или сдать %(prop_room_chto_short)s долгосрочно в %(city_gde)s, %(province_gde)s
+rent_daily;*;Актуальные объявления посуточной аренды %(prop_room_chego)s в %(city_gde)s, %(province_gde)s. Снять или сдать %(prop_room_chto_short)s посуточно в %(city_gde)s, %(province_gde)s
+newhomes;*;Актуальные объявления о продаже %(prop_room_chego)s в новостройках %(city_gde)s, %(province_gde)s. Купить %(prop_room_chto_short)s в новостройке от застройщика в %(city_gde)s, %(province_gde)s

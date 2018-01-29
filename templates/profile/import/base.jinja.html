@@ -1,0 +1,25 @@
+{% extends "profile/index.jinja.html" %}
+
+{% block content %}
+    <div class="white-panel-header">
+        <h4 class="page-title">{% trans %}Импорт объявлений{% endtrans %}</h4>
+    </div>
+    <div class="white-panel">
+        {% with items = [
+            (url('import:howto'), _('Руководство')),
+            (url('import:settings'), _('Настройки')),
+            (url('import:log'), _('История')),
+            (url('import:test'), _('Проверка файла')),
+        ] %}
+        <div class="navbar navbar-default navbar-inline" role="navigation">
+            <ul class="nav navbar-nav">
+                {% from "macro/navigation.jinja.html" import navigation %}
+                {{ navigation(items, request) }}
+            </ul>
+        </div>
+        {% endwith %}
+        {% block import_content %}
+        {% endblock %}
+    </div>
+{% endblock %}
+

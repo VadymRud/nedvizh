@@ -1,0 +1,34 @@
+{% extends "mail/base_redesigned_2017.jinja.html" %}
+
+{% block content %}
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        Скидка 20% на покупку Тарифного плана продлена еще на 6 месяцев.
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        Приобретайте услугу размещения объявлений по старой цене и получайте еще больше звонков от клиентов.
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding">
+        <table cellpadding="0" cellspacing="0" width="100%" style="width: 100%;">
+          <tr>
+            <td width="50%" style="width: 50%" align="center">
+              <a href="{{ host_url('services:plans') }}#plans-header" target="_blank" class="button">Узнать больше</a>
+            </td>
+            <td width="50%" style="width: 50%" align="center">
+              <a href="{{ host_url('services:plans') }}#plans-header" target="_blank" class="button">Купить тариф сейчас</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+{% endblock %}

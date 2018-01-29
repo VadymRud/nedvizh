@@ -1,0 +1,28 @@
+<div id='calendars-{{ name }}' class='lionbars calendars'>
+    <table class='items'><tr>
+    {% autoescape false %}
+        {% for month in calendar.monthes -%}
+            <td rel='{{ month.month }}-{{ month.year }}' class='calendar'>
+                <table border="0" cellpadding="0" cellspacing="0" class="month">
+                    <tr><th colspan="7" class="month">{{ month.month_name }} {{ month.year }}</th></tr>
+                    <tr>
+                        {% for weekday in calendar.weekdays %}<th class="">{{ weekday }}</th>{% endfor %}
+                    </tr>
+                    {%- for week in month.weeks -%}
+                        <tr>
+                        {%- for date in week -%}
+                            {% if date.month == month.month -%}
+                                <td name="{{ date|date('Y-m-d') }}" class="" rel="">{{ date.day }}</td>
+                            {%- else -%}
+                                <td class="noday">&nbsp;</td>
+                            {%- endif -%}
+                        {%- endfor -%}
+                        </tr>
+                    {%- endfor -%}
+                </table>                    
+            </td>
+            {%- if not loop.last %}<td class='sep'><i></i></td>{% endif %}
+        {%- endfor %}
+    {% endautoescape %}
+    </tr></table>
+</div>

@@ -1,0 +1,95 @@
+{% extends 'base.jinja.html' %}
+
+{% block seo %}
+    <title>{{ seo.title }}{% if request.GET.get('page',1) > 1 %} - {% trans page=request.GET.page %}страница {{ page }}{% endtrans %}{% endif %}</title>
+    <meta name="keywords" content="{{ seo.keywords }}">
+    <meta name="description" content="{{ seo.description }}">
+{% endblock %}
+
+{% block content %}
+
+    {% include "ad/search_form.jinja.html" %}
+
+    <h3 class="pink">{% trans %}По вашему запросу ничего не найдено.{% endtrans %}</h3>
+    {% if related_results.searches %}
+        <h6>{% trans %}Просмотрите похожие объявления по схожим параметрам или попробуйте изменить параметры поиска.{% endtrans %}</h6>
+    {% else %}
+        <h6>{% trans %}Попробуйте изменить параметры поиска.{% endtrans %}</h6>
+    {% endif %}
+    <br/><br/>
+
+    <div class="dashed-panel text-20">
+        {% trans %}Как только появится объект по таким параметрам, Вы получите уведомление на электронную свою почту{% endtrans %} &nbsp; &nbsp;
+        {% if request.user.is_authenticated() %}
+            <a class="btn btn-danger btn-md" href="{{ url('profile_subscribe_search') }}?{{ saved_search_query }}">
+                {% trans %}Подписаться{% endtrans %}</a>
+        {% else %}
+            <a class="btn btn-danger btn-md default-tooltip" data-target="#login-popup"  data-toggle="modal"
+                            title='{% trans %}Получи еще больше возможностей на сайте. Жми кнопку "зарегистрироваться"{% endtrans %}'>
+                {% trans %}Подписаться{% endtrans %}</a>
+        {% endif %}
+    </div><br/>
+
+    {% if related_results.searches %}
+        <h3>{% trans %}Похожие объявления по схожим параметрам:{% endtrans %}</h3>
+        <div class="properties-related-list">
+            {% for search in related_results.searches %}
+                <div class="search-params">
+                    {% if search.filter.get('district') %}
+                        Район: <span>{{ search.filter['district']|join(", ") }}</span> /
+                    {% endif %}
+                    {% if search.filter.get('rooms') %}
+                        Комнат:  <span>{{ search.filter['rooms']|join(", ") }}</span> /
+                    {% endif %}
+                    {% if search.filter.get('price_from') or search.filter.get('price_to')  %}
+                        Цена:
+                         <span>{% if search.filter['price_from'] %}от {{ search.filter['price_from']|int }}{% endif %}
+                        {% if search.filter['price_to'] %}до {{ search.filter['price_to']|int }}{% endif %}
+                        {{ search.filter['currency'] }}</span> /
+                    {% endif %}
+                    Найдено: <a href="{{ search.url }}">{{ search.ads|length|pluralize((_("объект"), _("объекта"), _("объектов")), '') }}</a>
+                </div>
+                <div class="property-list-short row">
+                    {% for property in search.ads[:4] %}
+                            <div class="col-sm-6">{% include "ad/preview-short.jinja.html" %}</div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <br/>
+
+    {% if related_results.agencies and callrequest_form is defined and callrequest_form %}
+        {% include 'ppc/callrequest_form.jinja.html' %}
+
+        <div class="dashed-panel text-20">
+            {% trans %}Можете оставить заявку по выбранным параметрам, мы отправим эту заявку агентствам, ожидайте звонка{% endtrans %}
+            &nbsp; &nbsp; <a class="btn btn-danger btn-md" data-toggle="modal" data-target="#callrequest-modal">
+            {% trans %}Оставить заявку{% endtrans %}</a>
+        </div><br/>
+
+        {% include "ad/search_related_agencies.jinja.html" %}
+    {% endif %}
+
+    <div class="page-info">
+        <div class="row">
+            {% if seo_text_block %}
+                <div class="col-lg-24">
+                    <hr>
+                    {%- if seo_text_block.title %}<h2>{{ seo_text_block.title }}</h2>{% endif -%}
+                    {{- seo_text_block.text|safe -}}
+                </div>
+
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block footer_crosslinks %}
+  {% if crosslinks_blocks is defined and request.subdomain != 'international' %}
+    <div class="row visible-lg hidden-print">
+      {% include 'includes/crosslink.jinja.html' %}
+    </div>
+  {% endif %}
+{% endblock %}

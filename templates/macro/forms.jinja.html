@@ -1,0 +1,166 @@
+{% macro bootstrap_process_field(form, field, default_classes) %}
+    {% set field_classes = default_classes.copy() %}
+    {% if form.Meta is defined and form.Meta.classes is defined %}
+        {% do field_classes.update(form.Meta.classes.get(field.name, {})) %}
+    {% endif %}
+
+    {% set special_renders = kwargs.get('special_renders', {}) %}
+    {% if field.name in special_renders %}
+        {{ special_renders[field.name](field) }}
+    {% else %}
+        {{ bootstrap_field(field, field_classes, **kwargs) }}
+    {% endif %}
+{% endmacro %}
+
+{% macro bootstrap_field(field, classes={}, controls_macro=bootstrap_field_controls) %}
+    <div id="div_id_{{ field.name }}" class="form-group {{ classes.get('group', '') }} {% if field.errors %}has-error{% endif %}">
+        {% if kwargs.get('label_as_placeholder') %}
+            {% do field|add_attrs(placeholder=field.label) %}
+        {% else %}
+            {{- bootstrap_field_label(field, classes.get('label', '')) -}}
+        {% endif %}
+        <div class="controls {{ classes.get('controls', '') }}">
+            {{- controls_macro(field, **kwargs) -}}
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro bootstrap_field_label(field, label_class='') %}
+    <label for="id_{{ field.name }}" class="control-label {{ label_class }} {% if field.field.required %}requiredField{% endif %}">
+        {%- if not field.field.widget.__class__.__name__ == 'CheckboxInput' -%}
+            {{ field.label|safe }}
+        {%- endif -%}
+        {%- if field.field.required %}<span class="asteriskField">*</span>{% endif -%}
+    </label>
+{% endmacro %}
+
+{% macro bootstrap_field_controls(field) %}
+    {%- with widget_class = field.field.widget.__class__.__name__ -%}
+        {% if widget_class in ['CheckboxInput', 'CheckboxSelectMultiple'] %}
+            <div class="checkbox">
+                {% if widget_class == 'CheckboxSelectMultiple' %}
+                    {{- field|safe -}}
+                {% else %}
+                    {% do field %}
+                    <label for="id_{{ field.name }}" class="{% if field.field.required %}requiredField{% endif %}">
+                        {{- field|safe -}}
+                        {{- field.label|safe -}}
+                        {%- if field.field.required %}<span class="asteriskField">*</span>{% endif -%}
+                    </label>
+                {% endif %}
+            </div>
+        {% elif widget_class == 'BootstrapRadioSelect' %}
+            <div class=" btn-group" data-toggle="buttons">
+                {%- for widget in field -%}
+                    <label class="btn btn-default radio-{{ field.name + '-' + widget.choice_value }} {% if widget.is_checked() %}active{% endif %}">
+                        {{- widget.choice_label -}}
+                        {{- widget.tag()|safe -}}
+                    </label>
+                {%- endfor -%}
+            </div>
+        {% else -%}
+            {%- if widget_class not in ['AdminImageWidget'] %}
+                {% set field = field|add_class('form-control') %}
+            {%- endif -%}
+            {{- field|safe }}
+            {%- if field.name == 'addr_city' %}<small><span class='address-examples'></span></small>{% endif %}
+        {%- endif %}
+    {%- endwith -%}
+    {%- if field.help_text %}<small><span class='helptext'>{{ field.help_text|safe }}</span></small>{% endif -%}
+    {% if kwargs.get('inline_errors') and field.errors  %}
+        {% for error in field.errors %}<span class="errortext">{{ error }}</span>{% endfor -%}
+    {% endif %}
+{% endmacro %}
+
+
+{% macro bootstrap_form_errors(form) %}
+    {% with forms = merge_forms_with_formsets(form, kwargs.get('formsets')) %}
+        {% if forms|check_forms_errors %}
+        <div class="alert alert-danger js_validation_messages" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">{% trans %}Закрыть{% endtrans %}</span></button>
+            <div class="h5 no-margin-top"><b>{% trans %}Пожалуйста, исправьте ошибки:{% endtrans %}</b></div>
+            {% for form in forms %}
+                {% if (form.errors and not kwargs.get('inline_errors')) or '__all__' in form.errors %}
+                    {% for field_name, errors in form.errors.items()  %}
+                        {% if field_name == '__all__' or not kwargs.get('inline_errors') %}
+                            <dl class="dl-horizontal small no-margin-bottom">
+                                <dt>{% if field_name != "__all__" %}{{ form.fields[field_name].label }}{% endif %}</dt>
+                                <dd>{% for error in errors %}{{ error }}<br/>{% endfor %}</dd>
+                            </dl>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    {% endwith %}
+{% endmacro %}
+
+{% macro bootstrap_form(form, default_classes={}) %} {#  , formsets=None, label_as_placeholder=False, special_renders=None, inline_errors=False #}
+    {{ bootstrap_form_errors(form, **kwargs) }}
+
+    {% for hidden in form.hidden_fields() %}
+        {{ hidden|safe }}
+    {% endfor %}
+
+    {% for field in form.visible_fields() %}
+        {{ bootstrap_process_field(form, field, default_classes, **kwargs) }}
+    {% endfor %}
+
+{% endmacro %}
+
+
+{% macro bootstrap_form_fieldsets(form, default_classes={}) %} {#  , formsets=None, label_as_placeholder=False, special_renders=None, inline_errors=False #}
+    {{ bootstrap_form_errors(form, **kwargs) }}
+
+    {% for hidden in form.hidden_fields() %}
+        {{ hidden|safe }}
+    {% endfor %}
+
+    {# группы полей рендерятся с классом form-group, который имеет отрицательные отступы, поэтом внутри него нужен любой col-* #}
+    {% if 'controls' not in default_classes %}
+        {% do default_classes.update({'controls':'col-lg-24'}) %}
+    {% endif %}
+
+    {% for group_label, group in form.Meta.fieldsets %}
+      <div class="fieldset fieldset-{{ loop.index }}">
+
+        {% if group_label %}
+            <h4>{{ group_label }}</h4>
+        {% endif %}
+
+        {%- for subgroup in group.fields -%}
+            {%- if subgroup is string -%}
+              {% if form[subgroup] is defined %}
+                <div class="form-horizontal">
+                    {{- bootstrap_process_field(form, form[subgroup], default_classes=default_classes, **kwargs) -}}
+                </div>
+              {% endif %}
+            {%- elif group.get('group_type') == 'rows' -%}
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        {%- for field_name in subgroup -%}
+                          {% if form[field_name] is defined %}
+                            {%- with field = form[field_name] -%}
+                                {%- do field|add_attrs(placeholder=field.label) -%}
+                                <div class="controls col-sm-{{ (24/subgroup|length)|int }} {% if field.errors %}has-error{% endif %}">
+                                    {{- bootstrap_field_controls(field, **kwargs) -}}
+                                </div>
+                            {%- endwith -%}
+                          {% endif %}
+                        {%- endfor -%}
+                    </div>
+                </div>
+            {%- else -%}
+                <div class="form-inline">
+                    {%- for field_name in subgroup -%}
+                        {{- bootstrap_process_field(form, form[field_name], default_classes={}, **kwargs) -}}
+                    {%- endfor -%}
+                </div>
+            {%- endif -%}
+
+        {%- endfor -%}
+
+      </div>
+    {% endfor %}
+{% endmacro %}

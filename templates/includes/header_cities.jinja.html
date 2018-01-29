@@ -1,0 +1,16 @@
+<div class="subdomain-region-choose text-nowrap"
+    data-toggle="modal"
+    data-target="#cities-choose-dropdown"
+    data-id="{{ request.subdomain_region.id }}"
+    data-static_url="{{ request.subdomain_region.static_url }}"
+>
+    <span class="text">
+        {% if request.subdomain_region.static_url == ';' %}
+            {% trans %}Выбрать город{% endtrans %}
+        {% else %}
+            {{ request.subdomain_region.name }}
+        {% endif %}
+    </span>
+    <i class="icon icon-caret-black-sm"></i>
+</div>
+

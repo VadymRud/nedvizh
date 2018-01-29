@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <title>{% trans %}Улучшенная модель работы сайта{% endtrans %} - Mesto.UA</title>
+    <link href='https://fonts.googleapis.com/css?family=PT+Serif&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
+    {% compress css %}
+        <link rel="stylesheet" href="{{ static('libs/bootstrap3-24col/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ static('libs/bootstrap-select/bootstrap-select.min.css') }}">
+        <link rel="stylesheet" href="{{ static('css/main.css') }}">
+        <link rel="stylesheet" href="{{ static('promo/css/promo.css') }}">
+        <link rel="stylesheet" href="{{ static('promo/css/promo2.css') }}">
+    {% endcompress %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+<body data-spy="scroll" data-target=".navigation" data-offset="150">
+
+{% macro navigation()  %}
+    <div class="navigation">
+        <ul class="nav" >
+            {% with menu = (
+                ('#top', 'Главная'),
+                ('#visitors', 'Посещаемость'),
+                ('#offer-1', 'CRM система'),
+                ('#offer-2', 'CRM для руководителей'),
+                ('#offer-3', 'Mesto School'),
+                ('#goals', 'Наши цели'),
+                ('#forecast', 'Прогноз'),
+                ('#changes', 'Изменения'),
+                ('#need-to-do', 'Подготовка'),
+                ('#how-much', 'Стоимость'),
+                ('#faq', 'Инструкции'),
+            )%}
+                {% for link in menu %}
+                    <li><a href="{{ link.0 }}" data-toggle="tooltip" data-placement="left" title="{{ link.1 }}"></a></li>
+                {% endfor %}
+            {% endwith %}
+        </ul>
+    </div>
+{% endmacro %}
+
+<div id="part1">
+    {{ navigation() }}
+
+    <div id="top" class="card">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-18 col-md-offset-2 col-lg-offset-7  col-lg-11">
+                    <a href="/"><img src="{{ static('promo/img/logo.png') }}" class="logo" alt=""/></a>
+
+                    {% if request.user.is_authenticated() %}
+                        <div>
+                        {% if request.own_agency %}
+                            <a class="btn" href="{{ url('agency_admin:ads') }}">&larr; В личный кабинет</a>
+                        {% else %}
+                            <a class="btn" href="{{ url('profile_my_properties') }}">&larr; В личный кабинет</a>
+                        {% endif %}
+                        </div>
+                    {% endif %}
+
+                    <div class="wrapper">
+                        <h5>Постоянно улучшая качество платформы и сервиса, команда mesto.ua прилагает максимум усилий для повышения уровня услуг на рынке недвижимости Украины.</h5>
+                        <p>После нескольких лет интенсивной работы мы хотим поделиться с вами своими результатами и выводами, а также рассказать о дальнейших целях и задачах.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(window).resize(function() {
+            var $target = $('#top .wrapper');
+            var margin = Math.max(0, $(this).height() - $target.height() - 160 - 80);
+            $target.css({marginTop:margin/2, marginBottom:margin/2});
+        }).resize();
+    </script>
+</div>
+
+<div id="part2">
+    {{ navigation() }}
+
+    <a href="#top" class="scroll-top"><span><i class="glyphicon glyphicon-triangle-top"></i><br/>Наверх</span></a>
+
+    <div id="visitors" class="card text-center">
+        <div class="container">
+            <h1>Посещаемость mesto.ua</h1>
+            <div class="description">Количество посетителей и открытых контактов<br/> на сайте mesto.ua продолжает ежедневно увеличиваться</div>
+
+            <img class="img-responsive center-block" src="{{ static('promo/img/graph-merged.png') }}" alt=""/>
+        </div>
+    </div>
+
+    <div id="offers" class="card">
+        <div class="container">
+            <h1 class="text-center">Наши уникальные предложения<br/> для профессионалов</h1>
+            <div class="row">
+                <div class="col-lg-offset-2 col-sm-8 col-md-6">
+                    <div class="offer offer-1">
+                        <div class="title">CRM-система</div>
+                        <div class="subtitle">Позволяет повысить эффективность работы с клиентом</div>
+                        <ul>
+                            <li>Получайте сообщения и предложения от клиентов</li>
+                            <li>Назначайте встречи и планируйте свой рабочий день в календаре</li>
+                            <li>Отслеживайте статистику просмотров объявлений и открытых контактов</li>
+                        </ul>
+                    </div>
+                    <div class="offer offer-2">
+                        <div class="title">CRM система</div>
+                        <div class="subtitle">Дополнительно для руководителей</div>
+                        <ul>
+                            <li>Управляйте базой всех объявлений агентства</li>
+                            <li>Контролируйте и распределяйте бюджет агентства и каждого риелтора отдельно</li>
+                            <li>Отслеживайте эффективность работы каждого агента</li>
+                        </ul>
+                    </div>
+                    <div class="offer offer-3">
+                        <div class="title">Mesto School</div>
+                        <div class="subtitle">Бесплатная школа для риелторов</div>
+                        <ul>
+                            <li>Посещайте семинары в своем городе</li>
+                            <li>Не отходя от рабочего места, повышайте квалификацию с помощью наших вебинаров</li>
+                            <li>Голосуйте и выбирайте темы для вебинаров</li>
+                            <li>Общайтесь с коллегами и профессионалами рынка</li>
+                            <li>Учитесь и зарабатывайте больше своих конкурентов</li>
+                        </ul>
+                    </div>
+                    <br/>
+                </div>
+                <div class="col-md-offset-3 col-sm-12">
+                    <div class="monitor">
+                        <div class="screen">
+                            <img src="{{ static('promo/img/offer-1.jpg') }}" class="offer offer-1" alt=""/>
+                            <img src="{{ static('promo/img/offer-2.jpg') }}" class="offer offer-2" alt=""/>
+                            <img src="{{ static('promo/img/offer-3.jpg') }}" class="offer offer-3" alt=""/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="goals" class="card text-center" style="position: relative">
+        <div id="offer-1">&nbsp;</div>
+        <div id="offer-2">&nbsp;</div>
+        <div id="offer-3">&nbsp;</div>
+
+        <div class="container">
+
+            <h1>Чего мы хотим достигнуть</h1>
+            <div class="description">Наша цель — чистая и качественная база<br/> актуальных объявлений, которая:</div>
+
+            <div class="row text-left">
+                <div class="col-sm-offset-1 col-md-offset-2 col-sm-11 col-md-5">
+                    <img src="{{ static('promo/img/icon-phone.png') }}" alt=""/><br/>
+                    Значительно увеличит поток целевых звонков
+                </div>
+                <div class="col-sm-offset-1 col-sm-11 col-md-4">
+                    <img src="{{ static('promo/img/icon-house.png') }}" alt=""/><br/>
+                    Поддержит честную конкуренцию: в приоритете будет качество объявлений, и уже потом их количество
+                </div>
+                <div class="col-sm-offset-1 col-sm-11 col-md-4">
+                    <img src="{{ static('promo/img/icon-clock.png') }}" alt=""/><br/>
+                    Сократит время, затрачиваемое на одного клиента. Отныне никаких мелких вопросов и несущественных звонков или писем: получайте только «горячие» предложения!
+                </div>
+                <div class="col-sm-offset-1 col-sm-11 col-md-4">
+                    <img src="{{ static('promo/img/icon-prize.png') }}" alt=""/><br/>
+                    В целом повысит уровень предоставляемых услуг на рынке недвижимости Украины
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="forecast" class="card text-center">
+        <div class="container">
+            <h1>Наши прогнозы</h1>
+            <div class="description">Какие изменения мы ожидаем в ближайшее время?</div>
+
+            <div style="position:relative">
+                <img class="img-responsive center-block" src="{{ static('promo/img/graph-forecast.png') }}" alt=""/>
+                <span class="point" data-toggle="tooltip" data-placement="top" title="Наши показатели по открытиям контактов на конец января 2016 года.">
+                </span>
+            </div>
+            <p>После очистки нашей базы от спама и старых объектов мы прогнозируем<br/>увеличение конверсии на 1 объявление <b>в 2 раза</b>.</p>
+            <p>Наша цель: в 2-годичной перспективе каждая вторая сделка на рынке недвижимости<br/> будет совершаться на площадке</p>
+
+        </div>
+    </div>
+
+    <div id="changes" class="card text-center">
+        <div class="container">
+            <img class="image" src="{{ static('promo/img/icon-fourty-big.png') }}" alt=""/>
+            <h1>Изменения в работе платформы </h1>
+
+            <div class="row text-left">
+                <div class="col-md-offset-2 col-sm-7 col-md-6">
+                    <p><img src="{{ static('promo/img/icon-director2.png') }}" alt=""/></p>
+                    Количество объявлений будет привязано к риелтору, а не к агентству. Мы проанализировали свою базу объявлений, провели опрос среди пользователей и выяснили, что максимальное количество объектов, с которыми может эффективно работать риелтор - не более 40.
+                </div>
+
+                <div class="col-sm-offset-1 col-sm-7 col-md-6">
+                    <p><img src="{{ static('promo/img/icon-fourty2.png') }}" alt=""/></p>
+                    Мы предлагаем вам совместно перейти к мировым стандартам работы в сфере недвижимости. Ограничение в 40 объявлений повысит количество и качество звонков от клиентов и сократит цикл ваших продаж. Меньше потраченного времени – больше заработанных денег.
+                </div>
+
+                <div class="col-sm-offset-1 col-sm-7 col-md-6">
+                    <p><img src="{{ static('promo/img/icon-grivna.png') }}" alt=""/></p>
+                    Мы вводим платную систему размещения объявлений. Единая цена за 1 объявление, независимо от их количества – это решение, которое поможет создать честные конкурентные условия для каждого.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="need-to-do" class="card text-center">
+        <div class="container">
+            <img class="image" src="{{ static('promo/img/need-to-do.png') }}" alt=""/>
+            <h1>Что необходимо сделать вам?</h1>
+
+            <table>
+                <thead><tr><td width="50%">Агентство</td><td>Частный риелтор</td></tr></thead>
+                <tbody>
+                    <tr>
+                        <td>Добавить своих риелторов в аккаунт агентства (максимальное количество объявлений на одного риелтора - 40 штук).</td>
+                        <td class="text-center"><i class="glyphicon glyphicon-remove pink"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Распределить базу объявлений между своими риелторами. </td>
+                        <td class="text-center"><i class="glyphicon glyphicon-remove pink"></i></td>
+                    </tr>
+                    <tr><td colspan="2">Актуализировать свою базу объявлений (активируйте только те объекты, с которыми вы реально работаете на данный момент).</td></tr>
+                    <tr><td colspan="2">С 01.04 все ваши объявления останутся в базе, но будут неактивны. Зайдите в свой личный кабинет и выберите объявления, которые вы хотите активировать.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="how-much" class="card text-center">
+        <div class="container">
+            <h1>Сколько это будет стоить</h1>
+
+            <div class="row">
+                <div class="col-sm-offset-6 col-sm-12 col-md-offset-8 col-md-7">
+
+                    <select id="province" class="selectpicker" data-width="100%" data-style="btn-flat" data-size="10">
+                        {% for province in provinces %}
+                            <option data-zone="{{ province.zone }}"{% if user_province == province %} selected="selected"{% endif %}>{{ province.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="row prices">
+                <div class="col-lg-offset-4 col-lg-14">
+                    <table border="0">
+                        <colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Полная цена</th>
+                                <th><img src="{{ static('promo/img/icon-gift.png') }}" alt=""/> Цена только в апреле <br/><span>Скидка {{ discount }}%</span></th>
+                            </tr>
+                        </thead>
+                        {% for zone, prices in prices_by_zone.items() %}
+                            <tbody class="zone zone-{{ zone }}">
+                                {% for price in prices %}
+                                <tr>
+                                    <td class="text-right">{{ price[0] }}</td>
+                                    <td>{{ price[1] }} &#8372;</td>
+                                    <td>{{ price[2] }} &#8372;</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        {% endfor %}
+                    </table><br/>
+                    <div class="text-left note"">Ресурс оставляет за собой право корректировать цены до перехода на новую модель работы</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="faq" class="card">
+        <div class="container">
+            <h1 class="text-center">Подробные инструкции</h1>
+
+            <div class="row">
+                {% with categories = (
+                    (1, 9, 'Работа с риелторами'),
+                    (3, 3, 'CRM-система'),
+                    (2, 10, 'Объявления'),
+                    (4, 2, 'Услуги'),
+                )%}
+                    {% for category in categories %}
+                        {% if loop.index0 and loop.index0 % 2 == 0 %}</div><div class="row">{% endif %}
+                        <div class="{{ loop.cycle('col-lg-offset-4', 'col-lg-offset-3') }} col-lg-7">
+                            <h6>{{ category[0] }}. {{ category[2] }}</h6>
+                            <ul class="list-unstyled">
+                                {% for article in faq_articles[category[1]] %}
+                                    <li><a href="{{ article.get_absolute_url() }}" target="_blank">
+                                        {{ category[0] }}.{{ loop.index }} {{ article.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endfor %}
+                {% endwith %}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% compress js %}
+    <script src="{{ static('libs/bootstrap3-24col/js/bootstrap.min.js') }}"></script>
+    <script src="{{ static('promo/libs/scrollmagic/ScrollMagic.min.js') }}"></script>
+    <script src="{{ static('promo/libs/scrollmagic/plugins/TweenMax.min.js') }}"></script>
+    <script src="{{ static('promo/libs/scrollmagic/plugins/ScrollToPlugin.min.js') }}"></script>
+    <script src="{{ static('promo/libs/scrollmagic/plugins/debug.addIndicators.min.js') }}"></script>
+
+    <script src="{{ static('libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
+
+    <script>
+        $('select#province').change(function(e) {
+            var zone = $(this).find(':selected').data('zone');
+            $('#how-much .zone').addClass('hidden').filter('.zone-' + zone).removeClass('hidden');
+        }).change();
+        $('[data-toggle="tooltip"]').tooltip({animation:false});
+
+        $('#faq h6').click(function() {$(this).parent().toggleClass('open');});
+
+
+        // init controller
+        var controller = new ScrollMagic.Controller({
+          globalSceneOptions: {
+            duration: $('#offers.card').height() * 3,
+            triggerHook: .025,
+            offset:70,
+            reverse: true
+          }
+        });
+
+        $('.offer-1').fadeIn();
+        var scene = new ScrollMagic.Scene({triggerElement: "#offers" })
+                        .setPin("#offers")
+                        .addTo(controller)
+{#                        .addIndicators()#}
+                        .on("progress", function (e) {
+                            var slide = Math.floor(1 + e.progress.toFixed(2) * 2.5);
+                            var $targets = $('.offer-'+slide);
+                            if (!$targets.is(':visible')) {
+                                $('.offer:visible').stop(true, true).not($targets).fadeOut(200, function(e) {
+                                    $targets.fadeIn(200);
+                                });
+                            }
+                        });
+
+
+        // Change behaviour of controller
+        // to animate scroll instead of jump
+        controller.scrollTo(function(target) {
+
+          TweenMax.to(window, 0.3, {
+            scrollTo : {
+              y : target,
+              autoKill : true // Allow scroll position to change outside itself
+            },
+            ease : Cubic.easeInOut
+          });
+
+        });
+
+
+        //  Bind scroll to anchor links
+        $(document).on("click", "a[href^=#]", function(e) {
+          var id = $(this).attr("href");
+
+          if($(id).length > 0) {
+            e.preventDefault();
+
+            // trigger scroll
+            controller.scrollTo(id);
+
+            // If supported by the browser we can also update the URL
+            if (window.history && window.history.pushState) {
+              history.pushState("", document.title, id);
+            }
+          }
+        });
+
+
+    </script>
+
+{% endcompress %}
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+{% extends "base.jinja.html" %}
+
+{% block seo %}
+    <title>{{ seo.title }}</title>
+    <meta name="keywords" content="{{ seo.keywords }}">
+    <meta name="description" content="{{ seo.description }}">
+{% endblock %}
+
+{% block content %}
+    <style>
+        .letters {margin:30px 0px;}
+            .letters a {margin:0 10px 0 0;}
+        .street-list {
+            padding:30px 0;
+        }
+            .street-list ul {
+                margin-bottom:30px;
+            }
+            .street-list h4 {margin:0 0 10px;}
+            .street-list .street {
+                margin-bottom:5px;
+                font-size:16px;
+            }
+        .multi-col {
+            -webkit-column-count: 4;
+            -moz-column-count: 4;
+            column-count: 4;
+        }
+    </style>
+
+    <h2>
+        {% if selected_letter %}
+            Улицы {{ region.nameD.chego }} начинающиеся на букву <b>{{ selected_letter }}</b>
+        {% else %}
+            {% trans %}Популярные улицы{% endtrans %} {{ region.nameD.chego }}
+        {% endif %}
+    </h2>
+
+    <div class="letters white-panel">
+        <a href="{{ request.path }}">Популярные</a>
+        {% for letter in alphabetic_index %}
+            <a href="?letter={{ letter }}">{{ letter|replace('1', '#') }}</a>
+        {% endfor %}
+    </div>
+
+    <div class="street-list{% if streets_in_alphabetic_index.keys()|length > 2 %} multi-col{% endif %}">
+        {% for letter, streets in streets_in_alphabetic_index.items() %}
+            <ul class="list-unstyled">
+                <li><h4>{{ letter }}</h4></li>
+                {%- for street in streets %}
+                    <li class="street"><a href='{{ street.link }}'>{{ street.name }}</a></li>
+                {%- endfor %}
+            </ul>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+

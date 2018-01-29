@@ -1,0 +1,236 @@
+# Russian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-05-23 13:37+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: views.py:34
+msgid "Город"
+msgstr ""
+
+#: views.py:35
+msgid "Тип сделки"
+msgstr ""
+
+#: views.py:35
+msgid "Выберите тип сделки"
+msgstr ""
+
+#: views.py:36
+msgid "Имя риелтора, или название организации"
+msgstr ""
+
+#: views.py:222
+msgid "Введите тему отзыва"
+msgstr ""
+
+#: views.py:223
+msgid "Понравилось ли вам работать с агентством?"
+msgstr ""
+
+#: views.py:224
+msgid "Введите текст отзыва"
+msgstr ""
+
+#: templates/professionals/agency_preview.jinja.html:3
+#: templates/professionals/profile.jinja.html:45
+msgid "Ассоциация специалистов по недвижимости Украины"
+msgstr ""
+
+#: templates/professionals/agency_preview.jinja.html:15
+#: templates/professionals/profile.jinja.html:79
+#: templates/professionals/realtor_preview.jinja.html:11
+msgid "Узнать номер"
+msgstr ""
+
+#: templates/professionals/agency_preview.jinja.html:28
+#: templates/professionals/profile.jinja.html:65
+#, python-format
+msgid "%(count)s отзыв"
+msgid_plural "%(count)s отзывов"
+msgstr[0] "%(count)s отзыв"
+msgstr[1] "%(count)s отзыва"
+msgstr[2] "%(count)s отзывов"
+
+#: templates/professionals/agency_realtors.jinja.html:5
+msgid ">Все профессионалы"
+msgstr ""
+
+#: templates/professionals/agency_realtors.jinja.html:6
+msgid "Агентство"
+msgstr ""
+
+#: templates/professionals/agency_realtors.jinja.html:7
+#: templates/professionals/profile.jinja.html:159
+msgid "Риелторы агентства"
+msgstr ""
+
+#: templates/professionals/agency_reviews.jinja.html:10
+#, python-format
+msgid "Найден %(count)s отзыв"
+msgid_plural "Найдено %(count)s отзывов"
+msgstr[0] "Найден %(count)s отзыв"
+msgstr[1] "Найдено %(count)s отзыва"
+msgstr[2] "Найдено %(count)s отзывов"
+
+#: templates/professionals/agency_reviews.jinja.html:22
+msgid "Нельзя оставить отзыв о своем агентстве"
+msgstr ""
+
+#: templates/professionals/agency_reviews.jinja.html:29
+msgid "Оставить свой отзыв об агентстве"
+msgstr ""
+
+#: templates/professionals/agency_reviews.jinja.html:36
+msgid "Новый отзыв"
+msgstr ""
+
+#: templates/professionals/agency_reviews.jinja.html:47
+#: templates/professionals/agency_reviews.jinja.html:138
+msgid "Опубликовать"
+msgstr ""
+
+#: templates/professionals/agency_reviews.jinja.html:96
+msgid "Ответ от"
+msgstr ""
+
+#: templates/professionals/agency_reviews.jinja.html:112
+msgid "Добавить ответ"
+msgstr ""
+
+#: templates/professionals/agency_reviews.jinja.html:133
+msgid "Добавление ответа"
+msgstr ""
+
+#: templates/professionals/profile.jinja.html:10
+#: templates/professionals/profile.jinja.html:15
+msgid "Профиль"
+msgstr ""
+
+#: templates/professionals/profile.jinja.html:11
+msgid "Отзывы"
+msgstr ""
+
+#: templates/professionals/profile.jinja.html:52
+msgid "Агентство недвижимости"
+msgstr ""
+
+#: templates/professionals/profile.jinja.html:54
+msgid "Риелтор"
+msgstr ""
+
+#: templates/professionals/profile.jinja.html:83
+msgid "Телефон"
+msgstr ""
+
+#: templates/professionals/profile.jinja.html:96
+msgid "Отправить сообщение"
+msgstr ""
+
+#: templates/professionals/profile.jinja.html:113
+msgid "Описание агентства"
+msgstr ""
+
+#: templates/professionals/profile.jinja.html:115
+msgid "Описание риелтора"
+msgstr ""
+
+#: templates/professionals/profile.jinja.html:138
+msgid "Страница агентства"
+msgstr ""
+
+#: templates/professionals/profile.jinja.html:144
+msgid "Вебсайт"
+msgstr ""
+
+#: templates/professionals/profile.jinja.html:150
+msgid "Активных объявлений"
+msgstr ""
+
+#: templates/professionals/profile.jinja.html:156
+msgid "Риелторов"
+msgstr ""
+
+#: templates/professionals/profile.jinja.html:172
+#, python-format
+msgid "Найден %(count)s объект агентства"
+msgid_plural "Найдено %(count)s объектов агентства"
+msgstr[0] "Найден %(count)s объект агентства"
+msgstr[1] "Найдено %(count)s объекта агентства"
+msgstr[2] "Найдено %(count)s объектов агентства"
+
+#: templates/professionals/profile.jinja.html:174
+#, python-format
+msgid "Найден %(count)s объект риелтора"
+msgid_plural "Найдено %(count)s объектов риелтора"
+msgstr[0] "Найден %(count)s объект риелтора"
+msgstr[1] "Найдено %(count)s объекта риелтора"
+msgstr[2] "Найдено %(count)s объектов риелтора"
+
+#: templates/professionals/profile.jinja.html:201
+msgid "На данный момент нет предложений у этого агентства"
+msgstr ""
+
+#: templates/professionals/profile.jinja.html:203
+msgid "На данный момент нет предложений у этого риелтора"
+msgstr ""
+
+#: templates/professionals/search.jinja.html:20
+msgid "Выбрать город"
+msgstr ""
+
+#: templates/professionals/search.jinja.html:42
+msgid "Найти"
+msgstr ""
+
+#: templates/professionals/search.jinja.html:52
+#, python-format
+msgid "Найден %(count)s профессионал"
+msgid_plural "Найдено %(count)s профессионалов"
+msgstr[0] "Найден %(count)s профессионал"
+msgstr[1] "Найдено %(count)s профессионала"
+msgstr[2] "Найдено %(count)s профессионалов"
+
+#: templates/professionals/search.jinja.html:54
+#, python-format
+msgid "Найдено %(count)s агентство недвижимости"
+msgid_plural "Найдено %(count)s агентств недвижимости"
+msgstr[0] "Найдено %(count)s агентство недвижимости"
+msgstr[1] "Найдено %(count)s агентства недвижимости"
+msgstr[2] "Найдено %(count)s агентств недвижимости"
+
+#: templates/professionals/search.jinja.html:56
+#, python-format
+msgid "Найден %(count)s риелтор"
+msgid_plural "Найдено %(count)s риелторов"
+msgstr[0] "Найден %(count)s риелтор"
+msgstr[1] "Найдено %(count)s риелтора"
+msgstr[2] "Найдено %(count)s риелторов"
+
+#: templates/professionals/search.jinja.html:61
+msgid "Все профессионалы"
+msgstr ""
+
+#: templates/professionals/search.jinja.html:62
+msgid "Агентства"
+msgstr ""
+
+#: templates/professionals/search.jinja.html:63
+msgid "Риелторы"
+msgstr ""
+

@@ -1,0 +1,93 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Статистика{% endblock %}
+
+{% block content %}
+<style>
+
+</style>
+
+<div id="content-main" class='change-list'>
+    <h1>Статистика пользователей и объявлений</h1>
+    <table width='100%'><tr><td width='48%'>
+        <table>
+            <tr>    
+                <th>Количество листингов по месяцам:</th>
+                {% for col in properties_stats.legend %}
+                    <th>{{ col.0|date:"M Y" }}</th>
+                {% endfor %}
+            </tr>
+        {% for row in properties_stats.rows %}
+            <tr>
+                <td>{{ row.0 }}</td>
+                {% for legend in row.2 %}
+                    <td align='center'>{{ legend.1 }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </table>
+
+        <br/><br/>
+        
+        <table>
+            <tr>
+                <th>Количество пользователей по месяцам:</th>
+                {% for col in users_stats.legend %}
+                    <th>{{ col.0|date:"M Y" }}</th>
+                {% endfor %}
+            </tr>
+        {% for row in users_stats.rows %}
+            <tr>
+                <td>{{ row.0 }}</td>
+                {% for legend in row.2 %}
+                    <td align='center'>{{ legend.1 }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </table><br/><br/>
+        
+        <table>
+            <tr><th colspan='2'>Активных пользователей за 30 дней:</th></tr>
+            <tr><td>Частные лица</td><td>{{ active_users.person }}</td></tr>
+            <tr><td>Агентства</td><td>{{ active_users.agency }}</td></tr>
+            {% if active_users.banks %}<tr><td>Банки</td><td>{{ active_users.bank }}</td></tr>{% endif %}
+        </table>
+
+        <br/><br/>
+
+        <table>
+            <tr>
+                <th>Просмотры объявлений / контактов &nbsp; </th>
+                {% for month in viewscount_stats.monthes %}
+                    <th>{{ month }}</th>
+                {% endfor %}
+            </tr>
+            {% for label, data in viewscount_stats.values %}
+            <tr>
+                <td>{{ label }}</td>
+                {% for value in data %}
+                    <td align='center'>{{ value|join:" / " }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+
+    </td><td width='4%'></td><td width='48%'>
+
+        {% load chart_tags %}
+        <h2>Объявления - парсер</h2>
+        {% bar_chart parser_chart.values parser_chart.captions "500x100" %}
+        <br/><br/>
+
+        <h2>Новые объявления пользователей</h2>
+        {% include "admin/graph_twin.html" with chart=user_ads_chart %}
+        <br/><br/>
+
+        <h2>Новые пользователи</h2>
+        {% include "admin/graph_twin.html" with chart=new_users %}
+        <br/><br/>
+
+    </td></tr></table>
+
+</div>
+{% endblock %}

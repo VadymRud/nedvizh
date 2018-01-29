@@ -1,0 +1,14 @@
+{% include 'profile/balance/topup_modal_form.jinja.html' %}
+
+{# (url('services:analysis'), _('Экспертная проверка жилья')), #}
+{% set services_items = [
+    (url('services:tour360'), _('Панорама 360'), {'target': '_blank'}),    
+    (url('services:ocenka_nedvizh'), _('Оценка недвижимости'), {'classes':['label-new']}),
+] -%}
+
+<div class="navbar">
+    <ul class="nav navbar-nav nav-pills navbar-right">
+        {% from "macro/navigation.jinja.html" import navigation %}
+        {{ navigation(services_items, request) }}
+    </ul>
+</div><br/>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Adverts>
+  {% for item in feed.iterate_items() %}{% with agency =  item.user.get_own_agency() %}
+    <Advert>
+      {%- include 'export/autofields.jinja.xml' -%}
+
+      <AdvertType>{{ {'sale':'Sale', 'rent':'Rent', 'rent_daily':'Rent'}.get(item.deal_type, '') }}</AdvertType>
+      {%- if 'rent' in item.deal_type -%}<PriceType>{{ {'rent_daily':'Daily', 'rent':'Monthly'}.get(item.deal_type, '') }}</PriceType>{%- endif -%}
+
+      {% with
+          province = item.location.get('province'),
+          locality = item.location.get('locality') or item.location.get('village') or ''
+      -%}
+        <State>{{ province }}</State><City>{{ locality }}</City>
+      {%- endwith -%}
+
+      {%- with contact_person = item.contact_person or (agency.name if agency else '') %}
+        <Contact>
+          <SiteAccountId>{{ item.user_id }}</SiteAccountId>
+          {% if agency and '@' not in agency.name %}
+            <CorporateName>{{ agency.name }}</CorporateName>
+          {% endif %}
+          <MobilePhone>{% for phone in item.phones.all() %}{{ phone.number }}{% if not loop.last %} {% endif %}{% endfor %}</MobilePhone>
+          <CustomerType>{% if agency %}Professional{% else %}Private{% endif %}</CustomerType>
+          <Email>{{ item.user.email|default("info@mesto.ua") }}</Email>
+          <Country>UA</Country>
+        </Contact>
+      {%- endwith -%}
+
+      <CustomerType>{% if agency %}Professional{% else %}Private{% endif %}</CustomerType>
+      <Descriptions>
+        <Description Language="ru">{{ item.description|remove_control_chars() or '' }}
+            {% if item.bank %}
+                Этот объект является одним из многих в нашей базе. Мы являемся самой большой сетью риелторов в Украине (более 3,000 участников) и можем помочь вам найти недвижимость под любие критерий. Напишите нам что вас интересует и мы вам отправим лучшие предложения на рынке. Мы также перекрываем такие услуги как:
+                - Юридическая поддержка. Как инностранцу выгоднее купить и продать недвижимость в Украине.
+                - Ремонт, мебель и интерьер дизайн.
+                - Менеджмент объектов.
+                - Продажа существующих объектов.
+            {%- endif -%}
+        </Description>
+      </Descriptions>
+
+      {%- with coords = item.get_coords() -%}
+        <Geolocation>
+          <Accuracy>0</Accuracy>
+          <Latitude>{{ coords[1] }}</Latitude>
+          <Longitude>{{ coords[0] }}</Longitude>
+        </Geolocation>
+      {%- endwith -%}
+
+      {%- if item.cleaned_photos -%}
+        <Photos>
+          {%- for photo in item.cleaned_photos -%}
+            <Photo Big="{{ photo.smart_thumbnail('full') }}" Small="{{ photo.smart_thumbnail('md') }}"/>
+          {% endfor %}
+        </Photos>
+      {%- endif -%}
+
+      <PublicationDate>{{ item.created|isoformat() }}</PublicationDate>
+    </Advert>
+  {% endwith %}{% endfor %}
+</Adverts>

@@ -1,0 +1,10 @@
+{% set items = [
+    ( url('school:webinars', type='webinar'), _('Вебинары') ),
+    ( url('school:webinars', type='seminar'), _('Семинары') ),
+    ( url('school:articles'), _('Полезные статьи') ),
+] -%}
+<ul class="nav navbar-nav">
+    {% from "macro/navigation.jinja.html" import navigation %}
+    {{ navigation(items, request) }}
+</ul>
+

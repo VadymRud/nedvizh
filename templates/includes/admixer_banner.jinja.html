@@ -1,0 +1,21 @@
+<div id='{{ ph }}'></div>
+
+{% if rontar_place_id is defined %}
+    <script type="text/javascript">
+        $(function() {
+            setTimeout(function() {
+                var rontarDiv = $('#rontar_adplace_{{ rontar_place_id }}');
+                if (rontarDiv.find('.r_banner_container').length) {
+                    console.log('rontar banner exists');
+                } else {
+                    window.amSlots = (window.amSlots || []); window.amSlots.push({ z: '{{ z }}', ph: '{{ ph }}', i: 'inv-nets' });
+                    console.log('rontar banner doesn`t exists, use admixer');
+                }
+            }, 5000);
+        });
+    </script>
+{% else %}
+    <script type="text/javascript">
+        window.amSlots = (window.amSlots || []); window.amSlots.push({ z: '{{ z }}', ph: '{{ ph }}', i: 'inv-nets' });
+    </script>
+{% endif %}

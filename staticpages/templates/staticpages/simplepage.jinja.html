@@ -1,0 +1,32 @@
+{% extends 'base.jinja.html' %}
+
+
+
+{%- block seo -%}
+    <title>{{ page.seo_title }}</title>
+    <meta name="description" content="{{ page.seo_description }}"/>
+
+{%- endblock -%}
+
+{% block content %}
+    <ol class="breadcrumb breadcrumb-detail">
+        <li><a href="{{ host_url('index') }}"><i class="glyphicon glyphicon-chevron-left"></i> Mesto.ua</a></li>
+        <li class="active">{% trans %}Информация о Mesto.ua{% endtrans %}</li>
+    </ol>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <ul class="nav nav-pills nav-stacked left-menu">
+                {% from "macro/navigation.jinja.html" import navigation %}
+                {{ navigation(menu_items, request, strict_check_active=True) }}
+            </ul>
+        </div>
+        <div class="col-sm-18">
+            <h1 class="no-margin-top">{{ page.title }}</h1>
+            <div class="white-panel">
+                {{ page.content|safe }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

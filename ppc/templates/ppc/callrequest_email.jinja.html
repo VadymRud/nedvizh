@@ -1,0 +1,137 @@
+{% extends "mail/base_redesigned.jinja.html" %}
+
+{% block greetings %}
+    <tr>
+        <td width="43" height="36" style="width: 43px; height: 36px; background-color: #ffffff;">
+            <div style="width: 43px; height: 36px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="36" colspan="3" style="width: 472px; height: 36px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 36px;">
+                {% trans %}Уважаемый пользователь{% endtrans %},
+            </div>
+        </td>
+        <td width="25" height="36" style="width: 25px; height: 36px; background-color: #ffffff;">
+            <div style="width: 25px; height: 36px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+{% endblock %}
+
+{% block content %}
+    <tr>
+        <td width="43" height="42" style="width: 43px; height: 42px; background-color: #ffffff;">
+            <div style="width: 43px; height: 42px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="42" colspan="3" style="width: 472px; height: 42px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 42px;">
+                {% if object._meta.model_name == 'savedsearch' %}
+                    {% trans %}Поступила заявка на подбор недвижимости по параметрам{% endtrans %}:<br/>
+                    <a href="{{ referer }}" target="_blank">{{ object_title }}</a><br/>
+                    {% trans %}Клиент{% endtrans %}:
+                {% else %}
+                    {% trans %}По вашему объявлению{% endtrans %} <a href="{{ referer }}" target="_blank">{{ object_title }}</a> {% trans %}появился новый клиент{% endtrans %}:
+                {% endif %}
+            </div>
+        </td>
+        <td width="25" height="42" style="width: 25px; height: 42px; background-color: #ffffff;">
+            <div style="width: 25px; height: 42px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="56" style="width: 43px; height: 56px; background-color: #ffffff;">
+            <div style="width: 43px; height: 56px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="56" colspan="3" style="width: 472px; height: 56px; background-color: #f8f8f9;">
+            <div class="text" style="width: 412px; height: 56px; line-height: 56px; padding-left: 30px; padding-right: 30px; background-color: #f8f8f9;">
+                <div style="float: left; display: inline-block; width: 100px; height: 56px; line-height: 56px; border-bottom: 1px #D7DFE3 solid; background-color: #f8f8f9;">{% trans %}Имя{% endtrans %}</div>
+                <div style="float: left; display: inline-block; width: 300px; height: 56px; line-height: 56px; font-weight: bold; border-bottom: 1px #D7DFE3 solid; background-color: #f8f8f9;">{{ name }}</div>
+            </div>
+        </td>
+        <td width="25" height="56" style="width: 25px; height: 56px; background-color: #ffffff;">
+            <div style="width: 25px; height: 56px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="56" style="width: 43px; height: 56px; background-color: #ffffff;">
+            <div style="width: 43px; height: 56px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="56" colspan="3" style="width: 472px; height: 56px; background-color: #f8f8f9;">
+            <div class="text" style="width: 412px; height: 56px; line-height: 56px; padding-left: 30px; padding-right: 30px; background-color: #f8f8f9;">
+                <div style="float: left; display: inline-block; width: 100px; height: 56px; line-height: 56px; border-bottom: 1px #D7DFE3 solid; background-color: #f8f8f9;">{% trans %}Телефон{% endtrans %}</div>
+                <div style="float: left; display: inline-block; width: 300px; height: 56px; line-height: 56px; font-weight: bold; border-bottom: 1px #D7DFE3 solid; background-color: #f8f8f9;">{{ phone }}</div>
+            </div>
+        </td>
+        <td width="25" height="56" style="width: 25px; height: 56px; background-color: #ffffff;">
+            <div style="width: 25px; height: 56px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="56" style="width: 43px; height: 56px; background-color: #ffffff;">
+            <div style="width: 43px; height: 56px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="56" colspan="3" style="width: 472px; height: 56px; background-color: #f8f8f9;">
+            <div class="text" style="width: 412px; height: 56px; line-height: 56px; padding-left: 30px; padding-right: 30px; background-color: #f8f8f9;">
+                <div style="float: left; display: inline-block; width: 100px; height: 56px; line-height: 56px; background-color: #f8f8f9;">E-mail</div>
+                <div style="float: left; display: inline-block; width: 300px; height: 56px; line-height: 56px; font-weight: bold; background-color: #f8f8f9;"><a href="mailto:{{ from_email }}">{{ from_email }}</a></div>
+            </div>
+        </td>
+        <td width="25" height="56" style="width: 25px; height: 56px; background-color: #ffffff;">
+            <div style="width: 25px; height: 56px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="30" style="width: 43px; height: 30px; background-color: #ffffff;">
+            <div style="width: 43px; height: 30px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="30" colspan="3" style="width: 472px; height: 30px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 30px;">&nbsp;</div>
+        </td>
+        <td width="25" height="30" style="width: 25px; height: 30px; background-color: #ffffff;">
+            <div style="width: 25px; height: 30px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    {% if object._meta.model_name == 'newhome' %}
+        <tr>
+            <td width="43" height="35" style="width: 43px; height: 35px; background-color: #ffffff;">
+                <div style="width: 43px; height: 35px; background-color: #ffffff;">&nbsp;</div>
+            </td>
+            <td width="472" height="35" colspan="3" style="width: 472px; height: 35px; background-color: #ffffff;">
+                <div class="text" style="width: 472px; height: 35px;">
+                    Клиент оставил заявку
+                    {% if referer_type == 0 %}с <a href="{{ referer }}" target="_blank">основной</a> страницы объявления.{% endif %}
+                    {% if referer_type == 1 %}со страницы с <a href="{{ referer }}" target="_blank">планировкой квартиры</a>.{% endif %}
+                    {% if referer_type == 2 %}со страницы с <a href="{{ referer }}" target="_blank">планировкой этажа</a>.{% endif %}
+                    {% if referer_type == 3 %}со страницы с <a href="{{ referer }}" target="_blank">планировками</a>.{% endif %}
+                </div>
+            </td>
+            <td width="25" height="35" style="width: 25px; height: 35px; background-color: #ffffff;">
+                <div style="width: 25px; height: 35px; background-color: #ffffff;">&nbsp;</div>
+            </td>
+        </tr>
+        <tr>
+            <td width="43" height="35" style="width: 43px; height: 35px; background-color: #ffffff;">
+                <div style="width: 43px; height: 35px; background-color: #ffffff;">&nbsp;</div>
+            </td>
+            <td width="472" height="35" colspan="3" style="width: 472px; height: 35px; background-color: #ffffff;">
+                <div class="text" style="width: 472px; height: 35px;"><hr></div>
+            </td>
+            <td width="25" height="35" style="width: 25px; height: 35px; background-color: #ffffff;">
+                <div style="width: 25px; height: 35px; background-color: #ffffff;">&nbsp;</div>
+            </td>
+        </tr>
+    {% endif %}
+{% endblock %}
+{% block footer %}
+    <tr>
+        <td width="43" height="60" style="width: 43px; height: 60px; background-color: #ffffff;">
+            <div style="width: 43px; height: 60px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="60" colspan="3" style="width: 472px; height: 60px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 60px;">
+                {% trans %}Прибыльной Вам работы и отличных результатов!{% endtrans %},<br>{% trans %}команда{% endtrans %} <a href="//mesto.ua" target="_blank">mesto.ua</a>
+            </div>
+        </td>
+        <td width="25" height="60" style="width: 25px; height: 60px; background-color: #ffffff;">
+            <div style="width: 25px; height: 60px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+{% endblock %}

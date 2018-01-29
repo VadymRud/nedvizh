@@ -1,0 +1,60 @@
+{% extends "base.jinja.html" %}
+
+{% block seo %}
+    <title>{{ seo.title }}</title>
+    <meta name="keywords" content="{{ seo.keywords }}">
+    <meta name="description" content="{{ seo.description }}">
+{% endblock %}
+
+{% block content %}
+    <style>
+        .letters {margin:30px 0px;}
+            .letters a {margin:0 10px 0 0;}
+        .street-list {
+            padding:30px 0;
+        }
+            .street-list ul {
+                margin-bottom:30px;
+            }
+            .street-list h4 {margin:0 0 10px;}
+            .street-list .street {
+                margin-bottom:5px;
+                font-size:16px;
+            }
+        .multi-col {
+            -webkit-column-count: 4;
+            -moz-column-count: 4;
+            column-count: 4;
+        }
+
+    </style>
+
+    <h2>
+        {% if region.kind == 'province' %}
+            {% trans %}Населенные пункты{% endtrans %} {{ region.nameD.chego }}
+        {% else %}
+            {% trans %}Районы города {% endtrans %} {{ region.nameD.chego }}
+        {% endif %}
+    </h2>
+
+    <div class="street-list multi-col">
+        <ul class="list-unstyled">
+            {% for district in region_links %}
+                <li class="street"><a href='{{ district.link }}' title="{{ district.text }}">{{ district.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% if neighborhoods_list is defined and neighborhoods_list %}
+        <h3>{% trans %}Микрорайоны города{% endtrans %} {{ region.nameD.chego }}</h3>
+        <div class="street-list multi-col">
+            <ul class="list-unstyled">
+                {% for region in neighborhoods_list %}
+                    <li class="street"><a href='{{ region.get_deal_url(deal_type) }}'>{{ region.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+{% endblock %}
+

@@ -1,0 +1,69 @@
+    <div class="row">
+      <div class="col-xs-offset-2 col-xs-10 col-md-offset-0 col-md-6">
+        <ul>
+          <li><a href="{{ host_url('ad-search', kwargs={'deal_type':'sale'}) }}" class="h3">{% trans %}В Украине{% endtrans %}</a></li>
+          <li><a href="{{ host_url('ad-search', kwargs={'deal_type':'sale'}) }}">{% trans %}Продажа{% endtrans %}</a></li>
+          <li><a href="{{ host_url('ad-search', kwargs={'deal_type':'rent'}) }}">{% trans %}Аренда{% endtrans %}</a></li>
+          <li><a href="{{ host_url('ad-search', kwargs={'deal_type':'rent_daily'}) }}">{% trans %}Посуточно{% endtrans %}</a></li>
+          <li><a href="{{ host_url('ad-search', kwargs={'deal_type':'newhomes'}) }}">{% trans %}Новостройки{% endtrans %}</a></li>
+        </ul>
+      </div>
+      <div class="col-xs-offset-2 col-xs-10 col-md-offset-0 col-md-6">
+        <ul>
+          <li><a href="{{ host_url('ad-search', kwargs={'deal_type': 'sale'}, host_args=['international']) }}" class="h3">{% trans %}За рубежом{% endtrans %}</a></li>
+          <li><a href="{{ host_url('ad-search', kwargs={'deal_type': 'sale'}, host_args=['international']) }}">{% trans %}Продажа{% endtrans %}</a></li>
+          <li><a href="{{ host_url('ad-search', kwargs={'deal_type': 'rent'}, host_args=['international']) }}">{% trans %}Аренда{% endtrans %}</a></li>
+        </ul>
+      </div>
+      <div class="hidden visible-xs visible-sm clearfix"></div>
+      <div class="col-xs-offset-2 col-xs-10 col-md-offset-0 col-md-6">
+        <ul>
+          <li><a href="{{ host_url('guide:category_list', kwargs={'category':'news'}, host_args=[request.subdomain or 'kiev']) }}" class="h3">{% trans %}Новости Рынка{% endtrans %}</a></li>
+          <li><a href="{{ host_url('guide:category_list', kwargs={'category':'news'}, host_args=[request.subdomain or 'kiev']) }}">{% trans %}Новости{% endtrans %}</a></li>
+          <li><a href="{{ host_url('guide:category_list', kwargs={'category':'events'}, host_args=[request.subdomain or 'kiev']) }}">{% trans %}События{% endtrans %}</a></li>
+          <li><a href="{{ host_url('guide:category_list', kwargs={'category':'places'}, host_args=[request.subdomain or 'kiev']) }}">{% trans %}Места{% endtrans %}</a></li>
+          <li><a href="{{ host_url('guide:category_list', kwargs={'category':'must_know'}, host_args=[request.subdomain or 'kiev']) }}">{% trans %}Стоит знать{% endtrans %}</a></li>
+        </ul>
+      </div>
+      <div class="col-xs-offset-2 col-xs-10 col-md-offset-0 col-md-6">
+        <ul>
+          <li><a href="{{ url('professionals:search') }}" class="h3">{% trans %}Профессионалы{% endtrans %}</a></li>
+          <li><a href="{{ url('professionals:search') }}">{% trans %}Все профессионалы{% endtrans %}</a></li>
+          <li><a href="{{ url('professionals:search', professional_type='agency') }}">{% trans %}Агентства{% endtrans %}</a></li>
+          <li><a href="{{ url('professionals:search', professional_type='realtor') }}">{% trans %}Риелторы{% endtrans %}</a></li>
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+      <div class="col-xs-offset-2 col-xs-10 col-md-offset-0 col-md-6">
+        <ul>
+          <li><a {# href="{{ url('services:analysis') }}" #} class="h3">{% trans %}Полезные услуги{% endtrans %}</a></li>
+          <li><a href="{{ url('services:tour360') }}">{% trans %}3D панорама{% endtrans %}</a></li>
+          {# <li><a href="{{ url('services:analysis') }}">{% trans %}Экспертная проверка жилья{% endtrans %}</a></li> #}
+          <li><a href="{{ url('services:ocenka_nedvizh') }}">{% trans %}Оценка недвижимости{% endtrans %}</a></li>
+          <li><a href="{{ url('services:interior3d') }}">{% trans %}3D визуализация{% endtrans %}</a></li>
+        </ul>
+      </div>
+      <div class="col-xs-offset-2 col-xs-10 col-md-offset-0 col-md-6">
+        <ul>
+          <li><a href="{{ url('simplepage', url='/about/contact/') }}" class="h3">{% trans %}Контакты{% endtrans %}</a></li>
+          <li><a href="{{ url('simplepage', url='/about/') }}">{% trans %}О mesto.ua{% endtrans %}</a></li>
+          <li><a href="{{ url('simplepage', url='/about/advertising/') }}">{% trans %}Реклама{% endtrans %}</a></li>
+          <li><a href="{{ url('simplepage', url='/about/private-policy/') }}">{% trans %}Политика{% endtrans %}<br>{% trans %}конфиденциальности{% endtrans %}</a></li>
+          <li><a href="{{ url('simplepage', url='/about/terms-of-use/') }}">{% trans %}Условия использования{% endtrans %}</a></li>
+        </ul>
+      </div>
+      <div class="hidden visible-xs visible-sm clearfix"></div>
+      <div class="col-xs-offset-2 col-xs-10 col-md-offset-0 col-md-6">
+        <ul>
+          <li><a href="{{ url('school:articles') }}" class="h3">{% trans %}Mesto School{% endtrans %}</a></li>
+          <li><a href="{{ url('school:webinars', type='webinar') }}">{% trans %}Вебинары{% endtrans %}</a></li>
+          <li><a href="{{ url('school:webinars', type='seminar') }}">{% trans %}Семинары{% endtrans %}</a></li>
+          <li><a href="{{ url('school:articles') }}">{% trans %}Полезные статьи{% endtrans %}</a></li>
+        </ul>
+      </div>
+      <div class="col-xs-offset-2 col-xs-10 col-md-offset-0 col-md-6">
+        <ul>
+          <li><a href="{{ host_url('faq_index') }}" class="h3">{% trans %}Частые вопросы{% endtrans %}</a></li>
+        </ul>
+      </div>
+    </div><br><br>

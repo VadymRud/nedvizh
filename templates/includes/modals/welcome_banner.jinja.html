@@ -1,0 +1,46 @@
+  {# welcome banner #}
+  <div class="hidden visible-lg welcome-banner text-left" data-toggle="modal" data-target="#mestoua-steps">
+    <span>{% trans %}Добро пожаловать на{% endtrans %}</span><br>
+    <span>Mesto.ua</span>
+  </div>
+  <div class="modal fade text-left" id="mestoua-steps" tabindex="-1" role="dialog" aria-labelledby="mestouaSteps">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content" data-dismiss="modal">
+        <div class="modal-body">
+          <div class="row">
+              <div class="col-sm-8 step">
+                <div class="media">
+                  <div class="media-body">
+                    <div class="h3">{% trans %}Воспользуйтесь{% endtrans %}<br/> {% trans %}поиском{% endtrans %}</div>
+                    <div>{% trans %}Ищите недвижимость для аренды, покупки и посуточной ареды со всей Украины{% endtrans %}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-8 step">
+                <div class="media">
+                  <div class="media-body">
+                    <div class="h3">{% trans %}Выберите{% endtrans %}<br/> {% trans %}недвижимость{% endtrans %}</div>
+                    <div>{% trans %}Используйте фильтры и выбирайте подходящие объекты для вас{% endtrans %}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-8 step">
+                <div class="media">
+                  <div class="media-body">
+                    <div class="h3">{% trans %}Свяжитесь{% endtrans %}<br/> {% trans %}с владельцем{% endtrans %}</div>
+                    <div>{% trans %}Позвоните или напишите владельцу объекта, который вас заинтересовал{% endtrans %}</div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+      $('.welcome-banner .close').click(function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          $(this).closest('.welcome-banner').remove();
+      })
+  </script>

@@ -1,0 +1,19 @@
+{% load i18n %}
+<div class='breadcrumbs'>
+{% if property_search %}
+    <div class="btn-group">
+        {% if map %}
+            <a href='.' class='btn btn-small '><i class='icon-search'></i> {% trans 'Поиск' %}</a>
+            <span class='btn btn-small active'><i class='icon-map'></i> {% trans 'Карта' %}</span>
+        {% else %}
+            <span class='btn btn-small active'><i class='icon-search'></i> {% trans 'Поиск' %}</span>
+            <a href='map.html' class='btn btn-small'><i class='icon-map'></i> {% trans 'Карта' %}</a>
+        {% endif %}
+    </div>
+{% endif %}
+{% if back %}<a href='javascript:history.go(-1)' class='btn btn-mini btn-back'><i class='icon-back'></i> {% trans 'Назад' %}</a>{% endif %}
+{% for link in breadcrumbs %}
+    {% if link.0 and  request.build_absolute_uri != link.0  %}<a href='{{link.0}}'>{{link.1}}</a> &raquo; {% endif %}
+{% endfor %}
+{% if header %}{% autoescape off %}<h1>{{ header }}</h1>{% endautoescape %}{% endif %}
+</div>

@@ -1,0 +1,30 @@
+{% extends "guide/base.jinja.html" %}
+
+{% block guide_content %}
+<div class="region-choice">
+<div class="h3">{% trans %}Выберите город{% endtrans %}</div>
+
+<style>
+    .guide-subdomain-list {padding:30px 0;}
+    .guide-subdomain-list .subdomain {margin-bottom:20px;}
+</style>
+<nav id='subdomain-list' class='guide-subdomain-list row'>
+    {%- for row in request.subdomains|rejectattr("is_shown_in_subdomains_list", "none")|slice(4) %}
+      <div class="col-sm-6 col-md-5">
+          <ul class="list-unstyled">
+              {%- for subdomain in row %}
+                <li class="subdomain">
+                    <a href='{{ subdomain.get_host_url('guide:index') }}{% if 'n' in request.GET %}{{ request.GET.n }}/{% endif %}'>
+                        {{ subdomain.name }}
+                    </a>
+                </li>
+              {%- endfor %}
+          </ul>
+      </div>
+    {%- endfor %}
+</nav>
+
+</div>
+{% endblock %}
+
+

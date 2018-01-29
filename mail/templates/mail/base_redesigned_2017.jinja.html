@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+      {% include 'mail/style_redesigned.css' %}
+      {% block extra_style %}{% endblock %}
+    </style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #ededed;">
+    <tr>
+        <td align="center" style="background-color: #ededed;"><br>
+            <table width="540" align="center" cellpadding="0" cellspacing="0" border="0" class="table-content" style="width: 540px; background-color: #ffffff;">
+              <tr>
+                <td>
+                  <div class="text-wrap text-center" style="background-color: #f8295c;">
+                    <img src="{{ static('mailing/logo.jpg') }}" width="147" height="96" style="width: 147px; height: 96px;">
+                  </div>
+                </td>
+              </tr>
+              {% include "mail/includes/empty-line-2017.html" %}
+              {% block greetings %}
+                <tr>
+                  <td>
+                    <div class="text-wrap left-padding right-padding default-bottom-padding">
+                      {% trans %}Уважаемый пользователь{% endtrans %},
+                    </div>
+                  </td>
+                </tr>
+              {% endblock %}
+              {% block content %}
+                <tr>
+                  <td>
+                    <div class="text-wrap left-padding right-padding default-bottom-padding">
+                        {{ content|safe }}
+                    </div>
+                  </td>
+                </tr>
+              {% endblock %}
+              {% block footer %}
+                {% include "mail/includes/empty-line-2017.html" %}
+                {% include "mail/includes/call-to-manager-2017.jinja.html" %}
+                {% include "mail/includes/footer-contacts-2017.html" %}
+              {% endblock %}
+              <tr>
+                <td>
+                  <div class="text-wrap default-bottom-padding text-center" style="font-size: 12px; color: #333333; line-height: 100%">
+                    {% trans %}Это сообщение было отправлено автоматически.{% endtrans %}<br>{% trans %}Пожалуйста, не отвечайте на него.{% endtrans %}
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td style="background-color: #ededed;">
+                  <div class="text-wrap text-center" style="background-color: #ededed; padding-left: 200px; padding-right: 200px; padding-top: 10px;">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; background-color: #ededed;">
+                      <tr>
+                        <td width="33%" align="center" class="social">
+                          <div class="social">
+                            <a href="https://www.facebook.com/pages/mestoua/317059891645154" target="_blank">
+                              <img src="{{ static('mailing/mailing-fb.jpg') }}" width="25" height="25" style="width: 25px; height: 25px;">
+                            </a>
+                          </div>
+                        </td>
+                        <td width="33%" align="center" class="social">
+                          <div class="social">
+                            <a href="https://twitter.com/Mesto_ua" target="_blank">
+                              <img src="{{ static('mailing/mailing-tw.jpg') }}" width="25" height="25" style="width: 25px; height: 25px;">
+                            </a>
+                          </div>
+                        </td>
+                        <td width="33%" align="center" class="social">
+                          <div class="social">
+                            <a href="https://vk.com/mestoua" target="_blank">
+                              <img src="{{ static('mailing/mailing-vk.jpg') }}" width="25" height="25" style="width: 25px; height: 25px;">
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table><br>
+        </td>
+    </tr>
+</table>
+{% if ga_pixel is defined and ga_pixel %}<img src="https://www.google-analytics.com/collect?{{ ga_pixel.urlencode() }}">{% endif %}
+</body>
+</html>

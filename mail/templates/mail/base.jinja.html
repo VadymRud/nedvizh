@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        {% include 'mail/style.css' %}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="http://mesto.ua" title="Mesto.UA" class="logo" target="_blank"><img src="{{ static('img/header-logo.png') }}" alt="Mesto.UA"></a><br><br>
+        <p>{% trans %}Уважаемый пользователь{% endtrans %},</p>
+        {% block content %}{% endblock %}
+        <div class="hr"></div>
+        <table>
+            <tr>
+                <td width="33%" class="center"><small><span class="bold">e-mail:</span> info@mesto.ua</small></td>
+                <td width="33%" class="center"><small><span class="bold">skype:</span> mestoua</small></td>
+                <td width="33%" class="center"><small><span class="bold">тел.:</span> 093 850 29 76</small></td>
+            </tr>
+        </table>
+        <div class="hr"></div>
+        <p class='center'><small>{% trans %}Это сообщение было отправлено автоматически.{% endtrans %}<br/>{% trans %}Пожалуйста, не отвечайте на него.{% endtrans %}</small></p>
+    </div>
+</body>
+</html>

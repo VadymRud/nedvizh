@@ -1,0 +1,36 @@
+{% extends "mail/base_2017.04.jinja.html" %}
+
+{% block greetings %}{% endblock %}
+
+{%- block content %}
+  <tr>
+    <td valign="top">
+      <img src="{{ static('mail/img/mailing/seminar_last_chance.png') }}" width="700" height="270" style="width: 700px; height: 270px;">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div style="width:700px;padding:0px 32px 10px 43px;box-sizing:border-box;margin:15px 0px 20px 0px;line-height:35px;">
+        <b>Уважаемый, клиент!</b><br>
+        Осталось всего несколько часов! Продажи билетов будут<br> 
+        <b><span style="color:#f51147;">остановлены 06.12.2017</span></b> в <b><span style="color:#f51147;">21:00</span></b><br>
+        Воспользуйтесь последним шансом и купите билет на семинар-интенсив
+        <a href="https://mesto.ua/uk/seminar/kharkiv/?utm_source=newsletter&utm_medium=email&utm_campaign=last_chance_harkov" 
+        target="_blank" style="color:#3269d2"> “Факторы умножения продаж”!</a><br>
+        
+      </div>
+      <div style="box-sizing:border-box;text-align:center;line-height:40px;margin-bottom:20px;">
+        <span style="font-size:30px">
+            Спикерами которого будут:
+        </span>
+      </div>
+      <div style="box-sizing:border-box;">
+        <img src="{{ static('mail/img/mailing/seminar_speackers.png') }}" width="700" height="430" style="width: 700px; height: 430px;">
+      </div>
+      <a href="https://mesto.ua/uk/seminar/kharkiv/?utm_source=newsletter&utm_medium=email&utm_campaign=last_chance_harkov" 
+        target="_blank" 
+        class="button" 
+        style="font-size:19px;background-color:#44a451;padding:5px;width:210px;border-radius:30px;margin:30px 220px">Купить билет >></a>
+    </td>
+  </tr>
+{% endblock -%}

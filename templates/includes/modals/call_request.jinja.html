@@ -1,0 +1,37 @@
+{% if request.profile_middleware is defined and request.user.is_authenticated() and request.user.manager %}
+  <div class="modal fade" id="callRequestHeaderModal" tabindex="-1" role="dialog" aria-labelledby="callRequestHeaderModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-xs-24 text-right">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+          </div>
+          <div class="row">
+            {% if request.user.manager.image_big %}
+              <div class="col-xs-10 manager-photo" style="background: url({{ request.user.manager.image_big.url }}) 50% bottom no-repeat;"}>&nbsp;</div>
+            {% else %}
+              <div class="col-xs-10"></div>
+            {% endif %}
+            <div class="col-xs-14 call-content">
+              <p>
+                {% trans %}Если у вас возникли вопросы{% endtrans %},<br>
+                {% trans %}Вас проконсультирует ваш личный менеджер.{% endtrans %}<br>
+                <strong>{{ request.user.manager }}</strong>
+              </p><br>
+              <p>{% trans %}Вам перезвонят на этот номер{% endtrans %}:</p>
+
+              <form method="post" action="{{ url('profile_manager_callrequest') }}" id="callbackRequestForm">{% csrf_token %}
+                <input name="callrequest" type="hidden" value="1">
+                <input name="phone" type="text" class="form-control masked-phone" value="{% with phone=request.user.phones.first() %}{{ phone.number|default('') }}{% endwith %}">
+                <br>
+                <button class="form-control btn btn-primary btn-blue" type="submit">{% trans %}Заказать звонок{% endtrans %}</button>
+              </form><br/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

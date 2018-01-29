@@ -1,0 +1,548 @@
+# Ukrainian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-12-27 21:38+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uk\n"
+"Language-Team: uk <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: forms.py:69
+msgid "Пароль"
+msgstr "Пароль"
+
+#: forms.py:70
+msgid "Пароль (еще раз)"
+msgstr "Пароль (ще раз)"
+
+#: forms.py:75
+#, python-format
+msgid "Пользователь с адресом электронной почты %s уже зарегистрирован"
+msgstr "Користувач з адресою електронної пошти %s вже зареєстрований"
+
+#: forms.py:82
+msgid "Пароли не совпадают"
+msgstr "Паролі не співпадають"
+
+#: forms.py:147
+msgid "Измените фото"
+msgstr "Змініть фото"
+
+#: forms.py:148
+msgid "Ваша фотография — первое, что видят другие люди, поэтому выберите лучшую."
+msgstr "Ваша фотографія - перше, що бачать інші люди, тому оберіть найкращу."
+
+#: forms.py:152
+msgid "Я риелтор"
+msgstr "Я ріелтор"
+
+#: forms.py:153
+msgid ""
+"Выберите этот пункт, если вы хотите размещать от 3 объявлений и выше. Вам"
+" станут доступны различные инструменты для увеличения продаж."
+msgstr ""
+"Виберіть цей пункт, якщо ви хочете розміщувати від 3 оголошень і вище. "
+"Вам стануть доступні різні інструменти для збільшення продажів."
+
+#: forms.py:154
+msgid "Я застройщик"
+msgstr "Я забудовник"
+
+#: forms.py:155
+msgid "Выберите этот пункт, если вы хотите добавить Жилой Комплекс/Новострой"
+msgstr "Виберіть цей пункт, якщо ви хочете додати Житловий Комплекс/Новобуд"
+
+#: forms.py:156
+msgid "Ваша фотография"
+msgstr "Ваша фотографія"
+
+#: forms.py:157
+msgid "Язык"
+msgstr "Мова"
+
+#: forms.py:179
+msgid "Для смены текущего профиля обратитесь к личному менеджеру"
+msgstr "Для зміни поточного профілю зверніться до особистого менеджера"
+
+#: forms.py:195
+msgid "Можно выбрать только один из двух вариантов"
+msgstr "Ви можете вибрати тільки один з двох варіантів"
+
+#: forms.py:201
+msgid "Новый E-mail"
+msgstr "Новий E-mail"
+
+#: forms.py:206
+msgid "Пользователь с таким e-mail адресом уже зарегистрирован"
+msgstr "Користувач з такою e-mail адресою вже зареєстрований"
+
+#: forms.py:210
+msgid "Выберите тему из списка"
+msgstr "Оберіть тему зі списку"
+
+#: forms.py:212 forms.py:232
+msgid "Сообщение"
+msgstr "Повідомлення"
+
+#: forms.py:225
+msgid ""
+"Если вам недостаточно предоставленной в объявлении информации и вы хотите"
+" знать о понравившемся объекте недвижимости больше,- задайте автору "
+"объявления дополнительные вопросы, которые помогут вам уточнить "
+"необходимые детали и сложить целостный образ понравившегося объекта."
+msgstr ""
+"Якщо вам недостатньо наданої в оголошенні інформації і ви хотіли б знати "
+"більше про об'єкт нерухомості, що сподобався, - задайте автору оголошення"
+" додаткові запитання, які допоможуть вам уточнити необхідні деталі та "
+"скласти цілісний образ об'єкту, що сподобався."
+
+#: forms.py:226
+msgid ""
+"У вас есть возможность предложить продавцу недвижимости свою цену. "
+"Отправьте ему предложение контроферты с аргументацией и дайте время "
+"обдумать этот вариант. Как правило, владельцы идут на встречу "
+"потенциальному клиенту и снижают стоимость."
+msgstr ""
+"У вас є можливість запропонувати продавцю нерухомості свою ціну. "
+"Надішліть йому пропозицію контроферти з аргументацією та дайте час "
+"обміркувати цей варіант. Як правило, власники йдуть на зустріч "
+"потенційному клієнту та знижують вартість."
+
+#: forms.py:246
+msgid "Ссылка на файл для импорта"
+msgstr "Посилання на файл імпорту"
+
+#: forms.py:250
+msgid "Ссылка на файл для проверки"
+msgstr "Посилання на файл перевірки"
+
+#: models.py:66
+msgid "Хочу узнать некоторые детали"
+msgstr "Хочу дізнатись деякі деталі"
+
+#: models.py:67
+msgid "Хочу предложить другую цену"
+msgstr "Хочу запропонували іншу ціну"
+
+#: models.py:72
+msgid "plain text"
+msgstr ""
+
+#: models.py:73
+msgid "HTML"
+msgstr ""
+
+#: models.py:78
+msgid "первое сообщения для группирки в диалог"
+msgstr "перше повідомлення для групування в діалог"
+
+#: models.py:79
+msgid "отправитель"
+msgstr "відправник"
+
+#: models.py:80
+msgid "получатель"
+msgstr "одержувач"
+
+#: models.py:82
+msgid "объявление"
+msgstr "оголошення"
+
+#: models.py:83
+msgid "рассылка"
+msgstr "розсилка"
+
+#: models.py:84
+msgid "текст сообщения"
+msgstr "текст повідомлення"
+
+#: models.py:86
+msgid "время отправления"
+msgstr "час відправлення"
+
+#: models.py:87
+msgid "прочитано"
+msgstr "прочитано"
+
+#: models.py:88
+msgid "переход по ссылке"
+msgstr "перехід за посиланням"
+
+#: models.py:89
+msgid "скрыть переписку для юзера"
+msgstr "приховати переписку для юзера"
+
+#: models.py:221
+msgid "не отправлена"
+msgstr "не відправлена"
+
+#: models.py:222
+msgid "выполняется"
+msgstr "виконується"
+
+#: models.py:223
+msgid "завершена"
+msgstr "завершена"
+
+#: models.py:234
+msgid "отправленных сообщений"
+msgstr "відправлених повідомлень"
+
+#: models.py:282
+msgid "недвижимость"
+msgstr "нерухомість"
+
+#: models.py:283 models.py:303
+msgid "время создания"
+msgstr "час створення"
+
+#: models.py:304
+msgid "подписка "
+msgstr "підписка"
+
+#: models.py:335
+msgid "комната"
+msgstr "кімната"
+
+#: models.py:335
+msgid "комнаты"
+msgstr "кімнати"
+
+#: models.py:335
+msgid "комнат"
+msgstr "кімнат"
+
+#: models.py:337
+#, python-format
+msgid "%s комнат"
+msgstr "%s кімнат"
+
+#: models.py:376
+msgid "юзер"
+msgstr "юзер"
+
+#: models.py:377
+msgid "причина бана, которую видит пользователь"
+msgstr "причина бану, яку бачить користувач"
+
+#: models.py:378
+msgid "бан истекает"
+msgstr "бан закінчується"
+
+#: models.py:385
+#, python-format
+msgid "%(email)s до %(expire_date)s"
+msgstr "%(email)s до %(expire_date)s"
+
+#: models.py:395
+msgid "неактивно"
+msgstr "неактивно"
+
+#: models.py:396
+msgid "подтверждено"
+msgstr "підтверджено"
+
+#: models.py:397
+msgid "отменено"
+msgstr "скасовано"
+
+#: models.py:401
+msgid "создано"
+msgstr "створено"
+
+#: models.py:402
+msgid "Пользователь"
+msgstr "Користувач"
+
+#: models.py:403
+msgid "старый email"
+msgstr "старий email"
+
+#: models.py:404
+msgid "новый email"
+msgstr "новий email"
+
+#: models.py:405
+msgid "код подтверждения"
+msgstr "код підтвердження"
+
+#: models.py:406
+msgid "статус"
+msgstr "статус"
+
+#: models.py:428
+msgid "период"
+msgstr "період"
+
+#: models.py:429
+msgid "пользователь"
+msgstr "користувач"
+
+#: models.py:430
+msgid "новых объяв."
+msgstr "нових оголош."
+
+#: models.py:431
+msgid "активных объяв."
+msgstr "активних оголош."
+
+#: models.py:432
+msgid "VIP-размещ."
+msgstr "VIP-розміщ."
+
+#: models.py:433
+msgid "потрачено гривен"
+msgstr "витрачено гривень"
+
+#: models.py:434
+msgid "входов на сайт"
+msgstr "входів на сайт"
+
+#: models.py:435
+msgid "просмотров объявлений"
+msgstr "переглядів оголошень"
+
+#: models.py:436
+msgid "просмотров контактов"
+msgstr "переглядів контактів"
+
+#: models.py:437
+msgid "план Первый"
+msgstr "план Перший"
+
+#: models.py:438
+msgid "прочие планы"
+msgstr "інші плани"
+
+#: models.py:664
+msgid "выводить таймер обратного отсчета"
+msgstr "виводити таймер зворотного відліку"
+
+#: views.py:75
+msgid "Аккаунт заблокирован"
+msgstr "Аккаунт заблокований"
+
+#: views.py:84
+msgid "Личный кабинет"
+msgstr "Особистий кабінет"
+
+#: views.py:143
+msgid "Редактирование профиля"
+msgstr "Редагування профілю"
+
+#: views.py:158
+msgid "Заявка принята.<br/>Менеджер вам перезвонит."
+msgstr "Заявка прийнята.<br/>Менеджер вам передзвонить."
+
+#: views.py:209
+msgid "Все объявления"
+msgstr "Всі оголошення"
+
+#: views.py:210
+msgid "Активные"
+msgstr "Активні"
+
+#: views.py:211
+msgid "Неактивные"
+msgstr "Неактивні"
+
+#: views.py:212
+msgid "VIP"
+msgstr "VIP"
+
+#: views.py:213
+msgid "Отклоненные"
+msgstr "відхилені"
+
+#: views.py:214
+msgid "Импорт"
+msgstr "Імпорт"
+
+#: views.py:217
+msgid "Все типы сделки"
+msgstr "Всі типи угод"
+
+#: views.py:218
+msgid "Продажа"
+msgstr "Продаж"
+
+#: views.py:219
+msgid "Долгосрочная аренда"
+msgstr "Довгострокова оренда"
+
+#: views.py:220
+msgid "Посуточно"
+msgstr "Подобово"
+
+#: views.py:224
+msgid "Вся недвижимость"
+msgstr "Вся нерухомість"
+
+#: views.py:225
+msgid "Квартира"
+msgstr "Квартира"
+
+#: views.py:226
+msgid "Комната"
+msgstr "Кімната"
+
+#: views.py:227
+msgid "Дом"
+msgstr "Будинок"
+
+#: views.py:228
+msgid "Участок"
+msgstr "Ділянка"
+
+#: views.py:229
+msgid "Коммерческая"
+msgstr "Комерційна"
+
+#: views.py:230
+msgid "Гаражи"
+msgstr "Гаражі"
+
+#: views.py:284
+msgid "Мои объявления"
+msgstr "Мої оголошення"
+
+#: views.py:348
+msgid "Выберете способ размещения, перед тем как добавлять объявления."
+msgstr "Оберіть спосіб розміщення, перед тим як додавати оголошення."
+
+#: views.py:352
+msgid "Редактирование объявления"
+msgstr "Редагування оголошення"
+
+#: views.py:374
+msgid "Добавление объявления"
+msgstr "Додавання оголошення"
+
+#: views.py:523
+msgid "Сохраненные поиски"
+msgstr "Збережені пошуки"
+
+#: views.py:531
+msgid "Сохраненные объявления"
+msgstr "Збережені оголошення"
+
+#: views.py:581
+msgid ""
+"Поиск сохранен.<br/><br/>Вы будете получать уведомления о новых "
+"объявлениях на вашу почту"
+msgstr ""
+"Пошук збережений.<br/><br/>Ви будете отримувати повідомлення про нові "
+"оголошення на вашу пошту"
+
+#: views.py:644
+#, python-format
+msgid ""
+"<span class=\"pink h5\">E-mail успешно изменен!</span><br><br>Ваш новый "
+"E-mail - %s"
+msgstr ""
+"<span class=\"pink h5\">E-mail успішно змінений!</span><br><br>Ваш новий "
+"E-mail - %s"
+
+#: views.py:700
+msgid "Подтверждение заказа"
+msgstr "Підтвердження замовлення"
+
+#: views.py:746
+msgid "Размещение зарубежной недвижимости на сайте mesto.ua"
+msgstr "Розміщення закордонної нерухомості на сайті mesto.ua"
+
+#: views.py:747
+msgid "Размещение в международных каталогах"
+msgstr "Розміщення в міжнародних каталогах"
+
+#: views_balance.py:30
+msgid "Неделя"
+msgstr "Тиждень"
+
+#: views_balance.py:31
+msgid "Месяц"
+msgstr "Місяць"
+
+#: views_balance.py:32
+msgid "3 месяца"
+msgstr "З місяці"
+
+#: views_balance.py:33
+msgid "За всё время"
+msgstr "За весь час"
+
+#: views_balance.py:36
+msgid "Все операции"
+msgstr "Всі операції"
+
+#: views_balance.py:37
+msgid "Пополнения"
+msgstr "Поповнення"
+
+#: views_balance.py:38
+msgid "Расходы"
+msgstr "Витрати"
+
+#: views_balance.py:60
+msgid "Счет"
+msgstr "Рахунок"
+
+#: views_balance.py:99
+msgid "Баланс"
+msgstr "Баланс"
+
+#: views_balance.py:154
+#, python-format
+msgid "Пополнение баланса пользователя #%s"
+msgstr "Поповнення балансу користувача #%s"
+
+#: views_balance.py:295
+#, python-format
+msgid "Пополнение баланса пользователя #%d %s (%s %s)"
+msgstr "Поповнення баланса користувача #%d %s (%s %s)"
+
+#: views_balance.py:310
+msgid "Успешная оплата"
+msgstr "Успішна оплата"
+
+#: views_balance.py:321
+msgid "Ошибка во время проведения оплаты"
+msgstr "Помилка під час здійснення оплати"
+
+#: views_messages.py:45 views_messages.py:86
+#, python-format
+msgid "Объявление #%(id)d: %(title)s, %(address)s"
+msgstr "Оголошення #%(id)d: %(title)s, %(address)s"
+
+#: views_messages.py:51
+msgid "Сообщение от пользователя"
+msgstr "Повідомлення від користувача"
+
+#: views_messages.py:69
+msgid "Ваше сообщение было успешно<br/> отправлено владельцу объявления."
+msgstr "Ваше повідомлення було успішно<br/> відправлено власнику оголошення."
+
+#: views_messages.py:77 views_messages.py:133
+msgid "Отправить сообщение"
+msgstr "Надіслати повідомлення"
+
+#: views_messages.py:179
+msgid "Отправленные сообщения"
+msgstr "Надіслані повідомлення"
+
+#: views_messages.py:179
+msgid "Входяшие сообщения"
+msgstr "Вхідні повідомлення"
+

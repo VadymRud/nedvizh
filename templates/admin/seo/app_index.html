@@ -1,0 +1,19 @@
+{% extends 'admin/app_index.html' %}
+
+{% block sidebar %}
+    <div style="float:left;width:100%;">
+        <div class="module">
+            <table width="100%">
+                <caption>Поиск правил генерации метатегов по URL</caption>
+                <tbody>
+                    <tr><td>
+                        <form action="/admin/seo/seorule/find_rules/" method="GET" id="seo-url-checker">
+                            <input id="seo_url" name="url" placeholder="URL" type="text" style="width:400px;">
+                            <input value="Проверить" type="submit">
+                        </form>
+                    </td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

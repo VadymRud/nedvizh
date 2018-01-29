@@ -1,0 +1,7 @@
+<div class='breadcrumb'>
+    {% if back is defined %}<a href='javascript:history.go(-1)' class='btn btn-mini btn-back'><i class='icon-back'></i> {% trans %}Назад{% endtrans %}</a> &larr; {% endif %}
+    {% for link in breadcrumbs %}
+        {% if link.0 and  request.build_absolute_uri() != link.0  %}<a href='{{link.0}}'>{{link.1}}</a>  &larr; {% endif %}
+    {% endfor %}
+    {% if header is defined and header %}<span>{{ header|safe }}</span>{% endif %}
+</div>

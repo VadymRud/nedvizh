@@ -1,0 +1,220 @@
+{% extends "lightbox.jinja.html" %}
+
+{% block social_networks %}{% endblock %}
+{% block top_menu %}{% endblock %}
+
+{% block extra_css %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ static('css/profile.css') }}">
+    <link rel="stylesheet" href="{{ static('agency/css/main.css') }}">
+{% endblock %}
+
+{% block content_wrapper %}
+<div class="container personal-account">
+
+<div class="realtor-detail">
+    <div class="white-panel no-margin-bottom">
+        <a id="back-button" href="{{ url("agency_admin:realtors") }}" class="pull-right">
+            <img src="{{ static('agency/img/common/close-big-white.png') }}" alt="Вернуться"/>
+        </a>
+        <div class="row">
+            <div class="col-sm-9">
+                <form method="POST" class="stats-form form-inline">{% csrf_token %}
+                    {% trans %}Отображать{% endtrans %} &nbsp;
+                    {{ stats_form.period }}
+                </form>
+            </div>
+            <div class="col-sm-4 stats">{% trans %}Просмотров{% endtrans %}<br/><span>{{ stats.ad_views }}</span></div>
+            <div class="col-sm-4 stats">{% trans %}Контакты{% endtrans %}<br/><span>{{ stats.contact_views }}</span></div>
+            <div class="col-sm-4 stats">{% trans %}Сообщений{% endtrans %}<br/><span>{{ stats.messages }}</span></div>
+            <div class="col-sm-3 stats">{% trans %}Логинов{% endtrans %}<br/><span>{{ stats.logins }}</span></div>
+        </div>
+    </div>
+    <div class="white-panel no-margin-bottom">
+        <div style="padding:0 60px;">
+            <form method="post" class="note-form">{% csrf_token %}{{ note_form.text }}</form>
+            <div class="row">
+                <div class="col-sm-15 info">
+                    <div class="row">
+                        {% if realtor.user.image %}
+                            <div class="col-sm-7">
+                                <img src="{{ realtor.user.image|thumbnail("200x200") }}" class="img-responsive " alt="{{ realtor }}"/>
+                            </div>
+                            <div class="col-sm-1"></div>
+                        {% endif %}
+                        <div class="col-sm-16 ">
+                            <h3>{{ realtor.user }}</h3>
+
+                            {# <div class="rating">
+                                TODO: для раздела отзывов
+                                {% set realtor_rating = 4 %}
+                                {% for star in range(0,5) %}
+                                    <span class="glyphicon glyphicon-star {% if star < realtor_rating %}red{% endif %}"></span>
+                                {% endfor %}
+                            </div> #}
+
+                            {% if realtor.user.city %}
+                                <p class="city"><i class="glyphicon glyphicon-map-marker"></i> {{ realtor.user.city }}</p>
+                            {% endif %}
+
+                            <p class="email"><i class="glyphicon glyphicon-envelope"></i> {{ realtor.user.email }}</p>
+
+                            {% for phone in realtor.user.get_phone_display()|split(',') %}{% if phone %}
+                                <p class="phone"><i class="glyphicon glyphicon-earphone"></i> {{ phone|safe }}</p>
+                            {% endif %}{% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="plan-panel text-center">
+                        {% with service_link = '%s?realtor=%s&next=%s' % (url('services:index') , realtor.id, request.get_full_path()),
+                          active_plan = realtor.user.get_active_plan(), leadgeneration = realtor.user.has_active_leadgeneration('ads') %}
+                            <p>
+                              {% if leadgeneration %}
+                                {% trans %}Подключена услуга "Оплата за звонок"{% endtrans %}<br/>
+                              {% elif active_plan %}
+                                  {% trans %}Текущий тариф{% endtrans %}<br/>
+                                  <span class="h1">{{ active_plan.ads_limit }}</span> {% trans %}объяв.{% endtrans %}<br/>
+                                  до {{ active_plan.end|date('Y-m-d') }}
+                              {% else %}
+                                  {% trans %}Не выбран вариант размещения{% endtrans %}<br/>
+                              {% endif %}
+                            </p>
+                            <a href="{{ service_link }}" class="btn btn-danger">{% trans %}Выбрать вариант размещения{% endtrans %}</a>
+                        {% endwith %}
+                    </div>
+
+                    <hr/>
+
+                    <div class="balance-panel text-center">
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="balance-index" align="center">
+                                <p>
+                                    {% trans %}Текущий баланс{% endtrans %}<br/>
+                                    <span class="h1">{{ realtor.user.get_balance()|floatformat(-2)  }}</span> грн<br/>
+                                    {% if request.user != realtor.user %}
+                                        <a href="#balance-topup" data-toggle="tab" class="btn btn-danger">
+                                            {% trans %}Пополнить{% endtrans %}</a>
+                                    {% endif %}
+                                </p>
+                                {% if realtor.user.transactions.exists() %}
+                                    <p><a href="#balance-history" data-toggle="tab" class="balance-history">{% trans %}История оплат{% endtrans %}</a></p>
+                                {% endif %}
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="balance-topup" align="center">
+                                <a href="#balance-index" data-toggle="tab" class="pull-left">&larr;</a>
+                                <div align="center">{% trans %}Пополнение баланс{% endtrans %}</div><br/><br/>
+                                <form id='topup-form' action='{{ url('agency_admin:realtor_topup', realtor_id=realtor.id) }}' class="form-inline">
+                                    <div class="amount">
+                                        +
+                                        <input name='amount' type='text' size='6' class='form-control'
+                                            placeholder="{% trans %}Введите сумму пополнения{% endtrans %}"/>
+                                    </div><br/>
+                                    <div class="total"><span>{{ realtor.user.get_balance()  }}</span> грн</div><br/>
+                                    <input class='btn btn-danger' type='submit' value='{% trans %}Пополнить{% endtrans %}'/>
+                                </form>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="balance-history">
+                                <a href="#balance-index" data-toggle="tab" class="pull-left">&larr;</a>
+                                <div align="center">{% trans %}История оплат{% endtrans %}</div><br/>
+                                <div class="transactions">
+                                    {% for transaction in realtor.user.transactions.all() %}
+                                        <div class="transaction{% if loop.index > 5%} older-transaction{% endif %}">
+                                            <div class="date">{{ transaction.time|date("Y-m-d H:i") }}</div>
+                                            <div class="comment">
+                                                {{ transaction.get_type_display() }}
+                                                ({{ transaction.amount|floatformat(-2) }} грн)
+                                            </div>
+                                        </div>
+                                        {% if loop.index == 5%}
+                                            <div class="show-full-paymenthistory"></div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        {# Объекты риелтора #}
+        <form id="my-properties-form" class="properties-list" method="post">{% csrf_token %}
+            <div class="group-actions">
+              <div class="row">
+                <div class="col-sm-9 properties-list-title">
+                    {% trans %}Объекты риелтора{% endtrans %} - {{ ads|length }}
+                    {{  realtor.user.get_user_limits_as_string() }}
+                </div>
+
+                <div class="col-sm-4 show-when-ads-selected hidden">
+                    <button type='submit' name='action' value='activate' id="group-activate" title='{% trans %}активировать объявления{% endtrans %}' class='btn btn-block btn-danger'>{% trans %}Активировать{% endtrans %}</button>
+                </div>
+
+                <div class="col-sm-4 show-when-ads-selected hidden">
+                    <button type='submit' name='action' value='buy_vip' title='{% trans %}сделать объявления VIP-объявлением{% endtrans %}' class='btn btn-block btn-success'>{% trans %}Сделать VIP{% endtrans %}</button>
+                </div>
+
+                <div class="col-sm-3 show-when-ads-selected hidden">
+                    <button type="submit" name='action' value="deactivate" id="group-deactivate" title='{% trans %}отключить объявления{% endtrans %}' class='btn btn-block btn-default btn-gray'>{% trans %}Отключить{% endtrans %}</button>
+                </div>
+
+                <div class="col-sm-3 show-when-ads-selected hidden">
+                    <button type="submit" name='action' value="delete" id="group-delete" title='{% trans %}удалить объявления{% endtrans %}' class='btn btn-block btn-default btn-gray'>{% trans %}Удалить{% endtrans %}</button>
+                </div>
+              </div>
+            </div>
+
+            {% for property in paginator.current_page.object_list %}
+                {% include "profile/ad-preview.jinja.html" %}
+                {% if not loop.last %}{% endif %}
+            {% else %}
+                <p>{% trans %}Нет объектов{% endtrans %}</p>
+            {% endfor %}
+        </form>
+
+        {% if paginator.num_pages > 1 %}
+            <br/>
+            {% include "pagination.jinja.html" %}
+        {% endif %}
+    </div>
+
+    {% with realtors = agency.get_realtors().select_related('user')  %}
+        {% include 'agency/realtor_chooser.jinja.html' %}
+    {% endwith %}
+
+</div>
+
+</div>
+{% endblock %}
+
+{% block extra_footer %}
+    {{ super() }}
+    <script src="{{ static('js/profile.js') }}"></script>
+    <script src="{{ static('libs/highcharts/highcharts.js') }}"></script>
+
+    {% compress js %}
+    <script>
+        initMyProperties();
+        initAdOwnerChange();
+
+        $('.show-full-paymenthistory').click(function() {$(this).parent().addClass('show-all');});
+
+        // фильтр статитики по датам
+        $('#id_period').change(function() {this.form.submit();});
+
+        // сохранение заметок
+        $('.note-form #id_text').keyup(function() {
+            $(this).height(0);
+            $(this).height(this.scrollHeight - 50);
+        }).keyup();
+        $('.note-form #id_text').change(function() {
+            form = this.form;
+            $.post(form.action, data=$(form).serializeArray());
+        });
+    </script>
+    {% endcompress %}
+
+{% endblock %}

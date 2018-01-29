@@ -1,0 +1,20 @@
+{% extends "blank.jinja.html" %}
+
+{% block content %}
+
+    {% if form %}
+        <form method='post' target="_parent" class="message-about-ad">
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields() %}{{ hidden }}{% endfor %}
+
+            {% from "macro/forms.jinja.html" import bootstrap_form  %}
+            {{ bootstrap_form(form) }}
+
+            <div class="text-right" id="div_id_submit">
+                <input type="submit" class="btn btn-danger btn-md" value="{% trans %}Сохранить настройки{% endtrans %}"/>
+            </div>
+        </form>
+    {% else %}
+        <p>{% trans %}Недействительная ссылка{% endtrans %}</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,49 @@
+{% with last_plan = request.user.user_plans.last() %}
+    {% if request.user.get_leadgeneration('ads') %}
+        {% if request.user.has_active_leadgeneration() %}
+            <div class="status_wrapper grey">
+                <div class="row plashka">
+                    <div class="col-lg-20">{% trans %}Выбран{% endtrans %}: <span>{% trans %}Оплата за звонок{% endtrans %}</span></div>
+                    <div class="col-lg-4">{% trans %}Ваш баланс{% endtrans %}:  <span>{{ request.user.get_balance()|floatformat(-2) }} грн</span></div>
+                </div>
+            </div>
+        {% else %}
+            <div class="status_wrapper red">
+                <div class="row plashka">
+                    <div class="col-lg-15">{% trans %}Недостаточно денег на балансе.{% endtrans %} <a href="{{ url('profile_balance') }}">{% trans %}Пополните баланс или выберите другой способ размещения{% endtrans %}</a></div>
+                    <div class="col-lg-9">{% trans %}Ваш баланс{% endtrans %}: <span>{{ request.user.get_balance()|floatformat(-2) }} грн</span></div>
+                </div>
+            </div>
+        {% endif %}
+    {% elif last_plan %}
+        {% with days_to_finish_plan = last_plan.get_days_to_finish() %}
+            {% if days_to_finish_plan == 0 and not last_plan.is_active %}
+                <div class="status_wrapper red">
+                    <div class="row plashka">
+                        <div class="col-lg-15">
+                            {% trans %}Ваш тариф{% endtrans %} "{{ last_plan.ads_limit|pluralize((_("объявление"), _("объявления"), _("объявлений")), '') }}" закончен.
+                            <a href="{{ url('profile_balance') }}">{% trans %}Пополните баланс или выберите другой способ размещения{% endtrans %}</a>
+                        </div>
+                        <div class="col-lg-9">{% trans %}Ваш баланс{% endtrans %}: <span>{{ request.user.get_balance()|floatformat(-2) }} грн</span></div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="status_wrapper {% if days_to_finish_plan >= 7 %}grey{% else %}yellow{% endif %}">
+                    <div class="row plashka">
+                        <div class="col-lg-8">{% trans %}Выбран{% endtrans %}: <span>{% trans %}Стандартный месяц{% endtrans %} ({{ last_plan.ads_limit|pluralize((_("объявление"), _("объявления"), _("объявлений")), '') }})</span></div>
+                        <div class="col-lg-7">{% trans %}Действует до{% endtrans %}:  <span>{{ last_plan.end|date("d.m.Y H:i") }}</span></div>
+                        <div class="col-lg-5 but"><a href="{{ url('services:plans') }}"><p>{% trans %}Продлить тариф{% endtrans %}</p></a></div>
+                        <div class="col-lg-4">{% trans %}Ваш баланс{% endtrans %}:  <span>{{ request.user.get_balance()|floatformat(-2) }} грн</span></div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endwith %}
+    {% else %}
+        <div class="status_wrapper red">
+            <div class="row plashka">
+                <div class="col-lg-15"><a href="{{ url('services:index') }}">{% trans %}Выберите способ размещения{% endtrans %}</a></div>
+                <div class="col-lg-9">{% trans %}Ваш баланс{% endtrans %}: <span>{{ request.user.get_balance()|floatformat(-2) }} грн</span></div>
+            </div>
+        </div>
+    {% endif %}
+{% endwith %}

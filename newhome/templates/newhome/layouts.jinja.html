@@ -1,0 +1,42 @@
+{% extends 'base.jinja.html' %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{{ static("newhome/css/newhome.css") }}"/>
+{% endblock %}
+
+{% block content %}
+    <div class="breadcrumb breadcrumb-newhomes">
+        {% include 'newhome/breadcrumbs-with-popup.jinja.html' %}
+        <a href="{{ layout.newhome.get_absolute_url() }}">{{ layout.newhome.name }}</a>  ←
+        <h1>Планировки</h1>
+    </div><br/>
+
+    {% set layout_floors_=layout_floors|dictsort %}
+    {% for floor, layouts in layout_floors_ %}
+        <div class="row">
+            <div class="col-lg-24">
+                <div class="white-panel newhomes-layouts">
+                    <div class="h5 no-margin">
+                        {% if floor %}
+                            Планировки {{ floor }}-комнатных квартир
+                        {% else %}
+                            Прочие планировки
+                        {% endif %}
+                    </div><br/><br/>
+                    <div class="row">
+                        {% for layout in layouts %}
+                            {% include 'newhome/layout-preview.jinja.html' %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+
+{% block extra_footer %}
+{% endblock %}
+
+{% block extra_header %}
+{% endblock %}

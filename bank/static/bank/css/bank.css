@@ -1,0 +1,520 @@
+body {
+    background: none repeat scroll 0 0 #FFFFFF;
+}
+header, div.bank_benefits_holder {
+    background: none repeat scroll 0 0 #FFFFFF;
+    background-image: linear-gradient(top, rgb(255,255,255) 49%, rgb(220,220,220) 100%);
+    background-image: -o-linear-gradient(top, rgb(255,255,255) 49%, rgb(220,220,220) 100%);
+    background-image: -moz-linear-gradient(top, rgb(255,255,255) 49%, rgb(220,220,220) 100%);
+    background-image: -webkit-linear-gradient(top, rgb(255,255,255) 49%, rgb(220,220,220) 100%);
+    background-image: -ms-linear-gradient(top, rgb(255,255,255) 49%, rgb(220,220,220) 100%);
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0.49, rgb(255,255,255)),
+        color-stop(1, rgb(220,220,220))
+    );
+    margin-bottom: 0px;
+}
+header .l-wrap {
+    height: 165px;
+}
+.content .l-wrap-inner {
+    padding: 12px 13px 10px;
+}
+div.all_bank_property_label {
+    background: #474747;
+    color: #56B907;
+    font-size: 24px;
+    padding: 7px 35px;
+    margin: 0;
+    text-align: center;
+}
+div.kredits_for_all_label {
+    font-size: 18px;
+    text-align: center;
+}
+.brown_panel_bank {
+    margin-top: 10px;
+    border-width: 1px;
+    font-size: 11px;
+    position: relative;
+    background: none repeat scroll 0 0 #E5BE76;
+    border: 1px solid #BE9F65;
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 0 0 3px #7A653F inset;
+    padding: 15px;
+}
+input.btn-large-bank {
+    border-radius: 2px 2px 2px 2px;
+    padding: 6px 19px;
+}
+input.search_fld_main_bank {
+    border-radius: 2px 2px 2px 2px;
+    height: 35px;
+    line-height: 35px;
+    width: 400px;
+    font-size: 14px;
+    color: #B2B2B2;
+}
+.brown_panel_bank span.btn-small-bank {
+    height: 28px;
+    padding: 9px 40px 0px 40px;
+    text-shadow: none;
+    background-image: linear-gradient(top, rgb(255,255,255) 49%, rgb(220,220,220) 100%);
+    background-image: -o-linear-gradient(top, rgb(255,255,255) 49%, rgb(220,220,220) 100%);
+    background-image: -moz-linear-gradient(top, rgb(255,255,255) 49%, rgb(220,220,220) 100%);
+    background-image: -webkit-linear-gradient(top, rgb(255,255,255) 49%, rgb(220,220,220) 100%);
+    background-image: -ms-linear-gradient(top, rgb(255,255,255) 49%, rgb(220,220,220) 100%);
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0.49, rgb(255,255,255)),
+        color-stop(1, rgb(220,220,220))
+    );
+    font-size: 14px;
+}
+span.btn-small-bank.active, span.btn-small-bank:active, div.btn-group-bank span.btn-small-bank.active:hover {
+    background: #009900;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+div.btn-group-bank {
+    margin: 0px 20px;
+}
+.bank_main_col {
+    margin: 40px 0px;
+    position: relative;
+    clear: both;
+}
+.bank_main_col_l {
+    padding-right: 675px;
+}
+.bank_main_col_r {
+    float: right;
+    width: 652px;
+    border: 1px solid #CECECE;
+    border-radius: 5px 5px 5px 5px;
+}
+.bank_people {
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 0 0 4px 0px #9C9C9C inset;
+    background: url('/static/img/bank_people.jpg') 0px 0px no-repeat;
+    width: 652px;
+    height: 430px;
+}
+.bank_hot_offers {
+    font-size: 18px;
+    font-weight: normal;
+    font-family: Verdana;
+    color: #56B907;
+}
+div.bank_dotted_cont {
+    padding: 0px;
+    margin: 10px 0px 0px 0px;
+    border-width: 2px; 
+    border-style: dotted; 
+    border-color: #56B907;
+}
+div.bank_dotted_cont section.clearfix {
+    border: none; 
+    border-top: 2px dotted #56B907; 
+    margin: 0px;
+    display: block;
+    min-height: 125px;
+}
+div.bank_dotted_cont .clearfix:after {
+    display: none;
+}
+div.bank_dotted_cont section.first {
+    border: none; 
+}
+div.bank_dotted_cont section.clearfix {
+    
+}
+div.bank_dotted_cont section h4, div.property-list section h4 {
+    font-size: 14px;
+    line-height: 16px;
+}
+div.bank_dotted_cont section a.price_link, div.property-list section a.price_link {
+    font-size: 14px;
+}
+
+.property-list section h4 {height: 36px;}
+.property-list section h4 img {float:right;margin:0 5px;}
+.property-list .price-block {float:left;}
+
+div.bank_benefits_holder {
+    min-height: 165px;
+}
+.bank_benefits_tbl {
+    margin-top: 20px;
+}
+.bank_benefits_tbl td {
+    color: #474747;
+    font-weight: normal;
+    font-size: 18px;
+    vertical-align: middle;
+    padding-left: 20px;
+}
+div.btn-group-bank span.btn-small-bank:hover {
+    background-image: linear-gradient(top, rgb(235,235,235) 49%, rgb(163,163,163) 100%);
+    background-image: -o-linear-gradient(top, rgb(235,235,235) 49%, rgb(163,163,163) 100%);
+    background-image: -moz-linear-gradient(top, rgb(235,235,235) 49%, rgb(163,163,163) 100%);
+    background-image: -webkit-linear-gradient(top, rgb(235,235,235) 49%, rgb(163,163,163) 100%);
+    background-image: -ms-linear-gradient(top, rgb(235,235,235) 49%, rgb(163,163,163) 100%);
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0.49, rgb(235,235,235)),
+        color-stop(1, rgb(163,163,163))
+    );
+    background-position: 0px;
+}
+
+.banks-partners {
+    border-radius: 5px 5px 5px 5px; border: 1px solid #cecece;
+    margin-bottom: 20px;
+    box-shadow: 0px 12px 25px -25px rgba(0, 0, 0, 0.9);
+}
+.banks-partners .title {
+    border-radius: 3px 3px 0 0;
+    background: #E5BE76;
+    padding: 5px 10px;
+    color: #525252;
+    font-size: 18px;
+}
+.banks-partners .jcarousel-container {width: 100%;}
+.banks-partners .jcarousel-clip {
+    overflow: hidden;
+    width: 1000px;
+    height: 180px;
+    margin: 0 auto;
+}
+.banks-partners.items-count-3 .jcarousel-clip {width: 750px;}
+.banks-partners.items-count-2 .jcarousel-clip {width: 500px;}
+.banks-partners.items-count-1 .jcarousel-clip {width: 250px;}
+.banks-partners .jcarousel-item {
+    width: 160px; height: 120px; margin: 30px 45px;
+    line-height:120px;
+    text-align:center;
+}
+.banks-partners .jcarousel-item img {vertical-align:middle;}
+.banks-partners .jcarousel-next, 
+.banks-partners .jcarousel-prev {
+    position: absolute;
+    top: 74px;
+    width: 33px;
+    height: 35px;
+    cursor: pointer;
+}
+.banks-partners .jcarousel-next {right: 24px; background: transparent url(../img/guide/video-arrows.png) no-repeat -33px 0;}
+.banks-partners .jcarousel-next-disabled {cursor: default; background-position: -33px -35px;}
+.banks-partners .jcarousel-prev {left: 24px; background: transparent url(../img/guide/video-arrows.png) no-repeat 0 0;}
+.banks-partners .jcarousel-prev-disabled {cursor: default; background-position: 0 -35px;}
+
+div.bank_footer {
+    background: #474747;
+    padding: 5px 10px;
+    height: 115px;
+    position: relative;
+}
+div.bank_footer a {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+div.bank_footer_l {
+    position: absolute;
+    top: 35px;
+    left: 110px;
+}
+div.bank_footer_r {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    width: 350px;
+}
+nav.menu a {
+    padding: 0px 20px;
+}
+#counters {
+    margin-top: 85px;
+}
+header nav.main {
+    left: 200px;
+}
+header nav.main a {
+    height: 28px;
+    padding: 9px 10px 0px 10px;
+    text-shadow: none;
+    background: #F5F5F5;
+    background-image: linear-gradient(top, rgb(245,245,245) 49%, rgb(163,163,163) 100%);
+    background-image: -o-linear-gradient(top, rgb(245,245,245) 49%, rgb(163,163,163) 100%);
+    background-image: -moz-linear-gradient(top, rgb(245,245,245) 49%, rgb(163,163,163) 100%);
+    background-image: -webkit-linear-gradient(top, rgb(245,245,245) 49%, rgb(163,163,163) 100%);
+    background-image: -ms-linear-gradient(top, rgb(245,245,245) 49%, rgb(163,163,163) 100%);
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0.49, rgb(245,245,245)),
+        color-stop(1, rgb(163,163,163))
+    );
+    font-size: 14px;
+    color: #474747;
+    background-position: 0px;
+}
+header nav.main a:hover {
+    background: rgb(163,163,163);
+    color: #474747;
+    background-image: linear-gradient(top, rgb(163,163,163) 49%, rgb(103,103,103) 100%);
+    background-image: -o-linear-gradient(top, rgb(163,163,163) 49%, rgb(103,103,103) 100%);
+    background-image: -moz-linear-gradient(top, rgb(163,163,163) 49%, rgb(103,103,103) 100%);
+    background-image: -webkit-linear-gradient(top, rgb(163,163,163) 49%, rgb(103,103,103) 100%);
+    background-image: -ms-linear-gradient(top, rgb(163,163,163) 49%, rgb(103,103,103) 100%);
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0.49, rgb(163,163,163)),
+        color-stop(1, rgb(103,103,103))
+    );
+    background-position: 0px;
+}
+header nav.main a.active, header nav.main a.active:hover {
+    background: #009900;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: none;
+}
+header nav.main a.btn {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #585858;
+}
+div.bank_list_item {
+    color: #252525;
+    border: 2px solid #DCDCDC;
+    padding: 20px;
+    margin: 0px 0px 22px 0px;
+}
+div.bank_list_item_title {
+    color: #59BE07;
+    font-size: 20px;
+}
+div.bank_list_item_l {
+    float: none;
+    width: auto;
+    overflow: hidden;
+}
+div.bank_list_item_r {
+    float: right;
+    width: 298px;
+    text-align: center;
+}
+div.bank_item_text {
+    padding: 0px 25px 25px 25px;
+    color: #272727;
+}
+div.bank_item_img {
+    border: 2px solid #E7E7E7;
+    padding: 10px;
+    min-width: 115px;
+}
+div.bank_item_img_inner {
+    box-shadow: 0 0 4px #999999 inset;
+    padding: 5px;
+    margin: 0px;
+    min-width: 115px;
+}
+div.bank_item_img_inner img {
+    vertical-align: top;
+}
+div.bank_other {
+    padding: 10px;
+    font-size: 18px;
+}
+div.bank_item_text div.bank_list_item_title {
+    margin-top: 20px;
+}
+
+.row-fluid .span3 {
+    width: 20%;
+}
+
+form.property-search div.brown-panel {
+    margin-bottom: 20px;
+    background: none repeat scroll 0 0 #E5BE76;
+    border: 1px solid #BE9F65;
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 0 0 3px #7A653F inset;
+    font-size: 14px;
+    font-family: Verdana;
+    padding: 15px 10px 10px 20px;
+    height: 85px;
+}
+#price-range.ui-slider {
+    margin: 0px 10px 6px 10px;
+}
+div.ui-slider-horizontal {
+    height: 25px;
+}
+div.ui-slider-horizontal a.ui-slider-handle {
+    top: 0;
+}
+.property-search .f-price .label-from, .property-search .f-price .label-to {
+    top: auto;
+    font-size: 12px;
+}
+label.f-with_image {
+    margin-top: 25px;
+}
+form.property-search div.brown-panel div.span2 .btn-success {
+    margin-top: 25px;
+    padding: 6px 0px;
+}
+a.btn-more, a.btn-more:active, a.btn-more:hover {
+    margin-top: 0px;
+    padding: 2px 6px;
+    font-size: 12px;
+    border-top: none;
+    float: right;
+    box-shadow: none;
+}
+.property-search .checkbox-inline .btn {
+    line-height: 30px;
+    width: 33px;
+    font-size: 16px;
+}
+.property-search .f-with_image .btn-checkbox {
+    width: 28px;
+}
+.property-search .btn:active, .property-search .btn-active, .calculator-form .btn-active {
+    box-shadow: none;
+}
+.brown-panel span.ufd.plain {
+    height: 30px;
+}
+div.brown-panel span.ufd.plain input {
+    height: 30px;
+    line-height: 30px !important;
+}
+.brown-panel span.ufd.plain button {
+    background-position: 50% 13px;
+    height: 30px;
+}
+.spacer_5 {
+    height: 5px;
+    width: 5px;
+}
+div.span2 i.icon-ok {
+    background: url('/static/img/bank-checked-bg.png') 0 0  no-repeat;
+    background-position: 0 0;
+    height: 24px;
+    width: 24px;
+}
+div.map-pointer {
+    float: right;
+    font-size: 16px;
+    margin: 0px;
+    padding: 2px 0px;
+}
+div.property-search-list section {
+    margin: 0px 0px 10px 0px;
+    border: 2px solid #DCDCDC;
+    font-size: 11px;
+}
+div.row-fluid .span2.span2-f-with_image {
+    width: 13.1%;
+}
+div.row-fluid .span3 {
+    width: 18%;
+}
+
+#tabs ul.ui-tabs-nav { 
+    float: right; 
+}
+div.tabs-height-cont {
+    height: 32px;
+    font-size: 11px;
+    padding-top: 5px;
+    margin-bottom: 0px;
+}
+div.price-block-arrowed i.arrow {
+    display: none;
+}
+td.description div.price-block-arrowed {
+    border-left: 1px solid #CDB384;
+    border-radius: 1px;
+    font-size: 14px;
+    padding: 15px 10px;
+    margin-left: 0px;
+}
+td.description div.price-block-arrowed big {
+    font-size: 14px;
+}
+div.usercard {
+    
+}
+div.usercard img {
+    float: right;
+}
+div.clearfix_logo {
+    clear: both;
+    padding: 0px;
+    margin: 0px 0px 15px 0px;
+}
+div.row-fluid div.span6 {
+    font-weight: bold;
+}
+div.row-fluid div.span6.bold {
+    font-weight: normal;
+}
+
+.property-search .row-fluid select {
+    font-size: 1em;
+    height: 26px;
+    width: 200px;
+}
+header div.menu nav.main {
+    position:absolute;
+    left: 190px;bottom:0px;
+}
+td.description div.price-block-arrowed {
+    background: none repeat scroll 0 0 #EAD5AA;
+    background-image: linear-gradient(top, rgb(234,213,170) 49%, rgb(209,179,119) 100%);
+    background-image: -o-linear-gradient(top, rgb(234,213,170) 49%, rgb(209,179,119) 100%);
+    background-image: -moz-linear-gradient(top, rgb(234,213,170) 49%, rgb(209,179,119) 100%);
+    background-image: -webkit-linear-gradient(top, rgb(234,213,170) 49%, rgb(209,179,119) 100%);
+    background-image: -ms-linear-gradient(top, rgb(234,213,170) 49%, rgb(209,179,119) 100%);
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0.49, rgb(234,213,170)),
+        color-stop(1, rgb(209,179,119))
+    );
+}
+
+ul.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+}
+/* IE 6 doesn't support max-height
+* we use height instead, but this forces the menu to always be this tall
+*/
+* html ul.ui-autocomplete {
+    height: 200px;
+}
+
+.paging ul li {display: inline-block; width: 30px;}
+.paging .paging-current a {text-decoration: none; color: #111; font-weight: bold;}
+

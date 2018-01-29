@@ -1,0 +1,33 @@
+{% load i18n staticfiles %}
+
+<div class="callback" id="callback" style="display: none;">
+    <a href="javascript:void(0);" id="callback_link"><b>{% trans "Заказать<br>звонок" %}</b><br />{% trans "менеджера" %}</a>
+</div>
+<div class="callback_cont" id="callback_cont">
+    <a class="callback_close" href="javascript:void(0);" id="callback_close"></a>
+    <span class="callback_arrow"></span>
+
+    <div id="callback_form_cont">
+        <div class="callback_msg">{% trans "Заполните заявку и мы перезвоним Вам!" %}</div>
+        <br />
+        <form id="callback_form" action="/callback/" method="post">{% csrf_token %}
+            <input type="hidden" name="cb_type" value="{{ cb_type }}">
+            <table class="callback_table">
+            {% for field in callback_form.visible_fields %}
+                <tr>
+                    <td>{{ field.label }}{% if field.field.required %} *{% endif %}:</td>
+                    <td>{{ field }}<div class="errorlist" style="display: none;" id="{{ field.name }}_error"></div></td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="2" style="text-align: left">* - {% trans "обязательные поля" %}</td>
+            </tr>
+            </table>
+            <input type="button" class="btn btn-large btn-large-callback btn-success submit" value="{% trans "Отправить" %}">
+        </form>
+    </div>
+    <div class="callback_msg callback_success" style="display: none;"></div>
+</div>
+<script type="text/javascript"> var callback_id = '{{ item.id }}'; </script>
+<script src="{% static 'js/libs/jquery.cookie.js' %}"></script>
+<script src="{% static 'bank/js/callback.js' %}"></script>

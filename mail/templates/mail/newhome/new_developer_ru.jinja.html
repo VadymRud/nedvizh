@@ -1,0 +1,357 @@
+{% extends "mail/base_redesigned.jinja.html" %}
+
+{% block greetings %}
+    <tr>
+        <td width="43" height="36" style="width: 43px; height: 36px; background-color: #ffffff;">
+            <div style="width: 43px; height: 36px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="36" colspan="3" style="width: 472px; height: 36px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 36px;">
+                Добрый день, {{ user.get_full_name() }}
+            </div>
+        </td>
+        <td width="25" height="36" style="width: 25px; height: 36px; background-color: #ffffff;">
+            <div style="width: 25px; height: 36px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+{% endblock %}
+
+{% block content %}
+    <tr>
+        <td width="43" height="57" style="width: 43px; height: 57px; background-color: #ffffff;">
+            <div style="width: 43px; height: 57px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="57" colspan="3" style="width: 472px; height: 57px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 57px;">
+                Выражаю Вам благодарность за начало сотрудничества с порталом<br> недвижимости <a href="http://mesto.ua" target="_blank">mesto.ua</a>.
+            </div>
+        </td>
+        <td width="25" height="57" style="width: 25px; height: 57px; background-color: #ffffff;">
+            <div style="width: 25px; height: 57px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="31" style="width: 43px; height: 31px; background-color: #ffffff;">
+            <div style="width: 43px; height: 31px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="31" colspan="3" style="width: 472px; height: 31px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 31px;">
+                <hr>
+            </div>
+        </td>
+        <td width="25" height="31" style="width: 25px; height: 31px; background-color: #ffffff;">
+            <div style="width: 25px; height: 31px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="73" style="width: 43px; height: 73px; background-color: #ffffff;">
+            <div style="width: 43px; height: 73px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="73" colspan="3" style="width: 472px; height: 73px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 73px;">
+                Просим принять советы, по использованию платформы <a href="http://mesto.ua" target="_blank">mesto.ua</a>,<br> для повышения количества просмотров Вашего объекта и<br> увеличения звонков от целевой аудитории:
+            </div>
+        </td>
+        <td width="25" height="73" style="width: 25px; height: 73px; background-color: #ffffff;">
+            <div style="width: 25px; height: 73px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="99" style="width: 43px; height: 99px; background-color: #ffffff;">
+            <div style="width: 43px; height: 99px; background-color: #ffffff;">
+                <img src="{{ static('newhome/new_developer_image01.png') }}" width="43" height="99" style="width: 43px; height: 99px; display: inline-block;">
+            </div>
+        </td>
+        <td width="472" height="99" colspan="3" style="width: 472px; height: 99px; background-color: #ffffff;">
+            <div style="width: 472px; height: 99px;">
+                <img src="{{ static('newhome/new_developer_image02.png') }}" width="472" height="99" style="width: 472px; height: 99px; display: inline-block;">
+            </div>
+        </td>
+        <td width="25" height="99" style="width: 25px; height: 99px; background-color: #ffffff;">
+            <div style="width: 25px; height: 99px; background-color: #ffffff;">
+              <img src="{{ static('newhome/new_developer_image03.png') }}" width="25" height="99" style="width: 25px; height: 99px; display: inline-block;">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="85" style="width: 43px; height: 85px; background-color: #fff3f6;">
+            <div style="width: 43px; height: 85px; background-color: #fff3f6;">&nbsp;</div>
+        </td>
+        <td width="472" height="85" colspan="3" style="width: 472px; height: 85px; background-color: #fff3f6;">
+            <div class="text" style="width: 472px; height: 85px; background-color: #fff3f6;">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #fff3f6;">
+                    <tr>
+                        <td width="71" height="85" align="left" valign="top" style="width: 71px; height: 85px; text-align: left;">
+                            <div style="width: 71px; height: 85px; background-color: #fff3f6;">
+                                <img src="{{ static('newhome/new_developer_image04.jpg') }}" width="61" height="57" style="width: 61px; height: 57px;">
+                            </div>
+                        </td>
+                        <td width="400" height="85" align="left" valign="top" style="width: 400px; height: 85px; text-align: left;">
+                            <div class="text" style="width: 400px; height: 85px; background-color: #fff3f6;">
+                                <span class="pink">1.</span> Заполните все предложенные поля и укажите<br> максимальное кол-во информации о вашем объекте. Это<br> поможет Вам в дальнейшем избежать мелких уточняющих<br> вопросов и повысить качество Ваших звонков;
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+        <td width="25" height="85" style="width: 25px; height: 85px; background-color: #fff3f6;">
+            <div style="width: 25px; height: 85px; background-color: #fff3f6;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="117" style="width: 43px; height: 117px; background-color: #fff3f6;">
+            <div style="width: 43px; height: 117px; background-color: #fff3f6;">&nbsp;</div>
+        </td>
+        <td width="472" height="117" colspan="3" style="width: 472px; height: 117px; background-color: #fff3f6;">
+            <div class="text" style="width: 472px; height: 117px; background-color: #fff3f6;">
+                <span class="pink">2.</span> Пропишите все выгоды и возможности при покупке Вашей<br> недвижимости (рассрочка, описание о инфраструктуры района,<br> ключевые моменты возведения объекта и его технические<br> характеристики).<br>В таком случае Ваши потенциальные покупатели будут иметь<br> максимальное представление о вариантах сотрудничества с вами;
+            </div>
+        </td>
+        <td width="25" height="117" style="width: 25px; height: 117px; background-color: #fff3f6;">
+            <div style="width: 25px; height: 117px; background-color: #fff3f6;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="87" style="width: 43px; height: 87px; background-color: #fff3f6;">
+            <div style="width: 43px; height: 87px; background-color: #fff3f6;">&nbsp;</div>
+        </td>
+        <td width="472" height="87" colspan="3" style="width: 472px; height: 87px; background-color: #fff3f6;">
+            <div class="text" style="width: 472px; height: 87px; background-color: #fff3f6;">
+                <span class="pink">3.</span> Укажите планировку и количество квартир ЖК, для того, чтобы<br> система имела возможность выбрать по 1 квартире из указанных<br> планировок и дублировать данное объявление на вторичном рынке<br> (если этого не указать, дублирования не будет);
+            </div>
+        </td>
+        <td width="25" height="87" style="width: 25px; height: 87px; background-color: #fff3f6;">
+            <div style="width: 25px; height: 87px; background-color: #fff3f6;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="103" style="width: 43px; height: 103px; background-color: #fff3f6;">
+            <div style="width: 43px; height: 103px; background-color: #fff3f6;">&nbsp;</div>
+        </td>
+        <td width="472" height="103" colspan="3" style="width: 472px; height: 103px; background-color: #fff3f6;">
+            <div class="text" style="width: 472px; height: 103px; background-color: #fff3f6;">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #fff3f6;">
+                    <tr>
+                        <td width="71" height="103" align="left" valign="top" style="width: 71px; height: 103px; text-align: left;">
+                            <div style="width: 71px; height: 103px; background-color: #fff3f6;">
+                                <img src="{{ static('newhome/new_developer_image05.jpg') }}" width="56" height="80" style="width: 56px; height: 80px;">
+                            </div>
+                        </td>
+                        <td width="400" height="103" align="left" valign="top" style="width: 400px; height: 103px; text-align: left;">
+                            <div class="text" style="width: 400px; height: 103px; background-color: #fff3f6;">
+                                <span class="pink">4.</span> Зарегистрировавшись на портале, система по<br> умолчанию подключит Вам услугу "Оплата за звонок".<br> Данная услуга позволяет грамотно распределять бюджет<br> на рекламу, где Вы платите только за<br> результат, т.е. за целевой звонок; <a href="http://mesto.ua/faq/plata-za-zvonok-i-plata-za-zayavku/chto-eto-takoe-i-kak-ono-rabotaet/" target="_blank" style="font-style: italic;">Подробнее</a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+        <td width="25" height="103" style="width: 25px; height: 103px; background-color: #fff3f6;">
+            <div style="width: 25px; height: 103px; background-color: #fff3f6;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="84" style="width: 43px; height: 84px; background-color: #fff3f6;">
+            <div style="width: 43px; height: 84px; background-color: #fff3f6;">&nbsp;</div>
+        </td>
+        <td width="472" height="84" colspan="3" style="width: 472px; height: 84px; background-color: #fff3f6;">
+            <div class="text" style="width: 472px; height: 84px; background-color: #fff3f6;">
+                <span class="pink">4.1</span> К данной услуге также подключается CRM-система, которая будет<br> фиксировать все входящие звонки (с функцией записи звонка) и<br> заявки от клиентов. Так, у Вас есть возможность максимально<br> снизить влияние человеческого фактора на потерю клиента;
+            </div>
+        </td>
+        <td width="25" height="84" style="width: 25px; height: 84px; background-color: #fff3f6;">
+            <div style="width: 25px; height: 84px; background-color: #fff3f6;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="68" style="width: 43px; height: 68px; background-color: #fff3f6;">
+            <div style="width: 43px; height: 68px; background-color: #fff3f6;">&nbsp;</div>
+        </td>
+        <td width="472" height="68" colspan="3" style="width: 472px; height: 68px; background-color: #fff3f6;">
+            <div class="text" style="width: 472px; height: 68px; background-color: #fff3f6;">
+                <span class="pink">4.2</span> Пополните <a href="http://mesto.ua/account/balance/" target="_blank" style="font-style: italic;">Баланс аккаунта</a> минимально на 500 грн. для того,<br> чтоб объект ЖК начал отображаться в разделе «Новостройки», и<br> начните получать звонки/заявки от клиентов;
+            </div>
+        </td>
+        <td width="25" height="68" style="width: 25px; height: 68px; background-color: #fff3f6;">
+            <div style="width: 25px; height: 68px; background-color: #fff3f6;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="51" style="width: 43px; height: 51px; background-color: #fff3f6;">
+            <div style="width: 43px; height: 51px; background-color: #fff3f6;">&nbsp;</div>
+        </td>
+        <td width="472" height="51" colspan="3" style="width: 472px; height: 51px; background-color: #fff3f6;">
+            <div class="text" style="width: 472px; height: 51px; background-color: #fff3f6;">
+                <span class="pink">4.3</span> Объявление транслируется на сайте, пока на Вашем балансе<br> есть средства (нет необходимости пополнять баланс ежемесячно);
+            </div>
+        </td>
+        <td width="25" height="51" style="width: 25px; height: 51px; background-color: #fff3f6;">
+            <div style="width: 25px; height: 51px; background-color: #fff3f6;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="51" style="width: 43px; height: 51px; background-color: #fff3f6;">
+            <div style="width: 43px; height: 51px; background-color: #fff3f6;">&nbsp;</div>
+        </td>
+        <td width="472" height="51" colspan="3" style="width: 472px; height: 51px; background-color: #fff3f6;">
+            <div class="text" style="width: 472px; height: 51px; background-color: #fff3f6;">
+                <span class="pink">4.4</span> За каждый целевой звонок/заявку, полученную с портала <a href="http://mesto.ua" target="_blank">mesto.ua</a> с баланса будет списываться средства;
+            </div>
+        </td>
+        <td width="25" height="51" style="width: 25px; height: 51px; background-color: #fff3f6;">
+            <div style="width: 25px; height: 51px; background-color: #fff3f6;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="103" style="width: 43px; height: 103px; background-color: #fff3f6;">
+            <div style="width: 43px; height: 103px; background-color: #fff3f6;">&nbsp;</div>
+        </td>
+        <td width="472" height="103" colspan="3" style="width: 472px; height: 103px; background-color: #fff3f6;">
+            <div class="text" style="width: 472px; height: 103px; background-color: #fff3f6;">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #fff3f6;">
+                    <tr>
+                        <td width="71" height="103" align="left" valign="top" style="width: 71px; height: 103px; text-align: left;">
+                            <div style="width: 71px; height: 103px; background-color: #fff3f6;">
+                                <img src="{{ static('newhome/new_developer_image06.jpg') }}" width="60" height="65" style="width: 60px; height: 65px;">
+                            </div>
+                        </td>
+                        <td width="400" height="103" align="left" valign="top" style="width: 400px; height: 103px; text-align: left;">
+                            <div class="text" style="width: 400px; height: 103px; background-color: #fff3f6;">
+                                <span class="pink">5.</span> При поступлении Вам нецелевых звонков с <a href="http://mesto.ua" target="_blank">mesto.ua</a><br> (кросс-продажи, еженедельный прозвон от риэлторов и<br> т.д.,) нажмите кнопку «Пожаловаться на звонок» и<br> средства, списанные за услугу, вернутся на баланс.<br> <a href="http://mesto.ua/faq/plata-za-zvonok-i-plata-za-zayavku/kak-ya-mogu-pozhalovatsya-na-zvonok/" target="_blank" style="font-style: italic;">Подробнее</a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+        <td width="25" height="103" style="width: 25px; height: 103px; background-color: #fff3f6;">
+            <div style="width: 25px; height: 103px; background-color: #fff3f6;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="30" style="width: 43px; height: 30px; background-color: #ffffff;">
+            <div style="width: 43px; height: 30px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="30" colspan="3" style="width: 472px; height: 30px; background-color: #ffffff;">
+            <div style="width: 472px; height: 30px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="25" height="30" style="width: 25px; height: 30px; background-color: #ffffff;">
+            <div style="width: 25px; height: 30px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="33" style="width: 43px; height: 33px; background-color: #ffffff;">
+            <div style="width: 43px; height: 33px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="33" colspan="3" style="width: 472px; height: 33px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 33px;">
+                Если у Вас появятся дополнительные вопросы, буду рад ответить.
+            </div>
+        </td>
+        <td width="25" height="33" style="width: 25px; height: 33px; background-color: #ffffff;">
+            <div style="width: 25px; height: 33px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="25" style="width: 43px; height: 25px; background-color: #ffffff;">
+            <div style="width: 43px; height: 25px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="25" colspan="3" style="width: 472px; height: 25px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 25px;">
+                С уважением,
+            </div>
+        </td>
+        <td width="25" height="25" style="width: 25px; height: 25px; background-color: #ffffff;">
+            <div style="width: 25px; height: 25px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="44" style="width: 43px; height: 44px; background-color: #ffffff;">
+            <div style="width: 43px; height: 44px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="44" colspan="3" style="width: 472px; height: 44px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 44px;">
+                <strong>Геннадий  Паламарчук</strong><br><span style="font-style: italic;">руководитель центра развития партнерских отношений</span>
+            </div>
+        </td>
+        <td width="25" height="44" style="width: 25px; height: 44px; background-color: #ffffff;">
+            <div style="width: 25px; height: 44px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="64" style="width: 43px; height: 64px; background-color: #ffffff;">
+            <div style="width: 43px; height: 64px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="64" colspan="3" style="width: 472px; height: 64px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 64px;">
+                <strong>тел.:</strong>+38 063 568 54 41<br><strong>e-mail:</strong> olga.k@mesto.ua
+            </div>
+        </td>
+        <td width="25" height="64" style="width: 25px; height: 64px; background-color: #ffffff;">
+            <div style="width: 25px; height: 64px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="53" style="width: 43px; height: 53px; background-color: #ffffff;">
+            <div style="width: 43px; height: 53px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="53" colspan="3" align="center" style="width: 472px; height: 53px; background-color: #ffffff; text-align: center;">
+            <div style="width: 472px; height: 53px; text-align: center;">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff;">
+                    <tr>
+                        <td width="157" height="53" align="center" class="table-info-images">
+                            <div class="table-info-images">
+                                <img src="{{ static('mailing/mailing-about-professionals-image-02.jpg') }}" width="36" height="36" style="width: 36px; height: 36px;"><br>
+                            </div>
+                        </td>
+                        <td width="157" height="53" align="center" class="table-info-images">
+                            <div class="table-info-images">
+                                <img src="{{ static('mailing/mailing-about-professionals-image-03.jpg') }}" width="36" height="36" style="width: 36px; height: 36px;"><br>
+                            </div>
+                        </td>
+                        <td width="157" height="53" align="center" class="table-info-images">
+                            <div class="table-info-images">
+                                <img src="{{ static('mailing/mailing-about-professionals-image-04.jpg') }}" width="35" height="35" style="width: 35px; height: 35px;"><br>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+        <td width="25" height="53" style="width: 25px; height: 53px; background-color: #ffffff;">
+            <div style="width: 25px; height: 53px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="64" style="width: 43px; height: 64px; background-color: #ffffff;">
+            <div style="width: 43px; height: 64px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="64" colspan="3" align="center" style="width: 472px; height: 64px; background-color: #ffffff; text-align: center;">
+            <div style="width: 472px; height: 64px; text-align: center;">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff;">
+                    <tr>
+                        <td width="157" height="64" align="center" class="table-info">
+                            <div class="table-info">
+                                <a href="mailto:info@mesto.ua" target="_blank">info@mesto.ua</a>
+                            </div>
+                        </td>
+                        <td width="157" height="64" align="center" class="table-info">
+                            <div class="table-info">
+                                <a href="skype:mesto.ua?chat" style="color: #333333; text-decoration: none; cursor: default;">mesto.ua</a>
+                            </div>
+                        </td>
+                        <td width="157" height="64" align="center" class="table-info">
+                            <div class="table-info" style="line-height: 120%;">044 228 68 98</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+        <td width="25" height="64" style="width: 25px; height: 64px; background-color: #ffffff;">
+            <div style="width: 25px; height: 64px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+{% endblock %}
+
+{% block footer %}{% endblock %}

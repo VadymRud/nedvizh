@@ -1,0 +1,31 @@
+<div class="modal fade topup-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body row" align="center">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+          <h5>{% trans %}Пополнение счета{% endtrans %}</h5><br/>
+
+          <form id="topup-form" action="{{ url('profile_balance_topup') }}" method="post">{% csrf_token %}
+            <input type="hidden" name="order" value=""/>
+
+            <p>{% trans %}Сумма пополнения{% endtrans %}</p>
+            <p><input name='amount' type='text' class='form-control amount' value="{{ request.GET.get('topup_amount', 100) }}" /></p><br/><br/>
+
+            <p>{% trans %}Способ пополнения{% endtrans %}</p><br/>
+
+            {% include 'profile/balance/topup_buttons.html' %}
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    $().ready(function() {
+        $("#topup-form").find("[type=submit]").click(function() {
+            $("#topup-form").find("[type=submit]").removeAttr("clicked");
+            $(this).attr("clicked", "true");
+        });
+    });
+</script>

@@ -1,0 +1,20 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Перевод денег между пользователями внутри агентства{% endblock %}
+{% block content %}
+    <style>
+        form.invoice-transaction-form label {
+            width: 170px;
+            display: inline-block;
+        }
+    </style>
+    <h1>Перевод денег между пользователями внутри агентства</h1><br/>
+    <form action='.' method='post' class='invoice-transaction-form'>
+        {% csrf_token %}
+        <div class='fields'>{{ form.as_p }}</div>
+        <p>
+            <label></label>
+            <input type='submit' value='Первести'>
+        </p>
+    </form>
+{% endblock %}

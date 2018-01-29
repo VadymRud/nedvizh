@@ -1,0 +1,44 @@
+{% extends "bank/base.html" %}
+
+{% load thumbnail_filter i18n %}
+
+{% block content %}
+    
+    <table cellpadding="0" cellpadding="0" border="1">
+    <tr>
+    <td>
+        {% if bank.logo %}
+            <div class="bank_item_img"><div class="bank_item_img_inner"><img src="{{ bank.logo|thumbnail:"115" }}" width="115" height="115" alt='{{ bank.name|escape }}' border='0'></div></div>
+        {% endif %}
+    </td>
+    <td width="100%">
+        <div class="bank_item_text">
+            <div class="bank_list_item_title" style="margin: 0px;">{{ bank.name }}</div>
+            {% autoescape off %}{{ bank.content }}{% endautoescape %}
+            
+            {% if properties_count > 0 %}
+                <div class="bank_list_item_title">{% trans 'Количество объектов на продажу' %}: <b>{{ properties_count }}</b></div>
+            {% endif %}
+            
+            {% if bank.financing_conditions %}
+                <div class="bank_list_item_title">{% blocktrans with bank_name=bank.name %}Кредиты в {{ bank_name }}{% endblocktrans %}</div>
+                {{ bank.financing_conditions }}
+            {% endif %}
+        </div>
+    </td>
+    <td>
+        {% if other_banks|length > 0 %}
+        <div class="banks-partners" style="width: 246px;">
+            <div class="title">{% trans 'Другие банки' %}:</div>
+            <div class="bank_other">
+                {% for other_bank in other_banks %}
+                    <a href="/banks/{{ other_bank.id }}/">{{ other_bank.name }}</a><br />
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </td>
+    </tr>
+    </table>
+
+{% endblock %}

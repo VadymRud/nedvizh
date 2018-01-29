@@ -1,0 +1,74 @@
+/* Profile calendars */
+.calendars {
+    width:410px;
+}
+        
+.calendars {
+    font-family:Arial;
+    overflow:auto;
+    margin-bottom:10px;
+    margin-top: 5px;
+    width:410px;
+    }
+    .calendars .calendar  {vertical-align: top;}
+        .calendars .sep i{display:block;width:6px;}
+        .calendars .calendar table{
+            border-collapse:collapse;
+            font-size:11px;
+            table-layout:fixed;
+            width:132px;
+            }
+            .calendars .calendar th,
+            .calendars .calendar td {
+                text-align: center;
+                line-height: 17px;
+                background:white;
+                border:1px solid #ccc;    
+                }
+            .calendars .calendar th {
+                background:#777;
+                color:white;
+                padding:0 2px;
+                }
+            .calendars .calendar td{
+                text-align:center;
+                }
+            .calendars .calendar td.busy{
+                background:#EE2C2C;
+                color:white;
+                }
+            .calendars .calendar td.booking{
+                background:#B22222;
+                color:white;
+                }
+
+    .calendars .nav a {
+        display:block;
+        position:absolute;top:0;
+        width:20px;height:100%;
+        background:url(../img/fade-white-20.png) 0 0 repeat-y;
+        text-indent:-10000px;
+        }
+            
+        .calendars .nav a.next {right:0;}
+        .calendars .nav a.prev {
+            left:0;
+            background-position:-20px 0;
+            }
+        .calendars .nav a span {
+            display:block;
+            width:20px;height:20px;
+            }
+            .calendars .nav a.next span {
+                background:url(http://www.mimbar.ru/assets/template/images/next.png) no-repeat;
+                margin-right:-10px;
+                }
+
+.calendars td.calendar {
+    border: none;
+}
+
+.calendars td.sep {
+    border: none;
+    padding: 0;
+}

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+
+    <meta property="og:locale" content="ru_RU"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:image" content="{{ static('img/2017/Logo_Mesto_200х200.png') }}"/>
+    <meta property="og:url" content="https://mesto.ua"/>
+    <meta property="og:site_name" content="mesto.ua"/>
+    <meta itemprop="name" content="mesto.ua"/>
+    <meta itemprop="description" content="mesto.ua"/>
+    <meta itemprop="image" content="{{ static('img/2017/Logo_Mesto_200х200.png') }}"/>
+
+    <link rel="icon" href="{{ static('img/favicon.png') }}">
+    {%- block seo -%}
+        <title>{% block title %}{% if title is defined %}{{ title }}{% else %}Mesto.UA{% endif %}{% endblock %}</title>
+        {%- if description is defined %}<meta name="description" content="{{ description }}"/>{% endif -%}
+        <meta name="keywords" content=""/>
+        {%- if canonical_url is defined %}<link rel="canonical" href="{{ canonical_url }}">{% endif -%}
+    {%- endblock -%}
+    <meta name="google-site-verification" content="sNA-o17GeiLWq7LXB3DPM0ujEyZJutQiTBncM3ZAFL0" />
+    {% include 'includes/alternate.jinja.html' %}
+    {%- include 'includes/gtm.jinja.html' -%}
+    {%- include 'includes/admixer_init.jinja.html' -%}
+
+    {%- compress css -%}
+        <link rel="stylesheet" href="{{ static('libs/bootstrap3-24col/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ static('libs/bootstrap-notify/bootstrap-notify.css') }}">
+        <link rel="stylesheet" href="{{ static('libs/colorbox/colorbox.css') }}">
+        <link rel="stylesheet" href="{{ static("libs/photoswipe/photoswipe.css") }}">
+        <link rel="stylesheet" href="{{ static("libs/photoswipe/default-skin/default-skin.css") }}">
+        <link rel="stylesheet" href="{{ static('css/main.css') }}">
+        <link rel="stylesheet" href="{{ static('css/guide.css') }}">
+        <link rel="stylesheet" href="{{ static('css/design-2017.css') }}">
+        {% block extra_css %}{% endblock %}
+    {%- endcompress -%}
+
+    {% block extra_header %}{% endblock %}
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{ static('js/libs/jquery-last.min.js') }}"><\/script>')</script>
+</head>
+<body id="design-2017" class="{% if is_homepage is defined and is_homepage %}homepage{% endif %}{% if 'mesto.ua' not in request.get_host() %} debug{% endif %}">
+  {% include 'includes/gtm_noscript.jinja.html' %}
+  {% include 'includes/notification.jinja.html' %}
+  {% include "includes/messages.jinja.html" %}
+
+  {% include 'includes/modals/languages.jinja.html' %}
+  {% include 'includes/modals/cities.jinja.html' %}
+  {% include 'includes/modals/call_request.jinja.html' %}
+
+  {% block analysis %}{% endblock %}
+
+  {% set banner_topline = get_banner(request, 'topline') %}
+  {% if banner_topline and banner_topline.image %}
+    <div class="topline-banner"{% if banner_topline.image_bg %} style="background-image:url({{ banner_topline.image_bg.url }})"{% endif %}>
+      <a href="{{ banner_topline.get_absolute_url() }}" target="_blank"><img src="{{ banner_topline.image.url }}"></a>
+    </div>
+  {% endif %}
+  
+  <div class="l-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-lg-6 visible-lg-block">
+          {# logo #}
+          <a href="{% if request.subdomain == 'international' %}{{ host_url('index') }}{% else %}{{ url('index') }}{% endif %}" class="header-logo">
+            <span></span>
+            <div>
+              <span>{% trans %}Портал недвижимости{% endtrans %}</span>
+              <span>Mesto.UA</span>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-offset-1 col-lg-7 visible-lg-block text-center">
+          {% if is_homepage is defined and is_homepage %}
+            {% include 'includes/modals/welcome_banner.jinja.html' %}
+          {% endif %}
+        </div>
+        <div class="col-xs-push-8 col-xs-16      col-lg-push-0 col-lg-10">
+          <div class="row">
+            <div class="col-md-11 visible-lg">
+              {# callback form #}
+              {% if request.profile_middleware is defined and request.user.is_authenticated() and request.user.manager %}
+                {% include "includes/header_call_request.jinja.html" %}
+              {% endif %}
+            </div>
+            <div class="col-sm-18 col-md-9 text-center visible-lg-block">
+              {# select city #}
+              {% include "includes/header_cities.jinja.html" %}
+            </div>
+            <div class="col-sm-6 col-md-4 text-right visible-lg-block">
+              {# languages #}
+              {% include "includes/header_languages.jinja.html" %}
+              <br><br>
+            </div>
+          </div>
+          <div class="login" id="header-login">
+              {# profile name #}
+              {# если не отработал middleware, например, в админке, то часть переменных может отсутствовать #}
+              {% if request.profile_middleware is defined %}
+                {% if request.user.is_authenticated() %}
+                  <div class="row">
+                    <div class="col-xs-16 col-sm-19 profile-username text-right">{{ request.user }}</div>
+                    <div class="col-xs-7 col-sm-4 profile-icon dropdown">
+                      <a
+                          class="profile{% if request.user.gender == 'male' %} male{% elif request.user.gender == 'female' %} female{% endif %}"
+                          data-toggle="dropdown" href="{{ url('profile_index') }}"
+                          {% with image = (request.own_agency.logo or  request.user.image) if request.own_agency else request.user.image %}
+                            {% if image %}style="background-image: url('{{ image|thumbnail("200x200", nocrop=True) }}')"{% endif %}
+                          {% endwith %}></a>
+                      <i class="icon icon-caret-black-sm" data-toggle="dropdown"></i>
+
+                      {% with unread_messages = request.user.get_unread_messages() %}
+                          <span class="unread-messages{% if not unread_messages %} hidden{% endif %}" data-amount="{{ unread_messages }}"></span>
+                      {% endwith %}
+
+                      {% with warning_status = request.user.get_publishing_warning_status() %}
+                        {% if warning_status %}
+                          <span class="status-messages" data-amount="!" data-tooltip="{{ warning_status }}">!</span>
+                        {% endif %}
+                      {% endwith %}
+                      {% include "includes/header_usermenu.jinja.html" %}
+                    </div>
+                  </div>
+                {% else %}
+                  <div class="row text-right">
+                    <div class="col-xs-23">
+                      <noindex>
+                        <a class="btn" data-toggle="modal" data-target="#login-popup"><i class="icon icon-login"></i> {% trans %}Войти{% endtrans %}</a>
+                      </noindex>
+                    </div>
+                  </div>
+                  {% include "includes/login_popup.jinja.html" %}
+                {% endif %}
+              {% endif %}
+          </div>
+          <div class="visible-lg-block"><br><br></div>
+        </div>
+        <div class="col-xs-8      col-xs-pull-16 col-lg-pull-0 col-lg-24">
+          {# menu #}
+          {% block top_menu %}
+            <div class="l-mainmenu">
+              <div class="rel">
+                <div class="navbar navbar-default" role="navigation">
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle mesto-navbar" data-toggle="collapse" data-target="#mesto-navbar-collapse"></button>
+                  </div>
+                  <div class="navbar-collapse collapse" id="mesto-navbar-collapse">
+                    <div class="row hidden-lg">
+                      <div class="col-xs-5 relative">
+                        <button type="button" class="mesto-navbar-hide" data-toggle="collapse" data-target="#mesto-navbar-collapse"></button>
+                      </div>
+                      <div class="col-xs-7">
+                        {# languages #}
+                        {% include "includes/header_languages.jinja.html" %}
+                      </div>
+                      <div class="col-xs-12">
+                        {# select city #}
+                        {% include "includes/header_cities.jinja.html" %}
+                      </div>
+                    </div>
+                    {% include "includes/header_menu.jinja.html" %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endblock %}
+        </div>
+      </div>
+      {% block header_content %}{% endblock %}
+    </div>
+  </div>
+
+    {% block content_wrapper %}
+      <div class="container">
+        {% block content %}{% endblock %}
+      </div><br/>
+    {% endblock %}
+
+  <a href="#design-2017" class="btn btn-lg btn-danger scroll-to-top visible-xs visible-sm" title="{% trans %}Наверх{% endtrans %}"><i class="glyphicon glyphicon-menu-up"></i></a>
+
+  <div id="footer">
+    {% block footer %}
+{#                <div class="pull-right footer-banner">#}
+{#                    {% with place_id = 12449 %}#}
+{#                        {% include 'includes/banner_rontar.jinja.html' %}#}
+{#                    {% endwith %}#}
+                    {# баннер Admixer 650х250 или даже 728x90 #}
+{#                    {% with rontar_place_id=12449, z='cfb25ab5-ae1c-4fce-b94e-e90818ac8d25', ph='admixer_cfb25ab5ae1c4fceb94ee90818ac8d25_zone_10335_sect_2951_site_2705_rnd_1432046466' %}#}
+{#                        {% include 'includes/admixer_banner.jinja.html' %}#}
+{#                    {% endwith %}#}
+{#                </div>#}
+      <div class="container footer">
+        <br><br>
+        <div class="row">
+          <div class="col-md-17 footer-menu">
+            {% include "includes/footer_menu.jinja.html" %}
+          </div>
+          <div class="col-md-7 aside">
+            <div class="media payments">
+              <div class="media-left"><nobr><span class="mastercard-icon"></span> <span class="visa-icon"></span></nobr></div>
+              <div class="media-body">
+                {% trans %}100% безопасная оплата{% endtrans %}
+              </div>
+            </div>
+            <hr/>
+            <div class="media">
+              <div class="media-left"><span class="asnu-icon"></span></div>
+              <div class="media-body">
+                <span class="pink">Mesto.ua</span> - {% trans %}партнер Ассоциации{% endtrans %} <br>{% trans %}специалистов по недвижимости Украины{% endtrans %}
+              </div>
+            </div>
+            <hr/>
+            <div class="media">
+              <div class="media-left"><span class="ssl-icon"></span></div>
+              <div class="media-body">
+                {% trans %}Гарантия безопасности, используя{% endtrans %}<br> {% trans %}мировые рекомендации по обеспечению{% endtrans %}<br> {% trans %}защиты данных и конфиденциальности{% endtrans %}
+              </div>
+            </div>
+            <hr/>
+            <a target="_blank" href="https://www.lun.ua" title="www.lun.ua"><img style="width: 88px;height: 31px;" src="https://cdn.lun.ua/img/lun_logos/lun-partners-88x31_retina-wh.png" alt="Вся жилая недвижимость Украины на ЛУН.ua"></a>
+          </div>
+        </div>
+        <hr>
+        <div class="row footer-social">
+          <div class="text-right">
+            <ul>
+              <li>{% trans %}Мы в соц. сетях:{% endtrans %}</li>
+              <li><a href="https://www.facebook.com/pages/mestoua/317059891645154" title="" class="facebook-icon"></a></li>
+              <li><a href="https://vk.com/mestoua" title="" class="google-icon"></a></li>
+              <li><a href="https://twitter.com/Mesto_ua" title="" class="twitter-icon"></a></li>
+              <li><a href="https://www.youtube.com/channel/UCTZqK72IPimx3RUpIxiCEHg" title="" class="youtube-icon"></a></li>
+            </ul>
+          </div>
+        </div>
+        {% block footer_crosslinks %}{% endblock %}
+        <hr>
+        <div class="row">
+          <div class="col-sm-12 copy">
+            © Mesto.ua 2014. {% trans %}Все права защищены. Копирование и использование информации без письменного согласия владельца преследуется по закону.{% endtrans %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Cat-Fish banner -->
+      {% with banner_catfish = get_banner(request, 'catfish') if 'hide_cat_fish_banner' not in request.COOKIES else None %}
+        {% if banner_catfish and banner_catfish.image %}
+          <a href="{{ banner_catfish.get_absolute_url() }}" target="_blank">
+            <div class="banner_wrapper_bottom">
+              <div class="banner" style="background-image:url({{ banner_catfish.image.url }})">
+                <i class="close_banner" onclick="event.preventDefault()"></i>
+              </div>
+            </div>
+          </a>
+          <script>
+            $(function () {
+              $('.banner_wrapper_bottom .banner i.close_banner').click(function () {
+                $('.banner_wrapper_bottom').hide();
+                var domain = '.' + window.location.hostname.split('.').slice(-2).join('.');
+                $.cookie("catfish_banner", true, { expires: 1/24, path: '/', domain: domain }); // 1 hour
+              });
+            });
+          </script>
+        {% endif %}
+      {% endwith %}
+
+      {% include "includes/photoswipe.jinja.html" %}
+    {% endblock %}
+  </div>
+    {% compress js %}
+    <script src="{{ static('libs/bootstrap3-24col/js/bootstrap.min.js') }}"></script>
+    <script src="{{ static('libs/bootstrap3-typeahead/bootstrap3-typeahead.min.js') }}"></script>
+    <script src="{{ static('libs/bootstrap-notify/bootstrap-notify.js') }}"></script>
+    <script src="{{ static('js/libs/jquery.cookie.js') }}"></script>
+    <script src="{{ static('js/libs/jquery.equalheights.min.js') }}"></script>
+    <script src="{{ static('libs/colorbox/jquery.colorbox-min.js') }}"></script>
+    <script type="text/javascript" src="{{ static("libs/photoswipe/photoswipe.min.js") }}"></script>
+    <script type="text/javascript" src="{{ static("libs/photoswipe/photoswipe-ui-default.min.js") }}"></script>
+    <script type="text/javascript" src="{{ static("libs/photoswipe/photoswipe-init.js") }}"></script>
+    <script>
+        var STATIC_URL = '{{ STATIC_URL }}';
+
+    </script>
+    <script src="{{ static('js/main.js') }}"></script>
+
+    {% endcompress %}
+
+    {% block extra_footer %}{% endblock %}
+
+    {% block external_js %}
+        {% include "includes/external_js.jinja.html" %}
+    {% endblock %}
+</body>
+</html>

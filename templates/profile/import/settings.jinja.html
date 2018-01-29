@@ -1,0 +1,41 @@
+{% extends "profile/import/base.jinja.html" %}
+
+{% block import_content %}
+    {% if not success %}
+        <p>
+        {% if request.own_agency.import_url %}
+            {% trans %}Чтобы отключить импорт, сохраните поле ссылки пустым (через некоторое время все ваши ранее импортированные объявления станут неактивными){% endtrans %}
+        {% else %}
+            {% trans %}Перед тем как настраивать импорт, пожалуйста, внимательно прочитайте{% endtrans %} <a href="{{ url('import:howto') }}">{% trans %}руководство{% endtrans %}</a></li>
+        {% endif %}
+        </p>
+    {% endif %}
+    
+    {% if form.errors %}
+        {% from "macro/forms.jinja.html" import bootstrap_form_errors %}
+        {{ bootstrap_form_errors(form) }}
+    {% endif %}
+    <form class="import-form" method="post">
+        {% csrf_token %}
+        <div class="form-group {% if form.url.errors %}has-error{% endif %}">
+            <div class="controls"><label for="id_url" class="control-label">{{ form.url.label }}</label></div>
+            <div class="controls">
+                <div class='row'>
+                    <div class='col-sm-10'>{{ form.url|add_class('form-control') }}</div>
+                    <div class='pull-left'><input class="btn btn-danger form-control" type="submit" value="{% trans %}Сохранить{% endtrans %}"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    {% if success %}
+        <p class="alert alert-success" role="alert">
+            {% if request.own_agency.import_url %}
+                {% trans %}Ваша ссылка сохранена. Загрузка объявлений из файла по ссылке будет выполняться ежедневно (один раз в сутки, после полуночи) в автоматическом режиме{% endtrans %}
+            {% else %}
+                {% trans %}Импорт отключен. Через некоторое время все ваши импортированные объявления станут неактивными{% endtrans %}
+            {% endif %}
+        </p>
+    {% endif %}
+{% endblock %}
+

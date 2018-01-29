@@ -1,0 +1,36 @@
+{% extends "mail/base_redesigned_2017.jinja.html" %}
+
+{% block content %}
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        {% trans %}срок VIP-размещения для ваших объявлений истек:{% endtrans %}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        <ul>
+          {% for notification in notifications[:5] %}
+            {% with ad = notification.object.basead.ad %}
+              <li class="pink"><a href="{{ host_url('profile_my_properties') }}?search={{ ad.id }}" target="_blank">ID: {{ ad.id }}, {{ ad.title }}, {{ ad.address }}, {{ ad.price }} {{ ad.get_currency_display() }}</a></li>
+            {% endwith %}
+          {% endfor %}
+          {% with reminder = notifications|length() - 5 %}
+            {% if reminder > 0 %}
+              <li class="pink"><span>{% trans %}и еще несколько объявлений{% endtrans %} ({{ reminder }})</span></li>
+            {% endif %}
+          {% endwith %}
+        </ul>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap text-center">
+        <a href="{{ host_url('profile_my_properties') }}" target="_blank" class="button">{% trans %}Продлить{% endtrans %}</a>
+      </div>
+    </td>
+  </tr>
+{% endblock %}

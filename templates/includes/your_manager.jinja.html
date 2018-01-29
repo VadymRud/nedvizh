@@ -1,0 +1,33 @@
+{% with manager = request.user.manager %}
+    {% if manager %}
+        <style>
+            .your-manager {margin-bottom: -20px;}
+            .your-manager .media-left {height: 299px;}
+        </style>
+
+        <div class='white-panel'>
+            <div class='row'>
+                <div class='your-manager media col-md-offset-6 col-md-12'>
+                    <span class='media-left media-middle'>
+                        {% if manager.image_big %}
+                            <img class='media-object' src="{{ manager.image_big.url }}" alt="{{ manager.get_public_name() }}">
+                        {% else %}
+                            <img class='media-object' src="{{ static('paid_services/img/manager.png') }}"/>
+                        {% endif %}
+                    </span>
+
+                    <div class='media-body media-middle'>
+                        <p>{% trans %}Если у вас возникли вопросы, вас проконсультирует ваш личный менеджер.{% endtrans %}</p>
+                        <p><b>{{ manager.get_public_name() }}</b></p>
+                        <br/>
+                        <p>
+                          <a class="btn btn-lg btn-danger" href="#" data-toggle="modal" data-target="#callRequestHeaderModal">{% trans %}Заказать звонок{% endtrans %}</a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br/>
+    {% endif %}
+{% endwith %}

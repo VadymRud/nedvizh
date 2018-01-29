@@ -1,0 +1,172 @@
+/* Professionals */
+.professionals-wrap {}
+    .professionals-wrap .result h1 {
+        font-size: 24px; float: left !important; margin-bottom: 10px; margin-top: 10px; color: inherit;
+        font-family: inherit; font-weight: 500; line-height: 1.1;
+    }
+
+.full-width {margin-left: -30px; margin-right: -30px;}
+
+/* Professionals agency/realtor */
+.professionals-wrap #professionals-profile-menu {background: #ededef; border: none;}
+    .professionals-wrap #professionals-profile-menu .nav a {padding-left: 32px; padding-right: 32px;}
+    .professionals-wrap #professionals-profile-menu .nav span {color: #333333; font-size: 18px;}
+
+.professionals-wrap .profile-info h6 {color: #333333; font-size: 18px; margin: 0; padding: 0;}
+.professionals-wrap .profile-info strong {font-size: 17px;}
+.professionals-wrap .profile-info .realtors-button {font-size: 16px; padding: 15px 20px; border: 0; background: #ebebeb;}
+.professionals-wrap .profile-info .value {font-size: 18px;}
+.professionals-wrap .profile-info .link-color {color: #ff1b55;}
+    .professionals-wrap .profile-info .glyphicon.link-color {font-size: 12px; margin-left: 5px;}
+
+.professionals-wrap .profile-details {font-size: 15px; color: #666666;}
+    .professionals-wrap .profile-details h1 {font-size: 36px; margin: 0; padding: 0; color: #000;}
+    .professionals-wrap .profile-details .h4 {font-size: 27px; margin-top: 0; padding: 0; color: #333;}
+    .professionals-wrap .profile-details .asnu-logo {margin-left:10px;}
+    .professionals-wrap .profile-details .label {
+        background:transparent; border: 1px #333 solid;  color: #999; font-size: 14px; font-weight: normal;
+        margin-left: 15px; margin-top: 7px;vertical-align: middle;
+    }
+
+    .professionals-wrap .profile-details .rating {
+        list-style: none; margin: 0 15px 10px 0; padding: 0; display: inline-block;
+    }
+    .professionals-wrap .profile-details .reviews {text-decoration: none;}
+        .professionals-wrap .profile-details .reviews:hover {text-decoration: underline;}
+
+    .professionals-wrap .profile-details .address,
+    .professionals-wrap .profile-details .phones {font-size: 15px; color: #333333; margin: 10px 0;}
+        .professionals-wrap .profile-details .address i,
+        .professionals-wrap .profile-details .phones i {font-size: 14px; color: #d9d9d9; margin-right: 10px;}
+
+    .professionals-wrap .description {margin-top: 15px;}
+    .professionals-wrap .description .read-more {
+        position: absolute; z-index: 10; height: 40px; line-height: 40px; background: #fff; color: #ff3166;
+        font-size: 15px; bottom: 0; width: 100%;
+    }
+    .professionals-wrap .description .read-more span {margin-top: 14px; margin-left: 10px; font-size: 12px;}
+    .professionals-wrap .profile-details #message-modal .modal-dialog {width: 550px;}
+    .professionals-wrap .profile-details form.contacts {width: 275px;}
+
+.professionals-wrap .nav-dealtypes {
+    display: inline-block;
+    margin:0 auto;
+    font-size: 16px;
+}
+    .professionals-wrap .nav-dealtypes a {text-decoration: none;}
+
+/* Professionals form */
+
+#professionals_search_form {font-size: 14px;}
+    #professionals_search_form .btn {padding: 10px 12px;}
+    #professionals_search_form .btn-dropdown {
+        text-align: left;
+        border: 1px solid #cfcfcf;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+        #professionals_search_form .btn-dropdown .caret {
+            position: absolute;
+            top: 50%;
+            right: 8px;
+            margin-top: -2px;
+            vertical-align: middle;
+        }
+
+    #professionals_search_form label {
+        padding-top: 12px;
+        font-weight: normal;
+        color: #666;
+    }
+
+    #professionals_search_form .white-panel {padding-bottom: 5px;}
+
+    #professionals_search_form .city label {float: left; width: 37px;}
+    #professionals_search_form .city .widget-container {margin-left: 45px;}
+        #professionals_search_form .city .widget-container .btn:active,
+        #professionals_search_form .city .widget-container .btn.active {box-shadow: none;}
+        #professionals_search_form .city .widget-container #cities-choose-dropdown #extra_cities_list .nav div a.city {display: none;}
+
+    #professionals_search_form .deal-type .dropdown-menu,
+    #professionals_search_form .deal-type .bootstrap-select {width: auto;}
+    #professionals_search_form .deal-type label {float: left; width: 67px;}
+    #professionals_search_form .deal-type .widget-container {margin-left: 75px;}
+        #professionals_search_form .deal-type .widget-container .bootstrap-select {width: 100%;}
+
+    #professionals_search_form .search input {}
+        #professionals_search_form .search .form-control {height: 42px;}
+        #professionals_search_form .search .form-control-feedback {line-height: 42px; color: #c5c5c5;}
+
+    #professionals_search_form .submit button {padding: 11px 0; width: 100%;}
+    #professionals_search_form .result {margin-bottom: 15px;}
+
+#professionals-types {}
+    #professionals-types li {font-size: 18px;}
+        #professionals-types li > a,
+        #professionals-types li > a:hover {
+            color: #484646;
+            background: none;
+            text-decoration: none;
+        }
+    #professionals-types .active span {border-bottom: 2px solid #FF1B55;}
+
+/* Professionals list */
+.professional-preview {background: #fff; margin-bottom: 4.166%; height: 337px; overflow: hidden; position: relative;}
+    .professional-preview .white-panel {
+        border-top: 0; min-height: 145px; position: absolute; bottom: 0; left: 0; padding: 10px 15px; margin-bottom: 0;
+        width: 100%;
+    }
+    .professional-preview .name {color: #000000; font-size: 20px; font-weight: 400;}
+    .professional-preview .image .img-responsive {margin:0 auto;}
+    .professional-preview .address {color: #888484; font-size: 16px;}
+    .professional-preview .phones {color: #000000; font-size: 16px;}
+    .professional-preview .reviews {
+        position: absolute; bottom: 20px; font-size: 16px; text-decoration: none; right: 15px;
+    }
+    .professional-preview ul {
+        list-style: none; margin: 0; padding: 0; display: inline-block; position: absolute; bottom: 20px;
+    }
+    .professional-preview .extra-buttons {margin-top:10px;}
+
+.professionals-breadcrumbs {
+    list-style: none;
+    font-size: 16px;
+    margin: 0 0 20px 0;
+    padding: 0;
+    display: inline-block;
+}
+    .professionals-breadcrumbs li {color: #777; display: inline-block;}
+    .professionals-breadcrumbs li a {text-decoration: none;}
+
+/* Отзывы и рейтинг */
+
+.professionals-wrap ul.rating {padding: 0;}
+.professionals-wrap .rating li {list-style: none; margin: 0 5px 0 0; padding: 0; display: inline-block; color: #e5e5e5;}
+.professionals-wrap .rating li.active {color: #ff4977;}
+
+.professionals-wrap #review-form .rating li {cursor: pointer;}
+
+.professionals-wrap #reply-form .control-label {display: none;}
+
+.professionals-wrap .btn-padded {
+    padding: 10px 20px;
+}
+
+.professionals-wrap .professionals-reviews {margin: 20px 0; list-style: none; padding: 0;}
+    .professionals-wrap .professionals-reviews .review {}
+    .professionals-wrap .professionals-reviews .review-title {font-size: 16px; color: #333333; margin-bottom: 10px;}
+        .professionals-wrap .professionals-reviews .review-title strong {margin-bottom: 0;}
+    .professionals-wrap .professionals-reviews .review-date {font-size: 15px; color: #666666; opacity: 0.4; margin-bottom: 10px;}
+    .professionals-wrap .professionals-reviews .rating {margin-bottom: 10px;}
+    .professionals-wrap .professionals-reviews strong {margin-bottom: 10px; display: inline-block;}
+    .professionals-wrap .professionals-reviews .review-text {font-size: 15px; color: #666666;}
+    .professionals-wrap .professionals-reviews .review-avatar {}
+        .professionals-wrap .professionals-reviews .review-avatar img {
+            max-height: 83px; max-width: 83px; min-height: 30px;
+        }
+
+.professionals-wrap #review-form #div_id_rating {margin-bottom: 0;}
+.professionals-wrap #review-form label {font-weight: normal;}
+
+.professionals-wrap #reply-form .h5 {margin-top: 0;}

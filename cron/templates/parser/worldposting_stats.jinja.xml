@@ -1,0 +1,17 @@
+<statistics>
+{% for ad in ads %}
+<listing>
+    <id>{{ ad.xml_id }}</id>
+    <reference>{{ ad.pk }}</reference>
+    {%- if ad.status == 1 %}
+        <url>{{ ad.get_absolute_url() }}</url>
+        <error/>
+    {%- else %}
+        <url/>
+        <error>{{ ad.get_status_display() }}</error>
+    {%- endif %}
+    <list_views/>
+    <detail_views>{{ ad.detail_views }}</detail_views>
+</listing>
+{%- endfor %}
+</statistics>

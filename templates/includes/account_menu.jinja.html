@@ -1,0 +1,34 @@
+<div class="gray-panel gray-panel-for-submenu">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 current-placement-type">
+                {% with ppc = request.user.has_active_leadgeneration('ads'), active_plan = request.user.get_active_plan_using_prefetch() %}
+                    {% if ppc %}
+                        {% trans %}Подключена услуга{% endtrans %}: <span class="pink">{% trans %}Оплата за звонок{% endtrans %}</span><br/>
+                        {% with expire_date_of_dedicated_number = request.user.get_expire_date_of_dedicated_number() %}
+                            {% if expire_date_of_dedicated_number  %}
+                                {% trans %}Выделенный номер до {% endtrans %}
+                                <span class="pink abbr default-tooltip" title="{% trans %}если на балансе будет необходимая сумма, то произойдет автоматическое продление выделенного номера{% endtrans %}">
+                                    {{ expire_date_of_dedicated_number|date("d.m.Y") }}</span>
+                            {% else %}
+                                {% trans %}Баланс{% endtrans %}: <span class="pink">{{ request.user.get_balance() }} грн.</span>
+                            {% endif %}
+                        {% endwith %}
+                    {% elif active_plan %}
+                        {% trans %}Подключен тариф{% endtrans %}: <span class="pink">{{ active_plan.ads_limit|pluralize((_("объявление"), _("объявления"), _("объявлений")), '') }}</span><br/>
+                        {% trans %}Действует до{% endtrans %} <span class="pink">{{ active_plan.valid_until()|date("d.m.Y H:i") }}</span>
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div class="col-md-18 l-submenu">
+                <div class="navbar navbar-right" role="navigation">
+                    {% if request.is_developer_cabinet_enabled %}
+                        {% include "newhome/cabinet/menu.jinja.html" %}
+                    {% else %}
+                        {% include "profile/menu.jinja.html" %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div><br/>

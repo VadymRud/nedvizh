@@ -1,0 +1,35 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Поиск правил генерации метатегов по ссылке{% endblock %}
+
+{% block content %}
+<div id="content-main" class=''>
+
+    <div class="module">
+        <table width="100%">
+            <caption>Поиск правил генерации метатегов по ссылке</caption>
+            <tbody>
+                <tr><td>
+                    <form action="/admin/seo/seorule/find_rules/" id="seo-url-checker">
+                        <input id="seo_url" name="url" placeholder="URL" type="text" value="{{ url }}" style="width:600px;">
+                        <input value="Проверить" type="submit">
+                    </form>
+                </td></tr>
+            </tbody>
+        </table>
+    </div><br/>
+
+    {% if rules %}
+        <h3>Правила, которые подходили по условиям в порядке приоритета:</h3><br/>
+        {% for rule, phrases in rules %}
+            <h4>{{ forloop.counter }}. <a href="{% url 'admin:seo_seorule_change' rule.id %}">{{ rule }}</a></h4>
+            <ul>
+            {% for key, phrase in phrases.items %}
+                <li>{{ key }}: {{ phrase }}</li>
+            {% endfor %}
+            </ul><br/>
+        {% endfor %}
+    {% endif %}
+
+</div>
+{% endblock %}

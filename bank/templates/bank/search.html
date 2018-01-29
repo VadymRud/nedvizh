@@ -1,0 +1,48 @@
+{% extends "bank/base.html" %}
+
+{% block seo %}
+    <title>{{ seo.title }}</title>
+    <meta name="keywords" content="{{ seo.keywords }}">
+    <meta name="description" content="{{ seo.description }}">
+{% endblock %}
+
+{% block content %}
+<table width='100%'><tr>
+    <td class='l-center'>
+        {% load i18n %}
+        
+        {{ form.errors }}
+        {{ form.non_field_errors }}
+        
+        {% include "bank/search_form.html" %}
+
+        {% if paginator.count %}
+            {% load thumbnail_filter %}
+            {% include "bank/pagination.html" %}
+            <table width='100%'><tr><td class='l-center'>
+                <div class='property-list property-search-list clearfix'>
+                    {% for item in paginator.current_page.object_list %}
+                        {% include "bank/preview.html" with map_pointer=1 show_more_button=1 %}
+                    {% endfor %}
+                </div>
+            </td><td width='655'>
+                {% include "bank/on_map.html"  with items=results.objects map_width=655 %}
+            </td></tr></table>
+            {% include "bank/pagination.html" %}
+
+            {% if not show_result %}
+                <p><a class="btn btn-success" href="result.html">Посмотреть всё</a></p>
+            {% endif %}
+            
+        {% else %}
+            <p>{% trans 'Ничего не найдено.' %}</p>
+        {% endif %}
+        
+    </td>
+</tr></table>
+
+<script>
+    $('.pagination-showed').text($('.pagination-list:eq(0)').data('showed'));
+</script>
+
+{% endblock %}

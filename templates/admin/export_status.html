@@ -1,0 +1,20 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Экспорт{% endblock %}
+{% block content %}
+<style>
+    th {text-align: center;}
+</style>
+<h1>Экспорт</h1><br/>
+<table>
+    <th>Сайт</th><th>Фид</th><th>Дата</th><th>Объявления</th>
+    {% for feed_name, feed in feeds_data.items %}
+    <tr>
+        <td>{{ feed.comment }}</td>
+        <td><a href="{{ feed.link }}">{{ feed.link }}</a></td>
+        <td>{{ feed.time|date:"d.m.Y H:i" }}</td>
+        <td align='right'>{{ feed.properties }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

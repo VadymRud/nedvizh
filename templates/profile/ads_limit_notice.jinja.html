@@ -1,0 +1,27 @@
+{% if ('ads-limit-notification-shown' not in request.COOKIES or 'info' in request.GET) and request.active_plan and request.user.update_ads_count() == request.active_plan.ads_limit %}
+    <div class="property-short text-center">
+        {% trans ads_count=request.user.ads_count, ads_limit=request.active_plan.ads_limit -%}
+        Вы добавили все {{ ads_count }} из {{ ads_limit }} возможных объявлений.<br/>
+        Удалите или деактивируйте какие-либо объявления<br/> из существующих{% endtrans %}
+        {% if request.active_plan.ads_limit < 40 -%}
+            {%- trans %}или перейдите на улучшенный тариф{% endtrans -%}
+        {%- elif request.own_agency -%}
+            {%- trans %}или добавьте риелтора в свой аккаунт{% endtrans -%}
+        {%- endif %}.
+        <br/><br/>
+        {% if request.active_plan.ads_limit < 40 %}
+            <a href="{{ url('services:plans') }}" class="btn btn-md btn-danger">{% trans %}Перейти на улучшенный тариф{% endtrans %}</a><br/><br/>
+        {% endif %}
+        <a class="btn btn-md" id="dont-show-again">{% trans %}Больше не показывать{% endtrans %}</a><br/><br/>
+    </div>
+
+    {% compress js %}
+    <script>
+        $("#dont-show-again").click(function() {
+            $(this).parent().hide();
+            var domain = '.' + window.location.hostname.split('.').slice(-2).join('.');
+            $.cookie('ads-limit-notification-shown', 1, { expires: 1, path: '/', domain: domain});
+        });
+    </script>
+    {% endcompress %}
+{% endif %}

@@ -1,0 +1,25 @@
+{% extends "mail/base_redesigned_2017.jinja.html" %}
+
+{% block content %}
+  <tr>
+    <td>
+      <div class="text-wrap left-padding right-padding default-bottom-padding">
+        {% trans %}Уже завтра, в{% endtrans %} {{ event.start_at|date("H:i") }} {% trans %}ждем Вас по адресу{% endtrans %} {{ event.address }} <strong>Mesto School</strong> {% trans %}на тему:{% endtrans %}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap default-bottom-padding text-center" style="font-size: 16px; font-weight: bold;">
+        <a href="{{ event.get_absolute_url() }}{% if utm is defined %}?{{ utm.urlencode() }}{% endif %}" target="_blank">{{ event.get_title() }}</a>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap left-padding right-padding">
+        {% trans %}Контактная информация{% endtrans %} - 097 28 78 635 {% trans %}или{% endtrans %} e-mail: <a href="mailto:yaroslav@mesto.ua">yaroslav@mesto.ua</a>
+      </div>
+    </td>
+  </tr>
+{% endblock %}

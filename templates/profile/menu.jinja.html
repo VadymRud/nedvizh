@@ -1,0 +1,65 @@
+{% set realtor = request.user.get_realtor() %}
+{% set navigation_items = [] %}
+
+{% if request.user.region %}
+    {% do navigation_items.append(( url('services:index'), _('Способы размещения'), {'submenu': [
+        (url('services:plans'), _('Тарифный план')),
+        (url('services:lead'), _('Оплата за звонок')),
+        (url('services:vips'), _('VIP объявление')),
+        (url('services:international'), _('Зарубежные каталоги')),
+    ]} ) ) %}
+{% endif %}
+
+{% if realtor and realtor.is_admin %}
+    {% do navigation_items.append(( url('agency_admin:ads'), _('Объекты агентства') ) ) %}
+{% else %}
+    {% do navigation_items.append(( url('profile_my_properties'), _('Мои объявления') ) ) %}
+{% endif %}
+
+{% if realtor %}
+    {% set crm_submenu = [
+        ( url('agency_admin:crm') + '#messages', _('Сообщения'), {'check_active':False} ),
+        ( url('agency_admin:crm') + '#tasks', _('Задачи'), {'check_active':False} ),
+        ( url('agency_admin:crm') + '#leadhistories', _('Клиенты'), {'check_active':False} ),
+    ] %}
+    {% if  request.user.has_active_leadgeneration('ads') %}
+        {% do navigation_items.append( ( url('agency_admin:crm') + '#leadhistories', _('CRM'), {'submenu':crm_submenu})) %}
+    {% else %}
+        {% do navigation_items.append( ( url('agency_admin:crm'), _('CRM'), {'submenu':crm_submenu})) %}
+    {% endif %}
+
+    {% if realtor.is_admin %}
+        {% set agency_submenu = [
+            ( url('profile_settings_agency'), _('Настройки') ),
+            ( url('agency_admin:realtors'), _('Риелторы') ),
+            ( url('agency_admin:stats'), _('Статистика') ),
+            ( url('import:index'), _('Импорт объявлений') ),
+        ] %}
+        {% do navigation_items.append( ( url('profile_settings_agency'), _('Агентство'), {'submenu':agency_submenu} ) ) %}
+    {% endif %}
+
+{% endif %}
+
+{# (url('services:analysis'), _('Экспертная проверка жилья')), #}
+{# (url('services:interior3d'), _('3D визуализация'), {'icon':'ico_interior3d','classes':['menu-label-new']}),  #}
+{% do navigation_items.extend([
+    ( url('services:legal_services'), _('Полезные услуги'), {'submenu': [
+        (url('services:tour360'), _('Панорама 360'), {'target': '_blank'}),
+        (url('services:ocenka_nedvizh'), _('Оценка недвижимости')),
+        (url('services:notary'), _('Услуги нотариуса')),
+    ]}),
+    ( url('profile_balance'), _('Финансы') + ' <span class="balance">(%s грн)</span>'|safe % request.user.get_balance()|floatformat(-2), {'submenu':[
+        ( url('agency_admin:balance'), _('Операции') ),
+        ( url('profile_orders'), _('Заказы') ),
+    ]}),
+    ( url('profile_settings'), _('Профиль'), {'classes':['submenu-small'], 'submenu':[
+        ( url('profile_settings'), _('Настройки') ),
+        ( url('profile_saved_properties'), _('Сохраненные объявления') ),
+        ( url('profile_saved_searches'), _('Сохраненные поиски') ),
+    ]} )
+]) -%}
+
+<ul class="nav navbar-nav">
+    {% from "macro/navigation.jinja.html" import navigation %}
+    {{ navigation(navigation_items, request) }}
+</ul>

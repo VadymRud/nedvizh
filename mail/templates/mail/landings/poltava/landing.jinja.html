@@ -1,0 +1,120 @@
+{% extends "mail/landings/base.jinja.html" %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{{ static('mail/css/landings/poltava/style.css') }}">
+{% endblock %}
+
+{% block content %}
+  <div class="landing-header">
+    <div class="container">
+      <div class="row">
+        <div><div>Выберите вкладку и узнайте<br><strong>что ищет клиент в Вашем сегменте:</strong></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="landing-menu">
+    <div>
+      <div class="container">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active">
+            <a href="#sale" aria-controls="sale" role="tab" data-toggle="tab">
+              <span></span>Продажа
+            </a>
+            <div>
+              <span></span>
+            </div>
+          </li>
+          <li role="presentation">
+            <a href="#rent" aria-controls="rent" role="tab" data-toggle="tab">
+              <span></span>Аренда
+            </a>
+            <div>
+              <span></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="tab-content">
+      <div class="row">
+        <div class="col-xs-20 col-xs-offset-2" style="padding-top: 120px;">
+          <p>Ежедневно, команда портала недвижимости mesto.ua работает над улучшением качества сервиса и делает все возможное, чтоб вы, как профессионал рынка недвижимости, работали с исключительно качественным, а главное целевым клиентом.</p>
+          <p>Наша цель – <strong>привести вам Клиента, а не просто звонок!</strong></p>
+          <p>В этом дайджесте, мы постарались собрать наиболее ценную и актуальную информацию, а именно, показать, каким типом недвижимости ваш Клиент интересуется на сайте mesto.ua, какое кол-в комнат и расположение его интересует, а главное, на какую сумму он рассчитывает.</p>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane active" id="sale">
+        <div class="row">
+          <div class="col-xs-20 col-xs-offset-2 text-center" style="padding-top: 80px;">
+            <h2>TOП запросов по Полтаве на Mesto.ua</h2>
+            <small>с 1.03 по 31.03 2017</small><br><br>
+            <p>Статистика наиболее популярных запросов пользователей mesto.ua<br> по типам сделок и какое количество людей их искало</p>
+            <img src="{{ static('mail/img/landings/poltava/image-02.png') }}">
+          </div>
+          <div class="col-xs-20 col-xs-offset-2 text-center" style="padding-top: 120px;">
+            <h2>TOП запросов <br>по районам в Полтаве на Mesto.ua</h2>
+            <small>с 1.03 по 31.03 2017</small><br><br>
+            <p>В этом блоке представлена статистика популярных районов Полтавы по<br>поиску квартир с разбивкой по кол-ву комнат</p>
+            <img src="{{ static('mail/img/landings/poltava/image-03.png') }}">
+          </div>
+          <div class="col-xs-20 col-xs-offset-2 text-center" style="padding-top: 120px;">
+            <h2>Количество запросов и объявлений <br>на Mesto.ua в Полтаве</h2>
+            <small>с 1.03 по 31.03 2017</small><br><br>
+            <p>А здесь мы делимся с Вами самым сокровенным: разделами, где показан самый большой спрос и самое маленькое количество предложений!</p>
+            <p>У Вас есть что-то из нижеперечисленного? Смело размещайте его на портале уже сейчас.</p>
+            <img src="{{ static('mail/img/landings/poltava/image-04.png') }}">
+          </div>
+          <div class="col-xs-20 col-xs-offset-2 text-center" style="padding-top: 120px;">
+            <h2>Объявления в Полтаве, которые получили<br> наибольшее количество просмотренных<br> контактов</h2>
+            <small>с 1.03 по 31.03 2017</small><br><br>
+            <img src="{{ static('mail/img/landings/poltava/image-05.png') }}">
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="rent">
+        <div class="row">
+          <div class="col-xs-20 col-xs-offset-2 text-center" style="padding-top: 80px;">
+            <h2>TOП запросов по Полтаве на Mesto.ua</h2>
+            <small>с 1.03 по 31.03 2017</small><br><br>
+            <p>Статистика наиболее популярных запросов пользователей mesto.ua<br> по типам сделок и какое количество людей их искало</p>
+            <img src="{{ static('mail/img/landings/poltava/image-06.png') }}">
+          </div>
+          <div class="col-xs-20 col-xs-offset-2 text-center" style="padding-top: 120px;">
+            <h2>TOП запросов <br>по районам в Полтаве на Mesto.ua</h2>
+            <small>с 1.03 по 31.03 2017</small><br><br>
+            <p>В этом блоке представлена статистика популярных районов Полтавы по<br>поиску квартир с разбивкой по кол-ву комнат</p>
+            <img src="{{ static('mail/img/landings/poltava/image-07.png') }}">
+          </div>
+          <div class="col-xs-20 col-xs-offset-2 text-center" style="padding-top: 120px;">
+            <h2>Количество запросов и объявлений <br>на Mesto.ua в Полтаве</h2>
+            <small>с 1.03 по 31.03 2017</small><br><br>
+            <p>А здесь мы делимся с Вами самым сокровенным: разделами, где показан самый большой спрос и самое маленькое количество предложений!</p>
+            <p>У Вас есть что-то из нижеперечисленного? Смело размещайте его на портале уже сейчас.</p>
+            <img src="{{ static('mail/img/landings/poltava/image-08.png') }}">
+          </div>
+          <div class="col-xs-20 col-xs-offset-2 text-center" style="padding-top: 120px;">
+            <h2>Объявления в Полтаве, которые получили<br> наибольшее количество просмотренных<br> контактов</h2>
+            <small>с 1.03 по 31.03 2017</small><br><br>
+            <img src="{{ static('mail/img/landings/poltava/image-09.png') }}">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-20 col-xs-offset-2 text-center" style="padding: 120px 0;">
+        <p><strong style="font-size: 24px;">Убедитесь в том, что это работает</strong></p>
+        <p><strong>А</strong>ктивируйте свои объявления на сайте и начните получать звонки от целевых клиентов</p>
+        <p>
+          <a href="{{ host_url('profile_add_property') }}?utm_source=newsletter&utm_medium=email&utm_campaign=poltava_digest" class="btn btn-danger">Добавить объявление</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="landing-footer text-center">
+    <a href="{{ host_url('index') }}">
+      <img src="{{ static('mail/img/landings/poltava/logo.png') }}">
+    </a>
+  </div>
+{% endblock %}

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{% trans %}Семинар-интенсив{% endtrans %}: {% trans %}Факторы умножения продаж{% endtrans %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:image" content="{{ static('training-kharkiv/img/logo.png') }}" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    {%- include 'includes/gtm.jinja.html' -%}
+
+    {% compress css %}
+    <link href="{{ static('training-kharkiv/css/screen.css') }}" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ static('libs/owl.carousel/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ static('libs/owl.carousel/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ static('training-kharkiv/css/default.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ static('training-kharkiv/css/component.css') }}" />
+    {% endcompress %}
+
+    <meta property="og:image" content="{{ static('training-kharkiv/img/speakers.jpg') }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="{{ static('libs/owl.carousel/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ static('training-kharkiv/js/modernizr.custom.js') }}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    {% include 'includes/gtm_noscript.jinja.html' %}
+    <section class="section_1">
+        <div class="header_wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-12 col-md-12 center">
+                        <a href="/"><img src="{{ static('training-kharkiv/img/logo.png') }}" alt="logo"/></a>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 col-md-12 text ">
+                        {% trans %}г.Харьков, ул Благовещенская (бывшая Карла Маркса), 1{% endtrans %}<br/>{% trans %}Конференц-зал “Fabrika space”{% endtrans %}<br/>тел.: <b>(098) 686-91-12</b>
+                    </div>
+                    <div class="col-lg-3 col-sm-12 col-md-12 center">
+                        <span>{% trans %}8 декабря{% endtrans %}</span>
+                        <span>{% trans %}с 10:00 до 15:00{% endtrans %}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col main_block">
+                    <div class="second_text">{% trans %}Семинар-интенсив{% endtrans %}:</div>
+                    <div class="first_text">{% trans %}Факторы умножения<br/> продаж риэлтора{% endtrans %}</div>
+                    <div>
+                        <input type="button" value="{% trans %}Принять участие{% endtrans %}" class="egreet"/>
+                        <!--<div class="birka"><span>Поспешите</span><br/>
+                            осталось <b>40</b> мест</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--<section class="section_2">
+        <div class="container">
+            <div class="row">
+                <div class="main_block col-lg-7 col-sm-10 col-md-10 ml-md-auto">Итак, вы — продавец недвижимости. Допустим, у вас уже налажены все бизнес процессы. Реклама приносит звонки, в офисе периодически появляются потенциальные клиенты, часть которых становятся покупателями. Вы работаете в оптимальном для себя режиме, распределив усилия, получая соответствующий результат.</div>
+                <img alt="ask" src="{{ static('training-kharkiv/img/logo_ask.png') }}" />
+            </div>
+        </div>
+    </section>-->
+    <!--<section class="section_3">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9 col-sm-10 col-md-10">
+                    <p>А теперь вопросы “на засыпку”</p>
+                    <ul>
+                        <li>Вас полностью устраивает ваш уровень дохода?</li>
+                        <li>Реально ли повысить ваши продажи, например в 2 раза?</li>
+                        <li>Как думаете, насколько нужно умножить усилия, чтобы добиться такого роста?</li>
+                        <li>Какому именно фактору вы уделили бы внимание?</li>
+                    </ul>
+                </div>
+                &lt;!&ndash;<div class="col-lg-10 col-sm-11 col-md-11">
+                    <div class="content">Если вы без труда находите ответ на каждый из этих вопросов, вам вряд ли понадобится наша помощь. Однако если вы понимаете, что работа с клиентом – это катализатор бизнес-трансформаций, и хотите делать продажи, обеспечивая повторные сделки, у вас есть уникальная возможность получить в свое распоряжение эффективные инструменты и кейсы от успешных практиков.</div>
+                </div>&ndash;&gt;
+            </div>
+        </div>
+    </section>-->
+    <!--<section class="section_6">
+        <div class="container justify-content-center">
+            <div class="tringle"></div>
+            <h2>А мы вот знаем ответы и поделимся инфой 8 декабря</h2>
+            <div>
+                <input type="button" value="Принять участие" class="egreet"/>
+            </div>
+
+        </div>
+    </section>-->
+    <section class="section_4">
+        <div class="container">
+            <h2>{% trans %}После этого семинара Вы{% endtrans %}:</h2>
+            <div class="row">
+                <div class="col-lg-3 col-sm-11 col-md-11 number">
+                    <strong>1</strong>
+                    <img src="{{ static('training-kharkiv/img/ico_1.png') }}" alt="ico_1"/>
+                    <span>{% trans %}Узнаете классический алгоритм масштабирования прибыли{% endtrans %}</span>
+                </div>
+                <div class="col-lg-3 col-sm-11 col-md-11 number">
+                    <strong>2</strong>
+                    <img src="{{ static('training-kharkiv/img/ico_2.png') }}" alt="ico_2"/>
+                    <span>{% trans %}Увеличите свою личную прибыль{% endtrans %}</span>
+                </div>
+                <div class="col-lg-3 col-sm-11 col-md-11 number">
+                    <strong>3</strong>
+                    <img src="{{ static('training-kharkiv/img/ico_3.png') }}" alt="ico_3"/>
+                    <span>{% trans %}Найдете собственный лучший инструмент продаж{% endtrans %}</span>
+                </div>
+                <div class="col-lg-3 col-sm-11 col-md-11 number">
+                    <strong>4</strong>
+                    <img src="{{ static('training-kharkiv/img/ico_4.png') }}" alt="ico_4"/>
+                    <span>{% trans %}Уберете все лишнее из своей воронки продаж{% endtrans %}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section_5">
+           <div class="container">
+               <h2>{% trans %}Для кого мы проводим семинар{% endtrans %}:</h2>
+               <div class="row">
+                   <div class="col-lg-3 col-sm-11 col-md-11">
+                       <img src="{{ static('training-kharkiv/img/ico_man_1.png') }}" alt="profile"/>
+                       <span><b>{% trans %}Новичок в риелторском бизнесе{% endtrans %}</b></span>
+                       <span>{% trans %}Узнаете, с чего лучше начать, а что пока не трогать{% endtrans %}</span>
+                   </div>
+                   <div class="col-lg-3 col-sm-11 col-md-11">
+                       <img src="{{ static('training-kharkiv/img/ico_man_2.png') }}" alt="graphic"/>
+                       <span><b>{% trans %}Опытный риелтор{% endtrans %}</b></span>
+                       <span>{% trans %}Обменяетесь опытом с коллегами. “апгрейднете” свой подход к бизнесу{% endtrans %}</span>
+                   </div>
+                   <div class="col-lg-3 col-sm-11 col-md-11">
+                       <img src="{{ static('training-kharkiv/img/ico_man_3.png') }}" alt="comment"/>
+                       <span><b>{% trans %}Руководитель АН{% endtrans %}</b></span>
+                       <span>{% trans %}Внедрите новые техники маркетинга и продаж на базе собственного АН{% endtrans %}</span>
+                   </div>
+                   <div class="col-lg-3 col-sm-11 col-md-11">
+                       <img src="{{ static('training-kharkiv/img/ico_man_4.png') }}" alt="spisok"/>
+                       <span><b>{% trans %}Тусовщик{% endtrans %}</b></span>
+                       <span>{% trans %}Пообщаетесь с коллегами. Отличный способ завязать новые знакомства и партнерские отношения{% endtrans %}</span>
+                   </div>
+               </div>
+           </div>
+    </section>
+
+    <section class="section_12">
+        <div class="container">
+            <div class="row justify-content-center">
+                <h2 class="col-12">{% trans %}Спикеры{% endtrans %}</h2><br/>
+                <div class="col-lg-6 col-sm-11 col-md-11 main_content">
+                    <img src="{{ static('training-kharkiv/img/image_foto1.png') }}" alt="{% trans %}Ярослав Давидчук{% endtrans %}" />
+                    <ul>{% trans %}Ярослав Давидчук{% endtrans %}
+                        <li>{% trans %}Бизнес-тренер{% endtrans %}</li>
+                        <li>{% trans %}Руководитель проекта SmartSeller{% endtrans %}</li>
+                        <li>{% trans %}Руководитель образовательного проекта для риелторов Mesto School{% endtrans %}</li>
+                        <li>{% trans %}Специалист по организации продаж{% endtrans %}</li>
+                        <li>{% trans %}Спикер всеукраинских конференций специалистов по недвижимости{% endtrans %}</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 col-sm-11 col-md-11 main_content">
+                    <img src="{{ static('training-kharkiv/img/image_foto2.png') }}" alt="{% trans %}Андрей Правдин{% endtrans %}" />
+                    <ul>{% trans %}Андрей Правдин{% endtrans %}
+                        <li>{% trans %}Директор агентства недвижимости VALION Харьков{% endtrans %}</li>
+                        <li>{% trans %}Председатель комитета по обучению ХРО АСНУ{% endtrans %}</li>
+                        <li>{% trans %}Спикер и модератор секций всеукраинских конференций риэлторов{% endtrans %}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section_13">
+        <div class="container">
+            <div class="wrapper">
+                <h2 class="col-12">{% trans %}Отзывы{% endtrans %}</h2><br/>
+                <div id="cbp-fwslider" class="cbp-fwslider">
+                    <ul>
+                        <li>
+                            <i class="avatar1"></i>
+                            <p><span>{% trans %}Алла Осипенко{% endtrans %}</span><br/>
+                                {% trans %}Руководитель FreeDOM Estate{% endtrans %}</p>
+                            <div><img src="{{ static('training-kharkiv/img/ico_quote.png') }}" alt=""/>{% trans %}Спасибо организаторам тренинга-интенсива за насыщенный день, новые и забытые знания{% endtrans %} <a href="https://www.facebook.com/alla.osypenko/posts/1708431205836105" target="_blank">{% trans %}читать далее{% endtrans %}</a></div>
+                        </li>
+                        <li>
+                            <i class="avatar2"></i>
+                            <p><span>{% trans %}Наталия Балюк{% endtrans %}</span><br/>
+                                {% trans %}Частный риэлтор{% endtrans %}</p>
+                            <div><img src="{{ static('training-kharkiv/img/ico_quote.png') }}" alt=""/>{% trans %}В тренингах и мастер классах, которые я посещаю, оцениваю не только полезные знания, и навыки,<br> которые получаю от коучей, но и комфортность самого  помещения (зала){% endtrans %} <a target="_blank" href="https://www.facebook.com/nbalyuk/posts/10212448055454245">{% trans %}читать далее{% endtrans %}</a></div>
+                        </li>
+                        <li>
+                            <i class="avatar3"></i>
+                            <p><span>{% trans %}Носов Андрей{% endtrans %}</span><br/>
+                                {% trans %}АН "Импульс", г. Днепр{% endtrans %}</p>
+                            <div><img src="{{ static('training-kharkiv/img/ico_quote.png') }}" alt=""/>{% trans %}Супер! Были предложены новые идеи рекламы объектов и ведения переговоров с клиентами. Хочется ещё!!!{% endtrans %}</div>
+                        </li>
+                        <li>
+                            <i class="avatar4"></i>
+                            <p><span>{% trans %}Линская Анастасия{% endtrans %}</span><br/>
+                                {% trans %}АН "Атланта", г. Одесса{% endtrans %}</p>
+                            <div><img src="{{ static('training-kharkiv/img/ico_quote.png') }}" alt=""/>{% trans %}Вся информация Была представлена очень креативно, интересно и энергично. Спасибо огромное, много<br/> полезных вещей было услышано и заметано.{% endtrans %}</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section_14">
+        <div class="owl-carousel">
+            <div><img src="{{ static('training-kharkiv/img/yarik/08.jpg') }}" alt=""/></div>
+            <div><img src="{{ static('training-kharkiv/img/yarik/09.jpg') }}" alt=""/></div>
+            <div><img src="{{ static('training-kharkiv/img/yarik/010.jpg') }}" alt=""/></div>
+            <div><img src="{{ static('training-kharkiv/img/yarik/013.jpg') }}" alt=""/></div>
+            <div><img src="{{ static('training-kharkiv/img/yarik/011.jpg') }}" alt=""/></div>
+            <div><img src="{{ static('training-kharkiv/img/yarik/012.jpg') }}" alt=""/></div>
+            <div><img src="{{ static('training-kharkiv/img/yarik/014.jpg') }}" alt=""/></div>
+            <div><img src="{{ static('training-kharkiv/img/yarik/07.jpg') }}" alt=""/></div>
+        </div>
+    </section>
+    <section class="section_15">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!--<h2>Примите участие <span>сейчас!</span></h2>
+                <h3>Чем скорее вы закажете участие в тренинге, тем дешевле оно будет стоить </h3>-->
+                <!--<div class="col-5 main_content">
+                    <b>0</b> грн
+                    <ul>
+                        <li>Бесплатный аудит</li>
+                        <li>Краткий отчет</li>
+                    </ul>
+                    <br/><input class="first audit" type="button" value="Заказать аудит"/>
+                </div>-->
+                <div class="col-lg-7 col-sm-11 col-md-11 main_content">
+                   <!-- <div class="price">1 800 <span>грн</span></div>
+                    <div class="line"></div>-->
+                    <span>{% trans %}Примите участие{% endtrans %}</span>
+                    <div class="text">{% trans %}Чем скорее вы закажете участие в тренинге, тем дешевле оно будет стоить{% endtrans %}</div>
+                    <div class="number">{{ price }} <span>грн</span></div>
+                    <div class="text">{% trans %}для членов АСНУ скидка 22%{% endtrans %}</div>
+                    <input class="second egreet" type="button" value="{% trans %}Принять участие{% endtrans %}"/>
+                    <!--<div class="birka"><span>Поспешите</span><br/>осталось <b>40</b> мест</div>-->
+                </div>
+                <!--<div class="col-lg-10 col-sm-8 col-md-10 footer_content">
+                    <img src="{{ static('training-kharkiv/img/ico_ahtung.png') }}" alt=""/>
+                    <div>Каждому зарегистрированному участнику гарантирован аудит отдела продаж его агентства. Наши специалисты сделают несколько анонимных звонков и, определив слабые стороны обслуживания и скриптов, составят подробный отчет. На тренинге мы вместе разберемся с тем, как устранить существующие проблемы.</div>
+                </div>-->
+            </div>
+        </div>
+    </section>
+    <section class="section_16">
+        <div class="container">
+            <div class="row justify-content-center">
+                <h2 class="col-12">{% trans %}Место проведения{% endtrans %}</h2>
+
+                <address class="col-12">{% trans %}г.Харьков, ул Благовещенская (бывшая Карла Маркса), 1{% endtrans %}<br/>{% trans %}Конференц-зал “Fabrika space”{% endtrans %}<br/>
+                    тел.: <span>(098) 686-91-12</span></address>
+                <p class="col-12"><b>{% trans %}8 декабря{% endtrans %}</b><br/>
+                    {% trans %}с 10:00 до 15:00{% endtrans %}</p>
+            </div>
+        </div>
+    </section>
+    <!--Popup Order-->
+    <div class="modal_form_egreet">
+        <div class="logo"><img src="{{ static('training-kharkiv/img/ico_mail.png') }}" alt="mail"><br/>{% trans %}Продажа билетов завершена{% endtrans %}</div>
+        
+    </div>
+    <div class="modal_sucsess_ok">
+        <img src="{{ static('training-kharkiv/img/ico_ok.png') }}" alt="mail"><br/><div>{% trans %}Заявка подана{% endtrans %}</div>
+        <div class="footer">{% trans %}Приглашение отправлено на указанную вами почту{% endtrans %}</div>
+    </div>
+
+    <div id="overlay"></div>
+    <script src="{{ static('training-kharkiv/js/script.js') }}" type="text/javascript"></script>
+    <script src="{{ static('training-kharkiv/js/jquery.cbpFWSlider.min.js') }}"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop:true,
+            margin:10,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:true
+                },
+                600:{
+                    items:2,
+                    nav:true
+                },
+                768:{
+                    items:2,
+                    nav:true
+                },
+                1000:{
+                    items:3,
+                    nav:true,
+                    loop:false
+                },
+                1280:{
+                    items:4,
+                    nav:true,
+                    loop:false
+                }
+            }
+        });
+        $( function() {
+            /*
+             - how to call the plugin:
+             $( selector ).cbpFWSlider( [options] );
+             - options:
+             {
+             // default transition speed (ms)
+             speed : 500,
+             // default transition easing
+             easing : 'ease'
+             }
+             - destroy:
+             $( selector ).cbpFWSlider( 'destroy' );
+             */
+            $( '#cbp-fwslider' ).cbpFWSlider();
+        } );
+    </script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <title>{{ title }} - Mesto.UA</title>
+    <link href='https://fonts.googleapis.com/css?family=PT+Serif&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
+    {% compress css %}
+        <link rel="stylesheet" href="{{ static('libs/bootstrap3-24col/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ static('libs/bootstrap-select/bootstrap-select.min.css') }}">
+        <link rel="stylesheet" href="{{ static('css/main.css') }}">
+    {% endcompress %}
+
+    {% compress css %}
+    <style>
+        body {background:white;font-size:18px;line-height:1.5}
+        a, a:hover {color:inherit}
+        .white {color:white;}
+        .container > .title {font-size:60px;line-height:1.2}
+        .call-to-action .btn {
+            background:#c8003a url({{ static('paid_services/img/tour360/button-icon.png') }}) 33px 47% no-repeat !important;
+            border-radius:10px;
+            box-shadow:1px 1px 5px 0px rgba(0,0,0,0.3);
+            font-size:24px;
+            text-transform: uppercase;
+            padding:18px 30px 18px 70px;
+        }
+
+        #tour-header {
+{#            background:url({{ static('paid_services/img/tour360/header-bg.jpg') }}) #555 50% 0 no-repeat;#}
+            color:white;
+            min-height:700px;
+        }
+            #tour-header iframe {
+                display:block;
+                background:black;
+                width:100%;height:700px;
+            }
+            #tour-header .overlay {
+                background:#999;
+                background:rgba(0,0,0,0.5);
+                height:700px;
+                position:relative;
+                margin-top:-700px;
+                padding:60px 0 70px;
+            }
+            #tour-header .logo {margin-bottom:80px;}
+            #tour-header .title {font-size:58px;margin-bottom:75px;font-weight:bold;}
+            #tour-header .call-to-action {margin-bottom:30px;}
+            #tour-header .watch-example {margin-bottom:50px;}
+                #tour-header .watch-example a {color:white;}
+
+            #tour-header .scroll-down {
+                background:url({{ static('paid_services/img/tour360/scroll-down.png') }}) ;
+                display:block;
+                position:absolute;bottom:-1px;left:50%;margin-left:-30px;
+                width:60px;height:34px;
+            }
+
+        #what-is-it {padding:165px 0 140px;}
+            #what-is-it .title {margin-bottom:65px;}
+            #what-is-it .text {font-size:24px;}
+
+        #six-reason {
+            background:#f7f7f7 url({{ static('paid_services/img/tour360/six-reason-bg2.jpg') }}) 60% 100% no-repeat;
+            padding-top:110px;
+            min-height:2247px;
+        }
+            #six-reason .title {margin-bottom:90px;}
+            #six-reason .reason-list {font-size:24px;}
+                #six-reason .reason-list .reason {padding:0 40px;margin-bottom:100px;}
+                #six-reason .reason-list .image {height:90px;}
+                #six-reason .reason-list .subtitle {font-weight:bold;margin-bottom:10px;}
+                #six-reason .reason-list .text {text-align:justify;line-height: 1.7}
+            #six-reason .call-to-action {margin-bottom:400px;}
+
+        #how-much {
+            background:url({{ static('paid_services/img/tour360/how-much-bg.png') }}) repeat #d1d1d1;
+            padding:60px 0 85px;
+        }
+            #how-much .white-panel {
+                background-color:#f9f9f9;
+                padding:70px 30px;
+                border-radius:20px;
+                box-shadow:0 0 20px rgba(0,0,0,0.5);
+                position: relative;
+            }
+                #how-much .white-panel .design-1 {
+                    background: url({{ static('paid_services/img/tour360/how-much-design1.png') }});
+                    position:absolute;left:-22px;bottom:65px;
+                    width:222px;height:237px;
+                }
+                #how-much .white-panel .design-2 {
+                    background: url({{ static('paid_services/img/tour360/how-much-design2.png') }});
+                    position:absolute;left:100%;top:100px;
+                    width:204px;height:583px;
+                }
+            #how-much .title {margin:0 -15px 15px;font-size:60px;line-height:1.2;text-align: center}
+            #how-much .subtitle {margin-bottom:30px}
+
+            #how-much .table {margin-bottom:50px;}
+                #how-much .table td {border:0;padding:20px;}
+                #how-much .table td s {color:black;font-weight: bold;}
+                #how-much .table td .green {color:#69975b;font-weight: bold;}
+                #how-much .table .even td {background:#f5f5f5;}
+
+            #how-much form label {font-weight:normal;}
+            #how-much form label input {margin-right:10px;}
+            #how-much form .form-group {margin-bottom:25px;}
+
+        #footer-w-logo {
+            background:#f5f5f7;
+            padding:115px 0;
+        }
+
+        #tour-request-popup .modal-body {padding:50px 100px;}
+
+        .tour-form input.form-control {
+            line-height: 60px;
+            height:60px;
+            padding:10px 20px;
+            font-size:18px;
+        }
+    </style>
+    {% endcompress %}
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{{ static('libs/bootstrap3-24col/js/bootstrap.min.js') }}"></script>
+
+    {%- include 'includes/gtm.jinja.html' -%}
+</head>
+<body>
+
+{# django.contib.messages #}
+{% include "includes/messages.jinja.html" %}
+{% from "macro/forms.jinja.html" import bootstrap_form  %}
+
+{% set demo_link = 'https://premium.giraffe360.com/mesto/ukraine-binnica/index.html' %}
+
+<div id="tour-header">
+    <iframe id="background" src="https://premium.giraffe360.com/mesto/ukraine-binnica/index.html" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+    <div class="overlay">
+      <div class="container text-center">
+        <div class="logo"><a href="/"><img src="{{ static('paid_services/img/tour360/logo.png') }}"/></a></div>
+        <div class="title">{% trans %}Виртуальные туры 360&deg;<br/> реальные продажи{% endtrans %}</div>
+        <div class="call-to-action"><button class="btn btn-danger" data-toggle="modal" data-target="#tour-request-popup">{% trans %}Связаться с нами{% endtrans %}</button></div>
+        <div class="watch-example text-24"><a href="{{ demo_link }}" target="_blank">
+            {% trans %}Смотрите пример панорамного тура{% endtrans %}</a></div>
+        <div class="row">
+            <div class="col-sm-8"><i class="glyphicon glyphicon-ok"></i> &nbsp; {% trans %}Экономия времени{% endtrans %}</div>
+            <div class="col-sm-8"><i class="glyphicon glyphicon-ok"></i> &nbsp; {% trans %}Преимущество среди конкурентов{% endtrans %}</div>
+            <div class="col-sm-8"><i class="glyphicon glyphicon-ok"></i> &nbsp; {% trans %}Увеличение продаж на 37&#37;{% endtrans %}</div>
+        </div>
+      </div>
+      <a href="#what-is-it" class="scroll-down"></a>
+    </div>
+</div>
+
+<div id="what-is-it">
+    <div class="container text-center">
+        <div class="title">{% trans url=demo_link %}Что такое <a href="{{ url }}" target="_blank">виртуальный тур 360&deg;</a>?{% endtrans %}</div>
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-20 text">{% trans %}Это интерактивный онлайн просмотр объекта недвижимости, где клиент исследует помещение
+                в своем собственном темпе и обращает внимание на вещи, которые интересуют его больше всего.{% endtrans %}</div>
+        </div>
+    </div>
+</div>
+
+<div id="six-reason">
+    <div class="container text-center">
+        <div class="title">{% trans url=demo_link %}Шесть причин начать использовать<br/> <a href="{{ url }}" target="_blank">виртуальный тур 360&deg;</a>{% endtrans %}</div>
+        <div class="row reason-list">
+            <div class="col-sm-12 col-md-8 reason">
+                <div class="image"><img src="{{ static('paid_services/img/tour360/reason-1.png') }}"/></div>
+                <div class="subtitle">{% trans %}Увеличение конверсии на 37&#37;{% endtrans %}</div>
+                <div class="text">{% trans %}37 - не просто цифра, это мировая статистика, которая говорит о том, что,
+                    используя визуальный тур, вы на 37&#37; увеличиваете шансы на заключение той или иной сделки.
+                    Предлагаем Вам лично убедиться в этом и увеличить личную конверсию.{% endtrans %}</div>
+            </div>
+            <div class="col-sm-12 col-md-8 reason">
+                <div class="image"><img src="{{ static('paid_services/img/tour360/reason-2.png') }}"/></div>
+                <div class="subtitle">{% trans %}Мобильность использования{% endtrans %}</div>
+                <div class="text">{% trans %}Новая технология даст Вам возможность быть всегда готовым к показу объекта.
+                    Не важно в каком месте вы находитесь и каким сайтом недвижимости пользуетесь. Всё что вам нужно,
+                    это иметь под рукой любое мобильное устройство, на котором Вы сможете показать потенциальному
+                    клиенту свой объект.{% endtrans %}</div>
+            </div>
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-sm-12 col-md-8 reason">
+                <div class="image"><img src="{{ static('paid_services/img/tour360/reason-3.png') }}"/></div>
+                <div class="subtitle">{% trans %}Экономия времени{% endtrans %}</div>
+                <div class="text">{% trans %}Каждый дорожит своим временем. Теперь Вы сможете сократить время
+                    показа объекта, так как Вам больше не придется выезжать на "холостые" заказы, а значит Вы будете
+                    посещать объект исключительно с целевым клиентом.{% endtrans %}</div>
+            </div>
+            <div class="clearfix visible-md-block visible-lg-block"></div>
+            <div class="col-sm-12 col-md-8 reason">
+                <div class="image"><img src="{{ static('paid_services/img/tour360/reason-4.png') }}"/></div>
+                <div class="subtitle">{% trans %}VR-очки{% endtrans %}</div>
+                <div class="text">{% trans %}Использование современных технологий не только удивит вашего клиента,
+                    но и позволит ему "окунуться" в дизайн интерьера того или иного объекта, получив незабываемые
+                    впечатления от просмотра.{% endtrans %}</div>
+            </div>
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-sm-12 col-md-8 reason">
+                <div class="image"><img src="{{ static('paid_services/img/tour360/reason-5.png') }}"/></div>
+                <div class="subtitle">{% trans %}Визуализация на сайте{% endtrans %}</div>
+                <div class="text">{% trans %}У объектов, размещенных с использованием виртуального тура, увеличивается
+                    шанс на показ клиенту, благодаря дополнительному функционалу. Так же без каких-либо дополнительных плат,
+                    ваше объявление будет рекламироваться в популярных соц. сетях (Facebook, Vkontakte).{% endtrans %}</div>
+            </div>
+            <div class="col-sm-12 col-md-8 reason">
+                <div class="image"><img src="{{ static('paid_services/img/tour360/reason-6.png') }}"/></div>
+                <div class="subtitle">{% trans %}Будь в тренде{% endtrans %}</div>
+                <div class="text">{% trans url=demo_link %}Использование <a href="{{ url }}" target="_blank">визуального тура 360</a> не только покажет Вас как современного человека, идущего в ногу со временем,
+                но и даст понять вашему клиенту, что вы дорожите своим и его временем, а значит являетесь настоящим профессионалом своего дела.{% endtrans %}</div>
+            </div>
+        </div>
+        <div class="call-to-action">
+            <div><a href="#tour-request" href class="btn btn-danger">{% trans %}Заказать тур 360{% endtrans %}</a></div><br/>
+            <div class="text-20 "><a data-toggle="modal" data-target="#tour-request-popup">или свяжитесь с нами</a></div>
+        </div>
+
+    </div>
+</div>
+
+<div id="how-much">
+    <div class="container text-center">
+
+        <div class="row">
+            <div class="col-md-16 col-md-offset-4 white-panel">
+                <div class="design-1"></div>
+                <div class="design-2 visible-md-block visible-lg-block"></div>
+
+                <form method="POST" class="tour-form">{% csrf_token %}
+
+
+                    <div class="title">{% trans %}Сколько это будет стоить{% endtrans %}</div>
+                    <div class="subtitle text-24">{% trans %}Закажите панораму по наименьшей цене в Украине{% endtrans %}</div>
+
+                    <table class="table text-left" style="max-width:625px;margin:0 auto;">
+                        <tr>
+                            <td class="text-20">
+                                <label><input type="radio" name="property_type" value="apartment" checked="checked"> {% trans %}Апартаменты{% endtrans %}</label>
+                            </td>
+                            <td class="gray text-18">
+                                <s>2 320</s>
+                                <span class="green text-30">{{ prices.apartment|intcomma }} грн</span> - {% trans %}до 9 точек{% endtrans %}<br/>
+                                <span class="text-14">{% trans %}Цена варьируется свыше 20 объектов{% endtrans %}</span>
+                            </td>
+                        </tr>
+                        <tr class="even">
+                            <td class="text-20">
+                                <label><input type="radio" name="property_type" value="house"> {% trans %}Съемка дома{% endtrans %}</label>
+                            </td>
+                            <td class="gray text-18">
+                                <s>4 930</s>
+                                <span class="green text-30">{{ prices.house|intcomma }} грн</span> - {% trans %}от 9 до 25 точек{% endtrans %}<br/>
+                                <span class="text-14">{% trans %}Цена варьируется свыше 20 объектов{% endtrans %}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-20">
+                                <label><input type="radio" name="property_type" value="commerical"> {% trans %}Ком. недвижимость{% endtrans %}</label>
+                            </td>
+                            <td class="gray text-18">
+                                <s>11 150</s>
+                                <span class="green text-30">{{ prices.commerical|intcomma }} грн</span> - {% trans %}от 25 точек{% endtrans %}<br/>
+                                <span class="text-14">{% trans %}Цена варьируется свыше 20 объектов{% endtrans %}</span>
+                                <a id="tour-request"></a>
+                            </td>
+                        </tr>
+                    </table><br/>
+
+                    <div style="margin:0 auto;max-width:405px;">
+                        {{ bootstrap_form(tourrequest_form, label_as_placeholder=True, inline_errors=True) }}
+                        <br/>
+                        <div class="call-to-action">
+                            <button type="submit" class="btn btn-danger">{% trans %}Заказать{% endtrans %}</button>
+                            <span style="margin:0 -160px 0 20px;opacity:0.5;filter: grayscale(100%);">
+                                <img src="{{ static('img/icon-visa.png') }}" alt="Verified by VISA"/>
+                                <img src="{{ static('img/icon-mastercard.png') }}" alt="MasterCard SecureCode"/>
+                            </span>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <br/>
+        <div class="text-20 white"><a data-toggle="modal" data-target="#tour-request-popup">или свяжитесь с нами</a>:</div><br/>
+        <div class="text-24 white"><b>+38 063 05 89 521</b><br/>bednarchikd@gmail.com</div>
+
+    </div>
+</div>
+
+<div id="footer-w-logo" class="text-center"><a href="/"><img src="{{ static('paid_services/img/tour360/logo-bottom.png') }}"/></a></div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="tour-request-popup">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content text-18">
+      <div class="modal-body text-center call-to-action">
+        <div class="text-36">{% trans %}Свяжитесь с нами!{% endtrans %}</div>
+        <div class="">{% trans %}Вышлите нам свои данные и мы с Вами свяжемся{% endtrans %}</div><br/>
+
+        {% if tourrequest_form.is_valid() %}
+          <div class="alert alert-success">{% trans %}Заявка принята, с вами свяжутся.{% endtrans %}</div>
+        {% else %}
+          <form method="POST" class="tour-form">{% csrf_token %}
+            {{ bootstrap_form(tourrequest_form, label_as_placeholder=True, inline_errors=True) }}
+
+            <div><button type="submit" class="btn btn-danger">{% trans %}Связаться с нами{% endtrans %}</button></div><br/>
+          </form>
+        {% endif %}
+        <div class="gray">или:</div>
+        <div><b>+38 063 05 89 521</b><br/>bednarchikd@gmail.com</div>
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script>
+    $('input#id_property_type').remove(); // поле рендерится вручную
+</script>
+
+{% block extra_footer %}{% endblock %}
+
+{% block external_js %}
+    {% include "includes/external_js.jinja.html" %}
+{% endblock %}
+
+</body>
+</html>

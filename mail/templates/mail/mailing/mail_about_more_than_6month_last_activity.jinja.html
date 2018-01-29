@@ -1,0 +1,128 @@
+{% extends "mail/base_redesigned_2017.jinja.html" %}
+
+{% block extra_style %}
+  .table-content .extra-background, .extra-background {background-color: #b5eef5;}
+{% endblock %}
+
+{% block greetings %}
+  <tr>
+    <td>
+      <div class="text-wrap right-padding default-bottom-padding" style="padding-left: 160px;">
+        Уважаемый пользователь,
+      </div>
+    </td>
+  </tr>
+{% endblock %}
+
+{% block content %}
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        <table cellpadding="0" cellspacing="0" class="center-col">
+          <tr>
+            <td width="118" style="width: 116px;">
+              <img src="{{ static('mailing/mail_about_more_than_6month_last_activity-image01.png') }}" width="97" height="96" style="width: 97px; height: 96px;">
+            </td>
+            <td width="340" style="width: 340px;" valign="top">
+              <div class="text-wrap">Мы обратили внимание, что Ваш аккаунт на портале недвижимости <strong>mesto.ua</strong> <strong class="pink">не активен</strong> больше 6 месяцев. Это очень грустно, но мы уверены, что Вы возобновите работу прямо сейчас. </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="extra-background">
+      <div class="text-wrap extra-background">
+        <table cellpadding="0" cellspacing="0" class="full-width">
+          <tr>
+            <td width="42" valign="top" style="width: 42px;" rowspan="2" class="extra-background">
+              <img src="{{ static('mailing/mail_about_more_than_6month_last_activity-image02.png') }}" width="42" height="27" style="width: 42px; height: 27px;">
+            </td>
+            <td width="302" style="width: 302px;" class="extra-background">
+              <div class="text-wrap">
+                <br>У нас есть <strong class="pink">много новинок</strong>, а главное полезных и эффективных инструментов рекламы, которые помогут улучшить результаты Вашей работы, а значит - <strong>повысить продажи!</strong>
+              </div>
+            </td>
+            <td width="197" style="width: 197px;" rowspan="2" class="extra-background">
+              <img src="{{ static('mailing/mail_about_more_than_6month_last_activity-image03.png') }}" width="197" height="149" style="width: 197px; height: 149px;">
+            </td>
+          </tr>
+          <tr>
+            <td valign="bottom" align="left" class="extra-background">
+              <img src="{{ static('mailing/mail_about_more_than_6month_last_activity-image04.png') }}" width="74" height="25" style="width: 74px; height: 25px;">
+            </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap" style="font-size: 18px; text-align: center; color: #f72855; font-weight: bold;"><br><br>Итак, что же мы для Вас подготовили:<br><br></div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="left-padding right-padding default-bottom-padding">
+        <table cellspacing="0" cellpadding="0" class="center-col">
+          <tr>
+            <td align="left" valign="top">
+              <img src="{{ static('mailing/mail_about_more_than_6month_last_activity-image05.png') }}" width="218" height="280" style="width: 218px; height: 280px;">
+            </td>
+            <td align="right" valign="top">
+              <img src="{{ static('mailing/mail_about_more_than_6month_last_activity-image06.png') }}" width="218" height="280" style="width: 218px; height: 280px;">
+            </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap default-bottom-padding text-center">
+        <a href="{{ host_url('services:plans') }}{% if utm is defined %}?{{ utm.urlencode() }}&utm_term=tarif&utm_content=tarif_pay{% endif %}" target="_blank" class="button" style="font-size: 18px; width: 234px; height: 54px; line-height: 54px; border-radius: 4px;">Больше пакетов здесь</a>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="extra-background">
+      <div class="text-wrap extra-background">
+        <table cellpadding="0" cellspacing="0" class="full-width">
+          <tr>
+            <td colspan="3" class="extra-background">
+              <img src="{{ static('mailing/mail_about_more_than_6month_last_activity-image07.png') }}" width="540" height="154" style="width: 540px; height: 154px;">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3" class="extra-background text-center">
+              <div class="text-wrap default-bottom-padding pink text-center" style="font-size: 18px; font-weight: bold; color: #f72855;">
+                Платите только за звонок, а не за размещение
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3" class="extra-background">
+              <div class="text-wrap default-bottom-padding left-padding right-padding">
+                Новая услуга на рынке недвижимости – <strong>«Оплата за звонок»</strong> идеально подходит для тех, кто не верит в простую публикацию объявлений, а <strong class="pink">требует результат!</strong><br><br>Публикуйте объявления бесплатно, и платите только тогда, когда получите звонок от целевого клиента, который пришел именно с <strong>mesto.ua</strong>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="extra-background" align="right" valign="bottom" width="115" style="width: 115px;">
+              <img src="{{ static('mailing/mail_about_more_than_6month_last_activity-image08.png') }}" width="28" height="63" style="width: 28px; height: 63px;">
+            </td>
+            <td class="extra-background">
+              <div class="text-wrap text-center default-bottom-padding">
+                <a href="{{ host_url('services:lead') }}{% if utm is defined %}?{{ utm.urlencode() }}&utm_term=ppk&utm_content=ppk_pay{% endif %}" target="_blank" class="button" style="font-size: 18px; width: 194px; height: 54px; line-height: 54px; border-radius: 4px;">Подробнее</a>
+              </div>
+            </td>
+            <td class="extra-background" width="100" style="width: 100px;">
+              <img src="{{ static('mailing/mail_about_more_than_6month_last_activity-image09.png') }}" width="67" height="48" style="width: 67px; height: 48px;">
+            </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+{% endblock %}

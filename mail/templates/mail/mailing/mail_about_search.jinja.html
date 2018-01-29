@@ -1,0 +1,48 @@
+{% extends "mail/base_redesigned_2017.jinja.html" %}
+
+{% block content %}
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        Ваш аккаунт на <a href="https://mesto.ua" target="_blank" class="pink">mesto.ua</a> сейчас неактивен, и к сожалению, клиенты не видят ваших объектов.
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        Статистика по поисковым запросам на mesto.ua за февраль 2017 г., показала, что <strong>более 800 человек</strong> искали недвижимость в вашем сегменте!
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        Активируйте свои объявления сейчас и начните получать звонки от целевых клиентов!
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        <strong>Бонус!</strong> На приобретение Тарифного плана действует скидка 20%.
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding">
+        <table cellpadding="0" cellspacing="0" width="100%" style="width: 100%;">
+          <tr>
+            <td width="50%" style="width: 50%" align="center">
+              <a href="{{ host_url('agency_admin:ads') }}#plans-header" target="_blank" class="button">Мои объявления</a>
+            </td>
+            <td width="50%" style="width: 50%" align="center">
+              <a href="{{ host_url('services:plans') }}#plans-header" target="_blank" class="button">Купить тариф</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+{% endblock %}

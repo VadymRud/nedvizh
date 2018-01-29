@@ -1,0 +1,185 @@
+.breadcrumb-newhomes {
+    font-size:16px;
+    margin:5px 0 5px 30px;
+}
+    .breadcrumb-newhomes .model-request-button {
+        float:right;
+        margin-top:-12px;
+        padding:11px 23px;
+    }
+
+#newhome-request-popup {font-size:14px;}
+    #newhome-request-popup .close {background: url(../img/icon-close4.png);width:30px;height:30px;position: absolute;top:-9px;right:-33px;}
+    #newhome-request-popup .modal-dialog {width:400px; top: 50%; margin-top: -144px; left: 50%; margin-left: -200px; position: absolute;}
+    #newhome-request-popup .modal-body {padding:30px 25px;}
+    #newhome-request-popup .modal-body h6 {font-size:16px;margin:0 0 10px;}
+    #newhome-request-popup .modal-body p {color:#999;font-size:14px;}
+    #newhome-request-popup .modal-body form {margin:20px 0 0;}
+
+.newhomes-layout-apartment {}
+    .newhomes-layout-apartment .map {margin: 0 auto;}
+    .newhomes-layout-apartment .item {margin-bottom: 20px; border: 1px #fff solid;}
+    .newhomes-layout-apartment .item:hover {border: 1px #ccc solid;}
+
+    .newhomes-layout-apartment img {max-width: 95%;}
+        .newhomes-layout-apartment.canvas img, .newhomes-layout-apartment .small-layout img {max-width: 100%;}
+
+        .newhomes-layout-apartment .small-layout {max-height: 200px; height: 200px; white-space: nowrap;}
+            .newhomes-layout-apartment .small-layout span {display: inline-block; height: 100%; vertical-align: middle;}
+            .newhomes-layout-apartment .small-layout img {max-height: 100%; vertical-align: middle;}
+
+        .newhomes-layout-apartment .small-layout-text {height: 50px; margin-top: 20px;}
+
+    .newhomes-layout-apartment > span, .newhomes-layout-apartment .small-layout-text > span {color: #767676; font-size: 18px;}
+    .newhomes-layout-apartment .btn {width: 100%; height: 100%; margin-top: -8px;}
+    .newhomes-layout-apartment .rooms {font-size: 15px; color: #333333;}
+        .newhomes-layout-apartment .rooms + hr {margin-top: 15px; margin-bottom: 15px;}
+        .newhomes-layout-apartment .rooms .glyphicon {font-size: 10px; color: #ff1b55;}
+
+.newhomes-layouts .layout {border:1px solid transparent;font-size:18px;margin:20px;padding:0 20px 20px;text-align:center;height:330px;}
+    .newhomes-layouts .layout:hover {border:1px solid #d0d0d0;}
+    .newhomes-layouts .layout .image {line-height:250px;vertical-align: middle;margin-bottom:20px;}
+    .newhomes-layouts .layout .price {color:#767676;}
+
+.newhomes-list {margin-top:10px;}
+.newhomes-list .newhome {background: #fff;border:1px solid #e1e1e1;padding:15px 20px;margin-bottom:25px;}
+    .newhomes-list .newhome .image {margin:-16px -21px 15px;text-align:center;position: relative;}
+    .newhomes-list .newhome .image .button {display:none;}
+    .newhomes-list .newhome .title {color:#000;display:block;font-size:20px;font-weight: bold;text-decoration: none}
+    .newhomes-list .newhome .subway {color:#a7a7a7;font-size:16px;}
+        .newhomes-list .newhome .subway span {
+            color:white;display:inline-block;
+            border-radius: 10px;
+            font-size: 10px;
+            line-height: 11px;
+            opacity: 0.6;
+            margin: 3px 5px 0 0;
+            width: 11px;height: 11px;
+            vertical-align: top;
+            text-align: center;
+        }
+    .newhomes-list .newhome .price {margin-top:15px;font-size:18px;}
+
+    .newhomes-list .newhome .image:hover img {
+        filter: brightness(50%);
+        -webkit-filter: brightness(50%);
+    }
+    .newhomes-list .newhome .image:hover .button {
+        background: #ff1b55;border-radius: 50px;
+        color:white;display: block; position:absolute;top:50%;left:50%;
+        text-align: center;padding:15px 0;margin:-20px 0 0 -95px;
+        width:190px;
+    }
+
+/* TODO: убрать этот стиль перед выкладыванием на продакшен, а то забанят*/
+.newhomes-list + .page-info {display:none}
+
+.newhomes-detail .subtitle {color:#666666;font-size:14px;}
+
+.newhomes-detail .lead-phone {color:#ff1b55; font-size:30px; white-space: nowrap;}
+    .newhomes-detail .lead-phone + p {font-size: 14px;}
+    .newhomes-detail .lead-phone + p + hr {margin-top: 10px;}
+
+.newhomes-detail .model-request-button {width: 100%; margin-bottom: 15px; height: 50px;}
+.newhomes-detail .queues {margin: 0; padding: 0; list-style: none;}
+.newhomes-detail .sidebar .white-panel {padding:15px 20px;}
+.newhomes-layout-flat .sidebar .white-panel {padding:15px 20px;}
+
+.newhomes-detail .white-panel.common-info {padding:30px 40px;}
+    .newhomes-detail .white-panel.common-info .h1 {margin:0 0 33px;}
+    .newhomes-detail .white-panel.common-info #local-info-n-map {margin:20px -40px -30px;}
+
+.newhomes-detail .images {
+    margin-bottom:20px;
+}
+    .newhomes-detail .image-list {margin-top:10px;}
+    .newhomes-detail .image-list a {float:left;margin:0 10px 10px 0;}
+    .newhomes-detail .images .image-item {overflow: hidden;}
+    .newhomes-detail .images .slick-slide {height:auto;}
+    .newhomes-detail .images .image-list {margin:10px -5px 0;}
+        .newhomes-detail .images .image-list .slick-prev {left:4px;}
+        .newhomes-detail .images .image-list .slick-next {right:4px}
+        .newhomes-detail .images .image-list .slick-slide {padding:0 5px}
+        .newhomes-detail .images .image-list .slick-current {filter: brightness(50%);-webkit-filter: brightness(50%);}
+
+.newhomes-table-info {margin:0;font-size:14px;}
+.newhomes-table-info>tbody>tr>td {padding:14px 0;}
+    .newhomes-table-info>tbody>tr:first-child>td,
+    .newhomes-table-info>tbody>tr:first-child>td {border:0;}
+    .newhomes-table-info>tbody>tr>td:first-child {color:#666666;}
+
+.sidebar .newhomes-table-info {margin:-15px 0;}
+
+.newhomes-detail #available-flats {}
+    .newhomes-detail #available-flats .h2 {margin:3px 0;}
+    .newhomes-detail #available-flats .wrapper {margin:10px -30px -15px;text-align: center;}
+    .newhomes-detail #available-flats table {text-align:center;margin-bottom:0;}
+    .newhomes-detail #available-flats tbody {cursor:pointer;}
+    .newhomes-detail #available-flats td {padding: 20px 8px; font-size: 15px;}
+    .newhomes-detail #available-flats th {
+        background: #fcfcfc;color:#989898;
+        border-top:1px solid #dfdfdf;
+        border-bottom:1px solid #dfdfdf;
+        font-weight: normal;
+        font-size:13px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        text-align:center;text-transform: uppercase;
+    }
+    .newhomes-detail #available-flats tr:hover td {background:#ff1b55;color:white;}
+
+.newhomes-detail #all-flats {padding:20px;font-size:14px;}
+    .newhomes-detail #all-flats .h5 {margin:0 0 35px;}
+    .newhomes-detail #all-flats .flat {margin-bottom:25px;}
+    .newhomes-detail #all-flats .flat .h6 {margin:0 0 8px;font-weight: bold;}
+    .newhomes-detail #all-flats .flat .area {display:inline-block;width:100px;}
+    .newhomes-detail #all-flats .btn-danger {padding:10px 16px;margin:6px 0 8px;}
+
+.newhomes-detail #progress a {text-decoration: none}
+
+.newhomes-floor > div {margin:0 auto;}
+
+/* Форма поиска + лендинг */
+.landing-header {font-size: 21px; color: #333333; font-weight: bold;}
+.landing-text {font-size: 16px; color: #333333; line-height: 160%;}
+.landing-boss {width: 260px; margin: 0 auto; overflow: hidden; text-align: left;}
+.landing-boss img {margin-right: 20px;}
+.activate-developer {font-size: 18px; padding: 10px 20px;}
+.newhome-thumbnail {}
+    .newhome-thumbnail .white-panel {padding: 15px; cursor: pointer; min-height: 122px;}
+    .newhome-thumbnail a {width: 100%; display: block; overflow: hidden; height: 247px; position: relative;}
+        .newhome-thumbnail a span {
+            top: 50%; left: 50%; position: absolute; z-index: 10; opacity: 0; margin-left: -80px; margin-top: -17px;
+            border-radius: 12px;
+        }
+            .newhome-thumbnail a:hover span {opacity: 1;}
+        .newhome-thumbnail a div {width: 100%; height: 100%; opacity: 0; background: #000000;}
+            .newhome-thumbnail a:hover div {opacity: 0.6;}
+
+    .newhome-thumbnail img {min-width: 277px; min-height: 247px; margin-left: -25%; position: absolute; left: 0; top: 0;}
+    .newhome-thumbnail strong {font-size: 18px; display: inline-block; margin-bottom: 10px;}
+    .newhome-thumbnail span {font-size: 16px;}
+        .newhome-thumbnail span.subway {font-size: 14px; color: #ccc;}
+
+.newhomes-city {
+    line-height: 40px; text-decoration: none !important; border-bottom: 1px #ff1b55 dashed; padding-left: 5px;
+    font-size: 16px;
+}
+.available-cities ul {
+    display: inline-block; margin: 5px 0 0; padding: 0; list-style: none;
+    -moz-column-count: 5; -webkit-column-count: 5; column-count: 5;
+    -moz-column-width: 230px; -webkit-column-width: 230px; column-width: 230px;
+}
+.available-cities li {
+    display: inline-block; margin: 0; padding: 0; height: 35px; line-height: 35px; font-size: 16px;
+    min-width: 230px;
+}
+    .available-cities li a {color: #333; text-decoration: none;}
+        .available-cities li a:last-of-type {color: #333;}
+
+    .available-cities li.active a:first-of-type {color: #ff1b55;}
+        .available-cities li.active.region_search a:first-of-type {color: #333;}
+        .available-cities li.active.region_search a:last-of-type {color: #ff1b55;}
+
+.faded .col-to-fade {opacity: 0.4;}
+    .faded .col-to-fade:hover {opacity: 1;}

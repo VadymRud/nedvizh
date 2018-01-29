@@ -1,0 +1,24 @@
+{% if paginator.num_pages > 1 %}
+    <div class="paging" align="right">
+        <ul class="pagination {% if pagination_extra_class is defined %}{{ pagination_extra_class }}{% endif %}">
+            {% if paginator.current_page.has_previous() %}
+                <li><a href="{{ paginator.get_page_url(paginator.current_page.previous_page_number()) }}"><span class="caret caret_left"></span>
+                    {#% trans %}Предыдущая{% endtrans %#}</a></li>
+            {% endif %}
+            {% for page_number in paginator.truncated_page_range %}
+                {% if page_number == paginator.current_page.number %}
+                    <li class="paging-current"><a>{{ page_number }}</a></li>
+                {% elif page_number == '...' %}
+                    <li><span>...</span></li>
+                {% else %}
+                    <li><a href="{{ paginator.get_page_url(page_number) }}">
+                        {{ page_number }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if paginator.current_page.has_next() %}
+                <li><a href="{{ paginator.get_page_url(paginator.current_page.next_page_number()) }}">
+                    {#% trans %}Следующая{% endtrans %#} <span class="caret caret_right"></span></a></li>
+            {% endif %}
+        </ul>
+    </div>
+{% endif %}

@@ -1,0 +1,216 @@
+{% extends "profile/base.jinja.html" %}
+
+{% block extra_footer %}
+    <link rel="stylesheet" href="{{ static('libs/bootstrap-select/bootstrap-select.min.css') }}">
+
+    {{ super() }}
+    {% compress js %}
+        <script src="{{ static('libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
+        <script src="{{ static('js/profile.js') }}"></script>
+        <script>
+            $('.service input').change(function() {
+                var total = 0;
+                $('.service input:checked').each(function(index, value) {
+                    total += parseInt($(this).data('price'));
+                });
+                $('.checkout-summ .total').text(total);
+                $('#paid-checkout button.purchase').prop('disabled', !total);
+            }).first().change();
+
+            // ссылка Подробнее об услуге
+            $('#paid-checkout .show-info').click(function(event) {
+                event.preventDefault();
+                $(this).parents('.row').find('.ad-checkout-info').toggleClass('hidden');
+            });
+
+            $('#paid-checkout .checkout-summ button').click(function(e) {
+                var total = parseInt($('.checkout-summ .total').text());
+                var balance = parseInt($('.checkout-summ').data('balance'));
+
+                if (total > balance) {
+                    $('.topup-modal').modal('show');
+                    e.preventDefault();
+                }
+            });
+
+            $('#paid-checkout').on("submit", function(e) {
+                var $submit = $('button.purchase', this);
+                $submit.prop('disabled', true);
+                setTimeout(function() {$submit.removeProp('disabled');}, 5000)
+            });
+        </script>
+    {% endcompress %}
+    {% if 'vip' in request.GET and ads_to_vip.exists() and plan is defined%}
+      <script>
+        $().ready(function () {
+           $('.vip-plan-modal').modal();
+        });
+      </script>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="white-panel checkout-page">
+    <form action="{{ url('profile_purchase') }}" method="get" id="paid-checkout">
+        {% for passthrough_param in ['ads', 'realtor', 'next'] %}
+            {% if passthrough_param  in request.GET %}
+                <input type="hidden" name="{{ passthrough_param }}" value="{{ request.GET[passthrough_param] }}"/>
+            {% endif %}
+        {% endfor %}
+
+        {% if ads_to_intl is defined and ads_to_intl.exists() %}
+            <div class="about row">
+                <div class="col-sm-offset-6 col-sm-12">
+                    <h5>{% trans %}Варианты размещения международной недвижимости{% endtrans %}</h5>
+                    <p>
+                    {% trans %}1. Если вы добавляете объявление только на сайте mesto.ua, его увидят только пользователи портала mesto.ua<br/><br/>
+                    2. Добавляя объявление на mesto.ua и на международные сайты ваше объяление увидят сотни людей со всего мира{% endtrans %}
+                    </p>
+                </div>
+            </div>
+
+            {% for catalog_id, catalog in intl_catalogs.items()[::-1] %}
+                <div class="service service-intl">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-2 col-md-1">
+                            {% if catalog_id == 'intl_mesto' %}
+                                <input type="hidden" name="intl_catalog" value="{{ catalog_id }}" >
+                                <input type="checkbox" id="catalog_{{ catalog_id }}" data-price="{{ catalog.amount }}"
+                                    class="ad-checkbox checkbox-in-list disabled" disabled="disabled" checked="checked">
+                            {% else %}
+                                <input type="checkbox" id="catalog_{{ catalog_id }}" name="intl_catalog" data-price="{{ catalog.amount }}"
+                                    value="{{ catalog_id }}" class="ad-checkbox checkbox-in-list" {% if catalog_id in request.GET.getlist('intl_catalog') %}checked="checked"{% endif %}>
+                            {% endif %}
+                            <label for="catalog_{{ catalog_id }}"></label>
+                        </div>
+                        <div class="col-xs-14 col-sm-17 col-md-17 name"><label for="catalog_{{ catalog_id }}">{{ catalog.name }}</label></div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 price">{{ catalog.amount  }} грн</div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+
+        {% if 'vip' in request.GET and ads_to_vip.exists() %}
+            {# VIP #}
+            <div class="service">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-2 col-md-1">
+                        <input type="checkbox" id="vip_ads" name="vip" value=""
+                            data-price="{{ vips_amount }}" class="ad-checkbox checkbox-in-list" checked="checked">
+                        <label for="vip_ads"></label>
+                    </div>
+                    <div class="col-xs-20 col-sm-14 col-md-7 name">
+                        <img src="{{ static('img/profile/vip-icon.png') }}">
+                        {% trans %}VIP объявление{% endtrans %}
+                    </div>
+                    <div class="clearfix col-xs-4 visible-xs"></div>
+                    <div class="col-xs-20 col-sm-8 col-md-6">
+                        <a href="#" title="" class="show-info">{% trans %}Подробнее об услуге{% endtrans %} <span class="glyphicon glyphicon-chevron-down"></span></a>
+                    </div>
+                    <div class="clearfix col-sm-12 visible-sm"></div>
+                    <div class="col-xs-8 col-sm-4 col-md-2">{{ ads_to_vip|length }} шт</div>
+                    <div class="col-xs-8 col-sm-4 col-md-2">{% trans %}7 дней{% endtrans %}</div>
+                    <div class="col-xs-8 col-sm-4 col-md-6 price">{{ vips_amount }} грн</div>
+
+                    <div class="col-md-13 col-md-offset-1 ad-checkout-info hidden">
+                        <p>{% trans %}VIP-объявление выделяет ваш объект желтым цветом с пометкой “VIP” и сохраняет его
+                            наверху списка сроком на одну неделю{% endtrans %}</p>
+                    </div>
+                </div>
+            </div>
+
+          {# Popup если мы добавили тарифный план к VIP #}
+          {% if plan is defined %}
+            <div class="modal fade vip-plan-modal in" tabindex="-1" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-body row">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div class="col-xs-24 text-center">
+                      <img src="{{ static('img/profile/icon-purse-with-exclamation.png') }}"><br><br>
+                    </div>
+                    <div class="col-xs-23 col-xs-offset-1">
+                      {% if active_plan %}
+                        <p>{% trans %}Срок действия Вашего тарифа истекает{% endtrans %} <strong>{{ active_plan.end|date('d.m.Y') }}</strong></p>
+                      {% endif %}
+                      <p>{% trans %}Размещение{% endtrans %} <strong class="pink">{% trans %}VIP объявления{% endtrans %}</strong> {% trans %}завершится одновременно<br>с действием Тарифного плана.{% endtrans %}</p>
+                      <p>{% trans %}Для успешной публикации{% endtrans %} <strong class="pink">{% trans %}VIP объявления{% endtrans %}</strong> на <strong>{% trans %}7 дней{% endtrans %}</strong>,<br>{% trans %}необходимо продлить Тарифный план.{% endtrans %}</p>
+                    </div>
+                    <div class="col-xs-24"><hr></div>
+                    <div class="col-xs-23 col-xs-offset-1">
+                      <p><strong>{% trans %}Снимите галочку{% endtrans %}</strong> {% trans %}напротив услуги, если Вы не хотите<br>ее приобретать.{% endtrans %}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
+
+        {% if plan is defined %}
+            {# Тарифный план #}
+            <div class="service">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-2 col-md-1">
+                        <input type="checkbox" id="plan" checked="checked" name="plan" data-price="{{ plan_price_with_payback }}" value="{{ plan.id }}" class="ad-checkbox checkbox-in-list">
+                        <label for="plan"></label>
+                    </div>
+                    <div class="col-xs-20 col-sm-14 col-md-7 name">
+                        <img src="{{ static('img/profile/plan-icon.png') }}">
+                        {% trans %}Тарифный план{% endtrans %}
+                    </div>
+                    <div class="clearfix col-xs-4 visible-xs"></div>
+                    <div class="col-xs-20 col-sm-8 col-md-6">
+                        <a href="#" title="" class="show-info">{% trans %}Подробнее об услуге{% endtrans %} <span class="glyphicon glyphicon-chevron-down"></span></a>
+                    </div>
+                    <div class="clearfix col-sm-10 visible-sm"></div>
+                    <div class="col-xs-8 col-sm-4 col-md-offset-2 col-md-2">{# {% trans %}31 день{% endtrans %} #}</div>
+                    <div class="col-xs-16 col-sm-10 col-md-6 price">{{ plan_price_with_payback }} грн</div>
+
+                    <div class="col-md-13 col-md-offset-1 ad-checkout-info hidden">
+                        <p>{% trans %}Вы приобретаете размещение объявлений на 31 дней. Обновление объявлений каждые 7 дней. Возможность взаимозаменять объявления -  согласно выбранному пакету.{% endtrans %}</p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {# Итого #}
+        <div class="checkout-summ" data-balance="{{ balance }}">
+            <div class="row">
+                <div class="col-sm-14 col-md-16 col-md-offset-1 col-lg-17">
+                    <p>{% trans link=url('services:vips') %}Узнайте больше о <a href="{{ link }}">возможностях продвижения</a> вашего объявления{% endtrans %}</p>
+
+                    <br/>
+                    <img src="{{ static('img/icon-visa.png') }}" alt="Verified by VISA"/>
+                    <img src="{{ static('img/icon-mastercard.png') }}" alt="MasterCard SecureCode"/>
+                </div>
+                <div class="col-sm-10 col-md-7 col-lg-6">
+                    <p class="total-string">{% trans %}Всего к оплате{% endtrans %}: <strong><span class='total'>0</span> грн</strong></p>
+                    <p><button type="submit" class="btn btn-lg btn-block btn-danger purchase">
+                        {% trans %}Оплатить услуги{% endtrans %}
+                    </button></p>
+
+                </div>
+            </div>
+            {% if user_recipient != request.user %}
+                <p class="small text-right">* {% trans %}услуги будут оплачены с баланса польльзователя{% endtrans %} {{ user_recipient.get_public_name() }}</p>
+            {% endif %}
+        </div>
+
+        <div class="modal fade topup-modal in" tabindex="-1" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body row" align="center">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h5>{% trans %}Оплата услуг{% endtrans %}</h5><br/><br/>
+                  <p>{% trans %}Выберите способ оплаты{% endtrans %}:</p><br/>
+                  {% include 'profile/balance/topup_buttons.html' %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </form>
+</div>
+{% endblock %}

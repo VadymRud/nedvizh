@@ -1,0 +1,90 @@
+<div class="property{% if property.vip_type %} property-vip{% endif %}" itemscope itemtype="http://schema.org/Place" data-id="{{ property.id }}">
+    <div class="row">
+        <div class="col-xs-10 image" itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
+            <a href="{{ property.get_absolute_url() }}">
+                {% if property.iframe_url %}
+                    <span class="tour-360"></span>
+                {% endif %}
+                {% with photo_count = property.photos.all()|length %}
+                  {% if photo_count %}
+                    <span class="count">{{ property.photos.all()|length }}&nbsp; <i class="glyphicon glyphicon-camera"></i></span>
+                  {% endif %}
+                {% endwith %}
+                <img src="{{ property.get_first_photo().smart_thumbnail("md") }}" class="img-responsive"/>
+            </a>
+            <div class="text">
+                {% if property.has_deactivation_reason() %}
+                    <div class="sold-label pull-right ">{% trans %}Продано{% endtrans %}</div>
+                {% else %}
+                    <div class="price pull-right" itemprop="lowPrice">
+                        <b>{{ property.price|intcomma }}</b> {{ property.get_currency_display() }}
+                        {%- if property.without_commission -%}<br>{% trans %}без комиссии{% endtrans %}{%- endif -%}
+                        {%- if property.is_bargain_possible %}<br>{% trans %}возможен торг{% endtrans %}{% endif -%}
+                    </div>
+                    <div class="price-converted pull-right">
+                        {% for currency in ( ( 'UAH', '&#8372;'), ('USD', '$'), ('EUR', '&euro;') ) %}
+                            {% if currency.0 != property.currency %}
+                                ~ {{ property.get_converted_price(currency.0, currency_rates if currency_rates is defined else None, True)|intcomma }}
+                                {{ currency.1|safe }}<br/>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-xs-14 text">
+            <div class="header" itemprop="name">
+                <a class="title" href="{{ property.get_absolute_url() }}" itemprop="url">
+                    {{ property.addr_street|default(property.title) }}{% if property.addr_house %}, {{ property.addr_house }}{% endif %}
+                </a>
+                {% if request.user.is_authenticated() %}
+                    <a href="{{ url('profile_save_property', property.pk) }}" class="to-favorite" title="{% trans %}добавить в избранное{% endtrans %}">
+                        <i class="icon icon-favorite{% if property.pk in request.favorite_properties %} icon-favorite-active{% endif %}"></i>
+                    </a>
+                {% endif %}
+
+                {% if property.user and property.user.is_asnu_member(asnu_users if asnu_users is defined else None) %}
+                    <img class="asnu-logo pull-right" src="{{ static('agency/img/icon-asnu.png') }}" style='clear:right;' alt="{% trans %}Ассоциация специалистов по недвижимости Украины{% endtrans %}" width="42"/>
+                {% endif %}
+            </div>
+            <div class="city">{{ property.addr_city|default('') }}</div>
+            {% if property.metro is defined %}<div><i class="icon icon-subway"></i> {{ property.metro }}</div>{% endif %}
+
+            <div class="details" itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+                <meta itemprop="longitude" content="{{ property.get_coords()[0] }}" />
+                <meta itemprop="latitude"  content="{{ property.get_coords()[1] }}" />
+
+                <p>
+                    {{- property.get_property_type_display()|capfirst }}
+                    {%- if property.property_type != 'plot' -%}
+                        , {{ property.rooms|pluralize((_("комната"), _("комнаты"), _("комнат")), '') }}
+                    {%- endif -%}
+                </p>
+
+                {%- if property.floor -%}
+                    <p>Этаж: <b>{{ property.floor }}{% if property.floors_total %}/{{ property.floors_total }}{% endif %}</b></p>
+                {%- endif -%}
+
+                {%- if property.area -%}
+                    <p>
+                        {%- if property.property_type == 'plot' -%}
+                            {% trans %}Площадь{% endtrans %}, {% trans %}соток{% endtrans %}:
+                            {{ property.area|floatformat  }}
+                        {%- elif property.area_living -%}
+                            {% trans %}Площадь{% endtrans %} {% trans %}общая{% endtrans %}/{% trans %}жилая{% endtrans %}, м<sup>2</sup>:
+                            <b>{{ property.area|floatformat  }}/{{ property.area_living|floatformat  }}</b>
+                        {%- else -%}
+                            {% trans %}Площадь{% endtrans %}, м<sup>2</sup>: <b>{{ property.area|floatformat  }}</b>
+                        {%- endif -%}
+                    </p>
+                {%- endif -%}
+
+                <p class="description">
+                    {{- property.description|replace(',', ', ')|truncate(120, False)  }}
+                    <a  href="{{ property.get_absolute_url() }}">{% trans %}далее{% endtrans %}</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</div>

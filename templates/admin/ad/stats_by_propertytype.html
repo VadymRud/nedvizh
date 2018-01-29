@@ -1,0 +1,39 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Статистика объявлений по типам сделки{% endblock %}
+
+{% block content %}
+<style>
+    .paging {text-align: left;}
+    .paging ul li {display: inline-block;}
+</style>
+<div id="changelist" class='change-list'>
+    <form style="margin-bottom:10px">
+        Регион: {{ form.region }} <input type="submit" value="Применить"/>
+        {{ form.errors }}
+    </form>
+    <div class='module'>
+        <table>
+            <thead>
+                <tr align="center">
+                    <th></th>
+                    {% for deal_type, label in cols %}
+                        <th><div class="text"><span>{{ label }}</span></div></th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for label, rows in stats %}
+                    <tr class="{% cycle 'row1' 'row2' %}">
+                        <td>{{ label }}</td>
+                        {% for row in rows %}
+                            <td align='center'>{{ row }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<br/><div>PS В таблице указано количество активных объявлений на текущий момент.</div>
+{% endblock %}

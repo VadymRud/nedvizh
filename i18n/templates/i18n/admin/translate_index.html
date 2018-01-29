@@ -1,0 +1,29 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Перевод{{ block.super }}{% endblock %}
+
+{% block breadcrumbs %}
+{% load i18n %}
+<div class="breadcrumbs">
+    <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+    {% block breadcrumbs_translate %}
+        &rsaquo; Перевод
+    {% endblock %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="content-main" class='change-list'>
+    <h1>Перевод</h1>
+    <table>
+        {% for row in pofiles_table %}
+            <tr>
+                <td>{{ row.app_label|default_if_none:'' }}</td>
+                <td>{{ row.domain }}</td>
+                {% for pofile in row.pofiles %}<td><a href='{{ pofile.link }}'>{{ pofile.language }} ({{ pofile.stats.translated_rate|floatformat }}%)</a></td>{% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
+

@@ -1,0 +1,17 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Зачисление на баланс пользователя{% endblock %}
+{% block content %}
+    <style>
+        form.invoice-transaction-form label {
+            width: 170px;
+            display: inline-block;
+        }
+    </style>
+    <h1>Зачисление на баланс пользователя</h1><br/>
+    <form action='.' method='post' class='invoice-transaction-form'>
+        {% csrf_token %}
+        <div class='fields'>{{ form.as_p }}</div>
+        <p><input type='submit' value='Внести'></p>
+    </form>
+{% endblock %}

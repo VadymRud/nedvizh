@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    {% include 'mail/style_2017.04.css' %}
+    {% block extra_style %}{% endblock %}
+  </style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #ededed;">
+  <tr>
+    <td align="center" style="background-color: #ededed;">
+      <a href="{{ host_url('index') }}{% if utm is defined %}?{{ utm.urlencode() }}{% endif %}" target="_blank" class="logo">
+        <img src="{{ static('mailing/2017.04/logo.png') }}" width="155" height="47">
+      </a>
+
+      <table width="700" align="center" cellpadding="0" cellspacing="0" border="0" class="table-content">
+        {% block greetings %}
+          {% include "mail/includes/empty-line-2017.04.html" %}
+          <tr>
+            <td>
+              <div class="text-wrap default-padding">
+                {% trans %}Уважаемый пользователь{% endtrans %},
+              </div>
+            </td>
+          </tr>
+        {% endblock %}
+        {% block content %}
+          <tr>
+            <td>
+              <div class="text-wrap default-padding">
+                  {{ content|linebreaksbr|safe }}
+              </div>
+            </td>
+          </tr>
+        {% endblock %}
+      </table>
+
+      <table width="700" align="center" cellpadding="0" cellspacing="0" border="0" class="footer-content">
+        {% include "mail/includes/empty-line-2017.04.html" %}
+        <tr>
+          <td align="center">
+            {% trans %}Это сообщение было отправлено автоматически.{% endtrans %}<br>{% trans %}Пожалуйста, не отвечайте на него.{% endtrans %}
+          </td>
+        </tr>
+        {% include "mail/includes/empty-line-2017.04.html" %}
+        <tr>
+          <td>
+            <div class="text-wrap default-padding text-center">
+              <table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
+                <tr>
+                  <td width="49%" align="right">
+                    <img src="{{ static('mailing/2017.04/icon-email.png') }}" width="16" height="12" style="width: 16px; height: 12px; margin-right: 10px;">
+                    <a href="mailto:info@mesto.ua" class="contacts" style="margin-right: 15px;">info@mesto.ua</a>
+                  </td>
+                  <td width="49%" align="left">
+                    <img src="{{ static('mailing/2017.04/icon-skype.png') }}" width="14" height="15" style="width: 14px; height: 15px; margin:0px 10px 0px 15px ">
+                    <a href="skype:mesto.ua?chat" class="contacts">mesto.ua</a>
+                  </td>
+                  <!-- <td width="40%" align="left">
+                    <img src="{{ static('mailing/2017.04/icon-phone.png') }}" width="14" height="14" style="width: 14px; height: 14px; margin-right: 10px;">
+                    <span class="contacts">044 228 68 98</span>
+                  </td> -->
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            <table width="100" align="center" cellpadding="0" cellspacing="0" border="0" style="width: 100px;">
+              <tr>
+                <td width="33%" align="right">
+                  <a href="https://vk.com/mestoua" target="_blank">
+                    <img src="{{ static('mailing/2017.04/icon-vk.png') }}" width="22" height="22" style="width: 22px; height: 22px;">
+                  </a>
+                </td>
+                <td width="33%" align="center">
+                  <a href="https://www.facebook.com/pages/mestoua/317059891645154" target="_blank">
+                    <img src="{{ static('mailing/2017.04/icon-fb.png') }}" width="22" height="22" style="width: 22px; height: 22px;">
+                  </a>
+                </td>
+                <td width="33%" align="left">
+                  <a href="https://twitter.com/Mesto_ua" target="_blank">
+                    <img src="{{ static('mailing/2017.04/icon-twitter.png') }}" width="22" height="22" style="width: 22px; height: 22px;">
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        {% include "mail/includes/empty-line-2017.04.html" %}
+      </table>
+    </td>
+  </tr>
+</table>
+{% if ga_pixel is defined and ga_pixel %}<img src="https://www.google-analytics.com/collect?{{ ga_pixel.urlencode() }}">{% endif %}
+</body>
+</html>

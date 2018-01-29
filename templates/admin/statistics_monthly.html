@@ -1,0 +1,37 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Статистика по областям{% endblock %}
+
+{% block content %}
+<style>
+#id_since, #id_end {width:80px;text-align: center}
+th {text-align:center;}
+.bold {font-weight:bold}
+</style>
+
+<div id="content-main" class='change-list'>
+    <h2>Monthly Reporting</h2>
+
+    <table border="0">
+        <tr>
+            <th>Month</th>
+            <th width="120">Number of customers <br/>at month end</th>
+            <th width="140">Including number of realtors <br/>at month end</th>
+            <th width="120">Number of listings <br/>at month end</th>
+            <th width="100">Opened contacts <br/>(leads)</th>
+            <th width="130">Number of leads <br/>for the month (new buildings)</th>
+        </tr>
+        {% for start, end, data in periods %}
+            <tr align="center">
+                <td>{{ start|date:"Y-m" }}</td>
+                {% for value in data %}
+                    <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+
+    <br/>
+
+</div>
+{% endblock %}

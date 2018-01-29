@@ -1,0 +1,225 @@
+# Hungarian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-12-26 14:47+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: hu\n"
+"Language-Team: hu <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: models.py:42
+msgid "Русский"
+msgstr "Orosz"
+
+#: models.py:43
+msgid "Украинский"
+msgstr "Ukrán"
+
+#: models.py:44
+msgid "Венгерский"
+msgstr ""
+
+#: models.py:75
+msgid "Частное лицо"
+msgstr "Magánszemély"
+
+#: models.py:76
+msgid "Риелтор"
+msgstr "Ingatlanügynök"
+
+#: models.py:77
+msgid "Застройщик"
+msgstr "Építész"
+
+#: models.py:81
+msgid "Не определен"
+msgstr ""
+
+#: models.py:82
+msgid "Мужской"
+msgstr ""
+
+#: models.py:83
+msgid "Женский"
+msgstr ""
+
+#: models.py:93
+msgid "изображение"
+msgstr "kép"
+
+#: models.py:94
+msgid "город"
+msgstr "város"
+
+#: models.py:95
+msgid "телефоны"
+msgstr "telefonok"
+
+#: models.py:96
+msgid "регион"
+msgstr "régió"
+
+#: models.py:98
+msgid "менеджер"
+msgstr "menedzser"
+
+#: models.py:100
+msgid "менеджер, зарегистрировавший этого пользователя"
+msgstr "menedzser, aki regisztrálta ezt a felhasználót"
+
+#: models.py:102
+msgid "количество активных объявлений"
+msgstr "aktív hirdetések száma"
+
+#: models.py:103
+msgid "публиковать e-mail"
+msgstr "e-mail közzététele"
+
+#: models.py:104
+msgid "принимать сообщения со страницы объявлений"
+msgstr "a felhasználó oldaláról üzenetek fogadásának engedélyezése"
+
+#: models.py:105
+msgid "получать служебные сообщения (рекомендуется)"
+msgstr "szolgálati üzenetek fogadása (ajánlott)"
+
+#: models.py:106
+msgid "читать новости сайта"
+msgstr "a honlap hírek olvasása"
+
+#: models.py:107
+msgid "получать SMS-уведомления"
+msgstr "SMS értesítések bekapcsolása"
+
+#: models.py:108
+msgid "язык"
+msgstr "nyelv"
+
+#: models.py:109
+msgid "пол"
+msgstr ""
+
+#: models.py:111
+msgid "дата начала программы лояльности"
+msgstr ""
+
+#: models.py:113
+msgid "последние IP адреса"
+msgstr "utolsó IP címek"
+
+#: models.py:114
+msgid "последняя активность"
+msgstr ""
+
+#: models.py:174
+msgid "Пользователь"
+msgstr "Felhasználó"
+
+#: models.py:256
+msgid "Письмо-инструкция по работе с сайтом mesto.ua"
+msgstr ""
+
+#: models.py:449
+msgid "доступно"
+msgstr "elérhető"
+
+#: models.py:449
+msgid "из"
+msgstr "innen"
+
+#: models.py:470
+msgid "Недостаточно денег на балансе"
+msgstr ""
+
+#: models.py:475
+msgid "Выберите способ размещения"
+msgstr ""
+
+#: models.py:477
+#, python-format
+msgid "Ваш тариф завершен %s"
+msgstr ""
+
+#: models.py:755
+msgid "Поздравляем, Вы стали участником программы лояльности"
+msgstr ""
+
+#: models.py:756
+#, python-format
+msgid ""
+"Вы стали участником программы лояльности портала mesto.ua\n"
+"Теперь при пополнении баланса, %(loyalty_bonus)s%% от суммы будут "
+"начислены Вам бонусом!\n"
+"При условии постоянного пополнения баланса процент начисляемого бонуса "
+"будет увеличиваться."
+msgstr ""
+
+#: models.py:772
+msgid "Программа лояльности клиентов была приостановлена"
+msgstr ""
+
+#: models.py:773
+msgid ""
+"Нам очень жаль, но мы были вынуждены отключить Вашу программу лояльности,"
+" потому как Вы приостановили использование услуг на mesto.ua\n"
+"Свяжитесь со своим личным менеджером – и он подумает, что можно сделать "
+"для того, чтобы восстановить действие программы."
+msgstr ""
+
+#: management/commands/check_users_loyalty_status.py:35
+msgid "Поздравляем, Вы перешли на новый уровень"
+msgstr ""
+
+#: management/commands/check_users_loyalty_status.py:36
+#, python-format
+msgid ""
+"Ура, поздравляем, Вы перешли на новый уровень нашей программы лояльности."
+"\n"
+"Теперь Вы будете получать %(loyalty_bonus)s%% бонус от каждого пополнения"
+" Баланса на сайте.\n"
+"Желаем вам успешных продаж и новых клиентов."
+msgstr ""
+
+#: management/commands/check_users_loyalty_status.py:87
+msgid "Ваш бонус ждет Вас"
+msgstr ""
+
+#: management/commands/check_users_loyalty_status.py:88
+#, python-format
+msgid ""
+"Спешите пополнить Баланс и получите %(loyalty_bonus)s%% бонус от суммы "
+"пополнения.\n"
+"Нам будет очень жаль, если вы не станете участником программы лояльности "
+"и потеряете свой бонус.\n"
+"Приобретайте услуги публикации объявлений на mesto.ua для продолжения "
+"участия в программе лояльности"
+msgstr ""
+
+#: management/commands/check_users_loyalty_status.py:105
+msgid "Остался последний день. Спешите получить бонус"
+msgstr ""
+
+#: management/commands/check_users_loyalty_status.py:106
+msgid ""
+"Сегодня остался последний день действия программы лояльности.\n"
+"Приобретайте услуги публикации объявлений на mesto.ua для продолжения "
+"участия в программе лояльности\n"
+"Нам будет очень жаль, если вы прекратите участие в программе лояльности и"
+" потеряете свой бонус."
+msgstr ""
+
+#: templates/admin/custom_user/user_info.html:7
+msgid "Home"
+msgstr ""
+

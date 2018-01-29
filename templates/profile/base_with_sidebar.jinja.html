@@ -1,0 +1,25 @@
+{% extends 'profile/base.jinja.html' %}
+
+{% block content_wrapper %}
+    <div class="container personal-account">
+        {% if request.user.is_authenticated %}
+            {% include "includes/account_menu_vertical.jinja.html" %}
+        {% endif %}
+
+        <div class="wrapper_content">
+            <div class="row">
+                <div class="visible-lg col-lg-4">
+                    {% include 'profile/sidebar.jinja.html' %}
+                </div>
+                <div class="col-lg-20">
+                    {% block content %}
+                        <div class="white-panel">
+                            {% block content_profile %}{% endblock %}
+                        </div>
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+
+    </div><br/>
+{% endblock %}

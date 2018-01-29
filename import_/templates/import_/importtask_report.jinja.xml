@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+    <date>{{ importtask.completed|isoformat() }}</date>
+    {% if importtask.error %}
+        <error>{{ importtask.error }}</error>
+    {% endif %}
+    <properties>
+        {{ importadtasks_joined_reports|safe() }}
+    </properties>
+</import>

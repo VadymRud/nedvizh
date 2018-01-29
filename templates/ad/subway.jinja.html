@@ -1,0 +1,46 @@
+{% extends "base.jinja.html" %}
+
+{% block seo %}
+    <title>{{ seo.title }}</title>
+    <meta name="keywords" content="{{ seo.keywords }}">
+    <meta name="description" content="{{ seo.description }}">
+{% endblock %}
+
+{% block content %}
+    <style>
+        .letters {margin:30px 0px;}
+            .letters a {margin:0 10px 0 0;}
+        .street-list {
+            padding:30px 0;
+        }
+            .street-list ul {
+                margin-bottom:30px;
+            }
+            .street-list h4 {margin:0 0 10px;}
+            .street-list .street {
+                margin-bottom:5px;
+                font-size:16px;
+            }
+    </style>
+
+    <h2>
+        {% trans %}Станции метро{% endtrans %} {{ region.nameD.chego }}
+    </h2>
+
+
+    <div class="street-list multi-col">
+        {% for line in subway_dict %}
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-24">
+            <ul class="list-unstyled">
+                <li><h4>{{ line.name }}</h4></li>
+                {% for subway in subway_dict[line] %}
+                    <li class="street"><a href='{{ subway_url }}metro-{{ subway.slug }}'>{{ subway.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+

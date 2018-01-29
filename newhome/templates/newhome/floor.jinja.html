@@ -1,0 +1,87 @@
+{% extends 'base.jinja.html' %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{{ static("newhome/css/newhome.css") }}"/>
+{% endblock %}
+
+{% block content %}
+    <div class="breadcrumb breadcrumb-newhomes">
+        {% include 'newhome/breadcrumbs-with-popup.jinja.html' %}
+        <a href="{{ floor.newhome.get_absolute_url() }}">{{ floor.newhome.name }}</a>  ←
+        <h1>Свободные квартиры на {{ floor_number}}-м этаже</h1>
+    </div><br/>
+
+    <div class="row">
+        <div class="col-lg-24">
+            <div class="white-panel">
+                <div class="h4 no-margin">Планировка {{ floor_number }}-го этажа</div><br/><br/>
+                <div class="newhomes-floor">
+                    <img src="{{ floor.image|thumbnail("1000x500", nocrop=True) }}" class="map" alt="{{ floor.name }}" title="{{ floor.name }}" align="center" usemap="#floormap">
+                    <map name="floormap">
+                        {% for layout in layouts_ %}
+                            {% for flat in layout.layout_flats.filter(floor=floor) %}
+                            <area data-selected="true" href="{{ url('layout-flat', region_slug=region_slug, newhome_id=newhome_id, layout_id=layout.id) }}"
+                                shape="poly" coords="{{ flat.coordinates }}" alt="{{ layout.name }}" title="{{ layout.name }}"
+                                {% if layout.id in unavailable_layouts %}selected="selected"{% endif %} data-key="{% if layout.id in unavailable_layouts %}disabled{% else %}enabled_{{ layout.id }}{% endif %}">
+                            {% endfor %}
+                        {% endfor %}
+                    </map>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-24">
+            <div class="white-panel newhomes-layouts">
+                <div class="h5 no-margin">{% trans %}Свободные квартиры на {% endtrans %} {{ floor_number }}-м этаже</div><br/><br/>
+                <div class="row">
+                    {% for layout in layouts_ %}
+                        {% if layout.id not in unavailable_layouts %}
+                            {% include 'newhome/layout-preview.jinja.html' %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block extra_footer %}
+    <script src="{{ static('js/libs/jquery.imagemapster.min.js') }}"></script>
+    <script>
+    $().ready(function() {
+        $('.map').mapster({
+            mapKey: 'data-key',
+            render_select: {
+                fillColor: '000000',
+                fillOpacity: 0.6,
+                stroke: false
+            },
+            render_highlight: {
+                fillColor: 'ff1b55',
+                fillOpacity: 0.7,
+                stroke: false
+            },
+            areas: [
+                {
+                    key: 'disabled',
+                    render_highlight: {
+                        fillColor: '000000',
+                        fillOpacity: 0.0,
+                        stroke: false
+                    }
+                }
+            ],
+            fadeInterval: 50,
+            isSelectable: false,
+            isDeselectable: false,
+            clickNavigate: true
+        });
+        $('area[selected]').mapster('select');
+    })
+    </script>
+{% endblock %}
+
+{% block extra_header %}
+{% endblock %}

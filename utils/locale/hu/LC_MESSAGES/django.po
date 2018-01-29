@@ -1,0 +1,211 @@
+# Hungarian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-12-12 11:11+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: hu\n"
+"Language-Team: hu <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: calendars.py:9
+msgid "Январь"
+msgstr "Január"
+
+#: calendars.py:9
+msgid "Февраль"
+msgstr "Február"
+
+#: calendars.py:9
+msgid "Март"
+msgstr "Március"
+
+#: calendars.py:10
+msgid "Апрель"
+msgstr "Április"
+
+#: calendars.py:10
+msgid "Май"
+msgstr "Május"
+
+#: calendars.py:10
+msgid "Июнь"
+msgstr "Június"
+
+#: calendars.py:11
+msgid "Июль"
+msgstr "Július"
+
+#: calendars.py:11
+msgid "Август"
+msgstr "Augusztus"
+
+#: calendars.py:11
+msgid "Сентябрь"
+msgstr "Szeptember"
+
+#: calendars.py:12
+msgid "Октябрь"
+msgstr "Október"
+
+#: calendars.py:12
+msgid "Ноябрь"
+msgstr "November"
+
+#: calendars.py:12
+msgid "Декабрь"
+msgstr "December"
+
+#: calendars.py:15
+msgid "Пн"
+msgstr "Hétfő"
+
+#: calendars.py:15
+msgid "Вт"
+msgstr "Kedd"
+
+#: calendars.py:15
+msgid "Ср"
+msgstr "Szerda"
+
+#: calendars.py:15
+msgid "Чт"
+msgstr "Csütörtök"
+
+#: calendars.py:15
+msgid "Пт"
+msgstr "Péntek"
+
+#: calendars.py:15
+msgid "Сб"
+msgstr "Szombat"
+
+#: calendars.py:15
+msgid "Вс"
+msgstr "Vasárnap"
+
+#: fix_registration.py:31
+#, python-format
+msgid "Активация аккаунта на сайте %s"
+msgstr "Fiók aktiválása a következő honlapon: %s"
+
+#: middleware.py:198
+msgid "Клиент интересуется объявлением <b>#{}</b> по адресу <b>{}</b>. "
+msgstr "Az ügyfél a <b>#{}</b> című <b>{}</b> ingatlan után érdeklődik."
+
+#: middleware.py:201
+msgid ""
+"{} вам поступила заявка на обратный звонок от клиента <b>{}</b>. {}<br/>\n"
+"                                Пожалуйста, перезвоните ему по номеру "
+"<b>{}</b>.<br/><br/>\n"
+"                            "
+msgstr ""
+"{} visszahívási kérvény érkezett a következő ügyféltől <b>{}</b>. {}<br/>"
+" Kérem, hívja vissza az alábbi telefonszámon <b>{}</b>.<br/><br/>"
+
+#: middleware.py:205
+msgid ""
+"{} вам поступила запрос на детальную информацию от клиента <b>{}</b>. "
+"{}<br/>\n"
+"                                Пожалуйста, напишите ему письмо на адрес "
+"<b>{}</b>.<br/><br/>\n"
+"                            "
+msgstr ""
+"{} részletes információ iránti kérvény érkezett a következő ügyféltől "
+"<b>{}</b>. {}<br/> Kérem, írjon neki egy levelet a következő címre "
+"<b>{}</b>.<br/><br/>"
+
+#: templatetags/jinja.py:205 templatetags/jinja.py:239
+msgid "Продажа"
+msgstr "Eladás"
+
+#: templatetags/jinja.py:206 templatetags/jinja.py:240
+msgid "Аренда"
+msgstr "Bérlet"
+
+#: templatetags/jinja.py:207
+msgid "Посуточно"
+msgstr "Naponta"
+
+#: templatetags/jinja.py:214
+msgid "Тип сделки"
+msgstr ""
+
+#: templatetags/jinja.py:217
+msgid "Новостройки"
+msgstr "Újépítésű"
+
+#: templatetags/jinja.py:220
+msgid "Новости рынка"
+msgstr "Piaci hírek"
+
+#: templatetags/jinja.py:223
+msgid "Новости"
+msgstr "Hírek"
+
+#: templatetags/jinja.py:223
+msgid "События"
+msgstr "Események"
+
+#: templatetags/jinja.py:223
+msgid "Места"
+msgstr "Helyek"
+
+#: templatetags/jinja.py:223
+msgid "Стоит знать"
+msgstr "Érdemes tudni"
+
+#: templatetags/jinja.py:228
+msgid "Mesto School"
+msgstr "Mesto School"
+
+#: templatetags/jinja.py:233
+msgid "Профессионалы"
+msgstr "Szakértők"
+
+#: templatetags/jinja.py:238
+msgid "За рубежом"
+msgstr "Külföldön"
+
+#: templatetags/jinja.py:245
+msgid "Полезные услуги"
+msgstr ""
+
+#: templatetags/jinja.py:247
+msgid "Панорама 360"
+msgstr ""
+
+#: templatetags/jinja.py:249
+msgid "Оценка недвижимости"
+msgstr ""
+
+#: templatetags/jinja.py:250
+msgid "Услуги нотариуса"
+msgstr ""
+
+#: templatetags/jinja.py:251
+msgid "Дизайн брошюр для недвижимости"
+msgstr ""
+
+#: templatetags/jinja.py:252
+msgid "Печать баннера"
+msgstr ""
+
+#: templatetags/jinja.py:253
+msgid "Стабилизатор для видео"
+msgstr ""
+
+#: templatetags/jinja.py:254
+msgid "Фото-видео съемка"
+msgstr ""
+

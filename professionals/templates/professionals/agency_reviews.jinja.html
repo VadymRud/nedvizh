@@ -1,0 +1,153 @@
+{% extends 'professionals/profile.jinja.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+    {% from 'macro/forms.jinja.html' import bootstrap_form_errors, bootstrap_field %}
+
+    {% if paginator.count %}
+        <div class='h5 result-count'>
+            {% trans count = paginator.count %}Найден {{ count }} отзыв{% pluralize %}Найдено {{ count }} отзывов{% endtrans %}
+            <hr>
+        </div>
+    {% endif %}
+
+    <div>
+        <a
+            id='add-review-button'
+            class='btn btn-bordered btn-padded'
+            {% if request.user.is_authenticated() %}
+                {% if request_user_is_agency_realtor %}
+                    disabled='disabled'
+                    title='{% trans %}Нельзя оставить отзыв о своем агентстве{% endtrans %}'
+                {% endif %}
+            {% else %}
+                data-toggle="modal"
+                data-target="#login-popup"
+            {% endif %}
+        >
+            {% trans %}Оставить свой отзыв об агентстве{% endtrans %}
+        </a>
+    </div>
+
+    {% if request.user.is_authenticated() and not request_user_is_agency_realtor %}
+    <div class="row">
+        <form id='review-form' method='post' style='display:none;' class='col-sm-11'>
+            <div class='h5'>{% trans %}Новый отзыв{% endtrans %}</div>
+                {% csrf_token %}
+                {{ bootstrap_form_errors(review_form) }}
+                {{ bootstrap_field(review_form.title, classes={'group': 'row', 'controls': 'col-sm-12'}, label_as_placeholder=True) }}
+                {{ bootstrap_field(review_form.rating, classes={'controls': 'hidden'}) }}
+                <ul class='rating'>
+                    {% for i in range(5) %}
+                        <li class="glyphicon glyphicon-star" data-value='{{ loop.index }}'></li>
+                    {% endfor %}
+                </ul>
+            {{ bootstrap_field(review_form.text|add_attrs(rows=5), label_as_placeholder=True) }}
+            <button class='btn btn-danger btn-padded' type='submit'>{% trans %}Опубликовать{% endtrans %}</button>
+        </form>
+        {% if review_form.errors %}
+            <script>
+                $(function() {
+                    updateReviewFormRating();
+                    showReviewForm();
+                });
+            </script>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-sm-16">
+            <ul class="professionals-reviews">
+                {% for review in paginator.current_page.object_list %}
+                    <li class="review" data-id='{{ review.id }}'>
+                        <div class="white-panel">
+                            <div class="row">
+                                <div class="col-sm-19 review-title">{{ review.title }}</div>
+                                <div class="col-sm-5 text-right review-date">{{ review.created|date('d E Y') }}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-24">
+                                    <ul class='rating'>
+                                        {% for i in range(5) %}
+                                            <li class="{% if review.rating and review.rating >= loop.index %}active{% endif %} glyphicon glyphicon-star"></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-24"><strong>{{ review.user.get_public_name() }}</strong></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-23 review-text">{{ review.text }}</div>
+                            </div>
+                        </div>
+
+                        {% for reply in review.replies.all() %}
+                            <div class="row">
+                                <div class="col-sm-24">
+                                    <div class="col-sm-1">&nbsp;</div>
+                                    <div class="col-sm-3 review-avatar text-left">
+                                        <img src="{{ reply.user.image|thumbnail("100x100") }}" />
+                                    </div>
+                                    <div class="col-sm-15 col-sm-offset-1 review-title">
+                                        {% trans %}Ответ от{% endtrans %} <strong>{{ reply.user }}</strong>
+                                    </div>
+                                    <div class="col-sm-4 text-right review-date">{{ reply.created|date('d E Y') }}</div>
+                                    <div class="col-sm-19 col-sm-offset-1 review-text">{{ reply.text }}</div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-sm-5"><hr></div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                        <div class="row">
+                            <div class="col-sm-24">
+                                <div class="col-sm-1">&nbsp;</div>
+                                <div class="col-sm-10 text-left">
+                                    <div class="add-reply">
+                                        <a class='btn btn-bordered btn-padded add-reply-button'{% if request.user.is_anonymous() %} data-toggle="modal" data-target="#login-popup"{% endif %}>
+                                            {% trans %}Добавить ответ{% endtrans %}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-24"><hr></div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="center">
+        {% include "pagination.jinja.html" %}
+    </div>
+
+    {% if request.user.is_authenticated() %}
+        <form id='reply-form' action='' method='post' style='display:none;'>
+            <div class='h5'>{% trans %}Добавление ответа{% endtrans %}</div>
+            {% csrf_token %}
+            {{ bootstrap_form_errors(reply_form) }}
+            {{ bootstrap_field(reply_form.text|add_attrs(rows=3), label_as_placeholder=True) }}
+            <input type='hidden' name='review' value=''/>
+            <button class='btn btn-danger btn-padded' type='submit'>{% trans %}Опубликовать{% endtrans %}</button>
+        </form>
+        {% if reply_form.errors %}
+            <script>
+                $(function() {
+                    showReplyForm({{ review_to_reply.id }});
+                });
+            </script>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}
+
+{% block extra_footer %}
+    <script src="{{ static('professionals/js/professionals.js') }}"></script>
+{% endblock %}

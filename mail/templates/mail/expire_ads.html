@@ -1,0 +1,40 @@
+{% extends 'mail/base.html' %}
+
+{% block content %}
+    {% load staticfiles thumbnail_filter smart_round humanize domain_url i18n %}
+    {% if top_properties|length > 1 %}
+        <p>{% trans 'Срок действия Ваших объявлений истек. Если они все еще актуальны, обновите их бесплатно.' %}<br/>{% trans 'Таким образом, Ваши объявления вновь появятся вверху списка.' %}</p>
+    {% else %}
+        <p>{% trans 'Срок действия Вашего объявления истек. Если оно все еще актуально, обновите его бесплатно.' %}<br/>{% trans 'Таким образом, Ваше объявление вновь появится вверху списка.' %}</p>
+    {% endif %}
+
+
+    <table class='properties' width='100%'>
+        {% for item in top_properties %}
+            {% with property=item.property %}
+            <tr>
+                <td class='gray-border' width='65%'>
+                    {% if property.photos.all %}<img src='{{ property.photos.all.0|thumbnail_alias:"xs" }}' alt='' width='96' height='72' class='image' />{% endif %}
+                    <h4 class='price'>
+                        <span class="price_link">{{ property.price|intcomma }} {{ property.get_currency_display }} {% if not no_price_uah and property.price_uah and property.currency != 'UAH' %}(~{{ property.price_uah|smart_round|intcomma }} {% trans 'грн.' %}){% endif %}{% if property.special_price %}<i></i>{% endif %}</span>
+                        {% if property.rooms %}<br/><span>{{property.rooms}} комн.</span>{% endif %}
+                    </h4>
+                    <p class='address'><b>{{ property.address }}</b></p>
+                </td>
+                <td width='1%'></td>
+                <td width='34%' class='gray-border views'>
+                    <table width='100%'><tr><td><img src='{% static 'img/email/icon-views.png' %}' alt=''/></td><td style='border-bottom:1px dotted #efefef;'>{% trans 'Кол-во просмотров' %}</td><td align='right' style='border-bottom:1px dotted #efefef;'><b>{{ item.views }}</b></td></tr></table>
+                    <table width='100%'><tr><td><img src='{% static 'img/email/icon-show-contacts.png' %}' alt=''/></td><td>{% trans 'Кол-во просмотров контактов' %}</td><td align='right'><b>{{ item.views_contact }}</b></td></tr></table>
+                </td>
+            </tr>
+            {% endwith %}
+        {% endfor %}
+    </table>
+    {% if top_properties|length > 1 %}<p><a href='{% domain_url 'profile_my_properties'%}'>{% trans 'Посмотреть все "Мои объявления"' %}</a></p>{% endif %}
+    <br/>
+
+    <p>
+        <a class="big" alt='обновить бесплатно' href='{% domain_url 'profile_update_expired' %}'>{% trans 'Обновить все объявления бесплатно' %} &raquo;</a><br/><br/>
+        <small>* {% trans 'обновятся все объявления для которых доступно бесплатное обновление' %}</small>
+    </p>
+{% endblock %}

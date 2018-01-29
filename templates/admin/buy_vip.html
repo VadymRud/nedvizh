@@ -1,0 +1,20 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Покупка VIP со скидкой за объем{% endblock %}
+{% block content %}
+    <style>
+        form.invoice-transaction-form label {
+            width: 170px;
+            display: inline-block;
+        }
+    </style>
+    <h1>Покупка VIP со скидкой за объем</h1><br/>
+    <form action='.' method='post' class='invoice-transaction-form'>
+        {% csrf_token %}
+        <div class='fields'>{{ form.as_p }}</div>
+        <p>
+            <label><input type='submit' name="check" value='Узнать цену'></label>
+            <input type='submit' name="buy" value='Купить' style="background: red">
+        </p>
+    </form>
+{% endblock %}

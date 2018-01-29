@@ -1,0 +1,42 @@
+{% extends "mail/base_2017.04.jinja.html" %}
+
+{% block greetings %}{% endblock %}
+
+{%- block content %}
+  <tr>
+    <td>
+        <div style="padding:55px 40px;line-height:32px; color:#313131;">
+          <div style="padding-bottom:25px;">
+              Друзья, мы подготовили для вас маленькую сводку о том, где и за сколько готовы жить ваши будущее клиенты!**
+          </div>
+          <div style="padding-bottom:45px;">
+              Для анализа данной информации использовались поиски на нашем сайте с двумя и более отфильтрованными критериями:
+              <b>район, количество комнат, цена, тип сделки.</b>
+          </div>
+          <div style="padding-bottom:15px;">
+            <img src="{{ static('mail/img/mailing/odessa_infographic1.png') }}" width="700" height="1070" style="width: 700px; height: 1250px;">
+          </div>
+          <div class="text-wrap default-padding text-center bottom-padding" style="padding-top:35px;">
+            <a href="https://mesto.ua/account/my_properties/add/{% if utm is defined %}?{{ utm.urlencode() }}{% endif %}" target="_blank" class="button" style="font-size:18px;width:220px;">Добавить объявление</a><br><br>
+          </div>
+          <div style="padding-bottom:15px;">
+            <img src="{{ static('mail/img/mailing/odessa_infographic2.png') }}" width="700" height="1070" style="width: 700px; height: 1250px;">
+          </div>
+          <div style="padding-bottom:25px;">
+            Команда "Mesto.ua" очень надеется что эта информация будет вам полезна!
+          </div>
+          <div style="padding-bottom:30px;">
+            Добавляйте свои объявления просмотрев нашу аналитику и получайте своих настоящих клиентов!
+          </div>
+          <div class="text-wrap default-padding text-center bottom-padding" style="padding-top:35px;">
+            <a href="https://mesto.ua/account/my_properties/add/{% if utm is defined %}?{{ utm.urlencode() }}{% endif %}" target="_blank" class="button" style="font-size:18px;width:220px;">Добавить объявление</a>
+          </div>
+        </div>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      
+    </td>
+  </tr>
+{% endblock -%}

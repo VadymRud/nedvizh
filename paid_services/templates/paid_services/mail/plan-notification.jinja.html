@@ -1,0 +1,34 @@
+{% extends "mail/base_redesigned_2017.jinja.html" %}
+
+{% block greetings %}
+  <tr>
+    <td>
+      <div class="text-wrap text-center default-bottom-padding">
+        <strong style="font-size: 18px;">{% trans %}Уважаемый пользователь{% endtrans %}</strong>
+      </div>
+    </td>
+  </tr>
+{% endblock %}
+{% block content %}
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        {% trans ads_limit=plan.ads_limit %}У вас есть приобретенный тариф на <strong>{{ ads_limit }} объявление</strong>,{% pluralize %}У вас есть приобретенный тариф на <strong>{{ ads_limit }} объявлений</strong>,{% endtrans %}<br>{% trans %}но вы не активировали показ Ваших объектов.{% endtrans %}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        {% trans %}Активируйте их уже сейчас и получайте звонки от потенциальных клиентов.{% endtrans %}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding text-center">
+        <a href='{{ host_url("profile_my_properties") }}{% if utm is defined %}?{{ utm.urlencode() }}{% endif %}' target="_blank" class="button">{% trans %}Активировать{% endtrans %}</a>
+      </div>
+    </td>
+  </tr>
+{% endblock %}

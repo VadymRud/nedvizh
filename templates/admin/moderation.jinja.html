@@ -1,0 +1,267 @@
+{% extends "blank.jinja.html" %}
+
+{% block title %}Модерация объявлений{% endblock %}
+
+{% block content %}
+<style>
+    body {padding:140px 0 0;}
+    #moderation_action {
+        position:fixed;top:0;left:0;width:100%;padding:10px 30px 10px;background: white;box-shadow:5px 0px 5px rgba(0,0,0,0.5);z-index:1000;
+    }
+    #moderation_action .reject {margin-right:230px;}
+    #changelist table th, #changelist table td {padding:2px 8px;}
+    h2 {margin-top:0;}
+    .profile-avatar {box-shadow:3px 3px 3px rgba(0,0,0,0.5);margin-bottom:-200px;}
+    .moderation-history a {margin-bottom:5px;}
+    .progress {width:300px;height:16px;margin:5px 0;}
+    .progress-bar {line-height:16px;}
+    #duplicates {display: none;font-size:12px;}
+    #duplicates.hide_images .images {display: none;}
+</style>
+<script>
+    function toggleDuplicates() {
+        var el = document.getElementById("duplicates");
+        el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+    function toggleImageDuplicates() {
+        var el = document.getElementById("duplicates");
+        el.className = el.className === 'hide_images' ? '' : 'hide_images';
+    }
+</script>
+<div id="moderation_action">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-16">
+                {% include 'admin/moderation_form.jinja.html' %}
+            </div>
+            <div class="col-sm-2 text-right" style="line-height: 1">
+                В очереди:<br/> <b>{{ new_ads_count }}</b>
+            </div>
+            <div class="col-sm-6">
+                <form method="post" action="{{ url('moderation_queue') }}">{% csrf_token %}{{ ad_filter_form.ad_type|add_class('form-control')|add_attrs(onChange='this.form.submit()') }}</form>
+            </div>
+        </div>
+
+        {% if stats.moderated_by_you %}
+            <br/><div class="stats small clearfix">
+                <span class="pull-right">сегодня вами отмодерировано
+                    <b>{{ stats.moderated_by_you|pluralize(("объявление", "объявления", "объявлений")) }}</b> из
+                    <b>{{ stats.moderated_total }}</b>
+                </span>
+                {% if stats.last_10_moderation %}
+                    Последние 10 отмодерированных объявлений:
+                    {% for mod in stats.last_10_moderation %}
+                        <a href="{{ url('moderation_detail', moderation_id=mod.id) }}">{{ mod.basead_id }}</a>,
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+
+<div id="changelist" class='change-list container'>
+
+    {% if not moderation_queue %}
+        <small><a href="..">вернуться к очереди на модерацию &raquo; </a></small>
+    {% endif %}
+
+    {% set fields_for_moderation = ad.fields_for_moderation|split(",") if ad.fields_for_moderation else [] %}
+    <h2>
+        <div class="pull-right">
+            <a title="редактировать" href="/admin/ad/ad/{{ ad.id }}/" ><i class="glyphicon glyphicon-pencil"></i></a>
+            &nbsp; <a title="смотреть на сайте" href="{{ ad.get_absolute_url() }}" ><i class="glyphicon glyphicon-link"></i></a>
+        </div>
+
+        {% if ad.user in duplicate_ads_by_user %}<a href="#duplicates_header" onClick="toggleDuplicates()"><small class="glyphicon glyphicon-random" title="есть дубликаты объявления"></small></a> &nbsp;{% endif %}
+        #{{ ad.pk }}: {{ ad }} &nbsp;
+        {% if '__all__' in fields_for_moderation %}<small class="label label-primary">новое</small>{% endif %}
+        {% if ad.xml_id %}<span class="label label-primary">импорт</span>{% endif %}
+        {% if ad.vip_type %}<span class="label label-danger">VIP</span>{% endif %}
+        {% if ad.international_catalog %}<span class="label label-danger">Зарубежная</span>{% endif %}
+        {% if ad.status not in [1,4] %}&nbsp;<small class="label label-warning">{{ ad.get_status_display() }}</small>{% endif %}
+    </h2><br/>
+
+    {% if moderation.moderator %}
+        <div class="alert {% if moderation.new_status %}alert-danger{% else %}alert-success{% endif %}">
+            Объявление уже прошло проверку модератором <b>{{ moderation.moderator.email }}</b> в {{ moderation.end_time|date("Y-m-d H:i") }}.<br/>
+            {% if moderation.new_status %}
+                Был установлен статус <b>{{ moderation.get_new_status_display() }}</b>.
+            {% else %}
+                Статус не был изменен.
+            {% endif %}
+            {% if moderation.new_status != moderation.basead.ad.status %}
+                <br/>Текущий статус объявления &mdash; <b>{{ moderation.basead.ad.get_status_display() }}</b>.
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% with usercard = ad.prepare_usercard(host_name='') %}
+        {% if usercard.get('profile_image') %}
+            <div class="row"><div class="col-xs-offset-18 col-xs-6" align="right">
+                <img src="{{ usercard.profile_image|thumbnail("200x200", nocrop=True) }}" alt="аватар пользователя"
+                     class="pull-right profile-avatar img-responsive"/>
+            </div></div>
+        {% endif %}
+    {% endwith %}
+
+    <div class='module'>
+        <table class="table table-striped" style="width:1200px;">
+            <tr>
+                <th width="25%">Пользователь</th>
+                <td>
+                    <a href="{{ url('admin:custom_user_user_changelist') }}?id={{ ad.user_id }}">{{ ad.user }}</a>
+                    {% if user_ads_on_moderation.exists() %}
+                        &nbsp;
+                        <a href="{{ url('admin:ad_ad_changelist') }}?moderation=yes&user={{ ad.user_id }}" class="label label-primary">
+                            еще {{ user_ads_on_moderation.count()|pluralize(('объявление', 'обявления', 'объявлений')) }} на модерации</a>
+                    {% endif %}
+                    {% if user_stats.total %}
+                        <br/>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success"
+                                 title="Было одобрено модераций: {{ user_stats.good }} из {{ user_stats.total }}"
+                                 style="width: {{ user_stats.good / user_stats.total * 100 }}%">
+                              {{ (user_stats.good / user_stats.total * 100)|int }}%
+                            </div>
+                            <div class="progress-bar progress-bar-danger"
+                                 title="Было дублей: {{ user_stats.duplicates }} из {{ user_stats.total }}"
+                                 style="width: {{ user_stats.duplicates / user_stats.total * 100 }}%">
+                              {{ (user_stats.duplicates / user_stats.total * 100)|int }}%
+                            </div>
+                            <div class="progress-bar progress-bar-warning"
+                                 title="Было отклонено модераций: {{ user_stats.bad }} из {{ user_stats.total }}"
+                                 style="width: {{ user_stats.bad / user_stats.total * 100 }}%">
+                              {{ (user_stats.bad / user_stats.total * 100)|int }}%
+                            </div>
+                        </div>
+                    {% endif %}
+                </td>
+            </tr>
+            {% for field in form %}
+                {% with widget_class = field.field.widget.__class__.__name__ %}
+                    {% if field.value() %}
+                        <tr class=" field-{{ field.name }} widget-{{ widget_class }}">
+                            <th align="right">
+                                {{ field.label }}
+                                {% if field.name in fields_for_moderation %}<i class="glyphicon glyphicon-exclamation-sign" style="color:#d9534f"
+                                        title="измененное поле"></i>{% endif %}
+                            </th>
+                            <td>
+                                {% if field.name == 'description' %}{{ field.value()|nl2br }}
+                                {% elif field.name == 'facilities' %}{{ ad.facilities.all()|join(", ") }}
+                                {% elif field.name == 'rules' %}{{ ad.rules.all()|join(", ") }}
+                                {% elif field.name == 'deal_type' %}{{ ad.get_deal_type_display() }}
+                                {% elif field.name == 'property_type' %}{{ ad.get_property_type_display() }}
+                                {% elif field.name == 'iframe_url' %}<a href="{{ field.value() }}" target="_blank">{{ field.value() }}</a>
+                                {% else %}
+                                    {{ field.value() }}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+            <tr>
+                <th>Телефоны</th>
+                <td>{% for phone_in_ad in ad.phones_in_ad.all() %}{{ phone_in_ad.phone_id|pprint_phone }}<br/>{% endfor %}</td>
+            <tr>
+                <th>Создано</th>
+                <td>{{ ad.created|date("Y-m-d H:i")  }}</td>
+            </tr>
+            <tr>
+                <th>Поднято</th>
+                <td>{{ ad.updated|date("Y-m-d H:i")  }}</td>
+            </tr>
+            <tr>
+                <th>Редактировалось последний раз</th>
+                <td>{{ ad.modified|date("Y-m-d H:i")  }}</td>
+            </tr>
+        </table>
+
+        {% with moderations = moderation.basead.ad.moderations.all() %}
+            {% include 'admin/moderation_history.jinja.html'  %}<br/>
+        {% endwith %}
+
+        {% if duplicate_ads %}
+            <h3 id="duplicates_header">
+                {% if ad.user in duplicate_ads_by_user %}
+                    <a href="?reject_duplicate={{ ad.id  }}" class="btn btn-danger pull-right">Отклонить текущее и опубликовать старое объявление</a>
+                {% endif %}
+
+                <a onClick="toggleDuplicates()">Дубликаты</a>
+                &nbsp; <small>
+                    {% for user, ads in duplicate_ads_by_user.items() %}
+                        {% if user == ad.user %}собственных{% else %}{{ user.get_public_name() if user else 'парсера' }}{% endif %} &mdash;
+                        {{ ads|length }} шт.
+                        {%- if not loop.last %},{% endif %}
+                    {% endfor %}
+                </small>
+            </h3>
+            <div id="duplicates" class="hide_images">
+                <p><a onclick="toggleImageDuplicates()" class="btn btn-primary">скрыть/показать фото</a></p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Юзер</th>
+                            <th>Админка</th>
+                            <th>На сайте</th>
+                            <th>Тип сделки</th>
+                            <th>Цена</th>
+                            <th>Создано</th>
+                            <th>Статус</th>
+                        </tr>
+                    </thead>
+                {% for ad in duplicate_ads %}
+                    <tr class="{% if ad.user != moderation.basead.ad.user %}bg-warning{% elif ad.is_published %}bg-success{% endif %}">
+                        <td align="left"><a href="/admin/custom_user/user/?id={{ ad.user_id }}">#{{ ad.user_id }} {{ ad.user }}</a></td>
+                        <td><a href="/admin/ad/ad/?id={{ ad.pk }}">ID {{ ad.pk }}</a></td>
+                        <td align="left"><a href="{{ ad.get_absolute_url() }}">{{ ad.address }}</a></td>
+                        <td>{{ ad.get_deal_type_display() }}</td>
+                        <td>{{ ad.get_status_display() if not ad.moderation_status else ad.get_moderation_status_display() }}</td>
+                        <td>{{ ad.price }} {{ ad.get_currency_display() }}</td>
+                        <td>{{ ad.created|date("Y-m-d H:i") }}</td>
+{#                        <td>{{ ad.updated|date("Y-m-d H:i") }}</td>#}
+                    </tr>
+                    <tr class="images">
+                        <td colspan="7">
+                        {% for photo in ad.photos.all() %}{% if photo.image %}
+                            <img src="{{ photo.smart_thumbnail("xs") }}"/>
+                        {% endif %}{% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div><br/>
+        {% endif %}
+
+        {% with photos = ad.photos.all() %}
+            {% if photos %}
+                <h3>
+                    Фотографии
+                    {% if 'photos' in ad.fields_for_moderation|string %}<i class="glyphicon glyphicon-exclamation-sign" style="color:#d9534f" title="измененное поле"></i>{% endif %}
+                </h3>
+                {% for photo in photos %}
+                    <p align="center">
+                        {%- if photo.image -%}
+                            <img src="{{ photo.image.url }}" class="img-responsive"/>
+                        {%- else -%}
+                            <img src="{{ photo.source_url }}" class="img-responsive"/>
+                        {%- endif -%}
+                    </p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <br/>
+        <p align="center">
+            <a href="#" class="btn btn-block btn-primary big">
+                <i class="glyphicon glyphicon-menu-up "></i> &nbsp; Наверх
+            </a>
+        </p><br/><br/>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "profile/base.jinja.html" %}
+
+{% block content %}
+<h1>{% trans %}Оплата прервана{% endtrans %}</h1>
+
+<p>{% trans %}Произошла ошибка во время проведения оплаты{% endtrans %}:<br/><b><big>{{ error_text }}</big></b>.</p>
+
+<p><a href='javascript:history.back()'>{% trans %}Вернуться назад{% endtrans %}</a></p>
+
+{% endblock %}

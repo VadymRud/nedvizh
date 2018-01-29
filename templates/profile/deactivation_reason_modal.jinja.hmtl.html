@@ -1,0 +1,33 @@
+<style>label {font-weight:normal;}</style>
+<div class="modal fade" id="deactivate-reason-modal" data-ad='' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width:500px;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">{% trans %}Закрыть{% endtrans %}</span></button>
+            {% trans %}Пожалуйста, расскажите, почему вы хотите снять объявление с публикации:{% endtrans %}
+        </div>
+        <div class="modal-body" style="padding:20px 50px">
+            <div class="row">
+                <div class="col-sm-16 col-sm-offset-4">
+                    <ul class="list-unstyled" style="font-size:16px;">
+                        {% for key, label in DEACTIVATION_REASON_CHOICES %}
+                            <li><label><input type="radio" name="deactivation_reason" value="{{ key }}" {% if loop.first %}checked="checked"{% endif %}/>
+                                {{ label }}</label></li>
+                        {% endfor %}
+                    </ul><br/>
+                    <div class="text-center" style="margin-top:0px">
+                        <div class="hide_for_action_sold">
+                            {# <p><button id="confirm_action" type="button" class="btn btn-md btn-default btn-link">Снять с публикации</button></p> #}
+                            <p class="text-16"><a id="confirm_action">{% trans %}Снять с публикации{% endtrans %}</a></p>
+                            <p>или</p>
+                        </div>
+                        <p><button name="action" value="sold" type="submit" class="btn btn-md btn-danger">{% trans %}Продолжить размещение *{% endtrans %}</button></p>
+                    </div><br/>
+                </div>
+            </div>
+
+            <p class="gray">* {% trans %}Вы можете продолжить размещение проданных объектов, но с соответствующей пометкой "Продано". <br/>Такие объявления будут размещаться на общих условиях, как обычные объявления.{% endtrans %}</p>
+        </div>
+    </div>
+  </div>
+</div>

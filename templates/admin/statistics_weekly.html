@@ -1,0 +1,78 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Статистика по неделям{% endblock %}
+
+{% block content %}
+<style>
+#id_since, #id_end {width:80px;text-align: center}
+</style>
+
+<div id="content-main" class='change-list'>
+    <h2>Статистика за неделю</h2>
+    <form>
+        Отображать данные за период
+        <label>с {{ form.since }}</label>
+        <label>по {{ form.end }}</label>
+        <input type="submit" value="Посмотреть"/>
+        {{ form.errors }}
+    </form>
+    <br/>
+
+    <table border="0">
+        <tr>
+            <td>
+                <table>
+                    <tr><th>Объявления</th></tr>
+                    <tr><td>Новые объявления от частников</td></tr>
+                    <tr><td>Новые объявления от агентов</td></tr>
+                    <tr><td>Новые объявления от банков</td></tr>
+                    <tr><td>Общее кол. объявлений всех пользователей</td></tr>
+                    <tr><td>Общее кол. объявлений парсера</td></tr>
+                    <tr><td>Общее кол. живых объявлений</td></tr>
+
+                    <tr><th>&nbsp;</th></tr>
+                    <tr><th>Частники</th></tr>
+                    <tr><td>Новые</td></tr>
+                    <tr><td>Общее кол.</td></tr>
+                    <tr><td>Активные за 30 дней</td></tr>
+
+                    <tr><th>&nbsp;</th></tr>
+                    <tr><th>Агенты</th></tr>
+                    <tr><td>Новые</td></tr>
+                    <tr><td>Общее кол.</td></tr>
+                    <tr><td>Активные за 30 дней</td></tr>
+
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr><th>&nbsp;</th></tr>
+                    <tr><td align="center">{{ ads_stats.person }}</td></tr>
+                    <tr><td align="center">{{  ads_stats.agency }}</td></tr>
+                    <tr><td align="center">{{ ads_stats.bank }}</td></tr>
+                    <tr><td align="center">{{ ads_stats.user }}</td></tr>
+                    <tr><td align="center">{{ ads_stats.feed }}</td></tr>
+                    <tr><td align="center">{{ ads_stats.total }}</td></tr>
+
+                    <tr><th>&nbsp;</th></tr>
+                    <tr><th>&nbsp;</th></tr>
+                    <tr><td align="center">{{ users_stats.person.new }}</td></tr>
+                    <tr><td align="center">{{ users_stats.person.total }}</td></tr>
+                    <tr><td align="center">{{ users_stats.person.active }}</td></tr>
+
+                    <tr><th>&nbsp;</th></tr>
+                    <tr><th>&nbsp;</th></tr>
+                    <tr><td align="center">{{ users_stats.agency.new }}</td></tr>
+                    <tr><td align="center">{{ users_stats.agency.total }}</td></tr>
+                    <tr><td align="center">{{ users_stats.agency.active }}</td></tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <br/>
+    <p><small>P.S. Активными пользователями считаются те, кто авторизовывался на сайте <br/>
+            хотя бы один раз за 30 дней до окончания выбранного периода</small></p>
+
+</div>
+{% endblock %}

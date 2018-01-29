@@ -1,0 +1,534 @@
+# Russian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-12-27 21:38+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: forms.py:69
+msgid "Пароль"
+msgstr ""
+
+#: forms.py:70
+msgid "Пароль (еще раз)"
+msgstr ""
+
+#: forms.py:75
+#, python-format
+msgid "Пользователь с адресом электронной почты %s уже зарегистрирован"
+msgstr ""
+
+#: forms.py:82
+msgid "Пароли не совпадают"
+msgstr ""
+
+#: forms.py:147
+msgid "Измените фото"
+msgstr ""
+
+#: forms.py:148
+msgid "Ваша фотография — первое, что видят другие люди, поэтому выберите лучшую."
+msgstr ""
+
+#: forms.py:152
+msgid "Я риелтор"
+msgstr ""
+
+#: forms.py:153
+msgid ""
+"Выберите этот пункт, если вы хотите размещать от 3 объявлений и выше. Вам"
+" станут доступны различные инструменты для увеличения продаж."
+msgstr ""
+
+#: forms.py:154
+msgid "Я застройщик"
+msgstr ""
+
+#: forms.py:155
+msgid "Выберите этот пункт, если вы хотите добавить Жилой Комплекс/Новострой"
+msgstr ""
+
+#: forms.py:156
+msgid "Ваша фотография"
+msgstr ""
+
+#: forms.py:157
+msgid "Язык"
+msgstr ""
+
+#: forms.py:179
+msgid "Для смены текущего профиля обратитесь к личному менеджеру"
+msgstr ""
+
+#: forms.py:195
+msgid "Можно выбрать только один из двух вариантов"
+msgstr ""
+
+#: forms.py:201
+msgid "Новый E-mail"
+msgstr ""
+
+#: forms.py:206
+msgid "Пользователь с таким e-mail адресом уже зарегистрирован"
+msgstr ""
+
+#: forms.py:210
+msgid "Выберите тему из списка"
+msgstr ""
+
+#: forms.py:212 forms.py:232
+msgid "Сообщение"
+msgstr ""
+
+#: forms.py:225
+msgid ""
+"Если вам недостаточно предоставленной в объявлении информации и вы хотите"
+" знать о понравившемся объекте недвижимости больше,- задайте автору "
+"объявления дополнительные вопросы, которые помогут вам уточнить "
+"необходимые детали и сложить целостный образ понравившегося объекта."
+msgstr ""
+
+#: forms.py:226
+msgid ""
+"У вас есть возможность предложить продавцу недвижимости свою цену. "
+"Отправьте ему предложение контроферты с аргументацией и дайте время "
+"обдумать этот вариант. Как правило, владельцы идут на встречу "
+"потенциальному клиенту и снижают стоимость."
+msgstr ""
+
+#: forms.py:246
+msgid "Ссылка на файл для импорта"
+msgstr ""
+
+#: forms.py:250
+msgid "Ссылка на файл для проверки"
+msgstr ""
+
+#: models.py:66
+msgid "Хочу узнать некоторые детали"
+msgstr ""
+
+#: models.py:67
+msgid "Хочу предложить другую цену"
+msgstr ""
+
+#: models.py:72
+msgid "plain text"
+msgstr ""
+
+#: models.py:73
+msgid "HTML"
+msgstr ""
+
+#: models.py:78
+msgid "первое сообщения для группирки в диалог"
+msgstr ""
+
+#: models.py:79
+msgid "отправитель"
+msgstr ""
+
+#: models.py:80
+msgid "получатель"
+msgstr ""
+
+#: models.py:82
+msgid "объявление"
+msgstr ""
+
+#: models.py:83
+msgid "рассылка"
+msgstr ""
+
+#: models.py:84
+msgid "текст сообщения"
+msgstr ""
+
+#: models.py:86
+msgid "время отправления"
+msgstr ""
+
+#: models.py:87
+msgid "прочитано"
+msgstr ""
+
+#: models.py:88
+msgid "переход по ссылке"
+msgstr ""
+
+#: models.py:89
+msgid "скрыть переписку для юзера"
+msgstr ""
+
+#: models.py:221
+msgid "не отправлена"
+msgstr ""
+
+#: models.py:222
+msgid "выполняется"
+msgstr ""
+
+#: models.py:223
+msgid "завершена"
+msgstr ""
+
+#: models.py:234
+msgid "отправленных сообщений"
+msgstr ""
+
+#: models.py:282
+msgid "недвижимость"
+msgstr ""
+
+#: models.py:283 models.py:303
+msgid "время создания"
+msgstr ""
+
+#: models.py:304
+msgid "подписка "
+msgstr ""
+
+#: models.py:335
+msgid "комната"
+msgstr ""
+
+#: models.py:335
+msgid "комнаты"
+msgstr ""
+
+#: models.py:335
+msgid "комнат"
+msgstr ""
+
+#: models.py:337
+#, python-format
+msgid "%s комнат"
+msgstr ""
+
+#: models.py:376
+msgid "юзер"
+msgstr ""
+
+#: models.py:377
+msgid "причина бана, которую видит пользователь"
+msgstr ""
+
+#: models.py:378
+msgid "бан истекает"
+msgstr ""
+
+#: models.py:385
+#, python-format
+msgid "%(email)s до %(expire_date)s"
+msgstr ""
+
+#: models.py:395
+msgid "неактивно"
+msgstr ""
+
+#: models.py:396
+msgid "подтверждено"
+msgstr ""
+
+#: models.py:397
+msgid "отменено"
+msgstr ""
+
+#: models.py:401
+msgid "создано"
+msgstr ""
+
+#: models.py:402
+msgid "Пользователь"
+msgstr ""
+
+#: models.py:403
+msgid "старый email"
+msgstr ""
+
+#: models.py:404
+msgid "новый email"
+msgstr ""
+
+#: models.py:405
+msgid "код подтверждения"
+msgstr ""
+
+#: models.py:406
+msgid "статус"
+msgstr ""
+
+#: models.py:428
+msgid "период"
+msgstr ""
+
+#: models.py:429
+msgid "пользователь"
+msgstr ""
+
+#: models.py:430
+msgid "новых объяв."
+msgstr ""
+
+#: models.py:431
+msgid "активных объяв."
+msgstr ""
+
+#: models.py:432
+msgid "VIP-размещ."
+msgstr ""
+
+#: models.py:433
+msgid "потрачено гривен"
+msgstr ""
+
+#: models.py:434
+msgid "входов на сайт"
+msgstr ""
+
+#: models.py:435
+msgid "просмотров объявлений"
+msgstr ""
+
+#: models.py:436
+msgid "просмотров контактов"
+msgstr ""
+
+#: models.py:437
+msgid "план Первый"
+msgstr ""
+
+#: models.py:438
+msgid "прочие планы"
+msgstr ""
+
+#: models.py:664
+msgid "выводить таймер обратного отсчета"
+msgstr ""
+
+#: views.py:75
+msgid "Аккаунт заблокирован"
+msgstr ""
+
+#: views.py:84
+msgid "Личный кабинет"
+msgstr ""
+
+#: views.py:143
+msgid "Редактирование профиля"
+msgstr ""
+
+#: views.py:158
+msgid "Заявка принята.<br/>Менеджер вам перезвонит."
+msgstr ""
+
+#: views.py:209
+msgid "Все объявления"
+msgstr ""
+
+#: views.py:210
+msgid "Активные"
+msgstr ""
+
+#: views.py:211
+msgid "Неактивные"
+msgstr ""
+
+#: views.py:212
+msgid "VIP"
+msgstr ""
+
+#: views.py:213
+msgid "Отклоненные"
+msgstr ""
+
+#: views.py:214
+msgid "Импорт"
+msgstr ""
+
+#: views.py:217
+msgid "Все типы сделки"
+msgstr ""
+
+#: views.py:218
+msgid "Продажа"
+msgstr ""
+
+#: views.py:219
+msgid "Долгосрочная аренда"
+msgstr ""
+
+#: views.py:220
+msgid "Посуточно"
+msgstr ""
+
+#: views.py:224
+msgid "Вся недвижимость"
+msgstr ""
+
+#: views.py:225
+msgid "Квартира"
+msgstr ""
+
+#: views.py:226
+msgid "Комната"
+msgstr ""
+
+#: views.py:227
+msgid "Дом"
+msgstr ""
+
+#: views.py:228
+msgid "Участок"
+msgstr ""
+
+#: views.py:229
+msgid "Коммерческая"
+msgstr ""
+
+#: views.py:230
+msgid "Гаражи"
+msgstr ""
+
+#: views.py:284
+msgid "Мои объявления"
+msgstr ""
+
+#: views.py:348
+msgid "Выберете способ размещения, перед тем как добавлять объявления."
+msgstr ""
+
+#: views.py:352
+msgid "Редактирование объявления"
+msgstr ""
+
+#: views.py:374
+msgid "Добавление объявления"
+msgstr ""
+
+#: views.py:523
+msgid "Сохраненные поиски"
+msgstr ""
+
+#: views.py:531
+msgid "Сохраненные объявления"
+msgstr ""
+
+#: views.py:581
+msgid ""
+"Поиск сохранен.<br/><br/>Вы будете получать уведомления о новых "
+"объявлениях на вашу почту"
+msgstr ""
+
+#: views.py:644
+#, python-format
+msgid ""
+"<span class=\"pink h5\">E-mail успешно изменен!</span><br><br>Ваш новый "
+"E-mail - %s"
+msgstr ""
+
+#: views.py:700
+msgid "Подтверждение заказа"
+msgstr ""
+
+#: views.py:746
+msgid "Размещение зарубежной недвижимости на сайте mesto.ua"
+msgstr ""
+
+#: views.py:747
+msgid "Размещение в международных каталогах"
+msgstr ""
+
+#: views_balance.py:30
+msgid "Неделя"
+msgstr ""
+
+#: views_balance.py:31
+msgid "Месяц"
+msgstr ""
+
+#: views_balance.py:32
+msgid "3 месяца"
+msgstr ""
+
+#: views_balance.py:33
+msgid "За всё время"
+msgstr ""
+
+#: views_balance.py:36
+msgid "Все операции"
+msgstr ""
+
+#: views_balance.py:37
+msgid "Пополнения"
+msgstr ""
+
+#: views_balance.py:38
+msgid "Расходы"
+msgstr ""
+
+#: views_balance.py:60
+msgid "Счет"
+msgstr ""
+
+#: views_balance.py:99
+msgid "Баланс"
+msgstr ""
+
+#: views_balance.py:154
+#, python-format
+msgid "Пополнение баланса пользователя #%s"
+msgstr ""
+
+#: views_balance.py:295
+#, python-format
+msgid "Пополнение баланса пользователя #%d %s (%s %s)"
+msgstr ""
+
+#: views_balance.py:310
+msgid "Успешная оплата"
+msgstr ""
+
+#: views_balance.py:321
+msgid "Ошибка во время проведения оплаты"
+msgstr ""
+
+#: views_messages.py:45 views_messages.py:86
+#, python-format
+msgid "Объявление #%(id)d: %(title)s, %(address)s"
+msgstr ""
+
+#: views_messages.py:51
+msgid "Сообщение от пользователя"
+msgstr ""
+
+#: views_messages.py:69
+msgid "Ваше сообщение было успешно<br/> отправлено владельцу объявления."
+msgstr ""
+
+#: views_messages.py:77 views_messages.py:133
+msgid "Отправить сообщение"
+msgstr ""
+
+#: views_messages.py:179
+msgid "Отправленные сообщения"
+msgstr ""
+
+#: views_messages.py:179
+msgid "Входяшие сообщения"
+msgstr ""
+

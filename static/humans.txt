@@ -1,0 +1,17 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+/* TEAM */
+  Web-develoer: Andrey Frolov
+  Site: http://z268.ru/
+  Twitter: https://twitter.com/Zeeeeeeeer
+  Location: Russia, Chelyabinsk
+
+/* THANKS */
+  Names (& URL): 
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Modernizr, jQuery
+  Software:
+  - Django 1.4

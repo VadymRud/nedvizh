@@ -1,0 +1,8 @@
+<div class="row border-bottom">
+    <div class="col-xs-24 text-center flats-submenu">
+        <ul>
+            <li{% if active == 'sections' %} class="active"{% endif %}><a href="{{ url('profile_newhome_sections', newhome.id) }}" title="">{% trans %}Дома и секции{% endtrans %}</a></li>
+            <li{% if active == 'queue' %} class="active"{% endif %}><a href="{{ url('profile_newhome_queue', newhome.id) }}" title="">{% trans %}Очереди строительства{% endtrans %}</a></li>
+        </ul>
+    </div>
+</div>

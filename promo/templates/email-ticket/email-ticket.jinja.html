@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Факторы умножения продаж риэлтора</title>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800&amp;subset=cyrillic" rel="stylesheet">
+        <link href="{{ static('email-ticket/css/email-ticket.css') }}" rel="stylesheet">
+        <style>
+            body {font-size:40px;}
+            .big-text {font-size:46px;letter-spacing: 0px;font-weight: 400;}
+            .big-text, .data-text, .name-client, .bold  {font-weight:800;}
+        </style>
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="section-header">
+                <img src="{{ static('email-ticket/img/logo2.png') }}">
+                <ul class="block">
+                    <li class="big-text bold">Информация о заказе:</li>
+                    <li class="text">Номер заказа: {{ order_id }}</li>
+                    <li class="text">Дата заказа: {{ order_date|date("d.m.Y, H:s")  }}</li>
+                </ul>
+                <ul class="block">
+                    <li class="big-text bold">Организатор:</li>
+                    <li class="text">Mesto.ua</li>
+                </ul>
+            </div>
+            <div class="section">
+                <span class=" ">
+                    Ваш билет на семинар-интенсив <span class="big-text"> "Факторы умножения продаж риэлтора"</span>
+                </span>
+            </div>
+            <div class="section">
+                <span class=" sm">
+                    <span>Уважаемый(ая) {{ name }}</span>,<br> 
+                    Внизу страницы находится билет на семинар-интенсив "Факторы умножения продаж риэлтора" (8 декабря 2017), который был заказан {{ order_date|date("d.m.Y, H:s")  }}. Спасибо за ваш заказ, мы желаем вам хорошего посещения! Просто распечатайте билет и возьмите его с собой.
+                </span>
+            </div>
+            <div class="section">
+                <img src="{{ static('email-ticket/img/map.png') }}" class="map">
+            </div>
+            <div class="section w-line">
+                <div class="addres">
+                    г.Харьков ул Благовещенская (бывшая Карла Маркса), 1 Конференц-зал "Fabrica Space"
+                </div>
+                <div class="white-line"></div>
+            </div>
+            <div class="section w-line sec-name">
+                <img src="{{ static('email-ticket/img/small_logo.png') }}" style="width:434px;height:134px">
+                <div class="ticket">
+                    <span class="big-text max-big bold">
+                        Факторы умножения продаж риэлтора
+                    </span><br>
+                    <span class="data-text">
+                        8 декабря 2017
+                    </span>
+                </div>
+            </div>
+            <div class="name-client">
+                {{ name }}
+            </div>
+            <div class="section bottom-ticket w-line">
+                <div class="white-line bottom-line"></div>
+            </div>
+        </div>
+    </body>
+</html>

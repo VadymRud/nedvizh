@@ -1,0 +1,22 @@
+{% load i18n %}
+<h3>{% blocktrans with filter_title=title %} By {{ filter_title }} {% endblocktrans %}</h3>
+<div id="{{ spec.parameter_name }}_text_filter_query_string" style="display:none;">{{ choices.0.base_query_string|iriencode }}</div>
+<script type="text/javascript">
+    function {{ spec.parameter_name }}TextFilter() {
+        var url = django.jQuery('#{{ spec.parameter_name }}_text_filter_query_string').text();
+        var text = django.jQuery('#{{ spec.parameter_name }}_text_filter_input').val();
+        if(text) {
+            url += '&{{ spec.parameter_name }}=' + encodeURI(text);
+        }
+        location.href = url;
+    }
+    function keyPress(e) {
+        if (e.keyCode == 13) {{ spec.parameter_name }}TextFilter();
+    }
+</script>
+<ul>
+    <li{% if choices.0.selected %} class="selected"{% endif %}><a href="{{ choices.0.base_query_string|iriencode }}">Все</a></li>
+    <li{% if choices.1.selected %} class="selected"{% endif %}><a href="javascript:{{ spec.parameter_name }}TextFilter();">фильтровать</a></li>
+    <li><input id="{{ spec.parameter_name }}_text_filter_input" type="{{ spec.input_type }}" value="{{ spec.value }}" style="width:132px;" onkeypress="keyPress(event);" title="{{ spec.help_text }}" /></li>
+</ul>
+

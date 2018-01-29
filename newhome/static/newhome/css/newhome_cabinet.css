@@ -1,0 +1,331 @@
+/* Визуальные хаки */
+/** Убираем спины у input[type=number] */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {-webkit-appearance: none; margin: 0;}
+input[type="number"] {-moz-appearance: textfield;}
+/** Задаем цвет у placeholder */
+::-webkit-input-placeholder, ::-moz-placeholder, :-moz-placeholder, :-ms-input-placeholder {color:#949494;}
+
+/* Общие стили */
+.smart-horizontal-padding {padding-left: 7px; padding-right: 7px;}
+.no-horizontal-padding {padding-left: 0; padding-right: 0;}
+.border-bottom {border-bottom: 1px #dfdfdf solid;}
+.qq-upload-button input {min-height: 160px;}
+.relative {position: relative;}
+.btn-control {min-width: 100px; height: 40px; padding-left: 30px; padding-right: 30px;}
+.btn-white {color: #333; background: #fff;}
+.glyphicon-minus-sign {cursor: pointer;}
+.opacity {opacity: 0.4;}
+.no-left-padding {padding-left: 0 !important;}
+.no-padding {padding: 0 !important;}
+.margin-top-5 {margin-top: 5px;}
+.padding-top-8 {padding-top: 8px;}
+.padding-top-12 {padding-top: 12px;}
+.no-decoration {text-decoration: none;}
+.padding-top-7 {padding-top: 7px;}
+.white-panel {padding: 30px;}
+    .white-panel .form-group:last-child {margin-bottom: 0;}
+.balance {color: #ff1b55;}
+.increase-money {margin-top: -7px; margin-bottom: 10px;}
+.queues-object {margin: 0; padding: 0; list-style: none; font-size: 14px;}
+.clean-local-storage {margin-top: 33px; font-size: 14px; color: #aaa;}
+    .clean-local-storage a {color: #aaa;}
+    .clean-local-storage span {font-size: 12px;}
+
+.modal-floor {width: 1000px;}
+.subtitle {color: #666666; font-size: 14px;}
+
+/* Очереди */
+.sections {}
+    .sections .flats-submenu li {width: 45%;}
+    .sections p {margin-bottom: 0;}
+
+    .building {}
+        .building .queue-name {font-size: 18px;}
+        .building input.form-control {margin-top: -10px;}
+        .building > div {padding-top: 40px; padding-bottom: 25px;}
+        .building .btn-gray {
+            color: #333333; font-size: 15px; line-height: 40px; height: 49px; width: 142px; margin-top: -15px;
+        }
+        .building .btn-danger, .building .btn-white {
+            height: 40px; margin-top: -10px; line-height: 28px;
+        }
+        .building strong {display: block; float: left; margin-right: 10px;}
+        .building ul {display: block; list-style: none; margin: 0 100px 0 130px; padding: 0; width: 65%; overflow: hidden;}
+        .building li {display: inline-block; list-style: none; float: left; margin: 0 11px 0 0; padding: 0;}
+            .building li::after {content: ';'; display: inline-block; width: 2px;}
+            .building li:last-of-type::after {display: none;}
+
+/* Квартиры */
+.flats-submenu {}
+    .flats-submenu ul {display: block; margin: 0; padding: 5px 0 25px; list-style: none;}
+    .flats-submenu li {display: inline-block; margin: 0; padding: 0; width: 30%; height: 40px; line-height: 40px;}
+        .flats-submenu li.active a {background-color: #ff1b55; color: #fff;}
+    .flats-submenu a {
+        display: inline-block; padding: 0 20px; height: 40px; line-height: 40px; border-radius: 18px; font-size: 16px;
+        outline: none; text-decoration: none; color: #333333;
+    }
+
+#new-flats .image-list li:nth-of-type(2) {display: none !important;}
+#flats-edit-popup {}
+    #flats-edit-popup .modal-body, #flats-edit-popup .modal-header {background: #fff;}
+
+    #flats-edit-popup .flat-name {margin-top: 20px; margin-bottom: 20px;}
+        #flats-edit-popup .flat-name input {box-shadow: none; border-left: 0; border-right: 0; border-top: 0;}
+
+    #flats-edit-popup .flat-rooms_total {
+        font-weight: normal; font-size: 14px; color: #333; line-height: 30px;
+    }
+    #flats-edit-popup .rooms-area {margin-top: 10px;}
+        #flats-edit-popup .rooms-area input {font-size: 12px; color: #333;}
+
+    #flats-edit-popup .rooms-semicon {font-weight: normal; font-size: 14px; color: #333; line-height: 30px; width: 0;}
+        #flats-edit-popup .rooms-semicon.rooms-delete {line-height: 36px; color: #ff1b55;}
+            #flats-edit-popup .rooms-semicon.rooms-delete span {cursor: pointer;}
+
+    #flats-edit-popup .rooms-content {min-height: 600px; border-left: 1px #dfdfdf solid;}
+        #flats-edit-popup .rooms-content > .row > .row {margin-bottom: 0;}
+        #flats-edit-popup .rooms-content .no-padding {padding: 0;}
+
+    #flats-edit-popup .add-room {width: 100%;}
+
+    #flats-edit-popup .available-layout-options {
+        position: absolute; margin: 0; width: 100%; height: auto; overflow: hidden; list-style: none; left: 0;
+        top: 0; z-index: 1000; display: block; padding: 5%;
+    }
+        #flats-edit-popup .available-layout-options li {
+            display: block; width: 28%; float: left; padding: 0; margin: 0 2% 1% 0; text-align: left;
+        }
+        #flats-edit-popup .available-layout-options li a {color: white;}
+
+        #flats-edit-popup .available-layout-options + .fog {
+            position: absolute; width: 100%; height: 100%; background: black; opacity: 0.6; left: 0; top: 0;
+            z-index: 998;
+        }
+
+#available-layouts {
+    width: 385px; height: 300px; background: #fff; overflow: hidden; overflow-y: auto; position: absolute;
+    left: 0; top: 0; z-index: 10000; box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+}
+    #available-layouts .form-horizontal {padding: 15px 0 0;}
+
+    #available-layouts .layout {margin-bottom: 20px;}
+        #available-layouts .layout .layout-wrap {
+            white-space: nowrap; display: inline-block; border: 1px #fff solid; overflow: hidden; padding: 20px;
+            height: 250px; text-align: center; outline: none; text-decoration: none; color: #333; width: 165px;
+            position: relative; font-size: 16px;
+        }
+            #available-layouts .layout .layout-wrap.bordered {border: 1px #bfbfbf solid;}
+            #available-layouts .layout .layout-wrap span {
+                display: inline-block; width: 100%; position: absolute; left: 0; bottom: 20px; text-align: center;
+            }
+            #available-layouts .layout .layout-wrap img {display: inline-block;}
+
+#floor-edit-popup {}
+#floor-edit-popup .modal-body, #floor-edit-popup .modal-header {background: #fff; overflow: hidden;}
+    #floor-edit-popup .modal-body .img-responsive {display: inline-block;}
+    #floor-edit-popup .modal-body h6 {font-size: 16px;}
+    #floor-edit-popup .area-control {display: block; margin: 0; padding: 0; list-style: none;}
+    #floor-edit-popup .area-control li {
+        display: inline-block; width: 85px; height: 85px; margin: 20px 50px 20px 0; padding: 0; list-style: none;
+        border: 1px #d7d7d7 solid;
+    }
+        #floor-edit-popup .area-control li a {
+            display: block; outline: none; width: 100%; height: 100%;
+        }
+        #floor-edit-popup .area-control li:first-of-type a {background: url(../img/icon-pen.png) 50% 50% no-repeat;}
+        #floor-edit-popup .area-control li.active:first-of-type a,
+        #floor-edit-popup .area-control li:first-of-type a:hover {background: url(../img/icon-pen-active.png) 50% 50% no-repeat;}
+        #floor-edit-popup .area-control li:last-of-type a {background: url(../img/icon-eraser-pen.png) 50% 50% no-repeat;}
+        #floor-edit-popup .area-control li.active:last-of-type a,
+        #floor-edit-popup .area-control li:last-of-type a:hover {background: url(../img/icon-eraser-pen-active.png) 50% 50% no-repeat;}
+
+    #floor-edit-popup .mapster > div:first-of-type {display: inline-block !important;}
+
+.flats {}
+    .flats h4 {margin: 15px 0;}
+    .flats .qq-upload-list li {width: 100%;}
+        .flats .qq-upload-button, .flats .qq-progress-bar {width: 100%; height: 260px;}
+        .flats .qq-upload-button input {min-height: 260px;}
+    .flats .floor-plan {display: block; padding: 40px; border: 1px #d7d7d7 solid; outline: none; position: relative;}
+        .flats .floor-plan .fog {
+            position: absolute; z-index: 20; background-color: #4c4c4c; opacity: 0.7; left: 0; top: 0; width: 100%;
+            display: none; height: 100%;
+        }
+            .flats .floor-plan:hover .fog {display: block;}
+        .flats .floor-plan .fog + span {
+            position: absolute; z-index: 30; background-color: #ff1b55; left: 50%; top: 50%; width: 170px; height: 50px;
+            display: none; border-radius: 25px; text-align: center; font-size: 18px; color: #ffffff; text-decoration: none;
+            line-height: 50px; margin-top: -25px; margin-left: -85px;
+        }
+            .flats .floor-plan .fog + span span {font-size: 14px;}
+            .flats .floor-plan:hover .fog + span {display: block;}
+
+        .flats .floor-plan .fog + span + span {
+            position: absolute; z-index: 30; right: 15px; top: 15px; width: 16px; height: 16px; display: none;
+            color: #ff1b55; text-decoration: none; line-height: 16px; cursor: pointer;
+        }
+            .flats .floor-plan:hover .fog + span + span {display: block;}
+
+
+    .flats .layout {margin-bottom: 20px;}
+        .flats .layout .layout-wrap {
+            white-space: nowrap; display: inline-block; border: 1px #fff solid; overflow: hidden; padding: 20px;
+            height: 330px; text-align: center; outline: none; text-decoration: none; color: #333; width: 270px;
+            position: relative;
+        }
+            .flats .layout .layout-wrap:hover {border: 1px solid #bfbfbf;}
+
+            .flats .layout .layout-wrap > span {
+                display: inline-block; width: 100%; position: absolute; left: 0; bottom: 20px; text-align: center;
+            }
+                .flats .layout .layout-wrap > span + span {
+                    left: auto; right: 10px; top: 10px; display: none; width: auto;
+                }
+                .flats .layout .layout-wrap:hover > span + span {display: block;}
+
+            .flats .layout .layout-wrap img {display: inline-block;}
+
+            .flats .layout .layout-wrap.available {height: 370px;}
+                .flats .layout .layout-wrap.available > span {bottom: 60px;}
+                .flats .layout .layout-wrap.available > a {
+                    display: inline-block; width: 100%; position: absolute; left: 0; bottom: 20px; text-align: center;
+                    text-decoration: none; color: #333; z-index: 200;
+                }
+                    .flats .layout .layout-wrap.available > a span {
+                        border: 1px #bfbfbf solid; padding: 2px; min-width: 20px; min-height: 20px;
+                    }
+
+                .flats .layout .layout-wrap.available .fog {
+                    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 100; background: #666666;
+                    opacity: 0.6;
+                }
+                    .flats .layout .layout-wrap.available .fog + a {color: #fff;}
+                    .flats .layout .layout-wrap.available .fog + a > span {border: 1px #fff solid;}
+
+/* Мои новостройки */
+.btn-building-way {background: #1189ee; color: #fff;}
+    .btn-building-way:hover {background: #0070cf; color: #fff;}
+
+.my-buildings {padding: 15px 0; margin-top: 20px;}
+    .my-buildings .my-building {padding: 10px 21px; min-height: 175px; border: 0; background: none;}
+        .my-buildings .my-building .image {max-width: 100%;}
+        .my-buildings .my-building .date {color: #333333; font-size: 12px; opacity: 0.6}
+        .my-buildings .my-building .address {color: #666666; font-size: 16px; opacity: 0.8;}
+        .my-buildings .my-building .email-helptext {color: #333333; font-size: 14px;}
+        .my-buildings .my-building .newhome-link {font-size: 20px;}
+        .my-buildings .my-building .btn {font-size: 16px; color: #fff; min-width: 170px; height: 42px; line-height: 31px;}
+        .my-buildings .my-building .btn-flat-available {background: #ff1b55;}
+            .my-buildings .my-building .btn-flat-available:hover {background: #df1a4c;}
+        .my-buildings .my-building .btn-edit {background: #e1e1e1; color: #333333;}
+            .my-buildings .my-building .btn-edit:hover {background: #bcbcbc;}
+
+/* Ход строительства */
+.newhomes-workflow {}
+    .newhomes-workflow .controls {margin: 0 0 30px 30px;}
+    .newhomes-workflow .thin {font-weight: normal;}
+    .newhomes-workflow .calendar-row input {
+        width: 240px; height: 48px; line-height: 36px; font-size: 18px; border: 1px #d7d7d7 solid;
+        margin: 30px 0 30px 30px; padding-left: 10px;
+    }
+    .newhomes-workflow h3 {margin: 30px 0 30px 30px;}
+    .newhomes-workflow .help-text {color: #666666; font-size: 16px; margin-top: 40px;}
+        .newhomes-workflow .text-center.help-text {font-size: 18px;}
+    .newhomes-workflow .btn-gray, .newhomes-workflow .btn-white {
+        height: 49px; line-height: 36px; width: 165px; font-size: 16px; background: #e1e1e1; color: #333333;
+        margin-top: 21px;
+    }
+        .newhomes-workflow .btn-gray:hover {background: #bcbcbc;}
+    .newhomes-workflow .btn-white {background: #fff;}
+
+    .newhomes-workflow .btn-danger {}
+        .newhomes-workflow button.btn-danger {}
+        .newhomes-workflow .btn-after-images.btn-danger {
+            margin-top: 30px; height: 49px; line-height: 36px; width: 205px; font-size: 18px; width: 140px;
+        }
+    .newhomes-workflow .calendar {
+        background: rgba(0, 0, 0, 0) url(../img/calendar.png) no-repeat scroll 98% center / 15px auto;
+    }
+    .newhomes-workflow .delete, .newhomes-workflow .rotate, .newhomes-object .delete, .newhomes-object .rotate {
+        background: url(../img/icon-delete.png) top left no-repeat; cursor: pointer; display: block; height: 25px;
+        position: absolute; right: 0; top: 0; width: 25px; z-index: 5;
+    }
+    .newhomes-workflow .rotate, .newhomes-object .rotate {
+        right: 27px; background: url(../img/icon-rotate.png) top left no-repeat;
+    }
+    .newhomes-workflow .qq-upload-success, .newhomes-workflow .qq-upload-list > li {position: relative;}
+    .newhomes-workflow .workflow-images {padding-bottom: 20px;}
+        .newhomes-workflow .workflow-images > div {margin-bottom: 10px;}
+        .newhomes-workflow .workflow-images > div:nth-of-type(3n+1) {margin-left: 30px;}
+
+/* Объекты */
+.newhomes-object {}
+    .newhomes-object .name {
+        border-left: 0; border-top: 0; border-right: 0; font-size: 26px; line-height: 30px; color: #333;
+        box-shadow: none; margin-left: -8px;
+    }
+    .newhomes-object ul.image-list:first-of-type > li img {width: 240px; height: 160px;}
+        .newhomes-object ul.image-list .choose_main {
+            position: absolute; top: 50%; left: 50%; font-size: 13px; text-decoration: none; color: #fff;
+            background: #ff1f58; display: none; padding: 3px 10px; border-radius: 14px; height: 25px;
+            line-height: 18px; margin-left: -50px; z-index: 10;
+        }
+            .newhomes-object ul.image-list li:hover .choose_main {display: inline-block;}
+            .newhomes-object ul.image-list li:hover > img {opacity: 0.5;}
+
+    .newhomes-object textarea {width: 100%; height: 230px; border: 1px #c5c5c5 solid;}
+    .newhomes-object .control-label {text-align: left; font-weight: normal; color: #666666; font-size: 15px; padding-top: 9px;}
+    .newhomes-object .bootstrap-select.btn-group .btn {color: #bfbfbf;}
+    .newhomes-object .form-control > * {color: #bfbfbf; font-size: 15px;}
+    .newhomes-object h3 {margin: 0;}
+    .newhomes-object .general-link {text-decoration: none; font-size: 18px;}
+    .newhomes-object .arrow {
+        display: inline-block; width: 86px; height: 86px; border-radius: 50%; border: 2px #ff1f58 solid;
+        background: url(../img/arrow-right.png) 50% 50% no-repeat; outline: none; text-decoration: none;
+    }
+        .newhomes-object .arrow.small {
+            width: 25px; height: 25px; border-radius: 50%; border: 1px #ff1f58 solid; margin-bottom: -8px;
+            margin-left: 10px; background: url(../img/arrow-right.png) 50% 50% no-repeat; background-size: 12px 12px;
+        }
+
+    .newhomes-table-info {margin:0;font-size:14px;}
+    .newhomes-table-info>tbody>tr>td {padding:14px 0;}
+        .newhomes-table-info>tbody>tr:first-child>td,
+        .newhomes-table-info>tbody>tr:first-child>td {border:0;}
+        .newhomes-table-info>tbody>tr>td:first-child {color:#666666;}
+    
+    .sidebar .newhomes-table-info {margin:-15px 0;}
+    
+    .newhomes-object #available-flats {}
+        .newhomes-object #available-flats .h2 {margin:3px 0;}
+        .newhomes-object #available-flats .wrapper {margin:10px -30px -15px;text-align: center;}
+        .newhomes-object #available-flats table {text-align:center;margin-bottom:0;}
+        .newhomes-object #available-flats tbody {cursor:pointer;}
+        .newhomes-object #available-flats td {padding: 20px 8px; font-size: 15px;}
+        .newhomes-object #available-flats th {
+            background: #fcfcfc;color:#989898;
+            border-top:1px solid #dfdfdf;
+            border-bottom:1px solid #dfdfdf;
+            font-weight: normal;
+            font-size:13px;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            text-align:center;text-transform: uppercase;
+        }
+        .newhomes-object #available-flats tr:hover td {background:#ff1b55;color:white;}
+    
+    .newhomes-object #all-flats {padding:20px;font-size:14px;}
+        .newhomes-object #all-flats .h5 {margin:0 0 35px;}
+        .newhomes-object #all-flats .flat {margin-bottom:25px;}
+        .newhomes-object #all-flats .flat .h6 {margin:0 0 8px;font-weight: bold;}
+        .newhomes-object #all-flats .flat .area {display:inline-block;width:100px;}
+        .newhomes-object #all-flats .btn-danger {padding:10px 16px;margin:6px 0 8px;}        
+        
+/* Меню */
+.newhomes-menu-edit {padding: 0 7px; font-size: 18px;}
+    .newhomes-menu-edit .btn-danger {height: 49px; line-height: 36px; min-width: 145px; font-size: 18px; margin: 16px 10px 0 0;}
+    .newhomes-menu-edit .title {margin: 30px 0 30px 30px; color: #333333;}
+    .newhomes-menu-edit ul {list-style: none; margin: 30px 0; padding: 0; display: block;}
+    .newhomes-menu-edit li {list-style: none; margin: 0 30px 0 0; display: inline-block;}
+        .newhomes-menu-edit li.active a {color: #333333; font-weight: 400; border-bottom: 2px #ff1b55 solid; text-decoration: none;}
+            .newhomes-menu-edit li.active a:hover {border-bottom: 0;}

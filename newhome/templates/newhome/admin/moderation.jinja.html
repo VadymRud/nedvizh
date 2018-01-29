@@ -1,0 +1,193 @@
+{% extends "blank.jinja.html" %}
+
+{% block title %}Модерация объявлений{% endblock %}
+
+{% block content %}
+<style>
+    body {padding:140px 0 0;}
+    #moderation_action {
+        position:fixed;top:0;left:0;width:100%;padding:10px 30px 10px;background: white;box-shadow:5px 0px 5px rgba(0,0,0,0.5);z-index:1000;
+    }
+    #moderation_action .reject {margin-right:230px;}
+    #changelist table th, #changelist table td {padding:2px 8px;}
+    h2 {margin-top:0;}
+    .profile-avatar {box-shadow:3px 3px 3px rgba(0,0,0,0.5);margin-bottom:-200px;}
+    .moderation-history a {margin-bottom:5px;}
+    .progress {width:300px;height:16px;margin:5px 0;}
+    .progress-bar {line-height:16px;}
+    #duplicates {display: none;font-size:12px;}
+    #duplicates.hide_images .images {display: none;}
+</style>
+<script>
+    function toggleDuplicates() {
+        var el = document.getElementById("duplicates");
+        el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+    function toggleImageDuplicates() {
+        var el = document.getElementById("duplicates");
+        el.className = el.className === 'hide_images' ? '' : 'hide_images';
+    }
+</script>
+<div id="moderation_action">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-16">
+                {% include 'newhome/admin/moderation_form.jinja.html' %}
+            </div>
+            <div class="col-sm-8 text-right" style="line-height: 1">
+                В очереди:<br/> <b>{{ new_newhomes_count }}</b>
+            </div>
+        </div>
+
+        {% if stats.moderated_by_you %}
+            <br/><div class="stats small clearfix">
+                <span class="pull-right">сегодня вами отмодерировано
+                    <b>{{ stats.moderated_by_you|pluralize(("объявление", "объявления", "объявлений")) }}</b> из
+                    <b>{{ stats.moderated_total }}</b>
+                </span>
+                {% if stats.last_10_moderation %}
+                    Последние 10 отмодерированных объявлений:
+                    {% for mod in stats.last_10_moderation %}
+                        <a href="{{ url('newhome_moderation_detail', moderation_id=mod.id) }}">{{ mod.newhome_id }}</a>,
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+
+<div id="changelist" class='change-list container'>
+
+    {% if not moderation_queue %}
+        <small><a href="{{ url("newhome_moderation_queue") }}">вернуться к очереди на модерацию &raquo;</a></small>
+    {% endif %}
+
+    {% set fields_for_moderation = newhome.fields_for_moderation|split(",") if newhome.fields_for_moderation else [] %}
+    <h2>
+        <div class="pull-right">
+            <a title="редактировать" href="{{ url("admin:newhome_newhome_change", newhome.pk) }}" ><i class="glyphicon glyphicon-pencil"></i></a>
+            &nbsp; <a title="смотреть на сайте" href="{{ newhome.get_absolute_url() }}" ><i class="glyphicon glyphicon-link"></i></a>
+        </div>
+
+        #{{ newhome.pk }}: {{ newhome }} &nbsp;
+        {% if '__all__' in fields_for_moderation %}<small class="label label-primary">новое</small>{% endif %}
+        {% if newhome.status not in [1,4] %}&nbsp;<small class="label label-warning">{{ newhome.get_status_display() }}</small>{% endif %}
+    </h2><br/>
+
+    {% if moderation.moderator %}
+        <div class="alert {% if moderation.new_status %}alert-danger{% else %}alert-success{% endif %}">
+            Объявление уже прошло проверку модератором <b>{{ moderation.moderator.email }}</b> в {{ moderation.end_time|date("Y-m-d H:i") }}.<br/>
+            {% if moderation.new_status %}
+                Был установлен статус <b>{{ moderation.get_new_status_display() }}</b>.
+            {% else %}
+                Статус не был изменен.
+            {% endif %}
+            {% if moderation.new_status != moderation.newhome.status %}
+                <br/>Текущий статус объявления &mdash; <b>{{ moderation.newhome.get_status_display() }}</b>.
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if newhome.user.image %}
+        <div class="row"><div class="col-xs-offset-18 col-xs-6" align="right">
+            <img src="{{ newhome.user.image|thumbnail("200x200", nocrop=True) }}" alt="аватар пользователя"
+                 class="pull-right profile-avatar img-responsive"/>
+        </div></div>
+    {% endif %}
+
+    <div class='module'>
+        <table class="table table-striped" style="width:1200px;">
+            <tr>
+                <th width="25%">Пользователь</th>
+                <td>
+                    <a href="{{ url('admin:custom_user_user_changelist') }}?id={{ newhome.user_id }}">{{ newhome.user }}</a>
+                    {% if user_stats.total %}
+                        <br/>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success"
+                                 title="Было одобрено модераций: {{ user_stats.good }} из {{ user_stats.total }}"
+                                 style="width: {{ user_stats.good / user_stats.total * 100 }}%">
+                              {{ (user_stats.good / user_stats.total * 100)|int }}%
+                            </div>
+                            <div class="progress-bar progress-bar-danger"
+                                 title="Было дублей: {{ user_stats.duplicates }} из {{ user_stats.total }}"
+                                 style="width: {{ user_stats.duplicates / user_stats.total * 100 }}%">
+                              {{ (user_stats.duplicates / user_stats.total * 100)|int }}%
+                            </div>
+                            <div class="progress-bar progress-bar-warning"
+                                 title="Было отклонено модераций: {{ user_stats.bad }} из {{ user_stats.total }}"
+                                 style="width: {{ user_stats.bad / user_stats.total * 100 }}%">
+                              {{ (user_stats.bad / user_stats.total * 100)|int }}%
+                            </div>
+                        </div>
+                    {% endif %}
+                </td>
+            </tr>
+            {% for field in form %}
+                {% with widget_class = field.field.widget.__class__.__name__ %}
+                    {% if field.value() %}
+                        <tr class=" field-{{ field.name }} widget-{{ widget_class }}">
+                            <th align="right">
+                                {{ field.label|safe }}
+                                {% if field.name in fields_for_moderation %}<i class="glyphicon glyphicon-exclamation-sign" style="color:#d9534f"
+                                        title="измененное поле"></i>{% endif %}
+                            </th>
+                            <td>
+                                {% if field.name == 'content' %}{{ field.value()|nl2br }}
+                                {% else %}
+                                    {{ field.value() }}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+            <tr>
+                <th>Создано</th>
+                <td>{{ newhome.created|date("Y-m-d H:i")  }}</td>
+            </tr>
+            <tr>
+                <th>Поднято</th>
+                <td>{{ newhome.updated|date("Y-m-d H:i")  }}</td>
+            </tr>
+            <tr>
+                <th>Редактировалось последний раз</th>
+                <td>{{ newhome.modified|date("Y-m-d H:i")  }}</td>
+            </tr>
+        </table>
+
+        {% with moderations = moderation.newhome.newhome_moderations.all() %}
+            {% include 'admin/moderation_history.jinja.html' %}<br/>
+        {% endwith %}
+
+        {% with photos = newhome.newhome_photos.all() %}
+            {% if photos %}
+                <h3>
+                    Фотографии
+                    {% if 'photos' in newhome.fields_for_moderation|string %}<i class="glyphicon glyphicon-exclamation-sign" style="color:#d9534f" title="измененное поле"></i>{% endif %}
+                </h3>
+                {% for photo in photos %}
+                    <p align="center">
+                        {%- if photo.image -%}
+                            <img src="{{ photo.image.url }}" class="img-responsive"/>
+                        {%- else -%}
+                            <img src="{{ photo.source_url }}" class="img-responsive"/>
+                        {%- endif -%}
+                    </p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <br/>
+        <p align="center">
+            <a href="#" class="btn btn-block btn-primary big">
+                <i class="glyphicon glyphicon-menu-up "></i> &nbsp; Наверх
+            </a>
+        </p><br/><br/>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,810 @@
+{% extends "profile/base.jinja.html" %}
+{% block seo %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-24628616-30"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-24628616-30');
+    </script>
+{% endblock %}
+{% block extra_css %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ static('libs/bootstrap-select/bootstrap-select.min.css') }}">
+  <!--<link rel="stylesheet" href="{{ static('libs/cocoen/cocoen.min.css') }}" />-->
+
+  <link rel="stylesheet" href="{{ static('libs/cocoen/twentytwenty.css') }}" />
+  <style>
+      #interior3d {
+          font-family: 'OpenSans';
+          font-size: 16px;
+          background: #fff;
+          overflow: auto;
+      }
+      #interior3d .head_wrapper {
+          background: url("/../../static/paid_services/img/interior3d/background_3d.png") top center no-repeat;
+          height: 497px;
+          margin: 0 0 15px;
+          background-size: cover;
+          color: #fff;
+          line-height: 1.7;
+      }
+      #interior3d .head_wrapper h1 {
+          font-size: 42px;
+          line-height: 1.5;
+          margin-top: 50px;
+          margin-bottom: 30px;
+          font-family: 'OpenSans-Light';
+      }
+      #interior3d .head_wrapper h1 b {
+          font-family: 'OpenSansBold'
+      }
+      #interior3d .perechen_uslug {
+          background: #fff;
+      }
+      #interior3d h2 {
+          font-size: 24px;
+          padding-bottom: 25px;
+          line-height: 1.5;
+      }
+      #interior3d .uslugi {
+          line-height: 1.8;
+      }
+      #interior3d .perechen_uslug > div {
+          padding: 0;
+      }
+      #interior3d .perechen_uslug div div {
+          font-size: 16px;
+          line-height: 1.5;
+          text-align: center;
+      }
+      #interior3d .perechen_uslug div div img {
+
+          vertical-align: top;
+      }
+      #interior3d .perechen_uslug .text {
+          display: inline-block;
+          padding: 10px 5px;
+          font-size: 16px;
+          text-align: left;
+          line-height: 2
+      }
+      #interior3d .perechen_uslug .text b {
+          font-size: 16px;
+      }
+      #interior3d .form_wrapper {
+          background: #F4F9FA;
+          margin: 50px 0 0;
+          clear: both;
+      }
+      #interior3d .form_wrapper p {
+          line-height: 1.5;
+          font-size: 16px;
+          margin-bottom: 20px;
+      }
+      #interior3d .form_wrapper p span {
+          font-size: 12px;
+      }
+      #interior3d .form_wrapper .form_block {
+          /*background: #E7EFF2;*/
+          text-align: center;
+          margin-bottom: 30px;
+      }
+      #interior3d .form_wrapper h3 {
+          font-size: 32px;
+          font-family: 'OpenSans';
+          margin-top: 50px;
+      }
+      #interior3d .form_wrapper a {
+          text-decoration: none;
+          color: inherit;
+          cursor: default;
+      }
+      #interior3d .ba-slider {
+          margin: 30px auto 50px;
+      }
+      #interior3d .form_wrapper h4 {
+          font-size: 16px;
+          font-family: 'OpenSans';
+          line-height: 1.7;
+          padding: 0 20px 20px;
+      }
+      #interior3d .request-form {
+          padding: 0 85px;
+      }
+
+      #interior3d .pre_main_wrapper img {
+          margin: 30px 0;
+      }
+      #interior3d .request-form .widget .bootstrap-select {
+          border: 1px solid #C0C0C0;
+          border-radius: 3px 0 0 3px;
+          border-right: none;
+          background: #F4F7F9;
+          padding: 0 10px 0 0;
+      }
+      #interior3d .request-form .widget .bootstrap-select.btn-group .caret {
+          right: 0 !important;
+      }
+      #interior3d .request-form .localnumber {
+          border-left: none;
+      }
+      #interior3d .request-form .you_price {
+          font-size: 16px;
+          padding: 0 10px 25px;
+          font-family: 'OpenSans';
+          text-align: center;
+      }
+      #interior3d .request-form .you_price span {
+          font-size: 30px;
+          padding-left: 20px;
+          font-weight: 700;
+      }
+      #interior3d .request-form .you_price strong {
+          color: #959595;
+          font-size: 14px;
+          font-weight: 400;
+      }
+      #interior3d .form_wrapper .form_wrapper_top {
+          display: inline-block;
+          list-style-type: none;
+          padding-bottom: 20px;
+          margin-left: -90px
+      }
+      #interior3d .form_wrapper .form_wrapper_top li {
+          font-size: 16px;
+          font-family: "OpenSans";
+          text-align: left;
+          background: url("/../../static/paid_services/img/ico_select_green.png")  0 0.6em no-repeat;
+          padding-left: 22px;
+          line-height: 1.8;
+      }
+      #interior3d .form_wrapper .form_wrapper_bottom {
+          display: inline-block;
+          color: #959595;
+          text-align: left;
+      }
+      #interior3d .form_wrapper .form_wrapper_bottom li {
+          padding: 3px 0;
+      }
+      #modal_3d .modal-content {
+          text-align: center;
+      }
+      #modal_3d .modal-content h3 {
+          font-family: 'OpenSans-Light';
+          font-size: 24px;
+          margin: 30px 0 15px;
+      }
+      #modal_3d input, .request-form input, .request-form select, #modal_3d .interior3d_form button{
+          padding: 0 10px 0 10px;
+          background-color: #fff;
+          border: 1px solid #C0C0C0;
+          border-radius: 3px;
+          box-shadow: none;
+          height: 42px;
+          color: #9a9a9a;
+          font-size: 16px;
+      }
+      #modal_3d .interior3d_form button {
+          border: 1px solid #00A448;
+          margin-bottom: 10px;
+      }
+      #modal_3d .interior3d_form button:not([type=submit]) {
+          background: transparent;
+          border: 1px solid #7BB4C6;
+      }
+      #modal_3d .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+          width: 100%;
+      }
+      #modal_3d input, #modal_3d textarea {
+          outline: none;
+          border-color: #7BB4C6;
+          width: 50%;
+      }
+      #modal_3d textarea {
+          width: 100%;
+          background-color: #fff;
+          border: 1px solid #7BB4C6;
+          border-radius: 3px;
+          box-shadow: none;
+          color: #9a9a9a;
+          font-size: 16px;
+          padding: 10px;
+      }
+      #modal_3d p a.btn-ok, #interior3d .buttons .btn-ok, #interior3d .interior3d_form .btn-ok {
+          background-color: #00A448;
+          color: #fff;
+          cursor: pointer;
+      }
+      #modal_3d p a.btn-ok i,#interior3d .request-form .buttons .btn-ok i {
+          width: 14px;
+          height: 8px;
+          display: inline-block;
+          background: url("/../../static/paid_services/img/interior3d/arrow_right.png")  0 no-repeat;
+          margin-right: 10px;
+          position: relative;
+          top: -2px;
+      }
+      #modal_3d p i.arrow-left {
+          width: 14px;
+          height: 8px;
+          display: inline-block;
+          background: url("/../../static/paid_services/img/interior3d/arrow_left.png")  0 no-repeat;
+          margin-right: 2px;
+          position: relative;
+          top: -1px;
+      }
+      #modal_3d .fakeButton i {
+          width: 13px;
+          height: 12px;
+          display: inline-block;
+          background: url("/../../static/paid_services/img/interior3d/ico_uploader.png")  0 no-repeat;
+          margin-right: 10px;
+          position: relative;
+          top: -2px;
+      }
+      #modal_3d .about_img {
+          color: #959595;
+          font-family: "OpenSans";
+          font-size: 14px;
+          line-height: 2;
+          padding: 10px 0;
+      }
+      #modal_3d .about_img span {
+          color: #000;
+      }
+      #modal_3d .uploader_text {
+          line-height: 1.8;
+          padding: 0 80px;
+      }
+      #modal_3d input, #interior3d .request-form input::-webkit-input-placeholder {color:#9a9a9a !important; font-size: 16px}
+      #modal_3d input,#interior3d .request-form input::-moz-placeholder          {color:#9a9a9a !important; font-size: 16px}/* Firefox 19+ */
+      #modal_3d input,#interior3d .request-form input:-moz-placeholder           {color:#9a9a9a !important; font-size: 16px}/* Firefox 18- */
+      #modal_3d input,#interior3d .request-form input:-ms-input-placeholder      {color:#9a9a9a !important; font-size: 16px}
+      #modal_3d .modal-body {
+
+      }
+      #modal_3d .modal-body .pointer {
+          cursor: pointer;
+      }
+      #modal_3d .modal-body .close {
+          background: url("/../../static/paid_services/img/interior3d/close.png")  0 no-repeat;
+          width: 20px;
+          height: 20px;
+          display: inline-block;
+          position: absolute;
+          right: 10px;
+          top: 10px;
+      }
+      #modal_3d .wrapper {
+          margin: 20px 0;
+      }
+      #modal_3d .wrapper textarea {
+          resize: none;
+      }
+      #modal_3d .wrapper p {
+          margin: 10px 0;
+      }
+      #modal_3d label {
+          padding: 10px 20px;
+          cursor: pointer;
+      }
+      #modal_3d .all_style label {
+          padding: 0;
+      }
+      #modal_3d .all_style img {
+          max-width: 100%;
+      }
+      #modal_3d .all_style p {
+          font-size: 14px;
+          margin: 5px 0 25px;
+      }
+      #modal_3d input[type="radio"]:checked+label{
+          -webkit-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.4);
+          -moz-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.4);
+          box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.4);
+          background: #FBFBFB;
+      }
+      #modal_3d input[type="radio"]:checked ~ p {
+          font-family: 'OpenSansBold';
+      }
+      #modal_3d .all_style {
+          margin: 20px 0 0;
+          max-height: 350px;
+          overflow-y: auto;
+      }
+      #modal_3d .all_style input[type="radio"]:checked+label::after {
+          background: url("/../../static/paid_services/img/interior3d/ico_success.png")  0 no-repeat;
+          width: 47px;
+          height: 47px;
+          content: '';
+          display: inline-block;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          margin-top: -47px;
+          margin-left: -24px;
+      }
+      #p_prldr{
+          position: fixed;
+          left: 0;
+          top: 0;
+          right:0;
+          bottom:0;
+          background: #1ABC9C;
+          z-index: 30;}
+
+      .contpre small{font-size:25px;}
+
+      .contpre{
+          width: 250px;
+          height: 100px;
+          position: absolute;
+          left: 50%;
+          top: 48%;
+          margin-left:-125px;
+          margin-top:-75px;
+          color:#fff;
+          font-size:40px;
+          letter-spacing:-2px;
+          text-align:center;
+          line-height:35px;}
+
+      #p_prldr .svg_anm {
+          position: absolute;
+          width: 100px;
+          height: 100px;
+          background: url('/../../static/paid_services/img/interior3d/three-dots.svg') center center no-repeat;
+          background-size:100px;
+          margin: -50px 0 0 -50px;
+      }
+      #modal_3d input[type=radio] {
+          display: none;
+      }
+      #modal_3d input[type=file] {
+          display: inline-block;
+      }
+      #modal_3d .uploader_wrapper,#modal_3d .image_wrapper {
+          position: relative;
+          margin: 10px 0;
+      }
+      #modal_3d img.uploaded-image {
+          max-height: 160px;
+          max-width: 100%;
+      }
+      /*#modal_3d img.uploaded-image:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          background: url('/../../static/paid_services/img/interior3d/ico_pen.png') center center no-repeat;
+          width: 30px;
+          height: 30px;
+      }*/
+      #modal_3d .type_build {
+          font-size: 16px;
+          font-family: "OpenSans-Light";
+          padding: 0 0 10px;
+      }
+      #modal_3d .customFile {
+          width: 125px;
+          height: 42px;
+          z-index: 2;
+          filter: alpha(opacity: 0);
+          opacity: 0;
+          position: relative;
+      }
+      #modal_3d .fakeButton {
+          position: absolute;
+          z-index: 1;
+          background: #707070;
+          color: #fff;
+          cursor: pointer;
+          padding: 10px 17px;
+          font-size: 18px;
+          line-height: 1.33;
+          display: inline-block;
+          margin-left: -125px;
+          border-radius: 3px;
+      }
+      #modal_3d .blocker {
+          position: absolute;
+          z-index: 3;
+          width: 25px;
+          height: 43px;
+          background: none;
+          display: inline-block;
+          margin-left: 0;
+      }
+      #modal_3d .padL15 {
+          padding-left: 15px;
+      }
+      @media (max-width: 1200px) {
+          #interior3d .head_wrapper h1 {
+              margin: 0;
+              padding-top: 20px;
+          }
+          #interior3d .pre_main_wrapper .text-right {
+              text-align: center;
+          }
+          #interior3d .form_wrapper .form_block {
+              margin-bottom: 0;
+              padding-bottom: 20px;
+          }
+          #interior3d .request-form {
+              padding: 0 30px;
+          }
+      }
+      @media (max-width: 515px) {
+          #interior3d .head_wrapper h1 {
+              font-size: 24px
+          }
+          #interior3d .pre_main_wrapper img {
+              max-width: 100%;
+          }
+      }
+  </style>
+
+{% endblock %}
+
+{% block content %}
+<div id="p_prldr"><div class="contpre"><span class="svg_anm"></span><br>Подождите<br><small>идет загрузка</small></div></div>
+<div id="interior3d">
+    <!--<div id="preloader"></div>-->
+    <div class="head_wrapper col-md-24">
+        <div class="col-md-23 col-md-offset-1">
+            <h1>{% trans %}<b>Продавайте недвижимость <br/> быстрее</b> при помощи 3D дизайна<br/> ваших объектов{% endtrans %}</h1>
+            <div>{% trans %}Покажите вашим клиентам их будущее в новой квартире.<br/>
+                Загружайте фото квартиры и получите готовый 3D дизайн объекта в желаемом стиле.{% endtrans %}</div><br/>
+            <div class="buttons">
+                <a href="#form" class="btn btn-lg btn-ok"><i></i>{% trans %}Заказать{% endtrans %}</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="pre_main_wrapper col-md-23 col-md-offset-1">
+        <div class="col-md-12 col-sm-24 col-xs-24">
+            <h2>{% trans %}Повышайте привлекательность ваших объектов недвижимости{% endtrans %}</h2>
+            <div class="uslugi">{% trans %}Используя виртуальный сервис 3D дизайн фото Вы помогаете клиентам визуализировать будущий дизайн новой квартиры или дома, а также повышаете привлекательность ваших объявлений.{% endtrans %}
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-24 col-xs-24 text-right">
+            <img src="{{ static('paid_services/img/interior3d/img_room_3d.png') }}" alt="img_room_3d"/>
+        </div>
+    </div>
+    <div class="main_wrapper col-md-23 col-md-offset-1">
+        <h2>{% trans %}3D фото адаптируется ко всем видам недвижимости{% endtrans %}</h2>
+        <div>
+            <div class="uslugi">{% trans %}Вы продаете квартиру в новострое, где есть только «голые» стены и окна или же вы продаете квартиру, которая остро нуждается в ремонте – загружайте фото имеющегося объекта и получите готовый дизайн комнаты с детальной визуализацией предметов интерьера. {% endtrans %}
+            </div>
+            <div class="col-md-19 col-md-offset-2">
+                <div id="container1" class="ba-slider">
+                    <img src="{{ static('paid_services/img/interior3d/studio-vide-vente.jpg') }}">
+                    <img src="{{ static('paid_services/img/interior3d/decoration-interieur-virtuelle-3d.jpg') }}">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="perechen_uslug col-md-24">
+        <div class="col-md-23 col-md-offset-1">
+            <h2>{% trans %}Получить 3D дизайн фото в 4 шага{% endtrans %}</h2>
+            <div class="col-md-6 col-sm-12 col-xs-24">
+                <img src="{{ static('paid_services/img/interior3d/img_3d_1.png') }}" alt="img_3d_1"/>
+                <div class="text">{% trans %}<b>Загрузите фото</b><br/>
+                    Подберите необходимый объект для 3D визуализации и загрузите фото{% endtrans %}</div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-24">
+                <img src="{{ static('paid_services/img/interior3d/img_3d_2.png') }}" alt="img_3d_2"/>
+                <div class="text">{% trans %}<b>Выберите стиль</b><br/>
+                    Подберите наиболее подходящий стиль дизайна для выбранного объекта{% endtrans %}</div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-24">
+                <img src="{{ static('paid_services/img/interior3d/img_3d_3.png') }}" alt="img_3d_3"/>
+                <div class="text">{% trans %}<b>Получите готовый дизайн</b><br/>
+                    В течение 3-5 дней дизайнеры реализуют проект в выбранном вами стиле{% endtrans %}</div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-24">
+                <img src="{{ static('paid_services/img/interior3d/img_3d_4.png') }}" alt="img_3d_4"/>
+                <div class="text">{% trans %}<b>Продавайте мечту</b><br/>
+                    Как только вы получите готовый 3D дизайн фото на e-mail, загружайте его с любого удобного вам устройства и транслируйте на различные онлайн площадки{% endtrans %}</div>
+            </div>
+        </div>
+    </div>
+
+    <form method="POST" class="form_wrapper col-md-24" id="form" enctype="multipart/form-data" >
+        <div class="row col-md-10 form_block col-md-offset-7">
+            <h3 name="form">{% trans %}Заказать 3D дизайн фото{% endtrans %}</h3>
+            <h4>{% trans %}Предполагаемое время реализации проекта 3 дня{% endtrans %}</h4>
+            <!--<ul class="form_wrapper_top">
+                <li>3D визуальный</li>
+                <li>До / после визуализация</li>
+            </ul>-->
+            {% if request_form.is_valid() %}
+                <div class="alert alert-success">{% trans %}Заявка принята, с Вами свяжутся.{% endtrans %}</div>
+            {% else %}
+            <div class="request-form">{% csrf_token %}
+                {% from "macro/forms.jinja.html" import bootstrap_form_fieldsets  %}
+                
+                {{ bootstrap_form_fieldsets(request_form, label_as_placeholder=True, inline_errors=True) }}
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">+380</span>
+                    <input type="text" name="phone" class="form-control" id="phone" placeholder="{% trans %}Телефон{% endtrans %}" required  aria-describedby="basic-addon1" />
+                </div>
+                
+                
+
+                <div class="you_price" style="margin-top: 15px;">{% trans %}Цена{% endtrans %}:<span>{{ price }}</span> грн<br/>
+                    <strong>{% trans %}за 1 изображение{% endtrans %}</strong>
+                </div>
+                <div class="buttons">
+                    <a data-toggle="modal" data-target="#interiorRequestModal" class="btn btn-lg btn-ok" data-toggle="modal"><i></i>{% trans %}Продолжить{% endtrans %}</a>
+                </div><br/>
+            </div>
+            {% endif %}
+            <!--<ul class="form_wrapper_bottom">
+                <li>Простота заказа (фото достаточно)</li>
+                <li>Отличное совпадение между фото и 3D</li>
+            </ul>-->
+        </div>
+
+        <!-- Modal -->
+        <div id="modal_3d">
+          <div class="modal fade" id="interiorRequestModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <i data-dismiss="modal" class="close"></i>
+                        <div class="interior3d_form">
+                            <ul class="nav nav-tabs hidden" id="steps-tab">
+                                <li><a href="#step_1" data-toggle="tab"></a></li>
+                                <li><a href="#step_2" data-toggle="tab"></a></li>
+                                <li><a href="#step_3" data-toggle="tab"></a></li>
+                                <li><a href="#step_4" data-toggle="tab"></a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade" id="step_1">
+                                    <h3>{% trans %}Название вашего проекта{% endtrans %}</h3>
+                                    {{ request_form.project_name }}
+
+                                    <h3>{% trans %}Выберите тип недвижимости{% endtrans %}</h3>
+                                    <div class="row wrapper">
+                                        <div class="col-md-12">
+                                            <input type="radio" name="property_type" value="Квартира" id="appartement" checked />
+                                            <label for="appartement" class="appartement"><img src="{{ static('paid_services/img/interior3d/appartement.png') }}"></label>
+                                            <p>{% trans %}Квартира{% endtrans %}</p>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <input type="radio" name="property_type" value="Дом" id="house" />
+                                            <label for="house" class="maison"><img src="{{ static('paid_services/img/interior3d/maison.png') }}"></label>
+                                            <p>{% trans %}Дом{% endtrans %}</p>
+                                        </div>
+                                    </div>
+                                    <p><a href="#step_2" data-toggle="tab" class="btn btn-lg btn-ok"><i></i>{% trans %}Продолжить{% endtrans %}</a></p>
+                                </div>
+                                <div class="tab-pane fade" id="step_2">
+                                    <h3>{% trans %}Загрузите фотографию{% endtrans %}</h3>
+                                    <div class="row wrapper">
+                                        <div class="image_wrapper">
+                                            <img class="uploaded-image" src="{{ static('paid_services/img/interior3d/img_2_prewiev.png') }}" alt="Вы не Выбрали Файл">
+                                        </div>
+                                        <div class="uploader_text">{% trans %}Убедитесь, что ваша фотография не размыта, содержит хороший контраст и ракурс{% endtrans %}</div>
+                                    </div>
+                                        <div class="uploader_wrapper">
+                                            <input type="file" name="photo" onchange="readURL(this);" id="myFile" class="customFile" accept="image/*,image/jpeg"/>
+                                            <div class="fakeButton"><i></i>{% trans %}Загрузить{% endtrans %}</div>
+                                            <div class="blocker"></div>
+                                        </div>
+                                    <div class="about_img">{% trans %}Совместимые файлы <span>.jpg</span> и <span>.png</span><br/>Максимальный размер файла <span>10 МБ</span>{% endtrans %}</div>
+                                    <p><a href="#step_3" style="display:none;" data-toggle="tab" class="btn btn-lg btn-ok btn-next"><i></i>{% trans %}Продолжить{% endtrans %}</a></p>
+                                    <p><a href="#step_1" data-toggle="tab" class="btn btn-md pointer">
+                                        <i class="arrow-left"></i> {% trans %}вернуться{% endtrans %}
+                                    </a></p>
+                                </div>
+                                <div class="tab-pane fade" id="step_3">
+                                    <h3>{% trans %}Заполните некоторые данные{% endtrans %}</h3>
+                                    <div class="row wrapper">
+                                        <div class="col-xs-10">
+                                            <img class="uploaded-image" alt="Your Image Here" src=""/>
+                                        </div>
+                                        <div class="col-xs-14 text-left padL15">
+                                            <div class="type_build">{% trans %}Тип помещения{% endtrans %}</div>
+                                            {{ request_form.room_type }}
+                                            <div class="type_build">{% trans %}Особые пожелания{% endtrans %}</div>
+                                            {{ request_form.description }}
+                                        </div>
+                                    </div>
+
+                                    <br/>
+                                    <p><a href="#step_4" data-toggle="tab" class="btn btn-lg btn-ok"><i></i>{% trans %}Продолжить{% endtrans %}</a></p>
+                                    <p><a href="#step_2" data-toggle="tab" class="btn btn-md pointer">
+                                        <i class="arrow-left"></i> {% trans %}вернуться{% endtrans %}
+                                    </a></p>
+                                </div>
+                                <div class="tab-pane fade" id="step_4">
+                                    <h3>{% trans %}Выберите стиль оформления{% endtrans %}</h3>
+                                    <div class="row all_style">
+                                        <div class="col-md-8">
+                                            <input type="radio" name="style" value="я доверяю декоратору" id="trust" checked="checked" />
+                                            <label for="trust" class="appartement"><img src="{{ static('paid_services/img/interior3d/style_1.png') }}"></label>
+                                            <p>{% trans %}Я доверяю декоратору{% endtrans %}</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="radio" name="style" value="скандинавский" id="nord" />
+                                            <label for="nord" class="maison"><img src="{{ static('paid_services/img/interior3d/style_2.png') }}"></label>
+                                            <p>{% trans %}Скандинавский{% endtrans %}</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="radio" name="style" value="джунгли" id="jungle" />
+                                            <label for="jungle" class="maison"><img src="{{ static('paid_services/img/interior3d/style_3.png') }}"></label>
+                                            <p>{% trans %}Джунгли{% endtrans %}</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="radio" name="style" value="прованс" id="mimi" />
+                                            <label for="mimi" class="appartement"><img src="{{ static('paid_services/img/interior3d/style_4.png') }}"></label>
+                                            <p>{% trans %}Прованс{% endtrans %}</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="radio" name="style" value="промышленный" id="prom"  />
+                                            <label for="prom" class="appartement"><img src="{{ static('paid_services/img/interior3d/style_5.png') }}"></label>
+                                            <p>{% trans %}Промышленный{% endtrans %}</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="radio" name="style" value="винтажный" id="mark"  />
+                                            <label for="mark" class="appartement"><img src="{{ static('paid_services/img/interior3d/style_6.png') }}"></label>
+                                            <p>{% trans %}Винтажный{% endtrans %}</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="radio" name="style" value="бохо-шик" id="bogemic"  />
+                                            <label for="bogemic" class="appartement"><img src="{{ static('paid_services/img/interior3d/style_7.png') }}"></label>
+                                            <p>{% trans %}Бохо-шик{% endtrans %}</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="radio" name="style" value="cовременный дизайн" id="design"  />
+                                            <label for="design" class="appartement"><img src="{{ static('paid_services/img/interior3d/style_8.png') }}"></label>
+                                            <p>{% trans %}Современный дизайн{% endtrans %}</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <p><button type="submit" class="btn btn-lg btn-ok"><i></i>{% trans %}Подтвердить{% endtrans %}</button></p>
+                                    <p><a href="#step_3" data-toggle="tab" class="btn btn-md pointer">
+                                        <i class="arrow-left"></i> {% trans %}вернуться{% endtrans %}
+                                    </a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+    </form>
+</div>
+
+{% endblock %}
+
+{% block extra_footer %}
+    {{ super() }}
+    <script src="{{ static('libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
+    <script src="{{ static('libs/cocoen/jquery.event.move.js') }}"></script>
+    <script src="{{ static('libs/cocoen/jquery.twentytwenty.js') }}"></script>
+    <script src="{{ static('js/libs/jquery.mask.min.js') }}"></script>
+    <script>
+        var $form = $('form#form'),
+            $form_modal = $('.modal', $form);
+
+        $form.on('submit', function(e) {
+            if (!$form_modal.is(':visible')) {
+                e.preventDefault();
+                $form_modal.modal('show');
+            }
+        });
+
+        $('#phone').mask('00 000 00 00');
+        // отключаем все обязательные поля внутри модального окна для корректной валидации формы
+        $('[required]', $form_modal).prop('disabled', true);
+
+        // включаем обязательные поля при отображении соответствующего таба
+        // $('a[data-toggle="tab"]', $form_modal).on('shown.bs.tab', function (e) {
+        //     $('.tab-pane.active [required]', $form_modal).prop('disabled', false);
+        // });
+
+        // открытие первого таба при показе модального окна
+        $form_modal.on('show.bs.modal', function (e) {
+            $('#steps-tab li:first-child a').tab('show');
+            $('.tab-pane.active [required]', $form_modal).prop('disabled', false);
+        });
+
+        $form_modal.on('hidden.bs.modal', function (e) {
+            $('[required]', $form_modal).prop('disabled', true);
+        });
+
+        // останавливаем открытие модального окна или следующего таба, если форма невалидна
+        function checkValidation(e) {
+            if (!$form[0].checkValidity()) {
+                e.preventDefault();
+                e.stopPropagation();
+                $form.find('[type=submit]').click();
+            }
+        }
+        $('a[data-toggle=modal]', $form).on("click", checkValidation);
+        $('a[data-toggle=tab]', $form_modal).on("click", checkValidation);
+
+
+        $(window).on('load', function () {
+            var $preloader = $('#p_prldr'),
+                    $svg_anm   = $preloader.find('.svg_anm');
+            $svg_anm.fadeOut();
+            $preloader.delay(1000).fadeOut('slow');
+            // $('.localnumber', $form).prop('required',true);
+        });
+        $('#interior3d select').selectpicker();
+        $(window).load(function() {
+            $("#container1").twentytwenty();
+        });
+        $(document).ready(function(){
+            $(".head_wrapper .buttons").on("click","a", function (event) {
+                event.preventDefault();
+                //забираем идентификатор бока с атрибута href
+                var id  = $(this).attr('href'),
+                //узнаем высоту от начала страницы до блока на который ссылается якорь
+                        top = $(id).offset().top;
+                //анимируем переход на расстояние - top за 1000 мс
+                $('body,html').animate({scrollTop: top}, 1000);
+            });
+        });
+        //Мир был бы хорош и прекрасен, если бы в нём не было одной корпорации у которой особый путь развития. Это корпорация Apple, которая отказывает своим пользователям в праве тыкать по label. Специально для хипстеров пришлось таки применить JS
+        var deviceAgent = navigator.userAgent.toLowerCase();
+        var iOS = deviceAgent.match(/(iphone|ipod|ipad)/);
+        if (iOS) {
+            $('label').click(function (event) {
+                $('#' + $(event.target).attr('for')).attr('checked', true).change();
+            });
+        }
+        function validateSize(fileInput,size) {
+            var fileObj, oSize;
+            if ( typeof ActiveXObject == "function" ) { // IE
+                fileObj = (new ActiveXObject("Scripting.FileSystemObject")).getFile(fileInput.value);
+            } else {
+                fileObj = fileInput.files[0];
+            }
+
+            oSize = fileObj.size; // Size returned in bytes.
+            if (oSize > size * 1024 * 1024){
+                return false
+            }
+            return true;
+        }
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('.uploaded-image').attr('src', e.target.result);
+                    $('#steps-tab li:eq(2) a').tab('show');
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        jQuery('#myFile').change(function () {
+            if(!validateSize(this,10)){
+                alert("Размер файла превышает 10 MB");
+                var value= $("#myFile").val();
+                if(value != ''){
+                    var color = 'red';
+                    alert("Убедитесь, что ваша фотография не размыта, содержит хороший контраст и ракурс");
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+            if ( $("form input[type=file]").val() !== "" ) {
+                $(".btn-next").css("display","inline-block");
+            } else {
+                $(".btn-next").css("display","none");
+            }
+        });
+    </script>
+{% endblock %}

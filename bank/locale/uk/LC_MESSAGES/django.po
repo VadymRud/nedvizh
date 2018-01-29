@@ -1,0 +1,341 @@
+# Ukrainian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-05-23 13:37+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uk\n"
+"Language-Team: uk <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: callback.py:11
+msgid "Ваше ФИО"
+msgstr "Ваше ПІБ"
+
+#: callback.py:12
+msgid "Номер телефона"
+msgstr "Номер телефону"
+
+#: callback.py:13
+msgid "Номер обьявления"
+msgstr "Номер оголошення"
+
+#: callback.py:14
+msgid "Тип звонка"
+msgstr "Тип дзвінка"
+
+#: callback.py:23
+msgid "Обязательное поле."
+msgstr "Обов'язкове поле."
+
+#: callback.py:32
+msgid "Запрос на перезвон!"
+msgstr "Запит на перезвон!"
+
+#: callback.py:36
+msgid "Заявка отправлена! В ближайшее время вам перезвонит менеджер Mesto.Ua"
+msgstr "Заявку відправлено! Найближчим часом вам передзвонить менеджер Mesto.Ua"
+
+#: models.py:18
+msgid "название банка"
+msgstr "назва банку"
+
+#: models.py:19
+msgid "логотип"
+msgstr "логотип"
+
+#: models.py:20
+msgid "условия финансирования"
+msgstr "умови фінансування"
+
+#: models.py:21
+msgid "активный?"
+msgstr "активний?"
+
+#: templates/bank/bank_detail.html:20
+msgid "Количество объектов на продажу"
+msgstr "Кількість об'єктів на продаж"
+
+#: templates/bank/bank_detail.html:24
+#, python-format
+msgid "Кредиты в %(bank_name)s"
+msgstr "Кредити в %(bank_name)s"
+
+#: templates/bank/bank_detail.html:32
+msgid "Другие банки"
+msgstr "Інші банки"
+
+#: templates/bank/bank_list.html:5
+msgid ""
+"Ознакомьтесь более подробно с условиями сотрудничества с "
+"банками-партнерами"
+msgstr "Ознайомтеся докладніше з умовами співпраці з банками-партнерами"
+
+#: templates/bank/bank_list.html:24 templates/bank/preview.html:42
+msgid "Подробнее"
+msgstr "Детальніше"
+
+#: templates/bank/base.html:186
+msgid "Твиты пользователя"
+msgstr "Твіти користувача"
+
+#: templates/bank/breadcrumbs.html:6 templates/bank/breadcrumbs.html:9
+msgid "Поиск"
+msgstr "Пошук"
+
+#: templates/bank/breadcrumbs.html:7 templates/bank/breadcrumbs.html:10
+msgid "Карта"
+msgstr "Карта"
+
+#: templates/bank/breadcrumbs.html:14
+msgid "Назад"
+msgstr "Назад"
+
+#: templates/bank/callback.html:4
+msgid "Заказать<br>звонок"
+msgstr "Замовити<br>дзвінок"
+
+#: templates/bank/callback.html:4
+msgid "менеджера"
+msgstr "менеджера"
+
+#: templates/bank/callback.html:11
+msgid "Заполните заявку и мы перезвоним Вам!"
+msgstr "Заповніть заявку і ми передзвонимо Вам!"
+
+#: templates/bank/callback.html:23
+msgid "обязательные поля"
+msgstr "обов'язкові поля"
+
+#: templates/bank/callback.html:26
+msgid "Отправить"
+msgstr "Надіслати"
+
+#: templates/bank/detail.html:11
+msgid "Поделиться"
+msgstr "Поділитись"
+
+#: templates/bank/detail.html:23
+msgid "редактировать в админке"
+msgstr "редагувати в адмінці"
+
+#: templates/bank/detail.html:26
+msgid "редактировать объявлений"
+msgstr "редагувати оголошення"
+
+#: templates/bank/detail.html:29
+msgid "сохранить объявление в избранном"
+msgstr "зберегти оголошення в обраному"
+
+#: templates/bank/detail.html:29
+msgid "в избранном"
+msgstr "в обраному"
+
+#: templates/bank/detail.html:29
+msgid "в избранное"
+msgstr "в обране"
+
+#: templates/bank/detail.html:39
+msgid "Фото"
+msgstr "Фото"
+
+#: templates/bank/detail.html:40
+msgid "На карте"
+msgstr "На карті"
+
+#: templates/bank/detail.html:44
+msgid "Адрес"
+msgstr "Адреса"
+
+#: templates/bank/detail.html:86
+msgid "добавлено"
+msgstr "добавлено"
+
+#: templates/bank/detail.html:86
+msgid "источник"
+msgstr "джерело"
+
+#: templates/bank/detail.html:94 templates/bank/detail.html:114
+#: templates/bank/detail.html:177
+msgid "Цена"
+msgstr "Ціна"
+
+#: templates/bank/detail.html:94
+msgid "1 сутки"
+msgstr "1 доба"
+
+#: templates/bank/detail.html:96
+msgid "Дата въезда"
+msgstr "Дата в'їзду"
+
+#: templates/bank/detail.html:97
+msgid "Дата выезда"
+msgstr "Дата виїзду"
+
+#: templates/bank/detail.html:102
+msgid "Максимальное"
+msgstr "Максимальне"
+
+#: templates/bank/detail.html:102
+msgid "кол-во гостей"
+msgstr "кіл-ть гостей"
+
+#: templates/bank/detail.html:105
+msgid "В указанном диапазоне"
+msgstr "У зазначеному діапазоні"
+
+#: templates/bank/detail.html:105
+msgid "недвижимость свободна"
+msgstr "нерухомість вільна"
+
+#: templates/bank/detail.html:106
+msgid "Диапазон указанных дат"
+msgstr "Діапазон зазначених дат"
+
+#: templates/bank/detail.html:106
+msgid "включает занятые дни"
+msgstr "включає зайняті дні"
+
+#: templates/bank/detail.html:115
+msgid "в месяц"
+msgstr "в місяць"
+
+#: templates/bank/detail.html:122
+msgid ""
+"Раннее бронирование этой квартиры на сутки невозможно. Пожалуйста звоните"
+" в день прибытия или посмотрите другие варианты."
+msgstr ""
+"Раннє бронювання цієї квартири на добу неможливо. Будь ласка "
+"зателефонуйте в день прибуття або подивіться інші варіанти."
+
+#: templates/bank/detail.html:138
+msgid "Телефон"
+msgstr "Телефон"
+
+#: templates/bank/detail.html:147 templatetags/bank_tags.py:13
+msgid "Узнать номер"
+msgstr "Дізнатися номер"
+
+#: templates/bank/detail.html:151
+msgid "Время работы"
+msgstr "Часи роботи "
+
+#: templates/bank/detail.html:165
+msgid "Кол-во комнат"
+msgstr "Кіл-ть кімнат"
+
+#: templates/bank/detail.html:169
+msgid "Тип"
+msgstr "Тип"
+
+#: templates/bank/detail.html:173
+msgid "Тип сделки"
+msgstr "Тип угоди"
+
+#: templates/bank/detail.html:182
+msgid "Площадь"
+msgstr "Площа"
+
+#: templates/bank/detail.html:189
+msgid "Удобства"
+msgstr "Зручності"
+
+#: templates/bank/detail.html:194
+msgid "Описание"
+msgstr "Опис"
+
+#: templates/bank/detail.html:196
+msgid "ID объекта в базе"
+msgstr "ID об'єкта в базі"
+
+#: templates/bank/detail.html:198
+msgid "Работает call back телефония - мы вам перезвоним."
+msgstr "Працює call back телефонія - ми вам передзвонимо."
+
+#: templates/bank/detail.html:203
+msgid "Финансирование"
+msgstr "Фінансування"
+
+#: templates/bank/footer_bank.html:6
+msgid "О место.банкинг"
+msgstr "Про место.банкінг"
+
+#: templates/bank/footer_bank.html:7
+msgid "Контакты"
+msgstr "Контакти"
+
+#: templates/bank/footer_bank.html:8
+msgid "Правила размещения объявления"
+msgstr "Правила розміщення оголошення"
+
+#: templates/bank/index.html:6
+msgid "Вся банковская недвижимость Украины в одном месте!"
+msgstr "Вся банківська нерухомість України в одному місці!"
+
+#: templates/bank/index.html:11
+msgid ""
+"Доступные кредиты для всех! Просто найдите то, что вас интересует, а мы "
+"сделаем все остальное."
+msgstr ""
+"Доступні кредити для всіх! Просто знайдіть те, що вас цікавить, а ми "
+"зробимо все інше."
+
+#: templates/bank/index.html:19
+msgid "Жилье"
+msgstr "Помешкання"
+
+#: templates/bank/index.html:20 templatetags/bank_tags.py:19
+msgid "Земля"
+msgstr "Земля"
+
+#: templates/bank/index.html:21 templatetags/bank_tags.py:20
+msgid "Коммерческие объекты"
+msgstr "Комерційні об'єкти"
+
+#: templates/bank/index.html:59
+msgid "Более 3 000 объектов по всей Украине."
+msgstr "Більше 3 000 об'єктів по всій Україні."
+
+#: templates/bank/index.html:63
+msgid "Бесплатная помощь профессионалов 7 дней в неделю."
+msgstr "Безкоштовна допомога професіоналів 7 днів на тиждень."
+
+#: templates/bank/index.html:67
+msgid "Доступные кредиты для всех"
+msgstr "Доступні кредити для всіх"
+
+#: templates/bank/index.html:74
+msgid "Горячие предложения"
+msgstr "Гарячі пропозиції"
+
+#: templates/bank/preview.html:11
+msgid "убрать из избранного"
+msgstr "забрати з вибраного"
+
+#: templates/bank/search.html:38
+msgid "Ничего не найдено."
+msgstr "Нічого не знайдено"
+
+#: templates/bank/search_form.html:30
+msgid "Тип недвижимости"
+msgstr "Тип нерухомості"
+
+#: templatetags/bank_tags.py:18
+msgid "Жильё"
+msgstr "Житло"
+
+#: templatetags/bank_tags.py:21
+msgid "Банки"
+msgstr "Банки"
+

@@ -1,0 +1,62 @@
+{% extends 'base.jinja.html' %}
+
+{% block seo %}
+    <title>{{ seo.title }}{% if request.GET.get('page',1) > 1 %} - {% trans page=request.GET.page %}страница {{ page }}{% endtrans %}{% endif %}</title>
+    <meta name="keywords" content="{{ seo.keywords }}">
+    <meta name="description" content="{{ seo.description }}">
+    {%- if canonical_url is defined %}<link rel="canonical" href="{{ canonical_url }}">{% endif -%}
+{% endblock %}
+
+{% block analysis %}
+    {% include 'paid_services/analysis_pagebg.jinja.html' %}
+{% endblock %}
+
+{% block content %}
+    {% include "ad/search_form.jinja.html" %}
+
+    {% block results %}
+    <div class="row">
+        <div id="ajaxsort">
+            {% include "ad/results.jinja.html" %}
+        </div>
+    </div>
+    {% endblock %}
+
+
+    <div class="page-info">
+
+        {% if related_results is defined and related_results.agencies and callrequest_form is defined %}
+
+            {% include 'ppc/callrequest_form.jinja.html' %}
+
+            <div class="white-panel">
+                <h3 class="pink no-margin">{% trans %}Не нашли подходящий объект? Воспользуйтесь дополнительным сервисом поиска{% endtrans %}</h3>
+                <p>{% trans %}Постоянно работая над улучшение качества сервиса, предлагаем Вам дополнительные параметры, которые помогут ускорить поиск недвижимости{% endtrans %}</p><br/>
+
+                <div class="row">
+                    <div class="col-sm-2 text-center hidden-xs">
+                        <img src="{{ static('img/icon-man.png') }}"/>
+                    </div>
+                    <div class="col-sm-18">
+                        <b class="text-18">{% trans %}Выберите риелтора и работайте только с проверенными специалистами{% endtrans %}</b><br/>
+                        {% trans %}На тратьте время на поиск необходимого жилья, выберите профессионала своего дела, который поможет Вам подобрать и найти тот вариант, который соответствует Вашим параметрам.{% endtrans %}
+                    </div>
+                    <div class="col-sm-4 text-center" style="padding-top:10px;"><a class="btn btn-danger btn-md" data-toggle="modal" data-target="#callrequest-modal">
+                        {% trans %}Оставить заявку{% endtrans %}</a></div>
+                </div>
+
+            </div>
+
+            {% include "ad/search_related_agencies.jinja.html" %}
+        {% endif %}
+    </div>
+
+{% endblock %}
+
+{% block footer_crosslinks %}
+  {% if crosslinks_blocks is defined and request.subdomain != 'international' %}
+    <div class="row visible-lg hidden-print">
+      {% include 'includes/crosslink.jinja.html' %}
+    </div>
+  {% endif %}
+{% endblock %}

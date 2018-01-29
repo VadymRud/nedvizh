@@ -1,0 +1,60 @@
+{% if data %}
+    <div id="container-{{  property_id }}" style="width:600px; height: 260px;margin:0 auto;"></div>
+    <div style="width:600px; height: 45px; padding: 10px 150px; margin:0 auto; background: #fff;">
+        <a href="{{ url('profile_clear_views_graph', property_id) }}" class="btn btn-block btn-default btn-gray">{% trans %}Очистить статистику{% endtrans %}</a>
+    </div>
+    <script>
+    $(function () {
+        var point_start = Date.UTC({{ start.year }}, {{ start.month }}-1, {{ start.day }});
+        $('#container-{{  property_id }}').highcharts({
+            chart: {
+                type: 'column',
+                zoomType: 'x'
+            },
+            title: {text: '{% trans %}Статистика просмотров{% endtrans %}'},
+            legend: {enabled: false},
+            xAxis: {
+                text: 'Дата',
+                labels: {
+                    y:18
+                },
+                dateTimeLabelFormats: {
+	                day: '%d.%m',
+	                week: '%d.%m'
+                },
+                type: "datetime"
+            },
+            yAxis: {
+                title: {
+                   text: '{% trans %}Просмотры{% endtrans %}'
+                },
+                min: 0
+            },
+            plotOptions: {
+                column: {
+                    grouping: false
+                }
+            },
+            tooltip: {
+                shared: true,
+                dateTimeLabelFormats: {
+                    day:"%d.%m.%Y"
+                }
+            },
+            series: [{
+                pointInterval: 24 * 3600 * 1000,
+                pointStart: point_start,
+                name: '{% trans %}Показы объявления{% endtrans %}',
+                data: [{% for key,stat in data %}{{stat[0]}}{% if not loop.last %},{% endif %}{% endfor %}]
+            }, {
+                pointInterval: 24 * 3600 * 1000,
+                pointStart: point_start,
+                name: '{% trans %}Показы контактной информации{% endtrans %}',
+                data: [{% for key,stat in data %}{{stat[1]}}{% if not loop.last %},{% endif %}{% endfor %}]
+            }]
+        });
+    });
+    </script>
+{% else %}
+    <p style='height:240px;line-height:240px;text-align:center;'>{% trans %}Нет статистики по просмотрам.{% endtrans %}</p>
+{% endif %}

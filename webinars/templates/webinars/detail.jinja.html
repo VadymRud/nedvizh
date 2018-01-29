@@ -1,0 +1,296 @@
+{% extends 'webinars/base.jinja.html' %}
+
+{% block breadcrumb %}
+    <noindex>
+    <ol class="breadcrumb breadcrumb-detail">
+        <li class="active">
+            <a rel="nofollow" href="{{ url('school:webinars', type) }}">
+                {{ type_display|title }}
+            </a>
+        </li>
+        <li>{{ webinar }}</li>
+    </ol>
+    </noindex>
+{% endblock %}
+
+{% block content %}
+    {% if webinar.is_archived and webinar.type != 'seminar' %}
+        <div class="white-panel">
+            <div class="row">
+                {% if webinar.video %}
+                    <div class="col-md-12">
+                        {{ webinar.get_player()|safe }}
+                    </div>
+                    <div class="col-md-1"></div>
+                {% endif %}
+                <div class="{% if webinar.video %}col-md-10 {% endif %}webinar-info">
+                    <h3>{{ webinar }}</h3>
+                    <hr>
+                    {% if webinar.speakers.all() %}
+                        <span>{% trans %}Спикеры{% endtrans %}</span><br><br>
+                        {% for speaker in webinar.speakers.all() %}
+                            <strong>{{ speaker.name }}</strong><br>{{ speaker.title|linebreaksbr }}{% if not loop.last %}<br><br>{% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter" data-yashareTheme="counter"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-24">
+                <h4>{% trans %}Описание{% endtrans %}</h4>
+                <hr>
+                {{ webinar.description|safe }}
+                <br><br>
+            </div>
+        </div>
+    {% elif webinar.is_archived and webinar.type == 'seminar' %}
+        <div class="row">
+            <div class="col-xs-17">
+                <div class="white-panel seminar-detail">
+                    <h3>{% trans %}Семинар{% endtrans %} «{{ webinar.title }}»</h3>
+                    <span class="small">{{ webinar.city }}, {{ webinar.start_at|date("d E Y") }}</span><br><br>
+                    <div class="row">
+                        {% for video in webinar.videos.all() %}
+                            <div class="col-xs-24 text-center">{{ video.video|safe }}</div>
+                        {% endfor %}
+
+                        {% if webinar.photos.exists() %}
+                          {% with photos = webinar.photos.all() %}
+                            <div class="col-xs-24">
+                              <div class="row pswp-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                                {% for photo in photos %}
+                                  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="col-xs-24 col-sm-12 col-md-8 text-center">
+                                    <a href="{{ photo.image.url }}" itemprop="contentUrl" data-size="{{ photo.image.width }}x{{ photo.image.height }}">
+                                      <img src="{{ photo.image|thumbnail('200x150') }}" itemprop="thumbnail" alt="" class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+                                    </a>
+                                  </figure>
+                                {% endfor %}
+                              </div>
+                            </div>
+                          {% endwith %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-7">
+                <div class="row">
+                    <div class="col-xs-offset-2 col-xs-22"><h4>{% trans %}Прошедшие семинары{% endtrans %}</h4></div>
+                </div>
+
+                {% for seminar in previous_seminars %}
+                    <div class="row archived-webinars">
+                        <div class="col-xs-offset-2 col-xs-22">
+                            <div class="thumbnail">
+                                <a href="{{ seminar.get_absolute_url() }}" title="{{ seminar.get_type_display() }} {{ seminar.get_title() }}">
+                                    {% with image = seminar.photos.first() %}
+                                        {% if image %}
+                                            <img src="{{ image.image|thumbnail('480x360', nocrop=True) }}" alt="">
+                                        {% endif %}
+                                    {% endwith %}
+                                </a>
+                                <div class="caption">
+                                    <a href="{{ seminar.get_absolute_url() }}">{{ seminar }}</a><br>
+                                    <span>{{ seminar.city }}, {{ seminar.start_at|date("d E Y") }}</span><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% elif webinar.is_future or webinar.type == 'seminar' %}
+        <div class="row">
+            <div class="col-xs-24 seminar-title"{% if webinar.image %} style="background: url({{ webinar.image.url }}) 50% top no-repeat;"{% else %} style="height: auto;"{% endif %}>
+                <div class="seminar-wrapper">
+                    <div class="border-left"></div>
+                    <div class="border-right"></div>
+                    <div class="border-top-left"></div>
+                    <div class="border-top-right"></div>
+                    <div class="border-bottom-left"></div>
+                    <div class="border-bottom-right"></div>
+                    <div class="title">{% if webinar.type == 'seminar' %}{% trans %}Тема семинара{% endtrans %}{% else %}{% trans %}Тема вебинара{% endtrans %}{% endif %}:<br>&laquo;{{ webinar.get_title() }}&raquo;</div>
+                    <div class="date">{{ webinar.start_at|date('d E H:i') }}</div>
+                    <div class="city">{{ webinar.city }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-24">
+                <div class="white-panel">
+                    <div class="row">
+                        <div class="col-md-offset-6 col-md-12">
+                            {{ webinar.description|safe }}
+
+                            {% for speaker in webinar.speakers.all() %}
+                                <div class="media">
+                                    <div class="media-left media-top extra-right-padding">
+                                        <img src="{{ speaker.image.url }}" width="105" height="105">
+                                    </div>
+                                    <div class="media-body">
+                                        <strong>{{ speaker.name }}</strong><br>
+                                        {{ speaker.title|linebreaksbr }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% if webinar.is_future and show_form %}
+                      <div class="row">
+                        <div class="col-md-offset-6 col-md-8 webinar-reminder">
+                            <br><br>
+                            <form method="post" class="form-horizontal">
+                                {% csrf_token %}
+
+                                <p><b>{% trans %}Регистрация на{% endtrans %} {{ webinar.get_type_display() }}</b></p><br/>
+
+                                {% from "macro/forms.jinja.html" import bootstrap_form %}
+                                {{ bootstrap_form(form, {'label':'col-sm-8', 'controls':'col-sm-16'}) }}
+
+                                <div class="form-group" id="div_id_submit">
+                                    <div class="controls col-sm-16 col-sm-offset-8">
+                                        <input type="submit" class="form-control btn btn-danger" value="{% trans %}Зарегистрироваться{% endtrans %}"><br>
+                                    </div>
+                                </div>
+
+                                <p class="notice">{% trans %}Вы получите напоминания о семинаре по указанному ваму email и смс на телефонный номер.{% endtrans %}</p>
+                            </form>
+                        </div>
+                        <script>
+                            if ($(".alert-danger").length) {$('body').scrollTop($(".alert-danger").offset().top+50)};
+                        </script>
+                      </div><br/>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="row">
+            {# Инфо о вебинаре #}
+            <div class="col-md-7 col-md-offset-1 pull-right">
+                <div class="white-panel webinar-short-info">
+                    {% if type == 'seminar' %}
+                        <span>{% trans %}Инфо о семинаре{% endtrans %}</span>
+                    {% else %}
+                        <span>{% trans %}Инфо о вебинаре{% endtrans %}</span>
+                    {% endif %}
+                    <br><hr>
+
+                    {% if webinar.speakers.exists() %}
+                        <h5>{% trans %}Спикеры{% endtrans %}</h5>
+                        {% for speaker in webinar.speakers.all() %}
+                            <strong>{{ speaker.name }}</strong><br>
+                            {{ speaker.title|linebreaksbr }}<br>
+                        {% endfor %}
+                        <br>
+                    {% endif %}
+
+                    <h5>{% trans %}Сегодня обсуждаем{% endtrans %}</h5>
+                    {{ webinar.teaser|safe }}
+                </div>
+            </div>
+
+            {# Основной блок с видео #}
+            <div class="col-md-16 pull-left">
+                <div class="white-panel">
+                    <div class="row">
+                        <div class="col-xs-24">
+                            <h3>{{ webinar }}</h3>
+                            {{ webinar.get_player()|safe }}
+                        </div>
+                    </div>
+
+                    {% if comments %}{% include 'webinars/comments.jinja.html' %}{% endif %}
+
+                    <div class="row">
+                        <br><br>
+                        <div class="col-md-12">
+                            <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter" data-yashareTheme="counter"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block extra_footer %}
+  {{ super() }}
+
+  {{ form.media.js|safe }}
+
+  <script>
+      $(function () {
+          $('.webinar-title').animate({paddingTop: (260 - $('.webinar-title .wrapper').height()) / 2}, 500);
+      });
+
+      var isLoading = false;
+      var isUpdating = false;
+      var url = '{{ url('school:webinar_load_comments', type, webinar.slug) }}';
+
+      periodicUpdateCommentFunc = function() {
+          if (!isUpdating) {
+              var $thisParent = $('#' + lastCommentId);
+              isUpdating = true;
+              $.ajax({
+                  type: 'POST',
+                  url: url,
+                  data: {
+                      lcid: lastCommentId
+                  },
+                  success: function(data) {
+                      $(data).insertBefore($thisParent);
+                      isUpdating = false;
+                  }
+              });
+          }
+      };
+
+      {% if webinar.is_future or webinar.type == 'seminar' %}
+          $(window).load(function() {
+              var titleWidth = parseInt($('.seminar-wrapper .title').outerWidth());
+              var cityWidth = parseInt($('.seminar-wrapper .city').outerWidth());
+              $('.seminar-wrapper .city').css('margin-left', '-' + (cityWidth / 2) + 'px');
+              $('.seminar-wrapper').css('margin-left', (parseInt($('.seminar-title').outerWidth()) - titleWidth) / 2);
+              $('.seminar-wrapper').animate({opacity: 1}, 500);
+
+              $('.seminar-title .border-top-left, .seminar-title .border-top-right').animate({width: ((titleWidth - 240) / 2)}, 500);
+              $('.seminar-title .border-bottom-left, .seminar-title .border-bottom-right').animate({width: ((titleWidth - cityWidth) / 2)}, 500);
+          });
+      {% endif %}
+      $().ready(function() {
+        {# Кнопка "Еще комментарии" #}
+        {% if webinar.is_active %}
+          setInterval('periodicUpdateCommentFunc()', 30000);
+          $('.webinars').on('click', '.more-comments', function() {
+              var $thisParent = $(this).parent().parent();
+              var npt = $(this).attr('href');
+              npt = npt.substring(1, npt.length);
+
+              $(this).text($(this).data('loading'));
+              if (!isLoading) {
+                  isLoading = true;
+                  $.ajax({
+                      type: 'POST',
+                      url: url,
+                      data: {
+                          npt: npt
+                      },
+                      success: function(data) {
+                          $(data).insertBefore($thisParent);
+                          $thisParent.remove();
+                          isLoading = false;
+                      }
+                  });
+              }
+
+              return false;
+          });
+        {% endif %}
+      });
+  </script>
+{% endblock %}

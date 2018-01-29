@@ -1,0 +1,40 @@
+{% macro navigation(items, request, check_active=True, strict_check_active=False, active_as_link=True, show_submenu=True) %}
+    {% for item in items -%}
+        {%- with url = item[0], text = item[1], params = item[2] if item|length>2 else {} -%}
+        {%- with classes = params.get('classes', []), tag_data = params.get('tag_data', '') -%}
+            {% if url and params.get('check_active', check_active) -%}
+                {% if url.split('#')[0] in [request.path, request.build_absolute_uri()] -%}
+                    {% do classes.append('active') -%}
+                {% elif not strict_check_active and not params.get('strict_check_active') and request.path.startswith(url.split('#')[0]) -%}
+                    {% do classes.append('active') -%}
+                {% endif -%}
+            {% endif -%}
+            {%- if 'submenu' in params %}{% do classes.append('dropdown') %}{% endif -%}
+            <li{% if classes %} class="{{ classes|join(" ") }}"{% endif %}{%- if tag_data %} {{ tag_data|safe }}{% endif %}>
+                <a {% if 'active' in classes and not active_as_link %}
+                        href='#'
+                    {% elif 'js_link' in params %}
+                        href="javascript: document.location.href = '{{ url }}';"
+                    {% elif url %}
+                        href="{{ url }}"
+                    {% endif %}
+                    {%- if 'nofollow' in params %} rel="nofollow"{% endif %}
+                    {%- if 'target' in params %} target="{{ params.target }}"{% endif %}
+                >
+                    {% if 'icon' in params %}<i class="{{ params.icon }}"></i>{% endif %}
+                    <span>{{ text|safe }}</span>
+                    {% if 'submenu' in params %}
+                        <span class="caret"></span>
+                    {% endif %}
+                </a>
+
+                {% if show_submenu and 'submenu' in params %}
+                    <ul class="{% if 'submenu_classes' in params %} {{ params['submenu_classes']|join(" ") }}{% else %}dropdown-menu{% endif %}">
+                    {{ navigation(params['submenu'], request, check_active, strict_check_active, active_as_link) }}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endwith -%}
+        {% endwith -%}
+    {% endfor %}
+{% endmacro %}

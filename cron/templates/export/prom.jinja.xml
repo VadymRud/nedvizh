@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE yml_catalog SYSTEM "shops.dtd">
+<yml_catalog date="{{ now|date('Y-m-d H:i') }}">
+    <shop>
+        <name>Mesto.UA</name>
+        <company>Mesto.UA</company>
+        <url>http://bank.mesto.ua</url>
+        <currencies>
+            {% for currency, rate in feed.currencies %}
+            <currency id="{{ currency }}" rate="{{ rate }}"/>
+            {% endfor %}
+        </currencies>
+        <categories>
+            {% for id, name, parent_id in feed.categories.values() %}
+            <category id="{{ id }}"{% if parent_id %} parentId="{{ parent_id }}"{% endif %}>{{ name }}</category>
+            {% endfor %}
+        </categories>
+        <offers>
+            {% for item in feed.iterate_items() %}
+            <offer id="{{ item.id }}" available="true">
+                <name>{{ item.get_full_title(limit=3) }}</name>
+                <url>{{ item.get_bank_url() }}</url>
+                <price>{{ item.price }}</price>
+                <currencyId>{{ item.currency }}</currencyId>
+                <categoryId>{{ item.category_id }}</categoryId>
+                {% if item.cleaned_photos %}<picture>{{ item.cleaned_photos[0].smart_thumbnail("full") }}</picture>{% endif %}
+                <description>ID объекта в базе {{ item.pk }}.{{ '\n' + item.description + '\n'}}Работает call back телефония - мы вам перезвоним.</description>
+                <available>true</available>
+                {% if item.area %}<param name="Площадь" unit="кв.м.">{{ item.area }}</param>{% endif %}
+            </offer>
+            {% endfor %}
+        </offers>
+    </shop>
+</yml_catalog>
+

@@ -1,0 +1,150 @@
+{% extends "profile/base.jinja.html" %}
+
+{% from "macro/forms.jinja.html" import bootstrap_field, bootstrap_field_controls %}
+
+{% macro asnu_number_control_macro(field) %}
+    {{ bootstrap_field_controls(field) }}
+    {% if field.asnunumber_is_confirmed() %}
+        <div class='confirmed-text green'><small>{% trans %}Номер свидетельства АСНУ принят. Вам подключена дополнительная скидка 10% на услугу "Тарифный план"{% endtrans %}</small></div>
+        <span class='confirmed-icon glyphicon glyphicon-ok'></span>
+        <style>
+            form .controls .confirmed-text {
+                margin-top: 5px;
+                line-height: 1;
+            }
+            form .controls .confirmed-icon {
+                position: absolute;
+                top: 10px;
+                right: -20px;
+                font-size: 8px;
+                color: #fff;
+                padding: 4px 3px;
+                width: 16px;
+                height: 16px;
+                background: #08a22c;
+                -moz-border-radius: 8px;
+                -webkit-border-radius: 8px;
+                border-radius: 8px;
+            }
+        </style>
+    {% endif %}
+{% endmacro %}
+
+{% macro asnu_number_field_macro(field) %}
+    {{ bootstrap_field(field, {'label':'col-sm-6', 'controls':'col-sm-18'}, controls_macro=asnu_number_control_macro) }}
+{% endmacro %}
+
+{% block content %}
+{% compress css %}
+{{ form.media.css|safe }}
+<style>
+    #agency_settings {
+        padding: 0 8px 20px 50px;
+    }
+    #agency_settings .profile-form h1 {
+        font-family: 'OpenSans-Light';
+        font-size: 40px;
+        margin-top: 30px;
+    }
+    #agency_settings .profile-form .control-label {
+        font-family: 'OpenSans';
+        font-size: 14px;
+        text-align: left;
+        font-weight: 400;
+    }
+    #agency_settings .profile-form .controls input.upload_file, #agency_settings .profile-form .controls select.upload_file {
+        height: 42px;
+        border-radius: 3px;
+        box-shadow: none;
+        border: 1px solid #7BB4C6;
+        width: 60%;
+    }
+    #agency_settings .form-horizontal .controls input.form-control, #agency_settings .form-horizontal .controls select.form-control {
+        height: 42px;
+        border-radius: 3px;
+        box-shadow: none;
+        border: 1px solid #7BB4C6;
+        width: 60%;
+    }
+    #agency_settings .form-horizontal .controls textarea.form-control {
+        border-radius: 3px;
+        box-shadow: none;
+        border: 1px solid #7BB4C6;
+    }
+    #agency_settings .helptext, #agency_settings .text  {
+        font-size: 14px;
+{#        padding-top: 10px;#}
+        display: block;
+        line-height: 1.5;
+    }
+    #agency_settings .text {
+        padding-top: 56px;
+    }
+    #agency_settings .profile-form #image-clear_id {
+        vertical-align: top;
+        margin-right: 10px;
+        position: absolute;
+        bottom: 25px;
+        left: 190px;
+    }
+    #agency_settings .profile-form #image-clear_id + label {
+        position: absolute;
+        bottom: 25px;
+        font-weight: 400;
+        margin-bottom: -1px;
+        margin-left: 25px;
+    }
+    #agency_settings .profile-form input[type="checkbox"] {
+        background-image: url("{{ static('agency/img/checkbox.png') }}");
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-position: right center;
+        background-repeat: no-repeat;
+        width: 19px;
+        height: 19px;
+        outline: none;
+        margin-left: -35px;
+        margin-top: -1px;
+        cursor: pointer;
+    }
+    #agency_settings .profile-form input[type="checkbox"]:checked {
+        background-image: url("{{ static('agency/img/checkbox_select.png') }}");
+    }
+    #agency_settings .form-horizontal .controls input.form-control#id_submit {
+        width: 140px;
+        border: none;
+        margin-top: 40px;
+    }
+    #agency_settings .checkbox label {
+        padding-left: 33px;
+    }
+</style>
+{% endcompress %}
+    <div class="white-panel" id="agency_settings">
+        <div class='row'>
+            <div class='col-md-14 profile-form'>
+                <h1>{% trans %}Профиль агентства{% endtrans %}</h1><br>
+                <form class="profile-form form-horizontal" method="post" enctype="multipart/form-data">{% csrf_token %}
+                    {% from "macro/forms.jinja.html" import bootstrap_form %}
+                    {{ bootstrap_form(form, {'label':'col-sm-6', 'controls':'col-sm-18'}, special_renders={'asnu_number': asnu_number_field_macro}) }}
+
+                    <div id="div_id_submit" class="form-group">
+                        <label for="id_submit" class="control-label col-sm-6"></label>
+                        <div class="controls">
+                            <p><input class="form-control btn btn-primary" id="id_submit" name="submit" type="submit" value="{% trans %}Сохранить{% endtrans %}"></p>
+                            <br/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-offset-1 col-sm-9 profile-auth form-horizontal"></div>
+        </div><br/>
+    </div>
+{% endblock %}
+
+{% block extra_footer %}
+    {{ form.media.js|safe }}
+    {% compress js %}
+        <script src="{{ static('js/profile.js') }}"></script>
+    {% endcompress %}
+{% endblock %}

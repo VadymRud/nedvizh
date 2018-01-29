@@ -1,0 +1,47 @@
+{% extends "profile/base.jinja.html" %}
+
+{% block content %}
+    <div class="white-panel-header">
+        <h4 class="page-title"><i class="icon icon-settings"></i> {% trans %}Настройки{% endtrans %}</h4>
+    </div>
+    <div class="white-panel">
+        <div class='row'>
+            <div class="col-xs-24">
+                {% with items = [
+                    (url('profile_settings_developer'), _('Настройки застройщика')),
+                    (url('profile_settings'), _('Настройки профиля')),
+                ] %}
+                    <div class="navbar navbar-default navbar-inline" role="navigation">
+                        <ul class="nav navbar-nav">
+                            {% from "macro/navigation.jinja.html" import navigation %}
+                            {{ navigation(items, request, strict_check_active=True) }}
+                        </ul>
+                    </div>
+                {% endwith %}
+            </div>
+            <div class='col-sm-12 profile-form'>
+                <h4>{% trans %}Профиль застройщика{% endtrans %}</h4><br/>
+                <form class="profile-form form-horizontal" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% from "macro/forms.jinja.html" import bootstrap_form %}
+                    {{ bootstrap_form(form, {'label':'col-sm-6', 'controls':'col-sm-18'}) }}
+
+                    <div id="div_id_submit" class="form-group">
+                        <label for="id_submit" class="control-label col-sm-3"></label>
+                        <div class="controls col-lg-10">
+                            <p><input class="form-control btn btn-danger" id="id_submit" name="submit"type="submit" value="{% trans %}Сохранить{% endtrans %}"></p>
+                            <br/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><br/>
+    </div>
+{% endblock %}
+
+{% block extra_footer %}
+    {{ form.media.js|safe }}
+    {% compress js %}
+        <script src="{{ static('js/profile.js') }}"></script>
+    {% endcompress %}
+{% endblock %}

@@ -1,0 +1,190 @@
+
+{% extends "profile/base.jinja.html" %}
+
+{% block extra_css %}
+  {{ super() }}
+<style>
+#legal-services {
+    padding: 20px 0 0;
+    font-family: 'OpenSans';
+    height: 100%;
+    overflow: auto;
+}
+#legal-services h1 {
+    font-family: "OpenSans-Light";
+    font-size: 48px;
+    font-weight: 300;
+}
+#legal-services .main_wrapper h3 {
+    font-size: 24px;
+    padding: 10px 0 20px;
+    line-height: 1.5;
+}
+#legal-services .main_wrapper h3 b {
+    font-family: 'OpenSans-ExtraBold';
+}
+#notary .btn-md {
+    margin-bottom:10px;
+    padding: 10px 20px;
+}
+#legal-services .main_wrapper .uslugi {
+    color: #303030;
+    font-family: 'OpenSans';
+    display: inline-block;
+    font-size: 16px;
+    padding: 7px 10px 7px 0;
+    margin: 10px 10px 20px 0;
+    line-height: 1.8;
+}
+#legal-services .main_wrapper .uslugi b {
+    font-family: 'OpenSans-ExtraBold';
+    font-weight: 700;
+}
+#legal-services .main_wrapper .uslugi a {
+    color: #00A3BE;
+}
+#legal-services .perechen_uslug {
+    background: #fff;
+}
+#legal-services .perechen_uslug h2 {
+    font-size: 24px;
+    padding-bottom: 25px;
+}
+#legal-services .perechen_uslug > div {
+    padding: 0;
+}
+#legal-services .perechen_uslug div div {
+    font-size: 16px;
+    line-height: 1.5;
+}
+#legal-services .perechen_uslug div div img {
+    vertical-align: top;
+}
+#legal-services .perechen_uslug .text {
+    width: 291px;
+    display: inline-block;
+    background: #F4F9FA;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 40px;
+    line-height: 1.6
+}
+#legal-services .perechen_uslug .text b {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+}
+#legal-services .perechen_uslug .text a {
+    color: #00A3BE;
+    font-size: 14px;
+    display: block;
+    font-family: 'OpenSansBold';
+    text-decoration: none;
+    margin-top: 5px;
+}
+#legal-services .perechen_uslug .text a:after {
+    background: url("/../../static/paid_services/img/legal-services/arrow-right.png")  0 no-repeat;
+    width: 13px;
+    height: 8px;
+    content: '';
+    display: inline-block;
+    margin-left: 10px;
+}
+#legal-services .plashka_flag {
+    text-align: center;
+    font-family: 'OpenSans-ExtraBold';
+    font-size: 32px !important;
+    background: url("/../../static/paid_services/img/legal-services/flag_plashka.png")  0 no-repeat;
+    width: 104px;
+    height: 51px;
+    position: absolute;
+    left: 4px;
+    top: 5px;
+}
+@media (max-width: 1200px) {
+    #legal-services .perechen_uslug > div {
+        padding: 20px;
+    }
+    #legal-services .perechen_uslug div div {
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 992px) {
+    #legal-services .main_wrapper h1 {
+        font-size: 30px;
+    }
+    #legal-services .perechen_uslug .text {
+        margin-bottom: 0;
+        min-height: 200px;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div id="legal-services">
+    <div class="main_wrapper col-md-23 col-md-offset-1">
+        <h1>{% trans %}Юридические услуги{% endtrans %}</h1>
+        <div>
+            <div class="uslugi">{% trans %}Портал недвижимости <b>mesto.ua</b> - уникальная площадка, которая одновременно позволяет искать/размещать объявления недвижимости со всех регионов Украины, а также заказывать услуги, связанные с заключением сделок покупки-продажи недвижимости.<br/><br/>
+                Специалисты ведущих юридических компаний проведут для вас <a data-api="smartsupp" data-operation="open">бесплатную консультацию</a> и ответят на интересующие вас вопросы. {% endtrans %}
+            </div>
+        </div>
+    </div>
+    <div class="perechen_uslug col-md-24">
+        <div class="col-md-23 col-md-offset-1">
+            <h2>{% trans %}Список услуг, которые вы можете заказать{% endtrans %}:</h2>
+            <!--div class="col-md-8 col-sm-12 col-xs-24">
+                <div class="plashka_flag">-5%</div>
+                <img src="{{ static('paid_services/img/legal-services/legal_img_1.png') }}" alt="img_legal_1"/>
+                <div class="text">{% trans %}<b>Экспертная проверка жилья</b>
+                    Самостоятельно достаточно сложно правильно определить возможные неприятности и оценить последствия оформления сделок...{% endtrans %}
+                    <a href="{{ url('services:analysis') }}" id="ekspert_home">Подробней</a>
+                </div>
+
+            </div-->
+            <div class="col-md-8 col-sm-12 col-xs-24">
+                <div class="plashka_flag">-5%</div>
+                <img src="{{ static('paid_services/img/legal-services/legal_img_2.png') }}" alt="img_legal_2"/>
+                <div class="text">{% trans %}<b>Экспертная оценка</b>
+                    Оцениваем то, что цените Вы! Мы предлагаем широкий спектр оценочных услуг: при купле-продаже имущества...{% endtrans %}
+                    <a href="{{ url('services:ocenka_nedvizh') }}" id="ekspert_price">Подробней</a>
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-24">
+                <img src="{{ static('paid_services/img/legal-services/legal_img_3.png') }}" alt="img_legal_3"/>
+                <div class="text">{% trans %}<b>Услуги нотариуса</b>
+                    Оформление различных документов на недвижимость невозможно без услуг квалифицированного нотариуса...{% endtrans %}
+                    <a href="{{ url('services:notary') }}" id="notary">Подробней</a>
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-24">
+                <img src="{{ static('paid_services/img/legal-services/legal_img_4.png') }}" alt="img_legal_4"/>
+                <div class="text">{% trans %}<b>Бесплатная консультация юриста</b>
+                    <a id="free_consult"  data-api="smartsupp" data-operation="open">Подробней</a>{% endtrans %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block extra_footer %}
+    {{ super() }}
+    <script>
+        $('#legal-services .perechen_uslug .text').equalHeights();
+    </script>
+
+    <!-- Smartsupp Live Chat script -->
+    <script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = '54b24d43fd1c1d00a4cbf72ea7786d276bce1102';
+    window.smartsupp||(function(d) {
+        var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+        s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+        c.type='text/javascript';c.charset='utf-8';c.async=true;
+        c.src='//www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+    </script>
+{% endblock %}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<trovit>
+    {% for item in feed.iterate_items() %}
+        <ad>
+            <id><![CDATA[{{ item.id }}]]></id>
+            <url><![CDATA[{{ item.get_absolute_url() }}]]></url>
+            <title><![CDATA[{{ item.morphed_title }}]]></title>
+            {% if item.deal_type == 'sale' %}<type><![CDATA[For sale]]></type>{% endif %}
+            {% if item.deal_type == 'rent'  %}<type><![CDATA[For rent]]></type>{% endif %}
+            <content><![CDATA[{{ item.description|remove_control_chars() or '' }}]]></content>
+            <price currency="UAH"><![CDATA[{{ item.price_uah }}]]></price>
+            <property_type><![CDATA[{{ item.get_property_type_display() }}]]></property_type>
+            {% if item.area %}<floor_area><![CDATA[{{ item.area }}]]></floor_area>{% endif %}
+            {% if item.floor %}<floor_number><![CDATA[{{ item.floor }}]]></floor_number>{% endif %}
+            <address><![CDATA[{{ item.address }}]]></address>
+            {% with city = item.location.get('village', item.location.get('locality')) -%}
+                {%- if city %}<city><![CDATA[{{ city }}]]></city>{% endif -%}
+                {%- if item.location.province %}<region><![CDATA[{{ item.location.province }}]]></region>{% endif -%}
+            {%- endwith %}
+            {% if item.rooms %}<rooms><![CDATA[{{ item.rooms }}]]></rooms>{% endif %}
+            {% with coords = item.get_coords() %}
+                <latitude><![CDATA[{{ coords[1] }}]]></latitude>
+                <longitude><![CDATA[{{ coords[0] }}]]></longitude>
+            {% endwith %}
+            <date><![CDATA[{{ item.updated|date("d/m/Y H:i:s") }}]]></date>
+            <expiration_date><![CDATA[{{ item.expired|date("d/m/Y H:i:s") }}]]></expiration_date>
+            <segmentation_text><![CDATA[{{ item.segmentation_text }}]]></segmentation_text>
+
+            {%- if item.cleaned_photos -%}
+            <pictures>
+                {%- for photo in item.cleaned_photos -%}
+                    <picture><picture_url><![CDATA[{{ photo.smart_thumbnail('full') }}]]></picture_url></picture>
+                {%- endfor -%}
+            </pictures>
+            {%- endif %}
+
+            <is_new><![CDATA[{%- if item.newhome_layouts.exists() -%}1{% else %}0{% endif %}]]></is_new>
+        </ad>{% endfor %}
+</trovit>

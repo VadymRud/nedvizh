@@ -1,0 +1,36 @@
+{% extends "mail/base_2017.04.jinja.html" %}
+
+{% block greetings %}{% endblock %}
+
+{%- block content %}
+  <tr>
+    <td valign="top">
+      <img src="{{ static('mail/img/mailing/day_of_realtor.png') }}" width="700" height="270" style="width: 700px; height: 270px;">
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <div style="padding:35px 40px;line-height:32px; color:#313131;">
+          <div style="padding-bottom:25px;">
+            Команда <span style="font-weight:bold">Mesto.ua</span> спешит поздравить Вас с профессиональным праздником – 
+                    <span style="font-weight:bold;color:#f64553">с Днем Риелтора!</span> 
+          </div>
+          <div style="padding-bottom:15px;">
+            Желаем Вам успешных прибыльных сделок, лояльных клиентов и непрерывного профессионального роста.
+          </div>
+          <div style="padding-bottom:45px;">
+            Пускай ваша работа приносит вам только хорошее настроение, а каждая сделка станет еще одним удачным опытом!
+          </div>
+          <div style="padding-bottom:45px;">
+            С уважением <br>
+            <em>Команда Mesto.ua</em>
+          </div>
+        </div>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      
+    </td>
+  </tr>
+{% endblock -%}

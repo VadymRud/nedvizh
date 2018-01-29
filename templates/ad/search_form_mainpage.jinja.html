@@ -1,0 +1,80 @@
+{% import "macro/ad_search.jinja.html" as macros with context %}
+
+<form class="white-panel" id="search-property" data-static_url="{{ region.static_url }}" autocomplete="off">
+    {% if form.non_field_errors() %}
+        <p>{{ form.non_field_errors() }}</p>
+    {% endif %}
+    {% for hidden in form.hidden_fields() %}
+        {{ hidden|safe }}
+    {% endfor %}
+
+    <div class="h3">{% trans %}Найдите лучший объект недвижимости{% endtrans %}</div>
+    {#<div class="h3">{% trans %}Поиск недвижимости{% endtrans %}<br class="hidden visible-xs">{% trans %} из{% endtrans %}
+      <span id="total-properties-count" data-increment="{{ properties_counter.increment }}">
+        {{ properties_counter.total }}
+      </span> {% trans %}объявлений{% endtrans %}
+    </div>#}
+    <div class="">
+      <div class="row">
+        <div class="col-sm-8 col-lg-5 affecting-selects">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-xs-10">
+                <label class="label-block">{% trans %}Тип сделки{% endtrans %}</label>
+                {{ form.deal_type|add_class('form-control selectpicker gradient-overflow')|add_data(width="100%")|safe }}
+              </div>
+              <div class="col-xs-14">
+                <label class="label-block">{% trans %}Тип недвижимости{% endtrans %}</label>
+                {{ form.property_type|add_class('form-control selectpicker gradient-overflow')|add_data(width="100%")|safe }}
+              </div>
+              <div class="col-xs-10 col-sm-24 col-md-12 pt10">
+                {{ macros.field_checkboxes(['without_commission']) }}
+              </div>
+              <div class="col-xs-14 col-sm-24 col-md-12 pt10">
+                {{ macros.field_checkboxes(['with_image']) }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-16 col-lg-9 subway-district-street">
+          {% include 'ad/search_form_addr.jinja.html' %}
+        </div>
+        <div class="clearfix hidden-lg"></div>
+        <div class="col-xs-12 col-sm-8 col-lg-2 rooms">
+          {{ macros.field_simple('rooms') }}
+        </div>
+        <div class="col-xs-12 col-sm-8 col-lg-5 price">
+          {{ macros.field_range("price", _("Цена")) }}
+        </div>
+        <div class="col-sm-8 col-lg-3 hidden-xs">
+          {{ macros.field_submit() }}
+        </div>
+        <div class="col-xs-offset-6 col-xs-12 col-sm-offset-0 col-sm-8 col-lg-3 hidden visible-xs">
+          {{ macros.field_submit() }}
+        </div>
+      </div>
+    </div>
+</form>
+
+
+{% compress css %}
+<link rel="stylesheet" href="{{ static('libs/bootstrap-select/bootstrap-select.min.css') }}">
+<link rel="stylesheet" href="{{ static('libs/bootstrap-multiselect/bootstrap-multiselect.css') }}">
+{% endcompress %}
+
+{% compress js %}
+<script src="{{ static('libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
+<script src="{{ static('libs/bootstrap-multiselect/bootstrap-multiselect.js') }}"></script>
+<script>
+    $('.l-property-search .selectpicker').selectpicker();
+
+    $('#id_district').multiselect({buttonWidth: '100%', allSelectedText: '{% trans %}Все выбрано{% endtrans %}', nonSelectedText: '{% trans %}Выберите район{% endtrans %}', numberDisplayed: 100});
+    $('#id_rooms').multiselect({buttonWidth: '100%', allSelectedText: '{% trans %}Все выбрано{% endtrans %}', nonSelectedText: '', numberDisplayed: 100});
+
+    // активируем первую вкладку фильтров районов/метро/улиц
+    var $first_tab = $('#subway-district-street .nav li.active-filter').first();
+    if ($first_tab.length == 0) $first_tab = $('#subway-district-street .nav li:not(.disabled)').first();
+    $first_tab.addClass('active');
+    $('#subway-district-street ' + $first_tab.find('a').attr('href')).addClass('active');
+</script>
+{% endcompress %}

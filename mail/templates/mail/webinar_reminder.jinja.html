@@ -1,0 +1,6 @@
+{% extends "mail/base.jinja.html" %}
+
+{% block content %}
+    <p>{{ webinar.start_at|date('d E H:i') }} {% trans %}состоится{% endtrans %} {{ webinar.get_type_display() }} "{{ webinar.get_title() }}".</p>
+    <p>{% trans %}Приглашаем{% endtrans %} <a href="{{ host_url('school:webinar_detail', args=[webinar.type, webinar.slug]) }}" target="_blank">{% trans %}принять участие{% endtrans %}</a>!</p>
+{% endblock %}

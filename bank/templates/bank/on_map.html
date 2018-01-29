@@ -1,0 +1,41 @@
+{% load staticfiles humanize l10n compress %}
+<div id='embed_map'
+     style='width:{% if map_width %}{{ map_width }}{% else %}322{% endif %}px;height:500px;'>
+</div>
+<noindex>
+
+
+{% compress css %}
+<link rel="stylesheet" href="{% static 'libs/leaflet/leaflet.css' %}">
+<link rel="stylesheet" href="{% static 'libs/leaflet/MarkerCluster.css' %}">
+<link rel="stylesheet" href="{% static 'libs/leaflet/MarkerCluster.Default.css' %}">
+{% endcompress %}
+
+{% compress js %}
+<script src="{% static 'libs/leaflet/leaflet.js' %}"></script>
+<script src="{% static 'libs/leaflet/leaflet.markercluster.js' %}"></script>
+<script type='text/javascript'>
+if (typeof L !== 'undefined') {
+
+    var $target = $('#embed_map'),
+        map = L.map($target[0]).setView([50.451118, 30.522301], 15);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    var markers = L.markerClusterGroup();
+
+    var popupContent, marker, icon = L.icon({iconUrl: '{% static 'bank/img/map-placemark.png' %}', iconSize: [22, 34]});
+    {% for item in paginator.current_page.object_list %}{% with item.get_coords as coords %}{% if coords %}
+        popupContent = "<b>{{item.title}}</b><br/>{{ item.address }} <br/>{{item.price}} {{item.get_currency_display}}";
+        marker = L.marker([{{coords.1|stringformat:"f"}}, {{coords.0|stringformat:"f"}}], {'icon': icon}).bindPopup(popupContent);
+        markers.addLayer(marker);
+    {% endif %}{% endwith %}{% endfor %}
+
+    map.addLayer(markers);
+    map.fitBounds(markers.getBounds(), {padding: [20, 20]});
+}
+</script>
+{% endcompress %}
+</noindex>

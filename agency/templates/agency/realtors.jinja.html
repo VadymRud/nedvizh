@@ -1,0 +1,241 @@
+{% extends "profile/base.jinja.html" %}
+
+{% block content %}
+    <form id="realtors-form" action="{{ url('agency_admin:realtors') }}" method="get">
+        <input type="submit" class="hidden"/>
+
+        <div class="row realtor-filter">
+            <div class="col-lg-4 hidden show-if-checked">
+                <button type="submit" name="show-stats" value="1" class="btn btn-md btn-danger btn-block">
+                    {% trans %}Показать статистику{% endtrans %}
+                </button>
+            </div>
+            <div class="col-lg-8">
+                <div class="input-group ">
+                    {{ form.search|add_class('form-control input-md') }}
+                    <span class="input-group-btn">
+                        <button class="btn btn-md btn-default" type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-4 hide-if-checked"></div>
+            <div class="col-lg-offset-8 col-lg-4">
+                <a href="#" class="btn btn-md btn-danger btn-block" data-toggle="modal" data-target="#add-realtor-modal">
+                    + {% trans %}Добавить риелтора{% endtrans %}
+                </a>
+            </div>
+        </div>
+        <br/>
+
+        <div class="realtor-list white-panel">
+
+            {% for realtor in paginator.current_page.object_list %}
+              {% if not realtor.is_active %}
+                <div class="realtor">
+                    <div class="row">
+                        <div class="col-lg-offset-4 col-lg-5 info">
+                            <div class="h5 name">{{ realtor.user }}</div>
+                        </div>
+                        <div class=" col-lg-5 description">
+                            {{ realtor.user.email }}<br/>
+                            <span class="label label-success">{% trans %}Ожидается подтвержение от пользователя{% endtrans %}</span>
+                        </div>
+                        <div class="col-lg-offset-4 col-lg-6 actions text-right">
+                            {% if request.user.id != realtor.user_id  %}
+                                <button type='submit' name='delete' value="{{ realtor.pk }}" title='{% trans %}удалить риелтора{% endtrans %}' class='btn btn-mini confirm-delete btn-delete'></button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+              {% else %}
+                {% set realtor_rating = 4 %}
+                {% set realtor_reviews = 57 %}
+
+                <div class="realtor">
+                    <div class="row">
+                        <div class="col-lg-1 checkbox">
+                            <input type="checkbox" id="realtor-{{ realtor.pk }}" name="realtor" value="{{ realtor.pk }}" class="ad-checkbox checkbox-in-list">
+                            <label for="realtor-{{ realtor.pk }}"></label>
+                        </div>
+                        <div class="col-lg-3 photo">
+                            {% if realtor.user.image %}
+                                <img src="{{ realtor.user.image|thumbnail("200x200") }}" class="img-responsive img-circle" alt="{{ realtor }}"/>
+                            {% else %}
+                                <img class="no-photo img-circle" src="{{  static('agency/img/common/network60.png') }}"  alt="{{ realtor }}"/>
+                            {% endif %}
+                        </div>
+                        <div class="col-lg-5 info">
+                            <br/><div class="h5 name">{{ realtor.user }}</div>
+                            {% if False %}
+                                <div class="rating">
+                                    {% for star in range(0,5) %}
+                                        <span class="glyphicon glyphicon-star {% if star < realtor_rating %}red{% endif %}"></span>
+                                    {% endfor %}
+                                </div>
+                                <div class="reviews">
+                                    <a href="">
+                                        {% trans reviews=realtor_reviews %}{{ reviews }} отзывов{% endtrans %}
+                                    </a>
+                                </div>
+                            {% endif %}
+
+                            {% with service_link = '%s?realtor=%s&next=%s' % (url('services:index') , realtor.id, request.get_full_path()),
+                                active_plan = realtor.user.get_active_plan(), leadgeneration = realtor.user.has_active_leadgeneration('ads') %}
+                                <div class="media">
+                                  <div class="media-left">{% trans %}Тариф{% endtrans %}:</div>
+                                  <div class="media-body">
+                                      <a href="{{ service_link }}" title="{% trans %}нажмите на ссылку чтобы выбрать вариант размещения{% endtrans %}" class="default-tooltip">
+                                      {% if active_plan %}
+                                          {% trans %}тариф{% endtrans %}
+                                          {{- active_plan.ads_limit|pluralize((_("объявление"), _("объявления"), _("объявлений"))) }}
+                                          до <nobr>{{ active_plan.end|date('Y-m-d') }}</nobr>
+                                      </a>
+                                      {% elif leadgeneration %}
+                                          {% trans %}Подключена услуга "Оплата за звонок"{% endtrans %}
+                                      {% else %}
+                                          {% trans %}без тарифа{% endtrans %}
+                                      {% endif %}
+                                      </a>
+                                  </div>
+                                </div>
+                            {% endwith %}
+                        </div>
+                        <div class="col-lg-5 description">
+                            {% if realtor.user.city %}{{ realtor.user.city }}<br/>{% endif %}
+                            {% with phones = realtor.user.get_phone_display() %}
+                                {% if phones %}
+                                    {{ phones|replace(",","<br>")|safe }}
+                                {% endif %}
+                            {% endwith %}
+                            {{ realtor.user.email }}
+                        </div>
+                        <div class="col-lg-4 stats">
+                            {% if realtor.stats %}
+                              <a href='{{ url('agency_admin:realtor_detail', realtor.id) }}'>
+                                <span class="show-views-graph login">{{ realtor.stats.entrances }}</span>
+                                <span class="show-views-graph views">{{ realtor.stats.ad_views }}</span>
+                                <span class="show-views-graph calls">{{ realtor.stats.ad_contacts_views }}</span>
+                              </a>
+                             {% endif %}
+                        </div>
+                        <div class="col-lg-6 actions text-right">
+                            <a href='{{ url('agency_admin:realtor_detail', realtor.id) }}' title='{% trans %}подробнее{% endtrans %}' class='btn btn-default btn-gray'>{% trans %}Подробнее{% endtrans %}</a>  &nbsp;
+                            {% if request.user.id != realtor.user_id  %}
+                                <button type='submit' name='delete' value="{{ realtor.pk }}" title='{% trans %}удалить риелтора{% endtrans %}' class='btn btn-mini confirm-delete btn-delete'></button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+
+        </div>
+
+        {% include "pagination.jinja.html" %}
+    </form>
+
+    {# Форма добавления риелтора #}
+    <div class="modal fade" id="add-realtor-modal" tabindex="-1" role="dialog" aria-labelledby="add-realtor-label">
+        <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">{% trans %}Добавить риелтора в систему{% endtrans %}</h4>
+                    </div>
+                    <div class="modal-body">
+                        {% from "macro/forms.jinja.html" import bootstrap_form %}
+                        {{ bootstrap_form(add_form, {'label':'col-sm-8', 'controls':'col-sm-11'}) }}
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-sm-7 col-sm-offset-6">
+                                <button type="submit" class="btn btn-danger">Добавить</button>
+                            </div>
+                            <div class="col-sm-7">
+                                <a href="#" data-dismiss="modal">Отмена</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal fade" id="confirm-delete-modal" data-ad='' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">{% trans %}Закрыть{% endtrans %}</span></button>
+                {% trans %}Удаление риелтора{% endtrans %}
+            </div>
+            <div class="modal-body">
+                <p>{% trans %}Вы действительно хотите исключить риетора из своего агентства?{% endtrans %}</p>
+                <div class="text-right">
+                    <button class="btn btn-gray btn-md" name='cancel'>{% trans %}Отмена{% endtrans %}</button> &nbsp;
+                    <button class="btn btn-danger btn-md" name='delete'>{% trans %}Удалить{% endtrans %}</button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
+{% block extra_footer %}
+    {{ super() }}
+
+    {{ add_form.media.css|safe }}
+
+    {% compress js %}
+    {{ add_form.media.js|safe }}
+    <script src="{{ static('js/profile.js') }}"></script>
+    <script src="{{ static('js/libs/jquery.ba-throttle-debounce.min.js') }}"></script>
+    <script>
+        var xhr = null;
+        function ajaxSearch() {
+            if(xhr && xhr.readystate != 4){xhr.abort();}
+            var url = "?" + $('#realtors-form').serialize();
+            xhr = $.get(url, function(data) {
+                $(".realtor-list").html( $(data).find('.realtor-list').html() );
+            });
+            history.pushState(null, null, url);
+        }
+        $('#id_search').keyup($.debounce(250, ajaxSearch));
+
+        $('.realtor-list').on('change', '.checkbox input', function() {
+            var checked = $('.realtor-list .checkbox input:checked').length > 0;
+            $('.show-if-checked').toggleClass('hidden', !checked);
+            $('.hide-if-checked').toggleClass('hidden', checked);
+        }).change();
+
+        {% if add_form.errors %}
+            $('#add-realtor-modal').modal('show');
+        {% endif %}
+
+        $('#id_email').change(function() {
+            var url = '{{ url("agency_admin:add_realtor_user_exists") }}';
+            var $email = $(this);
+
+            if($email.val()) {
+                $.post(url, {email: $email.val()}, function(userExists) {
+                    $('#add-realtor-modal').find('input:not(#id_email):not([type=hidden])').each(function() {
+                        $(this).prop('disabled', userExists);
+                    });
+
+                    if (userExists) {
+                        var text = '<span class="user-exists">{% trans %}Пользователь с указанным адресом уже зарегистрирован на сайте. На этот адрес будет оправлено уведомление с инструкциями для продолжения процесса привязки пользователя к агентству.{% endtrans %}</span>';
+                        $(text).insertAfter($email);
+                    } else {
+                        $('.user-exists').remove();
+                    }
+                });
+            } else {
+                $('.user-exists').remove();
+            }
+        });
+    </script>
+    {% endcompress %}
+
+{% endblock %}

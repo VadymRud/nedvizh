@@ -1,0 +1,28 @@
+{% extends 'base.jinja.html' %}
+
+{% block seo %}
+    <title>{% trans %}Регистрация{% endtrans %}</title>
+{% endblock %}
+
+{% block content %}
+<div class="registration">
+    <div class="h3">{% trans %}Регистрация{% endtrans %}</div>
+    <form method="post" class="form-horizontal">
+        {% csrf_token %}
+
+        {% from "macro/forms.jinja.html" import bootstrap_form %}
+        {{ bootstrap_form(form, {'label':'col-sm-6', 'controls':'col-sm-6'}) }}
+
+        {{ form.media.js|safe }}
+
+        <div class='form-group clearfix'>
+            <label for="id_submit" class="control-label col-sm-6"></label>
+            <div class="controls col-sm-6"><input type="submit" class="form-conrol btn btn-danger btn-lg btn-block submit" value="{% trans %}Зарегистрироваться{% endtrans %}" /></div>
+        </div>
+    </form>
+    
+    <div>{% trans %}Уже есть аккаунт?{% endtrans %} <a href="{{ url('auth_login') }}">{% trans %}Войти{% endtrans %}</a>!</div>
+
+    {% include 'includes/social_auth.jinja.html' %}
+</div>
+{% endblock %}

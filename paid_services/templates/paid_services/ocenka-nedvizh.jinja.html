@@ -1,0 +1,145 @@
+{% extends "profile/base.jinja.html" %}
+
+{% block extra_css %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ static('paid_services/css/ocenka_nedvizh.css') }}">
+  <link rel="stylesheet" href="{{ static('paid_services/css/analysis.css') }}">
+{% endblock %}
+
+{% block content %}
+<div id="ocenka_nedvizh">
+        <div class="main_wrapper col-md-23 col-md-offset-1">
+            <h1>{% trans %}Экспертная оценка имущества{% endtrans %}</h1>
+            <div>
+                <div class="why">{% trans %}Качественно, законно, открыто{% endtrans %}</div>
+            </div>
+            <div class="buttons">
+                <a href="#form" class="btn btn-md btn-danger">{% trans %}Оставить заявку{% endtrans %}</a>
+                <div class="flag">-5%<br><span>экономия</span></div>
+                <a href="{{ static('paid_services/img/ocenka_nedvizh/price.pdf') }}" class="btn btn-md btn-primary" target="_blank">{% trans %}Подробнее о стоимости и  услуге{% endtrans %}</a>
+            </div>
+            <h3>{% trans %}Если вам необходима одна из нижеприведённых <b>оценочных услуг</b>,<br/> наши специалисты помогут вам{% endtrans %}:</h3>
+            <div class="col-md-12">
+                <ul>
+                    <li>{% trans %}в купле-продаже имущества;{% endtrans %}</li>
+                    <li>{% trans %}в обмене, аренде или приватизации;{% endtrans %}</li>
+                    <li>{% trans %}в кредитовании;{% endtrans %}</li>
+                    <li>{% trans %}при заключении ипотечных договоров и передаче в залог;{% endtrans %}</li>
+                    <li>{% trans %}при дарении и передаче по наследству;{% endtrans %}</li>
+                </ul>
+            </div>
+            <div class="col-md-12">
+                <ul>
+                    <li>{% trans %}при разделе имущества;{% endtrans %}</li>
+                    <li>{% trans %}при решении разного рода имущественных споров в суде;{% endtrans %}</li>
+                    <li>{% trans %}при взносе в уставный капитал;{% endtrans %}</li>
+                    <li>{% trans %}для переоценки основных средств по П(С)БУ и МСФО, в том числе при слияниях/поглощениях;{% endtrans %}</li>
+                    <li>{% trans %}в оформлении страховки.{% endtrans %}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="zakaz_ocenki col-md-24">
+            <div class="col-md-23 col-md-offset-1">
+                <h2>{% trans %}Как заказать экспертную оценку?{% endtrans %}</h2>
+                <div class="col-md-6 col-sm-12 col-xs-24">
+                    <p class="step">{% trans %}шаг 1{% endtrans %}</p>
+                    <img src="{{ static('paid_services/img/ocenka_nedvizh/img_pencil.png') }}" alt="icon-pencil"/>
+                    <div>{% trans %}Заполните заявку{% endtrans %}</div>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-24">
+                    <p class="step">{% trans %}шаг 2{% endtrans %}</p>
+                    <img src="{{ static('paid_services/img/ocenka_nedvizh/img_manager.png') }}" alt="icon-manager"/>
+                    <div>{% trans %}С вами свяжется наш специалист{% endtrans %}</div>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-24">
+                    <p class="step">{% trans %}шаг 3{% endtrans %}</p>
+                    <img src="{{ static('paid_services/img/ocenka_nedvizh/img_paycheсk.png') }}" alt="icon-paycheck"/>
+                    <div>{% trans %}Оплачивайте услугу{% endtrans %}</div>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-24">
+                    <p class="step">{% trans %}шаг 4{% endtrans %}</p>
+                    <img src="{{ static('paid_services/img/ocenka_nedvizh/img_vehicle.png') }}" alt="icon-vehicle"/>
+                    <div>{% trans %}через 3 дня курьер НП привозит вам заверенную ЭО{% endtrans %}</div>
+                </div>
+            </div>
+        </div>
+        <div class="partners col-md-23 col-md-offset-1">
+            <div class="nazaret">
+                <img src="{{ static('paid_services/img/logo_nazaret.png') }}" alt="icon-partners"/>
+                <div>{% trans %}Наш партнер в оформлении Экспертной<br>оценки ТОВ «Назарет»{% endtrans %}</div>
+            </div>
+            <div class="col-md-23 pad0">
+                <div class="col-md-5 col-sm-12 pad0"><img src="{{ static('paid_services/img/ocenka_nedvizh/image_1.png') }}" alt="icon-partners"/></div>
+                <div class="col-md-5 col-sm-12 pad0"><img src="{{ static('paid_services/img/ocenka_nedvizh/image_2.png') }}" alt="icon-partners"/></div>
+                <div class="col-md-5 col-sm-12 pad0"><img src="{{ static('paid_services/img/ocenka_nedvizh/image_3.png') }}" alt="icon-partners"/></div>
+                <div class="col-md-5 col-sm-12 pad0"><img src="{{ static('paid_services/img/ocenka_nedvizh/image_4.png') }}" alt="icon-partners"/></div>
+                <div class="col-md-4 col-sm-12 pad0"><img src="{{ static('paid_services/img/ocenka_nedvizh/image_5.png') }}" alt="icon-partners"/></div>
+            </div>
+            <!--<h4 class="col-md-24">{% trans %}Оставьте заявку на оформление Экспертной оценки<br>или узнайте об услуге подробнее скачав pdf{% endtrans %}</h4>-->
+            <!--<div class="buttons">
+                <a href="" data-toggle="modal" data-target="#analysis-request-popup" class="btn btn-md btn-danger">{% trans %}Оставить заявку{% endtrans %}</a>
+            </div>-->
+        </div>
+    {% from "macro/forms.jinja.html" import bootstrap_form  %}
+    <div class="form_wrapper col-md-24">
+        <div class="col-md-10 form_block col-md-offset-7">
+            <a href="#" name="form"><h3>{% trans %}Оставьте заявку{% endtrans %}</h3></a>
+            <h4>{% trans %}на оформление Экспертной оценки или узнайте об услуге подробнее{% endtrans %} <a href="{{ static('paid_services/img/ocenka_nedvizh/price.pdf') }}">{% trans %}скачав pdf{% endtrans %}</a></h4>
+                {% if request_form.is_valid() %}
+                    <div class="alert alert-success">{% trans %}Заявка принята, с Вами свяжутся.{% endtrans %}</div>
+                {% else %}
+                <form method="POST" class="analysis-form">{% csrf_token %}
+                    {{ bootstrap_form(request_form, label_as_placeholder=True, inline_errors=True) }}
+
+                    <div class="you_price">{% trans %}Ваша цена{% endtrans %}: <span>&mdash;</span> грн</div>
+                    <div class="buttons">
+                        <button type="submit" class="btn btn-md btn-danger">{% trans %}Оставить заявку{% endtrans %}</button>
+                        <div class="flag">-5%<br><span>{% trans %}экономия{% endtrans %}</span></div>
+                    </div>
+
+                </form>
+                {% endif %}
+                <p><span>{% trans %}За дополнительной информацией{% endtrans %}:</span><br>+38 (063) 568 54 41<br>olga.k@mesto.ua</p>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block extra_footer %}
+    <script>
+        var city_name, city_static_url,
+            prices = [
+                [500, 400, 350], [400, 320, 280], [600, 480, 420], // квартира, комната, дома
+                [500, 400, 350], // гаражи
+                [700, 560, 490], [900, 720, 630], [1000, 800, 700], [1000, 800, 700], // коммерция
+                [600, 480, 420], [700, 560, 490], [1000, 800, 700] // земля
+            ];
+
+        function updatePrice() {
+            if (!city_static_url) return;
+
+            var property_type = $('#id_property_type').val();
+            price = '&mdash;';
+
+            if (city_static_url.indexOf(';kievskaya-oblast/') > -1 || $.inArray(city_static_url.split(';')[0], ["kiev", "belaya-tserkov", "borispol", "boyarka", "brovaryi", "irpen", "brovaryi"]) > -1) {
+                price = prices[property_type][0];
+            } else if ($.inArray(city_static_url.split(';')[0], ["odessa", "harkov", "lvov", "dnepropetrovsk", "dnepr"]) > -1) {
+                price = prices[property_type][1];
+            } else {
+                price = prices[property_type][2];
+            }
+
+            $('.you_price span').text(price);
+        }
+
+        $('#id_property_type').change(updatePrice);
+        $('#id_city').on("region-choose", function(e, id, name, static_url) {
+            city_name = name;
+            city_static_url = static_url;
+            updatePrice();
+            $(this).val(name);
+        });
+    </script>
+{% endblock %}

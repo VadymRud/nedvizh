@@ -1,0 +1,15 @@
+{% load staticfiles i18n %}
+<div class="bank_footer">
+    <div class="bank_footer_l">
+    
+        <nav class='menu'>
+            <a href="/pages/about/">{% trans 'О место.банкинг' %}</a>
+            <a href="/pages/about/contact/">{% trans 'Контакты' %}</a>
+            <a href="/pages/about/ad-rules/">{% trans 'Правила размещения объявления' %}</a>
+        </nav>
+    
+    </div>
+    <div class="bank_footer_r">
+        <a href='/' rel='nofollow'><img src='{% static 'bank/img/footer-logo-bank.png' %}' width='223' height='66' alt='mesto'/></a>
+    </div>
+</div>

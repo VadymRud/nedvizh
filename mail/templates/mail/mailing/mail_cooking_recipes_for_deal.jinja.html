@@ -1,0 +1,32 @@
+{% extends "mail/base_2017.04.jinja.html" %}
+
+{% block greetings %}{% endblock %}
+
+{%- block content %}
+  <tr>
+    <td valign="top">
+      <img src="{{ static('mail/img/mailing/header_cooking_deal.png') }}" width="700" height="270" style="width: 700px; height: 270px;">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div style="padding:25px 90px;box-sizing:border-box;text-align:center;line-height:40px;">
+        <span style="font-size:30px">
+           Сколько ингредиентов, времени и усилий требуется для приготовление идеального стейка?
+        </span>
+      </div>
+      <img src="{{ static('mail/img/mailing/cooking_deal_1.png') }}" width="700" height="270" style="width: 700px; height: 270px;margin-bottom:40px">
+      <img src="{{ static('mail/img/mailing/cooking_deal_2.png') }}" width="700" height="570" style="width: 700px; height: 540px;">
+      <img src="{{ static('mail/img/mailing/cooking_deal_3.png') }}" width="700" height="570" style="width: 700px; height: 540px;">
+      <div style="padding:60px 20px;box-sizing:border-box;text-align:center;line-height:50px;background-color:#1F2A31;margin-top:-10px;color:#eeeeef;font-size:24px;">
+        Только «сочные рецепты»,<br>
+        полезные «кулинарные» лайф-хаки от шеф-поваров<br>
+        <b style="color:#ffca40">Ярослава Давидчука</b> и <b style="color:#ffca40">Андрея Правдина.</b> <br>
+        А также совместная «готовка» и дегустация <br><br>
+        <a href="{{ host_url('training_intensiv') }}?{{ utm.urlencode() }}" target="_blank" class="button" style="font-size:32px;background-color:#e93d37;padding:16px;width:200px;">Заказать</a><br><br>
+        Стартуем в 10 утра. <br>
+        Поспешите купить билет! <br>
+      </div>
+    </td>
+  </tr>
+{% endblock -%}

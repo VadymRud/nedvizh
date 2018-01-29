@@ -1,0 +1,24 @@
+{% extends "guide/base.jinja.html" %}
+
+{% block guide_content %}
+    <div class="container news-list">
+        <div class="h3">{{ title }}</div>
+        <div class="row">
+            {% for article in paginator.current_page.object_list %}
+                <div class="col-xs-12 col-sm-6 ">
+                    <div class="item">
+                        <div class="date">{{ article.published|date("d.m.Y") }}</div>
+                        <div class="image"><a href="{{ article.get_absolute_url(request.subdomain_region) }}"><img src="{{ article.image|thumbnail("275x185") }}" class="img-responsive"/></a></div>
+                        <div class="name"><a href="{{ article.get_absolute_url(request.subdomain_region) }}">{{ article }}</a></div>
+                        <div class="text">{{ article.description|truncatewords(15) }}</div>
+                    </div>
+                </div>
+                {% if loop.index is divisibleby(4) %}
+                    </div><div class="row">
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% include "pagination.jinja.html" %}
+{% endblock %}
+

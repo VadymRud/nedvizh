@@ -1,0 +1,262 @@
+﻿{% extends 'base.jinja.html' %}
+
+{% block extra_css %}
+  <link rel="stylesheet" type="text/css" href="{{ static("newhome/css/newhome.css") }}"/>
+  <link rel="stylesheet" type="text/css" href="{{ static("libs/slick/slick.css") }}"/>
+  <link rel="stylesheet" type="text/css" href="{{ static("libs/slick/slick-theme.css") }}"/>
+{% endblock %}
+
+{% block analysis %}
+    {% include 'paid_services/analysis_pagebg.jinja.html' %}
+{% endblock %}
+
+{% block content %}
+  <div class="breadcrumb breadcrumb-newhomes">
+    {% set newhome_id = newhome.id %}
+    {% set skip_header_button = True %}
+    {% include 'newhome/breadcrumbs-with-popup.jinja.html' %}
+
+    <h1>{{ newhome.name }}</h1>
+  </div><br/>
+
+  <div class="row newhomes-detail">
+    <div class="col-lg-17">
+      <div class="white-panel common-info">
+        <div class="h1 no-margin">{{ newhome.name }}</div>
+        <div class="row">
+          <div class="col-xs-24">
+            <span>ID {{ newhome.id }}</span><br><br><br>
+          </div>
+        </div>
+
+
+        {% if newhome.newhome_photos.exists() %}
+          <div class="images">
+            <div class="mst_scroll_big_image js_scroll_big_image">
+              {% for photo in newhome.newhome_photos.all() %}
+                <div class='image-item'>
+                  <img src='{{ photo.image|thumbnail("800x800", nocrop=True) }}' title='{{ newhome.name }}' class="img-responsive"/>
+                </div>
+              {% endfor %}
+            </div>
+
+            <div class='image-list mst_scroll_ad_images js_scroll_ad_images' data-slides-to-show="6">
+              {% for image in newhome.newhome_photos.all() %}
+                <div class="mst_preview_img">
+                  <img src='{{ image.image|thumbnail("288x192") }}' class="img-responsive" alt=''/>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        {% endif %}
+
+        {% macro show_field(label, value, width='40%') %}
+          {% if value %}
+            <tr>
+              <td width="{{ width }}">{{ label }}:</td>
+              <td>{{ value }}</td>
+            </tr>
+          {% endif %}
+        {% endmacro %}
+
+        <table class="table newhomes-table-info">
+          {{ show_field(_("Цена, за м2"), newhome.get_price_range() ) }}
+          {{ show_field(_("Адрес"), newhome.address) }}
+          {{ show_field(_("Ближайшее метро"), newhome.get_subway_stations()|join(', ')) }}
+          {{ show_field(_("Застройщик"), newhome.developer) }}
+          {{ show_field(_("Реализует"), newhome.seller) }}
+        </table>
+
+        {% if developer_phone %}
+          <div class="hidden-lg">
+            <br>
+            {% trans %}Телефон для связи с застройщиком{% endtrans %}<br>
+            <span class="lead-phone"><a href="tel:+{{ developer_phone }}">{{ developer_phone|pprint_phone }}</a></span>
+            {% if not newhome.user.leadgeneration.is_shown_users_phone %}
+              <p class="note small text-muted">
+                {% trans newhome_id=newhome.id %}Введите ID {{ newhome_id }} объявления для соединения с отделом продаж{% endtrans %}
+              </p>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if callrequest_form is defined %}
+          <button class="btn btn-md btn-danger model-request-button hidden-lg" data-toggle="modal" data-target="#newhome-request-popup">{% trans %}Давайте мы Вам перезвоним{% endtrans %}</button>
+        {% endif %}
+
+        <table class="table newhomes-table-info">
+          <tr>
+            <td>{{ _("Статус строительства") }}</td>
+            <td>
+              <ul class="queues">
+                {% for queue in newhome.queues.all() %}
+                  <li>
+                    {{ queue.name }} ({% for section in queue.sections.all() %}{{ section }}{% if not loop.last %}, {% endif %}{% endfor %}) &mdash; {{ queue.finish_at }}, {{ queue.comment }}
+                  </li>
+                {% endfor %}
+              </ul>
+            </td>
+          </tr>
+        </table>
+
+        <div class="h2">{% trans %}Описание{% endtrans %}</div>
+        <div class="description">{{ newhome.content|nl2br }}</div>
+
+        <br/>{% include 'includes/social_share.jinja.html' %}
+
+        {% if newhome.coords_x %}
+          <div id='local-info-n-map' class='ui-tabs-hide' itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+            <meta itemprop="longitude" content="{{ newhome.coords_x }}"/>
+            <meta itemprop="latitude" content="{{ newhome.coords_y }}"/>
+            <link rel="stylesheet" href="{{ static('libs/leaflet/leaflet.css') }}">
+            <div id='embed_map' class='show-osm-map' style='width:100%;height:270px;'
+                 data-js="{{ static('libs/leaflet/leaflet.js') }}"
+                 data-lon='{{ newhome.coords_x }}' data-lat='{{ newhome.coords_y }}'
+                 data-lang-code="{{ {'uk': 'uk-UA', 'ru': 'ru-RU'}[LANGUAGE_CODE] }}">
+                <div class='content hidden'>
+                  <p>{{ newhome.address|linebreaksbr }}</p>
+                  {% trans %}Цена от{% endtrans %}: {{ newhome.price_at|intcomma }} грн.
+                </div>
+            </div>
+          </div>
+        {% endif %}
+      </div> {# end of .white-panel #}
+
+      {% if flats_info_exists %}
+        <div class="white-panel" id="available-flats">
+          {% include 'newhome/detail-flats-info.jinja.html' %}
+        </div>
+      {% endif %}
+
+      {% if progress %}
+        <div class="white-panel" id="progress">
+          <div class="wrapper">
+            {% include 'newhome/detail-progress.jinja.html' %}
+            <br/>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="col-lg-7 sidebar">
+      {% if developer_phone %}
+        <div class="hidden-md hidden-sm hidden-xs">
+          {% trans %}Телефон для связи с застройщиком{% endtrans %}<br>
+          <span class="lead-phone"><a href="tel:+{{ developer_phone }}">{{ developer_phone|pprint_phone }}</a></span>
+          {% if not newhome.user.leadgeneration.is_shown_users_phone %}
+            <p class="note small text-muted">
+              {% trans newhome_id=newhome.id %}Введите ID {{ newhome_id }} объявления для соединения с отделом продаж{% endtrans %}
+            </p>
+          {% endif %}
+          <hr>
+        </div>
+      {% endif %}
+
+      <div class="white-panel">
+        <table class="table newhomes-table-info">
+          {{ show_field(_("Класс"), newhome.get_building_class_display(), '60%' ) }}
+          {% if newhome.ceiling_height %}
+            {{ show_field(_("Высота потолков"), '%s м' % newhome.ceiling_height, '60%' ) }}
+          {% endif %}
+          {{ show_field(_("Домов"), newhome.buildings_total, '60%' ) }}
+          {{ show_field(_("Количество квартир"), newhome.flats_total, '60%' ) }}
+          {{ show_field(_("Отопление"), newhome.get_heating_display(), '60%' ) }}
+          {{ show_field(_("Очередей"), newhome.phases, '60%' ) }}
+          {% if newhome.parking_info != 'none' %}
+            {{ show_field(_("Паркинг"), newhome.get_parking_info_display(), '60%' ) }}
+          {% endif %}
+          {{ show_field(_("Стены"), newhome.get_walls_display(), '60%' ) }}
+          {{ show_field(_("Утепление"), newhome.get_building_insulation_display(), '60%' ) }}
+          {{ show_field(_("Этажность"), newhome.number_of_floors, '60%' ) }}
+          {{ show_field(_("Цена за м2"), newhome.get_price_range(), '60%' ) }}
+        </table>
+      </div>
+
+      {% if callrequest_form is defined %}
+        <button class="btn btn-md btn-danger model-request-button" data-toggle="modal" data-target="#newhome-request-popup">{% trans %}Давайте мы Вам перезвоним{% endtrans %}</button>
+      {% endif %}
+      {% if flats_rooms_options %}
+        <div class="white-panel" id="all-flats">
+          {% include 'newhome/detail-flats.jinja.html' %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if similar_newhomes %}
+    <div class="relative-newhomes">
+      <h3>{% trans %}Похожие новостройки{% endtrans %}</h3>
+      <div class="newhomes-list newhomes-search-result-list">
+        <div class="row">
+          {% for ad in similar_newhomes %}
+            <div class="col-sm-12 col-md-6">{% include "newhome/newhome-preview.jinja.html" %}</div>
+            {% if loop.index % 4 == 0 %}<div class="visible-md visible-lg clearfix"></div>{% endif %}
+            {% if loop.index % 2 == 0 %}<div class="visible-sm clearfix"></div>{% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  
+{% endblock %}
+
+{% block footer_crosslinks %}
+  {% if crosslinks_blocks is defined %}
+    <div class="row visible-lg hidden-print">
+      {% include 'includes/crosslink.jinja.html' %}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block extra_footer %}
+  <script type="text/javascript" src="{{ static("libs/slick/slick.min.js") }}"></script>
+  <script src="{{ static('js/libs/humanize.min.js') }}"></script>
+  <script src="{{ static('newhome/js/newhome.js') }}"></script>
+  <script>
+    $().ready(function() {
+      availableFlatsProcess();
+
+      $('#progress').on("click", "a.nav", function(e) {
+        e.preventDefault();
+        $.ajax({
+          url: $(this).attr('href'),
+          success: function(data) {
+            var html = $(data).find('#progress .wrapper').html();
+            $('#progress .wrapper').html(html);
+            initColorbox();
+          }
+        });
+      });
+
+      var brokenThumbnails = [];
+      var thumbnails = $('.images img,.image-item img');
+      thumbnails.one('error', function() {
+          brokenThumbnails.push($(this));
+      });
+      InstallPropertyPage();
+      $(window).on('load', function() {
+        if(brokenThumbnails.length) {
+          $.each(brokenThumbnails, function(index, img) {
+            img.attr('src', "{{ static('img/no-photo.png') }}");
+          });
+          $.get("{{ url('no_thumbnails') }}");
+        }
+      });
+    });
+  </script>
+
+  <link rel="stylesheet" href="{{ static('libs/bootstrap-select/bootstrap-select.min.css') }}">
+  <script src="{{ static('libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
+
+  {# для includes/social_share.jinja.html #}
+  <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+{% endblock %}
+
+{% block extra_header %}
+    {{- super() -}}
+    {%- for photo in newhome.newhome_photos.all()[:10] -%}
+        <link rel="image_src" href="{{ photo.image|thumbnail("800x800", nocrop=True) }}"><meta property="og:image" content="{{ photo.image|thumbnail("800x800", nocrop=True) }}" />
+    {%- endfor -%}
+{% endblock %}

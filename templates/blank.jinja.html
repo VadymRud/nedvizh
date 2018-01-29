@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <title>{% block title %}Mesto.UA{% endblock %}</title>
+    {% compress css %}
+        <link rel="stylesheet" href="{{ static('libs/bootstrap3-24col/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ static('css/main.css') }}">
+        {% block extra_css %}{% endblock %}
+    {% endcompress %}
+    {%- include 'includes/gtm.jinja.html' -%}
+    <style>
+        body {padding:15px 30px 0;}
+        .message-about-ad .control-label::after {content: '';}
+    </style>
+</head>
+<body>
+    {% for message in messages %}
+        <div class="row">
+            <div class="col-xs-24">
+                <div role="alert" class="alert alert-{% if message.tags == 'error' %}danger{% else %}success{% endif %} alert-dismissible fade in">
+                    <button aria-label="{% trans %}Закрыть{% endtrans %}" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>
+                    {{ message }}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+    {% block content %}{% if debug is defined %}{{ debug|safe }}{% endif %}{% endblock %}
+
+    {% block extra_footer %}{% endblock %}
+
+    {% block external_js %}
+        {% include "includes/external_js.jinja.html" %}
+    {% endblock %}
+</body>
+</html>
+

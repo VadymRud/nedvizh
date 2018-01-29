@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    color: #333333;
+    font-family: Arial, sans-serif;
+}
+
+body {background-color: #ededed;}
+
+a {
+    color: #f8295c;
+    text-decoration: underline;
+}
+.pink {color: #f8295c;}
+p {margin:0 0 20px 0;}
+hr {height:1px; border:0 none; color: #D7DFE3; background-color: #D7DFE3; margin-top:1.5em; margin-bottom:1.5em;}
+ul {margin: 0; padding: 0 0 0 15px;}
+li {margin: 0 0 10px; padding: 0;}
+li.pink span {color: #333333;}
+table {font-size: inherit; border: 0; border-collapse: collapse; margin: 0; padding: 0;}
+table.bordered td {border: 1px #bbbbbb solid;}
+div {line-height: 1px;}
+div.text {line-height: 120%; background-color: #ffffff; color: #333333; font-weight: normal; font-size: 14px; text-align: left; font-family: Arial, sans-serif;}
+.social {text-align: center; background-color: #ededed;}
+    div.social {width: 100%; height: 29px;}
+.empty-line {width: 540px; height: 39px; background-color: #ededed;}
+.price {
+    font-weight: normal; font-family: Arial, sans-serif; font-size: 14px; text-align: right;
+    background-color: #f8295c; width: 80px; padding: 0 10px; height: 32px; white-space: nowrap;
+    line-height: 32px; color: #ffffff;
+}
+.button {
+    width: 188px; height: 44px; display: inline-block; background-color: #f8295c; color: #ffffff; text-decoration: none;
+    text-align: center; line-height: 44px; font-size: 14px; border-radius: 2px;
+}
+.white-btn {
+    text-decoration: none; border: 1px #f8295c solid; text-align: center; display: inline-block; width: 135px; height: 30px;
+    padding-top: 20px; padding-bottom: 20px; line-height: 130%; font-size: 14px; border-radius: 5px; color: #f8295c;
+}
+.text-center {text-align: center}
+.default-color {color:#333333;}
+
+.table-content td {background-color: #ffffff;}
+
+.default-bottom-padding {padding-bottom: 20px;}
+.left-padding {padding-left: 42px;}
+.right-padding {padding-right: 42px;}
+.center-col {width: 456px;}
+.full-width {width: 540px;}
+div.text-wrap {line-height: 20px; color: #333333; font-weight: normal; font-size: 14px; font-family: Arial, sans-serif;}
+
+.table-info-images {width: 157px; height: 43px; text-align: center; background-color: #ffffff;}
+.table-info {width: 157px; text-align: center; color: #f8295c; font-size: 14px; font-family: Arial, sans-serif; line-height: 120%; font-weight: normal; background-color: #ffffff;}
+
+.td-without-background td {background-color: transparent;}

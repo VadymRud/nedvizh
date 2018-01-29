@@ -1,0 +1,64 @@
+# Hungarian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-11-25 16:18+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: hu\n"
+"Language-Team: hu <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: static/ajaxuploader/js/property_images.js:90
+msgid "удалить"
+msgstr "törlés"
+
+#: static/ajaxuploader/js/property_images.js:91
+msgid "повернуть"
+msgstr "forgatás"
+
+#: static/ajaxuploader/js/property_images.js:98
+msgid "сделать главной фотографией объявления"
+msgstr "a hirdetés kiemelt fényképkének beállítása"
+
+#: static/ajaxuploader/js/property_images.js:99
+msgid "Описание"
+msgstr "Leírás"
+
+#: static/ajaxuploader/js/property_images.js:106
+msgid "Ошибка при обработке файла"
+msgstr "Hiba történt a fájl feldolgozásakor"
+
+#: static/ajaxuploader/js/property_images.js:106
+msgid "Проверьте является ли файл изображением."
+msgstr "Kérem ellenőrizze, hogy a kiválasztott fájl valóban képfájl-e."
+
+#: static/ajaxuploader/js/property_images.js:125
+msgid "Выбрать файлы"
+msgstr "Fájl kiválasztása"
+
+#: static/ajaxuploader/js/property_images.js:135
+msgid "Отмена"
+msgstr "Mégse"
+
+#: static/ajaxuploader/js/property_images.js:136
+msgid "Ошибка"
+msgstr "Hiba"
+
+#: static/ajaxuploader/js/property_images.js:178
+msgid "Ошибка при повороте изображения"
+msgstr "Hiba történt a kép elforgatása közben"
+
+#: static/js/main.js:827
+msgid "Ошибка при выполнении запроса"
+msgstr "Hiba történt a kérés feldolgozása közben"
+

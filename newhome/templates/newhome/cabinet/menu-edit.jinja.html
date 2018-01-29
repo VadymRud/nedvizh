@@ -1,0 +1,25 @@
+<div class="l-mainmenu container">
+    <div class="white-panel newhomes-menu-edit">
+        <div class="row">
+            {% if newhome_id is defined %}
+                <div class="col-xs-8 title">{% trans %}Вы находитесь в режиме редактирования{% endtrans %}:</div>
+                <div class="col-xs-11">
+                    <ul>
+                        <li{% if active is defined and active == 'object' %} class="active"{% endif %}><a href="{{ url('profile_newhome_object_edit', newhome_id) }}" title="">{% trans %}Объект{% endtrans %}</a></li>
+                        <li{% if active is defined and active == 'sections' %} class="active"{% endif %}><a href="{{ url('profile_newhome_sections', newhome_id) }}" title="">{% trans %}Дома и очереди{% endtrans %}</a></li>
+                        <li{% if active is defined and active == 'flats' %} class="active"{% endif %}><a href="{{ url('profile_newhome_flats', newhome_id) }}" title="">{% trans %}Квартиры{% endtrans %}</a></li>
+                        <li{% if active is defined and active == 'workflow' %} class="active"{% endif %}><a href="{{ url('profile_newhome_workflow', newhome_id) }}" title="">{% trans %}Ход строительства{% endtrans %}</a></li>
+                    </ul>
+                </div>
+            {% else %}
+                <div class="col-xs-8 title">{% trans %}Вы находитесь в режиме добавления объекта{% endtrans %}</div>
+                <div class="col-xs-10 text-right clean-local-storage">
+                    <span class="glyphicon glyphicon-remove"></span> <a href="#">Очистить данные</a>
+                </div>
+            {% endif %}
+            <div class="{% if newhome_id is defined %}col-xs-4{% else %}col-xs-5{% endif %} pull-right text-right">
+                <a href="{{ url('profile_newhome_my_buildings') }}" title="" class="btn btn-danger"{% if active is defined and active == 'object' %} onclick="$('.newhomes-object form.newhome-object-edit-form').submit(); return false;"{% endif %}>{% if newhome_id is defined %}{% trans %}Завершить{% endtrans %}{% else %}{% trans %}Сохранить и продолжить{% endtrans %}{% endif %}</a>
+            </div>
+        </div>
+    </div>
+</div>

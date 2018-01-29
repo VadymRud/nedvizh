@@ -1,0 +1,210 @@
+# Ukrainian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-03-01 15:03+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uk\n"
+"Language-Team: uk <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: templates/mail/ad_list.jinja.html:48
+msgid "комната"
+msgstr "кімната"
+
+#: templates/mail/ad_list.jinja.html:48
+msgid "комнаты"
+msgstr "кімнати"
+
+#: templates/mail/ad_list.jinja.html:48
+msgid "комнат"
+msgstr "кімнат"
+
+#: templates/mail/ad_list.jinja.html:56
+msgid "сотка"
+msgstr "сотка"
+
+#: templates/mail/ad_list.jinja.html:56
+msgid "сотки"
+msgstr "сотки"
+
+#: templates/mail/ad_list.jinja.html:56
+msgid "соток"
+msgstr "соток"
+
+#: templates/mail/ad_list.jinja.html:71
+msgid "Опубликовано"
+msgstr "Опубліковано"
+
+#: templates/mail/ad_rejected.jinja.html:10
+msgid "Ваши объявления не прошли модерацию"
+msgstr "Ваші оголошення не пройшли модерацію"
+
+#: templates/mail/ad_rejected.jinja.html:30
+#: templates/mail/saved_search.jinja.html:28
+#: templates/mail/vip_expired.jinja.html:22
+msgid "и еще несколько объявлений"
+msgstr "і ще декілька оголошень"
+
+#: templates/mail/ad_rejected.jinja.html:45
+msgid "Мои объявления"
+msgstr "Мої оголошення"
+
+#: templates/mail/ad_rejected.jinja.html:58
+msgid "Ознакомьтесь, пожалуйста, с"
+msgstr "Ознайомтеся, будь ласка, з"
+
+#: templates/mail/ad_rejected.jinja.html:58
+msgid "правилами размещения"
+msgstr "правилами розміщення"
+
+#: templates/mail/ad_rejected.jinja.html:71
+msgid ""
+"Отредактируйте объявления, исправив ошибки или удалив нарушения правил "
+"подачи, и они автоматически будут размещены на сайте."
+msgstr ""
+"Відредагуйте оголошення, виправивши помилки або видаливши порушення "
+"правил подачі, і вони автоматично будуть розміщені на сайті."
+
+#: templates/mail/base.html:15 templates/mail/base.jinja.html:13
+#: templates/mail/base_redesigned.jinja.html:46
+#: templates/mail/base_redesigned_2017.jinja.html:28
+msgid "Уважаемый пользователь"
+msgstr "Шановний користувачу"
+
+#: templates/mail/base.html:26 templates/mail/base.jinja.html:24
+#: templates/mail/base_redesigned.jinja.html:76
+#: templates/mail/base_redesigned_2017.jinja.html:50
+msgid "Это сообщение было отправлено автоматически."
+msgstr "Це повідомлення було відправлено автоматично."
+
+#: templates/mail/base.html:26 templates/mail/base.jinja.html:24
+#: templates/mail/base_redesigned.jinja.html:76
+#: templates/mail/base_redesigned_2017.jinja.html:50
+msgid "Пожалуйста, не отвечайте на него."
+msgstr "Будь ласка, не відповідайте на нього."
+
+#: templates/mail/base_redesigned.jinja.html:62
+msgid "Хорошего вам дня"
+msgstr "Гарного вам дня"
+
+#: templates/mail/base_redesigned.jinja.html:62
+msgid "команда"
+msgstr "Команда"
+
+#: templates/mail/expire_ads.html:6
+msgid ""
+"Срок действия Ваших объявлений истек. Если они все еще актуальны, "
+"обновите их бесплатно."
+msgstr ""
+"Термін дії Ваших оголошень закінчився. Якщо вони все ще актуальні, "
+"поновіть їх безкоштовно."
+
+#: templates/mail/expire_ads.html:6
+msgid "Таким образом, Ваши объявления вновь появятся вверху списка."
+msgstr "Таким чином, Ваші оголошення знову з'являться вгорі списку."
+
+#: templates/mail/expire_ads.html:8
+msgid ""
+"Срок действия Вашего объявления истек. Если оно все еще актуально, "
+"обновите его бесплатно."
+msgstr ""
+"Термін дії Вашого оголошення завершився. Якщо воно все ще актуально, "
+"поновіть його безкоштовно."
+
+#: templates/mail/expire_ads.html:8
+msgid "Таким образом, Ваше объявление вновь появится вверху списка."
+msgstr "Таким чином, Ваше оголошення знову з'явиться вгорі списку."
+
+#: templates/mail/expire_ads.html:19
+msgid "грн."
+msgstr "грн."
+
+#: templates/mail/expire_ads.html:26
+msgid "Кол-во просмотров"
+msgstr "Кількість переглядів"
+
+#: templates/mail/expire_ads.html:27
+msgid "Кол-во просмотров контактов"
+msgstr "Кількість переглядів контактів"
+
+#: templates/mail/expire_ads.html:33
+msgid "Посмотреть все \"Мои объявления\""
+msgstr "Подивитися всі \"Мої оголошення\""
+
+#: templates/mail/expire_ads.html:37
+msgid "Обновить все объявления бесплатно"
+msgstr ""
+
+#: templates/mail/expire_ads.html:38
+msgid "обновятся все объявления для которых доступно бесплатное обновление"
+msgstr ""
+
+#: templates/mail/leadgeneration_balance.jinja.html:10
+msgid ""
+"На Вашем балансе меньше 100 грн. Для того чтобы не пропустить звонки от "
+"Ваших потенциальных клиентов - пополните пожалуйста баланс в Вашем личном"
+" кабинете."
+msgstr ""
+"На Вашому балансі менше 100 грн. Для того щоб не пропустити дзвінки від "
+"Ваших потенційних клієнтів - поповніть будь ласка баланс у Вашому "
+"особистому кабінеті."
+
+#: templates/mail/saved_search.jinja.html:10
+msgid "На нашем сайте появились новые обьявления по Вашему запросу"
+msgstr "На нашому сайті з'явилися нові оголошення по Вашому запиту"
+
+#: templates/mail/saved_search.jinja.html:41
+msgid "Посмотреть новые"
+msgstr "Подивитися нові"
+
+#: templates/mail/vip_expired.jinja.html:7
+msgid "срок VIP-размещения для ваших объявлений истек:"
+msgstr "термін VIP - розміщення для ваших оголошень закінчився :"
+
+#: templates/mail/vip_expired.jinja.html:32
+msgid "Продлить"
+msgstr "Продовжити"
+
+#: templates/mail/webinar_reminder.jinja.html:4
+msgid "состоится"
+msgstr "відбудеться"
+
+#: templates/mail/webinar_reminder.jinja.html:5
+msgid "Приглашаем"
+msgstr "Запрошуємо"
+
+#: templates/mail/webinar_reminder.jinja.html:5
+msgid "принять участие"
+msgstr "прийняти участь"
+
+#: templates/mail/includes/call-to-manager-2017.jinja.html:4
+#: templates/mail/includes/call-to-manager.jinja.html:7
+msgid "По вопросам сервиса и за дополнительной информацией"
+msgstr "З питань сервісу та за додатковою інформацією звертайтеся"
+
+#: templates/mail/includes/call-to-manager-2017.jinja.html:4
+#: templates/mail/includes/call-to-manager.jinja.html:7
+msgid "обращайтесь к своему личному менеджеру."
+msgstr "до свого особистого менеджера."
+
+#: templates/mail/includes/call-to-manager-2017.jinja.html:11
+#: templates/mail/includes/call-to-manager.jinja.html:19
+msgid "Связаться с менеджером здесь"
+msgstr "Зв'язатися з менеджером тут"
+
+#: templates/mail/mailing/valion_franchise.jinja.html:13
+msgid "Коллега!"
+msgstr "Колега!"
+

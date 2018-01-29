@@ -1,0 +1,56 @@
+<div class="modal fade" id="login-popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane active" id="login">
+            <form method="post" class="clearfix" action="{{ url('auth_login') }}">
+                <h2>Добро пожаловать на Mesto.ua</h2>
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ request.build_absolute_uri() }}" />
+                <div class="form-group field field-username">
+                    <input class="form-control" maxlength="75" name="username" placeholder="Email" type="text">
+                </div>
+                <div class="form-group field field-password">
+                    <input class="form-control" name="password" placeholder="{% trans %}Пароль{% endtrans %}" type="password">
+                </div>
+                <div class='small'><a href="{{ url('password_reset') }}">{% trans %}Забыли пароль?{% endtrans %}</a></div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary btn-lg submit" value="{% trans %}Log in{% endtrans %}" />
+                </div>
+                <div class="row">
+                    <div class="col-sm-24 text-center social-auth-text">{% trans %}или войдите с помощью{% endtrans %}:</div>
+                </div>
+            </form>
+          </div>
+
+          <div class="tab-pane" id="register">
+              {% from "macro/forms.jinja.html" import bootstrap_form, bootstrap_form_fieldsets%}
+              <h2>Регистрация на Mesto.ua</h2>
+              <form method="post" class="clearfix person one-of-registration-form" action="{{ url('register') }}" autocomplete="off">
+                  {% csrf_token %}
+                  <input type="hidden" name="next" value="{{ request.build_absolute_uri() }}" />
+                  {{ bootstrap_form(get_registration_form(), label_as_placeholder=True) }}
+
+                  <div class="form-group">
+                    <input type="submit" class="btn btn-danger btn-lg btn-block submit" value="{% trans %}Создать{% endtrans %}" />
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-24 text-center social-auth-text">{% trans %}или создайте аккаунт через{% endtrans %}:</div>
+                  </div>
+              </form>
+
+          </div>
+        </div>
+          <ul class="nav nav-tabs" role="tablist">
+              <li class="col-xs-24 active"><a href="#login" role="tab" data-toggle="tab">{% trans %}Логин{% endtrans %}</a></li>
+              <li class="col-xs-24"><a href="#register" role="tab" data-toggle="tab">{% trans %}Регистрация{% endtrans %}</a></li>
+          </ul>
+          {% include 'includes/social_auth.jinja.html' %}
+
+      </div>
+    </div>
+  </div>
+</div>

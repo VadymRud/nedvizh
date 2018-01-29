@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    color: #323232;
+    font-family: Arial, sans-serif;
+}
+
+.pink {color: #ff245a;}
+
+body {background-color: #ededed;}
+table {font-size: inherit; border: 0; border-collapse: collapse; margin: 0; padding: 0;}
+h1 {font-size: 30px; font-weight: normal;}
+h2 {font-size: 24px; font-weight: bold;}
+small {color: #848484; font-size: 14px;}
+
+ul {margin: 0; padding: 0 0 0 30px;}
+li {margin: 0 0 40px; padding: 0 0 0 10px;}
+    li.pink span {color: #323232;}
+
+.logo {display: inline-block; width: 155px; height: 47px; padding: 55px 0;}
+    .logo img {width: 155px; height: 47px;}
+
+.default-padding {padding: 0 42px 20px;}
+.bottom-padding {padding-bottom: 30px;}
+.left-padding {padding-left: 42px;}
+.right-padding {padding-right: 42px;}
+
+.text-center {text-align: center;}
+.text-wrap {line-height: 30px; color: #323232; font-weight: normal; font-size: 18px;}
+
+.table-content {width: 700px; background-color: #ffffff;}
+    .table-content td {background-color: #ffffff; font-size: 18px;}
+
+.footer-content {width: 700px; background-color: #ededed;}
+    .footer-content td {background-color: #ededed; font-size: 12px; line-height: 110%; color: #939393;}
+    .footer-content td .contacts {font-size: 14px; color: #889bb1; text-decoration: none; cursor: default;}
+
+.button {
+    width: 283px; height: 44px; display: inline-block; background-color: #fa5f66; color: #ffffff; text-decoration: none;
+    text-align: center; line-height: 44px; font-size: 16px; border-radius: 3px;
+}
+

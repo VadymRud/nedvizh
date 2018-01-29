@@ -1,0 +1,40 @@
+<style>
+    .modal-newhome-analysis {width:auto;max-width:680px;}
+    .modal-newhome-analysis button.close {
+        background: url({{ static('img/icon-close4.png') }}) 50% 50% rgba(255,255,255,0.2) no-repeat;
+        width:25px;height:25px;
+        position:absolute;right:10px;top:10px;z-index:100;
+    }
+    .modal-newhome-analysis .modal-content {
+        background:url({{ static('paid_services/img/analysis/header-bg.jpg') }}) #606060 repeat-x;
+        border-radius: 15px;
+        border:6px solid rgba(255,255,255,0.4);
+        color:white;
+        position:relative;
+    }
+    .modal-newhome-analysis .modal-body {padding:40px;}
+    .modal-newhome-analysis .photo {position: absolute;bottom:0;right:0;width:39%}
+    .modal-newhome-analysis .title {font-size:30px;margin:0;padding-right:40%}
+    .modal-newhome-analysis .title b {color: #b9f0ff;}
+    /*.modal-newhome-analysis .title b:first-child {font-size:46px;}*/
+    .modal-newhome-analysis .subtitle {background: #b9f0ff;color:#333; padding:10px 40% 10px 15px; margin-bottom:30px; font-weight: bold;}
+    .modal-newhome-analysis .btn-danger {
+        border-radius:25px;
+        font-size:20px;
+        padding:10px 30px;
+    }
+
+
+    @media only screen and (max-width: 480px) {
+        .modal-newhome-analysis .title {font-size:24px;padding-right:0;}
+        .modal-newhome-analysis .title b:first-child {font-size:26px;}
+        .modal-newhome-analysis .subtitle {padding-right:15px;}
+        .modal-newhome-analysis .modal-body {padding:20px;}
+    }
+
+</style>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<h1 class="title">{% trans %}Покупая квартиру в новострое - <b>убедись в надежности застройщика</b>{% endtrans %}</h1><br/>
+<img src="{{ static('paid_services/img/analysis/header-photo.png') }}" class="photo visible-lg visible-md"/>
+<div class="subtitle">{% trans %}Выбирай: заказ оценки сейчас либо годы протестов и судов с застройщиком{% endtrans %}</div>
+<a href="{{ url('services:analysis') }}" class="btn btn-lg btn-danger">{% trans %}Узнать больше{% endtrans %} &raquo;</a>

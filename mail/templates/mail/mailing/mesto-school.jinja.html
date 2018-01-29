@@ -1,0 +1,48 @@
+{% extends "mail/base_2017.04.jinja.html" %}
+
+{% block greetings %}
+  <tr>
+    <td valign="top">
+      <img src="{{ static('mail/img/mailing/mesto-school.png') }}" width="700" height="259" style="width: 700px; height: 259px;">
+    </td>
+  </tr>
+  {% include "mail/includes/empty-line-2017.04.html" %}
+  <tr>
+    <td>
+      <div class="text-wrap default-padding">
+        Колеги,
+      </div>
+    </td>
+  </tr>
+{% endblock %}
+
+{%- block content %}
+  <tr>
+    <td>
+      <div class="text-wrap default-padding bottom-padding">
+        <p>А у нас цікаві новини! Зовсім скоро, проекту Mesto School виповнюється 2 роки і ми готуємо для вас дещо цікаве та захоплююче, але нам важливо знати Вашу думку!</p>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap default-padding bottom-padding">
+        <p>Приділить пару хвилин свого часу та пройдіть просте опитування із декількох питань і отримайте приємний бонус від Mesto School - інфографіка та роздаткові матеріали до попередніх вебінарів.</p>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap default-padding bottom-padding">
+        <p>Ваші відповіді допоможуть нам підготувати максимально корисний та професійний матеріал.</p>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap default-padding bottom-padding" style="text-align: center;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdNIgcJio7IopWr2aPj3K175uqp_TnTlgUaeO7PvDVFCNGv4g/viewform?usp=send_form" target="_blank" class="button">Перейти до опитування</a>
+      </div>
+    </td>
+  </tr>
+{% endblock -%}

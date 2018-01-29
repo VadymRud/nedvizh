@@ -1,0 +1,43 @@
+{% extends "mail/base_redesigned.jinja.html" %}
+
+{% block content %}
+    <tr>
+        <td width="43" height="92" style="width: 43px; height: 92px; background-color: #ffffff;">
+            <div style="width: 43px; height: 92px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="92" colspan="3" style="width: 472px; height: 92px; background-color: #ffffff; text-align: center;">
+            <img src="{{ static('mailing/tick.png') }}" width="64" height="64" style="width: 64px; height: 64px; display: inline-block;">
+        </td>
+        <td width="25" height="92" style="width: 25px; height: 92px; background-color: #ffffff;">
+            <div style="width: 25px; height: 92px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="44" style="width: 43px; height: 44px; background-color: #ffffff;">
+            <div style="width: 43px; height: 44px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="44" colspan="3" style="width: 472px; height: 44px; background-color: #ffffff;">
+            <div class="text" style="width: 472px; height: 44px; text-align: center">
+                Поздравляем! Ваш баланс успешно пополнен.
+            </div>
+        </td>
+        <td width="25" height="44" style="width: 25px; height: 44px; background-color: #ffffff;">
+            <div style="width: 25px; height: 44px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+    <tr>
+        <td width="43" height="80" style="width: 43px; height: 80px; background-color: #ffffff;">
+            <div style="width: 43px; height: 80px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+        <td width="472" height="80" colspan="3" style="width: 472px; height: 80px; background-color: #ffffff;">
+            <div style="width: 472px; height: 80px; background-color: #ffffff; text-align: center;">
+                <a href="http://mesto.ua/account/" target="_blank" class="button">Проверить баланс</a>
+            </div>
+        </td>
+        <td width="25" height="80" style="width: 25px; height: 80px; background-color: #ffffff;">
+            <div style="width: 25px; height: 80px; background-color: #ffffff;">&nbsp;</div>
+        </td>
+    </tr>
+{% endblock %}
+
+{% block footer %}{% endblock %}

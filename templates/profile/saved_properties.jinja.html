@@ -1,0 +1,44 @@
+{% extends "profile/base.jinja.html" %}
+
+{% block content %}
+    <div class="white-panel-header">
+        <div class="pull-right pull-padding">
+            <a href='{{  url('profile_clear_saved_properties') }}'
+               class='btn btn-bordered confirm-delete'>{% trans %}Очистить список{% endtrans %}</a>
+        </div>
+        <h4 class="page-title">{% trans %}Сохраненные объявления{% endtrans %}</h4>
+    </div>
+    <div class="white-panel">
+        {% if paginator.count %}
+            <div class="saved-properties-list properties-list ">
+                {% include "pagination.jinja.html" %}
+                {% for saved in paginator.current_page.object_list %}
+                    <div class="row">
+                        <div class="col-lg-14">
+                            {% with property = saved.basead.ad %}
+                                {% include "ad/preview.jinja.html" %}
+                            {% endwith %}
+                        </div>
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="visible-lg"><br/><br/><br/><br/></div>
+                            <a href="{{ url('profile_save_property', saved.basead_id) }}">
+                                <i class="icon icon-favorite"></i>{% trans %}убрать из избранного{% endtrans %}
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% include "pagination.jinja.html" %}
+            </div>
+        {% else %}
+            <p>{% trans %}У вас нет сохраненных объявлений.{% endtrans %}</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block extra_footer %}
+    <script>
+        $('.searches-list .search .col').click(function() {
+            window.location = $(this).parent().find('a.link').attr('href');
+        }).css('cursor', 'pointer');
+    </script>
+{% endblock %}x

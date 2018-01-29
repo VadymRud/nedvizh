@@ -1,0 +1,923 @@
+{% extends "profile/base.jinja.html" %}
+
+{% block content %}
+{% compress css %}
+{{ form.media.css|safe }}
+{{ phones_formset[0].media.css|safe }}
+<style>
+    #personal_data_header .collapse {
+         display: block;
+     }
+    #personal_data_header {
+        background: url("{{ static('img/profile/fon_vip.png') }}") no-repeat;
+        background-size: cover;
+        height: 165px;
+    }
+    #personal_data_header .bonus_programm_wrapper {
+        padding: 10px 43px;
+        color: #fff;
+    }
+    #personal_data_header h2 {
+        font-family: 'OpenSansBold';
+        font-size: 22px;
+        margin-top: 10px;
+    }
+    #personal_data_header .bonus_programm_wrapper p {
+        font-family: OpenSans;
+        font-size: 12px;
+        margin: 10px 0;
+    }
+    #personal_data_header .bonus_programm_wrapper .input-group input {
+        outline: none;
+        border: 0;
+        border-radius: 2px 0 0 2px;
+        height: 40px;
+    }
+    #personal_data_header .bonus_programm_wrapper .input-group-btn button {
+        border: 0;
+        background: #E4E6E7;
+        border-radius: 2px;
+        font-size: 16px;
+        height: 40px;
+        padding: 6px 25px;
+        outline: none;
+    }
+    #personal_data_header .select_tariff_wrapper {
+        display: inline-block;
+        position: relative;
+        top: 7px;
+        right: -90px;
+    }
+    #personal_data_header .select_tariff_wrapper .block {
+        color: #fff;
+        font-size: 14px;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 0 15px 15px 0;
+        height: 24px;
+        position: relative;
+        margin: 20px 0;
+        padding: 0 12px 0 7px;
+        line-height: 1.7;
+        display: table;
+        z-index: 1;
+    }
+    #personal_data_header .select_tariff_wrapper .block a, #personal_data_header .select_tariff_wrapper .block a:hover, #personal_data_header .select_tariff_wrapper .block a:link, #personal_data_header .select_tariff_wrapper .block a:visited {
+        color: #31ba1a;
+        text-decoration: none;
+        margin-left: 10px;
+        display: inline-block;
+        float: right;
+    }
+    #personal_data_header .select_tariff_wrapper .block .vip, #personal_data_header .select_tariff_wrapper .block .gold, #personal_data_header .select_tariff_wrapper .block .premium {
+        font-family: 'OpenSansBold';
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-right: 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0 7px;
+        height: 24px;
+        line-height: 1.6;
+    }
+    #personal_data_header .select_tariff_wrapper .block .vip {
+        background: #FFBD4B;
+        color: #080602;
+        margin-left: -42px
+    }
+    #personal_data_header .select_tariff_wrapper .block .gold {
+        color: #ffbd4b;
+        background: #080602;
+        margin-left: -63px
+    }
+    #personal_data_header .select_tariff_wrapper .block .premium {
+        color: #ffbd4b;
+        background: #24384E;
+        margin-left: -98px
+    }
+    #personal_data_header .comming_soon_wrapper {
+        background: #2A2A2A;
+        text-align: center;
+        display: inline-block;
+        color: #fff;
+        position: relative;
+        left: 7px;
+    }
+    #personal_data_header .ch-info-wrap {
+        width: 165px;
+        height: 165px;
+        /*-webkit-perspective: 800px;
+        -moz-perspective: 800px;
+        -o-perspective: 800px;
+        -ms-perspective: 800px;
+        perspective: 800px;*/
+        -webkit-transition: all 0.4s ease-in-out;
+        -moz-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
+        -ms-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+        background: #2A2A2A;
+        /*box-shadow:
+            0 0 0 20px rgba(255,255,255,0.2),
+            inset 0 0 3px rgba(115,114, 23, 0.8);*/
+    }
+
+    #personal_data_header .ch-info {
+        position: absolute;
+        width: 165px;
+        height: 165px;
+        -webkit-transition: all 0.4s ease-in-out;
+        -moz-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
+        -ms-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -o-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+    }
+    #personal_data_header .ch-info > div {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-position: center center;
+        padding: 15px 26px 16px;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -o-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    #personal_data_header .ch-info .ch-info-back {
+        -webkit-transform: rotate3d(0,1,0,180deg);
+        -moz-transform: rotate3d(0,1,0,180deg);
+        -o-transform: rotate3d(0,1,0,180deg);
+        -ms-transform: rotate3d(0,1,0,180deg);
+        transform: rotate3d(0,1,0,180deg);
+        background: #2A2A2A;
+    }
+
+    #personal_data_header .comming_soon_wrapper:hover .ch-info-wrap {
+        box-shadow:
+            0 0 0 0 rgba(255,255,255,0.8),
+            inset 0 0 3px rgba(115,114, 23, 0.8);
+    }
+
+    #personal_data_header .comming_soon_wrapper:hover .ch-info {
+        -webkit-transform: rotate3d(0,1,0,-180deg);
+        -moz-transform: rotate3d(0,1,0,-180deg);
+        -o-transform: rotate3d(0,1,0,-180deg);
+        -ms-transform: rotate3d(0,1,0,-180deg);
+        transform: rotate3d(0,1,0,-180deg);
+    }
+    #personal_data_header .comming_soon_wrapper h2 {
+        font-size: 18px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-top: 10px;
+        margin-bottom: 3px;
+        font-family: 'OpenSansBold';
+    }
+    #personal_data_header .comming_soon_wrapper p {
+        text-align: left;
+        margin: 0;
+    }
+    #personal_data_header .comming_soon_wrapper span {
+        color: #313741;
+        font-size: 14px;
+        text-align: center;
+        background: #FFDC80;
+        border-radius: 50%;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        width: 16px;
+        height: 16px;
+        font-weight: 700;
+        padding-top: 1px;
+        font-family: 'pf_din';
+    }
+    #personal_data {
+        padding: 0 8px 20px 50px;
+    }
+    #personal_data .profile-auth {
+        background: #eee;
+        padding: 0;
+    }
+    #personal_data .profile-auth .manager_wrapper .manager_foto {
+        width: 197px;
+        /*height: 287px;*/
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    #personal_data .profile-auth .manager_wrapper {
+        position: relative;
+        padding: 35px;
+        font-size: 16px;
+        min-height: 300px;
+    }
+    #personal_data .profile-auth .manager_wrapper .media-body p a {
+        color: inherit;
+        text-decoration: none;
+    }
+    #personal_data .profile-auth .manager_wrapper .media-body p {
+        line-height: 0.8;
+    }
+    #personal_data .profile-auth .manager_wrapper .media-body a.btn {
+        color: #007aa1;
+        font-size: 16px;
+        padding: 20px 0 0;
+    }
+    #personal_data .profile-auth .manager_wrapper .media-body a.btn i {
+        background: url("{{ static('img/profile/ico_iphone.png') }}") no-repeat;
+        width: 9px;
+        height: 16px;
+        display: inline-block;
+        padding: 0 15px 0 0;
+        vertical-align: top;
+        margin-top: 2px;
+    }
+    #personal_data .profile-auth .wrapper_calendar {
+        background: #DFE1E2;
+        padding: 35px;
+        font-family: 'pf_din';
+        font-size: 16px;
+    }
+    #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday label, #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday label:active, #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday label:hover {
+        margin: 0 5px -1px 0;
+    }
+    #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday label, #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday label:active, #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday label:hover {
+        border: 1px solid transparent;
+        border-radius: 0;
+        margin-bottom: 5px;
+        background: #939393;
+        color: #fff;
+        padding: 3px 0;
+    }
+    #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday select {
+        width: 56px;
+    }
+    #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday label.active {
+        border: 1px solid #7BB4C6;
+        color: #303030;
+        background: #fff;
+
+    }
+    #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday label.active ~ select {
+        border: 1px solid #7BB4C6;
+        background: #fff;
+        background-image: url("{{ static('img/profile/str_select_activ.png') }}");
+        -webkit-appearance: none;
+        background-position: right center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        -moz-appearance: none;
+        text-overflow: '';
+        -ms-appearance: none;
+        appearance: none !important;
+        border-right: none;
+        color: #000;
+    }
+    #personal_data .form-horizontal .controls input.form-control#id_submit {
+        width: 140px;
+        border: none;
+        margin-top: 40px;
+    }
+    .modal-dialog .call-content button.btn-blue {
+        width: 140px;
+        border: none;
+    }
+    #personal_data .profile-auth .wrapper_calendar .form-control {
+        box-shadow: none;
+        border: 1px solid #DFE1E2;
+        background: #EDEFEF;
+        margin-bottom: 5px;
+        padding: 4px 9px;
+        background-image: url("{{ static('img/profile/str_select.png') }}");
+        -webkit-appearance: none;
+        background-position: right center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        -moz-appearance: none;
+        text-overflow: '';
+        -ms-appearance: none;
+        appearance: none !important;
+        color: #919191;
+        margin-right: -1px;
+    }
+    #personal_data .profile-form input[type="checkbox"] {
+        background-image: url("{{ static('img/profile/checkbox.png') }}");
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-position: right center;
+        background-repeat: no-repeat;
+        width: 19px;
+        height: 19px;
+        outline: none;
+        margin-left: -35px;
+        margin-top: -1px;
+    }
+    #personal_data .profile-form .bootstrap-select.btn-group .dropdown-menu>li>a:hover, #personal_data .profile-form .bootstrap-select.btn-group .dropdown-menu>li.active>a {
+        color: #000;
+    }
+    #personal_data .profile-form input[type="checkbox"]:checked {
+        background-image: url("{{ static('img/profile/checkbox_select.png') }}");
+    }
+
+    #personal_data .checkbox label {
+        padding-left: 35px;
+    }
+    #personal_data .profile-auth .wrapper_calendar .h6 {
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+    #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday *:nth-child(3) {
+        margin-right: 0;
+    }
+    #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday label.active:before {
+        content: '';
+        background-color: transparent;
+
+    }
+    #personal_data .profile-auth .manager_wrapper .media-body p abbr[title], abbr[data-original-title] {
+        border-bottom: none;
+        font-size: 14px;
+    }
+    #personal_data .profile-form h1 {
+        font-family: 'OpenSans-Light';
+        font-size: 40px;
+        margin-top: 30px;
+    }
+    #personal_data .form-horizontal .control-label {
+        font-family: 'OpenSans';
+        font-size: 14px;
+        text-align: left;
+        font-weight: 400;
+    }
+
+    #personal_data .form-horizontal .controls input.form-control, #personal_data .form-horizontal .controls select.form-control, .modal-dialog .call-content input.localnumber, #callRequestHeaderModal .call-content button.call-button {
+        height: 42px;
+        border-radius: 3px;
+        box-shadow: none;
+        border: 1px solid #7BB4C6;
+        width: 60%;
+    }
+    #personal_data .form-horizontal .controls .countries, .modal-dialog .call-content .input-group .countries {
+        border: 1px solid #7BB4C6;
+        border-radius: 3px 0 0 3px;
+        border-right: none;
+        background: #F4F7F9;
+
+    }
+    #personal_data .form-horizontal .masked-phone + .widget .bootstrap-select.btn-group .btn, .masked-phone + .widget .bootstrap-select.btn-group .btn {
+        width: 115px !important;
+    }
+    #personal_data .form-horizontal .masked-phone + .widget .bootstrap-select.btn-group .caret, .modal-content .masked-phone + .widget .bootstrap-select.btn-group .caret {
+        margin: -3px 10px;
+        border: 0;
+    }
+    #personal_data .masked-phone + .widget .bootstrap-select.btn-group .dropdown-menu {
+        width: initial;
+    }
+    #personal_data #div_id_show_email {
+        margin-top: 40px;
+    }
+    #personal_data #div_id_receive_sms {
+        margin-bottom: 40px;
+    }
+    #personal_data .form-horizontal .masked-phone + .widget .bootstrap-select.btn-group .flag {
+        vertical-align: top;
+        margin-top: 4px;
+    }
+    #personal_data .form-horizontal .widget input.localnumber, .modal-dialog .call-content input.localnumber {
+        width: 46%;
+        border-radius: 0 3px 3px 0;
+    }
+    .modal-dialog .call-content input.localnumber {
+        width: 80%;
+    }
+    #personal_data .form-horizontal .add-extra-phone div.controls a i {
+        display: inline-block;
+        width: 9px;
+        height: 10px;
+        background-image: url("{{ static('img/profile/plus_phone.png') }}");
+        background-position: right center;
+        background-repeat: no-repeat;
+        margin-right: 5px;
+    }
+    #personal_data .form-horizontal .add-extra-phone div.controls a {
+        font-size: 14px;
+        color: #0079a1;
+        text-decoration: none;
+        position: absolute;
+        right: 70px;
+        top: -33px;
+    }
+    #personal_data .form-horizontal .controls select.form-control {
+        -webkit-appearance: none;
+        background: #fff;
+        background: url("data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAMAAADNLv/0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAASFBMVEW+x9C+x9C+x9C+x9C+x9C+x9C+x9C+x9C+x9C+x9C+x9C+x9C+x9C+x9C+x9C+x9C+x9C+x9C+x9C+x9C+x9C+x9C+x9D///+2OyMqAAAAFnRSTlMAATk8BEj+Z178VnX9cGOEa3l/emlzJRDZVgAAAAFiS0dEFwvWmI8AAAAHdElNRQfhCAMAKTa49YzaAAAANklEQVQI12NgZGIAA2YWBlY2dhCLg5OLgYGbh5eBgY+HHyQgwCbIziYEUcbHKSbMAAUioiASACMbATQnwAkAAAAAAElFTkSuQmCC");
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        -moz-appearance: none;
+        text-overflow: '';
+        -ms-appearance: none;
+        appearance: none !important;
+    }
+    #personal_data .profile-auth a {
+        text-decoration: none;
+        color: inherit;
+    }
+    #personal_data .profile-auth a h4 {
+        font-size: 18px;
+        font-family: "pf_din";
+        font-weight: 700;
+
+    }
+    #personal_data .helptext {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    #personal_data .label-social {
+        padding: 0;
+    }
+    #personal_data .icon-vkontakte, #personal_data .icon-facebook, #personal_data .icon-twitter, #personal_data .icon-google {
+        width: 39px;
+        height: 39px;
+        margin-right: 10px;
+    }
+    #personal_data .icon-facebook {
+        background-image:url("data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAMAAAC7faEHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABGlBMVEVJYZT///9JYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRJYZRKYpSHl7m/yNrP1ePK0eC1v9NofKavutD///92iK5Zb538/f1Zb557jLGuudByhayCk7Z/j7NtgKlMY5ZhdqKQnr59jrNedKH3+Prm6fBacJ7b3+rl6fDh5e29xdhpfafCytuc9aHDAAAAPHRSTlMAACNno8vr+KJmIQZixmAFW+FZGLq3FjfnNUf080D1F+W0WFQE391eXMTAH/4cY56c5PGfnVW4AWikzPmk94UTAAAAAWJLR0QB/wIt3gAAAAd0SU1FB+EIAgAFIbqrBdYAAAFMSURBVDjLlZRnU8JAEIaXFmxEkZIoiqKoBLGAHU+xYVeMomLJ//8bXhIc7/Yu5Hw+vvNMJje7+wKwRGPxhJYkSS0xNDziJZE+jDQ6liIsKX1c5k2kCSY9KXiZLJGRy/OeYRI55hTrTRdIEDOzf55RJMEUjV9vziSDmM/3vRwZTMn3FkgYi65XXgr1lsvUW8Hp0XHr5PTsnI0q1LOwd9F2uWSjagRWa0i7uva8GzarrcE6/twtle7uH/hQhw3sPVKvg8NN4HeJPNnP1HuxbT62AM2i2/Z55eM6FOTeGx83AP3Ie++DWp+9L5SDsFHuO75x2ABTyavj9wZ4FmwpedviPKSeLs5X5tH5Cvsi86qS/ZN5Fck+dxzH6fKRt88K97Hj39tuiFb65/2q9oFyvyj3VWD/ZTO4T/fU+lS9n72+3z9oaoe075vxWJTr+x+ELB1BRIZlMgAAAABJRU5ErkJggg==");
+    }
+    #personal_data .icon-vkontakte {
+        display: none;
+    }
+    #personal_data .icon-twitter {
+        background-image:url("data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAMAAAC7faEHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABsFBMVEUow/////8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/8ow/9Uz/9X0P9Dy/9Ey/+x6f/u+v/////W8/+c4/+I3v9m1P932f+L3/922f8qw/8xxv9r1v/c9f/4/f/Q8v/A7f9/2/+e5P/X9P/i9/9t1v9Byv8vxf9Gy/+97f/3/f+A2/952v+36//z/P+v6f8uxf9b0f/Z9P/9//9HzP9Tz/+O3//2/P/r+f/M8f/J8P/x+//w+/81x//+///8/v8wxf9h0//5/f/m+P9o1f8sxP9Z0f/L8P87yP8pw/+K3v+R4P9u1//B7v9Nzf+y6v/T8/9Mzf9g0/+B3P+b4//d9v9W0P+87P/0/P/t+v/e9v/F7/88yf+/7f/D7v+56/+a4/9q1f86yP/ZdAIBAAAAOHRSTlMAACNno8vr+KJmBmPGYQFc4+FbGLo55zdJ9fRH6Be4WljfBGJex8Qi/h9koMjs6fn2uRnqu2ikzBAR5ugAAAABYktHRAH/Ai3eAAAAB3RJTUUH4QgCAAgbyQmiKQAAAbVJREFUOMtjYEAGTMwsrGzsFuxsrBycTBAhRghAUsTFzWOBDHh4ubCo4+MXsEAHgkIY6oRFLLABEWFUdaJiFtiBmDiyOglJC1xAShqhThy3MgsLSXGYOmEZC3xATBaijk/EAj+Qg6iTtyAEFEDquAQJqlNUAqpTJqjMwkIFqE6VCHVqjAzqyHxLK2swbWNrZ+/g6OQME9fQZGBGVufi6uYOpDw8veztvX18/eASWgwcyOr8AwKDgkMsQsPsQSA8Ai6hzcCKrC4yyj46xjk2Lj4BpMw3ES6hw6CLrC4pOcU+PDUtPQNkXKZjFlxCj0EfxX222SAVOSDj7FNdc+ESBgwo/s/zzwcrBIOCwliEDKp5RcUlcGX2aaVlSOahuM8iqzwHpiyzAklcD9W/FkWVgTCFVcFI4jqo4QcE1TXRYGW1zu5Iotqo8VFX39DYBDGtMARZQgs1fptdWgrCW9vaOxybUSwBxi9KeulMco3p6u7p7et3R1GnRkL6IzY9E5s/COc3Q2j+NSIu/xJdHhBdvgDLK2NcloqjlX8mWJWhl39El6dEl8+Q8t7UzJxNH1jem7Mwo5b3AAl5GXbICxuFAAAAAElFTkSuQmCC");
+    }
+    #personal_data .icon-google {
+        background-image:url("data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAMAAAC7faEHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABmFBMVEX/bUr/////bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/bUr/j3T/va3/xbf/5d//6OL/0sf/sp//dFP/ybz/rpr/m4P/i3D/oIn//v7/2M//187/tqX/dVT/6uX/xLb/vKz/////lXv/d1f/kXf/3tf/f2H/wrP/lnz/p5L/k3r/7ur/+vn/9/X/c1L/5uD/7ej/+/r/iW3/08j/t6b/moL/+fj/zsL/fFz/eFf/r5z/3dX/jnP/w7T/yr7/5+H/ln3/ppD/rpv/q5f//Pv/s6H/b0z/bkv/183/rZn/jHH/kHb/0MX/sqD/tKL/8e3/hGb/xrj/x7r/jnL/7+v/elr/8Oz/1s3/cE7/l3//3tb/ooz/knf/mYD/1sz/hWj/iGz/z8P/uaj/gmQXWG6uAAAAL3RSTlMAACNmosvr+KMGYcZb4Ri6N+dH9PUXt7lYBN9eYMQf/mNkoMfI6On2WbgBaMz5pMXcexQAAAABYktHRAH/Ai3eAAAAB3RJTUUH4QgCAAcVqSmT4QAAAahJREFUOMudlGdbwjAUheMqONBWXCiIoOLEq6JS96JSZxVx495b3HuPv21LVdKBrZ4PWfd90ia59yCEKz4hMYkwgIFIMibEi0txojAoOSUVcKWmJKtxaSaQy5Sm4NIzQE0Z6VKOpEBdFIlzmWaIJXNmlCOzILayyG8um4LfRGV/cTnwu3JFLg+0lCdwlnxNLt/CcwWaGICV52w6OFscKrTjC7V19Z6GxiYvP6Sbo8v2QlSEYy2eVm9be4eAQWcXFnAgJzbr7unlWx/TB36W7adZ9ifiRMUYN9A+yLdDzDCMcNzoGMf9REpQKcYFxoMB/uMTk8JkahqLuJDkaWdm50LzcwuR8aIPC5Qh6QUsLa+sihgMr+EBJE+VdWZD5QLLJP8HEBrZ3GK2dxScS3Le3YW9/YPDIyas4Eok93d8cirQZ5xXzjmRA5uNnUe6i8srOeeQvO91j1/owje3Mox/Xzxf7oL3D49P088v8u1ssvx7rXuj6fcPxTGsf8hnHfVRLtZbhQaW+8f61esHuv1Ft1/p9r9Yflr5f3+O+H2VsZpwg5uorqmS+v0nHr7tZBc0bTsAAAAASUVORK5CYII=");
+    }
+    #personal_data .wrapper-social h5 {
+        font-size: 16px;
+        margin-top: 0;
+    }
+    #personal_data .wrapper-social {
+        margin-top: 30px;
+    }
+    #personal_data #div_id_email {
+        font-weight: 700;
+        font-size: 18px;
+        font-family: 'pf_din';
+    }
+    #personal_data #div_id_password a, #personal_data #div_id_password a:hover, #personal_data #div_id_password a:link, #personal_data #div_id_email a, #personal_data #div_id_email a:hover, #personal_data #div_id_email a:link {
+        text-decoration: none;
+        color: #0079a1;
+        font-size: 14px;
+        font-weight: 400;
+    }
+    #personal_data p.add_account {
+        padding: 7px 0;
+    }
+    #personal_data #div_id_region {
+        position: relative;
+    }
+    #personal_data #div_id_region:before {
+        content: 'Укажите регион в котором вы хотите размещать объявления';
+        font-size: 13px;
+        width: 29%;
+        right: 0;
+        position: absolute;
+        top: 7px;
+        color: #0079a1;
+    }
+    #personal_data .anchors {
+        font-family: 'OpenSans-Light';
+        font-size: 16px;
+        overflow: auto;
+        display: none;
+    }
+    #personal_data .anchors a.anchor {
+        background: #fff;
+        border: 1px solid #D2E6EE;
+        display: inline-block;
+        color: inherit;
+        text-decoration: none;
+        padding: 5px 15px;
+        border-radius: 15px;
+    }
+    #personal_data .anchors a.anchor:hover {
+        background: #D2E6EE;
+    }
+    #personal_data_header .arrow p {
+        display: none;
+        color: #fff;
+        font-family: 'OpenSansBold';
+        font-size: 22px;
+        position: relative;
+        top: 20px;
+    }
+    @media (max-width: 1200px) {
+        #personal_data .profile-auth .manager_wrapper .media-body a.btn {
+            position: relative;
+        }
+        #personal_data .helptext {
+            line-height: 1.2;
+        }
+        #personal_data .form-horizontal .widget input.localnumber {
+            width: 42%;
+        }
+        #personal_data .form-horizontal .add-extra-phone div.controls a {
+            right: 40px;
+        }
+        #personal_data #div_id_region:before {
+            width: 34%;
+            right: -26px;
+            top: 7px;
+        }
+        #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday select {
+            width: 50px;
+        }
+        #personal_data .profile-auth .wrapper_calendar .form-control {
+            padding: 4px 7px;
+        }
+        #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday label, #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday label:active, #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday label:hover {
+            width: 35px;
+        }
+        #personal_data .profile-auth .wrapper_calendar {
+            padding: 25px;
+        }
+    }
+    @media (max-width: 992px) {
+        #personal_data_header .collapse {
+            display: none;
+        }
+        #personal_data_header .collapse.in {
+            display: block;
+        }
+        #personal_data_header .arrow p {
+            display: block;
+            margin-bottom: 0;
+        }
+        #personal_data_header .arrow {
+            text-align: center;
+            height: 65px;
+            cursor: pointer;
+        }
+        #personal_data_header .arrow i{
+            display: inline-block;
+            background: url("{{ static('img/profile/gu.gif') }}");
+            width: 13px;
+            height: 22px;
+            position: absolute;
+            margin-top: 5px;
+            z-index: 2;
+        }
+        #personal_data_header .arrow i.true {
+            -moz-transform: rotate(180deg); /* Для Firefox */
+            -ms-transform: rotate(180deg); /* Для IE */
+            -webkit-transform: rotate(180deg); /* Для Safari, Chrome, iOS */
+            -o-transform: rotate(180deg); /* Для Opera */
+            transform: rotate(180deg);
+            margin-top: 3px;
+        }
+        #personal_data_header .select_tariff_wrapper {
+            right: -66px;
+            top: 17px;
+        }
+        #personal_data_header .bonus_programm_wrapper {
+            padding: 10px 23px;
+        }
+        #personal_data_header .bonus_programm_wrapper h2 {
+            display: none;
+        }
+        #personal_data_header {
+            overflow: auto;
+            height: 100%;
+        }
+        #personal_data {
+            padding: 20px 30px;
+        }
+        #personal_data .form-horizontal .widget input.localnumber {
+            width: 48%;
+        }
+        #personal_data .form-horizontal .add-extra-phone div.controls a {
+            right: 90px;
+        }
+        #personal_data #div_id_region:before {
+            right: 0;
+            margin-right: 28px;
+            width: 25%;
+        }
+        #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday label, #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday label:active, #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday label:hover {
+            width: 50px;
+        }
+        #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday select {
+            width: 75px;
+            display: inline;
+        }
+        .leadgeneration-form .workday {
+            text-align: center;
+        }
+        #personal_data .profile-auth .wrapper_calendar .form-control {
+            padding: 4px 20px;
+        }
+        #personal_data .anchors {
+            display: block;
+        }
+        #personal_data .anchors {
+            text-align: center;
+        }
+        #personal_data_header .select_tariff_wrapper .block {
+            margin: 15px 0;
+        }
+        #personal_data_header .select_tariff_wrapper .only_mobile_style_gold {
+            margin-left: 21px;
+        }
+        #personal_data_header .select_tariff_wrapper .only_mobile_style_premium {
+            margin-left: 56px;
+        }
+    }
+    @media (max-width: 768px) {
+        #personal_data .form-horizontal .controls input.form-control, #personal_data .form-horizontal .controls select.form-control {
+            width: 100%;
+        }
+        #personal_data .form-horizontal .add-extra-phone div.controls a {
+            right: 0;
+            top: -10px;
+            position: relative;
+        }
+        #personal_data #div_id_region:before {
+            right: -9px;
+            position: absolute;
+            width: 100%;
+            margin-right: 0;
+            top: 80px;
+        }
+        #personal_data .profile-form #image-clear_id, #personal_data .profile-form #image-clear_id + label {
+            bottom: 0;
+        }
+        #personal_data .helptext {
+            line-height: 1;
+            font-size: 12px;
+        }
+        #personal_data #div_id_submit p {
+            text-align: center;
+        }
+        #personal_data .profile-auth .manager_wrapper {
+            padding: 20px;
+        }
+        #personal_data .profile-auth .manager_wrapper .media-body p abbr[title], abbr[data-original-title] {
+            position: relative;
+            z-index: 10;
+        }
+        #personal_data .profile-auth .wrapper_calendar {
+            padding: 20px;
+        }
+        #personal_data_header .comming_soon_wrapper h2 {
+            font-size: 15px;
+        }
+    }
+    @media (max-width: 500px) {
+        #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday label, #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday label:active, #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday label:hover {
+            width: 30px;
+        }
+        #personal_data .profile-auth .wrapper_calendar .leadgeneration-form .workday select {
+            width: 45px;
+        }
+        #personal_data .profile-auth .wrapper_calendar .form-control {
+            padding: 4px 5px;
+        }
+        #personal_data .anchors a:last-child {
+            margin-top: 5px;
+        }
+        #personal_data_header .bonus_programm_wrapper {
+            padding: 10px;
+        }
+        #personal_data_header .select_tariff_wrapper {
+            right: -53px;
+            top: 7px;
+        }
+        #personal_data_header .ch-info-wrap {
+            width: 150px;
+            height: 150px;
+        }
+        #personal_data_header .ch-info {
+            width: 150px;
+            height: 150px;
+        }
+        #personal_data_header .comming_soon_wrapper p {
+            font-size: 12px;
+        }
+
+    }
+</style>
+{% endcompress %}
+    {#
+        <!-- Блок для бонусной программы с реферальными ссылками и випами -->
+        {% include('profile/bonus_programm.jinja.html') %}
+    #}
+
+    <div class="white-panel" id="personal_data">
+        <div class='row'>
+          <div class='col-md-14 profile-form'>
+            <div class="anchors">
+                <a class="anchor" href="#you_calendar">{% trans %}Время приема{% endtrans %}</a>
+                <a class="anchor" href="#you_manager">{% trans %}Ваш менеджер{% endtrans %}</a>
+            </div>
+            <h1>{% trans %}Личные данные{% endtrans %}</h1><br/>
+            <form class="profile-form form-horizontal" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+                {% set left_col_class='col-sm-6' %}{% set right_col_class='col-sm-18' %}
+                {% from "macro/forms.jinja.html" import bootstrap_form, bootstrap_field %}
+                {{ bootstrap_form(form, {'label':left_col_class, 'controls':right_col_class}, formsets=[phones_formset]) }}
+
+                <div id="div_id_phones">
+                    {{ phones_formset.management_form|safe }}
+                    {%- for form in phones_formset -%}
+                        {% for field in form %}
+                            <div class='field_phone'>
+                                {{ bootstrap_field(form.phone, {'label':left_col_class, 'controls':right_col_class}) }}
+                            </div>
+                        {% endfor %}
+                    {%- endfor %}
+                    <div class='form-group add-extra-phone'>
+                        <label for="" class="control-label col-sm-6 "></label>
+                        <div class="controls col-sm-18"><a><i></i>{% trans %}Добавить номер{% endtrans %}</a></div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="div_id_email">
+                    <label class="control-label {{ left_col_class }}">E-mail</label>
+                    <div class="controls {{ right_col_class }}">
+                        {% if request.user.email %}
+                            <b>{{ request.user.email }}</b><br/>
+                            <a href='{{ url('change_email') }}'>{% trans %}изменить email{% endtrans %}</a>
+                        {% else %}
+                            {% trans %}не задан{% endtrans %}<br/>
+                            <a href='{{ url('change_email') }}'>{% trans %}указать email{% endtrans %}</a>
+                        {% endif %}
+                    </div>
+                </div>
+
+                {% if request.user.email %}
+                  <div class="form-group" id="div_id_password">
+                    <label class="control-label {{ left_col_class }}">{% trans %}Пароль{% endtrans %}</label>
+                    <div class="controls {{ right_col_class }}">
+                        {% if request.user.has_usable_password() %}
+                            <b>&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</b><br/>
+                            <a href='{{ url('password_change') }}'>{% trans %}изменить пароль{% endtrans %}</a>
+                        {% else %}
+                            <a href='{{ url('password_reset') }}'>{% trans %}сбросить пароль{% endtrans %}</a>
+                        {% endif %}
+                    </div>
+                  </div>
+                {% endif %}
+
+                <script>
+                    $('#div_id_gender').after($('#div_id_phones')).after($('#div_id_password')).after($('#div_id_email'));
+                </script>
+
+                <div class="form-group">
+                    <label class="control-label {{ left_col_class }}">{% trans %}Ваши <br> cоциальные сети{% endtrans %}:</label>
+                    <div class="controls {{ right_col_class }}">
+                        {% for auth in request.user.social_auth.all() %}
+                        <div class="form-group">
+                            <label class="control-label label-social">{% trans %}Вы подключены к{% endtrans %} <b>{{ auth.provider|split('-')|first|title }}</b></label>
+                            <div class="controls">
+                                {% if loop.length > 1 or request.user.email %}
+                                <a class="btn btn-default" href="?social_link_disconnect={{ auth.pk }}">
+                                    {% trans %}Отвязать аккаунт{% endtrans %}</a>
+                                {% else %}
+                                <span class="btn btn-default" data-id="{{ auth.pk }}">{% trans %}Отвязать аккаунт{% endtrans %}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        <p class="add_account">{% trans %}Привязать аккаунт:{% endtrans %}</p>
+                        {% for auth in enabled_social_auths %}
+                        <a href="{{ url('social:begin', auth.backend) }}?next={{ request.build_absolute_uri() }}"
+                           title='{% trans %}Войти с помощью{% endtrans %} {{ auth.name }}' class='icon icon-{{ auth.key }}'></a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+
+
+                <div id="div_id_submit" class="form-group">
+                    <label for="id_submit" class="control-label col-sm-6"></label>
+                    <div class="controls col-lg-18">
+                        <p><input class="form-control btn btn-primary" id="id_submit" name="profile_form" type="submit" value="{% trans %}Сохранить{% endtrans %}"></p>
+                    </div>
+                </div>
+
+            </form>
+
+          </div>
+          <div class="col-md-offset-1 col-md-9 profile-auth form-horizontal">
+            {% with manager = request.user.manager %}
+                {% if manager %}
+                    <div class="manager_wrapper">
+                        <h4 id="you_manager">{% trans %}Ваш менеджер{% endtrans %}</h4>
+                        <div class="media">
+                          <div class="media-left manager_foto">
+                              <img class="media-object" src="{% if manager.image_big %}{{ manager.image_big.url }}{% else %}{{ static('img/no-photo.png') }}{% endif %}" alt="{{ manager.get_public_name() }}" >
+                          </div>
+                          <div class="media-body">
+                                <p>
+                                    {{ manager.get_public_name() }}<br><br/>
+                                    <a href="tel:+380442286898">+38 (044) 228 68 98</a><br/><br/>
+                                    {% if manager.internal_number %}(<abbr  class="tooltip-onclick" title="{% trans %}Это внутренний номер вашего менеджера, на случай, если вы захотите позвонить сами{% endtrans %}. {% trans %}Наш&nbsp;номер{% endtrans %}: +38 (044) 228 68 98">
+                                    {%- trans %}внутренний номер{% endtrans %} {{ manager.internal_number }}</abbr>){% endif %}
+                                </p>
+                            <a class="btn" href="#" data-toggle="modal" data-target="#callRequestHeaderModal"><i></i>{% trans %}Перезвонить мне{% endtrans %}</a>
+                          </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+
+            {% if request.user.get_realtor() and request.user.get_leadgeneration() %}
+                {% if money_to_activate_ad %}
+                    <p class="lead-generation-text">{% trans %}Внимание! Все ваши объявления будут неактивны, пока вы не пополните баланс еще на{% endtrans %} <span>{{ money_to_activate_ad }}</span> {% trans %}гривен.{% endtrans %}</p>
+                {% endif %}
+            {% endif %}
+
+
+            {# TODO: уточнить условие для застройщиков, т.к. для них этот блок может не выводиться #}
+            {% if request.user.get_realtor() and request.user.get_leadgeneration() %}
+                <div class="wrapper_calendar">
+                    <h4 id="you_calendar">{% trans %}Время приема звонков с сайта{% endtrans %}</h4>
+                    {% include('ppc/leadgeneration_form.jinja.html') %}
+
+                <script>
+                    var $forms = $('form.leadgeneration-form, form.profile-form');
+                    function submitAnotherForm(e) {
+                        $forms.unbind("submit", submitAnotherForm);
+                        var $thisForm = $(e.target);
+                        var $anotherForm = $forms.not($thisForm);
+                        $.ajax({
+                            url  : window.location.pathname,
+                            type : 'POST',
+                            data : $anotherForm.serialize() + '&' + $anotherForm.find('[type=submit]').attr('name') + '=1',
+                            success : function() {
+                                $thisForm.find('[type=submit]').click();
+                            }
+                        });
+                        e.preventDefault();
+                    }
+                    $forms.bind("submit", submitAnotherForm);
+                </script>
+                </div>
+            {% endif %}
+
+          </div>
+      </div>
+
+      <br/>
+
+    </div>
+        <script>
+            $("#personal_data_header .arrow").click(function(){
+            if($('#personal_data_header .arrow').attr("aria-expanded") == 'false')  {
+                $('#personal_data_header .arrow i').addClass('true');
+            }
+            else {
+                $('#personal_data_header .arrow i').removeClass('true');
+            }
+            });
+            $(document).ready(function(){
+                $(".anchors").on("click","a", function (event) {
+                //отменяем стандартную обработку нажатия по ссылке
+                    event.preventDefault();
+                //забираем идентификатор бока с атрибута href
+                    var id  = $(this).attr('href'),
+                //узнаем высоту от начала страницы до блока на который ссылается якорь
+                    top = $(id).offset().top;
+                //анимируем переход на расстояние - top за 1500 мс
+                $('body,html').animate({scrollTop: top}, 1500);
+            });
+            });
+
+        </script>
+{% endblock %}
+
+{% block extra_footer %}
+    {% compress js %}
+        <script src="{{ static('js/profile.js') }}"></script>
+        <script>
+            $('.tooltip-onclick').tooltip({trigger: 'click', placement: 'bottom'});
+        </script>
+        {{ form.media.js|safe }}
+        {{ phones_formset[0].media.js|safe }}
+    {% endcompress %}
+{% endblock %}

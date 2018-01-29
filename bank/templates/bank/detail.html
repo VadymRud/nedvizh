@@ -1,0 +1,241 @@
+{% extends 'bank/base.html' %}
+
+{% load pytils_numeral thumbnail_filter humanize domain_url bank_tags staticfiles i18n %}
+
+{% block content %}
+<div class='row-fluid'>
+    <div class='span6'>
+        {% include "bank/breadcrumbs.html" with breadcrumbs=region.get_breadcrumbs_bank back=1 %}
+    </div>
+    <div class='span6' align='right'>
+        <p class='social-share'>{% trans 'Поделиться' %}: <span class='st_facebook_hcount' displayText='Facebook'></span><span class='st_vkontakte_hcount' displayText='Vkontakte'></span>{#<span class='st_twitter_hcount' displayText='Tweet'>#}</span><span class='st_googleplus_hcount' displayText='Google +'></span></p>
+    </div>
+</div>
+
+<div class='property-detail hidden-contacts' id='property-detail' data-id='{{ item.id }}' data-dealtype='{{ item.get_deal_type_display|title }}' itemscope itemtype="http://schema.org/Place">
+
+    <table class='property-detail-column'><tr><td width='616'>
+
+        <div class='title'>
+            <noindex>
+            <div class='btn-toolbar'>
+                {% if request.user.is_staff %}
+                    <a class='btn btn-small' href='{% domain_url 'admin:ad_ad_change' item.pk %}' title='{% trans 'редактировать в админке' %}'><i class='icon-edit'></i></a>
+                {% endif %}
+                {% if item.user == request.user %}
+                    <a class='btn btn-small' href='{% domain_url 'profile_edit_property' item.pk %}' title='{% trans 'редактировать объявлений' %}'><i class='icon-edit'></i></a>
+                {% endif %}
+                {% if request.user.is_authenticated %}
+                    <a class='btn btn-small{% if item.saved %} active{% endif %}' href='{% domain_url 'profile_save_property' item.id %}' title='{% trans 'сохранить объявление в избранном' %}' id='save-property'><i class='icon-favorite'></i> <span>{% if item.saved %}{% trans 'в избранном' %}{%else%}{% trans 'в избранное' %}{%endif%}</span></a>
+                {% endif %}
+                {# <a class='btn btn-small ' href='#similar'><i class='icon-same-adv'></i> {% trans 'похожие объявления' %}</a> #}
+            </div>
+            </noindex>
+            <h1>{{ item.title }}</h1>
+        </div>
+
+        <div id='tabs'>
+            <ul class='clearfix ui-tabs-nav btn-group'>
+                {% if item.photos.all %}<li class='btn btn-mini'><a href='#photo-n-description'>{% trans 'Фото' %}</a></li>{% endif %}
+                {% if item.get_coords %} <li class='btn btn-mini'><a href='#local-info-n-map'>{% trans 'На карте' %}</a></li>{% endif %}
+            </ul>
+
+            <div class="tabs-height-cont">
+                <p itemscope itemtype="http://schema.org/PostalAddress">{% trans 'Адрес' %}: <b itemprop="name" itemprop="streetAddress">{{ item.address }}</b></p>
+            </div>
+
+            {% if item.photos.all %}
+            <div id='photo-n-description' class="img-polaroid">
+                <div class='big-image' id='big-image'>
+                    <a href='{{ item.photos.all.0|thumbnail_alias:"full" }}' rel='gallery' class='fancybox' target='_blank'>
+                        <img src='{{ item.photos.all.0|thumbnail_alias:"lg"  }}' title='{{  item.image_title }}' width='590' />
+                    </a>
+                </div>
+                {% with photos=item.photos.all|slice:"1:" %}
+                {% if photos %}
+                    <div class='images'>
+                    {% for  photo in photos %}{% if photo.image %}
+                        <a href='{{ photo|thumbnail_alias:'full' }}' rel='gallery' class='fancybox' target='_blank'><img src='{{ photo|thumbnail_alias:"md"  }}' title='{{  item.image_title }}' width='194'  alt=''/></a>
+                    {% endif %}{% endfor %}
+                    </div>
+                {% endif %}
+                {% endwith %}
+            </div>
+            {% endif %}
+
+            {% with item.get_coords as coords %}
+                {% if coords %}
+                <div id='local-info-n-map' class='ui-tabs-hide' itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+                    <meta itemprop="longitude" content="{{ coords.0 }}" />
+                    <meta itemprop="latitude" content="{{ coords.1 }}" />
+                    <link rel="stylesheet" href="{% static 'libs/leaflet/leaflet.css' %}">
+                    <div id='embed_map' class='show-osm-map'
+                            data-js="{% static 'libs/leaflet/leaflet.js' %}"
+                            data-lon='{{ coords.0|stringformat:"f" }}' data-lat='{{ coords.1|stringformat:"f" }}'
+                            style='width:100%;height:400px;'>
+                        <div class='content hidden'><p>{{ item.address|linebreaksbr }}</p>Цена: {{ item.price|intcomma }} {{ item.get_currency_display }}</div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endwith %}
+        </div>
+
+    </td><td width='50'></td><td class='description'>
+
+        {% if item.xml_id and request.user.is_staff %}
+            <noindex><p><small>FEED INFO: xml_id <b>{{ item.xml_id }}</b>, {% trans 'добавлено' %} <b>{{ item.created|date:"d.m.Y" }}</b>, <a href='{{ item.source_url }}'>{% trans 'источник' %}</a></small></p></noindex>
+        {% endif %}
+
+        <div class='clearfix'>
+            {% if item.deal_type == 'rent_daily' %}
+            <div class='price-block'>
+                <div class="row-fluid">
+                    <div class='span7'>
+                        <div class='price-row'>{% trans 'Цена' %}: <big><span class='value' data-price='{{item.price}}'>{{ item.price|intcomma }}</span> {{ item.get_currency_display }}</big> за <span class='period'>{% trans '1 сутки' %}</span></div>
+                        <div class="row-fluid">
+                            <div class='span6'>{% trans 'Дата въезда' %}:<br/><input class='span10 datepicker' type='text' name='from' id='calend-from' placeholder='dd.mm.yyyy'/></div>
+                            <div class='span6'>{% trans 'Дата выезда' %}:<br/><input class='span10 datepicker' type='text' name='to' id='calend-to' placeholder='dd.mm.yyyy'/></div>
+                        </div>
+                    </div>
+                    <div class='span5' align='center'>
+                        {% if item.guests_limit %}
+                            <div class='max-guests'><div class='bg'>{% trans 'Максимальное' %}<br/> {% trans 'кол-во гостей' %}: <span>{{item.guests_limit}}</span></div></div>
+                        {% endif %}
+                        <div class='search-result{% if not item.guests_limit %} search-result-padding{%endif%}'>
+                            <span class='ok'>{% trans 'В указанном диапазоне' %}<br/>{% trans 'недвижимость свободна' %}</span>
+                            <span class='error hidden'>{% trans 'Диапазон указанных дат' %}<br/>{% trans 'включает занятые дни' %}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class='price-block price-block-arrowed'>
+                <i class='arrow arrow-border'></i><i class='arrow'></i>
+                {% trans 'Цена' %}: <big>{{ item.price|intcomma }} {{ item.get_currency_display }}</big>
+                {% if item.deal_type == 'rent' %}{% trans 'в месяц' %}{% endif %}
+            </div>
+            {% endif %}
+        </div>
+
+        {% if usercard.show_rent_warning %}
+            <div class="rent_warning_panel">
+                {% trans 'Раннее бронирование этой квартиры на сутки невозможно. Пожалуйста звоните в день прибытия или посмотрите другие варианты.' %}
+            </div>
+            <p></p>
+        {% endif %}
+
+        <div class='usercard'>
+            <div style="float: right;">
+                {% if usercard.profile_image %}
+                    <img src='{{ usercard.profile_image|thumbnail:"200x100,nocrop=1" }}' alt=''/><br/>
+                {% endif %}
+                {% include "bank/callback.html" with cb_type='bank' %}
+            </div>
+            <p class='usercard__name'>{{ usercard.contact_person }}</p>
+            <form class="contacts" action="{{ item.id }}-contacts.html">
+                {% csrf_token %}
+                {% if usercard.phone %}
+                    <div class='phone'><i class='icon icon-phone' title='{% trans 'Телефон' %}'></i> <span>{{usercard.phone|hide_contacts:item.get_deal_type_display|title}}</span></div>
+                {% endif %}
+                {% if usercard.skype  %}
+                    <noindex><div class='skype'><i class='icon icon-skype' title='Skype'></i> <span>{{usercard.skype|hide_contacts:item.get_deal_type_display|title}}</span></div></noindex>
+                {% endif %}
+                {% if usercard.email %}
+                    <div class='email'><i class='icon icon-email' title='E-mail'></i> <span>{{usercard.email|hide_contacts:item.get_deal_type_display|title}}</span></div>
+                {% endif %}
+                <button class="show-contacts" type='button' data-target="{{ item.get_deal_type_display|title }}">
+                    <span>{% trans 'Узнать номер' %}</span>
+                </button>
+            </form>
+            {% if usercard.working_hours %}
+                <div><i class='icon icon-clock' title='{% trans 'Время работы' %}'></i> {{usercard.working_hours}}</div>
+            {% endif %}
+            {% if usercard.comment %}
+                {% autoescape  off %}<div class='usercard__comment'>{{usercard.comment}}</div>{% endautoescape %}
+            {% endif %}
+        </div>
+        <div class="clearfix_logo" id="usercard_clear"></div>
+
+        <div class='detail-table'>
+            <div class="row-fluid">
+                <div class="span6">ID</div>
+                <div class="span6 bold" align='right'>{{ item.id }}</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6">{% trans 'Кол-во комнат' %}</div>
+                <div class="span6 bold" align='right'>{% if item.rooms %}{{ item.rooms|get_plural:"комната,комнаты,комнат" }}{% else %}&mdash;{% endif %}</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6">{% trans 'Тип' %}</div>
+                <div class="span6 bold" align='right'>{{ item.get_property_type_display }}</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6">{% trans 'Тип сделки' %}</div>
+                <div class="span6 bold" align='right'>{{ item.get_deal_type_display }}</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6">{% trans 'Цена' %}</div>
+                <div class="span6 bold" align='right'>{{ item.price|intcomma }} {{ item.get_currency_display }}</div>
+            </div>
+            {% if item.area %}
+            <div class="row-fluid">
+                <div class="span6">{% trans 'Площадь' %}</div>
+                <div class="span6 bold" align='right'>{{ item.area }}</div>
+            </div>
+            {% endif %}
+        </div>
+
+        {% if item.facilities.all %}
+            <p><b>{% trans 'Удобства' %}:</b> {{ item.facilities.all|join:', '|lower }}.</p>
+        {% endif %}
+
+        {% block propery_description %}
+            <div itemprop="description">
+                <b>{% trans 'Описание' %}:</b>
+                <br />
+                {% if item.bank%}<div>{% trans 'ID объекта в базе' %} {{ item.id }}.</div>{% endif %}
+                {{ item.description|escape|linebreaks }}
+                {% if item.bank %}<div>{% trans 'Работает call back телефония - мы вам перезвоним.' %}</div>{% endif %}
+            </div>
+
+            {% if item.bank.financing_conditions %}
+                <div>
+                    <b>{% trans 'Финансирование' %}:</b>
+                    <br />
+                    {{ item.bank.financing_conditions|escape|linebreaks }}
+                </div>
+            {% endif %}
+        {% endblock %}
+
+    </td></tr></table>
+</div>
+
+{% block other_property %}
+    {% if banks|length > 0 %}
+        <div style="height: 60px;"></div>
+        {% include "bank/partners_banks.html" %}
+    {% endif %}
+{% endblock %}
+
+{% endblock %}
+
+{% block extra_header %}
+    <link rel="stylesheet" href="{% static 'css/calendars.css' %}">
+    <script type="text/javascript" src="{% static 'bank/js/libs/jquery.jcarousel.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bank/css/bank.css' %}?v=9">
+    <script type="text/javascript" src="{% static 'bank/js/bank.js' %}"></script>
+{% endblock %}
+
+{% block extra_footer %}
+    <script src="{% static 'js/libs/humanize.min.js' %}"></script>
+    <script>
+        {% if item.deal_type == 'rent_daily' %}
+            {% autoescape off %}var reserved_json = {{ item.reserved_json.reserved }};{% endautoescape  %}
+            var calend_from, calend_to;
+        {% endif %}
+        InstallPropertyPage();
+        $('.related-items ul').jcarousel({});
+    </script>
+    <script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="https://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'1a007493-6556-48f3-b9bd-22adedaad4c9', popup: true, doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+    {% include "bank/footer_bank.html" %}
+{% endblock %}

@@ -1,0 +1,147 @@
+<tr>
+    <td width="43" height="190" style="width: 43px; height: 190px; background-color: #ffffff;">
+        <div style="width: 43px; height: 190px; background-color: #ffffff;">&nbsp;</div>
+    </td>
+    <td width="472" height="190" colspan="3" style="width: 472px; height: 190px; background-color: #ffffff;">
+        <table width="472" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td width="205" height="138" style="width: 205px; height: 138px; background-color: #ffffff;">
+                    <table width="205" cellspacing="0" cellpadding="0" border="0" background="{{ ad.get_first_photo().smart_thumbnail("md") }}" class="td-without-background">
+                        <tr>
+                            <td width="205" height="138" style="width: 205px; height: 138px;">
+                                <div style="margin: 0; padding: 0; border: none; color: #333; font-family: Arial, sans-serif; line-height: 32px; width: 205px; height: 138px;">
+                                    <table width="205" cellpadding="0" cellspacing="0" border="0">
+                                        <tr>
+                                            <td width="105" height="10" style="width: 205px; height: 10px;"><div style="width: 105px; height: 10px;">&nbsp;</div></td>
+                                            <td width="100" height="10" style="width: 205px; height: 10px;"><div style="width: 100px; height: 10px;">&nbsp;</div></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="105" height="32" style="width: 105px; height: 32px;"></td>
+                                            <td width="100" height="32" style="width: 100px; height: 32px; background-color: #f72855;" nowrap="nowrap">
+                                                <div class="price">{{ ad.price }} {{ ad.get_currency_display() }}</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="105" height="96" style="width: 205px; height: 96px;"><div style="width: 105px; height: 96px;">&nbsp;</div></td>
+                                            <td width="100" height="96" style="width: 205px; height: 96px;"><div style="width: 100px; height: 96px;">&nbsp;</div></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="12" height="138" style="width: 12px; height: 138px; background-color: #ffffff;">
+                    <div style="width: 12px; height: 138px; background-color: #ffffff;">&nbsp;</div>
+                </td>
+                <td width="250" height="138" colspan="3" style="width: 250px; height: 138px; background-color: #ffffff;">
+                    <div class="text" style="width: 250px; height: 138px;">
+                        {% if ad_link_to_cabinet is defined and ad_link_to_cabinet %}
+                            <a href="{{ host_url('profile_my_properties') }}?search={{ ad.id }}" title="{{ ad.title }}" target="_blank">{{ ad.addr_street|default(ad.title) }}{% if ad.addr_house %}, {{ ad.addr_house }}{% endif %}</a><br>
+                        {% else %}
+                            <a href="{{ ad.get_absolute_url() }}" title="{{ ad.title }}" target="_blank">{{ ad.addr_street|default(ad.title) }}{% if ad.addr_house %}, {{ ad.addr_house }}{% endif %}</a><br>
+                        {% endif %}
+                        <span style="color: #bbbbbb; line-height: 150%;">{{ ad.addr_city|default('') }}</span><br><br>
+                        <table width="250" cellpadding="0" cellspacing="0" border="0" class="bordered">
+                            <tr>
+                                <td width="{% if ad.area %}125{% else %}250{% endif %}" height="36" style="width: {% if ad.area %}125{% else %}250{% endif %}px; height: 36px; background-color: #ffffff;">
+                                    <div class="text" style="width: {% if ad.area %}125{% else %}250{% endif %}px; height: 36px; background-color: #ffffff; text-align: center; line-height: 36px;">
+                                        {% if ad.property_type == 'plot' %}
+                                            участок
+                                        {% else %}
+                                            {{ ad.rooms|pluralize((_("комната"), _("комнаты"), _("комнат")), '') }}
+                                        {% endif %}
+                                    </div>
+                                </td>
+                                {% if ad.area %}
+                                    <td width="125" height="36" style="width: 125px; height: 36px; background-color: #ffffff;">
+                                        <div class="text" style="width: 125px; height: 36px; background-color: #ffffff; text-align: center; line-height: 28px;">
+                                            {% if ad.property_type == 'plot' %}
+                                                {{ ad.area|pluralize((_("сотка"), _("сотки"), _("соток")), '')  }}
+                                            {% else %}
+                                                {{ ad.area|floatformat }} м<sup>2</sup>
+                                            {% endif %}
+                                        </div>
+                                    </td>
+                                {% endif %}
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="472" height="52" colspan="3" style="width: 472px; height: 52px; background-color: #ffffff;">
+                    <div class="text" style="width: 472px; height: 42px; color: #bbbbbb; font-size: 13px; padding-top: 10px;">
+                        {% trans %}Опубликовано{% endtrans %} {{ ad.created|date("d.m.Y, H:s") }}
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </td>
+    <td width="25" height="190" style="width: 25px; height: 190px; background-color: #ffffff;">
+        <div style="width: 25px; height: 190px; background-color: #ffffff;">&nbsp;</div>
+    </td>
+</tr>
+
+
+
+{# todo: новая версия отображения письма, подправить данные и заменить, когда будет изменена выдача #}
+{#<tr>#}
+{#    <td width="43" height="190" style="width: 43px; height: 190px; background-color: #ffffff;">#}
+{#        <div style="width: 43px; height: 190px; background-color: #ffffff;">&nbsp;</div>#}
+{#    </td>#}
+{#    <td width="472" height="190" colspan="3" style="width: 472px; height: 190px; background-color: #ffffff;">#}
+{#        <table width="472" cellpadding="0" cellspacing="0" border="0">#}
+{#            <tr>#}
+{#                <td width="205" height="138" style="width: 205px; height: 138px; background-color: #ffffff;">#}
+{#                    <table width="205" cellspacing="0" cellpadding="0" border="0" background="{{ ad.get_first_photo().smart_thumbnail("md") }}">#}
+{#                        <tr>#}
+{#                            <td width="205" height="138" style="width: 205px; height: 138px;">#}
+{#                                <div style="margin: 0; padding: 0; border: none; color: #333; font-family: Arial, sans-serif; line-height: 32px; width: 205px; height: 138px;">#}
+{#                                    <table width="205" cellpadding="0" cellspacing="0" border="0">#}
+{#                                        <tr>#}
+{#                                            <td width="105" height="10" style="width: 205px; height: 10px;"><div style="width: 105px; height: 10px;">&nbsp;</div></td>#}
+{#                                            <td width="100" height="10" style="width: 205px; height: 10px;"><div style="width: 100px; height: 10px;">&nbsp;</div></td>#}
+{#                                        </tr>#}
+{#                                        <tr>#}
+{#                                            <td width="105" height="32" style="width: 105px; height: 32px;"></td>#}
+{#                                            <td width="100" height="32" style="width: 100px; height: 32px; background-color: #f72855;" nowrap="nowrap">#}
+{#                                                <div class="price">{{ ad.price }} {{ ad.get_currency_display() }}</div>#}
+{#                                            </td>#}
+{#                                        </tr>#}
+{#                                        <tr>#}
+{#                                            <td width="105" height="96" style="width: 205px; height: 96px;"><div style="width: 105px; height: 96px;">&nbsp;</div></td>#}
+{#                                            <td width="100" height="96" style="width: 205px; height: 96px;"><div style="width: 100px; height: 96px;">&nbsp;</div></td>#}
+{#                                        </tr>#}
+{#                                    </table>#}
+{#                                </div>#}
+{#                            </td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </td>#}
+{#                <td width="12" height="138" style="width: 12px; height: 138px; background-color: #ffffff;">#}
+{#                    <div style="width: 12px; height: 138px; background-color: #ffffff;">&nbsp;</div>#}
+{#                </td>#}
+{#                <td width="250" height="138" colspan="3" style="width: 250px; height: 138px; background-color: #ffffff;">#}
+{#                    <div class="text" style="width: 250px; height: 138px;">#}
+{#                        <a href="{{ host_url('profile_my_properties') }}?search={{ ad.id }}" title="{{ ad.title }}" target="_blank">{{ ad.address }}</a>#}
+{# todo: заполнить что идет ниже #}
+{#                        <span style="color: #bbbbbb; line-height: 150%;">Шевченковский р-н</span><br>#}
+{#                        1 комната, площадь 115 м2, 1 этаж<br><br>#}
+{#                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...#}
+{#                    </div>#}
+{#                </td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td width="472" height="52" colspan="3" style="width: 472px; height: 52px; background-color: #ffffff;">#}
+{#                    <div class="text" style="width: 472px; height: 42px; color: #bbbbbb; font-size: 13px; padding-top: 10px;">#}
+{#                        {% trans %}Опубликовано{% endtrans %} {{ ad.created|date("d.m.Y, H:s") }}#}
+{#                    </div>#}
+{#                </td>#}
+{#            </tr>#}
+{#        </table>#}
+{#    </td>#}
+{#    <td width="25" height="190" style="width: 25px; height: 190px; background-color: #ffffff;">#}
+{#        <div style="width: 25px; height: 190px; background-color: #ffffff;">&nbsp;</div>#}
+{#    </td>#}
+{#</tr>#}

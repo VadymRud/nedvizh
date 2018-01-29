@@ -1,0 +1,192 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="ru" class="no-js ie6 oldie"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="ru" class="no-js ie7 oldie"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="ru" class="no-js"> <!--<![endif]-->
+<head>
+{% spaceless %}
+    {% load staticfiles i18n bank_tags %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    {% block seo %}
+    <title>{% block title %}{{ title }}{% endblock %}</title>
+    {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{% static 'favicon.ico' %}" />
+
+    <link rel="stylesheet" href="{% static 'bank/libs/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bank/css/style.css' %}{{ media_version }}">
+
+    <script src="{% static 'bank/js/libs/modernizr-2.6.min.js' %}"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{% static 'js/libs/jquery-last.min.js' %}"><\/script>')</script>
+
+    <script type="text/javascript" src="{% static 'bank/libs/bootstrap/js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bank/libs/jquery-ui/css/jquery-ui-1.10.3.mesto-dark.css' %}" />
+    <script type="text/javascript" src="{% static 'bank/libs/jquery-ui/js/jquery-ui-1.10.3.custom.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bank/libs/jquery.ui.ufd-0.6/css/custom.css' %}" />
+    <script src="{% static 'bank/libs/jquery.ui.ufd-0.6/jquery.ui.ufd.min.js' %}"></script>
+
+    {% include 'bank/gtm.html' %}
+    <script src='{% static 'js/libs/jquery.cookie.js' %}'></script>
+    
+    {% block extra_header %}
+        <link rel="stylesheet" href="{% static 'bank/css/bank.css' %}?v=9">
+        <script type="text/javascript" src="{% static 'bank/js/bank.js' %}?v=6"></script>
+    {% endblock %}
+    <meta name="google-site-verification" content="N3y38m6dDcXxNSJne7c-VsngRCbWZeUsXpRhCmPonOg" />
+{% endspaceless %}
+</head>
+<body>
+    {% include 'bank/gtm_noscript.html' %}
+    <div id="container">
+        <header>
+            <div class='l-wrap'>
+            {% block header %}
+                {% if request.subdomain %}<noindex>{% endif %}
+
+                {% block header_logo %}
+                <a href='{% bank_domain_url 'bank-index' %}' class='logo' rel='nofollow'><img src='{% static 'bank/img/header-logo-bank.png' %}' width='168' height='149' alt='mesto'/></a>
+                {% endblock %}
+
+                {% if request.subdomain %}</noindex>{% endif %}
+
+                <div class='menu clearfix'>
+                    {% block top_menu %}
+                    
+                        {% spaceless %}
+                        {% if not hide_property_menu %}
+                        <nav class='main btn-toolbar btn-group'>
+                            {% get_menu as menu %}
+                            {% for item in menu %}
+                                <a href='{{ item.1 }}' class='btn {{ item.2 }}'>{{ item.0 }}</a>
+                            {% endfor %}
+                        </nav>
+                        {% endif %}
+                        {% endspaceless %}
+                    
+                    {% endblock %}
+                </div>
+                
+            {% endblock %}
+            </div>
+        </header>
+
+        {{ request.cnt_test }}
+
+        {% block main_center %}
+            {% block page_slogan %}{% endblock %}
+            
+            <div class="content ">
+                <div class="l-wrap">
+                    <div class="l-wrap-inner">
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
+    </div>
+    
+    <link rel="stylesheet" href="{% static 'libs/colorbox/colorbox.css' %}">
+    <script src="{% static 'libs/colorbox/jquery.colorbox-min.js' %}"></script>
+    <script src="{% static 'bank/js/script.js' %}"></script>
+
+    <!--[if lt IE 7 ]>
+    <script src="{% static 'js/libs/dd_belatedpng.js' %}"></script>
+    <script> DD_belatedPNG.fix('img, .png_bg');</script>
+    <![endif]-->
+
+    <!-- Google Code for &#1055;&#1088;&#1086;&#1073;&#1072; 1 -->
+    <!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+    <script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 974799177;
+    var google_conversion_label = "0UzeCPea2wYQyYLp0AM";
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+    /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+    <div style="display:inline;">
+    <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/974799177/?value=0&amp;label=0UzeCPea2wYQyYLp0AM&amp;guid=ON&amp;script=0"/>
+    </div>
+    </noscript>
+
+    {% block extra_footer %}{% include "bank/footer_bank.html" %}{% endblock %}
+
+    {% if not debug %}
+        {% if request.subdomain == 'lvov' %}
+            <!-- Yandex.Metrika counter -->
+            <script type="text/javascript">
+            (function (d, w, c) {
+                (w[c] = w[c] || []).push(function() {
+                    try {
+                        w.yaCounter21913195 = new Ya.Metrika({id:21913195,
+                                webvisor:true,
+                                clickmap:true,
+                                trackLinks:true,
+                                accurateTrackBounce:true,
+                                trackHash:true});
+                    } catch(e) { }
+                });
+                var n = d.getElementsByTagName("script")[0],
+                    s = d.createElement("script"),
+                    f = function () { n.parentNode.insertBefore(s, n); };
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//d31j93rd8oukbv.cloudfront.net/metrika/watch_ua.js";
+
+                if (w.opera == "[object Opera]") {
+                    d.addEventListener("DOMContentLoaded", f, false);
+                } else { f(); }
+            })(document, window, "yandex_metrika_callbacks");
+            </script>
+            <noscript><div><img src="//mc.yandex.ru/watch/21913195" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+            <!-- /Yandex.Metrika counter -->
+        {% else %}
+            <!-- Yandex.Metrika counter --><script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter19774096 = new Ya.Metrika({id:19774096, clickmap:true, trackLinks:true, accurateTrackBounce:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//d31j93rd8oukbv.cloudfront.net/metrika/watch_ua.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/19774096" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+        {% endif %}
+
+
+        {% if show_social %}
+        <div id="fb_floatingbox" class="side_social_icon">
+            <div id="fb_icon_cont" class="side_social_icon_cont"></div>
+            <div style="float: right;">
+                <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2Fmestoua%2F317059891645154&amp;width=245&amp;height=270&amp;show_faces=true&amp;colorscheme=light&amp;stream=false&amp;border_color&amp;header=false&amp;appId=352868301492121" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:260px; height:270px; background: #ffffff;"></iframe>
+            </div>
+        </div>
+        {#
+        <div id="vk_floatingbox" class="side_social_icon">
+            <div id="vk_icon_cont" class="side_social_icon_cont"></div>
+            <div style="float: right; padding-top: 2px;">
+                <script type="text/javascript" src="//vk.com/js/api/openapi.js?95"></script>
+                <!-- VK Widget -->
+                <div id="vk_groups"></div>
+            </div>
+        </div>
+         #}
+        <div id="tw_floatingbox" class="side_social_icon">
+            <div id="tw_icon_cont" class="side_social_icon_cont"></div>
+            <div style="float: right;">
+                <a class="twitter-timeline"  href="https://twitter.com/Mesto_ua"  data-widget-id="326626983096225792">{% trans 'Твиты пользователя' %} @Mesto_ua</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>
+        </div>
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+        <script type="text/javascript">
+            window.___gcfg = {lang: 'ru'}; // google+
+        </script>
+        <div id="gp_floatingbox" class="side_social_icon">
+            <div id="gp_icon_cont" class="side_social_icon_cont"></div>
+            <div style="float: right;">
+                <div class="g-plus" data-href="https://plus.google.com/107511015705385727570" data-width="260" data-height="360"></div>
+            </div>
+        </div>
+        {% endif %}
+    {% endif %}
+    
+    
+</body>
+</html>

@@ -1,0 +1,83 @@
+{% extends "admin/base_site.html" %}
+
+{% load  thumbnail_filter %}
+
+{% block title %}Поиск дублей по фотографиям{% endblock %}
+
+{% block content %}
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tablesort/4.0.1/tablesort.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tablesort/4.0.1/src/sorts/tablesort.number.js'></script>
+    <style>
+        .paging {text-align: left;}
+            .paging ul  {padding:0;}
+                .paging ul li {display: inline-block;}
+                .paging ul li a {display: inline-block;border:1px solid; padding:3px 7px 1px;}
+            .ads .ad {opacity: 0.6}
+                .ads th {padding:6px;cursor:pointer;text-align:center}
+                .ads .ad.status-1, .ads .ad:hover {opacity: 1}
+            .photos {margin-bottom:15px;}
+                .photos img {margin-bottom:5px;}
+    </style>
+
+    <span style="float:right">* сортировка таблицы при клике по заголовку столбца</span>
+    {% include "bank/pagination.html" %}
+
+    <div id="changelist" class='change-list'>
+
+        {% for group in groups %}
+            <div class="photos">
+            {% for photo in group.photos %}
+                <a href="/admin/ad/photo/?hash={{ photo.hash }}"><img src="{{ photo|thumbnail_alias:"xs" }}" data-hash="{{ photo.hash }}"/></a>
+            {% endfor %}
+            </div>
+            <b><a href="/admin/ad/ad/?id__in={{ group.ad_ids|join:"," }}">{{ group.ads|length }} объявлений</a>:</b><br/>
+
+            <table id="ads-{{ forloop.counter }}" class="ads" width="100%">
+              <colgroup><col width="20%"/><col width="100"/><col width="100"/><col width="100"/><col/><col width="100"/></colgroup>
+              <thead align="center">
+                <tr>
+                    <th>Юзер</th>
+                    <th>Объявление</th>
+                    <th>Статус</th>
+                    <th>ID региона</th>
+                    <th>Адрес</th>
+                    <th>Цена</th>
+                    <th>Создано</th>
+                    <th>Поднято</th>
+                </tr>
+              </thead>
+              <tbody align="center">
+                {% regroup group.ads by user as users_list %}
+                {% for user in users_list %}
+                    {% cycle 'row1' 'row2' as rowcolors silent %}
+                    {% for ad in user.list %}
+                        <tr class="{{ rowcolors }} ad status-{{ ad.status }}">
+                            <td align="left"><a href="/admin/custom_user/user/?id={{ ad.user_id }}">#{{ ad.user_id }} {{ ad.user }}</a></td>
+                            <td><a href="/admin/ad/ad/?id={{ ad.pk }}">ID {{ ad.pk }}</a></td>
+                            <td data-sort="{{ ad.status }}">{{ ad.get_status_display }}</td>
+                            <td>{{ ad.region_id }}</td>
+                            <td align="left"><a href="{{ ad.get_absolute_url }}">{{ ad.address }}</a></td>
+                            <td>{{ ad.price }}</td>
+                            <td data-sort="{{ ad.created|date:"U" }}">{{ ad.created|date:"Y-m-d H:i" }}</td>
+                            <td data-sort="{{ ad.updated|date:"U" }}">{{ ad.updated|date:"Y-m-d H:i" }}</td>
+                        </tr>
+                    {% endfor %}
+                {% empty %}
+                    <th>фиды</th>
+                {% endfor %}
+              </tbody>
+            </table><br/>
+
+            <script>
+              new Tablesort(document.getElementById('ads-{{ forloop.counter }}'));
+            </script>
+
+        {% endfor %}
+
+    </div>
+
+    {% include "bank/pagination.html" %}
+
+
+
+{% endblock %}

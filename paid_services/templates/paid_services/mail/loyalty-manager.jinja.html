@@ -1,0 +1,13 @@
+{% extends "mail/base_2017.04.jinja.html" %}
+
+{%- block content %}
+  <tr>
+    <td>
+      <div class="text-wrap default-padding">
+          {{ content|linebreaksbr|safe }}
+      </div>
+    </td>
+  </tr>
+  {% include 'mail/includes/call-to-manager-2017.jinja.html' %}
+  {% include 'mail/includes/empty-line-2017.04.html' %}
+{% endblock -%}

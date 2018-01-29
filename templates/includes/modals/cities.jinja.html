@@ -1,0 +1,51 @@
+<div class="modal fade text-left" id="cities-choose-dropdown" tabindex="-1" role="dialog" aria-labelledby="regionMenu" data-root-domain="{{ get_parent_host() }}" data-lang-code="{{ LANGUAGE_CODE }}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-right">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <div class="wrapper">
+          <form class="cities-search form-group">
+            <input type="search" class="form-control js_city_search" autocomplete="off"
+                   data-action="{{ url('cities_autocomplete') }}"
+                   placeholder="{% trans %}Поиск города{% endtrans %}"/>
+          </form>
+
+          <div class="hidden">
+              <a class="unreal" href="#cities-list" role="tab" data-toggle="tab">{% trans %}По городам{% endtrans %}</a>
+              <a class="unreal" href="#provinces-list" role="tab" data-toggle="tab">{% trans %}По областям{% endtrans %}</a>
+              <a class="unreal hidden_block js_in_region_caption" href="#extra_cities_list" role="tab" data-toggle="tab">Extra</a>
+          </div>
+
+          {% cache 3600 'region-chooser' LANGUAGE_CODE request.subdomain != 'international' %}
+              <div class="tab-content">
+                  <div id="cities-list" class="row tab-pane  cities-list">
+                      {% set region_cities = request.subdomains|rejectattr("is_shown_in_subdomains_list", "none")|list %}
+                      {% include "includes/cities_list_4_column.jinja.html" %}
+                  </div>
+
+                  <div id="provinces-list" class="tab-pane active cities-list">
+                      <div class="row">
+                          {%- for column in request.provinces|slice(2) -%}
+                              <div class="col-xs-12">
+                                  <nav>
+                                  {%- for region in column -%}
+                                      <a data-id="{{ region.id }}" data-static_url="{{ region.static_url }}"
+                                         data-cities_url="{{ url('region_cities', region.id) }}"
+                                         href="{{ region.get_deal_url("sale") }}" class="province">{{ region.name|replace(_(" область"), "") }}</a>
+                                  {%- endfor -%}
+                                  </nav>
+                              </div>
+                          {%- endfor -%}
+                      </div>
+                  </div>
+
+                  <div id="extra_cities_list" class="tab-pane cities-list"></div>
+              </div>
+          {% endcache %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

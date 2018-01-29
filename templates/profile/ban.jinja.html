@@ -1,0 +1,16 @@
+{% extends "profile/base.jinja.html" %}
+
+{% block content %}
+<div class="white-panel-header">
+    <h4 class="page-title">{% trans %}Ваш аккаунт заблокирован{% endtrans %}</h4>
+</div>
+<div class="white-panel">
+    <p>{% trans %}Ваши объявления не отображаются на сайте и вы не можете добавлять новые объявления.{% endtrans %}</p>
+    {% for ban in bans %}
+    <p>
+        {% trans %}Блокировка истекает{% endtrans %} <b>{{ ban.expire_date|date("d.m.Y") }}</b>
+        {% if ban.reason %}<br/>{% trans %}Причина блокировки:{% endtrans %} {{ ban.reason }}{% endif %}
+    </p>
+    {% endfor %}
+</div>
+{% endblock %}

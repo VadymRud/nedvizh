@@ -1,0 +1,7 @@
+
+{% with menu = get_language_menu(request) %}
+    <div class="language-choose text-nowrap" data-toggle="modal" data-target="#language-choose-modal">
+        <span class='text'>{{ menu[0][0] }}</span>
+        <i class="icon icon-caret-black-sm"></i>
+    </div>
+{% endwith %}

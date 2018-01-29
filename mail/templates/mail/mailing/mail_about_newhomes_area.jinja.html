@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+            color: #333333;
+            font-family: Arial, sans-serif;
+        }
+
+        body {background-color: #ededed;}
+
+        a {
+            color: #f8295c;
+            text-decoration: underline;
+        }
+
+        table {font-size: inherit; border: 0; border-collapse: collapse; margin: 0; padding: 0;}
+        div {line-height: 1px;}
+        div.text {line-height: 120%; background-color: #ffffff; color: #333333; font-weight: normal; font-size: 14px; text-align: left; font-family: Arial, sans-serif;}
+        .social {text-align: center; background-color: #ededed;}
+            div.social {width: 100%; height: 29px;}
+        .empty-line {width: 540px; height: 39px; background-color: #ededed;}
+        .bold {font-weight: bold;}
+    </style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #ededed;">
+    <tr>
+        <td align="center" style="background-color: #ededed;">
+            <table width="540" align="center" cellpadding="0" cellspacing="0" border="0" style="width: 540px; background-color: #ededed;">
+                <tr>
+                    <td width="540" height="39" colspan="5" class="empty-line">
+                        <div class="empty-line">&nbsp;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="197" height="96" colspan="2" style="width: 197px; height: 96px; background-color: #f8295c;">
+                        <div style="width: 197px; height: 96px; background-color: #f8295c;">&nbsp;</div>
+                    </td>
+                    <td width="147" height="96" style="width: 147px; height: 96px; background-color: #f8295c;">
+                        <div style="width: 147px; height: 96px; background-color: #f8295c;">
+                            <img src="{{ static('mailing/logo.jpg') }}" width="147" height="96" style="width: 147px; height: 96px; display: block;">
+                        </div>
+                    </td>
+                    <td width="196" height="96" colspan="2" style="width: 196px; height: 96px; background-color: #f8295c;">
+                        <div style="width: 196px; height: 96px; background-color: #f8295c;">&nbsp;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="540" height="39" colspan="5" style="width: 540px; height: 39px; background-color: #ffffff;">
+                        <div style="width: 540px; height: 39px; background-color: #ffffff;">&nbsp;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="43" height="36" style="width: 43px; height: 36px; background-color: #ffffff;">
+                        <div style="width: 43px; height: 36px; background-color: #ffffff;">&nbsp;</div>
+                    </td>
+                    <td width="472" height="36" colspan="3" style="width: 472px; height: 36px; background-color: #ffffff;">
+                        <div class="text" style="width: 472px; height: 36px;">
+                            Уважаемый пользователь,
+                        </div>
+                    </td>
+                    <td width="25" height="36" style="width: 25px; height: 36px; background-color: #ffffff;">
+                        <div style="width: 25px; height: 36px; background-color: #ffffff;">&nbsp;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="43" height="70" style="width: 43px; height: 70px; background-color: #ffffff;">
+                        <div style="width: 43px; height: 70px; background-color: #ffffff;">&nbsp;</div>
+                    </td>
+                    <td width="472" height="70" colspan="3" style="width: 472px; height: 70px; background-color: #ffffff;">
+                        <div class="text" style="width: 472px; height: 70px;">
+                            Считать становится проще.<br>С сегодняшнего дня, в разделе Новостройки,<br>цена объекта указывается за метр квадратный.
+                        </div>
+                    </td>
+                    <td width="25" height="70" style="width: 25px; height: 70px; background-color: #ffffff;">
+                        <div style="width: 25px; height: 70px; background-color: #ffffff;">&nbsp;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="43" height="70" style="width: 43px; height: 70px; background-color: #ffffff;">
+                        <div style="width: 43px; height: 70px; background-color: #ffffff;">&nbsp;</div>
+                    </td>
+                    <td width="472" height="70" colspan="3" style="width: 472px; height: 70px; background-color: #ffffff;">
+                        <div class="text" style="width: 472px; height: 70px;">
+                            <span class="bold">P.S.</span> если вы указывали полную стоимость объекта, она <br>будет автоматически конвертирована в стоимость за метр<br> квадратный.
+                        </div>
+                    </td>
+                    <td width="25" height="70" style="width: 25px; height: 70px; background-color: #ffffff;">
+                        <div style="width: 25px; height: 70px; background-color: #ffffff;">&nbsp;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="43" height="70" style="width: 43px; height: 70px; background-color: #ffffff;">
+                        <div style="width: 43px; height: 70px; background-color: #ffffff;">&nbsp;</div>
+                    </td>
+                    <td width="472" height="70" colspan="3" style="width: 472px; height: 70px; background-color: #ffffff;">
+                        <div class="text" style="width: 472px; height: 70px;">
+                            Хорошего вам дня,<br>команда <a href="http://mesto.ua/" target="_blank">mesto.ua</a>
+                        </div>
+                    </td>
+                    <td width="25" height="70" style="width: 25px; height: 70px; background-color: #ffffff;">
+                        <div style="width: 25px; height: 70px; background-color: #ffffff;">&nbsp;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="540" height="39" colspan="5" class="empty-line">
+                        <div class="empty-line">&nbsp;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="197" height="29" colspan="2" style="width: 197px; height: 29px; background-color: #ededed;">
+                        <div style="width: 197px; height: 29px; background-color: #ededed;">&nbsp;</div>
+                    </td>
+                    <td width="147" height="29" style="width: 147px; height: 29px; background-color: #ededed;">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; background-color: #ededed;">
+                            <tr>
+                                <td width="33%" height="29" align="center" class="social">
+                                    <div class="social">
+                                        <a href="https://www.facebook.com/pages/mestoua/317059891645154" target="_blank">
+                                            <img src="{{ static('mailing/mailing-fb.jpg') }}" width="25" height="25" style="width: 25px; height: 25px;">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td width="33%" height="29" align="center" class="social">
+                                    <div class="social">
+                                        <a href="https://twitter.com/Mesto_ua" target="_blank">
+                                            <img src="{{ static('mailing/mailing-tw.jpg') }}" width="25" height="25" style="width: 25px; height: 25px;">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td width="33%" height="29" align="center" class="social">
+                                    <div class="social">
+                                        <a href="https://vk.com/mestoua" target="_blank">
+                                            <img src="{{ static('mailing/mailing-vk.jpg') }}" width="25" height="25" style="width: 25px; height: 25px;">
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="196" height="29" colspan="2" style="width: 196px; height: 29px; background-color: #ededed;">
+                        <div style="width: 196px; height: 29px; background-color: #ededed;">&nbsp;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="540" height="39" colspan="5" class="empty-line">
+                        <div class="empty-line">&nbsp;</div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

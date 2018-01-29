@@ -1,0 +1,31 @@
+{% extends "bank/base.html" %}
+
+{% load thumbnail_filter i18n %}
+
+{% block page_slogan %}<div class="all_bank_property_label" style="font-size: 20px;">{% trans 'Ознакомьтесь более подробно с условиями сотрудничества с банками-партнерами' %} <b>bank.mesto.ua</b></div>{% endblock %}
+
+{% block content %}
+    
+    <br />
+    
+    {% for bank in paginator.current_page.object_list %}
+        <div class="bank_list_item">
+            {% if bank.logo %}
+                <div class="bank_list_item_r">
+                    <a href="/banks/{{ bank.id }}/">
+                        <img src="{{ bank.logo|thumbnail:"115" }}" alt='{{ bank.name|escape }}' border='0'>
+                    </a>
+                </div>
+            {% endif %}
+            <div class="bank_list_item_l">
+                <div class="bank_list_item_title">{{ bank.name }}</div>
+                {{ bank.description }}
+                <br /><br />
+                <a href="/banks/{{ bank.id }}/">{% trans 'Подробнее' %} »</a>
+            </div>
+            <br clear="all" />
+        </div>
+    {% endfor %}
+    {% include "bank/pagination.html" %}
+
+{% endblock %}

@@ -1,0 +1,42 @@
+<div class="dropdown-menu" id="realtor-chooser">
+    <div class="filter input-group">
+        <input type="text" class="form-control name" placeholder="Поиск риелтора">
+        <span class="input-group-btn">
+            <button class="btn btn-default btn-search" type="button" id="filter_submit"></button>
+        </span>
+    </div>
+    <ul class="list-unstyled">
+    {% for realtor in agency_realtors %}{% if selected_realtors is undefined or realtor not in selected_realtors %}
+            <li class="realtor-snippet" data-user="{{ realtor.user_id }}" data-realtor="{{ realtor.id }}">
+                {% if realtor.user.image %}
+                    <img src="{{ realtor.user.image|thumbnail("50x50") }}" class="img-responsive img-circle pull-left" alt="{{ realtor }}"/>
+                {% else %}
+                    <img src="{{ static('agency/img/common/no-photo.png') }}" class="img-responsive img-circle pull-left" alt="{{ realtor }}"/>
+                {% endif %}
+                <span class="name">{{ realtor.user }} {{ realtor.user.get_user_limits_as_string() }}</span>
+                {% for note in realtor.notes.all() %}
+                    {% if note.user_id == request.user.id %}<br/><span class="note">{{ note.text }}</span>{% endif %}
+                {% endfor %}
+            </li>
+    {% endif %}{% endfor %}
+    </ul>
+</div>
+
+{% compress js %}
+<script>
+    var $chooser = $('#realtor-chooser');
+
+        // фильтрация списка риелторов
+    function filterRealtors(e) {
+        var name = $('.filter input.name', $chooser).val().toLowerCase();
+        $('.realtor-snippet', $chooser).each(function(index, obj) {
+            var found = ($(this).text().toLowerCase().indexOf(name) != -1);
+            $(obj).toggle(!name || found);
+        });
+        if (e.type == 'click') e.stopPropagation(); // чтобы не закрывался dropdown при клике на #filter_submit
+    }
+    $chooser.on("click", '#filter_submit', filterRealtors);
+    $chooser.on("keyup", '.filter input.name', filterRealtors);
+    $chooser.on("keypress", '.filter input.name', function(e) {if (e.which == 13) {e.preventDefault();return false;}});
+</script>
+{% endcompress %}

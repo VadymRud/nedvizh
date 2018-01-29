@@ -1,0 +1,29 @@
+sale;;Квартиры %(province)s. Купить или продать квартиру
+sale;room;Купить комнату %(province)s. Продажа комнат без посредников
+sale;house;Купить дом %(province)s. Продажа домов без посредников       
+sale;commercial;Коммерческая недвижимости %(province)s. Продажа и покупка
+sale;plot;Земельный участок %(province)s. Купить под застройку землю
+sale;garages;Купить гараж %(province)s. Продажа гаражей без посредников
+sale;all-real-estate;Купить недвижимость %(province)s. Продажа недвижимости
+
+rent;;Аренда квартир %(province)s. Снять или сдать квартиру
+rent;room;Снять комнату %(province)s. Долгосрочная аренда комнат
+rent;house;Аренда домов %(province)s. Снять дом долгосрочно недорого
+rent;commercial;Аренда коммерческой недвижимости %(province)s
+rent;plot;Аренда земли %(province)s. Долгосрочная аренда
+rent;garages;Аренда гаражей %(province)s. Долгосрочно снять гараж
+rent;all-real-estate;Аренда недвижимости %(province)s. Снять недвижимость
+
+rent_daily;;Аренда квартир посуточно %(province)s. Снять квартиру
+rent_daily;room;Аренда комнат поcуточно %(province)s. Снять комнату
+rent_daily;house;Аренда домов посуточно %(province)s. Снять дом почасово
+rent_daily;commercial;Аренда коммерческой недвижимости %(province)s
+rent_daily;garages;Аренда гаражей посуточно %(province)s. Снять гараж
+rent_daily;all-real-estate;Аренда недвижимости посуточно %(province)s
+
+newhomes;;Квартиры новостройки %(province)s. Купить новостройку
+newhomes;house;Новый дом %(province)s. Купить новопостроенный дом
+newhomes;commercial;Коммерческая недвижимость от застройщика %(province)s
+newhomes;garages;Купить новый гараж %(province)s. Новопостроенные гаражи
+newhomes;all-real-estate;Новостройки %(province)s. Вся недвижимость 
+

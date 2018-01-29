@@ -1,0 +1,99 @@
+.slick-slide {outline:none;}
+.slick-slide img {margin:0 auto;max-height:600px;}
+.slick-prev, .slick-next {
+    position: absolute;
+    display: block;
+    height: 54px;
+    width: 22px;
+    line-height: 0;
+    font-size: 0;
+    cursor: pointer;
+    background: url("img/slider_arrows.png");
+    color: transparent;
+    top: 50%;
+    margin-top: -27px;
+    padding: 0;
+    border: none;
+    outline: none;
+    z-index:1;
+}
+
+.slick-prev {
+    background-position: 0 0;
+}
+
+.slick-next {
+    background-position: 22px 0;
+}
+
+.slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus {
+    outline: none;
+    color: transparent;
+}
+
+.slick-prev:hover:before, .slick-prev:focus:before, .slick-next:hover:before, .slick-next:focus:before {
+    opacity: 1;
+}
+
+.slick-prev.slick-disabled, .slick-next.slick-disabled, .slick-prev.slick-disabled:before, .slick-next.slick-disabled:before {
+    display: none!important;
+}
+
+.slick-prev {
+    left: -25px;
+}
+
+.slick-next {
+    right: -25px;
+}
+
+/*Стрелки для страницы объявления*/
+.mst_scroll_ad_images .slick-prev, .mst_scroll_ad_images .slick-next {
+    background: url("img/details_img_arrows.png");
+    height: 76px;
+    margin-top: -38px;
+}
+.mst_scroll_ad_images .slick-prev {
+    background-position: 0 0;
+}
+
+.mst_scroll_ad_images .slick-next {
+    background-position: 22px 0;
+}
+.mst_scroll_ad_images .slick-prev {
+    left: -1px;
+}
+.mst_scroll_ad_images .slick-next {
+    right: -1px;
+}
+
+
+.mst_scroll_big_image .slick-prev, .mst_scroll_big_image .slick-next {
+    background: url("img/details_big_img_arrows.png");
+    height: 100%;
+    width: 100px;
+    margin-top: 0px;
+    top:0;
+}
+.mst_scroll_big_image .slick-prev {
+    background: url("img/details_big_img_arrows_left.png") 30% 50% no-repeat;
+}
+
+.mst_scroll_big_image .slick-next {
+    background: url("img/details_big_img_arrows_right.png") 70% 50% no-repeat;
+}
+.mst_scroll_big_image .slick-prev {
+    left: 0;
+}
+.mst_scroll_big_image .slick-next {
+    right: 0;
+}
+
+.mst_preview_img.slick-slide {
+    cursor: pointer;
+}
+
+.mst_preview_img.slick-current:hover:before {
+    opacity: 0;
+    z-index: 0;
+}

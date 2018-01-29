@@ -1,0 +1,33 @@
+<div class="modal fade in active" id="developer-welcome-popup" tabindex="-1" role="dialog" aria-labelledby="developerWelcomePopup" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><br>
+        <div class="row">
+          <div class="col-xs-24 text-center">
+            <img src="{{ static("newhome/img/welcome-icon.png") }}"><br><br>
+            <span class="pink">{% trans %}Активация прошла успешно!{% endtrans %}</span><br>
+              {% trans %}Вы готовы?{% endtrans %}
+          </div>
+        </div><br>
+        <div class="row">
+          <div class="col-xs-offset-3 col-xs-9 text-center">
+            <a href="//mesto.ua/account/developer/my_buildings/add/" class="btn btn-danger">{% trans %}Да, добавляем объект{% endtrans %}</a>
+          </div>
+          <div class="col-xs-9 text-center">
+            <a href="//mesto.ua/faq/akkaunt-zastrojschika/kak-dobavit-novostrojku/" class="btn btn-danger">{% trans %}Нет, хочу узнать больше{% endtrans %}</a>
+          </div>
+        </div><br>
+        <div class="row">
+          <div class="col-xs-24 text-center small">{% trans %}Письмо с инструкцией уже у вас на почте{% endtrans %}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $().ready(function() {
+    $('#developer-welcome-popup').modal('show');
+  })
+</script>
+{% do request.session.update({'show_welcome_popup_for_developer': False}) %}

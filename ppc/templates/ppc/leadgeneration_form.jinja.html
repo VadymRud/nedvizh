@@ -1,0 +1,63 @@
+<form id="choose_phone_plan_type" action="{{ url('profile_settings') }}" method="post" class="leadgeneration-form form-inline" enctype="multipart/form-data">{% csrf_token %}
+    {% if next is defined %}<input type="hidden" name="next" value="{{ next }}"/>{% endif %}
+
+    {% from "macro/forms.jinja.html" import bootstrap_form_errors %}
+    {{ bootstrap_form_errors(leadgeneration_form) }}
+
+    <div class="row">
+        <div class="col-sm-24 h6">{% trans %}Выберите время работы{% endtrans %}</div>
+    </div><br/>
+
+    {{ leadgeneration_form }}
+    <br/>
+    <p style="text-align: center"><input class="btn btn-primary btn-md" id="id_submit" name="leadgeneration_form" type="submit" value="{% trans %}Подтвердить{% endtrans %}"></p>
+</form>
+
+{% compress js %}
+    <script>
+        $(function () {
+            function getMondayWorkTime() {
+                var worktime = [];
+                $('.leadgeneration-form .workday:first :selected').each(function(i, selected){
+                    worktime[i] = $(selected).val();
+                });
+                return worktime;
+            }
+            function setMondayWorkTime(context, worktime) {
+                $.each(worktime, function(j, value) {
+                    context.find('select:not(:disabled):eq('+ j +')').val(value);
+                });
+            }
+
+            $('.leadgeneration-form .workday:first').addClass('first');
+            $('.leadgeneration-form .workday:last').addClass('last');
+
+            // включение/выключение рабочего дня
+            $('.leadgeneration-form .workday input[type=checkbox]').change(function() {
+                var $container = $(this).parents('.workday');
+                if ($(this).prop('checked') == false) {
+                    $container.find('select').val('0');
+                    $container.find('select').prop('disabled', true);
+                } else if ($container.find('select:disabled').length) {
+                    $container.find('select').prop('disabled', false);
+                    setMondayWorkTime($container, getMondayWorkTime());                }
+            });
+            // инициализация выключателей рабочих дней
+            $('.leadgeneration-form .workday').each(function(i, obj) {
+                if ($(obj).find('option[value=0]:selected').length < 4) {
+                    $(obj).find('input[type=checkbox]').click();
+                }
+                $(obj).find('input[type=checkbox]').change(); // чтобы выставились disabled для неактивных дней
+            });
+
+            // перенос времени начала рабочего дня с понедельника на остальные активные дни
+            $('.leadgeneration-form .workday:first select').change(function() {
+                var $container = $(this).parents('.workday');
+                var mondayWorktime = getMondayWorkTime();
+                $('.leadgeneration-form .workday').each(function(i, obj) {
+                    setMondayWorkTime($(obj), mondayWorktime);
+                });
+            });
+        });
+    </script>
+{% endcompress %}

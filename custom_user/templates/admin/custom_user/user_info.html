@@ -1,0 +1,173 @@
+{% extends "admin/base_site.html" %}
+
+{% load i18n admin_urls %}
+
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+        &rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
+        &rsaquo; {% if has_change_permission %}<a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>{% else %}{{ opts.verbose_name_plural|capfirst }}{% endif %}
+        &rsaquo; {{ obj|truncatewords:"18" }}
+    </div>
+{% endblock %}
+
+{% block content %}
+    <style>
+        form {margin:0;}
+        a:link {text-decoration:underline}
+        #content-main .btn {
+            display:inline-block;
+            font-size:13px;
+            background:#79aec8;color:white;
+            border:0;border-radius: 3px;
+            margin:0 0 2px;padding:6px 12px;
+            text-decoration:none;
+        }
+        hr {margin:20px 0;}
+        #content-main .btn-danger {background-color:#ff1b55}
+    </style>
+    <div id="content-main">
+        <p>Имя: {{ obj.get_full_name|default:'---' }}</p>
+        <p>Email: {{ obj.email }}</p>
+        <p>Телефоны: {{ obj.get_phone_display|safe }}</p>
+        <p>Скидка на тарифы: {% widthratio obj.get_plan_discount 1 100 %}%
+    
+        <hr/>
+
+        <div>Баланс: <a href="{% url 'admin:paid_services_transaction_changelist' %}?user_id={{ obj.id }}"><b>{{ obj.get_balance }} грн</b></a><br/>
+            <form action="{% url 'admin:move_money' %}" method="post">{% csrf_token %}
+                <input type="hidden" name="next" value="{% url 'admin:custom_user_user_info' obj.id %}"/>
+                <input type="hidden" name="from_user" value="{{ obj.id }}"/>
+                Перевод средств
+                <input type="text" name="to_user" placeholder="email/ID получателя" style="width:130px;">
+                <input type="number" name="amount" min="0" placeholder="сумма" style="width:70px;">
+                <input type="submit" name="move_money" class="btn need-confirm" value="Перевести деньги">
+            </form>
+        </div>
+
+        <hr/>
+
+        {% if obj.developer %}
+            <p>Застройщик <b>{{ obj.developer.name }}</b>
+                <a class='btn btn-danger need-confirm' href="?remove_developer=1" data-confirm-text="Застройщик будет удален безвозвратно">Удалить застройщика</a>
+            </p>
+        {% endif %}
+
+        {% if realtor %}
+            <p>
+                {% if not realtor.is_admin %}
+                    Риелтор в агентстве <a href='{% url 'admin:agency_agency_changelist' %}?id={{ realtor.agency.id }}'>{{ realtor.agency.name }}</a> &nbsp;
+                    <a class='btn need-confirm' href="{% url 'admin:custom_user_user_info' obj.id %}?remove_from_agency=1">Отключить от агентства</a>
+                {% else %}
+                    Администратор агентства <a href='{% url 'admin:agency_agency_changelist' %}?id={{ realtor.agency.id }}'>{{ realtor.agency.name }}</a> &nbsp;
+                    {% if realtor.agency.realtors.all|length == 1 %}
+                        <a class='btn btn-danger need-confirm' href="{% url 'admin:custom_user_user_info' obj.id %}?remove_from_agency=1" data-confirm-text="Агентство будет удалено безвозвратно">Удалить агентство</a>
+                    {% else %}
+                        ({{ realtor.agency.realtors.all|length }} риелторов)
+                    {% endif %}
+                {% endif %}
+            </p>
+        {% endif %}
+
+        <form action='{% url 'admin:custom_user_user_info' obj.id %}' method='get'>
+            {% if realtor %}
+                Перенести в агентство &nbsp;
+            {% else %}
+                Присоединить к агентству &nbsp;
+            {% endif %}
+            <input type='email' name='add_to_agency' placeholder='E-mail администратора' value=''/>
+            <input type='submit' value='Перенести' class="btn"/>
+        </form>
+
+        <hr/>
+
+        {% if unexpired_plans %}
+            <h2>Тариф</h2>
+            <table>
+                <tr><th></th><th>Начало</th><th>Окончание</th></tr>
+                {% for userplan in unexpired_plans %}
+                    <tr>
+                        <td>{% if not userplan.is_active %}продление{% endif %}</td>
+                        <td>{{ userplan.start|date:"d.m.Y H:i" }}</td>
+                        <td>{{ userplan.end|date:"d.m.Y H:i" }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            {% if prolonged_plans %}
+                <p><form action='{% url 'admin:custom_user_user_info' obj.id %}' method='get'>
+                    <input type='hidden' name='cancel_prolonged_plans'/>
+                    <input type='submit' value='Отменить продления'/>
+                </form></p>
+            {% endif %}
+            <br/>
+        {% endif %}
+
+        {% if has_leadgeneration_ads or recently_ppc_period %}
+            <h2><a href="{% url 'admin:ppc_leadgeneration_changelist' %}?user_id={{ obj.id }}">Оплата за звонок</a></h2>
+            {% if has_leadgeneration_ads %}
+                <p>Статус: Активно для объявлений</p>
+            {% else %}
+                <p>
+                    Статус: Было завершено {{ recently_ppc_period.end }}
+                    {% if obj.get_balance > 0 and not unexpired_plans %}
+                        &nbsp; <a href="?restore_ppc" class="btn">Переподключить ППК</a>
+                    {% endif %}
+                </p>
+            {% endif %}
+            <form action='{% url 'admin:custom_user_user_info' obj.id %}' method='get'>
+                Лимит объявлений &nbsp;
+                <input type='number' min=0 max_length=3 name='set_ads_limit' value='{{ leadgeneration.ads_limit }}'/>
+                <input type='submit' value='Изменить' class="btn"/>
+            </form>
+            {% if leadgeneration.dedicated_numbers %}
+                <a href="{% url 'admin:custom_user_user_info' obj.id %}?cancel_dedicated_numbers" class="btn">Отменить выделенные номера</a>
+            {% endif %}
+            {% if leadgeneration.worktime %}
+                <p>Время работы:<br/>
+                    ПН: {{ leadgeneration.worktime.0.0 }}-{{ leadgeneration.worktime.0.1 }} &nbsp; | &nbsp;
+                    ВТ: {{ leadgeneration.worktime.1.0 }}-{{ leadgeneration.worktime.1.1 }} &nbsp; | &nbsp;
+                    СР: {{ leadgeneration.worktime.2.0 }}-{{ leadgeneration.worktime.2.1 }} &nbsp; | &nbsp;
+                    ЧТ: {{ leadgeneration.worktime.3.0 }}-{{ leadgeneration.worktime.3.1 }} &nbsp; | &nbsp;
+                    ПТ: {{ leadgeneration.worktime.4.0 }}-{{ leadgeneration.worktime.4.1 }} &nbsp; | &nbsp;
+                    СБ: {{ leadgeneration.worktime.5.0 }}-{{ leadgeneration.worktime.5.1 }} &nbsp; | &nbsp;
+                    ВС: {{ leadgeneration.worktime.6.0 }}-{{ leadgeneration.worktime.6.1 }}
+                </p>
+            {% endif %}
+            <br/>
+        {% endif %}
+
+        {% if all_ads_count  %}
+            <h3>Перенос всех объявлений ({{ all_ads_count }} шт)</h3>
+            <form action='{% url 'admin:custom_user_user_info' obj.id %}' method='get'>
+                <input type='email' name='user_email' placeholder='E-mail нового владельца объявлений' value=''/>
+                <input type='submit' name='move_ads_to_user' value='Перенести' class="btn"/>
+            </form>
+            <hr/>
+        {% endif %}
+
+        {% if managed_users_count %}
+            <h3>Перенос пользователей на другого менеджера</h3>
+            <form action='{% url 'admin:custom_user_user_info' obj.id %}' method='get'>
+                <select name="manager_id">
+                    {% for manager in managers %}
+                        <option value="{{ manager.id }}" {% if manager.id == obj.id %} selected{% endif %}>{{ manager }}</option>
+                    {% endfor %}
+                </select>
+                <input type='submit' name='change_manager' value='Обновить для {{ managed_users_count }} пользователей' class="btn"/>
+            </form>
+            <hr/>
+
+        {% endif %}
+
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+        $('.need-confirm').click(function(e) {
+            if (confirm('Вы уверены? '+ ($(this).data('confirm-text') || ''))) {
+                return;
+            }
+            e.preventDefault();
+        })
+    </script>
+{% endblock %}

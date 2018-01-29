@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.lun.ua/xml.import.schema.xsd">
+    <generation_time>{{ now|date('Y-m-d H:i:s') }}</generation_time>
+    <announcements>
+    {% for item in feed.iterate_items() %}
+        <announcement>
+            {%- include 'export/autofields.jinja.xml' -%}
+
+            {%- with types = {'newhomes': 'продажа'} -%}
+                <contract_type>{{ types.get(item.deal_type, item.get_deal_type_display() ) }}</contract_type>
+            {%- endwith -%}
+            <add_time>{{ item.created|date("Y-m-d H:i:s") }}</add_time>
+            <update_time>{{ item.updated|date("Y-m-d H:i:s") }}</update_time>
+            {%- with location = item.location%}{% with city = location.get('village', location.get('locality')) %}
+                {%- if 'province' in location %}<region>{{ location['province'] }}</region>{% endif %}
+                {%- if 'area' in location %}<rajon>{{ location['area'] }}</rajon>{% endif %}
+                {%- if city %}<city>{{ city }}</city>{% endif %}
+                {%- if 'district' in location %}<district>{{ location['district'] }}</district>{% endif %}
+                {%- if item.addr_street %}<street>{{ item.addr_street }}</street>{% endif %}
+                {%- if item.addr_house %}<house>{{ item.addr_house }}</house>{% endif %}
+            {%- endwith -%}{%- endwith -%}
+            <title>{{ item.get_full_title(limit=1) }}</title>
+            <text>{{ item.description|remove_control_chars() or '' }}</text>
+            <contacts>{% for phone in item.phones.all() %}{{ phone.number }}{% if not loop.last %} {% endif %}{% endfor %}</contacts>
+            {% with agency =  item.user.get_own_agency() %}{% with contact_person = item.contact_person or (agency.name if agency else '') -%}
+                <contact_name>{{ contact_person  }}</contact_name>
+            {%- endwith %}{%- endwith %}
+            <is_premium>{% if item.vip_type %}true{% else %}false{% endif %}</is_premium>
+            {%- if item.cleaned_photos -%}
+            <images>
+                {%- for photo in item.cleaned_photos -%}
+                    <image>{{ photo.smart_thumbnail('full') }}</image>
+                {%- endfor -%}
+            </images>
+            {%- endif -%}
+            {% if item.without_commission %}<without_fee>true</without_fee>{% endif %}
+            {% if item.building_layout %}<room_type>{{ item.get_building_layout_display() }}</room_type>{% endif %}
+            {% if item.building_walls %}<wall_type>{{ item.get_building_walls_display() }}</wall_type>{% endif %}
+            <has_parking>{% if item.facilities_array and (30 in item.facilities_array) %}true{% else %}false{% endif %}</has_parking>
+            {% if item.building_heating %}<heating_system>{{ item.get_building_heating_display() }}</heating_system>{% endif %}
+            <url_uk>{{ item.url_uk }}</url_uk>
+        </announcement>{% endfor %}
+    </announcements>
+</page>

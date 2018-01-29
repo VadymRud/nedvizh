@@ -1,0 +1,14 @@
+У вас новое сообщение от {% if message.message_list %}<b>Mesto.UA</b>{% else %}пользователя <b>{{ message.from_user.get_public_name() }}</b>{% endif %}.
+Тема сообщения: <b>{{ message.title }}</b>.
+{% if not message.message_list -%}
+    {%- if message.subject == 'counteroffer' -%}
+        Контроферта:
+    {%- else -%}
+        Текст сообщения:
+    {%- endif %}
+    {{ message.text|safe }}
+{%- endif %}
+
+
+<a href="{{ message_url }}" class="button">Прочитать сообщение</a>
+

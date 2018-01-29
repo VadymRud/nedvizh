@@ -1,0 +1,15 @@
+{% load chart_tags %}
+{% chart %}
+    {% if label %}chtt={{ label|urlencode  }}{% endif %}
+    cht=bvs
+    chco=4D89F9,C6D9FD
+    chd=t:{{ chart.values.0|join:"," }}|{{ chart.values.1|join:"," }}
+    chs={{ chart.size|default:"500x120" }}
+    chds=0,{{ chart.max_value }}, 0,{{ chart.max_value }}
+    chxr=1,0,{{ chart.max_value }}
+    chbh=a
+    chxt=x,y
+    chxl=0:|{{ chart.captions|join:"|" }}
+    {% if chart.legend %}chdl={{ chart.legend.values|join:"|" }}{% endif %}
+{% endchart %}
+

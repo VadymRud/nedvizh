@@ -1,0 +1,56 @@
+.guide .news-list .item {
+    margin-bottom:30px;
+    position: relative;
+}
+    .guide .news-list .item .date {
+        background-color: #ff1b55;
+        background-color: rgba(255,27,85,0.9);
+        color: white;
+        font-size: 14px;
+        position: absolute;
+        top: 13px;
+        right: -1px;
+        padding: 8px 20px;
+    }
+    .guide .news-list .item .image {
+        margin-bottom:10px;
+        min-height: 50px;
+    }
+    .guide .news-list .item .name {
+        font-size:18px;
+        font-weight: bold;
+        margin-bottom:10px;
+    }
+    .guide .news-list .item .name a {
+        color:#333;
+    }
+    .guide .news-list .item .text {
+        font-size:14px;
+    }
+
+.guide .news-page {
+    margin-bottom: 20px;
+}
+    .guide .news-page .news {
+        background: #fff;
+        border: solid 1px #d7d7d7;
+        padding: 0 20px;
+    }
+        .guide .news-page .news .published {
+            color: #a3a3a3;
+            font-size: 14px;
+        }
+    
+    .guide .news-page .sidebar {
+        padding-left: 20px;
+    }
+        .guide .news-page .sidebar .social-links a {
+            margin: 4px;
+        }
+        .guide .news-page .sidebar .social-links-info {
+            color: #a3a3a3;
+            font-size: 14px;
+        }
+        .guide .news-page .sidebar .social-widget {
+            margin: 20px 0;
+        }

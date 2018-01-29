@@ -1,0 +1,119 @@
+<script src="//www.jqueryscript.net/demo/Modern-Circular-jQuery-Countdown-Timer-Plugin-Final-Countdown/js/kinetic.js"></script>
+<script src="//www.jqueryscript.net/demo/Modern-Circular-jQuery-Countdown-Timer-Plugin-Final-Countdown/jquery.final-countdown.js"></script>
+
+<div class="countdown countdown-container" style="cursor:pointer;">
+    <div class="clock "><!-- days -->
+        <div class="clock-item clock-days countdown-time-value">
+            <div class="wrap">
+                <div class="inner">
+                    <div class="clock-canvas" id="canvas_days">&nbsp;</div>
+
+                    <div class="text">
+                        <p class="val">0</p>
+
+                        <p class="type-days type-time">Дня</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- hours -->
+
+        <div class="clock-item clock-hours countdown-time-value">
+            <div class="wrap">
+                <div class="inner">
+                    <div class="clock-canvas" id="canvas_hours">&nbsp;</div>
+
+                    <div class="text">
+                        <p class="val">0</p>
+
+                        <p class="type-hours type-time">Часа</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- minutes -->
+
+        <div class="clock-item clock-minutes countdown-time-value">
+            <div class="wrap">
+                <div class="inner">
+                    <div class="clock-canvas" id="canvas_minutes">&nbsp;</div>
+
+                    <div class="text">
+                        <p class="val">0</p>
+
+                        <p class="type-minutes type-time">Минут</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- seconds -->
+
+        <div class="clock-item clock-seconds countdown-time-value">
+            <div class="wrap">
+                <div class="inner">
+                    <div class="clock-canvas" id="canvas_seconds">&nbsp;</div>
+
+                    <div class="text">
+                        <p class="val">0</p>
+
+                        <p class="type-seconds type-time">Секунд</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">.countdown-container {
+    position: relative;
+    margin-top: 10px;
+}
+
+.countdown-container .clock-item {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 15px;
+}
+
+.countdown-container .clock-item .inner {
+    height: 0px;
+    padding-bottom: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.countdown-container .clock-canvas {
+    background-color: rgba(0, 0, 0, .05);
+    border-radius: 50%;
+    height: 0px;
+    padding-bottom: 100%;
+}
+
+.countdown-container .text {
+    color: #555;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: -37px;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    /*text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);*/
+    width: 100%;
+}
+
+.countdown-container .text .val {
+    font-size: 36px;
+}
+
+.countdown-container .text .type-time {
+    font-size: 20px;
+}
+</style>
+<script type="text/javascript">
+    $('.countdown').final_countdown({
+        start: '' + Math.floor(new Date('{{ start|replace('-', '/') }}') / 1000),
+        now: '' + Math.floor(Date.now() / 1000),
+        end: '' + Math.floor(new Date('{{ end|replace('-', '/') }}') / 1000),
+        hours: {borderColor: '#a87cde', borderWidth: '6'}
+    });
+</script>

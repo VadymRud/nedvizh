@@ -1,0 +1,13 @@
+{% set navigation_items = [
+    ( url('profile_settings'), _('Профиль') ),
+    ( url('profile_my_properties'), _('Мои объявления') ),
+    ( url('profile_newhome_my_buildings'), _('Мои новостройки') ),
+    ( url('agency_admin:crm') + '#leadhistories', _('CRM')),
+    ( url('profile_balance'), _('Финансы') + ' (<span class="balance">%s грн</span>)'|safe % request.user.get_balance()|floatformat(-2) ),
+    ( url('profile_newhome_statistic'), _('Статистика') ),
+] -%}
+
+<ul class="nav navbar-nav">
+    {% from "macro/navigation.jinja.html" import navigation %}
+    {{ navigation(navigation_items, request) }}
+</ul>

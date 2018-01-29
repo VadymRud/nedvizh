@@ -1,0 +1,221 @@
+# Ukrainian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-11-27 14:08+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uk\n"
+"Language-Team: uk <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: meta_tags.py:107 meta_tags.py:109
+#, python-format
+msgid "%(deal1)s %(property1)s %(full_addr)s - Mesto.ua"
+msgstr ""
+
+#: meta_tags.py:110
+#, python-format
+msgid ""
+"%(deal2)s %(rooms)s комн. %(property2)s, %(full_addr)s, %(area)s кв.м. "
+"Стоимость - %(price)s %(currency)s. %(deal1)s %(property1)s "
+"%(addr_city)s. Большая база объявлений продажи %(property3)s на портале "
+"Mesto.ua"
+msgstr ""
+"%(deal2)s %(rooms)s кімн. %(property2)s, %(full_addr)s, %(area)s кв.м. "
+"Вартість - %(price)s %(currency)s. %(deal1)s %(property1)s %(addr_city)s."
+" Велика база оголошень продажу %(property3)s на порталі Mesto.ua"
+
+#: meta_tags.py:114
+#, python-format
+msgid ""
+"%(deal2)s %(property2)s, %(full_addr)s, %(area)s соток. Стоимость - "
+"%(price)s %(currency)s. %(deal1)s %(property1)s %(addr_city)s. Большая "
+"база объявлений продажи %(property3)s на портале Mesto.ua"
+msgstr ""
+"%(deal2)s %(property2)s, %(full_addr)s, %(area)s соток. Вартість - "
+"%(price)s %(currency)s. %(deal1)s %(property1)s %(addr_city)s. Велика "
+"база оголошень продажу %(property3)s на порталі Mesto.ua"
+
+#: meta_tags.py:118
+#, python-format
+msgid ""
+"%(deal2)s %(property2)s, %(full_addr)s, %(area)s кв.м. Стоимость - "
+"%(price)s %(currency)s. %(deal1)s %(property1)s %(addr_city)s. Большая "
+"база объявлений продажи %(property3)s на портале Mesto.ua"
+msgstr ""
+"%(deal2)s %(property2)s, %(full_addr)s, %(area)s кв.м. Вартість -  "
+"%(price)s %(currency)s. %(deal1)s %(property1)s %(addr_city)s. Велика "
+"база оголошень продажу %(property3)s на порталі Mesto.ua"
+
+#: meta_tags.py:128
+#, python-format
+msgid "Все агентства недвижимости %(chego)s – Mesto.ua"
+msgstr "Всі агентства нерухомості %(chego)s - Mesto.ua"
+
+#: meta_tags.py:129
+#, python-format
+msgid ""
+"Ищите агентство недвижимости в %(chego)s? Портал недвижимости Mesto.ua "
+"предоставляет список агентств недвижимости и лучших риэлторских агентств "
+"%(chego)s"
+msgstr ""
+"Шукайте агентство нерухомості в %(chego)s? Портал нерухомості Mesto.ua "
+"надає список агентств нерухомості і кращих ріелторських агентств "
+"%(chego)s"
+
+#: meta_tags.py:131
+#, python-format
+msgid "Риелторы %(chego)s - Mesto.ua"
+msgstr "Ріелтори %(chego)s - Mesto.ua"
+
+#: meta_tags.py:132
+#, python-format
+msgid ""
+"Ищите риелтора в %(gde)s? Список лучших частных риэлторов и риэлтерских "
+"компаний %(chego)s собрано на портале надвижимости Mesto.ua"
+msgstr ""
+"Шукайте ріелтора в %(gde)s? Список найкращих приватних ріелторів і "
+"ріелторських компаній %(chego)s представлено на порталі нерухомості "
+"Mesto.ua"
+
+#: meta_tags.py:134
+#, python-format
+msgid "Профессионалы недвижимости %(chego)s – Mesto.ua"
+msgstr "Професіонали нерухомості %(chego)s - Mesto.ua"
+
+#: meta_tags.py:135
+#, python-format
+msgid ""
+"Лучшие профессионалы, агентства недвижимости и риэлтерские компании "
+"%(chego)s на портале недвижимости Mesto.ua"
+msgstr ""
+"Найкращі професіонали, агентства нерухомості і ріелтерські компанії "
+"%(chego)s на порталі нерухомості Mesto.ua"
+
+#: meta_tags.py:140
+#, python-format
+msgid "Агентство недвижимости %(agency_name)s - Mesto.ua"
+msgstr "Агентство нерухомості %(agency_name)s - Mesto.ua"
+
+#: meta_tags.py:141
+#, python-format
+msgid ""
+"Агентство недвижимости %(agency_name)s в %(gde)s. Все объявления "
+"агентства недвижимости %(agency_name)s на портале Mesto.ua"
+msgstr ""
+"Агентство нерухомості %(agency_name)s в %(gde)s. Всі оголошення агентства"
+" нерухомості %(agency_name)s на порталі Mesto.ua"
+
+#: meta_tags.py:146
+#, python-format
+msgid "Риелтор %(chego)s %(realtor_name)s – Mesto.ua"
+msgstr "Ріелтор %(chego)s %(realtor_name)s – Mesto.ua"
+
+#: meta_tags.py:147
+#, python-format
+msgid ""
+"Риелтор %(chego)s %(realtor_name)s специалист в сфере аренды и продаже "
+"всех типов недвижимости"
+msgstr ""
+"Ріелтор %(chego)s %(realtor_name)s фахівець в сфері оренди і продажу всіх"
+" типів нерухомості"
+
+#: meta_tags.py:152
+#, python-format
+msgid "Новости недвижимости %(city_chego)s"
+msgstr "Новини нерухомості %(city_chego)s"
+
+#: meta_tags.py:153
+#, python-format
+msgid "Последние события в %(city_gde)s"
+msgstr "Останні події в %(city_gde)s "
+
+#: meta_tags.py:154
+#, python-format
+msgid "Интересные места %(city_chego)s"
+msgstr "Цікаві місця %(city_chego)s"
+
+#: meta_tags.py:155
+#, python-format
+msgid "Стоит знать - %(city_original)s Mesto.ua"
+msgstr "Варто знати - %(city_original)s Mesto.ua"
+
+#: meta_tags.py:156
+msgid "Новости Mesto School"
+msgstr "Новини Mesto School"
+
+#: meta_tags.py:159
+#, python-format
+msgid ""
+"Последние новости рынка недвижимости %(city_chego)s на портале Mesto.ua. "
+"Всегда свежие и актуальные новости недвижимости города %(city_original)s "
+"и %(province_chego)s читайте на нашем сайте"
+msgstr ""
+"Останні новини ринку нерухомості %(city_chego)s на порталі Mesto.ua. "
+"Завжди свіжі та актуальні новини про нерухомість міста %(city_original)s "
+"та %(province_chego)s читайте на нашому сайті"
+
+#: meta_tags.py:160
+#, python-format
+msgid ""
+"Перечень и расписание самых интересных событий %(city_chego)s на "
+"Mesto.ua. Обзор последних событий %(city_chego)s и %(province_chego)s "
+"смотрите на нашем портале недвижимости"
+msgstr ""
+"Перелік та розклад найцікавіших подій %(city_chego)s на Mesto.ua. Огляд "
+"останніх подій %(city_chego)s та %(province_chego)s дивіться на нашому "
+"порталі нерухомості"
+
+#: meta_tags.py:161
+#, python-format
+msgid ""
+"Самые интересные места города %(city_original)s можно найти на нашем "
+"портале недвижимости Mesto.ua. Обзор достопримечательностей и интересных "
+"мест %(city_chego)s доступен на нашем сайте"
+msgstr ""
+"Найцікавіші місця міста %(city_original)s можна знайти на нашому порталі "
+"нерухомості Mesto.ua. Огляд пам'яток та цікавих місць %(city_chego)s  "
+"доступний на нашому сайті "
+
+#: meta_tags.py:162
+#, python-format
+msgid ""
+"Новости дизайна и интерьера на портале недвижимости %(city_original)s "
+"Mesto.ua. Последние тенденции в ремонте квартир и домов, готовые решения "
+"для разных типов жилья"
+msgstr ""
+"Новини дизайну та інтер'єру на порталі нерухомості %(city_original)s "
+"Mesto.ua.  Останні тенденції в ремонті квартир і будинків, готові рішення"
+" для різних типів житла"
+
+#: meta_tags.py:173
+msgid "Новости рынка"
+msgstr "Новини ринку"
+
+#: models.py:338
+msgid "ссылка на страницу"
+msgstr "посилання на сторінку"
+
+#: models.py:339
+msgid "заголовок блока"
+msgstr "заголовок блоку"
+
+#: models.py:340
+msgid "регион"
+msgstr "регіон"
+
+#: models.py:341
+msgid "текст блока"
+msgstr "текст блоку"
+

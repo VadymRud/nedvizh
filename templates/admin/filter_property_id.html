@@ -1,0 +1,7 @@
+{% load i18n %}
+<h3>{% blocktrans with filter_title=title %} By {{ filter_title }} {% endblocktrans %}</h3>
+<ul>
+<form action="{% url 'admin:ad_ad_changelist' %}" method="GET" class="property-id-filter">
+    <input name="id__exact" type="text" size="11"/> <input type="submit" value="OK" style="padding:6px 10px;margin:0 0 3px;"/>
+</form>
+</ul>

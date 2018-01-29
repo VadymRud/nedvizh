@@ -1,0 +1,148 @@
+{% import "macro/ad_search.jinja.html" as macros with context %}
+{% from "macro/forms.jinja.html" import bootstrap_form_errors  %}
+
+<div class="l-property-search">
+  <form id="search-property" {% if deal_type is defined %} data-deal_type="{{ deal_type }}"{% endif %} data-static_url="{{ region.static_url }}" autocomplete="off">
+    <div class="white-panel cities-choose-form">
+        {% for hidden in form.hidden_fields() %}{{ hidden|safe }}{% endfor %}
+
+        {# форма поиска раздела Посуточная  #}
+        {% if deal_type == 'rent_daily' %}
+            <div class="row">
+                <div class="col-xs-24 col-sm-6 col-md-6 col-lg-3">
+                    <div class="form-group affecting-selects">{{ macros.field_property_type() }}</div>
+                    {{ macros.field_checkboxes(['with_image']) }}
+                </div>
+                <div class="col-xs-9 col-sm-6 col-md-6 col-lg-3">
+                    {{ macros.field_simple('rooms') }}
+                </div>
+                <div class="col-xs-9 col-sm-6 col-md-6 col-lg-3">
+                    {{ macros.field_simple('guests_limit') }}
+                </div>
+                <div class="col-xs-14 col-sm-18 col-md-17 col-lg-8 subway-district-street">
+                    {% include 'ad/search_form_addr.jinja.html' %}
+                </div>
+                <div class="clearfix visible-sm visible-md"></div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+                    {{ macros.field_range("price", _('Цена за сутки')) }}
+                </div>
+                <div class="col-xs-10 col-sm-6 col-md-6 col-lg-3">
+                    {{ macros.field_submit() }}
+                    <a class="adv-search-link"><i class="caret"></i> {% trans %}Расширенный поиск{% endtrans %}</a>
+                </div>
+            </div>
+            <div id="adv-search" class="row adv-search hidden">
+                <div class="col-xs-12 col-sm-12 col-md-5">
+                    {{ macros.field_range('area', _('Площадь общая'), 'м<sup>2</sup>') }}
+                    {{ macros.field_range('area_living', _('Площадь жилая'), 'м<sup>2</sup>') }}
+                    {{ macros.field_checkbox_choices('floor_variants') }}
+                    {{ macros.field_checkbox_choices('building_layout') }}
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4">
+                    {{ macros.field_checkbox_choices('building_type') }}
+                </div>
+                <div class="clearfix visible-sm"></div>
+                <div class="col-xs-24 col-md-15">
+                    {{ macros.field_checkbox_choices_sliced('facilities', 3) }}
+                </div>
+            </div>
+        {% endif %}
+
+        {# форма поиска раздела Продажа и Аренда #}
+        {% if deal_type in ['sale', 'rent'] %}
+            <div class="row">
+                {{ macros.common_fields_set(with_adv_search=True) }}
+            </div>
+            <div id="adv-search" class="row adv-search hidden">
+                <div class="col-xs-12 col-sm-8 col-md-5">
+                    {{ macros.field_range('area', _('Площадь общая'), 'м<sup>2</sup>') }}
+                    {{ macros.field_range('area_living', _('Площадь жилая'), 'м<sup>2</sup>') }}
+                    {{ macros.field_checkbox_choices('floor_variants') }}
+                </div>
+                <div class="col-xs-12 col-sm-10 col-md-7">
+                    {{ macros.field_checkbox_choices_sliced('building_type', 2) }}
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    {{ macros.field_checkbox_choices('building_layout') }}
+                </div>
+                <div class="clearfix visible-sm"></div>
+                <div class="col-xs-12 col-sm-12 col-md-8">
+                    {{ macros.field_checkbox_choices_sliced('facilities', 2) }}
+                </div>
+            </div>
+        {% endif %}
+
+        {{ bootstrap_form_errors(form) }}
+    </div>
+    {%  with header=seo.h1, breadcrumbs = region.get_breadcrumbs(deal_type, property_type, current_language=request.LANGUAGE_CODE) %}
+      {% include "includes/breadcrumbs.jinja.html" %}
+    {% endwith %}
+
+    <div class="row">
+      <div class="col-sm-24 col-md-16 result-header">
+          <h3>
+              {% trans %}Показано{% endtrans %} {{ paginator.current_page.object_list|length|pluralize((_("объявление"), _("объявления"), _("объявлений"))) }}
+              {% if paginator.count is not none %}{% trans %}из{% endtrans %} {{ paginator.count }}{% endif %}
+          </h3>
+          <div class="sorting-n-ordering form-inline">
+              <span class="styled-select"><span>{% trans %}Сортировать{% endtrans %}:</span> {{ form.sort|add_class('form-control')|safe }}  {{ form.sort.errors }} </span> &nbsp; &nbsp; &nbsp;
+              <span class="styled-select"><span>{% trans %}Отображать{% endtrans %}:</span> {{ form.added_days|add_class('form-control')|safe }} {{ form.added_days.errors }}</span>
+          </div>
+
+      </div>
+      <div class="col-sm-24 col-md-8">
+          {% if paginator.count is not none %}
+              <div class="h4">{% trans %}Найдено{% endtrans %} {{ paginator.count|pluralize((_("объявление"), _("объявления"), _("объявлений"))) }}{% if region.parent %} в {{ region.nameD.get('gde', region.name) }}{% endif %}</div>
+          {% endif %}
+          {% include "pagination.jinja.html" %}
+      </div>
+    </div><br/>
+  </form>
+</div>
+
+
+
+{% compress css %}
+<link rel="stylesheet" href="{{ static('libs/bootstrap-select/bootstrap-select.min.css') }}">
+<link rel="stylesheet" href="{{ static('libs/bootstrap-multiselect/bootstrap-multiselect.css') }}">
+{% endcompress %}
+
+{% compress js %}
+<script src="{{ static('libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
+<script src="{{ static('libs/bootstrap-multiselect/bootstrap-multiselect.js') }}"></script>
+<script src="{{ static('js/libs/jquery-scrolltofixed-min.js') }}"></script>
+<script>
+    var using_adv_search = $('#adv-search input:text').filter(function() {return this.value!="";}).add('#adv-search input:checked').length;
+
+    $('.l-property-search .adv-search-link').click(function() {$('#adv-search').toggleClass('hidden');});
+    $('#adv-search').toggleClass('hidden', !using_adv_search);
+
+    $('.l-property-search .selectpicker').selectpicker({hideDisabled:true, size:false, noneSelectedText:''});
+
+    $('#id_district').multiselect({buttonWidth: '100%', allSelectedText: '{% trans %}Все выбрано{% endtrans %}', nonSelectedText: '{% trans %}Выберите район{% endtrans %}', numberDisplayed: 100});
+    $('.l-property-search select[multiple]').multiselect({buttonWidth: '100%', allSelectedText: '1, 2, 3, 4+', selectAllNumber: false, nonSelectedText: '', numberDisplayed: 100});
+    $('button.multiselect').css({textOverflow:'clip'}).parent().addClass('gradient-overflow');
+
+    // активируем первую вкладку фильтров районов/метро/улиц
+    var $first_tab = $('#subway-district-street .nav li.active-filter').first();
+    if ($first_tab.length == 0) $first_tab = $('#subway-district-street .nav li:not(.disabled)').first();
+    $first_tab.addClass('active');
+    $('#subway-district-street ' + $first_tab.find('a').attr('href')).addClass('active');
+
+    $(document).ready(function() {
+        $('a.save-search[data-toggle=popover]').popover({placement:'bottom'});
+
+        $('.sorting-n-ordering select').change(function(){
+            $.ajax({
+                type : "GET",
+                data: $('[data-deal_type]').serialize(),
+                url: "ajax",
+                success: function(data) {
+                    $('#ajaxsort').html(data);
+                }
+            });
+        });
+    });
+</script>
+{% endcompress %}
+

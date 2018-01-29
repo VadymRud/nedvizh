@@ -1,0 +1,12 @@
+{%- for field in feed.autofields -%}
+    {%- with tag = field.0, source = field.1, options = field.2 if field|length > 2 else {} -%}
+    {%- with value = item[source]() if 'get_' in source else item[source] -%}
+        {%- if value -%}
+            <{{ tag }}>
+                {{- options.get('prefix', '')|safe }}
+                {{- value }}
+                {{- options.get('postfix', '')|safe -}}
+            </{{ tag }}>
+        {%- endif -%}
+    {%- endwith %}{%- endwith %}
+{%- endfor -%}

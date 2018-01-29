@@ -1,0 +1,34 @@
+<hr>
+<div id="accordion" role="tablist" aria-multiselectable="false">
+    {% for block_with_header in crosslinks_blocks %}{% if block_with_header|length > 1 %}
+        <div class="col-lg-{{ 24//loop.length }}">
+            {% with block_name = block_with_header[0][1], block = block_with_header[1:], block_limit = 12 %}
+                <div class="panel">
+                    <h3 class="header" role="tab">
+                        <span data-target="#collapse-{{ loop.index }}" data-toggle="collapse" data-parent="#accordion" aria-expanded="false"  >
+                            {{ block_name }}&#58;
+                        </span>
+                    </h3>
+                    {% if 'районах' in block_name and loop.last %}
+                        <ul  class="list-unstyled preview seo-col">
+                    {% else %}
+                        <ul  class="list-unstyled preview">
+                    {% endif %}
+                    {% for link in block[:block_limit] %}
+                        <li><a href="{{ link.0 }}">{{ link.1 }}</a></li>
+                    {% endfor %}
+                    </ul>
+                    {% if block|length > block_limit %}
+                        <div id="collapse-{{ loop.index }}" class="collapse" role="tabpanel">
+                            <ul class="list-unstyled full">
+                                {% for link in block[block_limit:] %}
+                                    <li><a href="{{ link.0 }}">{{ link.1 }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endwith %}
+        </div>
+    {% endif %}{% endfor %}
+</div>

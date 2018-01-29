@@ -1,0 +1,7 @@
+<p>{% trans agency_admin_user = realtor.agency.realtors.filter(is_admin=True).first().user, agency_name = realtor.agency.name %} Пользователь {{ agency_admin_user }} приглашает вас присоединиться к агентству "{{ agency_name }}" на сайте Mesto.UA.{% endtrans %}</p>
+<p>
+    {% trans %}Для подтверждения приглашения пройдите по ссылке:{% endtrans %}
+    {% with confirmation_url = host_url('agency_add_realtor_confirm', args=[realtor.confirmation_key]) %}
+        <br/><a href="{{ confirmation_url }}" target="_blank">{{ confirmation_url }}</a>
+    {% endwith %}
+</p>

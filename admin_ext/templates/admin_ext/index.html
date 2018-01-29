@@ -1,0 +1,88 @@
+{% extends "admin/index.html" %}
+
+{% block content %}
+<div id="content-main" class="dashboard">
+    <div class="module">
+        <table>
+            <caption>Объявления</caption>
+            <tbody>
+                <tr><td><a href="{% url 'admin:ad_ad_changelist' %}">Список объявлений</a></td></tr>
+                <tr><td>
+                    <form action="{% url 'admin:ad_ad_changelist' %}" method="GET">
+                        <label for="ad_id">Поиск по ID:</label>
+                        <input id="ad_id" name="id__exact" type="text">
+                        <input value="Искать" type="submit">
+                    </form>
+                </td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="module">
+        <table>
+            <caption>Модерация объявлений</caption>
+            <tbody>
+                <tr><td><a href="{% url 'moderation_queue' %}">Страница обработки заявок на модерацию</a></td></tr>
+                <tr><td><a href="{% url 'admin:ad_ad_changelist' %}?moderation=yes&source=user">Всего ({{ new_ads.all }})</a></td></tr>
+                <tr><td><a href="{% url 'admin:ad_ad_changelist' %}?moderation=yes&source=person">Частники ({{ new_ads.person }})</a></td></tr>
+                <tr><td><a href="{% url 'admin:ad_ad_changelist' %}?moderation=yes&source=agency">Агентства ({{ new_ads.agency }})</a></td></tr>
+                <tr><td><a href="{% url 'admin:ad_ad_changelist' %}?moderation=yes&source=user&xml_id__gt=">Импорт ({{ new_ads.import }})</a></td></tr>
+                {% if inactive_paid_ads %}
+                    <tr><td><a href="{% url 'admin:ad_ad_changelist' %}?id__in={{ inactive_paid_ads|join:"," }}" title="Неактивные объявления с активной платной услугой"><b>Упс-объявления ({{ inactive_paid_ads|length }})</b></a></td></tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    <div class="module">
+        <table>
+            <caption>Модерация новостроек</caption>
+            <tbody>
+                <tr><td><a href="{% url 'newhome_moderation_queue' %}">Страница обработки заявок на модерацию</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="module">
+        <table>
+            <caption>Пользователи</caption>
+            <tbody>
+                <tr><td><a href="{% url 'admin:custom_user_user_changelist' %}">Список профилей</a></td></tr>
+                <tr><td><a href="{% url 'admin:paid_services_transaction_changelist' %}">Список транзакций</a></td></tr>
+                <tr><td><a href="{% url 'admin:paid_services_vipplacement_changelist' %}">Список VIP-размещений</a></td></tr>
+                <tr><td>
+                    <a href="{% url 'admin_add_transaction' %}" style="display:inline;">Пополнить баланс</a> /
+                    <a href="{% url 'admin:move_money' %}" style="display:inline;">Перевод денег</a> /
+                    <a href="{% url 'admin:buy_plan' %}" style="display:inline;">Купить план</a> /
+                    <a href="{% url 'admin:buy_vip' %}" style="display:inline;">Купить ВИП</a>
+                </td></tr>
+                <tr><td>
+                    <form action="{% url 'admin:custom_user_user_changelist' %}" method="GET">
+                        <label for="email">Поиск пользователя по e-mail:</label>
+                        <input id="q" name="q" type="text">
+                        <input value="Искать" type="submit">
+                    </form>
+                </td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="module">
+        <table>
+            <caption>Отчеты</caption>
+            <tbody>
+                {% if perms.profile.change_statgrouped %}
+                    <tr><td><a href="{% url 'admin_statistics_general' %}">Статистика пользователей и объявлений</a></td></tr>
+                    <tr><td><a href="{% url 'admin_statistics_weekly' %}">Статистика за последнюю неделю</a></td></tr>
+                    <tr><td><a href="{% url 'admin_statistics_by_province' %}">Статистика по областям</a></td></tr>
+                {% endif %}
+                <tr><td><a href="{% url 'admin_statistics_monthly' %}">Статистика по месяцам</a></td></tr>
+                {% if perms.profile.change_statgrouped %}
+                    <tr><td><a href="{% url 'admin_export_entrances_stats' %}?with_today">Отчет по заходам и активным объявлениям</a></td></tr>
+                    <tr><td><a href="{% url 'admin_export_ads_by_region_stats' %}">Отчет кол-ва объявлений по регионам</a></td></tr>
+                {% endif %}
+                <tr><td><a href="{% url 'admin_export_status' %}">Экспорт</a></td></tr>
+                <tr><td><a href="{% url 'admin_statistics_analysis_disclosed_contacts' %}">Анализ раскрытых контактов</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<style>table {width:100%;}</style>
+{% endblock %}
+

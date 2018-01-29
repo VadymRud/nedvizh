@@ -1,0 +1,70 @@
+﻿{% extends "guide/base.jinja.html" %}
+
+{% block guide_content %}
+    <div class="container news-page">
+        <div class="row">
+            {% with link = article.get_absolute_url(), twitter_text=article.name, width=690, big_buttons=1 %}
+            <div class="news col-sm-17">
+                <div class="h3">{{ article.name }}</div>
+                <p class="published">{{ article.published|date("d.m.Y") }}</p>
+                <div class="description">
+                    {{ article.content|safe }}
+                </div>
+                {% with related_articles = article.related.all() %}
+                    {% if related_articles %}
+                        <br/>
+                        <div class='related'>
+                            <h4>{% trans %} Читайте также:{% endtrans %}</h4><br>
+                            {% for related_article in related_articles %}
+                                <div class="col-sm-8">
+                                    <div class="item panel relative">
+                                        <div class="image text-center">
+                                            <a href="{{ related_article.get_absolute_url(request.subdomain_region) }}">
+                                            <img src="{{ related_article.image|thumbnail("390x295") }}" class="img-responsive"/>
+                                            </a>
+                                        </div>
+                                        <div class="date">{{ related_article.published|date("d.m.Y") }}</div>
+                                        <div class="name"><a href="{{ related_article.get_absolute_url(request.subdomain_region) }}">{{ related_article }}</a></div>
+                                        <div class="text">{{ related_article.description }}</div>
+                                    </div>
+                                </div>
+                            {% if  loop.index is divisibleby 3 %}
+                                 <div class="clearfix"></div> 
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+            </div>
+            {% endwith %}
+            <div class="sidebar col-sm-7">
+                <div class="h4">{% trans %}Мы в социальных сетях{% endtrans %}</div>
+                <div class="social-links-info">{% trans %}Если вам привычнее узнавать о новостях через социальные сети, присоединяйтесь{% endtrans %}</div>
+                <p>{% include "includes/social_links.jinja.html" %}</p>
+                {# <div class="social-widget"><div id="vk_groups"></div></div>#}
+                <div class="social-widget"><div class="fb-like-box" data-href="https://www.facebook.com/pages/mestoua/317059891645154" data-width="320" data-height="270" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div></div>
+                <div class="social-widget"><a class="twitter-timeline"  href="https://twitter.com/Mesto_ua" width="320" height="270" lang="RU" data-widget-id="507776633856475136">{% trans %}Твиты пользователя{% endtrans %} @Mesto_ua</a></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_footer %}
+    {#
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?115"></script>
+    <script type="text/javascript">
+        VK.Widgets.Group("vk_groups", {mode: 0, width: "320", height: "270", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 22073049);
+    </script>
+     #}
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+{% endblock %}

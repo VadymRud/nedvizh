@@ -1,0 +1,50 @@
+{% extends "blank.jinja.html" %}
+
+{% block content %}
+
+<form method='post' target="_parent" class="message-about-ad">
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields() %}{{ hidden }}{% endfor %}
+
+    <div id="div_id_to" class="form-group">
+        <label class="control-label">Кому</label>
+        <div class="controls ">
+            <input type="text" class="form-control" id="id_subject" value="{{ new_message.to_user.get_public_name() }}" readonly>
+        </div>
+    </div>
+
+    {% from "macro/forms.jinja.html" import bootstrap_form  %}
+    {{ bootstrap_form(form) }}
+
+    <div class="text-right" id="div_id_submit">
+        <input type="submit" class="btn btn-danger btn-md" value="{% trans %}Отправить{% endtrans %}"/>
+    </div>
+</form>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{ static('js/libs/jquery-last.min.js') }}"><\/script>')</script>
+<script src="{{ static('libs/bootstrap3-24col/js/bootstrap.min.js') }}"></script>
+
+<link rel="stylesheet" href="{{ static('libs/bootstrap-select/bootstrap-select.min.css') }}">
+<script src="{{ static('libs/bootstrap-select/bootstrap-select.min.js') }}"></script>
+
+{#
+<script>
+    var placeholders = {
+        details: '{% trans %}Если вам недостаточно предоставленной в объявлении информации и вы хотите знать о понравившемся объекте недвижимости больше,- задайте автору объявления дополнительные вопросы, которые помогут вам уточнить необходимые детали и сложить целостный образ понравившегося объекта.{% endtrans %}',
+        counteroffer: '{% trans %}У вас есть возможность предложить продавцу недвижимости свою цену. Отправьте ему предложение контроферты с аргументацией и дайте время обдумать этот вариант. Как правило, владельцы идут на встречу потенциальному клиенту и снижают стоимость.{% endtrans %}'
+    };
+    $('select').change(function() {
+        $('#div_id_text, #div_id_submit').toggle($(this).val() != '');
+        $('#div_id_text textarea').attr('placeholder', $(this).val() in placeholders ? placeholders[$(this).val()] : '');
+    }).change().selectpicker({
+        container: '#div_id_subject'
+    });
+</script>
+#}
+
+
+<script>
+
+</script>
+{% endblock %}

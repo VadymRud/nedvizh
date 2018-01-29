@@ -1,0 +1,2119 @@
+# Ukrainian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-12-26 14:47+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uk\n"
+"Language-Team: uk <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: models.py:34
+msgid "пополн: бонус"
+msgstr "поповн: бонус"
+
+#: models.py:35
+msgid "пополн: платежная система"
+msgstr "поповн: платіжна система"
+
+#: models.py:36
+msgid "возврат остатка за пакет обновлений"
+msgstr "повернення залишку за пакет оновлень"
+
+#: models.py:37
+msgid "возврат при отмене тарифа"
+msgstr "повернення при відміні тарифу"
+
+#: models.py:38
+msgid "возврат остатка при остановке тарифа"
+msgstr "повернення залишку при зупинці тарифу"
+
+#: models.py:39
+msgid "пополн: новогодняя акция"
+msgstr "поповн: новорічна акція"
+
+#: models.py:40
+msgid "пополн: через промо-код"
+msgstr "поповн: через промо-код"
+
+#: models.py:41
+msgid "пополн: бонус при регистрации"
+msgstr "поповн: бонус при регістрації"
+
+#: models.py:42
+msgid "пополн: счет-фактура"
+msgstr "поповн: рахунок-фактура"
+
+#: models.py:43
+msgid "пополн: бонус с ТВ рекламы"
+msgstr "поповн: бонус з ТВ реклами"
+
+#: models.py:44
+msgid "пополн: бонус по системе лояльности"
+msgstr "поповн.: бонус по програмі лояльності"
+
+#: models.py:45
+msgid "перевод: к пользователю"
+msgstr "переказ: до користувача"
+
+#: models.py:46
+msgid "перевод: от пользователя"
+msgstr "переказ: від користувача"
+
+#: models.py:47
+msgid "тариф: покупка"
+msgstr "тариф: покупка"
+
+#: models.py:48
+msgid "тариф: улучшение"
+msgstr "тариф: покращення"
+
+#: models.py:49
+msgid "оплата премиум объявления"
+msgstr "оплата преміум оголошення"
+
+#: models.py:50
+msgid "оплата эксклюзивного объявления"
+msgstr "оплата ексклюзивного оголошення"
+
+#: models.py:51
+msgid "размещ: VIP"
+msgstr "розміщ: VIP"
+
+#: models.py:52
+msgid "размещ: зарубеж mesto.ua"
+msgstr "розміщ: зарубіж mesto.ua"
+
+#: models.py:53
+msgid "размещ: зарубеж партнеры"
+msgstr "розміщ: зарубіж партнери"
+
+#: models.py:54
+msgid "размещ: возврат"
+msgstr "розміщ: повернення"
+
+#: models.py:55
+msgid "оплата счета по посуточной аренде"
+msgstr "оплата рахунку з подобової оренди"
+
+#: models.py:56
+msgid "оплата участия в тренинге"
+msgstr "оплата участі в тренінгу"
+
+#: models.py:57
+msgid "оплата 3D дизайна"
+msgstr "оплата 3D дизайну"
+
+#: models.py:58
+msgid "оплата обновления объявлений"
+msgstr "оплата оновлення оголошень"
+
+#: models.py:59
+msgid "оплата за выделенный номер"
+msgstr "оплата за виділений номер"
+
+#: models.py:60
+msgid "оплата продления CRM"
+msgstr "оплата продовження CRM"
+
+#: models.py:61
+msgid "ппк: лид (устаревш)"
+msgstr "ппк: лід (застаріле)"
+
+#: models.py:62
+msgid "ппк: заказ"
+msgstr "ппк: замовлення"
+
+#: models.py:63
+msgid "ппк: звонок"
+msgstr "ппк: дзвінок"
+
+#: models.py:64
+msgid "ппк: звонок пропущ"
+msgstr "ппк: дзвінок пропущенний"
+
+#: models.py:65
+msgid "ппк: возврат за звонок"
+msgstr "ппк: повернення за дзвінок"
+
+#: models.py:66
+msgid "оплата пакетного обновления"
+msgstr "оплата пакетного оновлення"
+
+#: models.py:67
+msgid "оплата автоматического обновления"
+msgstr "оплата автоматичного оновлення"
+
+#: models.py:68
+msgid "коррекция транзакции"
+msgstr "корекція транзакції"
+
+#: models.py:87 models.py:482
+msgid "пользователь"
+msgstr "користувач"
+
+#: models.py:88
+msgid "тип"
+msgstr "тип"
+
+#: models.py:89
+msgid "сумма грн"
+msgstr "сума грн"
+
+#: models.py:90
+msgid "время события"
+msgstr "час події"
+
+#: models.py:91
+msgid "комментарий"
+msgstr "коментар"
+
+#: models.py:92
+msgid "заметка пользователя"
+msgstr "нотатка користувача"
+
+#: models.py:155
+#, python-format
+msgid "Программа лояльности - пополнение баланса для транзакции #%d"
+msgstr "Програма лояльності - поповнення балансу для транзакції #%d"
+
+#: models.py:327
+msgid "объявление"
+msgstr "оголошення"
+
+#: models.py:328
+msgid "время начала"
+msgstr "час початку"
+
+#: models.py:329
+msgid "время окончания"
+msgstr "час закінчення"
+
+#: models.py:330
+msgid "транзакция оплаты"
+msgstr "транзакція оплати"
+
+#: models.py:362
+msgid "каталог недвижимости"
+msgstr "каталог нерухомості"
+
+#: models.py:443
+msgid "название"
+msgstr "назва"
+
+#: models.py:444 models.py:484
+msgid "лимит объявлений"
+msgstr "ліміт оголошень"
+
+#: models.py:445
+msgid "интервал обновления, дней"
+msgstr "інтервал оновлення, днів"
+
+#: models.py:446
+msgid "продолжительность, дней"
+msgstr "тривалість, днів"
+
+#: models.py:451 models.py:483
+msgid "тариф"
+msgstr "тариф"
+
+#: models.py:452
+msgid "тарифы"
+msgstr "тарифи"
+
+#: models.py:461
+#, python-format
+msgid "%d объявление"
+msgid_plural "%d объявлений"
+msgstr[0] "%d оголошення"
+msgstr[1] "%d оголошення"
+msgstr[2] "%d оголошень"
+
+#: models.py:485
+msgid "регион"
+msgstr "регіон"
+
+#: models.py:486
+msgid "начало"
+msgstr "початок"
+
+#: models.py:487
+msgid "окончание"
+msgstr "закінчення"
+
+#: models.py:723
+msgid "Квитанция об оплате с сайта Mesto.UA"
+msgstr "Квитанція про оплату з сайту Mesto.UA"
+
+#: views.py:24
+msgid "Размещение объявлений"
+msgstr "Розміщення оголошень"
+
+#: templates/paid_services/menu_publication.jinja.html:6 views.py:28
+msgid "VIP объявление"
+msgstr "VIP оголошення"
+
+#: views.py:53
+msgid "Тарифный план"
+msgstr "Тарифний план"
+
+#: templates/paid_services/menu_publication.jinja.html:7 views.py:104
+msgid "Зарубежные каталоги"
+msgstr "Зарубіжні каталоги"
+
+#: views.py:108
+msgid "Виртуальные туры 360"
+msgstr "Віртуальні тури 360"
+
+#: views.py:113 views.py:150
+msgid "Имя"
+msgstr "Ім'я"
+
+#: views.py:114 views.py:153 views.py:199 views.py:229
+msgid "Город"
+msgstr "Місто"
+
+#: views.py:115
+msgid "Организация"
+msgstr "Організація"
+
+#: views.py:116 views.py:152
+msgid "E-mail"
+msgstr "E-mail"
+
+#: views.py:143 views.py:181 views.py:221 views.py:250
+msgid "<div class=\"text-36\">Спасибо!</div>Мы свяжемся с Вами в кратчайшее время"
+msgstr ""
+"<div class=\"text-36\">Дякуємо!</div>Ми зв'яжемося з Вами в найкоротший "
+"час"
+
+#: views.py:157
+msgid "Экспертная проверка жилья"
+msgstr "Експертна перевірка житла"
+
+#: views.py:198 views.py:228 views.py:272
+msgid "Тип недвижимости"
+msgstr "Тип нерухомості"
+
+#: templates/paid_services/menu_extra.jinja.html:6 views.py:205
+msgid "Оценка недвижимости"
+msgstr "Оцінка нерухомості"
+
+#: templates/paid_services/notary.jinja.html:234 views.py:234
+msgid "Услуги нотариуса"
+msgstr "Послуги нотаріуса"
+
+#: templates/paid_services/legal_services.jinja.html:127 views.py:257
+msgid "Юридические услуги"
+msgstr "Юридичні послуги"
+
+#: views.py:271
+msgid "Название проекта"
+msgstr "Назва проекту"
+
+#: views.py:271
+msgid "Ваш текст"
+msgstr "Ваш текст"
+
+#: views.py:274
+msgid "Тип комнаты"
+msgstr "Тип кімнати"
+
+#: templates/paid_services/interior3d.jinja.html:596 views.py:275 views.py:276
+msgid "Особые пожелания"
+msgstr "Особливі побажання"
+
+#: views.py:277
+msgid "Стиль"
+msgstr "Стиль"
+
+#: views.py:286
+msgid "3D интерьер"
+msgstr "3D інтер'єр"
+
+#: management/commands/mail_about_plan_expiration.py:50
+msgid "Напоминание об окончании тарифного плана"
+msgstr "Нагадування про закінчення тарифного плану"
+
+#: management/commands/mail_about_plan_expiration.py:65
+msgid "Ваш аккаунт неактивен"
+msgstr "Ваш аккаунт неактивний"
+
+#: management/commands/plan_notification.py:47
+msgid "Активируйте свои объявления"
+msgstr "Активуйте свої оголошення"
+
+#: management/commands/reminder_about_unpaid_orders.py:30
+#, python-format
+msgid ""
+"<span class=\"pink\">%s</span> вы пытались совершить оплату на сумму "
+"<span class=\"pink\">%s</span> грн.<br/>"
+msgstr ""
+"<span class=\"pink\">%s</span> ви намагалися зробити оплату на суму <span"
+" class=\"pink\">%s</span> грн.<br/>"
+
+#: management/commands/reminder_about_unpaid_orders.py:34
+#, python-format
+msgid ""
+"Данная сделка не была завершена.<br/>Вы можете произвести оплату повторно"
+" на странице \"<a href=\"%s\">Мои счета</a>\"."
+msgstr ""
+"Дана угода не була завершена.<br/>Вы можете зробити оплату повторно на "
+"сторінці \"<a href=\"%s\">Мои счета</a>\"."
+
+#: templates/paid_services/analysis.jinja.html:12
+msgid "Задавайте вопросы"
+msgstr "Задавайте питання"
+
+#: templates/paid_services/analysis.jinja.html:14
+#: templates/paid_services/analysis.jinja.html:152
+msgid ""
+"Заказывая услуги через портал Mesto.ua, вы получаете гарантированную "
+"скидку. Мы сотрудничаем только с проверенными партнерами."
+msgstr ""
+"Замовляючи послуги через портал Mesto.ua, ви отримуєте гарантовану "
+"знижку. Ми співпрацюємо тільки з перевіреними партнерами."
+
+#: templates/paid_services/analysis.jinja.html:15
+msgid "С НАМИ ВЫГОДНО"
+msgstr "З нами вигідно"
+
+#: templates/paid_services/analysis.jinja.html:20
+#: templates/paid_services/analysis_popup.jinja.html:37
+msgid "Покупая квартиру в новострое - <b>убедись в надежности застройщика</b>"
+msgstr ""
+"Купуючи квартиру в новобудовi - <b>переконайся в надiйностi "
+"забудовника</b>"
+
+#: templates/paid_services/analysis.jinja.html:21
+#: templates/paid_services/analysis_popup.jinja.html:39
+msgid "Выбирай: заказ оценки сейчас либо годы протестов и судов с застройщиком"
+msgstr "Обирай: замовлення оцінки зараз або роки протестів і судів із забудовником"
+
+#: templates/paid_services/analysis.jinja.html:24
+msgid "проверка документов"
+msgstr "перевірка документів"
+
+#: templates/paid_services/analysis.jinja.html:25
+msgid "имидж застройщика"
+msgstr "імідж забудовника"
+
+#: templates/paid_services/analysis.jinja.html:28
+msgid "юридическая оценка рисков"
+msgstr "юридична оцінка ризиків"
+
+#: templates/paid_services/analysis.jinja.html:29
+msgid "техническая характеристика"
+msgstr "технічна характеристика"
+
+#: templates/paid_services/analysis.jinja.html:39
+msgid ""
+"Готовы купить новую квартиру, но боитесь быть обманутыми? Значит, вы "
+"правильно подходите к вопросу:\n"
+"                <b>в Украине уже приостановлено или законсервировано "
+"более 2433 новостроек</b>,\n"
+"                а квартиры в них еще продаются!"
+msgstr ""
+"Готові купити нову квартиру, але боїтеся бути обдуреними? Значить, ви "
+"правильно підходите до питання: <b>в Україні вже припинено або "
+"законсервовано понад 2433 новобудов</b>, а квартири в них досі "
+"продаються!"
+
+#: templates/paid_services/analysis.jinja.html:46
+msgid "Основные риски при покупке новостроя"
+msgstr "Основні ризики при покупці новобудови"
+
+#: templates/paid_services/analysis.jinja.html:48
+msgid "Потерять свои честно заработанные деньги"
+msgstr "Втратити свої чесно зароблені гроші"
+
+#: templates/paid_services/analysis.jinja.html:49
+msgid "Потерять и средства, и квартиру"
+msgstr "Втрата грошей і часу"
+
+#: templates/paid_services/analysis.jinja.html:50
+msgid "Потратить годы на суды с застройщиком"
+msgstr "Витратити роки на суди із забудовником"
+
+#: templates/paid_services/analysis.jinja.html:53
+msgid "О чем молчит ваш застройщик, но вам стоит об этом знать"
+msgstr "Про що мовчить ваш забудовник, але вам варто про це знати"
+
+#: templates/paid_services/analysis.jinja.html:57
+msgid "строительство без разрешений"
+msgstr "будівництво без дозволів"
+
+#: templates/paid_services/analysis.jinja.html:58
+msgid "отсутствие технических условий"
+msgstr "відсутність технічних умов"
+
+#: templates/paid_services/analysis.jinja.html:59
+msgid "не имеет права на землю"
+msgstr "не має права на землю"
+
+#: templates/paid_services/analysis.jinja.html:60
+msgid "строит на незаконно отчужденном участке"
+msgstr "будує на незаконно відчуженій ділянці"
+
+#: templates/paid_services/analysis.jinja.html:61
+msgid "не платит налоги"
+msgstr "не платить податки"
+
+#: templates/paid_services/analysis.jinja.html:67
+msgid "является участником судебных процессов"
+msgstr "є учасником судових процесів"
+
+#: templates/paid_services/analysis.jinja.html:68
+msgid "незаконно продает недвижимость"
+msgstr "незаконно продає нерухомість"
+
+#: templates/paid_services/analysis.jinja.html:69
+msgid "искусственно \"замораживает\" стройку"
+msgstr "штучно \"заморожує\" будівництво"
+
+#: templates/paid_services/analysis.jinja.html:70
+msgid "оформляет фальшивые документы"
+msgstr "оформляє фальшиві документи"
+
+#: templates/paid_services/analysis.jinja.html:78
+msgid "<b>Защити себя от мошенников</b>"
+msgstr "<b>Захисти себе від шахраїв</b>"
+
+#: templates/paid_services/analysis.jinja.html:79
+#: templates/paid_services/analysis.jinja.html:134
+#: templates/paid_services/analysis.jinja.html:360
+#: templates/paid_services/analysis_popup.jinja.html:40
+msgid "Узнать больше"
+msgstr "Дізнатися більше"
+
+#: templates/paid_services/analysis.jinja.html:83
+msgid "5 простых шагов к безопасной покупке жилья"
+msgstr "5 простих кроків до безпечного придбання житла"
+
+#: templates/paid_services/analysis.jinja.html:87
+msgid "Устная  консультация"
+msgstr "Усна консультація"
+
+#: templates/paid_services/analysis.jinja.html:88
+msgid ""
+"Оставь свои контакты на сайте и наши менеджеры свяжутся с вами в течении "
+"1 часа"
+msgstr ""
+"Залиш свої контакти на сайті і наші менеджери зв'яжуться з вами протягом "
+"1 години"
+
+#: templates/paid_services/analysis.jinja.html:91
+msgid "Заявка"
+msgstr "Заявка"
+
+#: templates/paid_services/analysis.jinja.html:92
+msgid ""
+"Оформление заявки и выбор пакета услуг для юридического анализа "
+"интересующей вас недвижимости"
+msgstr ""
+"Оформлення заявки і вибір пакета послуг для юридичного аналізу "
+"нерухомості, яка вас цікавить"
+
+#: templates/paid_services/analysis.jinja.html:96
+msgid "Согласование"
+msgstr "Узгодження"
+
+#: templates/paid_services/analysis.jinja.html:97
+msgid ""
+"Подбираем оптимальный перечень услуг, исходя из ваших пожеланий и "
+"требований"
+msgstr ""
+"Підбираємо оптимальний перелік послуг, грунтуючись на ваших побажаннях і "
+"вимогах"
+
+#: templates/paid_services/analysis.jinja.html:101
+msgid "Оплата"
+msgstr "Оплата"
+
+#: templates/paid_services/analysis.jinja.html:102
+msgid "Внесение оплаты удобным для вас способом"
+msgstr "Внесення оплати зручним для вас способом"
+
+#: templates/paid_services/analysis.jinja.html:106
+msgid "Результат"
+msgstr "Результат"
+
+#: templates/paid_services/analysis.jinja.html:107
+msgid ""
+"Подробный профессиональный юридический анализ новостройки, наличие всей "
+"необходимой докмуентации и пр., консультация юриста по вопросам "
+"инвестирования"
+msgstr ""
+"Детальний професійний юридичний аналіз новобудови, наявність всієї "
+"необхідної докмуентаціі тощо, консультація юриста з питань інвестування"
+
+#: templates/paid_services/analysis.jinja.html:116
+msgid "Базовый анализ новостроя"
+msgstr "Базовий аналіз новобудови"
+
+#: templates/paid_services/analysis.jinja.html:117
+msgid ""
+"Самостоятельно достаточно сложно правильно определить возможные "
+"неприятности и оценить последствия оформления сделок с недвижимостью."
+msgstr ""
+"Самостійно досить складно правильно визначити можливі ризики і оцінити "
+"наслідки оформлення угод з нерухомістю."
+
+#: templates/paid_services/analysis.jinja.html:118
+msgid "<b>Mesto.ua</b> поможет вам в этом."
+msgstr "<b>Mesto.ua</b> допоможе вам в цьому."
+
+#: templates/paid_services/analysis.jinja.html:123
+msgid "Выезд специалиста и получение необходимого пакета документов"
+msgstr "Виїзд фахівця і отримання необхідного пакету документів"
+
+#: templates/paid_services/analysis.jinja.html:124
+msgid "Общие сведения о объекте недвижимого имущества"
+msgstr "Загальні відомості про об'єкт нерухомого майна"
+
+#: templates/paid_services/analysis.jinja.html:125
+msgid "Наличие документов на земельный участок"
+msgstr "Наявність документів на земельну ділянку"
+
+#: templates/paid_services/analysis.jinja.html:126
+msgid "Наличие разрешительных документов на начало строительства и его проведение"
+msgstr "Наявність дозвільних документів на початок будівництва і його проведення"
+
+#: templates/paid_services/analysis.jinja.html:127
+msgid "Определение полномочий продавца и описание схемы инвестирования"
+msgstr "Визначення повноважень продавця і опис схеми інвестування"
+
+#: templates/paid_services/analysis.jinja.html:128
+msgid "Проверка продавца и описание схемы инвестирования"
+msgstr "Перевірка продавця і опис схеми інвестування"
+
+#: templates/paid_services/analysis.jinja.html:129
+msgid "Анализ имиджа застройщика"
+msgstr "Аналіз іміджу забудовника"
+
+#: templates/paid_services/analysis.jinja.html:130
+msgid "Техническая характеристика строительных работ"
+msgstr "Технічна характеристика будівельних робіт"
+
+#: templates/paid_services/analysis.jinja.html:133
+#: templates/paid_services/analysis.jinja.html:359
+#: templates/paid_services/interior3d.jinja.html:520
+msgid "Цена"
+msgstr "Ціна"
+
+#: templates/paid_services/analysis.jinja.html:139
+msgid "Что мы предлагаем?"
+msgstr "Що ми пропонуємо?"
+
+#: templates/paid_services/analysis.jinja.html:141
+msgid "профессиональные юристы из ТОП 100 юридических компаний Украины"
+msgstr "професійні юристи з ТОП 100 юридичних компаній України"
+
+#: templates/paid_services/analysis.jinja.html:142
+msgid ""
+"полная информация о вашей будущей квартире, доме, инфраструктуре и людях,"
+" которым вы доверяете свои деньги"
+msgstr ""
+"повна інформація про вашу майбутню квартиру, будинок, інфраструктуру і "
+"людей, яким ви довіряєте свої гроші"
+
+#: templates/paid_services/analysis.jinja.html:145
+msgid "гибкие условия оплаты, варианты для любого бюджета (от 2000 грн!)"
+msgstr "гнучкі умови оплати, варіанти для будь-якого бюджету (від 2000 грн!)"
+
+#: templates/paid_services/analysis.jinja.html:146
+msgid "максимально сжатые сроки подготовки без потери качества"
+msgstr "максимально стислі терміни підготовки без втрати якості"
+
+#: templates/paid_services/analysis.jinja.html:153
+msgid "С НАМИ ВЫГОДНО!"
+msgstr "З НАМИ ВИГІДНО!"
+
+#: templates/paid_services/analysis.jinja.html:158
+msgid "Мы работаем только с лучшими юристами"
+msgstr "Ми працюємо тільки з кращими юристами"
+
+#: templates/paid_services/analysis.jinja.html:168
+msgid ""
+"Юридическое сопровождение обеспечивает официальный партнер MESTO.UA - "
+"юридическая компания <b class=\"green\">DOMINION</b>"
+msgstr ""
+"Юридичний супровід забезпечує офіційний партнер MESTO.UA - юридична "
+"компанія <b class=\"green\">DOMINION</b>"
+
+#: templates/paid_services/analysis.jinja.html:169
+msgid ""
+"Это известное адвокатское объединение, которое уже больше 10 лет ведет "
+"успешную юридическую практику и специализируется в сфере <b>недвижимости "
+"и строительства</b>."
+msgstr ""
+"Це відоме адвокатське об'єднання, яке вже більше 10 років веде успішну "
+"юридичну практику і спеціалізується в сфері <b>нерухомості і будівництва "
+"</b>."
+
+#: templates/paid_services/analysis.jinja.html:170
+msgid ""
+"В 2016 компания вошла в \"ТОП 100 Юридических компаний Украины\" по "
+"версии \"Юридическая практика\"."
+msgstr ""
+"З 2016 компанія увійшла в \"ТОП 100 Юридичних компаній України\" за "
+"версією \"Юридична практика\"."
+
+#: templates/paid_services/analysis.jinja.html:174
+msgid "Достижения DOMINION в цифрах"
+msgstr "Досягнення DOMINION в цифрах"
+
+#: templates/paid_services/analysis.jinja.html:179
+msgid "объектов недвижимости были возвращены клиентам"
+msgstr "об'єктів нерухомості були повернуті клієнтам"
+
+#: templates/paid_services/analysis.jinja.html:184
+msgid "сэкономили наши клиенты на налоговых отчислениях"
+msgstr "наші клієнти заощадили на податкових відрахуваннях"
+
+#: templates/paid_services/analysis.jinja.html:189
+msgid "инвестиций уберегли клиенты"
+msgstr "інвестицій зберегли клієнти"
+
+#: templates/paid_services/analysis.jinja.html:194
+msgid "компенсации получили наши клиенты"
+msgstr "компенсації отримали наші клієнти"
+
+#: templates/paid_services/analysis.jinja.html:200
+msgid "Юридическое сопровождение"
+msgstr "Юридичний супровід"
+
+#: templates/paid_services/analysis.jinja.html:201
+msgid ""
+"с помощью официального партнера юридической компании <b "
+"class=\"blue\">СЕМЕЙСТВО</b>"
+msgstr ""
+"за допомогою офіційного партнера юридичної компанії <b "
+"class=\"blue\">РОДИНА</b>"
+
+#: templates/paid_services/analysis.jinja.html:211
+msgid ""
+"Адвокатское объединение \"Семейство\" ведет успешную судебную практику по"
+" вопросам недвижимости начиная с 2003 г."
+msgstr ""
+"Адвокатське об'єднання \"Сімейство\" веде успішну судову практику з "
+"питань нерухомості починаючи з 2003 р."
+
+#: templates/paid_services/analysis.jinja.html:212
+msgid ""
+"Адвокатское объединение \"Семейство\" сопровождает судебные дела в 22 "
+"областях Украины и имеет представительства в США, Автралии, Турции и "
+"Европейском Союзе."
+msgstr ""
+"Адвокатське об'єднання \"Сімейство\" супроводжує судові справи в 22 "
+"областях України і має представництва в США, Автралії, Туреччині та "
+"Європейському Союзі."
+
+#: templates/paid_services/analysis.jinja.html:213
+msgid ""
+"Профиль деятельности компании - предоставление юридических услуг в сфере "
+"семейного права, налогового права, судебного производства, недвижимости и"
+" строительства."
+msgstr ""
+"Профіль діяльності компанії - надання юридичних послуг в сфері сімейного "
+"права, податкового права, судового провадження, нерухомості і "
+"будівництва."
+
+#: templates/paid_services/analysis.jinja.html:214
+msgid ""
+"Даем год гарантии на то, что если не учтем что-то при покупке, то вернем "
+"вам деньги за наши услуги, либо будем отстаивать Ваши интересы в судах "
+"бесплатно."
+msgstr ""
+"Даємо рік гарантії на те, що якщо не врахуємо щось при покупці, то "
+"повернемо вам гроші за наші послуги, або будемо відстоювати Ваші інтереси"
+" в судах безкоштовно."
+
+#: templates/paid_services/analysis.jinja.html:227
+msgid "Перечень услуг от"
+msgstr "Перелік послуг від"
+
+#: templates/paid_services/analysis.jinja.html:236
+msgid "Экспертиза"
+msgstr "Експертиза"
+
+#: templates/paid_services/analysis.jinja.html:237
+msgid "Сопровождение"
+msgstr "Супровід"
+
+#: templates/paid_services/analysis.jinja.html:238
+msgid "Полный"
+msgstr "Повний"
+
+#: templates/paid_services/analysis.jinja.html:242
+msgid "Юридическая экспертиза документов"
+msgstr "Юридична експертиза документів"
+
+#: templates/paid_services/analysis.jinja.html:246
+msgid "Юридическое сопровождение заключения договора"
+msgstr "Юридичний супровід укладення договору"
+
+#: templates/paid_services/analysis.jinja.html:250
+msgid "Полное юридическое сопровождение (до получения права собственности)"
+msgstr "Повний юридичний супровід (до отримання права власності)"
+
+#: templates/paid_services/analysis.jinja.html:257
+msgid "Консультация"
+msgstr "Консультація"
+
+#: templates/paid_services/analysis.jinja.html:263
+msgid "Проверка полномочий продавца"
+msgstr "Перевірка повноважень продавця"
+
+#: templates/paid_services/analysis.jinja.html:269
+msgid "Проверка законности строительства"
+msgstr "Перевірка законності будівництва"
+
+#: templates/paid_services/analysis.jinja.html:275
+msgid "Проверка правоустанавливающих документов на недвижимость"
+msgstr "Перевірка правовстановлюючих документів на нерухомість"
+
+#: templates/paid_services/analysis.jinja.html:281
+msgid "Проверка законности договорной схемы продаж"
+msgstr "Перевірка законності договірної схеми продажів"
+
+#: templates/paid_services/analysis.jinja.html:287
+msgid ""
+"Проверка объекта недвижимость в государственных реестрах (касательно "
+"имущественных прав наобъект недвижимости, наличия запретов, арестов, "
+"ипотек)"
+msgstr ""
+"Перевірка об'єкта нерухомості в державних реєстрах (щодо майнових прав на"
+" об'ект нерухомості, наявності заборон, арештів, іпотек)"
+
+#: templates/paid_services/analysis.jinja.html:294
+msgid "Проверка продавца недвижимости в государственных реестрах"
+msgstr "Перевірка продавця нерухомості в державних реєстрах"
+
+#: templates/paid_services/analysis.jinja.html:300
+msgid "Проверка прав на земельный участок"
+msgstr "Перевірка прав на земельну ділянку"
+
+#: templates/paid_services/analysis.jinja.html:306
+msgid "Определение и анализ рисков в договоре"
+msgstr "Визначення та аналіз ризиків в договорі"
+
+#: templates/paid_services/analysis.jinja.html:312
+msgid "Согласование существенных условий договора с продавцом"
+msgstr "Узгодження існуючих умов договору з продавцем"
+
+#: templates/paid_services/analysis.jinja.html:318
+msgid "Выезд юриста на подписание договора"
+msgstr "Виїзд юриста на підписання договору"
+
+#: templates/paid_services/analysis.jinja.html:324
+msgid ""
+"Юридическое сопровождение правоотношений с продавцом (застройщиком) до "
+"момента получения права собственности на объект недвижимости"
+msgstr ""
+"Юридичний супровід правовідносин з продавцем (забудовником) до моменту "
+"отримання права власності на об'єкт нерухомості"
+
+#: templates/paid_services/analysis.jinja.html:331
+msgid ""
+"Досудебное урегулирование споров с продавцом (застройщиком) "
+"обслуживающими организациями после оформления права собственности на "
+"объект недвижимости (касательно придомовых территорий, обслуживания…)"
+msgstr ""
+"Досудове врегулювання спорів з продавцем (забудовником) обслуговуючими "
+"організаціями після оформлення права власності на об'єкт нерухомості "
+"(щодо прибудинкових територій, обслуговування...)"
+
+#: templates/paid_services/analysis.jinja.html:338
+msgid ""
+"Юридическая оценка законности уже заключённых соглашений касательно "
+"объектов недвижимости"
+msgstr "Юридична оцінка законності вже укладених угод щодо об'єктів нерухомості"
+
+#: templates/paid_services/analysis.jinja.html:344
+msgid "Контроль за исполнением условий договора сторонами"
+msgstr "Контроль за виконанням умов договору сторонами"
+
+#: templates/paid_services/analysis.jinja.html:350
+msgid "Правовой анализ возможности выхода из проблемного строительства"
+msgstr "Правовий аналіз можливості виходу з проблемного будівництва"
+
+#: templates/paid_services/analysis.jinja.html:359
+msgid "от "
+msgstr "від"
+
+#: templates/paid_services/analysis.jinja.html:366
+msgid "Заказать звонок"
+msgstr "Замовити дзвінок"
+
+#: templates/paid_services/analysis.jinja.html:380
+msgid "Свяжитесь с нами:"
+msgstr "Зв'яжіться з нами:"
+
+#: templates/paid_services/analysis.jinja.html:381
+msgid "Ольга Кулиш"
+msgstr "Ольга Куліш"
+
+#: templates/paid_services/analysis.jinja.html:382
+msgid "Директор отдела по работе с застройщиками"
+msgstr "Директор відділу по роботі із забудовниками"
+
+#: templates/paid_services/analysis.jinja.html:394
+#: templates/paid_services/tour360.jinja.html:302
+msgid "Свяжитесь с нами!"
+msgstr "Зв'яжіться з нами!"
+
+#: templates/paid_services/analysis.jinja.html:395
+msgid "Вышлите нам свои данные и мы с вами свяжемся"
+msgstr "Вишліть нам свої дані і ми з вами зв'яжемося"
+
+#: templates/paid_services/analysis.jinja.html:398
+#: templates/paid_services/interior3d.jinja.html:515
+#: templates/paid_services/notary.jinja.html:283
+#: templates/paid_services/ocenka-nedvizh.jinja.html:89
+msgid "Заявка принята, с Вами свяжутся."
+msgstr "Заявка прийнята, з Вами зв'яжуться"
+
+#: templates/paid_services/analysis.jinja.html:403
+#: templates/paid_services/tour360.jinja.html:144
+#: templates/paid_services/tour360.jinja.html:311
+msgid "Связаться с нами"
+msgstr "Зв'язатися з нами"
+
+#: templates/paid_services/index.jinja.html:188
+msgid "Выберите способ размещения объявления"
+msgstr "Виберіть спосіб розміщення оголошення"
+
+#: templates/paid_services/index.jinja.html:189
+msgid ""
+"Перед тем, как начать добавлять обьявления, выберите одну из двух "
+"предложенных моделей работы с сайтом."
+msgstr ""
+"Перед тим, як почати додавати оголошення, виберіть одну з двох "
+"запропонованих моделей роботи з сайтом."
+
+#: templates/paid_services/index.jinja.html:190
+msgid ""
+"При необходимости, вы сможете в любой момент перейти с одной модели на "
+"другую."
+msgstr ""
+"При необхідності, ви зможете в будь-який момент перейти з однієї моделі "
+"на іншу."
+
+#: templates/paid_services/index.jinja.html:201
+#: templates/paid_services/index.jinja.html:208
+msgid "Срок публикации объявлений 30 - 365 дней;"
+msgstr "Термін публікації оголошень 30 - 365 днів;"
+
+#: templates/paid_services/index.jinja.html:202
+#: templates/paid_services/index.jinja.html:209
+msgid "Стоимость размещения зависит от количества объявлений;"
+msgstr "Вартість розміщення залежить від кількості оголошень;"
+
+#: templates/paid_services/index.jinja.html:205
+msgid "Тарифные планы"
+msgstr "Тарифні плани"
+
+#: templates/paid_services/index.jinja.html:206
+msgid "Выберите один из тарифов  размещения объявлений"
+msgstr "Виберіть один з тарифів розміщення оголошень"
+
+#: templates/paid_services/index.jinja.html:211
+#: templates/paid_services/index.jinja.html:233
+#: templates/paid_services/international.jinja.html:233
+#: templates/paid_services/international.jinja.html:244
+#: templates/paid_services/plan.jinja.html:28
+msgid "Выбрать"
+msgstr "Вибрати"
+
+#: templates/paid_services/index.jinja.html:220
+#: templates/paid_services/index.jinja.html:228
+msgid "Срок публикации объявлений неограничен;"
+msgstr "Термін публікації оголошень необмежений;"
+
+#: templates/paid_services/index.jinja.html:221
+#: templates/paid_services/index.jinja.html:229
+msgid "Стоимость размещения минимальное пополнение;"
+msgstr "Вартість розміщення мінімальне поповнення;"
+
+#: templates/paid_services/index.jinja.html:222
+#: templates/paid_services/index.jinja.html:230
+msgid "Оплата услуг после принятого звонка/заявки;"
+msgstr "Оплата послуг після прийнятого дзвінка/заявки;"
+
+#: templates/paid_services/index.jinja.html:223
+#: templates/paid_services/index.jinja.html:231
+msgid "Данные клиента всегда при вас."
+msgstr "Дані клієнта завжди з вами."
+
+#: templates/paid_services/index.jinja.html:225
+#: templates/paid_services/menu_publication.jinja.html:5
+msgid "Оплата за звонок"
+msgstr "Оплата за дзвінок"
+
+#: templates/paid_services/index.jinja.html:226
+msgid "Оплачиваете только звонок клиента,<br/> обратившегося с сайта mesto.ua"
+msgstr "Оплачуєте тільки дзвінок клієнта,<br/> який звернувся з сайту mesto.ua"
+
+#: templates/paid_services/index.jinja.html:245
+msgid "Размещение от 1 до 40 объявлений"
+msgstr "Розміщення від 1 до 40 оголошень"
+
+#: templates/paid_services/index.jinja.html:251
+msgid "Разные виды обращений от клиентов (звонки,заявки)"
+msgstr "Різні види звернень від клієнтів (дзвінки, заявки)"
+
+#: templates/paid_services/index.jinja.html:257
+msgid "Автоматическое обновление объявлений каждые 7 дней"
+msgstr "Автоматичне оновлення оголошень кожні 7 днів"
+
+#: templates/paid_services/index.jinja.html:263
+msgid "Возможность взаимозаменять объявления"
+msgstr "Можливість замінювати оголошення"
+
+#: templates/paid_services/index.jinja.html:269
+msgid ""
+"Выбор \"рабочего времени\" агентства, которое будет указано в ваших "
+"объявлениях"
+msgstr "Вибір \"робочого часу\" агентства, який буде вказано у ваших оголошеннях"
+
+#: templates/paid_services/index.jinja.html:275
+msgid "Приобретения услуги VIP размещения"
+msgstr "Придбання послуги VIP розміщення"
+
+#: templates/paid_services/interior3d.jinja.html:448
+msgid ""
+"<b>Продавайте недвижимость <br/> быстрее</b> при помощи 3D дизайна<br/> "
+"ваших объектов"
+msgstr ""
+"<b>Продавайте нерухомість <br/> швидше</b> за допомогою 3D дизайну<br/> "
+"ваших об'єктів"
+
+#: templates/paid_services/interior3d.jinja.html:449
+msgid ""
+"Покажите вашим клиентам их будущее в новой квартире.<br/>\n"
+"                Загружайте фото квартиры и получите готовый 3D дизайн "
+"объекта в желаемом стиле."
+msgstr ""
+"Покажіть вашим клієнтам їх майбутнє в новій квартирі.<br/> Завантажуйте "
+"фото квартири і отримайте готовий 3D дизайн об'єкта в бажаному стилі."
+
+#: templates/paid_services/interior3d.jinja.html:452
+#: templates/paid_services/tour360.jinja.html:277
+msgid "Заказать"
+msgstr "Замовити"
+
+#: templates/paid_services/interior3d.jinja.html:459
+msgid "Повышайте привлекательность ваших объектов недвижимости"
+msgstr "Підвищуйте привабливість ваших об'єктів нерухомості"
+
+#: templates/paid_services/interior3d.jinja.html:460
+msgid ""
+"Используя виртуальный сервис 3D дизайн фото Вы помогаете клиентам "
+"визуализировать будущий дизайн новой квартиры или дома, а также повышаете"
+" привлекательность ваших объявлений."
+msgstr ""
+"Використовуючи віртуальний сервіс 3D дизайн фото Ви допомагаєте клієнтам "
+"візуалізувати майбутній дизайн нової квартири або будинку, а також "
+"підвищуєте привабливість ваших оголошень."
+
+#: templates/paid_services/interior3d.jinja.html:468
+msgid "3D фото адаптируется ко всем видам недвижимости"
+msgstr "3D фото адаптується до всіх видів нерухомості"
+
+#: templates/paid_services/interior3d.jinja.html:470
+msgid ""
+"Вы продаете квартиру в новострое, где есть только «голые» стены и окна "
+"или же вы продаете квартиру, которая остро нуждается в ремонте – "
+"загружайте фото имеющегося объекта и получите готовый дизайн комнаты с "
+"детальной визуализацией предметов интерьера. "
+msgstr ""
+"Ви продаєте квартиру в новобудові, де є тільки «голі» стіни і вікна або ж"
+" ви продаєте квартиру, яка потребує ремонту - завантажуйте фото наявного "
+"об'єкта і отримаєте готовий дизайн кімнати з детальною візуалізацією "
+"предметів інтер'єру."
+
+#: templates/paid_services/interior3d.jinja.html:482
+msgid "Получить 3D дизайн фото в 4 шага"
+msgstr "Отримати 3D дизайн фото в 4 кроки"
+
+#: templates/paid_services/interior3d.jinja.html:485
+msgid ""
+"<b>Загрузите фото</b><br/>\n"
+"                    Подберите необходимый объект для 3D визуализации и "
+"загрузите фото"
+msgstr ""
+"<b>Завантажте фото</b><br/> Підберіть необхідний об'єкт для 3D "
+"візуалізації і завантажте фото"
+
+#: templates/paid_services/interior3d.jinja.html:490
+msgid ""
+"<b>Выберите стиль</b><br/>\n"
+"                    Подберите наиболее подходящий стиль дизайна для "
+"выбранного объекта"
+msgstr ""
+"<b>Виберіть стиль</b><br/> Підберіть найбільш підходящий стиль дизайну "
+"для обраного об'єкта"
+
+#: templates/paid_services/interior3d.jinja.html:495
+msgid ""
+"<b>Получите готовый дизайн</b><br/>\n"
+"                    В течение 3-5 дней дизайнеры реализуют проект в "
+"выбранном вами стиле"
+msgstr ""
+"<b>Отримайте готовий дизайн</b><br/> Протягом 3-5 днів дизайнери "
+"реалізують проект в обраному вами стилі"
+
+#: templates/paid_services/interior3d.jinja.html:500
+msgid ""
+"<b>Продавайте мечту</b><br/>\n"
+"                    Как только вы получите готовый 3D дизайн фото на "
+"e-mail, загружайте его с любого удобного вам устройства и транслируйте на"
+" различные онлайн площадки"
+msgstr ""
+"<b>Продавайте мрію</b><br/> Як тільки ви отримаєте готовий 3D дизайн фото"
+" на e-mail, завантажуйте його з будь-якого зручного вам пристрою і "
+"транслюйте на різні онлайн площадки"
+
+#: templates/paid_services/interior3d.jinja.html:508
+msgid "Заказать 3D дизайн фото"
+msgstr "Замовити 3D дизайн фото"
+
+#: templates/paid_services/interior3d.jinja.html:509
+msgid "Предполагаемое время реализации проекта 3 дня"
+msgstr "Орієнтовний час реалізації проекту 3 дні"
+
+#: templates/paid_services/interior3d.jinja.html:524
+#: templates/paid_services/interior3d.jinja.html:566
+#: templates/paid_services/interior3d.jinja.html:582
+#: templates/paid_services/interior3d.jinja.html:602
+msgid "Продолжить"
+msgstr "Продовжити"
+
+#: templates/paid_services/interior3d.jinja.html:550
+msgid "Название вашего проекта"
+msgstr "Назва вашого проекту"
+
+#: templates/paid_services/interior3d.jinja.html:553
+msgid "Выберите тип недвижимости"
+msgstr "Виберіть тип нерухомості"
+
+#: templates/paid_services/interior3d.jinja.html:558
+msgid "Квартира"
+msgstr "Квартира"
+
+#: templates/paid_services/interior3d.jinja.html:563
+msgid "Дом"
+msgstr "Дім"
+
+#: templates/paid_services/interior3d.jinja.html:569
+msgid "Загрузите фотографию"
+msgstr "Завантажте фотографію"
+
+#: templates/paid_services/interior3d.jinja.html:574
+msgid ""
+"Убедитесь, что ваша фотография не размыта, содержит хороший контраст и "
+"ракурс"
+msgstr "Переконайтеся, що ваше фото не розмите, містить хороший контраст і ракурс"
+
+#: templates/paid_services/interior3d.jinja.html:581
+msgid ""
+"Совместимые файлы <span>.jpg</span> и <span>.png</span><br/>Максимальный "
+"размер файла <span>10 МБ</span>"
+msgstr ""
+"Прийнятні файли <span>.jpg</span> і <span>.png </span><br/>Максимальний "
+"розмір файлу <span>10 МБ</span>"
+
+#: templates/paid_services/interior3d.jinja.html:584
+#: templates/paid_services/interior3d.jinja.html:604
+#: templates/paid_services/interior3d.jinja.html:654
+msgid "вернуться"
+msgstr "назад"
+
+#: templates/paid_services/interior3d.jinja.html:588
+msgid "Заполните некоторые данные"
+msgstr "Заповніть деякі дані"
+
+#: templates/paid_services/interior3d.jinja.html:594
+msgid "Тип помещения"
+msgstr "Тип приміщення"
+
+#: templates/paid_services/interior3d.jinja.html:608
+msgid "Выберите стиль оформления"
+msgstr "Виберіть стиль оформлення"
+
+#: templates/paid_services/interior3d.jinja.html:613
+msgid "Я доверяю декоратору"
+msgstr "Я довіряю дизайнеру"
+
+#: templates/paid_services/interior3d.jinja.html:618
+msgid "Нордический"
+msgstr "Нордичний"
+
+#: templates/paid_services/interior3d.jinja.html:623
+msgid "Джунгли"
+msgstr "Джунглі"
+
+#: templates/paid_services/interior3d.jinja.html:628
+msgid "Очарование"
+msgstr "Зачарованість"
+
+#: templates/paid_services/interior3d.jinja.html:633
+msgid "Промышленный"
+msgstr "Промисловий"
+
+#: templates/paid_services/interior3d.jinja.html:638
+msgid "Марочный"
+msgstr "Марочний"
+
+#: templates/paid_services/interior3d.jinja.html:643
+msgid "Богемия"
+msgstr "Богемія"
+
+#: templates/paid_services/interior3d.jinja.html:648
+msgid "Дизайн"
+msgstr "Дизайн"
+
+#: templates/paid_services/interior3d.jinja.html:652
+msgid "Подтвердить"
+msgstr "Підтвердити"
+
+#: templates/paid_services/international.jinja.html:213
+msgid "Зарубежная недвижимость"
+msgstr "Зарубіжна нерухомість"
+
+#: templates/paid_services/international.jinja.html:214
+msgid ""
+"Раздел «зарубежная недвижимость» позволяет размещать объявления о продаже"
+" или аренде недвижимости как в Украине, так и за рубежом."
+msgstr ""
+"Розділ «зарубіжна нерухомість» дозволяє розміщувати оголошення продажу "
+"або оренди нерухомості, як в Україні, так і за кордоном."
+
+#: templates/paid_services/international.jinja.html:217
+msgid ""
+"Публикация объявлений в Зарубежных каталогах, увеличивает шансы "
+"реализации объекта в несколько раз, так как ваше объявление может быть "
+"размещено сразу на 114 международных порталах, которые ежедневно посещают"
+" пользователи со всего мира, заинтересованные в покупке или аренде "
+"недвижимости."
+msgstr ""
+"Публікація оголошень в Зарубіжних каталогах, збільшує шанси реалізації "
+"об'єкта в кілька разів, оскільки ваше оголошення може бути розміщенним "
+"відразу на 114 міжнародних порталах, які щодня відвідують користувачі з "
+"усього світу, зацікавлені в покупці або оренді нерухомості."
+
+#: templates/paid_services/international.jinja.html:219
+msgid "<b>Выберите удобный вариант публикации объявлений"
+msgstr "<b>Виберіть зручний варіант публікації оголошень"
+
+#: templates/paid_services/international.jinja.html:220
+msgid ""
+"и получайте еще больше звонков от клиентов уже сейчас<br><span>Срок "
+"действия публикации 30 дней</span>"
+msgstr ""
+"і отримуйте ще більше дзвінків від клієнтів вже зараз <br><span> Термін "
+"дії публікації 30 днів</span>"
+
+#: templates/paid_services/international.jinja.html:229
+msgid "Размещение на International.mesto.ua"
+msgstr "Розміщення на International.mesto.ua"
+
+#: templates/paid_services/international.jinja.html:230
+msgid "(только для объектов, которые находятся зарубежом)"
+msgstr "(Тільки для об'єктів, які знаходяться за кордоном)"
+
+#: templates/paid_services/international.jinja.html:232
+#: templates/paid_services/international.jinja.html:243
+msgid "рассчет в гривне по курсу Приват банк в день публикации объявления"
+msgstr "розрахунок у гривні за курсом Приват банку в день публікації оголошення"
+
+#: templates/paid_services/international.jinja.html:240
+msgid ""
+"Размещение на mesto.ua <span>+ трансляция на 114 международных "
+"площадок</span>"
+msgstr "Розміщення на mesto.ua <span>+ трансляція на 114 міжнародних сайтів</span>"
+
+#: templates/paid_services/international.jinja.html:241
+msgid "(только для объектов, которые находятся в Украине)"
+msgstr "(Тільки для об'єктів, які знаходяться в Україні)"
+
+#: templates/paid_services/legal_services.jinja.html:129
+msgid ""
+"Портал недвижимости <b>mesto.ua</b> - уникальная площадка, которая "
+"одновременно позволяет искать/размещать объявления недвижимости со всех "
+"регионов Украины, а также заказывать услуги, связанные с заключением "
+"сделок покупки-продажи недвижимости.<br/><br/>\n"
+"                Специалисты ведущих юридических компаний проведут для вас"
+" <a data-api=\"smartsupp\" data-operation=\"open\">бесплатную "
+"консультацию</a> и ответят на интересующие вас вопросы. "
+msgstr ""
+"Портал нерухомості <b>mesto.ua</b> - унікальний сайт, який одночасно "
+"дозволяє шукати/розміщувати оголошення нерухомості з усіх регіонів "
+"України, а також замовляти послуги, пов'язані з укладанням угод "
+"купівлі-продажу нерухомості. <br/><br/> Фахівці провідних юридичних "
+"компаній проведуть для вас <a data-api=\"smartsupp\" data-"
+"operation=\"open\">безкоштовну консультацію</a> і дадуть відповідь на "
+"ваші запитання."
+
+#: templates/paid_services/legal_services.jinja.html:136
+msgid "Список услуг, которые вы можете заказать"
+msgstr "Список послуг, які ви можете замовити"
+
+#: templates/paid_services/legal_services.jinja.html:140
+msgid ""
+"<b>Экспертная проверка жилья</b>\n"
+"                    Самостоятельно достаточно сложно правильно определить"
+" возможные неприятности и оценить последствия оформления сделок..."
+msgstr ""
+"<b>Експертна перевірка житла</b> Самостійно досить складно правильно "
+"визначити можливі неприємності/проблеми/ризики та оцінити наслідки "
+"оформлення угод ..."
+
+#: templates/paid_services/legal_services.jinja.html:149
+msgid ""
+"<b>Экспертная оценка</b>\n"
+"                    Оцениваем то, что цените Вы! Мы предлагаем широкий "
+"спектр оценочных услуг: при купле-продаже имущества..."
+msgstr ""
+"<b>Експертна оцінка</b> Оцінюємо те, що цінуєте Ви! Ми пропонуємо широкий"
+" спектр оціночних послуг: при купівлі-продажу майна ..."
+
+#: templates/paid_services/legal_services.jinja.html:156
+msgid ""
+"<b>Услуги нотариуса</b>\n"
+"                    Оформление различных документов на недвижимость "
+"невозможно без услуг квалифицированного нотариуса..."
+msgstr ""
+"<b>Послуги нотаріуса</b> Оформлення різних документів на нерухомість "
+"неможливо без послуг кваліфікованого нотаріуса ..."
+
+#: templates/paid_services/legal_services.jinja.html:163
+msgid ""
+"<b>Бесплатная консультация юриста</b>\n"
+"                    <a id=\"free_consult\"  data-api=\"smartsupp\" data-"
+"operation=\"open\">Подробней</a>"
+msgstr ""
+"<b>Безкоштовна консультація юриста</b> <a id=\"free_consult\" data-"
+"api=\"smartsupp\" data-operation=\"open\">Детальніше</a>"
+
+#: templates/paid_services/menu_extra.jinja.html:5
+msgid "Панорама 360"
+msgstr "Панорама 360"
+
+#: templates/paid_services/menu_publication.jinja.html:4
+msgid "Оплата за тарифный план"
+msgstr "Оплата за тарифний план"
+
+#: templates/paid_services/notary.jinja.html:236
+msgid ""
+"Оформление различных документов на недвижимость невозможно без услуг "
+"квалифицированного нотариуса.<br/><br/>\n"
+"                У вас возникли вопросы связанные с договорами "
+"купли-продажи, дарственными, наследством, доверенностями,\n"
+"                завещанием и тд., закажите услугу квалифицированного "
+"нотариуса <a href=\"#form\">прямо сейчас!</a>"
+msgstr ""
+"Оформлення різних документів з нерухомості неможливе без послуг "
+"кваліфікованого нотаріуса. <br/> <br/> У вас виникли питання пов'язані з "
+"договорами купівлі-продажу, дарчими, спадщиною, дорученнями, заповітом і "
+"тд., Замовте послугу кваліфікованого нотаріуса <a href=\"#form\">прямо "
+"зараз! </a>"
+
+#: templates/paid_services/notary.jinja.html:244
+msgid "Перечень услуг нотариусов"
+msgstr "Перелік послуг нотаріусів"
+
+#: templates/paid_services/notary.jinja.html:247
+msgid ""
+"<b>Удостоверение и оформление договоров:</b><br/>\n"
+"                    договор купли-продажи, мены, аренды и тд"
+msgstr ""
+"<B> Посвідчення та оформлення договорів:</b><br/> договір "
+"купівлі-продажу, міни, оренди і тд"
+
+#: templates/paid_services/notary.jinja.html:252
+msgid ""
+"<b>Завещание:</b><br/>\n"
+"                    формирование текста завещания, составление и заверение"
+msgstr "<b>Заповіт:</b><br/> формування тексту заповіту, складання і завірення"
+
+#: templates/paid_services/notary.jinja.html:257
+msgid ""
+"<b>Свидетельствование подписи на документах:</b><br/>\n"
+"                    регистрация места жительства; согласие второго "
+"супруга при осуществлении операции продажи-купли имущества, "
+"приобретенного в браке и тд. "
+msgstr ""
+"<b>Засвідчення достовірності підпису на документах:</b><br/> реєстрація "
+"місця проживання; згода іншого з подружжя при здійсненні операції "
+"продажу-купівлі майна, придбаного в шлюбі і тд."
+
+#: templates/paid_services/notary.jinja.html:262
+msgid ""
+"<b>Наследство:</b><br/>\n"
+"                    ведение наследственных дел, вступление в "
+"наследственные права и тд"
+msgstr "<b>Спадщина:</b><br/> ведення спадкових справ, вступ у спадкові права і тд"
+
+#: templates/paid_services/notary.jinja.html:267
+msgid ""
+"<b>Удостоверение и оформление доверенностей:</b><br/>\n"
+"                    доверенность на представление интересов, на "
+"распоряжение материальными ценностями, недвижимостью и тд"
+msgstr ""
+"<b>Посвідчення та оформлення довіреностей:</b><br/> довіреність на "
+"представлення інтересів, на розпорядження матеріальними цінностями, "
+"нерухомістю і тд"
+
+#: templates/paid_services/notary.jinja.html:272
+msgid ""
+"<b>Другие нотариальные действия:</b><br/>\n"
+"                    регистрация права собственности, отчуждение "
+"недвижимого имущества, земельного участка и тд"
+msgstr ""
+"<b>Інші нотаріальні дії:</b><br/> реєстрація права власності, відчуження "
+"нерухомого майна, земельних ділянок і тд"
+
+#: templates/paid_services/notary.jinja.html:280
+#: templates/paid_services/ocenka-nedvizh.jinja.html:86
+msgid "Оставьте заявку"
+msgstr "Залиште заявку"
+
+#: templates/paid_services/notary.jinja.html:281
+msgid "для консультации с нотариусом или узнайте об услуге подробнее"
+msgstr "для консультації з нотаріусом або дізнайтесь про послугу детальніше"
+
+#: templates/paid_services/notary.jinja.html:289
+#: templates/paid_services/ocenka-nedvizh.jinja.html:17
+#: templates/paid_services/ocenka-nedvizh.jinja.html:80
+#: templates/paid_services/ocenka-nedvizh.jinja.html:96
+msgid "Оставить заявку"
+msgstr "Залишити заявку"
+
+#: templates/paid_services/notary.jinja.html:293
+#: templates/paid_services/ocenka-nedvizh.jinja.html:102
+msgid "За дополнительной информацией"
+msgstr "За додатковою інформацією"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:12
+msgid "Экспертная оценка имущества"
+msgstr "Експертна оцінка майна"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:14
+msgid "Качественно, законно, открыто"
+msgstr "Якісно, законно, відкрито"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:19
+msgid "Подробнее о стоимости и  услуге"
+msgstr "Детальніше про вартість і послуги"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:21
+msgid ""
+"Если вам необходима одна из нижеприведённых <b>оценочных услуг</b>,<br/> "
+"наши специалисты помогут вам"
+msgstr ""
+"Якщо вам необхідна одна з наведених нижче <b>оціночних "
+"послуг</b>,<br/>наші фахівці допоможуть вам"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:24
+msgid "в купле-продаже имущества;"
+msgstr "в купівлі-продажу майна;"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:25
+msgid "в обмене, аренде или приватизации;"
+msgstr "в обміні, оренді чи приватизації;"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:26
+msgid "в кредитовании;"
+msgstr "в кредитуванні;"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:27
+msgid "при заключении ипотечных договоров и передаче в залог;"
+msgstr "при укладанні іпотечних договорів та передачі в заставу;"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:28
+msgid "при дарении и передаче по наследству;"
+msgstr "при даруванні і передачі у спадок;"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:33
+msgid "при разделе имущества;"
+msgstr "при розділі майна;"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:34
+msgid "при решении разного рода имущественных споров в суде;"
+msgstr "при вирішенні різного роду майнових суперечок в суді;"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:35
+msgid "при взносе в уставный капитал;"
+msgstr "при внеску в статутний капітал;"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:36
+msgid ""
+"для переоценки основных средств по П(С)БУ и МСФО, в том числе при "
+"слияниях/поглощениях;"
+msgstr ""
+"для переоцінки основних засобів за П(С)БО і МСФЗ, в тому числі при "
+"злиттях/поглинаннях;"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:37
+msgid "в оформлении страховки."
+msgstr "в оформленні страховки."
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:43
+msgid "Как заказать экспертную оценку?"
+msgstr "Як замовити експертну оцінку?"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:45
+msgid "шаг 1"
+msgstr "Крок 1"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:47
+msgid "Заполните заявку"
+msgstr "Заповніть заявку"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:50
+msgid "шаг 2"
+msgstr "Крок 2"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:52
+msgid "С вами свяжется наш специалист"
+msgstr "З вами зв'яжеться наш фахівець"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:55
+msgid "шаг 3"
+msgstr "Крок 3"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:57
+msgid "Оплачивайте услугу"
+msgstr "Сплачуйте послугу"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:60
+msgid "шаг 4"
+msgstr "Крок 4"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:62
+msgid "через 3 дня курьер НП привозит вам заверенную ЭО"
+msgstr "через 3 дня кур'єр НП привозить вам завірену ЕО"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:69
+msgid "Наш партнер в оформлении Экспертной<br>оценки ТОВ «Назарет»"
+msgstr "Наш партнер в оформленні Експертної<br>оцінки ТОВ «Назарет»"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:78
+msgid ""
+"Оставьте заявку на оформление Экспертной оценки<br>или узнайте об услуге "
+"подробнее скачав pdf"
+msgstr ""
+"Залиште заявку на оформлення Експертної оцінки<br>або дізнайтесь про "
+"послугу докладніше скачавши pdf"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:87
+msgid "на оформление Экспертной оценки или узнайте об услуге подробнее"
+msgstr "на оформлення Експертної оцінки або дізнайтесь про послугу докладніше"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:87
+msgid "скачав pdf"
+msgstr "завантаживши pdf"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:94
+msgid "Ваша цена"
+msgstr "Ваша ціна"
+
+#: templates/paid_services/ocenka-nedvizh.jinja.html:97
+msgid "экономия"
+msgstr "Економія"
+
+#: templates/paid_services/plan.jinja.html:5
+msgid "Популярный"
+msgstr "Популярний"
+
+#: templates/paid_services/plan.jinja.html:7
+msgid "Полная стоимость"
+msgstr "Повна вартість"
+
+#: templates/paid_services/plan.jinja.html:11
+msgid "Скидка"
+msgstr "Знижка"
+
+#: templates/paid_services/plan.jinja.html:12
+msgid "Экономия"
+msgstr "Економія"
+
+#: templates/paid_services/plan.jinja.html:17
+msgid "Цена со скидкой"
+msgstr "Ціна зі знижкою"
+
+#: templates/paid_services/plan.jinja.html:20
+msgid "Доплатить"
+msgstr "Доплатити"
+
+#: templates/paid_services/plan.jinja.html:28
+msgid "Продлить"
+msgstr "Продовжити"
+
+#: templates/paid_services/plan.jinja.html:28
+msgid "Улучшить"
+msgstr "Покращити"
+
+#: templates/paid_services/plans.jinja.html:37
+msgid "Выберите тарифный план"
+msgstr "Виберіть тарифний план"
+
+#: templates/paid_services/plans.jinja.html:38
+msgid ""
+"Выберите подходящий тарифный план для того, чтоб активировать показ ваших"
+" объявлений."
+msgstr ""
+"Виберіть відповідний тарифний план для того, щоб активувати показ ваших "
+"оголошень."
+
+#: templates/paid_services/plans.jinja.html:39
+msgid "Без покупки тарифного плана – ваши объявления неактивны."
+msgstr "Без покупки тарифного плану - ваші оголошення неактивні."
+
+#: templates/paid_services/plans.jinja.html:42
+msgid "Скидки для АСНУ не суммируются"
+msgstr "Знижки для АСНУ не додаються"
+
+#: templates/paid_services/plans.jinja.html:47
+msgid "Внимание! Покупка будет произведена для риелтора"
+msgstr "Увага! Покупка буде проведена для ріелтора"
+
+#: templates/paid_services/plans.jinja.html:52
+#: templates/paid_services/plans.jinja.html:65
+msgid "Размещение на"
+msgstr "Розміщення на"
+
+#: templates/paid_services/plans.jinja.html:52
+msgid "месяц"
+msgstr "місяць"
+
+#: templates/paid_services/plans.jinja.html:65
+msgid "месяцев"
+msgstr "місяців"
+
+#: templates/paid_services/plans.jinja.html:66
+msgid ""
+"Скидка в 40% предоставляется при условии преобретения тарифного плана на "
+"6 месяцев одним платежом."
+msgstr ""
+"Знижка в 40% надається за умови придбання тарифного плану на 6 місяців "
+"єдиним платежем."
+
+#: templates/paid_services/plans.jinja.html:81
+msgid "Используйте только эффективные инструменты для улучшения своего бизнеса"
+msgstr "Використовуйте лише ефективні інструменти для поліпшення свого бізнесу"
+
+#: templates/paid_services/plans.jinja.html:82
+msgid ""
+"Публикуйте объявления на mesto.ua – увеличивайте продажи и расширяйте "
+"свою клиентскую базу"
+msgstr ""
+"Публікуйте оголошення на mesto.ua - збільшуйте рівень продажів і "
+"розширюйте свою клієнтську базу"
+
+#: templates/paid_services/plans.jinja.html:87
+msgid "6 вариантов пакетов"
+msgstr "6 варіантів пакетів"
+
+#: templates/paid_services/plans.jinja.html:91
+#: templates/paid_services/plans.jinja.html:95
+msgid "Возможность купить"
+msgstr "Можливість купити"
+
+#: templates/paid_services/plans.jinja.html:91
+msgid "размещение 1 объявления"
+msgstr "розміщення 1 оголошення"
+
+#: templates/paid_services/plans.jinja.html:95
+msgid "объявление «1+1»"
+msgstr "оголошення «1+1»"
+
+#: templates/paid_services/plans.jinja.html:105
+msgid "Как это работает"
+msgstr "Як це працює"
+
+#: templates/paid_services/plans.jinja.html:110
+msgid "Для активации объявлений купите соответствующий"
+msgstr "Для активації оголошень придбайте відповідний"
+
+#: templates/paid_services/plans.jinja.html:110
+msgid "Тарифный план на 30 дней."
+msgstr "Тарифний план на 30 днів."
+
+#: templates/paid_services/plans.jinja.html:111
+msgid "Каждые 7 дней объявления автоматически обновляются."
+msgstr "Кожні 7 днів оголошення автоматично оновлюються."
+
+#: templates/paid_services/plans.jinja.html:112
+msgid "По истечению 30 дней, объявления автоматически"
+msgstr "По закінченню 30 днів, оголошення автоматично"
+
+#: templates/paid_services/plans.jinja.html:112
+msgid "деактивируются."
+msgstr "деактивуються."
+
+#: templates/paid_services/plans.jinja.html:113
+msgid "Для возобновления трансляции необходимо продлить услугу."
+msgstr "Для відновлення трансляції необхідно продовжити послугу."
+
+#: templates/paid_services/plans.jinja.html:114
+msgid "В любой момент трансляции объявлений, вы можете докупить"
+msgstr "У будь-який момент трансляції оголошень, ви можете докупити"
+
+#: templates/paid_services/plans.jinja.html:114
+msgid "необходимое количество размещений, где будет учтена"
+msgstr "необхідну кількість розміщень, де буде врахована"
+
+#: templates/paid_services/plans.jinja.html:114
+msgid "денежная разница за неиспользованные дни."
+msgstr "грошова різниця за невикористані дні."
+
+#: templates/paid_services/plans.jinja.html:116
+msgid "Если Вы крупное агенство недвижимости"
+msgstr "Якщо Ви велике агентство нерухомості"
+
+#: templates/paid_services/plans.jinja.html:118
+msgid "Приобретайте сразу несколько пакетов, для своих сотрудников."
+msgstr "Купуйте відразу кілька пакетів, для своїх співробітників."
+
+#: templates/paid_services/plans.jinja.html:119
+msgid "Подключайте их к главному аккаунту."
+msgstr "Підключайте їх до головного аккаунту."
+
+#: templates/paid_services/plans.jinja.html:120
+msgid "Ведите точный контроль средств и эффективности каждого"
+msgstr "Ведіть точний контроль коштів та ефективності кожного"
+
+#: templates/paid_services/plans.jinja.html:120
+msgid "аккаунта."
+msgstr "аккаунта."
+
+#: templates/paid_services/tour360.jinja.html:143
+msgid "Виртуальные туры 360&deg;<br/> реальные продажи"
+msgstr "Віртуальні тури 360&deg;<br/> реальні продажі"
+
+#: templates/paid_services/tour360.jinja.html:146
+msgid "Смотрите пример панорамного тура"
+msgstr "Переглянути приклад панорамного туру"
+
+#: templates/paid_services/tour360.jinja.html:148
+#: templates/paid_services/tour360.jinja.html:189
+msgid "Экономия времени"
+msgstr "Економія часу"
+
+#: templates/paid_services/tour360.jinja.html:149
+msgid "Преимущество среди конкурентов"
+msgstr "Перевага серед конкурентів"
+
+#: templates/paid_services/tour360.jinja.html:150
+msgid "Увеличение продаж на 37&#37;"
+msgstr "Збільшення продажів на 37&#37;"
+
+#: templates/paid_services/tour360.jinja.html:159
+#, python-format
+msgid ""
+"Что такое <a href=\"%(url)s\" target=\"_blank\">виртуальный тур "
+"360&deg;</a>?"
+msgstr ""
+"Що таке <a href=\"%(url)s\" target=\"_blank\">віртуальный тур "
+"360&deg;</a>?"
+
+#: templates/paid_services/tour360.jinja.html:161
+msgid ""
+"Это интерактивный онлайн просмотр объекта недвижимости, где клиент "
+"исследует помещение\n"
+"                в своем собственном темпе и обращает внимание на вещи, "
+"которые интересуют его больше всего."
+msgstr ""
+"Це інтерактивний онлайн перегляд об'єкта нерухомості, де клієнт досліджує"
+" приміщення у своєму власному темпі і звертає увагу на речі, які "
+"цікавлять його найбільше."
+
+#: templates/paid_services/tour360.jinja.html:169
+#, python-format
+msgid ""
+"Шесть причин начать использовать<br/> <a href=\"%(url)s\" "
+"target=\"_blank\">виртуальный тур 360&deg;</a>"
+msgstr ""
+"Шість причин почати використовувати<br/> <a href=\"%(url)s\" "
+"target=\"_blank\">віртуальный тур 360&deg;</a>"
+
+#: templates/paid_services/tour360.jinja.html:173
+msgid "Увеличение конверсии на 37&#37;"
+msgstr "Збільшення конверсії на 37&#37;"
+
+#: templates/paid_services/tour360.jinja.html:174
+msgid ""
+"37 - не просто цифра, это мировая статистика, которая говорит о том, что,"
+"\n"
+"                    используя визуальный тур, вы на 37&#37; увеличиваете "
+"шансы на заключение той или иной сделки.\n"
+"                    Предлагаем Вам лично убедиться в этом и увеличить "
+"личную конверсию."
+msgstr ""
+"37 - не просто цифра, це світова статистика, яка говорить про те, що, "
+"використовуючи візуальний тур, ви збільшуєте шанси на укладення тієї чи "
+"іншої угоди на 37&#37;. Пропонуємо Вам особисто переконатися в цьому і "
+"збільшити конверсію."
+
+#: templates/paid_services/tour360.jinja.html:180
+msgid "Мобильность использования"
+msgstr "Мобільність використання"
+
+#: templates/paid_services/tour360.jinja.html:181
+msgid ""
+"Новая технология даст Вам возможность быть всегда готовым к показу "
+"объекта.\n"
+"                    Не важно в каком месте вы находитесь и каким сайтом "
+"недвижимости пользуетесь. Всё что вам нужно,\n"
+"                    это иметь под рукой любое мобильное устройство, на "
+"котором Вы сможете показать потенциальному\n"
+"                    клиенту свой объект."
+msgstr ""
+"Нова технологія дає Вам можливість бути завжди готовим до показу об'єкта."
+" Не важливо в якому місці ви знаходитеся і яким сайтом нерухомості "
+"користуєтеся. Все що вам потрібно, це мати під рукою будь-який мобільний "
+"пристрій, на якому Ви зможете показати потенційному клієнту свій об'єкт."
+
+#: templates/paid_services/tour360.jinja.html:190
+msgid ""
+"Каждый дорожит своим временем. Теперь Вы сможете сократить время\n"
+"                    показа объекта, так как Вам больше не придется "
+"выезжать на \"холостые\" заказы, а значит Вы будете\n"
+"                    посещать объект исключительно с целевым клиентом."
+msgstr ""
+"Кожен цінує свій час. Тепер Ви зможете скоротити час показу об'єкта, так "
+"як Вам більше не доведеться виїжджати на \"холості\" замовлення, а це "
+"означає, що Ви будете відвідувати об'єкт виключно з цільовим клієнтом."
+
+#: templates/paid_services/tour360.jinja.html:197
+msgid "VR-очки"
+msgstr "VR-окуляри"
+
+#: templates/paid_services/tour360.jinja.html:198
+msgid ""
+"Использование современных технологий не только удивит вашего клиента,\n"
+"                    но и позволит ему \"окунуться\" в дизайн интерьера "
+"того или иного объекта, получив незабываемые\n"
+"                    впечатления от просмотра."
+msgstr ""
+"Використання сучасних технологій не тільки здивує вашого клієнта, а й "
+"дозволить йому \"зануритися\" в дизайн інтер'єру того або іншого об'єкта,"
+" отримавши незабутні враження від перегляду."
+
+#: templates/paid_services/tour360.jinja.html:205
+msgid "Визуализация на сайте"
+msgstr "Візуалізація на сайті"
+
+#: templates/paid_services/tour360.jinja.html:206
+msgid ""
+"У объектов, размещенных с использованием виртуального тура, увеличивается"
+"\n"
+"                    шанс на показ клиенту, благодаря дополнительному "
+"функционалу. Так же без каких-либо дополнительных плат,\n"
+"                    ваше объявление будет рекламироваться в популярных "
+"соц. сетях (Facebook, Vkontakte)."
+msgstr ""
+"Об'єкти, розміщенні з використанням віртуального туру, мають більші шанси"
+" на показ клієнтові, завдяки додатковому функціоналу. Так само без "
+"будь-яких додаткових оплат, ваше оголошення буде рекламуватися в "
+"популярних соц. мережах (Facebook, Vkontakte)."
+
+#: templates/paid_services/tour360.jinja.html:212
+msgid "Будь в тренде"
+msgstr "Будь в тренді"
+
+#: templates/paid_services/tour360.jinja.html:213
+#, python-format
+msgid ""
+"Использование <a href=\"%(url)s\" target=\"_blank\">визуального тура "
+"360</a> не только покажет Вас как современного человека, идущего в ногу "
+"со временем,\n"
+"                но и даст понять вашему клиенту, что вы дорожите своим и "
+"его временем, а значит являетесь настоящим профессионалом своего дела."
+msgstr ""
+"Використання <a href=\"%(url)s\" target=\"_blank\"> візуального туру 360 "
+"</a> не лише зарекомендує Вас як сучасну людину, яка йде в ногу з часом, "
+"але і дасть зрозуміти вашому клієнту, що ви цінуєте свій і його час, а "
+"значить є справжнім професіоналом своєї справи."
+
+#: templates/paid_services/tour360.jinja.html:218
+msgid "Заказать тур 360"
+msgstr "Замовити тур 360"
+
+#: templates/paid_services/tour360.jinja.html:236
+msgid "Сколько это будет стоить"
+msgstr "Скільки це буде коштувати"
+
+#: templates/paid_services/tour360.jinja.html:237
+msgid "Закажите панораму по наименьшей цене в Украине"
+msgstr "Замовте панораму за найменшою ціною в Україні"
+
+#: templates/paid_services/tour360.jinja.html:242
+msgid "Апартаменты"
+msgstr "Апартаменти"
+
+#: templates/paid_services/tour360.jinja.html:246
+msgid "до 9 точек"
+msgstr "до 9 точок"
+
+#: templates/paid_services/tour360.jinja.html:247
+#: templates/paid_services/tour360.jinja.html:257
+#: templates/paid_services/tour360.jinja.html:267
+msgid "Цена варьируется свыше 20 объектов"
+msgstr "Ціна варіюється понад 20 об'єктів"
+
+#: templates/paid_services/tour360.jinja.html:252
+msgid "Съемка дома"
+msgstr "Зйомка будинку"
+
+#: templates/paid_services/tour360.jinja.html:256
+msgid "от 9 до 25 точек"
+msgstr "від 9 до 25 точок"
+
+#: templates/paid_services/tour360.jinja.html:262
+msgid "Ком. недвижимость"
+msgstr "Ком. нерухомість"
+
+#: templates/paid_services/tour360.jinja.html:266
+msgid "от 25 точек"
+msgstr "від 25 точок"
+
+#: templates/paid_services/tour360.jinja.html:303
+msgid "Вышлите нам свои данные и мы с Вами свяжемся"
+msgstr "Вишліть нам свої дані і ми з Вами зв'яжемося"
+
+#: templates/paid_services/tour360.jinja.html:306
+msgid "Заявка принята, с вами свяжутся."
+msgstr "Заявка прийнята, з вами зв'яжуться."
+
+#: templates/paid_services/vips.jinja.html:30
+msgid "Делаем объявление «вкуснее»"
+msgstr "Робимо оголошення «смачніше»"
+
+#: templates/paid_services/vips.jinja.html:31
+msgid "Vip объявления имеют особый статус и "
+msgstr "Vip оголошення мають особливий статус і"
+
+#: templates/paid_services/vips.jinja.html:31
+msgid "публикуются на желтом фоне с пометкой vip,"
+msgstr "публікуються на жовтому фоні з позначкою VIP,"
+
+#: templates/paid_services/vips.jinja.html:31
+msgid "что делает их гораздо заметнее среди остальных объявлений,"
+msgstr "що робить їх більш помітними серед інших оголошень,"
+
+#: templates/paid_services/vips.jinja.html:31
+msgid "тем самым увеличивает шансы на успешную реализацию."
+msgstr "тим самим збільшує шанси на їхню реалізацію."
+
+#: templates/paid_services/vips.jinja.html:32
+msgid "Стоимость VIP размещений"
+msgstr "Вартість VIP розміщення"
+
+#: templates/paid_services/vips.jinja.html:36
+msgid "Продажа / аренда"
+msgstr "Продаж / оренда"
+
+#: templates/paid_services/vips.jinja.html:47
+msgid "Посуточная аренда"
+msgstr "Подобова оренда"
+
+#: templates/paid_services/vips.jinja.html:49
+msgid "на 7 дней"
+msgstr "на 7 днів"
+
+#: templates/paid_services/vips.jinja.html:56
+msgid "Выбрать объявления"
+msgstr "Вибрати оголошення"
+
+#: templates/paid_services/mail/loyalty-balance.jinja.html:14
+msgid "Пополнить баланс"
+msgstr "Поповнити баланс"
+
+#: templates/paid_services/mail/plan-notification.jinja.html:7
+msgid "Уважаемый пользователь"
+msgstr "Шановний користувач"
+
+#: templates/paid_services/mail/plan-notification.jinja.html:16
+#, python-format
+msgid ""
+"У вас есть приобретенный тариф на <strong>%(ads_limit)s "
+"объявление</strong>,"
+msgid_plural ""
+"У вас есть приобретенный тариф на <strong>%(ads_limit)s "
+"объявлений</strong>,"
+msgstr[0] "У вас є придбаний тариф на <strong>%(ads_limit)s оголошення</strong>"
+msgstr[1] "У вас є придбаний тариф на <strong>%(ads_limit)s оголошення</strong>"
+msgstr[2] "У вас є придбаний тариф на <strong>%(ads_limit)s оголошень</strong>"
+
+#: templates/paid_services/mail/plan-notification.jinja.html:16
+msgid "но вы не активировали показ Ваших объектов."
+msgstr "але ви не активували показ Ваших об'єктів."
+
+#: templates/paid_services/mail/plan-notification.jinja.html:23
+msgid "Активируйте их уже сейчас и получайте звонки от потенциальных клиентов."
+msgstr "Активуйте їх вже зараз і отримуйте дзвінки від потенційних клієнтів."
+
+#: templates/paid_services/mail/plan-notification.jinja.html:30
+msgid "Активировать"
+msgstr "Активувати"
+
+#: templates/paid_services/mail/plan_expired.jinja.html:7
+msgid "Срок действия Вашего тарифного плана истек."
+msgstr "Термін дії Вашого тарифного плану закінчився."
+
+#: templates/paid_services/mail/plan_expired.jinja.html:21
+msgid "Вы можете снова подключить услугу в Разделе «Тарифный план»."
+msgstr "Ви можете знову підключити послугу у Розділі «Тарифний план»."
+
+#: templates/paid_services/mail/plan_expired.jinja.html:28
+msgid "Продлить сейчас"
+msgstr "Підключити зараз"
+
+#: templates/paid_services/mail/plan_expired_after.jinja.html:7
+#, python-format
+msgid "Ваш аккаунт неактивен уже %(days_after)s день!"
+msgid_plural "Ваш аккаунт неактивен уже %(days_after)s дней!"
+msgstr[0] "Ваш аккаунт неактивний %(days_after)s день!"
+msgstr[1] "Ваш аккаунт неактивний %(days_after)s дні!"
+msgstr[2] "Ваш аккаунт неактивний %(days_after)s днів!"
+
+#: templates/paid_services/mail/plan_expired_after.jinja.html:14
+msgid "Вы можете снова подключить тарифный план в разделе"
+msgstr "Ви можете знову підключити тарифний план в розділі"
+
+#: templates/paid_services/mail/plan_expired_after.jinja.html:14
+msgid "Услуги"
+msgstr "Послуги"
+
+#: templates/paid_services/mail/plan_expired_before.jinja.html:8
+msgid "сегодня"
+msgstr "сьогодні"
+
+#: templates/paid_services/mail/plan_expired_before.jinja.html:8
+msgid "истекает срок действия вашего тарифного пакета."
+msgstr "закінчується термін дії вашого тарифного пакету."
+
+#: templates/paid_services/mail/plan_expired_before.jinja.html:10
+msgid "срок действия вашего тарифного пакета истекает уже через"
+msgstr "термін дії вашого тарифного пакету закінчується вже через"
+
+#: templates/paid_services/mail/plan_expired_before.jinja.html:10
+msgid "3 дня"
+msgstr "3 дні"
+
+#: templates/paid_services/mail/plan_expired_before.jinja.html:12
+msgid "срок действия вашего тарифного пакета истекает через"
+msgstr "термін дії вашого тарифного пакету закінчується через"
+
+#: templates/paid_services/mail/plan_expired_before.jinja.html:12
+msgid "7 дней"
+msgstr "7 днів"
+
+#: templates/paid_services/mail/plan_expired_before.jinja.html:20
+msgid "Спешите продлить услугу публикации ваших объявлений и"
+msgstr "Поспішайте поновити послугу публікації ваших оголошень і"
+
+#: templates/paid_services/mail/plan_expired_before.jinja.html:20
+msgid "продолжайте получать звонки от потенциальных клиентов."
+msgstr "продовжуйте отримувати дзвінки від потенційних клієнтів."
+
+#: templates/paid_services/mail/plan_expired_before.jinja.html:27
+msgid "В случае, если какие-либо из объявлений уже неактуальны,"
+msgstr "У разі, якщо будь-які з оголошень вже неактуальні,"
+
+#: templates/paid_services/mail/plan_expired_before.jinja.html:27
+msgid "вы можете деактивировать/заменить их в"
+msgstr "ви можете деактивувати/замінити їх в"
+
+#: templates/paid_services/mail/plan_expired_before.jinja.html:27
+msgid "личном кабинете"
+msgstr "особистому кабінеті"
+
+#: templates/paid_services/mail/plan_expired_before.jinja.html:34
+msgid "Продлить пакет"
+msgstr "Поновити пакет"
+
+#: templates/paid_services/mail/plan_expired_before.jinja.html:35
+msgid "или"
+msgstr "або"
+
+#: templates/paid_services/mail/plan_expired_before.jinja.html:35
+msgid "добавить новое объявление"
+msgstr "додати нове оголошення"
+
+#: templates/paid_services/mail/plan_expired_before.jinja.html:47
+msgid "Полезные ссылки"
+msgstr "Корисні посилання"
+
+#: templates/paid_services/mail/plan_expired_before.jinja.html:47
+msgid "Помощь"
+msgstr "Допомога"
+
+#: templates/paid_services/mail/plan_expired_before.jinja.html:47
+msgid "Обратная связь"
+msgstr "Зворотній зв'язок"
+
+#: templates/paid_services/mail/plan_expired_before.jinja.html:47
+msgid "Мой профиль"
+msgstr "Мій профіль"
+
+#: templates/paid_services/mail/send_email_on_paid.jinja.html:7
+msgid "Квитанция доставки заказа"
+msgstr "Квитанція доставки замовлення"
+
+#: templates/paid_services/mail/send_email_on_paid.jinja.html:14
+msgid "Название Интернет-магазина"
+msgstr "Назва Інтернет-магазину"
+
+#: templates/paid_services/mail/send_email_on_paid.jinja.html:15
+msgid "Web-адрес Интернет-магазина"
+msgstr "Web-адреса Інтернет-магазину"
+
+#: templates/paid_services/mail/send_email_on_paid.jinja.html:16
+msgid "Заказ №"
+msgstr "Замовлення №"
+
+#: templates/paid_services/mail/send_email_on_paid.jinja.html:16
+msgid "на сумму"
+msgstr "на суму"
+
+#: templates/paid_services/mail/send_email_on_paid.jinja.html:17
+msgid "От"
+msgstr "Від"
+
+#: templates/paid_services/mail/send_email_on_paid.jinja.html:19
+msgid "Получен гр."
+msgstr "Отримано гр."
+
+#: templates/paid_services/mail/send_email_on_paid.jinja.html:21
+msgid "Телефон"
+msgstr "Телефон"
+
+#: templates/paid_services/mail/send_email_on_paid.jinja.html:22
+msgid "Адрес электронной почты"
+msgstr "Адреса електронної пошти"
+
+#: templates/paid_services/mail/send_email_on_paid.jinja.html:29
+msgid "Список услуг в заказе"
+msgstr "Список послуг в замовленні"
+
+#: templates/paid_services/mail/send_email_on_paid.jinja.html:35
+#: templates/paid_services/mail/send_email_on_paid.jinja.html:37
+msgid "срок действия: до"
+msgstr "термін дії: до"
+

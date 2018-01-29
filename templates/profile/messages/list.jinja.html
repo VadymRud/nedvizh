@@ -1,0 +1,72 @@
+{% extends "profile/base.jinja.html" %}
+
+{% block content %}
+<form method="get" role="form" action="">
+    <div class="white-panel-header clearfix">
+        <div class="pull-left hidden-button">
+            <button class="btn btn-danger confirm-delete" type="submit" name="delete-selected" value="1">{% trans %}Удалить отмеченные{% endtrans %}</button>
+        </div>
+        <div class="pull-right filter">
+            <select name="filter" class="form-control" onchange="this.form.submit()">
+                {% for value, label in (('all', _('Показать все сообщения')),('unreaded',_('Показать только новые')),('deleted',_('Показать удаленные / Архив')),) %}
+                <option value="{{ value }}" {% if request.GET.get('filter')==value %}selected="selected"{% endif %}>
+                        {{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <h4 class="page-title pull-left"><i class="icon icon-settings"></i> {% trans %}Сообщения{% endtrans %}</h4>
+    </div>
+    <div class="white-panel">
+        <div  class='messages-list'>
+            {% if paginator.count %}
+                {% for message in paginator.current_page.object_list %}
+                    <div class="message">
+                        {% if archive is not defined %}
+                            <input type="checkbox" class="pull-left checkbox" name="delete" value="{{ message.root_message_id }}"/>
+                            <button class="btn btn-danger pull-right confirm-delete delete-this" type="submit" name="delete-this" value="{{ message.root_message_id }}">{% trans %}Удалить{% endtrans %}</button>
+                        {% endif %}
+                        {% if not message.readed and message.from_user != request.user %}
+                            <span class="label label-success">{% trans %}Новое{% endtrans %}</span>
+                        {% endif %}
+                        <a class="name" href="{{ url('messages:reply', dialog_id=message.root_message_id|default(message.id) ) }}">
+                            {{ message.title }}
+                        </a>
+                        <div class="text-muted small">
+                            <span class="time" title="{% trans %}время последнего сообщения в диалоге{% endtrans %}">{{ message.time|date("d.m.Y H:i") }}</span> &nbsp; &nbsp;
+                            {% if message.replies %}
+                                <span class="replies"><i class="glyphicon glyphicon-comment"></i> {{ message.replies }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                {% include "pagination.jinja.html" %}
+            {% else %}
+                <div>{% trans %}У вас нет сообщений.{% endtrans %}</div>
+            {% endif %}
+        </div>
+    </div>
+</form>
+{% include 'profile/messages/modal.jinja.html' %}
+<script>
+    function replyMessage(url) {
+        $("#message-modal .modal-body").html('<iframe width="100%" height="600" frameborder="0" scrolling="auto" src="' + url + '"></iframe>');
+        $('#message-modal').modal({show:true})
+    }
+
+    var $checkboxes = $('.messages-list .checkbox');
+    $checkboxes.change(function() {
+        $('.white-panel-header .hidden-button').toggle($checkboxes.filter(':checked').length > 0);
+    });
+    $('a.name').click(function(e) {
+        e.preventDefault();
+        replyMessage(this.href);
+    });
+
+    $(function () {
+        if (window.location.hash) {
+            replyMessage(window.location.hash.substr(1));
+            window.location.hash = '';
+        }
+    });
+</script>
+{% endblock %}

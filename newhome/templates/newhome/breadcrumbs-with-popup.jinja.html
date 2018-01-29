@@ -1,0 +1,59 @@
+{% if skip_header_button is undefined %}
+  <button class="btn btn-md btn-danger model-request-button" data-toggle="modal" data-target="#newhome-request-popup">{% trans %}Давайте мы Вам перезвоним{% endtrans %}</button>
+{% endif %}
+
+<a href="/newhomes/" ><i class="glyphicon glyphicon-menu-left"></i> Новостройки</a>  ←
+
+{% if callrequest_form is defined %}
+  <div class="modal fade" id="newhome-request-popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h6>Задать вопрос застройщику</h6>
+          <p>С вами свяжется менеджер компании-застройщика и ответит на все ваши вопросы. Вы можете выбрать одно поле для заполнения.</p>
+
+          {% if callrequest_form.is_valid() %}
+              <div class="alert alert-success">{% trans %}Запрос отправлен{% endtrans %}</div>
+          {% else %}
+              <form method="POST" id="newhomeRequestForm" onsubmit="return sendNewhomeRequest();">
+                  {% csrf_token %}
+
+                  {% from "macro/forms.jinja.html" import bootstrap_form  %}
+                  {{ bootstrap_form(callrequest_form, label_as_placeholder=True, inline_errors=True) }}
+
+                  <div id="div_id_submit" class="form-group">
+                      <button class="btn btn-md btn-danger" id="id_submit" name="callrequest" type="submit">{% trans %}Отправить{% endtrans %}</button>
+                  </div>
+              </form>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+<script>
+    function sendNewhomeRequest() {
+        $('#id_submit').text('{% trans %}Отправляется, подождите пожалуйста{% endtrans %}').attr('type', 'button');
+        setTimeout(restoreBtn, 65000);
+
+        return true;
+    }
+
+    function restoreBtn() {
+      $('#id_submit').text('{% trans %}Отправить{% endtrans %}').attr('type', 'submit');
+    }
+
+    $(function () {
+        if (window.location.hash == '#newhome-request-popup') {
+            $('#newhome-request-popup').modal('show');
+        }
+    });
+
+    $(function () {
+        if ($('#newhome-request-popup .alert').length) {
+            $('#newhome-request-popup dl').removeClass('dl-horizontal no-margin-bottom').css('margin-bottom', 10);
+            $('#newhome-request-popup').modal('show');
+        }
+    });
+</script>

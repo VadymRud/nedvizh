@@ -1,0 +1,31 @@
+{% extends 'base.jinja.html' %}
+{% block extra_header %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-24628616-30"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-24628616-30');
+    </script>
+{% endblock %}
+{% block social_networks %}{% endblock %}
+
+{% block extra_css %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ static('css/profile.css') }}">
+    {% if request.own_agency is defined and request.own_agency and not request.is_developer_cabinet_enabled %}
+        <link rel="stylesheet" href="{{ static('agency/css/main.css') }}">
+    {% endif %}
+{% endblock %}
+
+{% block content_wrapper %}
+    <div class="container personal-account">
+        {% if request.user.is_authenticated %}
+            {% include "includes/publishing_status.jinja.html" %}
+            {% include "includes/account_menu_vertical.jinja.html" %}
+        {% endif %}
+        <div class="wrapper_content">{% block content %}{% endblock %}</div>
+    </div><br/>
+{% endblock %}

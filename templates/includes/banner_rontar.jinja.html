@@ -1,0 +1,17 @@
+<div id="rontar_adplace_{{ place_id }}"></div>
+<script type="text/javascript"><!--
+
+    (function (w, d, n) {
+        var ri = { rontar_site_id: 4322, rontar_adplace_id: {{ place_id }}, rontar_place_id: 'rontar_adplace_{{ place_id }}', adCode_rootUrl: '//adcode.rontar.com/' };
+        w[n] = w[n] || [];
+        w[n].push(
+            ri
+        );
+        var a = document.createElement('script');
+        a.type = 'text/javascript';
+        a.async = true;
+        a.src = '//adcode.rontar.com/rontar2_async.js?rnd=' + Math.round(Math.random() * 100000);
+        var b = document.getElementById('rontar_adplace_' + ri.rontar_adplace_id);
+        b.parentNode.insertBefore(a, b);
+    })(window, document, 'rontar_ads');
+//--></script>

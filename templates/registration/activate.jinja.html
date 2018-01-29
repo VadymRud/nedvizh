@@ -1,0 +1,13 @@
+{% extends "base.jinja.html" %}
+
+
+{% block content %}
+
+    {% if account is defined and account %}
+        <p class="h2">{% trans %}Ваш аккаунт успешно активирован{% endtrans %}</p>
+        <p><a href="{{ url('auth_login') }}">{% trans %}Войти{% endtrans %}</a></p>
+    {% else %}
+        <p class="h2">{% trans %}Не удалось активировать аккаунт.{% endtrans %}</p>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,65 @@
+body {background: #fff;}
+p {padding: 0; margin: 0 0 35px; font-size: 18px; line-height: 36px; color: #323232;}
+h2 {font-size: 36px; margin: 0; padding: 0;}
+small {font-size: 16px; color: #848484;}
+
+.landing-header {
+    width: 100%; height: 700px; background: #daf2fb url(../../../img/landings/poltava/image-01.png) 50% top no-repeat;
+    margin: 0;
+}
+    .landing-header .row > div {position: relative; height: 700px;}
+        .landing-header .row > div div {position: absolute; bottom: 25px; left: 7px; z-index: 1;}
+
+.landing-menu {height: 130px; background-color: #fff; margin: 0; padding: 0;}
+    .landing-menu > div {height: 115px; background-color: #b0d2df;}
+
+.landing-footer {
+    width: 100%; height: 230px; background-color: #daf2fb; line-height: 230px;
+}
+
+.nav-tabs {border: 0;}
+.nav > li {height: 115px; line-height: 115px; width: 49%;}
+    .nav-tabs > li {
+        border-left: 3px #fff solid; font-size: 30px; font-family: 'pf_dintext_prolight'; font-weight: normal;
+        text-align: center; letter-spacing: 2px;
+    }
+        .nav-tabs > li > div {visibility: hidden;}
+        .nav-tabs > li.active > div {
+            background: #fff; height: 15px; line-height: 15px; margin: -2px 0 0; padding: 0; visibility: visible;
+        }
+            .nav-tabs > li > div span {
+                display: inline-block; width: 0; height: 0; border-style: solid; border-width: 15px 38px 0 38px;
+                border-color: #769aa8 transparent transparent transparent;
+            }
+
+        .nav-tabs > li:last-child {border-right: 3px #fff solid;}
+        .nav-tabs > li a {
+            text-decoration: none; height: 115px; line-height: 109px; padding: 0; color: #4b7281;
+        }
+        .nav-tabs > li:first-child > a span {
+            display: inline-block; width: 48px; height: 36px; margin-right: 25px; margin-left: -25px; margin-bottom: -10px;
+            background: url(../../../img/landings/poltava/icon-sale.png) left bottom no-repeat;
+        }
+            .nav-tabs > li.active:first-child > a span {
+                background: url(../../../img/landings/poltava/icon-sale-active.png) left bottom no-repeat;
+            }
+        .nav-tabs > li:last-child > a span {
+            display: inline-block; width: 44px; height: 42px; margin-right: 25px; margin-left: -25px; margin-bottom: -10px;
+            background: url(../../../img/landings/poltava/icon-rent.png) left bottom no-repeat;
+        }
+            .nav-tabs > li.active:last-child > a span {
+                background: url(../../../img/landings/poltava/icon-rent-active.png) left bottom no-repeat;
+            }
+
+    .nav-tabs > li > a, .nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
+        border: 0; border-top: 6px #b0d2df solid; color: #fff;
+    }
+
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+        background-color: #769aa8; border: 0; border-top: 6px #4b7281 solid; color: #fff;
+    }
+
+.btn-danger {
+    background-color: #db5f66; font-size: 18px; text-transform: uppercase; letter-spacing: 3px; width: 380px;
+    height: 73px; line-height: 73px; padding: 0; font-family: 'pf_dintext_prolight'; border-radius: 4px;
+}

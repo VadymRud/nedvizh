@@ -1,0 +1,4 @@
+sale,*,Актуальные объявления о продаже %(prop_room_chego)s в %(district_gde)s, %(city)s. Выгодно купить %(prop_room_chto_short)s в %(district_gde)s, %(city)s без посредников на вторичном рынке
+rent,*,Актуальные объявления по аренде %(prop_room_chego)s в %(district_gde)s, %(city)s без посредников. Недорого снять или сдать %(prop_room_chto_short)s долгосрочно в %(district_gde)s, %(city)s
+rent_daily,*,Актуальные объявления посуточной аренды %(prop_room_chego)s в %(district_gde)s, %(city)s без посредников. Недорого снять или сдать %(prop_room_chto_short)s посуточно в %(district_gde)s, %(city)s
+newhomes,*,Актуальные объявления о продаже %(prop_room_chego)s в новостройках %(district_chego)s, %(city)s без посредников. Купить %(prop_room_chto_short)s от застройщика в %(district_gde)s, %(city)s

@@ -1,0 +1,50 @@
+<div id="fixedmap">
+    <div id='embed_map' style='width:100%;height:{{ map_height }}px;'
+         data-js="{{ static('libs/leaflet/leaflet.js') }}"
+        {% if region is defined %}data-lon="{{ region.get_coords()[0] }}"  data-lat="{{ region.get_coords()[1] }}"{% endif %} >
+    </div><br/>
+</div>
+
+{% compress css %}
+<link rel="stylesheet" href="{{ static('libs/leaflet/leaflet.css') }}">
+<link rel="stylesheet" href="{{ static('libs/leaflet/MarkerCluster.css') }}">
+<link rel="stylesheet" href="{{ static('libs/leaflet/MarkerCluster.Default.css') }}">
+{% endcompress %}
+
+{% compress js %}
+<script src="{{ static('libs/leaflet/leaflet.js') }}"></script>
+<script src="{{ static('libs/leaflet/leaflet.markercluster.js') }}"></script>
+<script type="text/javascript">
+   $(document).ready(function() {
+        // L - leaflet library for osm maps
+        if (typeof L !== 'undefined') {
+            initPropertySearchOSMMaps("{{ static('img') }}");
+        } else {
+            console.error('Leaflet library not found');
+        }
+
+        /*$.getScript('//api-maps.yandex.ru/2.1/?coordorder=longlat&load=package.full&wizard=constructor&lang=' + $target.data('lang-code'), function (data, textStatus, jqxhr) {
+            initPropertySearchYMaps("{{ static('img') }}");
+        });*/
+
+       var $colFixedMap = $('#fixedmap').parent();
+       if ($colFixedMap.css('display') == 'none' && $(".properties-search-result-list .property").length) {
+           // Перемещаем карту под объявления для мобильных устройств
+           $colFixedMap.appendTo($colFixedMap.parent()).removeClass('hidden-xs');
+       }
+
+       if ($.fn.scrollToFixed) {
+       $('#fixedmap').scrollToFixed({
+               marginTop: 10,
+               spacerClass: 'hidden',
+               removeOffsets: true,
+               limit: function() {
+                   return $('.page-info').offset().top - $('#fixedmap').outerHeight(true) - 20;
+               },
+               minWidth: 753
+           });
+       }
+
+    });
+</script>
+{% endcompress %}

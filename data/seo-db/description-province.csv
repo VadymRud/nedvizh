@@ -1,0 +1,4 @@
+sale;*;Актуальные объявления о продаже %(prop_room_chego)s в %(province_gde)s. Купить %(prop_room_chto_short)s  в %(province_gde)s на вторичном рынке
+rent;*;Актуальные объявления по аренде %(prop_room_chego)s в %(province_gde)s без посредников. Недорого снять или сдать %(prop_room_chto_short)s  долгосрочно в %(province_gde)s
+rent_daily;*;Актуальные объявления посуточной аренды %(prop_room_chego)s в %(province_gde)s без посредников. Снять или сдать %(prop_room_chto_short)s  посуточно (почасово) в %(province_gde)s
+newhomes;*;Актуальные объявления о продаже %(prop_room_chego)s в новостройках %(province_gde)s без посредников. Купить %(prop_room_chto_short)s  в новостройке от застройщика в %(province_gde)s

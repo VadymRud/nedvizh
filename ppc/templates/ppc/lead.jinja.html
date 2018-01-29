@@ -1,0 +1,522 @@
+{% extends "profile/base.jinja.html" %}
+
+{% block content %}
+    {% compress css %}
+    <style>
+        h4 {font-size:22px;}
+        .ppc-text {line-height:1.5;font-size:18px;padding:0 100px;margin-bottom:60px}
+        .ppc-text h1 {
+            font-size: 48px;
+            font-family: "OpenSans-Light";
+            margin-bottom: 20px;
+        }.ppc-text p {
+            font-size: 18px;
+            font-family: "OpenSans-Light";
+            line-height: 2;
+            margin-bottom: 10px;
+         }
+        .ppc-text p b {
+            font-family: 'OpenSansSemibold';
+        }
+        .ppc-text p b a {
+            cursor: default;
+            text-decoration: none;
+            color: inherit;
+        }
+        .ppc-text table {
+            font-family: "OpenSans-Light";
+            font-size: 18px;
+            text-align: center;
+            border-spacing: 15px 10px;
+            border-collapse: separate;
+            margin: 30px 0;
+        }
+        .ppc-text table tr th {
+            color: #fff;
+            background: #88A5AF;
+            font-family: 'OpenSansSemibold';
+            text-align: center;
+            padding: 10px 20px
+        }
+        .ppc-text table tr th a {
+            cursor: default;
+            text-decoration: none;
+            color: inherit;
+        }
+        .ppc-text table tr td {
+            background: #EEEEEE;
+            padding: 5px 20px
+        }
+        .ppc-text table tr td b {
+            font-size: 24px;
+            font-family: 'OpenSansBold';
+        }
+        .ppc-text table tr .text-left {
+            text-align: left;
+        }
+        .ppc-text h2 {
+            font-family: 'OpenSans-Light';
+            font-size: 36px;
+            margin: 0;
+        }
+        .ppc-text h2 a {
+            text-decoration: none;
+            color: inherit;
+            cursor: default;
+        }
+        .ppc-text h4 {
+            font-family: 'OpenSans';
+            font-size: 24px;
+            margin-bottom: 20px;
+            margin-top: 50px;
+        }
+        .ppc-text h6 {
+            font-size: 16px;
+            font-family: "OpenSans-Light";
+            line-height: 2;
+            margin-top: 20px;
+        }
+        .ppc-text h6 b {
+            font-family: 'OpenSansBold';
+        }
+        .ppc-text h6 span {
+            color: #4d9957;
+        }
+        .ppc-text .btn-lead {
+            margin-bottom:10px;
+            padding: 20px 30px;
+            font-family: 'OpenSans';
+            margin-bottom: 30px;
+        }
+        .ppc-text  .how_it_works_wrap {
+            font-family: "OpenSans-Light";
+            background: #EEEEEE;
+            border-radius: 10px;
+            position: relative;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        .ppc-text .how_it_works_wrap strong {
+            display: inline-block;
+            background: #FF1456;
+            color: #fff;
+            font-size: 20px;
+            font-family: 'OpenSansBold';
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            border-radius: 50%;
+            font-style: normal;
+        }
+        .ppc-text .how_it_works_wrap ul {
+            font-size: 20px;
+            color: #FF1456;
+        }
+        .ppc-text .how_it_works_wrap ul span {
+            color: #333;
+            position: relative;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .ppc-text .how_it_works_wrap > div {
+            font-size: 24px;
+            font-family: "OpenSans-Light";
+            padding-left: 15px;
+            margin-bottom: 10px;
+        }
+        .ppc-text .how_it_works_wrap ul li span{
+            font-size: 16px;
+            line-height: 1.7;
+            color: #333;
+        }
+        .ppc-text .how_it_works_wrap p {
+            padding-left: 40px;
+            font-size: 16px;
+        }
+        .ppc-text .instruction {
+            padding: 10px 0 30px;
+            font-size: 18px;
+            font-family: "OpenSans-Light";
+        }
+        .ppc-text span.step {
+            color: #f19e4b;
+            font-size: 16px;
+            font-family: 'OpenSansBold';
+            vertical-align: top;
+        }
+        .carusel_wrap {
+            background: #E7EFF2;
+        }
+        .carusel_wrap .content_wrap {
+            padding: 10px 100px;
+            margin-bottom: 40px;
+            font-family: 'OpenSans-Light';
+        }
+        .carusel_wrap .content_wrap h2 {
+            font-size: 36px;
+            margin: 30px 0 50px;
+        }
+        .carusel_wrap h2 a {
+            color: inherit;
+            text-decoration: none;
+            cursor: default;
+        }
+        .carusel_wrap .content_wrap .carousel-inner {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+        .carusel_wrap .content_wrap .carousel-inner .name b {
+            font-family: 'OpenSansBold';
+        }
+        .carusel_wrap .content_wrap .carousel-inner img {
+            float: left;
+            margin: 0 20px 0 40px;
+        }
+        .carusel_wrap .content_wrap .carousel-inner .descript {
+            margin-bottom: 20px;
+        }
+        .carusel_wrap .content_wrap .carousel-inner .text {
+            padding: 0 40px 40px 200px;
+        }
+        .carusel_wrap .content_wrap .carousel-control {
+            width: 12px;
+            height: 22px;
+            position: absolute;
+            top: 60px;
+            display: inline-block;
+            background: url({{ static('ppc/img/sprite_strings.png') }}) no-repeat;
+
+        }
+        .carusel_wrap .content_wrap .carousel-control.prev {
+            background-position: -24px 0;
+            left: 0;
+        }
+        .carusel_wrap .content_wrap .carousel-control.prev:hover {
+            background-position: 0 0;
+        }
+        .carusel_wrap .content_wrap .carousel-control.next {
+            right: 0;
+            background-position: -36px 0;
+            left: inherit;
+        }
+        .carusel_wrap .content_wrap .carousel-control.next:hover {
+            background-position: -12px 0;
+        }
+        .ppc-text .text_block {
+            line-height: 1.4;
+            padding: 10px 0 30px 0;
+        }
+        .ppc-text .anchor_wrapper {
+            padding: 20px 0;
+        }
+        .ppc-text .anchor_wrapper a.anchor {
+            border: 1px solid #D2E6EE;
+            font-family: 'OpenSans';
+            font-size: 16px;
+            border-radius: 100px;
+            padding: 3px 10px;
+            display: inline-block;
+            text-decoration: none;
+            color: inherit;
+            margin: 5px;
+        }
+        .ppc-text .anchor_wrapper a.anchor:hover {
+            background: #D2E6EE;
+        }
+        @media (max-width: 992px) {
+            .ppc-text {
+                padding: 0 15px;
+            }
+            .carusel_wrap .content_wrap .carousel-inner {
+                text-align: center;
+            }
+            .carusel_wrap .content_wrap {
+                padding: 10px 30px;
+            }
+            .carusel_wrap .content_wrap .carousel-inner img {
+                float: none;
+                margin: 0 10px;
+                text-align: center;
+                display: inline-block;
+            }
+            .carusel_wrap .content_wrap .carousel-inner .text {
+                padding: 0 10px 30px 10px;
+                text-align: left;
+            }
+            .ppc-text table {
+                border-spacing: 1px;
+                font-size: 15px;
+            }
+            .ppc-text .row > div {
+                text-align: center;
+            }
+            .ppc-text .text_block {
+                padding: 10px 50px 20px;
+            }
+            .ppc-text span {
+                display: block;
+                padding: 10px 0;
+            }
+        }
+
+        #numbertype-modal {
+            font-size:16px;
+        }
+        #numbertype-modal .btn-block {
+            background-position:50% 20px;
+            background-repeat:no-repeat;
+            padding:120px 30px 20px;font-size:18px;
+            white-space:normal;
+        }
+        #numbertype-modal .btn-block:hover {
+            border-color:#b3b3b3;
+            background-color: #f4f4f4
+        }
+    </style>
+    {% endcompress %}
+
+    {% include 'profile/balance/topup_modal_form.jinja.html' %}
+
+    <div class="ppc-text">
+        <div class="anchor_wrapper">
+            <a href="#about" class="anchor">{% trans %}Об услуге{% endtrans %}</a>
+            <a href="#sell" class="anchor">{% trans %}Заказ услуги{% endtrans %}</a>
+            <a href="#opinion" class="anchor">{% trans %}Отзывы{% endtrans %}</a>
+            <a href="#how_its_made" class="anchor">{% trans %}Как работает услуга?{% endtrans %}</a>
+        </div>
+        <h1>{% trans %}Оплата за звонок{% endtrans %}</h1>
+        <p>{% trans %}<b><a name="about">Это</a> новая возможность на рынке недвижимости Украины</b>, которая позволяет специалистам данной сферы четко отслеживать канал поступления обращений от целевых клиентов, и эффективно распределять свой бюджет на рекламу.{% endtrans %}</p>
+        <h4>{% trans %}Общий номер{% endtrans %}</h4>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-24">
+                <span class="step">{% trans %}шаг{% endtrans %} 1</span>
+                <img alt="mobile" src="{{ static('ppc/img/ico_mobile_1.png') }}"/>
+                <div class="text_block">{% trans %}Клиент звонит по номеру телефона указанному в объявлении{% endtrans %}</div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-24">
+                <span class="step">{% trans %}шаг{% endtrans %} 2</span>
+                <img alt="mobile" src="{{ static('ppc/img/ico_mobile_2.png') }}"/>
+                <div class="text_block">{% trans %}Автоответчик просит ввести ID объявления{% endtrans %}</div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-24">
+                <span class="step">{% trans %}шаг{% endtrans %} 3</span>
+                <img alt="mobile" src="{{ static('ppc/img/ico_mobile_3.png') }}"/>
+                <div class="text_block">{% trans %}Клиент вводит ID объявления{% endtrans %}</div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-24">
+                <span class="step">{% trans %}шаг{% endtrans %} 4</span>
+                <img alt="mobile" src="{{ static('ppc/img/ico_mobile_4.png') }}"/>
+                <div class="text_block">{% trans %}Система соединяет с риелтором{% endtrans %}</div>
+            </div>
+        </div>
+        <h4>{% trans %}Выделенный номер{% endtrans %}*</h4>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-24">
+                <span class="step">{% trans %}шаг{% endtrans %} 1</span>
+                <img alt="mobile" src="{{ static('ppc/img/ico_mobile_1.png') }}"/>
+                <div class="text_block">{% trans %}Клиент звонит по номеру телефона указанному в объявлении{% endtrans %}</div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-24">
+                <span class="step">{% trans %}шаг{% endtrans %} 2</span>
+                <img alt="mobile" src="{{ static('ppc/img/ico_mobile_4.png') }}"/>
+                <div class="text_block">{% trans %}Система соединяет с риелтором{% endtrans %}</div>
+            </div>
+        </div>
+        <h6><b>* {% trans %}Выделенный мобильный номер телефона</b> - индивидуальный номер, который закрепляется за всеми вашими объявлениями, позвонив по которому, клиент попадает лично к Вам (без надобности вводить ID объявления).{% endtrans %}
+            {% trans %}Стоимость выделенного номера телефона - <b><span>100 грн</span></b> в месяц.{% endtrans %}
+        </h6>
+        <table border="0" width="100%">
+            <tbody>
+            <tr>
+                <th class="text-left"><a name="sell">{% trans %}Разделы{% endtrans %}</a></th>
+                <th width="30%">{% trans %}Звонок{% endtrans %}</th>
+                <th>{% trans %}Заявка / пропущенный звонок{% endtrans %}</th>
+            <tr>
+            <tr>
+                <td class="text-left">{% trans %}Продажа{% endtrans %}</td>
+                <td><b>{{ lead_prices.call_sale }}</b> грн</td>
+                <td><b>{{ lead_prices.callrequest_sale }}</b> грн</td>
+            <tr>
+            <tr>
+                <td class="text-left">{% trans %}Аренда{% endtrans %}</td>
+                <td><b>{{ lead_prices.call_rent }}</b> грн</td>
+                <td><b>{{ lead_prices.callrequest_rent }}</b> грн</td>
+            <tr>
+            <tr>
+                <td class="text-left">{% trans %}Посуточная аренда{% endtrans %}</td>
+                <td><b>{{ lead_prices.call_rent_daily }}</b> грн</td>
+                <td><b>{{ lead_prices.callrequest_rent_daily }}</b> грн</td>
+            <tr>
+            </tbody>
+        </table>
+        <div class="text-center"><a href="" data-toggle="modal" data-target="#numbertype-modal" class="btn btn-lg btn-danger btn-lead">{% trans %}Выбрать вариант{% endtrans %}</a></div>
+    </div>
+    <div class="carusel_wrap">
+        <div class="content_wrap">
+        <h2><a name="opinion">{% trans %}Отзывы клиентов{% endtrans %}</a></h2>
+            <div id="myCarousel" class="carousel slide">
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    {% for review in reviews %}
+                        <div class="{% if loop.first %}active {% endif %}item">
+                            <img src="{{ review.image|thumbnail("138x138") }}"/>
+                            <div class="name"><b>{{ review.name }}</b></div>
+                            <div class="descript">{{ review.company }}</div>
+                            <div class="text">{{ review.text|nl2br }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- Carousel nav -->
+                <a class="carousel-control prev" href="#myCarousel" data-slide="prev"></a>
+                <a class="carousel-control next" href="#myCarousel" data-slide="next"></a>
+            </div>
+        </div>
+    </div>
+    <div class="ppc-text">
+        <h2><a name="how_its_made">{% trans %}Как это работает?{% endtrans %}</a></h2>
+        <div class="instruction">{% trans %}Пошаговая инструкция{% endtrans %}</div>
+        <div class="how_it_works_wrap">
+            <strong>1</strong>
+            <div>{% trans %}Выберите модель работы{% endtrans %}:</div>
+            <ul>
+                <li><span>{% trans %}"Оплата за звонок/Оплата за заявку";{% endtrans %}</span></li>
+                <li><span>{% trans %}"Оплата за звонок/Оплата за заявку" <b>с выделенным мобильным номером телефона*</b>{% endtrans %}</span></li>
+            </ul>
+        </div>
+        <div class="how_it_works_wrap">
+            <strong>2</strong>
+            <div>{% trans %}Выставьте "Рабочее время"{% endtrans %}</div>
+            <ul>
+                <li><span>{% trans %}В указанное время, вы будете получать звонки от целевых клиентов;{% endtrans %}</span></li>
+                <li><span>{% trans %}В остальное время и дни, вы получите заявку, которая придет в виде sms и email с контактными данными клиента, и id обьявления, которым он интересовался. Как только у вас будет возможность, Вы сможете сразу с ним связаться.{% endtrans %}</span></li>
+            </ul>
+        </div>
+        <div class="how_it_works_wrap">
+            <strong>3</strong>
+            <div>{% trans %}Пополните Баланс минимально на 200 грн.{% endtrans %}</div>
+            <ul>
+                <li><span>{% trans %}Если у вас на балансе уже есть данная сумма, система предложит вам сразу приступить к следующему шагу.{% endtrans %}</span></li>
+            </ul>
+        </div>
+        <div class="how_it_works_wrap">
+            <strong>4</strong>
+            <div>{% trans %}Добавьте/выберите от 1 до 40 обьявлений{% endtrans %}</div>
+            <ul>
+                <li><span>{% trans %}Срок трансляции обьявлений на сайте - до момента, пока на балансе есть средства;{% endtrans %}</span></li>
+                <li><span>{% trans %}Автоматическое обновление обьявлений каждые 7 дней.{% endtrans %}</span></li>
+            </ul>
+        </div>
+        <div class="how_it_works_wrap">
+            <strong>5</strong>
+            <div>{% trans %}Система автоматически присвоит обьявлениям номер телефона{% endtrans %}</div>
+            <ul>
+                <li><span>{% trans %}Позвонив по указаному телефону, система запросит ввести ID номер объявления;{% endtrans %}</span></li>
+                <li><span>{% trans %}Контакты звонившего клиента дублируются вам на e-mail, sms и CRM систему в вашем личном кабинете.{% endtrans %}</span></li>
+            </ul>
+            <p><i>{% trans %}Подключив услугу <b>«Выделенный мобильный номер телефона»</b> клиент сразу попадает к автору объявления (без необходимости вводить ID объявления).{% endtrans %}</i></p>
+        </div>
+        <div class="how_it_works_wrap">
+            <strong>6</strong>
+            <div>{% trans %}С Баланса списываются средства за входящий звонок{% endtrans %}</div>
+            <ul>
+                <li><span>{% trans %}Если вы пропустили входящий звонок, система спишет средства за заявку, а контактные данные клиента будут продублированны вам на e-mail, sms и CRM систему в вашем личном кабинете.{% endtrans %}</span></li>
+            </ul>
+        </div>
+        <div class="how_it_works_wrap">
+            <strong>7</strong>
+            <div>{% trans %}Система списывает деньги только за Уникальный звонок{% endtrans %}</div>
+            <ul>
+                <li><span>{% trans %}Если один и тот же клиент звонит вам несколько раз в течение суток, система списывает деньги только за первый уникальный звонок.{% endtrans %}</span></li>
+            </ul>
+            <p>{% trans %}<b>Важно!</b> <i>Если звонок оказался нецелевым, есть возможность <b>пожаловаться на звонок</b>. Запись разговора попадет на модерацию, после чего деньги будут возвращенны на <b>баланс</b>.</i>{% endtrans %}</p>
+        </div>
+        <div class="text-center"><a data-toggle="modal" data-target="#numbertype-modal" class="btn btn-lg btn-danger btn-lead">{% trans %}Выбрать вариант{% endtrans %}</a></div>
+    </div>
+</div>
+
+{% if leadgeneration is defined %}
+  {% with fill_worktime = not leadgeneration.worktime and 'realtor' not in request.GET %}
+    {{ leadgeneration_modal(fill_worktime) }}
+    {{ leadgeneration_worktime_modal() }}
+  {% endwith %}
+{% endif %}
+
+{% endblock %}
+
+{% macro leadgeneration_modal(fill_worktime) %}
+    <div class="modal fade" id="numbertype-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog"><div class="modal-content">
+            <div class="modal-body text-center">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">{% trans %}Закрыть{% endtrans %}</span></button>
+                <div  style="padding:35px;">
+                    <h4>{% trans %}Выберите тип номера{% endtrans %}:</h4><br/>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <label class="btn btn-default btn-block{% if not active_proxynumbers %} disabled{% endif %}"
+                               style="background-image:url({{ static('ppc/img/ppc-dedicated-number.png') }})">
+                                <input type="radio" class="hidden" name="dedicated_numbers_switch" value="True"{% if not active_proxynumbers %} disabled="disabled"{% endif %}/>
+                                {% trans %}Выделенный номер{% endtrans %}<span class="pink">*</span>
+                            </label>
+                        </div>
+                        <div class="col-sm-offset-2 col-sm-11">
+                            <label class="btn btn-default btn-block "
+                               style="background-image:url({{ static('ppc/img/ppc-shared-number.png') }})">
+                                <input type="radio" class="hidden" name="dedicated_numbers_switch" value="False"/>
+                                {% trans %}Общий номер{% endtrans %}<span class="pink">**</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="gray-panel text-left" style="padding:20px 50px;">
+                <p><span class="pink">*</span> <i>{% trans %}Оплата за звонки/заявки +100 грн./мес. абонплата за персональный номер телефона.{% endtrans %}</i></p>
+                <p><span class="pink">**</span> <i>{% trans %}Оплата только за звонки/заявки.{% endtrans %}</i></p>
+            </div>
+        </div></div>
+    </div>
+    <script>
+        $("input[name=dedicated_numbers_switch]").change(function(e) {
+            var $form = $('form.leadgeneration-form');
+            $('#id_dedicated_numbers', $form).val(e.target.value);
+            {% if not fill_worktime %}
+                $('#id_submit').click();
+            {% else %}
+                $('#numbertype-modal').modal('hide');
+                $('#leadgeneration-modal').modal('show');
+            {% endif %}
+        });
+    </script>
+
+{% endmacro %}
+
+{% macro leadgeneration_worktime_modal() %}
+    <div class="modal fade" id="leadgeneration-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog"><div class="modal-content"><div class="modal-body text-center">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">{% trans %}Закрыть{% endtrans %}</span></button>
+            <p>{% trans %}Укажиет рабочие дни и время<br/>чтобы мы знали когда пользователи<br/>могут вам звонить.{% endtrans %}</p><br/>
+            {% with next = '%s?%s' % (url('services:lead_activate'), request.GET.urlencode(safe='/'))  %}
+                {% include('ppc/leadgeneration_form.jinja.html') %}
+            {% endwith %}
+            <br/><p class="gray">{% trans %}Вы можете позже поменять<br/>это в настройках в любое время{% endtrans %}</p>
+        </div></div></div>
+    </div>
+{% endmacro %}
+
+
+{% block extra_footer %}
+    {{ super() }}
+
+    {# используется, когда юзер с завершенной лидогенерацией пытался добавить объявление, а ему херак и форму пополнения баланса показывают #}
+    {% if 'show_topup' in request.GET %}
+        <script>$('.topup-modal').modal('show');</script>
+    {% endif %}
+
+    {# используется, когда пользователь перешел с письма и ему кровь из носа нужно сменить тип номера телефона с выделенного на общий, херак #}
+    {% if 'show_lead_popup' in request.GET %}
+        <script>$('#numbertype-modal').modal('show');</script>
+    {% endif %}
+
+{% endblock %}

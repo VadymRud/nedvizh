@@ -1,0 +1,195 @@
+{% extends "profile/base.jinja.html" %}
+
+{% block content %}
+    {# Элементы управления #}
+
+    <form id="my-properties-filter-form" method="get" onsubmit='onFilterFormSubmit()'>
+            <input type="hidden" name="per_page" id="id_per_page" value="{{ request.GET.get('per_page', 10) }}">
+            <div class="row ad-filter">
+                <div class="col-xs-4  col-sm-2 col-lg-1">
+                    <input type="checkbox" id="choose-all-ad" class="ad-checkbox">
+                    <label for="choose-all-ad"></label>
+                </div>
+                <div class="col-xs-20 col-sm-6 col-lg-4 status-filter">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle ad-dropdown nav-justified" type="button" id="profile-menu-ad-status" data-toggle="dropdown" aria-expanded="true">
+                            <span class="selected-status"></span>
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </button>
+                        <ul class="dropdown-menu ad-dropdown-menu" role="menu" aria-labelledby="profile-menu-ad-status">
+                            {% for value, text in filter_form.fields['status'].choices %}
+                                <li role="presentation{% if filter_form.cleaned_data['status'] == value %} active{% endif %}">
+                                    <a class='status-{{ value }}' role="menuitem" tabindex="-1" href="javascript:selectStatusFilter('{{ value }}')">{{ text }}
+                                        {% if ads_groups_counts[value] %}<span class="badge">{{ ads_groups_counts[value] }}</span>{% endif %}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <input type='hidden' name='status' value='{{ filter_form.cleaned_data['status'] }}'/>
+                    </div>
+                </div>
+
+                <div class="col-xs-24 col-sm-8 col-lg-4 hide-when-ads-selected">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle ad-dropdown nav-justified" type="button" id="profile-menu-ad-type" data-toggle="dropdown" aria-expanded="true">
+                            <span class="selected-deal-type"></span>
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </button>
+                        <ul class="dropdown-menu ad-dropdown-menu" role="menu" aria-labelledby="profile-menu-ad-type">
+                            {% for value, text in filter_form.fields['deal_type'].choices %}
+                                <li role="presentation"><a class='deal-type-{{ value }}' role="menuitem" tabindex="-1" href="javascript:selectDealTypeFilter('{{ value }}')">{{ text }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        <input type='hidden' name='deal_type' value='{{ filter_form.cleaned_data['deal_type'] }}'/>
+                    </div>
+                </div>
+
+                <div class="col-xs-24 col-sm-8 col-lg-4 hide-when-ads-selected">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle ad-dropdown nav-justified" type="button" id="profile-menu-property-type" data-toggle="dropdown" aria-expanded="true">
+                            <span class="selected-property-type"></span>
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </button>
+                        <ul class="dropdown-menu ad-dropdown-menu" role="menu" aria-labelledby="profile-menu-property-type">
+                            {% for value, text in filter_form.fields['property_type'].choices %}
+                                <li role="presentation"><a class='property-type-{{ value }}' role="menuitem" tabindex="-1" href="javascript:selectPropertyTypeFilter('{{ value }}')">{{ text }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        <input type='hidden' name='property_type' value='{{ filter_form.cleaned_data['property_type'] }}'/>
+                    </div>
+                </div>
+
+                <div class="hidden-lg hide-when-ads-selected clearfix" style="line-height:5px;">&nbsp;</div>
+
+                <div class="col-xs-12 col-sm-16 col-lg-7 hide-when-ads-selected">
+                    <div class="input-group search-filter ad-list-search">
+                        <input type="search" class="form-control" value="{{ filter_form.cleaned_data['search'] }}" id="id_search"
+                               name="search" placeholder="{% trans %}Поиск по улице или ID объявления{% endtrans %}"/>
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit"></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-8 col-lg-4 hide-when-ads-selected">
+{#                    {% if request.active_plan and request.active_plan.ads_limit == request.user.ads_count %}#}
+{#                        <a href="{{ request.user.get_ads_page() }}?info" class="btn btn-danger btn-md btn-block add-property disabled">#}
+{#                            + {% trans %}Добавить объект{% endtrans %}</a>#}
+{#                    {% else %}#}
+                        <a href="{% if request.is_developer_cabinet_enabled %}{{ url('profile_newhome_object_add') }}{% else %}{{ url('profile_add_property') }}{% endif %}" class="btn btn-danger btn-md btn-block add-property">
+                            + {% trans %}Добавить объект{% endtrans %}</a>
+{#                    {% endif %}#}
+                </div>
+
+            </div>
+    </form>
+
+    {# блок, натягивающие кнопки из следующей формы #}
+    <div class="hidden-xs show-when-ads-selected hidden" style="margin-bottom: -36px;"></div>
+
+    <form id="my-properties-form" method="post" action="{% block ads_form_action %}{% endblock %}">
+        {% csrf_token %}
+
+        <div class="row group-actions show-when-ads-selected hidden">
+            {#  <div class="col-sm-8 col-lg-5"></div>  #}
+            {#
+                Временное решение проблемы: "пользователи часто покупают VIP-размещение для украинских объявлений, когда у них нет тарифа" (Артем, 29.08.2016).
+                TODO: может быть, можно как-то переделать интерфейс
+            #}
+            {#<div class="col-sm-7 col-lg-4">
+                <button type='submit' name='action' value='buy_vip' title='{% trans %}сделать объявления VIP-объявлением{% endtrans %}' class='btn btn-block btn-success'>{% trans %}Сделать VIP{% endtrans %}</button>
+            </div>#}
+            <div class="col-sm-7 col-lg-4 action-activate">
+                <button type='submit' name='action' value='activate' id="group-activate" title='{% trans %}активировать объявления{% endtrans %}' class='btn btn-block btn-danger'>{% trans %}Активировать{% endtrans %}</button>
+            </div>
+
+            <div class="hidden-lg clearfix" style="line-height:5px;clear:left;">&nbsp;</div>
+            <div class="col-sm-7 col-lg-4  action-sold">
+                <button type="submit" name='action' value="sold" id="group-sold" class='btn btn-block btn-success default-tooltip check_deactivation_reason'
+                    title="{% trans %}объявление будет учитываться как активное объявление, но с пометкой Продано{% endtrans %}">
+                    <i class="glyphicon glyphicon-ok"></i> &nbsp; {% trans %}Продано{% endtrans %}</button>
+            </div>
+
+            <div class="col-sm-7 col-lg-4 action-deactivate">
+                <button type="submit" name='action' value="deactivate" id="group-deactivate" title='{% trans %}деактивировать объявления{% endtrans %}' class='btn btn-block btn-default btn-gray check_deactivation_reason'>
+                    <i class="glyphicon glyphicon-eye-close"></i> &nbsp; {% trans %}Деактивировать{% endtrans %}</button>
+            </div>
+
+            <div class="col-sm-7 col-lg-4">
+                <button type="submit" name='action' value="delete" id="group-delete" title='{% trans %}удалить объявления{% endtrans %}' class='btn btn-block btn-default btn-gray check_deactivation_reason confirm-delete'>
+                    <i class="glyphicon glyphicon-trash"></i> &nbsp; {% trans %}Удалить{% endtrans %}</button>
+            </div>
+        </div>
+
+        {% with limits = request.user.get_user_limits() %}{% with remaining=limits['remaining_ads'], total=limits['ads_limit'] %}
+            {% if limits['ads_limit'] %}
+                <p style="margin:15px 0 15px 85px;font-size:18px;">{% trans remaining=remaining, total=total %}Доступно {{ remaining }} из {{ total }} объявлений{% endtrans %}</p>
+            {% endif %}
+        {% endwith %}{% endwith %}
+
+        {# Список объявлений #}
+        {% if paginator.count %}
+            <div class="white-panel properties-list">
+                {% include "profile/ads_limit_notice.jinja.html" %}
+
+                {% for property in paginator.current_page.object_list %}
+                    {% include "profile/ad-preview.jinja.html" %}
+                    {% if not loop.last %}{% endif %}
+                {% endfor %}
+            </div>
+            {% with pagination_extra_class = 'pull-left' %}
+                {% include "pagination.jinja.html" %}
+            {% endwith %}
+            <ul class="pagination pagination-with-step pull-right">
+                <li><a href="#">{% trans %}Объявлений на странице{% endtrans %}:</a></li>
+                {% for per_page_variant in paginator.per_page_variants %}
+                    <li{% if per_page_variant == paginator.per_page %} class="active"{% endif %}><a href="?per_page={{ per_page_variant }}" class="value-to-form" data-value="{{ per_page_variant }}">{{ per_page_variant }}</a></li>
+                {% endfor %}
+            </ul>
+
+        {% else %}
+            <div class="white-panel properties-list">
+                {% include "profile/ads_limit_notice.jinja.html" %}
+                {% if request.GET %}
+                    <p>{% trans %}У вас нет объявлений соответствующих условию.{% endtrans %}</p>
+                {% else %}
+                    <p>{% trans %}Начните добавлять свои объекты недвижимости{% endtrans %}</p>
+                {% endif %}
+            </div>
+        {% endif %}
+
+    </form>
+
+    {% include "profile/deactivation_reason_modal.jinja.hmtl.html" %}
+
+    <div class="modal fade" id="confirm-delete-modal" data-ad='' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">{% trans %}Закрыть{% endtrans %}</span></button>
+                {% trans %}Удаление объекта{% endtrans %}
+            </div>
+            <div class="modal-body">
+                <p>{% trans %}Удаление объекта — безвозвратная операция. Если вы хотите скрыть объявление, просто деактивируйте его.{% endtrans %}</p>
+                <div class="text-right">
+                    <button class="btn btn-gray btn-md" name='cancel'>{% trans %}Отмена{% endtrans %}</button> &nbsp;
+                    <button class="btn btn-danger btn-md" name='delete'>{% trans %}Удалить{% endtrans %}</button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
+
+{% block extra_footer %}
+    {{ super() }}
+
+    {% compress js %}
+        <script src="{{ static('js/profile.js') }}"></script>
+        <script src="{{ static('libs/highcharts/highcharts.js') }}"></script>
+        <script>
+            initMyProperties();
+        </script>
+    {% endcompress %}
+{% endblock %}

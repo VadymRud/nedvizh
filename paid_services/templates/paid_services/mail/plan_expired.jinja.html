@@ -1,0 +1,32 @@
+{% extends "mail/base_redesigned_2017.jinja.html" %}
+
+{% block content %}
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        {% trans %}Срок действия Вашего тарифного плана истек.{% endtrans %}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap text-center default-bottom-padding">
+        <img src="{{ static('paid_services/img/mail/paid_expired.png') }}" width="113" height="115" style="width: 113px; height: 115px;">
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap right-padding left-padding default-bottom-padding">
+        {% trans %}Вы можете снова подключить услугу в Разделе «Тарифный план».{% endtrans %}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text-wrap text-center">
+        <a href="{{ host_url("profile_plans") }}{% if utm is defined %}?{{ utm.urlencode() }}{% endif %}#plans-header" target="_blank" class="button">{% trans %}Продлить сейчас{% endtrans %}</a>
+      </div>
+    </td>
+  </tr>
+{% endblock %}

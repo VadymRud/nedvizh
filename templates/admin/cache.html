@@ -1,0 +1,69 @@
+{% extends "admin/base_site.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Кэш{% endblock %}
+
+{% block content %}
+<style>
+    ul li {list-style-type: none;}
+    .value {margin-left: 20px;}
+</style>
+<script type="text/javascript" src='{% static "js/libs/jquery-last.min.js" %}'></script>
+<script>
+    function showKeyValue(key) {
+        var div = $('#key_' + key + '>.value');
+        if(div.html()) {
+            div.html('');
+            return;
+        }
+        $.ajax({ 
+            type: 'get', 
+            url: '/admin/cache/' + key,
+            dataType: 'json',
+            beforeSend: function(jqXHR) {
+                jqXHR.setRequestHeader("X-CSRFToken", $('input[name=csrfmiddlewaretoken]').val());
+                div.html('Пожалуйста, подождите');
+            },
+            success: function(response) {
+                if(response.value == 'not_in_cache') {
+                    div.text('Not in cache');
+                } 
+                else {
+                    div.text(JSON.stringify(response.value));
+                }
+            }
+        });
+    }
+    $(function() {
+        $('input[name=select_all]').change(function() {
+            if($(this).is(":checked")) {
+                $('input[name^=key]').prop('checked', 'checked');
+            }  else {
+                $('input[name^=key]').removeAttr('checked');
+            }
+        });
+    });
+</script>
+<h1>Кэш</h1>
+<br/>
+<form action='.' method='get'>
+    {{ form.lookup.errors }}
+    <p>Укажите ключ или его часть - выражение [a-zA-Z0-9_]+<br/>{{ form.lookup }} <input type='submit' value='Найти'/></p>
+</form>
+{% if keys %}
+<form action='?lookup={{ form.cleaned_data.lookup }}' method='post'>
+        <p>Найденные ключи ({{ keys|length }}):</p>
+        <ul>
+            {% for key in keys %}
+            <li id='key_{{ key }}'><input name='key_{{ key }}' type='checkbox'> <a title='показать значение' href='javascript:showKeyValue("{{ key }}")'>{{ key }}</a><div class='value'></div></li>
+            {% endfor %}
+            <li id='key_{{ key }}'><label for='id_select_all'><input id='id_select_all' name='select_all' type='checkbox'> Выделить все</label></li>
+        </ul>
+        <p><input type='submit' value='Удалить выбранные'/></p>
+    </form>
+{% else %}
+    {% if not form.errors %}<p>Ничего не найдено</p>{% endif %}
+{% endif %}
+
+{% endblock %}

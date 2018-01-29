@@ -1,0 +1,212 @@
+{% set realtor = request.user.get_realtor() %}
+{% set is_developer = request.user.is_developer() %}
+{% set unread_messages = request.user.get_unread_messages() %}
+{% set navigation_items = [] %}
+
+{% do navigation_items.append(( url('services:index'), _('Способы размещения'), {'icon':'ico_add', 'submenu_classes':'', 'submenu': [
+    (url('services:index'), _('Способы размещения'),  {'icon':'ico_choise'}),
+    (url('services:plans'), _('Тарифный план'),  {'icon':'ico_payment'}),
+    (url('services:lead'), _('Оплата за звонок'),  {'icon':'ico_payment_call'}),
+    (url('services:vips'), _('VIP объявление'),  {'icon':'ico_vip_object'}),
+    (url('services:international'), _('Зарубежные каталоги'),  {'icon':'ico_add_catalog'}),
+]} ) ) %}
+
+{% if is_developer %}
+    {% set object_submenu = [
+        ( url('profile_newhome_my_buildings'), _('Новостройки'), {'icon':'ico_my_company', 'check_active':False} ),
+        ( url('profile_my_properties'), _('Вторичное жилье'), {'icon':'ico_my_company', 'check_active':False} ),
+    ] %}
+    {% do navigation_items.pop(0) %}
+    {% do navigation_items.append(( url('profile_newhome_my_buildings'), _('Мои объекты'), {'icon':'ico_object', 'submenu_classes':'', 'submenu':object_submenu} ) ) %}
+{% elif realtor and realtor.is_admin %}
+    {% do navigation_items.append(( url('agency_admin:ads'), _('Объекты агентства'), {'icon':'ico_object'} ) ) %}
+{% else %}
+    {% do navigation_items.append(( url('profile_my_properties'), _('Мои объявления'), {'icon':'ico_object'} ) ) %}
+{% endif %}
+
+{% if realtor or is_developer %}
+    {% set crm_submenu = [
+        ( url('agency_admin:crm') + '#messages', _('Сообщения'), {'icon':'ico_messages', 'check_active':False} ),
+        ( url('agency_admin:crm') + '#tasks', _('Задачи'), {'icon':'ico_tasks', 'check_active':False} ),
+        ( url('agency_admin:crm') + '#leadhistories', _('Клиенты'), {'icon':'ico_clients', 'check_active':False} ),
+    ] %}
+    {% with crm_title = _('CRM') %}
+        {% if unread_messages %}
+            {% set crm_title = crm_title + (" <span class='unread-messages' data-amount='%s'></span>" % unread_messages)|safe %}
+        {% endif %}
+        {% if  request.user.has_active_leadgeneration('ads') %}
+            {% do navigation_items.append( ( url('agency_admin:crm') + '#leadhistories', crm_title, {'icon':'ico_crm', 'submenu_classes':'', 'submenu':crm_submenu})) %}
+        {% else %}
+            {% do navigation_items.append( ( url('agency_admin:crm'), crm_title, {'icon':'ico_crm', 'submenu_classes':'', 'submenu':crm_submenu})) %}
+        {% endif %}
+    {% endwith %}
+{% endif %}
+
+{% if realtor and realtor.is_admin%}
+    {#  ( url('profile_settings_agency'), _('Мое агенство'),  {'icon':'ico_my_agency'} ), #}
+    {% set agency_submenu = [
+        ( url('profile_settings_agency'), _('Настройки'),  {'icon':'ico_setting'} ),
+        ( url('agency_admin:realtors'), _('Риелторы'),  {'icon':'ico_rieltors'} ),
+        ( url('agency_admin:stats'), _('Статистика'),  {'icon':'ico_statistic'} ),
+        ( url('import:index'), _('Импорт объявлений'),  {'icon':'ico_import_object'} ),
+    ] %}
+    {% do navigation_items.append( ( url('profile_settings_agency'), _('Агентство'), {'icon':'ico_agenstvo', 'submenu_classes':'', 'submenu':agency_submenu} ) ) %}
+{% endif %}
+
+{% set profile_title = _('Профиль') %}
+{% if not realtor and unread_messages %}
+    {% set profile_title = profile_title + (" <span class='unread-messages' data-amount='%s'></span>" % unread_messages)|safe %}
+{% endif %}
+
+{# (url('services:analysis'), _('Экспертная проверка жилья'), {'icon':'ico_expert_analize'}), #}
+{% do navigation_items.extend([
+    ( url('services:legal_services'), _('Полезные услуги'), {'icon':'ico_uslugi', 'submenu_classes':'', 'submenu': [
+        (url('services:tour360'), _('Панорама 360'), {'icon':'ico_3dtur', 'target': '_blank'}),
+
+        (url('services:ocenka_nedvizh'), _('Оценка недвижимости'), {'icon':'ico_ocenka_nedvizh'}),
+        (url('services:notary'), _('Услуги нотариуса'), {'icon':'ico_ocenka_notary'}),
+        (url('services:interior3d'), _('3D визуализация'), {'icon':'ico_interior3d','classes':['menu-label-new']}),
+    ]}),
+    ( url('profile_balance'), _('Ваш баланс'), {'icon':'ico_balance', 'submenu_classes':'', 'submenu':[
+        ( url('agency_admin:balance'), _('Операции'),  {'icon':'ico_operation'} ),
+        ( url('profile_orders'), _('Заказы'),  {'icon':'ico_orders'} ),
+    ]}),
+    ( url('profile_settings'), profile_title, {'icon':'ico_profil', 'classes':['submenu-small'], 'submenu_classes':'', 'submenu':[
+        ( url('profile_settings'), _('Настройки'),  {'icon':'ico_setting'} ),
+        ( url('messages:inbox'), _('Сообщения'),  {'icon':'ico_messages'} ),
+        ( url('profile_saved_properties'), _('Сохраненные объявления'),  {'icon':'ico_save_object'} ),
+        ( url('profile_saved_searches'), _('Сохраненные поиски'),  {'icon':'ico_save_search'} ),
+    ]} )
+]) -%}
+
+
+<nav class="sidebar-menu" id="myAffix">
+    <div class="overlay"></div><!-- Пoдлoжкa -->
+    <ul class="menu" id="sidebar_menu">
+        {% from "macro/navigation.jinja.html" import navigation %}
+        {{ navigation(navigation_items, request) }}
+    </ul>
+</nav>
+<nav class="sidebar-menu-mini" data-spy="affix" data-offset-top="90">
+    <div class="overlay"></div><!-- Пoдлoжкa -->
+<ul class="menu owl-carousel">
+    {{ navigation(navigation_items, request, show_submenu=False) }}
+</ul>
+    <div class="sidebar-submenu-wrapper"></div>
+</nav>
+
+<script src="{{ static('libs/owl.carousel/js/owl.carousel.js') }}"></script>
+<script>
+    // без этого пропадают модальные окна, выводящиеся через Bootstrap при использовании owl carousel ( https://github.com/OwlCarousel2/OwlCarousel2/issues/1374)
+    $.support.transition = false;
+
+    $('.owl-carousel').owlCarousel({
+        margin:0,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:3,
+                nav:true,
+                loop:false
+            },
+            480: {
+                items:4,
+                nav:true,
+                loop:false
+            },
+            650:{
+                items:6,
+                nav:true,
+                loop:false
+            },
+            992:{
+                items:8,
+                nav:false,
+                loop:false
+            },
+            1200:{
+                items:8,
+                nav:false,
+                loop:false
+            }
+        }
+    })
+</script>
+<script>
+    $("#sidebar_menu, .owl-stage").on("click", "li.dropdown > a", function(e){e.preventDefault()});
+    
+    $("#sidebar_menu").on("click", "li.dropdown", function(){
+            $('.overlay').fadeIn(200, function(){});
+
+            if ($("#sidebar_menu li").hasClass("current")) {
+                $("#sidebar_menu li").not($(this)).removeClass("current");
+                $(this).toggleClass("current");
+                if ($(this).hasClass("current")) {
+                    $("nav .menu li ul").removeClass("dis_block");
+                    $(this).children('ul').addClass("dis_block");
+                    $('.overlay').css('display', 'block');
+                }
+                else {
+                    $("nav .menu li ul").removeClass("dis_block");
+                    $('.overlay').css("display", "none");
+                }
+            }
+            else {
+                $(this).toggleClass("current");
+                $(this).children('ul').addClass("dis_block");
+            }
+    });
+    $(".overlay").click( function(){
+        $('.overlay').fadeOut(200);
+        $('.sidebar-submenu-wrapper').empty();
+        $("#sidebar_menu li").removeClass("current");
+        $("nav .menu li ul").removeClass("dis_block");
+    });
+</script>
+<script>
+    $("nav.sidebar-menu-mini").on("click", ".owl-item", function(){
+        $('.overlay').fadeIn(200, function(){});
+
+        var index = $(this).index() + 1,
+            $submenu = $('.sidebar-menu ul li:nth-child(' + index + ') ul');
+        $('.sidebar-submenu-wrapper').empty(); // очистка
+        if ($submenu.length) {
+            $submenu.clone().appendTo('.sidebar-submenu-wrapper');
+        }
+            if ($(".owl-item").hasClass("current")) {
+                $(".owl-stage div").not($(this)).removeClass("current");
+
+                $(this).toggleClass("current");
+                    if ($(this).hasClass("current")) {
+                        $('.overlay').css('display', 'block');
+                    }
+                    else {
+                        $('.overlay').css("display", "none");
+                        $('.sidebar-submenu-wrapper').empty(); // очистка
+                    }
+            }
+            else {
+                $(this).toggleClass("current");
+
+            }
+    });
+    $(".overlay").click( function(){
+        $('.overlay').fadeOut(200);
+        $('.sidebar-submenu-wrapper').empty();
+        $(".owl-stage div").removeClass("current");
+    });
+</script>
+<script>
+    $(document).ready(init);
+    function init(){
+        $('#myAffix').affix({
+            offset: {
+                top: 325,
+                bottom: function () {
+                    return ($('#footer').outerHeight(true))
+                }
+            }
+        })
+    }
+</script>
+

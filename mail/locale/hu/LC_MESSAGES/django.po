@@ -1,0 +1,214 @@
+# Hungarian translations for Mesto.UA.
+# Copyright (C) 2016 Mesto.UA
+# This file is distributed under the same license as the Mesto.UA project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mesto.UA VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-03-01 15:03+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: hu\n"
+"Language-Team: hu <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: templates/mail/ad_list.jinja.html:48
+msgid "комната"
+msgstr "szoba"
+
+#: templates/mail/ad_list.jinja.html:48
+msgid "комнаты"
+msgstr "szobák"
+
+#: templates/mail/ad_list.jinja.html:48
+msgid "комнат"
+msgstr "szoba"
+
+#: templates/mail/ad_list.jinja.html:56
+msgid "сотка"
+msgstr "ár (100nm)"
+
+#: templates/mail/ad_list.jinja.html:56
+msgid "сотки"
+msgstr "árak (100nm)"
+
+#: templates/mail/ad_list.jinja.html:56
+msgid "соток"
+msgstr "ár (100nm)"
+
+#: templates/mail/ad_list.jinja.html:71
+msgid "Опубликовано"
+msgstr "Közzétéve"
+
+#: templates/mail/ad_rejected.jinja.html:10
+msgid "Ваши объявления не прошли модерацию"
+msgstr "Az Ön hirdetései nem kerültek át a moderáláson"
+
+#: templates/mail/ad_rejected.jinja.html:30
+#: templates/mail/saved_search.jinja.html:28
+#: templates/mail/vip_expired.jinja.html:22
+msgid "и еще несколько объявлений"
+msgstr "és még pár hirdetés"
+
+#: templates/mail/ad_rejected.jinja.html:45
+msgid "Мои объявления"
+msgstr "Hirdetéseim"
+
+#: templates/mail/ad_rejected.jinja.html:58
+msgid "Ознакомьтесь, пожалуйста, с"
+msgstr "Kérem, ismerkedjen meg, a"
+
+#: templates/mail/ad_rejected.jinja.html:58
+msgid "правилами размещения"
+msgstr "elhelyezés szabályaival"
+
+#: templates/mail/ad_rejected.jinja.html:71
+msgid ""
+"Отредактируйте объявления, исправив ошибки или удалив нарушения правил "
+"подачи, и они автоматически будут размещены на сайте."
+msgstr ""
+"Szerkessze meg a hirdetést, kijavítva a hibákat és törölve a közzététel "
+"szabályait sértő részek és a hirdetések automatikusan felkerülnek a "
+"honlapra."
+
+#: templates/mail/base.html:15 templates/mail/base.jinja.html:13
+#: templates/mail/base_redesigned.jinja.html:46
+#: templates/mail/base_redesigned_2017.jinja.html:28
+msgid "Уважаемый пользователь"
+msgstr "Tisztelt felhasználó"
+
+#: templates/mail/base.html:26 templates/mail/base.jinja.html:24
+#: templates/mail/base_redesigned.jinja.html:76
+#: templates/mail/base_redesigned_2017.jinja.html:50
+msgid "Это сообщение было отправлено автоматически."
+msgstr "Ez az üzenet automatikusan lett elküldve."
+
+#: templates/mail/base.html:26 templates/mail/base.jinja.html:24
+#: templates/mail/base_redesigned.jinja.html:76
+#: templates/mail/base_redesigned_2017.jinja.html:50
+msgid "Пожалуйста, не отвечайте на него."
+msgstr "Kérjük, ne válaszoljon rá."
+
+#: templates/mail/base_redesigned.jinja.html:62
+msgid "Хорошего вам дня"
+msgstr "További szép napot kívánunk"
+
+#: templates/mail/base_redesigned.jinja.html:62
+msgid "команда"
+msgstr "a csapat"
+
+#: templates/mail/expire_ads.html:6
+msgid ""
+"Срок действия Ваших объявлений истек. Если они все еще актуальны, "
+"обновите их бесплатно."
+msgstr ""
+"Hirdetéseinek határideje lejárt. Ha még mindig aktuálisak, frissítse őket"
+" ingyen."
+
+#: templates/mail/expire_ads.html:6
+msgid "Таким образом, Ваши объявления вновь появятся вверху списка."
+msgstr "Ilyen módon, a hirdetései újra a lista tetejére kerülnek."
+
+#: templates/mail/expire_ads.html:8
+msgid ""
+"Срок действия Вашего объявления истек. Если оно все еще актуально, "
+"обновите его бесплатно."
+msgstr ""
+"Hirdetéseinek határideje lejárt. Ha még mindig aktuálisak, frissítse őket"
+" ingyen."
+
+#: templates/mail/expire_ads.html:8
+msgid "Таким образом, Ваше объявление вновь появится вверху списка."
+msgstr "Ilyen módon, a hirdetései újra a lista tetejére kerülnek."
+
+#: templates/mail/expire_ads.html:19
+msgid "грн."
+msgstr "hrivnya"
+
+#: templates/mail/expire_ads.html:26
+msgid "Кол-во просмотров"
+msgstr "Megtekintések száma"
+
+#: templates/mail/expire_ads.html:27
+msgid "Кол-во просмотров контактов"
+msgstr "Elérhetőségek megtekintésének száma"
+
+#: templates/mail/expire_ads.html:33
+msgid "Посмотреть все \"Мои объявления\""
+msgstr "Megnézni az összes \"Hirdetéseim\"-et"
+
+#: templates/mail/expire_ads.html:37
+msgid "Обновить все объявления бесплатно"
+msgstr "Frissíteni az összes hirdetést ingyen"
+
+#: templates/mail/expire_ads.html:38
+msgid "обновятся все объявления для которых доступно бесплатное обновление"
+msgstr ""
+"frissítve lesz az összes hirdetés, amely számára lehetőség van az ingyen "
+"frissítésre"
+
+#: templates/mail/leadgeneration_balance.jinja.html:10
+msgid ""
+"На Вашем балансе меньше 100 грн. Для того чтобы не пропустить звонки от "
+"Ваших потенциальных клиентов - пополните пожалуйста баланс в Вашем личном"
+" кабинете."
+msgstr ""
+"Az Ön egyenlegén 100 hrivnyánál kevesebb van. Annak érdekében, hogy ne "
+"hagyja ki a potenciális ügyfeleinek hívásait - kérjük töltse fel az "
+"egyenlegét a személyes irodájában."
+
+#: templates/mail/saved_search.jinja.html:10
+msgid "На нашем сайте появились новые обьявления по Вашему запросу"
+msgstr ""
+"Honlapunkon új hirdetések jelentek meg, melyek megfelelnek az Ön "
+"kérvényének"
+
+#: templates/mail/saved_search.jinja.html:41
+msgid "Посмотреть новые"
+msgstr "Megnézni az újakat"
+
+#: templates/mail/vip_expired.jinja.html:7
+msgid "срок VIP-размещения для ваших объявлений истек:"
+msgstr "A hirdetései VIP-elhelyezés határideje lejárt:"
+
+#: templates/mail/vip_expired.jinja.html:32
+msgid "Продлить"
+msgstr ""
+
+#: templates/mail/webinar_reminder.jinja.html:4
+msgid "состоится"
+msgstr "meg fog történni"
+
+#: templates/mail/webinar_reminder.jinja.html:5
+msgid "Приглашаем"
+msgstr "Szeretnénk meghívni"
+
+#: templates/mail/webinar_reminder.jinja.html:5
+msgid "принять участие"
+msgstr "a részvételre"
+
+#: templates/mail/includes/call-to-manager-2017.jinja.html:4
+#: templates/mail/includes/call-to-manager.jinja.html:7
+msgid "По вопросам сервиса и за дополнительной информацией"
+msgstr "Szervízzel kapcsolatos kérdésekkel és a további információért"
+
+#: templates/mail/includes/call-to-manager-2017.jinja.html:4
+#: templates/mail/includes/call-to-manager.jinja.html:7
+msgid "обращайтесь к своему личному менеджеру."
+msgstr "forduljon a személyes menedzseréhez."
+
+#: templates/mail/includes/call-to-manager-2017.jinja.html:11
+#: templates/mail/includes/call-to-manager.jinja.html:19
+msgid "Связаться с менеджером здесь"
+msgstr "Menedzsert itt lehet elérni"
+
+#: templates/mail/mailing/valion_franchise.jinja.html:13
+msgid "Коллега!"
+msgstr ""
+

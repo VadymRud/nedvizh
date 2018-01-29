@@ -1,0 +1,36 @@
+<div class="modal fade" id="callrequest-modal" tabindex="-1" role="dialog" aria-labelledby="myMessageModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">{% trans %}Закрыть{% endtrans %}</span></button>
+            {% trans %}Заказ обратного звонка{% endtrans %}
+        </div>
+        <div class="modal-body">
+            <form method="POST" id="detailCallRequestForm" {% if item is defined %}data-target="{{ item.pk }}"{% endif %}>
+                {% csrf_token %}
+
+                {% from "macro/forms.jinja.html" import bootstrap_form  %}
+                {{ bootstrap_form(callrequest_form, label_as_placeholder=True, inline_errors=True) }}
+
+                <div id="div_id_submit" class="form-group">
+                    <input type="hidden" name="callrequest"/>
+                    <input class="btn btn-md btn-danger" id="id_submit" type="submit" value="{% trans %}Отправить{% endtrans %}">
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+</div>
+<script>
+$(function () {
+    if ($('#callrequest-modal .alert-danger').length) {
+        $('#callrequest-modal dl').removeClass('dl-horizontal no-margin-bottom').css('margin-bottom', 10);
+        $('#callrequest-modal').modal('show');
+    }
+    $('#callrequest-modal form').submit(function() {
+        var $submit = $(this).find('#id_submit');
+        $submit.prop('disabled', true);
+        setTimeout(function() {$submit.prop('disabled', false);}, 10000);
+    });
+});
+</script>

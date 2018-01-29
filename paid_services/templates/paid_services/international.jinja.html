@@ -1,0 +1,252 @@
+{% extends "profile/base.jinja.html" %}
+
+{% block content %}
+  <!--{%  include('paid_services/menu_publication.jinja.html')  %}-->
+{% compress css %}
+<style>
+    #internation ul.with-tick li {
+        margin-bottom:10px;
+        font-size:18px;
+    }
+    .justify-content-center {
+        -ms-flex-pack: center!important;
+        justify-content: center!important;
+    }
+    #internation h1 {
+        font-family: 'OpenSans-Light';
+        font-size: 48px;
+        margin: 50px 0 20px;
+    }
+    #internation h4 {
+        font-family: 'OpenSans-Light';
+        font-size: 18px;
+        line-height: 2;
+        margin-bottom: 0;
+    }
+    #internation h5 {
+        font-family: 'OpenSans-Light';
+        font-size: 14px;
+        line-height: 2;
+        margin: 0;
+    }
+    #internation h5 span {
+        color: #be4444;
+    }
+    #internation h4 b {
+        font-family: "OpenSansBold";
+    }
+    #internation .int_mesto_ua h6, #internation .mesto_ua h6 {
+        font-family: 'OpenSans-Light';
+        font-size: 16px;
+        position: absolute;
+        bottom: 75px;
+        line-height: 1.8;
+        padding: 0 55px;
+        width: 100%;
+    }
+    #internation .attention_block {
+        background: #E7EFF2;
+        padding: 30px;
+        border-radius: 10px;
+        margin: 30px 0;
+        position: relative;
+    }
+    #internation .attention_block span.symbol {
+        font-size: 48px;
+        font-family: 'OpenSansBold';
+        background: #AFC1C8;
+        border-radius: 50%;
+        color: #fff;
+        width: 70px;
+        height: 70px;
+        text-align: center;
+        padding-top: 5px;
+        position: absolute;
+        top: 50%;
+        margin-top: -35px;
+    }
+    #internation .int_mesto_ua .round, #internation .mesto_ua .round {
+        color: #fff;
+        background: #009A52;
+        text-align: center;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 10px solid rgba(0, 154, 82, 0.3);
+        -moz-background-clip: content;
+        -webkit-background-clip: content;
+        background-clip: content-box;
+        top: 50%;
+        left: 50%;
+        margin-left: -60px;
+        position: absolute;
+        margin-top: -60px;
+        font-family: 'OpenSansBold';
+        font-size: 36px;
+        line-height: 2.5;
+    }
+    #internation .int_mesto_ua .round span, #internation .mesto_ua .round span {
+        font-size: 24px;
+    }
+    #internation .attention_block > div:last-child {
+        font-family: 'OpenSans-Light';
+        font-size: 14px;
+        padding-left: 100px;
+        line-height: 2;
+    }
+    #internation .int_mesto_ua, #internation .mesto_ua {
+        background: url("{{ static('paid_services/img/img_int_1.jpg') }}") #333 no-repeat center;
+        width: 440px;
+        height: 474px;
+        text-align: center;
+        color: #fff;
+        position: relative;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+    #internation .mesto_ua {
+        background-image: url("{{ static('paid_services/img/img_int_2.jpg') }}");
+    }
+    #internation .int_mesto_ua:hover .hover, #internation .mesto_ua:hover .hover {
+        background-color:rgba(72, 154, 178, 0.8);
+        color: #fff;
+    }
+    #internation .int_mesto_ua:hover {
+        background-image: url("{{ static('paid_services/img/img_int_1_hover.jpg') }}");
+    }
+    #internation .mesto_ua:hover {
+        background-image: url("{{ static('paid_services/img/img_int_2_hover.jpg') }}");
+    }
+    #internation .int_mesto_ua h2, #internation .mesto_ua h2 {
+        font-size: 24px;
+        padding: 30px 5px 0;
+        margin: 0;
+        font-family: 'OpenSans-Light';
+    }
+    #internation .int_mesto_ua h2 span, #internation .mesto_ua h2 span {
+        font-size: 18px;
+    }
+    #internation .int_mesto_ua h3, #internation .mesto_ua h3 {
+        font-size: 16px;
+        margin: 0;
+        padding: 10px 3px;
+        line-height: 1.5;
+        color: #96a8af;
+        font-family: 'OpenSans-Light';
+    }
+    #internation .int_mesto_ua h4, #internation .mesto_ua h4 {
+        text-align: left;
+        padding: 0 40px;
+        position: absolute;
+        bottom: 100px;
+    }
+    #internation .btn-choose {color:white;
+        text-decoration:none;
+    }
+    #internation .int_mesto_ua .hover, #internation .mesto_ua .hover {
+        justify-content: center;
+        background: #57727A;
+        height: 78px;
+        align-items: center;
+        display: flex;
+        font-size: 18px;
+        font-weight: 400;
+        font-family: "pf_din";
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        color: #333;
+    }
+    #internation .wrapper_block {
+        width: 440px;
+        text-align: center;
+        display: inline-block;
+    }
+    @media (min-width: 992px) {
+        #internation .int_mesto_ua, #internation .mesto_ua {
+            width: 100%;
+        }
+        #internation .wrapper_block {
+            width: 100%;
+        }
+    }
+    @media (max-width: 992px) {
+        #internation .mesto_ua, #internation .int_mesto_ua {
+            width: 100%;
+            background-size: cover;
+        }
+        #internation .wrapper_block {
+            width: 100%;
+        }
+        #internation .col-md-18 > div {
+            padding-left: 7px !important;
+            padding-right: 7px !important;
+        }
+        #internation h6 {
+            margin-bottom: 30px;
+        }
+        #internation .attention_block span.symbol {
+            display: inline-block;
+            position: static;
+            margin: auto;
+        }
+        #internation .attention_block {
+            text-align: center;
+        }
+        #internation .attention_block > div:last-child {
+            text-align: left;
+            padding: 20px 20px 0;
+        }
+        #internation .justify-content-center {
+            padding: 0 10px;
+        }
+        #internation .int_mesto_ua h6, #internation .mesto_ua h6 {
+            font-size: 14px;
+            padding: 0;
+        }
+    }
+</style>
+{% endcompress %}
+<div id="internation">
+    <div class="row justify-content-center ">
+        <div class="col-md-18 col-md-offset-3">
+            <h1>{% trans %}Зарубежная недвижимость{% endtrans %}</h1>
+            <h4>{% trans %}Раздел «зарубежная недвижимость» позволяет размещать объявления о продаже или аренде недвижимости как в Украине, так и за рубежом.{% endtrans %}</h4>
+            <div class="attention_block">
+                <span class="symbol">!</span>
+                <div>{% trans %}Публикация объявлений в Зарубежных каталогах, увеличивает шансы реализации объекта в несколько раз, так как ваше объявление может быть размещено сразу на 114 международных порталах, которые ежедневно посещают пользователи со всего мира, заинтересованные в покупке или аренде недвижимости.{% endtrans %}</div>
+            </div>
+            <h4>{% trans %}<b>Выберите удобный вариант публикации объявлений{% endtrans %}</b></h4>
+            <h5>{% trans %}и получайте еще больше звонков от клиентов уже сейчас<br><span>Срок действия публикации 30 дней</span>{% endtrans %}</h5>
+        </div>
+    </div>
+    <br/><br/>
+
+    <div class="row justify-content-center">
+        <div class="col-md-9 col-md-offset-3 text-center">
+            <div class="wrapper_block">
+                <div class="int_mesto_ua">
+                    <h2>{% trans %}Размещение на International.mesto.ua{% endtrans %}</h2>
+                    <h3>{% trans %}(только для объектов, которые находятся зарубежом){% endtrans %}</h3>
+                    <div class="round">1 <span>EUR</span></div>
+                    <h6>{% trans %}рассчет в гривне по курсу Приват банк в день публикации объявления{% endtrans %}</h6>
+                    <a href="{{ host_url('profile_add_property', host_args=['international']) }}" class="btn-choose hover">{% trans %}Выбрать{% endtrans %}</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 center">
+            <div class="wrapper_block">
+                <div class="mesto_ua">
+                    <h2>{% trans %}Размещение на mesto.ua <span>+ трансляция на 114 международных площадок</span>{% endtrans %}</h2>
+                    <h3>{% trans %}(только для объектов, которые находятся в Украине){% endtrans %}</h3>
+                    <div class="round">2 <span>EUR</span></div>
+                    <h6>{% trans %}рассчет в гривне по курсу Приват банк в день публикации объявления{% endtrans %}</h6>
+                    <a href="{{ host_url('profile_add_property', host_args=['international']) }}" class="btn-choose hover">{% trans %}Выбрать{% endtrans %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/><br/>
+
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% load staticfiles i18n %}
+<form action="result.html" class="property-search form">{#% csrf_token %#}
+    {{ form.keywords.as_hidden }}
+    <div class='brown-panel'>
+        {{ form.non_field_errors }}
+        <div class="row-fluid">
+          <div class="span1 f-price">
+                Стоимость:
+                <div class="spacer_5"></div>
+                <div id='price-range'>{{ form.price_from }} {{ form.price_to }}</div>
+                <span class='label-from'></span><span class='label-to'></span>
+          </div>
+          
+          {% if property_type == 'flat' %}
+          
+              <div class="span2">       
+                <div class='f-rooms'>
+                    <span style="margin-bottom: 5px;">{{ form.rooms.label }}:</span>
+                    <div class="spacer_5"></div>
+                    <span class='checkbox-inline'>{{ form.rooms }} </span>
+                </div>
+              </div>
+              
+          {% endif %}
+          
+          {% if property_type == 'commercial' %}
+          
+              <div class="span3">       
+                <div class='f-rooms'>
+                    {% trans 'Тип недвижимости' %}:
+                    <div class="spacer_5"></div>
+                    {{ form.property_commercial_type }}
+                </div>
+              </div>
+              
+          {% endif %}
+          
+          <div class="span2 span2-f-with_image">  
+            <label class='f-with_image'>{{ form.with_image }} Только с фото</label>
+          </div>
+          <div class="span3"{% if property_type == 'plot' %} style="width: 350px; margin-top: 25px;"{% endif %}>
+            <span>
+                Отсортировать:
+                {% if property_type != 'plot' %}<div class="spacer_5"></div>{% endif %}
+                {{ form.sort }}  {{ form.sort.errors }}
+            </span>
+          </div>
+          <div class="span2">
+              <input type="submit" class='btn btn-block btn-success submit' value="Отфильтровать" /> 
+          </div>
+        </div>
+    </div>
+</form>
+
+<script src="{% static 'js/libs/humanize.min.js' %}"></script>
+<script src="{% static 'bank/js/search_form.js' %}?v=6"></script>
+
+<script>
+    var price_from = parseInt($('#id_price_from').val());
+    var price_to = parseInt($('#id_price_to').val());
+    var min_price = {{min_price}};
+    var max_price = {{max_price}};
+    
+    InstallPropertyBankSearchForm();
+</script>

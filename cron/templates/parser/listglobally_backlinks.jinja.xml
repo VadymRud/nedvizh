@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Adverts>
+{% for ad in ads %}
+<Advert ListGloballyAdvertId="{{ ad.xml_id }}">
+  <BackLinks>
+    {%- if not ad.region -%}
+      <BackLink ErrorDetail="geocode_error"/>
+    {%- elif ad.moderation_status -%}
+      <BackLink ErrorDetail="{{ ad.get_moderation_status_display() }}"/>
+    {%- elif ad.status == 1 -%}
+      <BackLink SiteAdvertUrl="{{ ad.get_absolute_url() }}" {# SiteAccountUrl="http://sitename.com/agency/"  #}/>
+    {%- else -%}
+      <BackLink ErrorDetail="{{ ad.get_status_display() }}"/>
+    {%- endif -%}
+  </BackLinks>
+</Advert>
+{%- endfor -%}
+
+{%- for error_code, ids in errors.items() %}
+  {%- for xml_id in ids %}<Advert ListGloballyAdvertId="{{ xml_id }}"><BackLink ErrorDetail="{{ error_code }}"/></Advert>
+  {% endfor -%}
+{%- endfor -%}
+
+</Adverts>

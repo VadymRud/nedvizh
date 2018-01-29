@@ -1,0 +1,174 @@
+{% extends "newhome/cabinet/base.jinja.html" %}
+
+{% block content %}
+    {# Фильтр по объектам #}
+    <form id="my-properties-filter-form" method="get" action="">
+        <div class="row ad-filter">
+            <div class="col-xs-4  col-sm-2 col-lg-1">
+                {% if request.user.has_perm('newhome.newhome_admin') %}
+                    <input type="checkbox" id="choose-all-ad" class="ad-checkbox">
+                    <label for="choose-all-ad"></label>
+                {% endif %}
+            </div>
+
+            <div class="col-xs-20 col-sm-6 col-lg-4 status-filter">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle ad-dropdown nav-justified" type="button" id="profile-menu-ad-status" data-toggle="dropdown" aria-expanded="true">
+                        <span class="selected-status"></span>
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </button>
+                    <ul class="dropdown-menu ad-dropdown-menu" role="menu" aria-labelledby="profile-menu-ad-status">
+                        {% for value, text in filter_form.fields['status'].choices %}
+                            <li role="presentation{% if filter_form.cleaned_data['status'] == value %} active{% endif %}">
+                                <a class='status-{{ value }}' role="menuitem" tabindex="-1" href="javascript:selectStatusFilter('{{ value }}')">{{ text }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <input type='hidden' name='status' value='{{ filter_form.cleaned_data['status'] }}'/>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-16 col-lg-12 hide-when-ads-selected">
+                <div class="input-group search-filter ad-list-search">
+                    <input type="search" class="form-control" value="{{ filter_form.cleaned_data['search'] }}" id="id_search"
+                           name="search" placeholder="{% trans %}Поиск по email ответственного или названию {% endtrans %}"/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit"></button>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </form>
+    {# блок, натягивающие кнопки из следующей формы #}
+    <div class="hidden-xs show-when-ads-selected hidden" style="margin-bottom: -36px;"></div>
+
+    <form id="my-properties-form" method="post" action="">
+        {% csrf_token %}
+
+        <div class="row group-actions show-when-ads-selected hidden">
+          <div class="col-sm-6 col-lg-4 action-activate">
+            <button type='submit' name='action' value='activate' title='{% trans %}активировать объявления{% endtrans %}' class='btn btn-block btn-danger'>
+              {% trans %}Активировать{% endtrans %}
+            </button>
+          </div>
+          <div class="col-sm-6 col-lg-4 action-deactivate">
+            <button type="submit" name='action' value="deactivate" title='{% trans %}деактивировать объявления{% endtrans %}' class='btn btn-block btn-default btn-gray'>
+              <i class="glyphicon glyphicon-eye-close"></i>{% trans %}Деактивировать{% endtrans %}
+            </button>
+          </div>
+          <div class="col-sm-6 col-lg-5 action-email">
+            <button type="submit" name='action' value="email" title='{% trans %}обновить email и телефон ответственного лица{% endtrans %}' class='btn btn-block btn-default btn-building-way'>
+              {% trans %}Обновить email / телефон{% endtrans %}
+            </button>
+          </div>
+          <div class="col-sm-6 col-lg-5 action-remove">
+            <button type="submit" name='action' value="remove" title='{% trans %}удалить объект новостройки{% endtrans %}' class='btn btn-block btn-danger' onclick="return confirm('{% trans %}Вы уверены?{% endtrans %}');">
+              {% trans %}Удалить{% endtrans %}
+            </button>
+          </div>
+        </div>
+
+        {# Список объектов #}
+        <div class="white-panel my-buildings">
+            {% if paginator.count %}
+                {% for newhome in paginator.current_page.object_list %}
+                    <div class="row my-building property-short{% if newhome.status != 1 %} inactive{% endif %}">
+                        {# Чекбокс #}
+                        <div class="col-xs-4 col-sm-2 col-md-1 col-lg-1">
+                            <div class="first-line-padding visible-lg"></div>
+                            <input type="checkbox" id="ad-{{ newhome.pk }}" name="newhome[]" value="{{ newhome.pk }}" class="ad-checkbox checkbox-in-list">
+                            <label for="ad-{{ newhome.pk }}"></label>
+                        </div>
+
+                        {# Изображение + информация о публикации #}
+                        <div class="col-xs-4">
+                          {% with newhome_image=newhome.newhome_photos.all().first() %}
+                              {% if newhome_image %}
+                                  <img src="{{ newhome_image.image|thumbnail("288x192") }}" class="image"><br>
+                              {% endif %}
+                          {% endwith %}
+                          <span class="date">{% trans %}Добавлено{% endtrans %} &mdash; {{ newhome.created|date("d.m.Y") }}</span><br>
+                          {% if newhome.status == 1 %}
+                            <span class="text-success">Активен</span>
+                            {% if not newhome.is_published %}
+                              <br><span class="text-info">На модерации</span>
+                            {% else %}
+                              <br><span class="text-success">Опубликовано</span>
+                            {% endif %}
+                          {% elif newhome.status == 210 %}
+                            <span class="text-muted">Неактивен</span>
+                          {% else %}
+                            <span class="text-muted">Удалено</span>
+                          {% endif %}
+                          {% if newhome.moderation_status %}
+                            <br><span class="text-danger">{{ newhome.get_moderation_status_display() }}</span>
+                          {% endif %}
+                        </div>
+
+                        {# Общая информация #}
+                        <div class="col-xs-7">
+                            <a href="{{ newhome.get_absolute_url() }}" title="" class="newhome-link">{{ newhome.name }}</a><br>
+                            <span class="address">{{ newhome.address }}</span><br><br>
+                            <span class="email-helptext">{% trans %}Укажите email для отправки заявок{% endtrans %}</span><br>
+                            <div class="row">
+                                <div class="col-xs-22">
+                                    <input name="email-{{ newhome.pk }}" type="email" class="form-control" value="{{ newhome.priority_email|default('') }}">
+                                </div>
+                            </div>
+                            <br><span class="email-helptext">{% trans %}Укажите телефоны для отправки смс про новые заявки{% endtrans %}</span><br>
+                            <div class="row">
+                                <div class="col-xs-22">
+                                    {% for phone in newhome.priority_phones.all() %}
+                                      <input name="phone-{{ newhome.pk }}[]" type="text" class="form-control masked-phone" value="{{ phone.number|default('') }}">
+                                    {% endfor %}
+                                    {% for i in range(3 - newhome.priority_phones.count()) %}
+                                      <input name="phone-{{ newhome.pk }}[]" type="text" class="form-control masked-phone" value="">
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+
+                        {# Кнопки #}
+                        <div class="col-xs-3">
+                            <br><br><a href="{{ url('profile_newhome_workflow', newhome.pk) }}" class="btn btn-building-way">{% trans %}Ход строительства{% endtrans %}</a>
+                        </div>
+                        <div class="col-xs-3 col-xs-offset-1">
+                            <br><br><a href="{{ url('profile_newhome_flats_available', newhome.pk, 0) }}" class="btn btn-flat-available">{% trans %}Наличие квартир{% endtrans %}</a>
+                        </div>
+                        <div class="col-xs-3 col-xs-offset-1">
+                            <br><br><a href="{{ url('profile_newhome_object_edit', newhome.pk) }}" class="btn btn-edit">{% trans %}Редактировать{% endtrans %}</a>
+                        </div>
+                    </div>
+                    {% if not loop.last %}<hr>{% endif %}
+                {% endfor %}
+
+                {% with pagination_extra_class = 'pull-left' %}
+                    {% include "pagination.jinja.html" %}
+                {% endwith %}
+            {% else %}
+                <div class="row">
+                    <div class="col-xs-22 col-xs-offset-1 text-center">
+                        <br>
+                        <p>{% trans %}Добавьте объявление{% endtrans %}</p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </form>
+{% endblock %}
+
+{% block extra_footer %}
+    {{ super() }}
+
+    <script src="{{ static('js/profile.js') }}"></script>
+    <script>
+        var fieldChanged = false;
+        $().ready(function() {
+            profileNewhomeMyBuildingsInit();
+            updateStatusFilter();
+            prepareMainCheckbox();
+            prepareListCheckboxes();
+        });
+    </script>
+{% endblock %}

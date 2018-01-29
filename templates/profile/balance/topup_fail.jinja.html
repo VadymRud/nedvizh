@@ -1,0 +1,25 @@
+{% extends "base.jinja.html" %}
+
+{% block content %}
+    <div class="text-center topup-result-page">
+        <img src="{{ static('img/icon-fail.png') }}"/><br/><br/>
+
+        {% if topup_amount %}
+            <h4 class="topup-fail">{% trans %}Ошибка во время проведения платежа.{% endtrans %}<br/>{% trans %}Свяжитесь с вашим банком или<br/>выберите другой способ оплаты:{% endtrans %}</h4><br/><br/>
+            <div class="row">
+                <div class="col-md-offset-6 col-md-12">
+                    <form id='topup-form' class="form-inline" action='{{ url('profile_balance_topup') }}' method='post'>{% csrf_token %}
+                        <input name='amount' type='hidden' class='form-control amount' value="{{ topup_amount }}" />
+                        {% include 'profile/balance/topup_buttons.html' %}
+                    </form>
+                </div>
+            </div>
+        {% else %}
+            <h4 class="topup-fail">{% trans %}Ошибка во время проведения платежа.{% endtrans %}</h4><br/><br/>
+        {% endif %}
+
+    </div>
+{% endblock %}
+
+{% block top_menu %}{% endblock %}
+{% block social_networks %}{% endblock %}
